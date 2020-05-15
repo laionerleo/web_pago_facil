@@ -10,6 +10,10 @@ $i                                        = '^(en|es|de|it|po)';
 
 //$route[$l.'personas']                 		= 'Persona';
 $route['default_controller']               = 'Welcome';
+$route[$l.'pago_rapido']                 		= 'Welcome/pago_rapido';
+
+
+
 $route[$l.'(.+)$']                        = "$2";
 $route[$i.'$']                            = $route['default_controller'];
 

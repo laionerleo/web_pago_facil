@@ -44,12 +44,12 @@ class Welcome extends CI_Controller {
 	
 	}
 
-	public function plantilla1()
+	public function pago_rapido()
 	{	
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 
-		$this->load->view('index1', $d);
+		$this->load->view('pago_rapido/index', $d);
 	
 	}
 

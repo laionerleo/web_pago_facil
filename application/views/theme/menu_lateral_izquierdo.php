@@ -3,7 +3,7 @@
                 <ul>
                  
                     <li>
-                        <a href="#" data-toggle="tooltip" data-placement="right" title="Pago Rapido"
+                        <a href="" data-toggle="tooltip" data-placement="right" title="Pago Rapido"
                            data-nav-target="#pago_rapido">
                             <i data-feather="shopping-cart"></i>
                         </a>
@@ -70,7 +70,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Pago rapido
                             </li>
                             <li>
-                                <a class="active" href="timeline.html">Pago rapido </a>
+                                <a class="active" href="<?=$url?>pago_rapido">Pago rapido </a>
                             </li>
                        
                         </ul>
