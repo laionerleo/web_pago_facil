@@ -67,20 +67,20 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
                                                 <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
-                                                    <h5 class="mb-0">Cart</h5>
-                                                    <small class="opacity-7">3 products</small>
+                                                    <h5 class="mb-0">Region</h5>
+                                                    
                                                 </div>
                                                 <div>
                                                     <div class="list-group list-group-flush">
-                                                        <a href="#" class="p-3 list-group-item d-flex">
+                                                        <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/image/products/product6.png"
-                                                                        alt="Canon 4000D 18-55 MM">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
-                                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
                                                                     Santa cruz 
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
@@ -88,22 +88,135 @@
                                                                 
                                                             </div>
                                                         </a>
-                                                        <a href="#" class="p-3 list-group-item d-flex">
+                                                        <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/image/products/product3.png"
-                                                                        alt="pineapple">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_beni.svg"
+                                                                        alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
-                                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
-                                                                    Snopy SN-BT96 Pretty
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Beni
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>
-                                                                <span class="text-muted small">1 X $250</span>
+                                                                
                                                             </div>
                                                         </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_cochabamba.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Cochabamba
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_la_paz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    La Paz
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_oruro.png"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Oruro
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_pando.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Pando
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_potosi.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_tarija.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Tarija
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_chuquisaca.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Chuquisaca
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                     
                                                     </div>
                                                 </div>
                                                
@@ -113,9 +226,119 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         
-                                        <select class="form-control form-control-lg">
-                                            <option  style="center left; padding-left:20px;"> Tipo Empresa</option>
-                                        </select>
+                                     
+                                    <a href="#" title="Cart" class="nav-link" data-toggle="dropdown">
+                                                <i data-feather="shopping-bag"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                                                <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
+                                                    <h5 class="mb-0">Tipo Empresa</h5>
+                                                    
+                                                </div>
+                                                <div>
+                                                    <div class="list-group list-group-flush">
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-2 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                        alt="Santa">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-12 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        
+                                                     
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
                                      
                                     </div>
                                     <div class="col-md-3 mb-3">
