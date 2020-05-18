@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Servicios extends CI_Controller {
 
 	public function __construct(){
         
@@ -43,6 +43,41 @@ class Welcome extends CI_Controller {
 	
 	}
 
+    public function get_metodo_pago2($lan,$id_empresa,$id_cliente)
+	{	$url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarMetodosPagoPorEmpresa2';
+		$data = array('tnEmpresa' => $id_empresa , 'tnIdAccion' => '18'  ,'tnCliente' => $id_cliente );
+	 
+		$header = array(
+			"Content-Type: application/x-www-form-urlencoded",
+			"Content-Length: ".strlen( http_build_query($data))
+			);
+			
+		// use key 'http' even if you send the request to https://...
+		$options = array('http' => array(
+			'method'  => 'POST',
+			'header' => implode("\r\n", $header),
+			'content' => http_build_query($data) 
+		)
+						);
+	
+	
+	
+		$context  = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
+		  $resultado =json_decode($result);
+		  echo "<pre>";
+		  print_r( $resultado);
+		  echo "</pre>";
+		//return $resultado;
+
+
+    }
+    
+
+    public function get_filtro_list_empresas()
+    {
+
+    }
 
 	public function error404($lan='es')
 	{

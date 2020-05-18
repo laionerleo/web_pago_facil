@@ -63,7 +63,7 @@
                                         
                                     
                                             <a href="#" title="Cart" class="nav-link" data-toggle="dropdown">
-                                                <i data-feather="shopping-bag"></i>
+                                                Escoger ciudad<i data-feather="shopping-bag"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
                                                 <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
@@ -228,7 +228,7 @@
                                         
                                      
                                     <a href="#" title="Cart" class="nav-link" data-toggle="dropdown">
-                                                <i data-feather="shopping-bag"></i>
+                                                Escoger tipo de empresa<i data-feather="shopping-bag"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
                                                 <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
@@ -240,13 +240,13 @@
                                                         <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/rubros/AGUA.png"
                                                                         alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    Santa cruz 
+                                                                    Agua
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>
@@ -256,13 +256,13 @@
                                                         <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/rubros/ELECTRICIDAD.png"
                                                                         alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    Santa cruz 
+                                                                    Electricidad
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>
@@ -272,13 +272,13 @@
                                                         <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/rubros/COMERCIALES.png"
                                                                         alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    Santa cruz 
+                                                                    Comerciales 
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>
@@ -288,13 +288,13 @@
                                                         <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/rubros/educacion.png"
                                                                         alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    Santa cruz 
+                                                                    Educacion
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>
@@ -304,13 +304,13 @@
                                                         <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/rubros/profesionales2.png"
                                                                         alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    Santa cruz 
+                                                                    Profesionales
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>
@@ -320,13 +320,13 @@
                                                         <a href="#" class="p-2 list-group-item d-flex">
                                                             <div>
                                                                 <figure class="avatar mr-3">
-                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/banderas/bandera_santa_cruz.svg"
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/rubros/TelCo.png"
                                                                         alt="Santa">
                                                                 </figure>
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    Santa cruz 
+                                                                    Telecomunicaciones
                                                                     <i title="Close" data-toggle="tooltip"
                                                                     class="hide-show-toggler-item ti-close"></i>
                                                                 </p>

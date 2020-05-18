@@ -1,6 +1,6 @@
 <script src="<?=  base_url() ?>/application/assets/vendors/bundle.js"></script>
     <!-- Apex chart -->
-    <script src="../../../../apexcharts.com/samples/assets/irregular-data-series.js"></script>
+    <script src="<?=  base_url() ?>/application/assets/apexcharts.com/samples/assets/irregular-data-series.js"></script>
     <script src="<?=  base_url() ?>/application/assets/vendors/charts/apex/apexcharts.min.js"></script>
 
     <!-- Daterangepicker -->
