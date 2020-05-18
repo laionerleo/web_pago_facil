@@ -61,9 +61,54 @@
                                 <div class="form-row">
                                     <div class="col-md-3 mb-3">
                                         
-                                        <select class="form-control form-control-lg">
-                                            <option  style="center left; padding-left:20px;"> Seleccionar Region</option>
-                                        </select>
+                                    
+                                            <a href="#" title="Cart" class="nav-link" data-toggle="dropdown">
+                                                <i data-feather="shopping-bag"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                                                <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
+                                                    <h5 class="mb-0">Cart</h5>
+                                                    <small class="opacity-7">3 products</small>
+                                                </div>
+                                                <div>
+                                                    <div class="list-group list-group-flush">
+                                                        <a href="#" class="p-3 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/image/products/product6.png"
+                                                                        alt="Canon 4000D 18-55 MM">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
+                                                                    Santa cruz 
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="p-3 list-group-item d-flex">
+                                                            <div>
+                                                                <figure class="avatar mr-3">
+                                                                    <img src="<?=  base_url() ?>/application/assets/assets/media/image/products/product3.png"
+                                                                        alt="pineapple">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <p class="mb-0 line-height-20 d-flex justify-content-between">
+                                                                    Snopy SN-BT96 Pretty
+                                                                    <i title="Close" data-toggle="tooltip"
+                                                                    class="hide-show-toggler-item ti-close"></i>
+                                                                </p>
+                                                                <span class="text-muted small">1 X $250</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        
                                      
                                     </div>
                                     <div class="col-md-3 mb-3">

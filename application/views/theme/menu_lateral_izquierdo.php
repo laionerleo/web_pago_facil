@@ -5,58 +5,59 @@
                     <li>
                         <a href="" data-toggle="tooltip" data-placement="right" title="Pago Rapido"
                            data-nav-target="#pago_rapido">
-                            <i data-feather="shopping-cart"></i>
+                            <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/pago_rapido.png"  alt="">
+                            
                         </a>
                     </li>
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Pagos realizados" data-nav-target="#pagos_realizados">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/pagadas_y_frecuentes.png"  alt="">
                         </a>
                     </li>
                     
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="recargas telefonicas" data-nav-target="#recargas_realizadas">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/recarga.png"  alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Empresas afiliadas" data-nav-target="#Empresas_afiliadas">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/empresas_afiliadas.png"  alt="">
                         </a>
                     </li>
                     
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Puntos de cobranza" data-nav-target="#puntos_de_cobranza">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/punto_de_cobranza.png"  alt="">
                         </a>
                     </li>
                     
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Atencion al cliente" data-nav-target="#Atencion_al_cliente">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/atencion_al_cliente.png"  alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="metodos de pago" data-nav-target="#Metodos_de_pago">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/metodos_pago.png"  alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Pago facil en tu barrio" data-nav-target="#pago_facil_tu_barrio">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/punto_pago_facil.png"  alt="">
                         </a>
                     </li>
                     <li>
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Sugerir empresas" data-nav-target="#sugerir_empresas">
-                            <i data-feather="copy"></i>
+                           <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/sugerencia_empresas.png"  alt="">
                         </a>
                     </li>
                 </ul>

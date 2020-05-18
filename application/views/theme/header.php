@@ -8,7 +8,7 @@
             </div>
             <div class="header-logo">
                 <a href="<?= base_url() ?>" >
-                    <img class="logo" src="<?=  base_url() ?>/application/assets/assets/media/image/logopagofacil.png" alt="logo">
+                    <img style="width:200px;height:60px" class="logo" src="<?=  base_url() ?>/application/assets/assets/media/image/logopagofacil.png" alt="logo">
                     <img class="logo-light" src="<?=  base_url() ?>/application/assets/assets/media/image/logo-light.png" alt="light logo">
                 </a>
             </div>
