@@ -1,0 +1,842 @@
+ String PagoFacil = "/ServicioSyscoopPagoFacil2";
+
+
+    String cPagoFacilPHP ="http://serviciopagofacil.syscoop.com.bo/api";
+
+    //String cCaucruz="http://CAUCRUZ.pagofacil.com.bo/api";
+
+
+    //----------------------------------------------------------------------------------------------
+    //                                          APP
+    //----------------------------------------------------------------------------------------------
+
+    @POST(cPagoFacilPHP + "/App/Version")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mAppVersion>> version(
+            @Field("tcAppName") String tcAppName);
+
+
+    @POST(cPagoFacilPHP + "/App/compararVersion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mAppVersion>> compararVersion(
+            @Field("tcAppName")         String  tcAppName,
+            @Field("tcVersionActual")   String  tcVersionActual,
+            @Field("tnCaller")          long    tnCaller);
+
+
+    //----------------------------------------------------------------------------------------------
+    //region---                                        USUARIO
+    //----------------------------------------------------------------------------------------------
+
+    @POST(cPagoFacilPHP + "/Usuario/login")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> login(
+            @Field("tcLogin")       String email,
+            @Field("tcPassWord")    String password);
+
+    @POST(cPagoFacilPHP + "/Usuario/getUser2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> getUser(
+            @Field("tcCorreo")      String   email,
+            @Field("tnAccion")      int      tnAccion);
+
+    @POST(cPagoFacilPHP + "/Usuario/getUserByCampo")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> getUserByCampo(
+            @Field("tcCampo")       String campo,
+            @Field("tcValor")       String valor);
+
+    @POST(cPagoFacilPHP + "/Usuario/registrarByEmail")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> registerUser(
+            @Field("tcNombre")          String  nombre,
+             @Field("tcApellido")       String  apellido,
+             @Field("tcDireccion")      String  direccion,
+             @Field("tcCinit")          String  ci,
+             @Field("tcFacturaa")       String  facturaa,
+             @Field("tnTelefono")       Long    telefono,
+             @Field("tnTelefonoPago")   Long    telefonoDePago,
+             @Field("tcCorreo")         String  correo,
+             @Field("tcLogin")          String  login,
+             @Field("tcPassword")       String  password,
+             @Field("tcImei")           String  imei);
+
+    @POST(cPagoFacilPHP + "/Usuario/RegistrarBySMS")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> registerUserBySMS(
+            @Field("tcNombre")          String  nombre,
+             @Field("tcApellido")       String  apellido,
+             @Field("tcDireccion")      String  direccion,
+             @Field("tcCinit")          String  ci,
+             @Field("tcFacturaa")       String  facturaa,
+             @Field("tnEstado")         int     estado,
+             @Field("tnTelefono")       Long    telefono,
+             @Field("tnTelefonoDePago") Long    telefonoPago,
+             @Field("tcCorreo")         String  correo,
+             @Field("tcLogin")          String  login,
+             @Field("tcPassword")       String  password,
+             @Field("tcImei")           String  imei);
+
+    @POST(cPagoFacilPHP + "/Usuario/actualizarUsuario")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> updateUser(
+            @Field("tnCliente")         long    tnCliente,
+            @Field("tcNombre")          String  tcNombre,
+            @Field("tcApellido")        String  tcApellido,
+            @Field("tcDireccion")       String  tcDireccion,
+            @Field("tcCinit")           String  tcCinit,
+            @Field("tcFacturaA")        String  tcFacturaA,
+            @Field("tnTelefono")        Long    tnTelefono,
+            @Field("tnTelefonoDePago")  Long    tnTelefonoDePago);
+
+    @POST(cPagoFacilPHP + "/Usuario/RecoverPassword")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> recoverPassword(
+            @Field("tcCorreo")          String  correo,
+            @Field("tcImei")            String  imei);
+
+    @POST(cPagoFacilPHP + "/Usuario/changePassword")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> cambiarPassword(
+            @Field("tnCliente")         Long    id,
+            @Field("tcOldPassword")     String  antiguoPassword,
+            @Field("tcNewPassword")     String  newPassword);
+
+    @POST(cPagoFacilPHP + "/Usuario/getBilletera")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<Billetera>>> getBilletera(
+            @Field("tnCliente")         long    tnCliente,
+            @Field("tnIdentificador")   long    tnIdentificador,
+            @Field("tnIdAccion")        int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Usuario/getPuntoDeCobranza")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<PuntoCobranza>>> getPuntoCobranza(
+            @Field("tnCliente")         long    tnCliente,
+            @Field("tnIdAccion")        int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Usuario/enviarFormularioPuntoCobranza")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> enviarFormularioPuntoCobranza(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tcNombreEstablecimiento")   String  tcNombreEstablecimiento,
+            @Field("tcDireccion")               String  tcDireccion,
+            @Field("tcNombrePropietario")       String  tcNombrePropietario,
+            @Field("tnTelefonoProp")            long    tnTelefonoProp,
+            @Field("tcHorarioPropietario")      String  tcHorarioPropietario,
+            @Field("tcLatitud")                 String  tcLatitud,
+            @Field("tcLongitud")                String  tcLongitud);
+
+    @POST(cPagoFacilPHP + "/Usuario/guardarHorarioPuntocobranza")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> guardarHorarioPuntocobranza(
+            @Field("tnCliente")         long    tnCliente,
+            @Field("tnIdPuntocobranza") int     tnIdPuntocobranza,
+            @Field("tcLHora1")          String  tcLHora1,
+            @Field("tcLHora2")          String  tcLHora2,
+            @Field("tcLHora3")          String  tcLHora3,
+            @Field("tcLHora4")          String  tcLHora4,
+            @Field("tcSHora1")          String  tcSHora1,
+            @Field("tcSHora2")          String  tcSHora2,
+            @Field("tcDHora1")          String  tcDHora1,
+            @Field("tcDHora2")          String  tcDHora2);
+
+    @POST(cPagoFacilPHP + "/Usuario/getAllPuntosPagoFacil")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<PuntoCobranza>>> getPuntosDeCobranza(
+            @Field("tnCliente") long idCliente);
+
+
+    @POST(cPagoFacilPHP + "/Usuario/setUbicacionPuntoCobranza")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> SetUbicacion(
+            @Field("tnCliente")             long    tnCliente,
+            @Field("tnIdPuntoCobranza")     long    tnBilletera,
+            @Field("tnTipoPuntoCobranza")   String  tnTipoPuntoCobranza,
+            @Field("tcLatitud")             String  latitud,
+            @Field("tcLongitud")            String  longitud);
+
+    @POST(cPagoFacilPHP + "/Usuario/getBilleterasDependientes")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<Billetera>>> getBilleterasDependientes(
+            @Field("tnCliente")         long tnCliente,
+            @Field("tnIdentificador")   long tnIdentificador);
+
+    @POST(cPagoFacilPHP + "/Usuario/getComisionesBilletera")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<Comision>>> getComisionesBilletera(
+            @Field("tnCliente")         long tnCliente);
+
+    @POST(cPagoFacilPHP + "/Usuario/transferenciaBilletera")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> transferenciaBilletera(
+            @Field("tnCliente")             long    cliente,
+            @Field("tnIdBilletera")         int     tnIdBilletera,
+            @Field("tnIdBilleteraDestino")  int     tnIdBilleteraDestino,
+            @Field("tnMonto")               int     tnMonto);
+
+    @POST(PagoFacil + "/Usuario/EnviarCorreoActivacion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> sendEmailConfirmation(
+            @Field("tnUserId")  Long    id,
+            @Field("tcCorreo")  String  newEmail);
+
+    @POST(PagoFacil + "/Usuario/getReporteBilletera2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getReporteBilletera(
+            @Field("tnCliente")         long    cliente,
+            @Field("tcFechaInicial")    String  fechaInicial,
+            @Field("tcfechaFinal")      String  fechaFinal,
+            @Field("tnBilletera")       int     idBilletera);
+
+    @POST(PagoFacil + "/Usuario/getReportePuntosTigoMoney")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getReportePuntosTigoMoney(
+            @Field("tnCliente")         long    cliente,
+            @Field("tcFechaInicial")    String  fechaInicial,
+            @Field("tcfechaFinal")      String  fechaFinal);
+
+    @POST(PagoFacil + "/Usuario/getReporteLiquidaciones2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getReporteLiquidaciones(
+            @Field("tnCliente")         long    cliente,
+            @Field("tnBilletera")       int     idBilletera,
+            @Field("tnIDLiquidacion")   int     tnIDLiquidacion);
+
+    @POST(cPagoFacilPHP + "/Usuario/actualizarBitacora")
+    @FormUrlEncoded
+    Call<Void> actualizarBitacora(
+            @Field("tnBitacoraId")      int     tnBitacoraId,
+            @Field("tcMensaje")         String  tcMessage);
+
+    @POST(cPagoFacilPHP + "/Usuario/guardarBitacora")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> GuardarBitacora(
+            @Field("tnAccion") int tnAccion,
+            @Field("tnTransaccion") int     tnTransaccion,
+            @Field("tnCaller")      int     tnCaller,
+            @Field("tnEmpresa")     int     tnEmpresa,
+            @Field("tnError")       int     tnError,
+            @Field("tcMessage")     String  tcMessage);
+
+    @POST(cPagoFacilPHP + "/Usuario/actualizarPerfilFrecuente")
+    @FormUrlEncoded
+    Call<Void> ActualizarPerfilFrecuente(
+            @Field("tnCliente") long cliente,
+            @Field("tnPerfilFrecuente") boolean tnPerfilFrecuente);
+
+    @POST(cPagoFacilPHP + "/Usuario/setCodPayme")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> setCodPayme(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcCodPayme")    String  tcCodPayme);
+
+
+    @POST(cPagoFacilPHP + "/Usuario/getStatusClient")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mCliente>> syncUser(
+            @Field("tnCliente")     long cliente);
+
+
+    @POST(cPagoFacilPHP + "/Usuario/guardarToken")
+    @FormUrlEncoded
+    Call<Void> guardarToken(
+            @Field("tnCliente")     long cliente,
+            @Field("tcToken")     String token);
+
+    //endregion-------------------------------------------------------------------------------------
+
+
+    //region---                                        EMPRESA
+    //----------------------------------------------------------------------------------------------
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> listarEmpresas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcFiltro")      String  query,
+            @Field("tnIdAccion")    int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresas2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresa>>> listarEmpresas2(
+            @Field("tnCliente")     long    cliente);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasConsultadas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> ListarEmpresasConsultadas(
+            @Field("tnCliente")     long    cliente);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasPagadasYFrecuentes")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> ListarEmpresasPagadasYFrecuentes(
+            @Field("tnCliente")     long    cliente);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasMasPagadas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<EmpresaFull>>> ListarEmpresasMasPagadas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tnAccion")      int     tnAccion);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasFull")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresa>>> obtenerEmpresa(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcFiltro")      String  query);
+
+    @POST(cPagoFacilPHP + "/Empresa/getEmpresasSugeridas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSugerida>>> GetEmpresasSugeridas(
+            @Field("tnCliente")     int cliente);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarMetodosPagoPorEmpresa2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mMetodoPagoTipoComision>> listarMetodosPagoPorEmpresa(
+            @Field("tnCliente")     long    cliente,
+            @Field("tnEmpresa")     long    tnEmpresa,
+            @Field("tnIdAccion")    int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarSubMetodosPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mSubMetodoPago>>> listarSubMetodosPago(
+            @Field("tnCliente")     long    cliente,
+            @Field("tnEmpresa")     long    tnEmpresa,
+            @Field("tnMetodoPago")  long    tnMetodoPago,
+            @Field("tnIdAccion")    int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Empresa/getMetodoMasPagado")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> getMetodosMasPagados(
+            @Field("tnCliente")     long tnCliente,
+            @Field("tnEmpresa")     long tnEmpresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/BuscarClienteEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresas(
+            @Field("tnEmpresa")     long tnEmpresa,
+            @Field("tnCliente")     long tnCliente,
+            @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasFull(
+            @Field("tnEmpresa")     long tnEmpresa,
+            @Field("tnCliente")     long tnCliente,
+            @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaByCIFull")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasByCI(
+            @Field("tnEmpresa")     long tnEmpresa,
+            @Field("tnCliente")     long tnCliente,
+            @Field("tcDocIdUsuario") String tcDocIdUsuario);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarCodigoCliente")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> listarClienteEmpresa(
+            @Field("tnCliente")     long cliente,
+            @Field("tnEmpresa")    long empresa,
+            @Field("tcCodigoClienteEmpresa") String tcCodigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasDetalle")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaDetalle>>> listarEmpresasDetalle(
+            @Field("tnCliente")     long cliente,
+            @Field("tnEmpresa")    long empresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarMetodosDePago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mMetodoPagoSimple>>> listarMetodosDePago(
+            @Field("tnCliente")     int tnCliente);
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasByTipo")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> listarEmpresasByTipo(
+            @Field("tnCliente")     long tnCliente,
+            @Field("tnTipoEmpresa") long tnTipoEmpresa,
+            @Field("tnIdAccion")    long tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Empresa/ListarEmpresasByTipoYRegion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> ListarEmpresasByTipoYRegion(
+            @Field("tnCliente")     long    tnCliente,
+            @Field("tnRegion")      long    tnRegion,
+            @Field("tnTipoEmpresa") long    tnTipoEmpresa,
+            @Field("tnIdAccion")    long    tnIdAccion);
+
+    @POST (cPagoFacilPHP + "/Empresa/ListarRegionesEmpresas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mRegionEmpresa>>>  listarRegionesDeEmpresas(
+            @Field("tnCliente")     long    tnCliente,
+            @Field("tnIdAccion")    int     tnIdAccion);
+
+    @POST (cPagoFacilPHP + "/Empresa/ListarTiposEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoEmpresa>>>  listarTiposDeEmpresas(
+            @Field("tnCliente")     long tnCliente);
+
+    @POST(cPagoFacilPHP + "/Empresa/getClienteEmpresaExtras")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mClienteEmpresaExtras>> getClienteEmpresaExtras(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/verificarCorte")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Boolean>> verificarCorte(
+            @Field("tnCliente")             long    tnCliente,
+            @Field("tnEmpresa")             long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")String  tcCodigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Empresa/getEtiquetas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEtiquetasEmpresa>>> getEtiquetas(
+            @Field("tnCliente")             long    tnCliente,
+            @Field("tcImei")                String  tcImei);
+
+    //endregion----------------------------------------------------------------------------------------------
+
+
+    //region---                                        SERVICIO
+    //----------------------------------------------------------------------------------------------
+
+    @POST(cPagoFacilPHP + "/Servicio/eliminarCodigoClienteEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> deleteCodigoServicio(
+            @Field("tnCliente")                 long    cliente,
+            @Field("tnEmpresa")                 long    empresa,
+            @Field("tcCodigoClienteEmpresa")    String  tnCodigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Servicio/guardarCodigoServicio")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mClienteEmpresaModel>> addCodigoServicioEmpresa(
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tcCodigoClienteEmpresa")    String  codigoClienteEmpresa,
+            @Field("tcAlias")                   String  alias);
+
+    @POST(cPagoFacilPHP + "/Servicio/getTipoAtencionCliente")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoAtencionCliente>>> getTipoAtencionCliente(
+            @Field("tnCliente")                 int     cliente,
+            @Field("tnClaseAtencionCliente")    int     tnClaseAtencionCliente);
+
+
+    @POST(cPagoFacilPHP + "/Servicio/SugerirEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> SugerirEmpresa(
+            @Field("tnCliente")             int tnCliente,
+            @Field("tcEmpresasSugeridas")   String  tcEmpresasSugeridas,
+            @Field("tcEmpresasNuevas")      String  tcEmpresasNuevas,
+            @Field("tcZona")                String  tcZona,
+            @Field("tnEmpresa")             int     tnEmpresa,
+            @Field("tcClienteEmpresa")      String  tcClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Servicio/SugerirCambioApp")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> SugerirCambioApp(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tcSolicitante")             String  tcSolicitante,
+            @Field("tcDocId")                   String  tcDocId,
+            @Field("tnTelefono")                int     tnTelefono,
+            @Field("tcEmail")                   String  tcEmail,
+            @Field("tnclaseAtencioncliente")    int     tnclaseAtencioncliente,
+            @Field("tnTipoAtencioncliente")     int     tnTipoAtencioncliente,
+            @Field("tcGlosa")                   String  tcGlosa);
+
+    @POST(cPagoFacilPHP + "/Servicio/EnviarReclamo")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> EnviarReclamo(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tcSolicitante")             String  tcSolicitante,
+            @Field("tcDocId")                   String  tcDocId,
+            @Field("tnTelefono")                int     tnTelefono,
+            @Field("tcEmail")                   String  tcEmail,
+            @Field("tnclaseAtencioncliente")    int     tnclaseAtencioncliente,
+            @Field("tnTipoAtencioncliente")     int     tnTipoAtencioncliente,
+            @Field("tnMetodoDePago")            int     tnMetodoDePago,
+            @Field("tnTransaccion")             int     tnTransaccion,
+            @Field("tcGlosa")                   String  tcGlosa);
+
+    @POST(cPagoFacilPHP + "/Servicio/EnviarReclamoEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> EnviarReclamoEmpresa(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tcSolicitante")             String  tcSolicitante,
+            @Field("tcDocId")                   String  tcDocId,
+            @Field("tnTelefono")                int     tnTelefono,
+            @Field("tcEmail")                   String  tcEmail,
+            @Field("tnclaseAtencioncliente")    int     tnclaseAtencioncliente,
+            @Field("tnTipoAtencioncliente")     int     tnTipoAtencioncliente,
+            @Field("tnMetodoDePago")            int     tnMetodoDePago,
+            @Field("tnTransaccion")             int     tnTransaccion,
+            @Field("tcGlosa")                   String  tcGlosa);
+
+    @POST(cPagoFacilPHP + "/Servicio/EnviarReclamoMetodoPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> EnviarReclamoMetodoPago(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tcSolicitante")             String  tcSolicitante,
+            @Field("tcDocId")                   String  tcDocId,
+            @Field("tnTelefono")                int     tnTelefono,
+            @Field("tcEmail")                   String  tcEmail,
+            @Field("tnclaseAtencioncliente")    int     tnclaseAtencioncliente,
+            @Field("tnTipoAtencioncliente")     int     tnTipoAtencioncliente,
+            @Field("tnMetodoDePago")            int     tnMetodoDePago,
+            @Field("tnTransaccion")             int     tnTransaccion,
+            @Field("tcGlosa")                   String  tcGlosa);
+
+    @POST(cPagoFacilPHP + "/Servicio/getMisReclamos")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mAtencionCliente>>> getMisReclamos(
+            @Field("tnCliente")             int tnCliente);
+
+
+    //endregion-------------------------------------------------------------------------------------
+
+
+    //region---                                        FACTURA
+    //----------------------------------------------------------------------------------------------
+
+    @POST(cPagoFacilPHP + "/Factura/transaccionesBCP")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> transaccionesBCP
+            (@Field("tnCliente")        long    cliente,
+             @Field("tnTransaccion")    long    tnTransaccion,
+             @Field("tcMensaje")        String  tcMensaje);
+
+    @POST(cPagoFacilPHP + "/Factura/getUltimaTransaccion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> getUltimaTransaccion();
+
+    @POST(cPagoFacilPHP + "/Factura/registrarTransaccion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> anularTransaccion
+            (@Field("tnCliente")        long    cliente,
+             @Field("tnTransaccion")    long    tnTransaccion,
+             @Field("tcMensaje")        String  tcMensaje);
+
+    @POST(cPagoFacilPHP + "/Factura/registrarTransaccion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> registrarTransaccion
+            (@Field("tnCliente")                long    cliente,
+             @Field("tnEmpresa")                long    empresa,
+             @Field("tcCodigoClienteEmpresa")   String  tcCodigoClienteEmpresa,
+             @Field("tnMetodoPago")             int     tnMetodoPago,
+             @Field("tnTelefono")               long     tnTelefono,
+             @Field("tcFacturaA")               String  tcFacturaA,
+             @Field("tnCiNit")                  long     tnCiNit,
+             @Field("tcNroPago")                String  tcNroPago,
+             @Field("tnMontoClienteEmpresa")    Double  tnMontoClienteEmpresa,
+             @Field("tnMontoClienteSyscoop")    Double  tnMontoClienteSyscoop,
+             @Field("tcPeriodo")                String  tcPeriodo,
+             @Field("tcImei")                   String  tcImei);
+
+
+    @POST(cPagoFacilPHP + "/Factura/ListarFacturasPendientesSimples2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mFacturasPendientesSimples>>> facturasPendientesSimple
+            (@Field("tnCliente")                long    cliente,
+             @Field("tnEmpresa")                long    empresa,
+             @Field("tcCodigoClienteEmpresa")   String  tcCodigoClienteEmpresa,
+             @Field("tnIdAccion")               int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Factura/FacturaPendienteFull")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mFacturaPendiente>> facturasPendientesFull
+            (@Field("tnCliente")                long    cliente,
+             @Field("tnEmpresa")                long    empresa,
+             @Field("tcCodigoClienteEmpresa")   String  tcCodigoClienteEmpresa,
+             @Field("tnFactura")                String    factura);
+
+    @POST(cPagoFacilPHP + "/Factura/calcularComision")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Double>> calcularComision
+            (@Field("tnEmpresa")    long    empresa,
+             @Field("tnCliente")    long    cliente,
+             @Field("tnMetodoPago") long    metodoPago,
+             @Field("tcMonto")      String  monto,
+             @Field("tnIdAccion")   int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Factura/listarFacturasPagadas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<Factura>>> listarFacturasPagadas(
+            @Field("tnEmpresa")                 long    empresa,
+            @Field("tnCliente")                 long    cliente,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaPDF2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getFacturaEmpresaPDF_PHP(
+            @Field("tnCliente")             long tnCliente,
+            @Field("tnEmpresa")             long tnEmpresa,
+            @Field("tnTransaccionDePago")   long tnTransaccionDePago,
+            @Field("tnFactura")             String tnFactura);
+
+    @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaEmpresaPDF2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getFacturaPagoFacilPDF_PHP(
+            @Field("tnCliente")             long tnCliente,
+            @Field("tnEmpresa")             long tnEmpresa,
+            @Field("tnTransaccionDePago")   long tnTransaccionDePago,
+            @Field("tnFactura")             String tnFactura);
+
+    @POST(cPagoFacilPHP + "/Factura/getAvisoDeCobranza")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> obtenerAvisoDecobranzaPDF(
+            @Field("tnTransaccionDePago")             long tnCliente,
+            @Field("tcIPEmpresa")             String tcIPEmpresa,
+            @Field("tcCodigoClienteEmpresa")   String tcCodigoClienteEmpresa,
+            @Field("tcNroFactura")             String tcNroFactura);
+
+    @POST(cPagoFacilPHP + "/Factura/getAvisoDeCobranzaActualizado")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> obtenerAvisoActualizadoPDF(
+            @Field("tnTransaccionDePago")             long tnCliente,
+            @Field("tcIPEmpresa")             String tcIPEmpresa,
+            @Field("tcCodigoClienteEmpresa")   String tcCodigoClienteEmpresa);
+
+    @POST(cPagoFacilPHP + "/Factura/guardarUbicacionDePago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> GuardarUbicacionPago(
+            @Field("tnCliente")     long    tnCliente,
+            @Field("tnEmpresa")     long    tnEmpresa,
+            @Field("tnTransaccion") long    tnTransaccion,
+            @Field("tcLatitud")     String  tcLatitud,
+            @Field("tcLongitud")    String  tcLongitud);
+
+    @POST(cPagoFacilPHP + "/Factura/realizarPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> realizarPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              long    tnMetodoPago,
+            @Field("tnTelefono")                long    tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   long    tnCiNit,
+            @Field("tnFactura")                 String  tnFactura,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcMonto")                   String  tcMonto,
+            @Field("tcComision")                String  tcComision,
+            @Field("tcImei")                    String  tcImei,
+            @Field("tnIdAccion")                int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Factura/realizarPagoEfectivo")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mFacturaPagado>> PagarEfectivo(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              long    tnMetodoPago,
+            @Field("tnTelefono")                long    tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   long    tnCiNit,
+            @Field("tnFactura")                 String    tnFactura,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcMonto")                   String  tcMonto,
+            @Field("tcComision")                String  tcComision,
+            @Field("tnIdAccion")                int     tnIdAccion,
+            @Field("tcImei")                    String  tcImei);
+
+    @POST(cPagoFacilPHP + "/Factura/consultarEstadoTransaccion")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<EstadoPago>> consultarEstadoTransaccion(
+            @Field("tnCliente")             long    tnCliente,
+            @Field("tnEmpresa")             long    tnEmpresa,
+            @Field("tnTransaccionDePago")   long    tnTransaccionDePago,
+            @Field("tnCaller")              long    tnCaller,
+            @Field("tnIdAccion")            int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Factura/reconexionAutomatica")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<EstadoPago>> ReconexionAutomatica(
+            @Field("tcId_Socio")    String      tcId_Socio,
+            @Field("tcId_Cajero")   String      tcId_Cajero,
+            @Field("tcId_Factura")  String      tcId_Factura,
+            @Field("tnEmpresa")     long        tnEmpresa,
+            @Field("tcCodSocio")    String      tcCodSocio);
+
+    @POST(cPagoFacilPHP + "/Factura/FinalizarPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mFacturaPagado>> finalizarPagoPHP(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnTransaccionDePago")       long    tnTransaccionDePago);
+
+    //-----------------------------------BCP-----------------------------------
+    //-----------------------------------BCP-----------------------------------
+
+    @POST(cPagoFacilPHP + "/Factura/BCP_PrepararPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> BCP_PrepararPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              int     tnMetodoPago,
+            @Field("tnTelefono")                String  tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   String  tnCiNit,
+            @Field("tcNroPago")                 String  tcNroPago,
+            @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
+            @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcImei")                    String  tcImei,
+            @Field("tcExtension")               String  tcExtension,
+            @Field("tcComplement")              String  tcComplement,
+            @Field("tcServiceCode")             String  tcServiceCode,
+            @Field("tcExpireDate")              String  tcExpireDate);
+
+    @POST(cPagoFacilPHP + "/Factura/BCP_ConfirmarPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> BCP_ConfirmarPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tnAuthorizationNumber")     String  tnAuthorizationNumber,
+            @Field("tnCorrelationId")           int     tnCorrelationId,
+            @Field("tcOTP")                     String  tcOTP);
+
+
+    @POST(cPagoFacilPHP + "/Factura/BCP_GenerarQR")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              int     tnMetodoPago,
+            @Field("tnTelefono")                String  tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   String  tnCiNit,
+            @Field("tcNroPago")                 String  tcNroPago,
+            @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
+            @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcImei")                    String  tcImei);
+
+    //-----------------------------------LINKSER-----------------------------------
+    //-----------------------------------LINKSER-----------------------------------
+
+    @POST(cPagoFacilPHP + "/Factura/Linkser_RealizarPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> Linkser_RealizarPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              int     tnMetodoPago,
+            @Field("tnTelefono")                String  tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   String  tnCiNit,
+            @Field("tcNroPago")                 String  tcNroPago,
+            @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
+            @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcImei")                    String  tcImei,
+            @Field("tcTarjeta")                 String  tcTarjeta,
+            @Field("tcTarjetaHabiente")         String  tcTarjetaHabiente,
+            @Field("tcFechaExpiracion")         String  tcFechaExpiracion,
+            @Field("tcCodigoSeguridad")         String  tcCodigoSeguridad);
+
+    @POST(cPagoFacilPHP + "/Factura/getEntidadesFinancieras")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEntidadFinanciera>>> getEntidadesFinancieras(
+            @Field("tnCliente")                 long    tnCliente);
+
+
+    @POST(cPagoFacilPHP + "/Factura/getEntFinUtilizadas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<Integer>>> getEntFinUtilizadas(
+            @Field("tnCliente")                 long    tnCliente);
+
+    //-----------------------------------BCP-----------------------------------
+    //-----------------------------------BCP-----------------------------------
+
+    @POST(cPagoFacilPHP + "/Factura/EnviarFacturasCorreo2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> enviarFacturasCorreo2(
+            @Field("tnTransaccion")             long    tnTransaccion,
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tnIdAccion")                int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Factura/EnviarFacturasCorreoEspecifico")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> enviarFacturasCorreoEspecifico(
+            @Field("tnTransaccion")             long    tnTransaccion,
+            @Field("tcCorreo")                  String  tcCorreo,
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tnIdAccion")                int     tnIdAccion);
+
+    @POST(cPagoFacilPHP + "/Factura/sendNotification")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> enviarNotificacion(
+            @Field("tcTitulo")              String tcTitulo,
+            @Field("tcMensaje")             String tcMensaje);
+
+
+    @POST(cPagoFacilPHP + "/Factura/transaccionPendiente")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> transaccionPendiente(
+            @Field("tnCliente")              int tnCliente);
+    //endregion
+
+
+    //region---                                        SOLVENCIA
+    //----------------------------------------------------------------------------------------------
+
+    @POST(cPagoFacilPHP + "/Solvencia/getTipoEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoEmpresaCaucruz>>> obtenerTipoEmpresaSolvencia(
+            @Field("tnEmpresa")                 long    tnEmpresa);
+
+    @POST(cPagoFacilPHP + "/Solvencia/getTipoAfiliado")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoAfiliadoCaucruz>>> obtenerTipoAfiliadoSolvencia(
+            @Field("tnEmpresa")             long    tnEmpresa);
+
+    @POST(cPagoFacilPHP + "/Solvencia/getTipoSolvencia")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoSolvenciaCaucruz>>> obtenerTipoSolvencia(
+            @Field("tnEmpresa")             long    tnEmpresa);
+
+    @POST(cPagoFacilPHP + "/Solvencia/getEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mEmpresaCaucruz>> buscarEmpresa(
+            @Field("tnCliente")             long     tnCliente,
+            @Field("tcNITEmpresa")          String  tcNITEmpresa);
+
+    @POST(cPagoFacilPHP + "/Solvencia/getTipoEEFF")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoEEFF>>> obtenerTipoEEFF(
+            @Field("tnCliente")             long     tnCliente);
+
+    @POST(cPagoFacilPHP + "/Solvencia/getActividadEconomica")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mActividadEconomica>>> obtenerActividadEconomica(
+            @Field("tnCliente")             long     tnCliente);
+
+
+    @POST(cPagoFacilPHP + "/Solvencia/getTiposEmpresa")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mTipoEmpresaCaucruz>>> obtenerTiposEmpresa(
+            @Field("tnCliente")             long     tnCliente);
+
+    @POST(cPagoFacilPHP + "/Solvencia/getServiciosRelacionados")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mServiciosRelacionados>>> getServiciosRelacionados(
+            @Field("tnCliente")             long     tnCliente);
+
+    @POST(cPagoFacilPHP + "/Solvencia/crearSolvencia")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> crearSolvencia(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnModalidad")               int     tnModalidad,
+            @Field("tnAfiliado")                String     tnAfiliado,
+            @Field("tnTipoSolvencia")           int     tnTipoSolvencia,
+            @Field("tnMonto")                   int     tnMonto,
+            @Field("tcGlosa")                   String     tcGlosa,
+            @Field("tcDatosExtras")             String  tcDatosExtras);

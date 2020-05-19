@@ -43,8 +43,12 @@ class Servicios extends CI_Controller {
 	
 	}
 
-    public function get_metodo_pago2($lan,$id_empresa,$id_cliente)
-	{	$url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarMetodosPagoPorEmpresa2';
+  
+    
+
+    public function get_filtro_list_empresas()
+    {
+        $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarMetodosPagoPorEmpresa2';
 		$data = array('tnEmpresa' => $id_empresa , 'tnIdAccion' => '18'  ,'tnCliente' => $id_cliente );
 	 
 		$header = array(
@@ -70,12 +74,6 @@ class Servicios extends CI_Controller {
 		  echo "</pre>";
 		//return $resultado;
 
-
-    }
-    
-
-    public function get_filtro_list_empresas()
-    {
 
     }
 
