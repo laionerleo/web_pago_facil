@@ -61,6 +61,27 @@ class Welcome extends CI_Controller {
 
 
 	}
+	public function  busqueda_clientes()
+	{
+	
+	//get_busqueda_codigo_fijo($id_empresa,$codigo_fijo,$codigo_cliente)
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$empresa_id=$datos['empresa_id'];
+		$codigo=$datos['codigo'];
+		$tipo=$datos['tipo'];
+		if($tipo==1)
+		{
+			$d['clientes']=$this->servicios->get_busqueda_codigo_fijo($empresa_id,$codigo,3859);
+		}else{
+			$d['clientes']=$this->servicios->get_busqueda_ci($empresa_id,$codigo,3859);
+		}
+
+		$this->load->view('pago_rapido/lista_clientes', $d);
+		
+
+	}
 
 
 

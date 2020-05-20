@@ -147,7 +147,80 @@ class servicios {
       return $resultado;
  
 
-               }
+  }
+
+
+   public function get_busqueda_codigo_fijo($id_empresa,$codigo_fijo,$codigo_cliente)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/buscarClienteEmpresaFullDatos';
+      $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => strval($codigo_fijo)  ,'tnCliente' => 3859 );
+    /*
+    @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasFull(
+            @Field("tnEmpresa")     long tnEmpresa,
+            @Field("tnCliente")     long tnCliente,
+            @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
+      */
+
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+
+   }
+   public function get_busqueda_ci($id_empresa,$ci,$codigo_cliente)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/buscarClienteEmpresaByCIFull';
+      $data = array('tnEmpresa' => $id_empresa , 'tcDocIdUsuario' => strval($ci)  ,'tnCliente' => 3859 );
+    /*
+       @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaByCIFull")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasByCI(
+            @Field("tnEmpresa")     long tnEmpresa,
+            @Field("tnCliente")     long tnCliente,
+            @Field("tcDocIdUsuario") String tcDocIdUsuario);
+
+      */
+
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+
+   }
 
 
 }
