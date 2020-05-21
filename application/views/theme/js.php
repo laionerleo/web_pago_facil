@@ -16,6 +16,8 @@
     <script src="<?=  base_url() ?>/application/assets/vendors/vmap/jquery.vmap.min.js"></script>
     <script src="<?=  base_url() ?>/application/assets/vendors/vmap/maps/jquery.vmap.usa.js"></script>
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/vmap.js"></script>
+    <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
+    <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
 
     <!-- To use theme colors with Javascript -->
     <div class="colors">

@@ -39,6 +39,7 @@ class Welcome extends CI_Controller {
 	{	
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+		//echo "hola mundo ";
 		$d['rubros']=$this->servicios->get_list_rubros();
 		$d['region']=$this->servicios->get_list_regiones();
 		/*echo "<pre>";
@@ -54,9 +55,9 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$region_id=$datos['region_id'];
 		$rubro_id=$datos['rubro_id'];
-		$empresas=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,3859);
-		//print_r($empresas);
-		echo json_encode($empresas);
+		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,3859);
+		//		echo json_encode($empresas);
+		$this->load->view('pago_rapido/lista_empresas', $d);
 		
 
 

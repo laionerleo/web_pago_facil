@@ -1,6 +1,162 @@
 <!doctype html>
 <html lang="en">
 <?php $this->load->view('theme/head'); ?>
+<style>
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin:0;
+  padding:0;
+}
+.mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top:0em;
+}
+
+
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+  width: 12em;
+  height: 4em;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+  font-size: 0.75em; /* Sizes the switch */
+  
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.9em;
+  width: 6em;
+  transition: 0.2s;
+}
+
+.switch-left {
+  height: 2.9em;
+  width: 6em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #bd5757;
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: #0084d0;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.9em;
+  width: 6em;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.4em;
+  right: 0.8em;
+  height: 2.9em;
+  width: 5.75em;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus + .switch-left {
+  color: #333;
+}
+
+input:checked:focus + .switch-left {
+  color: #fff;
+}
+
+input:focus + .switch-left + .switch-right {
+  color: #fff;
+}
+
+input:checked:focus + .switch-left + .switch-right {
+  color: #333;
+}
+</style>
 <body  class="">
 
 <!-- begin::preloader-->
@@ -40,16 +196,7 @@
         <div class="content-body">
 
             <div class="content">
-                <div class="page-header">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href=index-2.html>Pago facil Bolivia</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">PAGO RAPIDO</li>
-                        </ol>
-                    </nav>
-                </div>
+           
 
                 <div class="row">
                     <div class="col-md-12">
@@ -59,125 +206,81 @@
                                 <form class="needs-validation" novalidate="">
                                     <div class="form-row">
                                         <div class="col-md-2 mb-2">
-                                            <a href="#" id="btn_rubro" title="Cart" class="nav-link" data-toggle="dropdown">
-                                                    Tipo empresa<i data-feather="shopping-bag"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                                                    <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
-                                                        <h5 class="mb-0">Tipo Empresa</h5>
-                                                        
-                                                    </div>
-                                                    <div>
-                                                        <div class="list-group list-group-flush">
-                                                      
-                                                        <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
-                                                            <a href="#" onclick="cambiar_rubro(<?php echo $rubros->values[$i]->nTipoEmpresa  ?>)" class="p-2 list-group-item d-flex">
-                                                                <div>
-                                                                    <figure class="avatar mr-3">
-                                                                        <img src="<?php echo $rubros->values[$i]->cImagenUrl  ?>"
-                                                                            alt="Santa">
-                                                                    </figure>
-                                                                </div>
-                                                                <div class="flex-grow-1">
-                                                                    <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    <?php echo $rubros->values[$i]->nNombre  ?>
-                                                                        <i title="Close" data-toggle="tooltip"
-                                                                        class="hide-show-toggler-item ti-close"></i>
-                                                                    </p>
-                                                                    
-                                                                </div>
-                                                            </a>
+                                        <label for="">Rubros </label><br>
+                                        <div class="avatar-group ml-4">
+                                                    <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
+                                                        <figure id="rub-<?= $i ?>" class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
+                                                                <a href="#" title="  <?php echo $rubros->values[$i]->nNombre  ?>" data-toggle="tooltip" onclick="cambiar_rubro(<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,'#rub-<?= $i ?>')">
+                                                                    <img src="<?php echo $rubros->values[$i]->cImagenUrl  ?>" class="rounded-circle"
+                                                                        alt="avatar">
+                                                                </a>
+                                                            </figure>
+                                                            &nbsp;&nbsp;
                                                         <?php }  ?>
-                                                    
-                                                        
-                                                        </div>
-                                                    </div>
-                                                
-                                                </div>
+                                            </div>
+
+                                             
                                         
                                         </div>
-                                        <div class="col-md-2 mb-2">
+                                        <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
+                                        <label for="">regiones </label><br>
+                                        <div class="avatar-group ml-4">
+                                        
+                                                    <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>
+                                                        <figure id="reg-<?= $i ?>"  class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
+                                                                <a href="#" title=" <?php echo $region->values[$i]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[$i]->nRegion  ?>,'#reg-<?= $i ?>')">
+                                                                <img src="<?php echo $region->values[$i]->nEstado  ?>"class="rounded-circle"
+                                                                        alt="avatar">
+                                                                </a>
+                                                            </figure>
+                                                            &nbsp;
+                                                        <?php }  ?>
+                                            </div>
                                             
                                         
-                                                <a href="#" id="btn_region" title="Cart" class="nav-link" data-toggle="dropdown">
-                                                    Region<i data-feather="shopping-bag"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                                                    <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
-                                                        <h5 class="mb-0">Region</h5>
-                                                        
-                                                    </div>
-                                                    <div>
-                                                        <div class="list-group list-group-flush">
-                                                        <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>
-                                                            <a href="#" onclick="cambiar_region(<?php echo $region->values[$i]->nRegion  ?>)" class="p-2 list-group-item d-flex">
-                                                                <div>
-                                                                    <figure class="avatar mr-3">
-                                                                        <img src="<?php echo $region->values[$i]->nEstado  ?>"
-                                                                            alt="Santa">
-                                                                    </figure>
-                                                                </div>
-                                                                <div class="flex-grow-1">
-                                                                    <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                                                    <?php echo $region->values[$i]->cNombre  ?>
-                                                                        <i title="Close" data-toggle="tooltip"
-                                                                        class="hide-show-toggler-item ti-close"></i>
-                                                                    </p>
-                                                                    
-                                                                </div>
-                                                            </a>
-                                                            <?php }  ?>
-                                                    
-                                                        
-                                                        </div>
-                                                    </div>
-                                                
-                                                </div>
-                                            
                                         
                                         </div>
-                                        <div class="col-md-2 mb-2">
-                                        <a href="#" id="btn_empresa" title="Cart" class="nav-link" data-toggle="dropdown">
-                                                    Empresas<i data-feather="shopping-bag"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
-                                                    <div class="bg-dark p-4 text-center d-flex justify-content-between align-items-center">
-                                                        <h5 class="mb-0">Empresas</h5>
-                                                        
-                                                    </div>
-                                                    <div>
-                                                        <div class="list-group list-group-flush" id="lista_filtro_empresa" >
-                                                        
-                                                        
-                                                        </div>
-                                                    </div>
-                                                
-                                                </div>
+                                      
+                                      
+                                        <div class="col-md-3 mb-2 ">
                                             
-                                        
+                                            <label for="">Tipo de documento</label><br>
+                                            <div class="mid">
+                                                <label class="rocker rocker-small">
+                                                <input type="checkbox" onclick="cambiar_tipo_switch()"  value="0" >
+                                                <span class="switch-left">CF</span>
+                                                <span class="switch-right">CI</span>
+                                              </label> 
+                                            </div>
                                         </div>
-                                        <div class="col-md-2 mb-2">
-                                            
-                                            <select class="form-control form-control-sm"  id="inp_tipo">
-                                            <option  style="center left; padding-left:20px;" disabled hidden> Seleccionar</option>
-                                                <option  style="center left; padding-left:20px;" value="1"  > Codigo Fijo</option>
-                                                <option  style="center left; padding-left:20px;" value="2" > Cedula de identidad</option>
-                                                
-                                            </select>
-                                        
-                                        </div>
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
+                                        <label for="">.</label>
                                         <input id="inp_dato" class="form-control form-control-sm" type="text" placeholder="codigo fijo o ci">
                                         
                                         </div>
-                                        <div class="col-md-1 mb-">
-                                        <input type="hidden" id="url"  value="<?= $url ?>">
-                                        <button class="btn btn-primary" onclick="busqueda_datos()" > Buscar</button>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-2">
+                                                <label for="">empresas</label>
+                                                <img id="waitLoading" height="50px" src="<?=base_url()?>application/assets/images/progress.svg" style="display: none">
+                                                <div id="vistas_empresas" >
+                                                </div>                                    
+                                            </div>
+                                        </div>
+                                        <br>
+                                      
+                                        <div class="form-row">
+                                            <div class="col-md-1 mb-">
+                                                <input type="hidden" id="url"  value="<?= $url ?>">
+                                                <br>
+                                                
+                                                <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                            </div>
                                         </div>
 
 
                                     
-                                    </div>
+                                   
                                 
                                     
                                 </form>
@@ -213,87 +316,72 @@
 var region_id=1;
 var rubro_id=1;
 var empresa_id=0;
+var id_fugure_rubro="";
+var id_fugure_region="";
+var id_fugure_empresa="";
+
+//0 es carnet y uno es 
+var sw=2;
 
 
-function cambiar_region(id_region)
+
+function cambiar_region(id_region,id_figure)
 {
     region_id=id_region;
+    $(id_fugure_region).removeClass("avatar-state-success");
+    id_fugure_region=id_figure;
     
     $('#btn_region').click();
+    $(id_figure).addClass("avatar-state-success");
     filtrar_empresas();
 
 }
-function cambiar_rubro(id_rubro)
+function cambiar_rubro(id_rubro,id_figure)
 {
     rubro_id=id_rubro;
+    $(id_fugure_rubro).removeClass("avatar-state-success");
+    id_fugure_rubro=id_figure;
     
-    $('#btn_rubro').click();
+
     filtrar_empresas();
+    $(id_figure).addClass("avatar-state-success");
+    
 }
-function cambiar_empresa(id_empresa)
+function cambiar_empresa(id_empresa,id_figure)
 {
     empresa_id=id_empresa;
-    $('#btn_empresa').click();
+    $(id_fugure_empresa).removeClass("avatar-state-success");
+    id_fugure_empresa=id_figure;
+    $(id_figure).addClass("avatar-state-success");
+    //$('#btn_empresa').click();
     
+}
+function  cambiar_tipo_switch()
+{
+//sw=0
+    if(sw==1)
+    {
+        sw=2;
+    }else{
+        sw=1;
+    }
+    console.log("el valor del swith  es :" + sw);
 }
 function filtrar_empresas()
 {
     var datos= {rubro_id:rubro_id,region_id:region_id  };
-    var urlajax=$("#url").val()+"get_filtro_regiones";   
+    var urlajax=$("#url").val()+"get_filtro_regiones";  
+   // $("#waitLoading").fadeIn(1000);
+    $("#vistas_empresas").load(urlajax,{datos});   
   
-                       
-    $.ajax({                    
-        url: urlajax,
-        data: {datos},
-        type : 'POST',
-        dataType: "json",
-        beforeSend:function( ) {   
-        },                    
-        success:function(response) {
-            console.log("funciono bien ");
-            console.log(response.values);
-            $("#lista_filtro_empresa").empty();
-            for (let index = 0; index < response.values.length; index++) {
-                console.log(response.values[index].cDescripcion);
-                
-                $("#lista_filtro_empresa").append(`
-                <a href="#" onclick="cambiar_empresa(`+ response.values[index].nEmpresa   +`)" class="p-2 list-group-item d-flex">
-                            <div>
-                                <figure class="avatar mr-3">
-                                    <img src="`+response.values[index].cUrl_icon_big+`"
-                                        alt="Santa">
-                                </figure>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0 line-height-12 d-flex justify-content-between">
-                                `+response.values[index].cDescripcion+`
-                                    <i title="Close" data-toggle="tooltip"
-                                    class="hide-show-toggler-item ti-close"></i>
-                                </p>
-                                
-                            </div>
-                        </a>
-                
-                `);
-                
-            }
-        },
-        error: function (data) {
-            console.log("error");
-            console.log(data.responseText);
-        
-        },               
-        complete:function( ) {
-        },
-            }
-    );
+   
      
 }
 
 function  busqueda_datos()
 {
     var codigo=$("#inp_dato").val();
-    var tipo=$("#inp_tipo").val();
+    var tipo=sw;
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
     $("#vista_clientes").load(urlajax,{datos});                    
