@@ -277,7 +277,7 @@ input:checked:focus + .switch-left + .switch-right {
                                                 <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
                                             </div>
                                         </div>
-
+                                              
 
                                     
                                    
@@ -286,6 +286,7 @@ input:checked:focus + .switch-left + .switch-right {
                                 </form>
                             </div>
                             <div id="vista_clientes">
+                            <?php echo gethostname();  ?>
 
                             </div>
 
