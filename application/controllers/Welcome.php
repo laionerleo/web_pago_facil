@@ -42,7 +42,17 @@ class Welcome extends CI_Controller {
 		//echo "hola mundo ";
 		$d['rubros']=$this->servicios->get_list_rubros();
 		$d['region']=$this->servicios->get_list_regiones();
-		/*echo "<pre>";
+ 
+ 
+	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
+		// Puedes usar un método más sofisticado para recuperar el contenido de una página web con PHP usando una biblioteca o algo así
+		// Vamos a recuperar los datos rápidamente con file_get_contents
+		$dataArray = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));
+		
+		var_dump($dataArray);
+		
+		echo "Hola visitante desde: ".$dataArray["geoplugin_countryName"];*/
+	/*echo "<pre>";
 		print_r($d);
 		echo "</pre>";*/
 		$this->load->view('pago_rapido/index', $d);

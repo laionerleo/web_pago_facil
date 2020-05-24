@@ -196,38 +196,41 @@ input:checked:focus + .switch-left + .switch-right {
         <div class="content-body">
 
             <div class="content">
-           
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title">Pago rapido</h6>
-                                <form class="needs-validation" novalidate="">
-                                    <div class="form-row">
-                                        <div class="col-md-2 mb-2">
+                              <h6 class="card-title">Pago rapido</h6>
+                                <div class="form-row">
+                                    <div class="col-md-2 mb-2">
                                         <label for="">Rubros </label><br>
                                         <div class="avatar-group ml-4">
                                                     <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
-                                                        <figure id="rub-<?= $i ?>" class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
+                                                            <figure id="rub-<?= $i ?>" class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
                                                                 <a href="#" title="  <?php echo $rubros->values[$i]->nNombre  ?>" data-toggle="tooltip" onclick="cambiar_rubro(<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,'#rub-<?= $i ?>')">
                                                                     <img src="<?php echo $rubros->values[$i]->cImagenUrl  ?>" class="rounded-circle"
                                                                         alt="avatar">
                                                                 </a>
                                                             </figure>
                                                             &nbsp;&nbsp;
-                                                        <?php }  ?>
-                                            </div>
-
-                                             
-                                        
+                                                    <?php }  ?>
                                         </div>
-                                        <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
+                                    </div>
+                                    <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
                                         <div class="avatar-group ml-4">
-                                        
-                                                    <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>
-                                                        <figure id="reg-<?= $i ?>"  class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
+                                                    <figure id="reg-0"  class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
+                                                                <a href="#" title=" <?php echo $region->values[0]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[$i]->nRegion  ?>,'#reg-0')">
+                                                                <img src="<?php echo $region->values[0]->nEstado  ?>"class="rounded-circle"
+                                                                        alt="avatar">
+                                                                </a>
+                                                    </figure>
+                                                  
+
+                                                  <div id="div_regiones"  style="display:none">
+                                                    <?php  for ($i=1; $i < count($region->values) ; $i++) { ?>
+                                                      
+                                                        <figure id="reg-<?= $i ?>"  class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
                                                                 <a href="#" title=" <?php echo $region->values[$i]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[$i]->nRegion  ?>,'#reg-<?= $i ?>')">
                                                                 <img src="<?php echo $region->values[$i]->nEstado  ?>"class="rounded-circle"
                                                                         alt="avatar">
@@ -235,74 +238,56 @@ input:checked:focus + .switch-left + .switch-right {
                                                             </figure>
                                                             &nbsp;
                                                         <?php }  ?>
-                                            </div>
-                                            
-                                        
-                                        
+                                                    </div>
+                                                    <figure id="reg-x" onclick="habilitarregiones()"  class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
+                                                      <a href="#" title="Cambiar"  data-toggle="tooltip" onclick="">
+                                                      <img src="<?=  base_url() ?>/application/assets/assets/media/image/cambio.svg"class="rounded-circle"
+                                                              alt="avatar">
+                                                      </a>
+                                                  </figure>
                                         </div>
-                                      
-                                      
-                                        <div class="col-md-3 mb-2 ">
-                                            
-                                            <label for="">Tipo de documento</label><br>
-                                            <div class="mid">
-                                                <label class="rocker rocker-small">
-                                                <input type="checkbox" onclick="cambiar_tipo_switch()"  value="0" >
-                                                <span class="switch-left">CF</span>
-                                                <span class="switch-right">CI</span>
-                                              </label> 
-                                            </div>
+                                    </div>
+                                    <div class="col-md-3 mb-2 ">
+                                        <label for="">Tipo de documento</label><br>
+                                        <div class="mid">
+                                            <label class="rocker rocker-small">
+                                            <input type="checkbox" onclick="cambiar_tipo_switch()"  value="0" >
+                                            <span class="switch-left">CF</span>
+                                            <span class="switch-right">CI</span>
+                                          </label> 
                                         </div>
-                                        <div class="col-md-3 mb-3">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
                                         <label for="">.</label>
                                         <input id="inp_dato" class="form-control form-control-sm" type="text" placeholder="codigo fijo o ci">
-                                        
+                                    </div>
+                                </div>
+                                <div class="form-row" >
+                                        <div class="col-md-6 mb-6"  >
+                                            <label for="">empresas</label>
+                                            <div id="vistas_empresas">
+                                            </div>                                    
                                         </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-md-4 mb-2">
-                                                <label for="">empresas</label>
-                                                <img id="waitLoading" height="50px" src="<?=base_url()?>application/assets/images/progress.svg" style="display: none">
-                                                <div id="vistas_empresas" >
-                                                </div>                                    
-                                            </div>
-                                        </div>
+                                </div>
+                                  <br>
+                                <div class="form-row">
+                                    <div class="col-md-1 mb-1">
+                                        <input type="hidden" id="url"  value="<?= $url ?>">
                                         <br>
-                                      
-                                        <div class="form-row">
-                                            <div class="col-md-1 mb-">
-                                                <input type="hidden" id="url"  value="<?= $url ?>">
-                                                <br>
-                                                
-                                                <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
-                                            </div>
-                                        </div>
-                                              
-
-                                    
-                                   
-                                
-                                    
-                                </form>
+                                        <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                    </div>
+                                </div>
                             </div>
-                            <div id="vista_clientes">
-                            <?php echo gethostname();  ?>
-
-                            </div>
-
-
-                                                            
                         </div>
                         
                     </div>
                     
                 </div>
-                
             </div>
 
-            <!-- begin::footer -->
-         <?php $this->load->view('theme/footer');  ?>
-            <!-- end::footer -->
+              <!-- begin::footer -->
+            <?php $this->load->view('theme/footer');  ?>
+              <!-- end::footer -->
 
         </div>
 
@@ -320,6 +305,7 @@ var empresa_id=0;
 var id_fugure_rubro="";
 var id_fugure_region="";
 var id_fugure_empresa="";
+var swregion=1;
 
 //0 es carnet y uno es 
 var sw=2;
@@ -377,6 +363,19 @@ function filtrar_empresas()
   
    
      
+}
+function habilitarregiones()
+{
+  if(swregion==1)
+  {
+    $('#div_regiones').show();
+    swregion=0;
+
+  }else{
+    $('#div_regiones').hide();
+    swregion=1;
+  }
+  
 }
 
 function  busqueda_datos()
