@@ -1,5 +1,5 @@
 <footer class="content-footer">
-                <div>© 2020 Nago - <a href="http://laborasyon.com/" target="_blank">Laborasyon</a></div>
+                <div>© Pago facil - <a href="http://laborasyon.com/" target="_blank"></a></div>
                 <div>
                     <nav class="nav">
                         <a href="" class="nav-link">Licenses</a>
