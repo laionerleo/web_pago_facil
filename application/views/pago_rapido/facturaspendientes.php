@@ -1,8 +1,7 @@
+<div class="content" >
 
-
-                
                     <div class="row">
-                        <div class="col-md-12" style="height:100%">
+                        <div class="col-md-12">
 
                             <div class="row">
                                 <div class="col-md-4">
@@ -48,7 +47,7 @@
                                     </div>
                                     
                                 </div>
-                                </div>
+                                
                                 <div class="col-md-8">
 
                                     <div class="card">
@@ -108,15 +107,15 @@
                                 </div>
                             </div>
                                
-                            </div>
-
-                   
-            </div>
+                        </div>
+                    </div>
+        </div>
 
                 
             <!-- begin::footer -->
             <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
             <input type="hidden" id="codigofijo" name="codigofijo" value="<?= $codigofijo ?>">
+            <?php $this->load->view('theme/footer');  ?>
             
               <!-- end::footer -->
 													
@@ -135,7 +134,7 @@
                         };
        // $("#pdf_view").load(urlajax,{datos});  
        var nuevaVentana= window.open("<?=  base_url() ?>/es/getavisomes2/"+periodomes+"/"+empresa_id+"/"+codigo_fijo,"ventana","left=200,top=200,height=300,width=500,scrollbar=si,location=no ,resizable=si,menubar=no");
- /*
+                /*
         $.ajax({                    
 													url: urlajax,
                                                     data: {datos},
@@ -189,5 +188,4 @@
  
     }
 </script>
-
 

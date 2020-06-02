@@ -115,6 +115,11 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$empresa_id=$datos["empresa_id"];
 		$codigo_fijo=$datos["codigo"];
+		
+		
+		
+		
+	
 
 		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo);
 		$d['facturas']=$lista->values;
@@ -137,8 +142,8 @@ class Welcome extends CI_Controller {
 			$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
 
 		}
-		$d["empresa_id"]=$datos["empresa_id"];
-		$d["codigofijo"]=$datos["codigo"];
+		$d["empresa_id"]= $datos["empresa_id"];
+		$d["codigofijo"]= $datos["codigo"];
 		
 		
 		
@@ -189,7 +194,7 @@ class Welcome extends CI_Controller {
 		
 	}
 
-	public function getavisofacturames2($lan,$codigo_fijo,$factura,$id_empresa)
+	public function getavisofacturames2($lan,$factura,$id_empresa,$codigo_fijo)
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
