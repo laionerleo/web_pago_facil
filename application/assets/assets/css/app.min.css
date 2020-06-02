@@ -3946,7 +3946,7 @@ textarea {
   display: flex;
   -webkit-box-align: start;
           align-items: flex-start;
-  height: 55px;
+  height: 25px;
 }
 
 .page-header h1,

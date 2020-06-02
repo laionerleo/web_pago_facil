@@ -1,4 +1,6 @@
-
+<!--<pre>
+<?php print_r($clientes); ?>
+</pre>-->
 
 <div class="card">
     <div  class="card-body">
@@ -19,13 +21,13 @@
                             <td><?= $clientes->values[$i]->nombre ?></td>
                             <td><?= $clientes->values[$i]->direccion ?></td>
                             <td><?= $clientes->values[$i]->uvMzaLote ?></td>
-                            <td> <button class="btn btn-primary" >Consultar deuda</button></td>
+                            <td> <button class="btn btn-primary"  onclick="facturaspendientes()">Consultar deuda</button></td>
                         </tr>
                     <?php    }  ?>
             
                 
-            </table>
-        </div>
+                </table>
+            </div>
                     <?php  }else{
                         echo "no hay resultados";
                     } ?>

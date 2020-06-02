@@ -54,6 +54,8 @@
                 <div class="row">
                     <div class="col-md-12">
 
+
+
                     </div>
                 </div>
             </div>
@@ -68,7 +70,9 @@
 
 </div>
 <!-- end::main -->
+    <script>
 
+    </script>
 <!-- Plugin scripts -->
   
   <?php $this->load->view('theme/js');  ?>

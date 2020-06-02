@@ -93,7 +93,196 @@ class Welcome extends CI_Controller {
 		
 
 	}
+	//
 
+	public function listadodefacturas()
+	{	
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//echo "hola mundo ";
+		//$d['listado']=$this->servicios->get_Listar_pendientes_full();
+		echo "<pre>";
+		print_r($d);
+		echo "</pre>";
+		//$this->load->view('pago_rapido/index', $d);
+	
+	}
+	public function vistafacturaspendientes()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//echo "hola mundo ";
+		$datos=$this->input->post("datos");
+		$empresa_id=$datos["empresa_id"];
+		$codigo_fijo=$datos["codigo"];
+
+		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo);
+		$d['facturas']=$lista->values;
+		$facturaprincipal=$this->servicios->get_detalle_factura($lista->values[0]->factura , $empresa_id,$codigo_fijo);
+		$d['facturaprincipal']=$facturaprincipal->values;
+		$metodos=$this->servicios->get_metodos_pago();
+		$d['metodospago']=$metodos->values;
+		$etiquetas=$this->servicios->get_etiquetas();
+		//$d['etiquetas']=$etiquetas->values;
+		
+		for ($i=0; $i < count($etiquetas->values); $i++) { 
+			if($etiquetas->values[$i]->Empresa == $empresa_id) 
+			{
+				$d['etiquetas']=$etiquetas->values[$i];
+
+			}
+		}
+		for ($i=0; $i < count($lista->values); $i++) { 
+			$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
+			$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
+
+		}
+		$d["empresa_id"]=$datos["empresa_id"];
+		$d["codigofijo"]=$datos["codigo"];
+		
+		
+		
+
+		/*
+	echo "<pre>";
+	print_r($d);
+	echo "</pre>";
+		*/
+		
+		$this->load->view('pago_rapido/facturaspendientes', $d);
+	}
+	public function getavisofacturames()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$id_empresa=13;//  $datos["empresa_id"];
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa);
+	
+		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
+		
+		$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
+		$factura="2020-02";//$datos["periodo"];//periodo
+		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura);
+		//$lista=$this->servicios->getempresasimple();
+		$cadena="";
+		foreach($lista->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		
+		$fileToDownload = $cadena;
+		//START DOWNLOAD
+		header('Content-Description: File Transfer');
+		header('Content-Type', 'application/octet-stream');
+		header('Content-Disposition: attachment; filename=factura-'.$factura.'.pdf');
+		header('Content-Transfer-Encoding: base64');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		
+		header('Content-Length: '. strlen($fileToDownload));
+		ob_clean();
+		flush();
+		echo $fileToDownload;
+	
+		
+	}
+
+	public function getavisofacturames2($lan,$codigo_fijo,$factura,$id_empresa)
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		//$id_empresa=$id_empresa;//  $datos["empresa_id"];
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa);
+	
+		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
+		
+		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
+		//$factura="2020-02";//$datos["periodo"];//periodo
+		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura);
+		//$lista=$this->servicios->getempresasimple();
+		$cadena="";
+		foreach($lista->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		
+		$fileToDownload = $cadena;
+	
+		
+
+		//START DOWNLOAD
+		header('Content-Description: File Transfer');
+		header('Content-Type', 'application/octet-stream');
+		header('Content-Disposition: attachment; filename=factura-'.$factura.'.pdf');
+		header('Content-Transfer-Encoding: base64');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		
+		header('Content-Length: '. strlen($fileToDownload));
+		ob_clean();
+		flush();
+		echo $fileToDownload;
+		//echo "esto es el dato del pdf ";
+		//exit;
+	
+		
+		
+	}
+	public function getavisoactualizado($lan,$codigo_fijo,$id_empresa)
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		//$id_empresa=;//  $datos["empresa_id"];
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa);
+	
+		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
+		
+		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
+		
+		$lista=$this->servicios->getavisocobranzaactualizado($ip_empresa,$codigo_fijo);
+		//$lista=$this->servicios->getempresasimple();
+		$cadena="";
+		foreach($lista->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		
+		$fileToDownload = $cadena;
+	
+		
+
+		//START DOWNLOAD
+		header('Content-Description: File Transfer');
+		header('Content-Type', 'application/octet-stream');
+		header('Content-Disposition: attachment; filename=facturaactual.pdf');
+		header('Content-Transfer-Encoding: base64');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		
+		header('Content-Length: '. strlen($fileToDownload));
+		ob_clean();
+		flush();
+		echo $fileToDownload;
+		//echo "esto es el dato del pdf ";
+		//exit;
+	
+		
+		
+	}
+
+
+	public function get_periodo($cadena)
+	{
+		$porciones = explode("-", $cadena);
+		$arraymeses=["01"=> "ENE" ,"02"=> "FEB" ,"03"=> "MAR"  ,"04"=> "ABR" ,"05"=> "MAY"  ,"06"=> "JUN"  ,"07"=>"JUL"  ,"08"=>"AGO"  ,"09"=> "SEP" ,"10"=> "OCT" ,"11"=>"NOV"  ,"12"=> "DIC"  ];
+		return $porciones[0]."-".$arraymeses[$porciones[1]];
+	}
 
 
 	public function error404($lan='es')

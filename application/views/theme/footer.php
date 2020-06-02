@@ -7,4 +7,4 @@
                         <a href="#" class="nav-link">Get Help</a>
                     </nav>
                 </div>
-            </footer>
+</footer>
