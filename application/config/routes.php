@@ -9,15 +9,22 @@ $i                                        = '^(en|es|de|it|po)';
 /**/
 
 //$route[$l.'personas']                 		= 'Persona';
-$route['default_controller']                = 'Welcome';
+
+$route['default_controller']                = 'Auth';
+$route[$l.'inicio']                    = 'Welcome';
+
 /* vistas*/
 $route[$l.'pago_rapido']                    = 'Welcome/pago_rapido';
 $route[$l.'facturaspendientes']                    = 'Welcome/vistafacturaspendientes';
 $route[$l.'getavisomes2/(:any)/(:any)/(:any)']                    = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
 $route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/getavisoactualizado/$1/$2/$3';
 
-//$route[$l.'compra/(:num)']                 	= 'Welcome/compra/$1/$2';
-//(:any)/(:any)']  = 'Welcome/get_metodo_pago/$1/$2/$3';
+
+
+//metodos para el login y logout
+$route[$l.'login_user']                     = 'Auth/loginusuario';
+$route[$l.'logout']                         = 'Auth/logout';
+
 
 
 

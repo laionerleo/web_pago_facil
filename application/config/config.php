@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+
 define('server_local', 'localhost');
 define('ip1', '172.16.15.202');
 define('ip2', '192.168.0.11');
@@ -40,7 +41,7 @@ switch($nombreServerActual)
             break;       
 }
 
-//$config['base_url'] = 'http://localhost/web_pago_facil/';
+//$config['base_url'] = 'http://pagofacil.com.bo/online/';
 
 /*
 |--------------------------------------------------------------------------
@@ -71,9 +72,9 @@ $config['index_page'] = '';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 
-//$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']	= $_SERVER['REQUEST_URI'];
 
-$config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
+//$config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
 
 /*
 |--------------------------------------------------------------------------

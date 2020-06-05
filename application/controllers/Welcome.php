@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
         parent::__construct();
  
         //cargamos la base de datos por defecto
-        $this->load->database('default');
+      //  $this->load->database('default');
         
         //cargamos los agentes para los dispositivos
 		$this->load->library('user_agent');
@@ -21,7 +21,14 @@ class Welcome extends CI_Controller {
         $this->lang->load('welcome');
 
         //cargamos los modelos
-        $this->load->model(array('Msecurity'));
+		$this->load->model(array('Msecurity'));
+		
+		if(!@$this->session->userdata('cliente')){
+            $d = array();
+            $this->Msecurity->url_and_lan($d);
+            redirect($d['url']."?m=Usted tiene que iniciar session !!!");
+        }
+
 
     }
 
@@ -30,6 +37,13 @@ class Welcome extends CI_Controller {
 	{	
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+
+    // destroy session
+    	//$this->session->sess_destroy();
+		
+		echo '<pre>';
+		print_r($this->session->userdata());
+		echo "</pre>";
 
 		$this->load->view('index', $d);
 	
