@@ -75,7 +75,7 @@
                     </li>                                    
                 
                     <li class="fxt-facebook"><div class="fxt-transformY-50 fxt-transition-delay-8">  
-                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                        <a href="<?php echo $authURL; ?>" title="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
                         </div>
                     </li>   
                                                   

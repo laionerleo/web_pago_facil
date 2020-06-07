@@ -25,6 +25,14 @@ $route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/get
 $route[$l.'login_user']                     = 'Auth/loginusuario';
 $route[$l.'logout']                         = 'Auth/logout';
 
+//metodos para el login de  faceboook
+
+//facebook
+$route[$l.'login_face']                          = 'Facebook_Authentication';
+$route[$l.'logout_face']                          = 'Facebook_Authentication/logout';
+$route[$l.'prueba_face']                          = 'Facebook_Authentication/prueba';
+
+
 
 
 

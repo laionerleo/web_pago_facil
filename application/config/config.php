@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
+/*
 define('server_local', 'localhost');
 define('ip1', '172.16.15.202');
 define('ip2', '192.168.0.11');
@@ -40,8 +40,8 @@ switch($nombreServerActual)
             $config['base_url'] = 'http://localhost/web_pago_facil/';
             break;       
 }
-
-//$config['base_url'] = 'http://pagofacil.com.bo/online/';
+*/
+$config['base_url'] = 'http://localhost/web_pago_facil/';
 
 /*
 |--------------------------------------------------------------------------

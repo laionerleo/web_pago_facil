@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Welcome extends CI_Controller {
 
 	public function __construct(){
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
         
         parent::__construct();
  
@@ -13,6 +15,7 @@ class Welcome extends CI_Controller {
         //cargamos los agentes para los dispositivos
 		$this->load->library('user_agent');
 		$this->load->library('servicios');
+		$this->load->library('facebook');
 
 		//cargamos el helper url y el helper form
         $this->load->helper(array('url', 'language'));
@@ -23,11 +26,15 @@ class Welcome extends CI_Controller {
         //cargamos los modelos
 		$this->load->model(array('Msecurity'));
 		
+		
 		if(!@$this->session->userdata('cliente')){
             $d = array();
             $this->Msecurity->url_and_lan($d);
             redirect($d['url']."?m=Usted tiene que iniciar session !!!");
-        }
+		}
+		
+		
+		
 
 
     }
@@ -41,10 +48,7 @@ class Welcome extends CI_Controller {
     // destroy session
     	//$this->session->sess_destroy();
 		
-		echo '<pre>';
-		print_r($this->session->userdata());
-		echo "</pre>";
-
+	
 		$this->load->view('index', $d);
 	
 	}
@@ -54,8 +58,9 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		//echo "hola mundo ";
-		$d['rubros']=$this->servicios->get_list_rubros();
-		$d['region']=$this->servicios->get_list_regiones();
+		$id_cliente=$this->session->userdata('cliente');
+		$d['rubros']=$this->servicios->get_list_rubros($id_cliente);
+		$d['region']=$this->servicios->get_list_regiones($id_cliente);
  
  
 	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
@@ -79,7 +84,8 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$region_id=$datos['region_id'];
 		$rubro_id=$datos['rubro_id'];
-		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,3859);
+		$id_cliente=$this->session->userdata('cliente');
+		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
 		//		echo json_encode($empresas);
 		$this->load->view('pago_rapido/lista_empresas', $d);
 		
@@ -96,15 +102,27 @@ class Welcome extends CI_Controller {
 		$empresa_id=$datos['empresa_id'];
 		$codigo=$datos['codigo'];
 		$tipo=$datos['tipo'];
+		$id_cliente=$this->session->userdata('cliente');
 		if($tipo==1)
 		{
-			$d['clientes']=$this->servicios->get_busqueda_codigo_fijo($empresa_id,$codigo,3859);
+			$d['clientes']=$this->servicios->get_busqueda_codigo_fijo($empresa_id,$codigo,$id_cliente);
 		}else{
-			$d['clientes']=$this->servicios->get_busqueda_ci($empresa_id,$codigo,3859);
+			$d['clientes']=$this->servicios->get_busqueda_ci($empresa_id,$codigo,$id_cliente);
 		}
+/*
+		echo "<pre>";
+		print_r($d['clientes']->values);
+		echo "</pre>";
+		*/
 
+		if(count($d['clientes']->values)>0 ){
+			$_SESSION['codigofijo']=$d['clientes']->values[0]->codigoClienteEmpresa;
+			$_SESSION['codigoubicacion']= $d['clientes']->values[0]->codidgoUbicacion;
+			$_SESSION['nombreclienteempresa'] = $d['clientes']->values[0]->nombre;
+			
+			
+		}
 		$this->load->view('pago_rapido/lista_clientes', $d);
-		
 
 	}
 	//
@@ -129,19 +147,30 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$empresa_id=$datos["empresa_id"];
 		$codigo_fijo=$datos["codigo"];
-		
-		
-		
-		
+		$id_cliente=$this->session->userdata('cliente');
+		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo,$id_cliente);
+		if(!isset($lista)){
+			$d['facturas']=$lista->values;
+			$d['cantidadfacturas']=count($lista->values);
+			$facturaprincipal=$this->servicios->get_detalle_factura($lista->values[0]->factura , $empresa_id,$codigo_fijo,$id_cliente);
+			$d['facturaprincipal']=$facturaprincipal->values;
+			for ($i=0; $i < count($lista->values); $i++) { 
+				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
+				$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
+	
+			}
+		}
+			$d['cantidadfacturas']=0;
+			$d['idCliente']=  $_SESSION['codigofijo']; 
+			$d['nombre']=  $_SESSION['nombreclienteempresa'];
+			$d['codigoUbicacion']=  $_SESSION['codigoubicacion'];
+			
 	
 
-		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo);
-		$d['facturas']=$lista->values;
-		$facturaprincipal=$this->servicios->get_detalle_factura($lista->values[0]->factura , $empresa_id,$codigo_fijo);
-		$d['facturaprincipal']=$facturaprincipal->values;
-		$metodos=$this->servicios->get_metodos_pago();
+
+		$metodos=$this->servicios->get_metodos_pago($id_cliente);
 		$d['metodospago']=$metodos->values;
-		$etiquetas=$this->servicios->get_etiquetas();
+		$etiquetas=$this->servicios->get_etiquetas($id_cliente);
 		//$d['etiquetas']=$etiquetas->values;
 		
 		for ($i=0; $i < count($etiquetas->values); $i++) { 
@@ -151,11 +180,7 @@ class Welcome extends CI_Controller {
 
 			}
 		}
-		for ($i=0; $i < count($lista->values); $i++) { 
-			$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
-			$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
-
-		}
+		
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
 		
@@ -175,14 +200,15 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
-		$id_empresa=13;//  $datos["empresa_id"];
-		$empresadetalle=$this->servicios->getempresasimple($id_empresa);
+		$id_empresa= $datos["empresa_id"];
+		$idcliente=$this->session->userdata('cliente');
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa,$idcliente);
 	
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
 		
-		$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
-		$factura="2020-02";//$datos["periodo"];//periodo
-		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura);
+		$codigo_fijo= $datos["codigo_fijo"];//codigofijodelcliente
+		$factura=$datos["periodo"];//periodo
+		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura ,$idcliente);
 		//$lista=$this->servicios->getempresasimple();
 		$cadena="";
 		foreach($lista->values->facturaPDF as $byte){
@@ -214,13 +240,14 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
 		//$id_empresa=$id_empresa;//  $datos["empresa_id"];
-		$empresadetalle=$this->servicios->getempresasimple($id_empresa);
+		$idcliente=$this->session->userdata('cliente');
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa ,$idcliente);
 	
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
 		
 		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
 		//$factura="2020-02";//$datos["periodo"];//periodo
-		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura);
+		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$facturam,$idcliente);
 		//$lista=$this->servicios->getempresasimple();
 		$cadena="";
 		foreach($lista->values->facturaPDF as $byte){
@@ -256,14 +283,15 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
+		$idcliente=$this->session->userdata('cliente');
 		//$id_empresa=;//  $datos["empresa_id"];
-		$empresadetalle=$this->servicios->getempresasimple($id_empresa);
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa,$idcliente);
 	
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
 		
 		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
 		
-		$lista=$this->servicios->getavisocobranzaactualizado($ip_empresa,$codigo_fijo);
+		$lista=$this->servicios->getavisocobranzaactualizado($ip_empresa,$codigo_fijo,$idcliente);
 		//$lista=$this->servicios->getempresasimple();
 		$cadena="";
 		foreach($lista->values->facturaPDF as $byte){

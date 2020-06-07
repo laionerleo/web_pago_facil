@@ -1,3 +1,4 @@
+
 <div class="content" >
 
                     <div class="row">
@@ -17,23 +18,23 @@
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-6 text-muted">Codigo Fijo:</div>
-                                                        <div class="col-6"><?= $facturaprincipal->idCliente  ?>213931</div>
+                                                        <div class="col-6"><?= @$idCliente;  ?></div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-6 text-muted">Codigo Ubicacion:</div>
-                                                        <div class="col-6"><?= $facturaprincipal->codigoUbicacion  ?></div>
+                                                        <div class="col-6"><?= @$codigoUbicacion;  ?></div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-6 text-muted"> Nombre:</div>
-                                                        <div class="col-6"> <?= $facturaprincipal->nombre  ?> </div>
+                                                        <div class="col-6"> <?= @$nombre;  ?> </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-6 text-muted">Facturas por pagar:</div>
-                                                        <div class="col-6"> <?= count($facturas);  ?>  </div>
+                                                        <div class="col-6"> <?= @$cantidadfacturas;  ?>  </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-6 text-muted"> Mes:</div>
-                                                        <div class="col-6"><?= $facturaprincipal->periodo  ?>  </div>
+                                                        <div class="col-6"><?= @$facturaprincipal->periodo  ?>  </div>
                                                     </div>
                                         </div>
                                         <hr class="m-0">
@@ -64,13 +65,18 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php  for ($i=0; $i < count($facturas) ; $i++) { ?>
+
+                                                        <?php if(isset($facturas)){
+
+                                                        
+                                                            
+                                                            for ($i=0; $i < count($facturas) ; $i++) { ?>
                                                             <tr>
                                                                 <td> <?= ($i+1).":".$facturas[$i]->periodo ?> </td>
                                                                 <td> <?= $facturas[$i]->montoTotal ?> </td>
                                                                 <td> <center> <button class="btn btn-primary"  onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')">  <?= $etiquetas->EtiquetaAviso  ?></button></center> </td>
                                                             </tr>
-                                                        <?php  } ?>
+                                                        <?php  }} ?>
 
                        
 
