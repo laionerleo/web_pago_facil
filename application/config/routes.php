@@ -33,6 +33,12 @@ $route[$l.'logout_face']                          = 'Facebook_Authentication/log
 $route[$l.'prueba_face']                          = 'Facebook_Authentication/prueba';
 
 
+//google
+$route[$l.'login_google']                          = 'Google_Authentication';
+$route[$l.'logout_google']                          = 'Google_Authentication/logout';
+
+
+
 
 
 

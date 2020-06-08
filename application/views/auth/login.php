@@ -70,7 +70,7 @@
                 <ul class="fxt-socials">
                 <li class="fxt-google">
                         <div class="fxt-transformY-50 fxt-transition-delay-6">  
-                        <a href="#" title="google"><i class="fab fa-google" style="color: #040404;" ></i><span style="color: #040404;">Google</span></a>
+                        <a href="<?php echo $loginURL; ?>" title="google"><i class="fab fa-google" style="color: #040404;" ></i><span style="color: #040404;">Google</span></a>
                         </div>
                     </li>                                    
                 

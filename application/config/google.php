@@ -11,9 +11,9 @@
 |  api_key           string   Developer key.
 |  scopes            string   Specify scopes
 */
-$config['google']['client_id']        = '346070421080-irf9ifs6go04u1imts594hcot9m206dm.apps.googleusercontent.com';
-$config['google']['client_secret']    = 'J4EEabrpv_1rZaZ5FBE59ugI';
-$config['google']['redirect_uri']     = 'http://localhost/syscoop/es/login_google';
-$config['google']['application_name'] = 'cliente_ticket';
+$config['google']['client_id']        = '728946871450-j7p7vepujoike9jojg0cdne70qltisar.apps.googleusercontent.com';
+$config['google']['client_secret']    = 'ExBNJ2ti4Pxhl_Dddx7plNu2';
+$config['google']['redirect_uri']     = 'https://pagofacil.com.bo/online/es/login_google';
+$config['google']['application_name'] = 'pagofacilpruebaweb';
 $config['google']['api_key']          = '';
 $config['google']['scopes']           = array();

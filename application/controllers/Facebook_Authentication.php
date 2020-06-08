@@ -74,9 +74,7 @@ class Facebook_Authentication extends CI_Controller {
                         $this->session->set_userdata($data);
                         //si el registro manda 1 significa que se registro bien 
                         redirect('/es/inicio', 'refresh');
-                      /* echo '<pre>';
-                       print_r($this->session->userdata());
-                       echo "</pre>";*/
+                   
                      
                     }
                     

@@ -18,6 +18,8 @@ class Auth extends CI_Controller {
         $this->lang->load('welcome');
     // Load facebook library
 	$this->load->library('facebook');
+	$this->load->library('google');
+		      
         //cargamos los modelos
        $this->load->model(array('Msecurity'));
 
@@ -29,6 +31,7 @@ class Auth extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$d['authURL'] =  $this->facebook->login_url();
+		$d['loginURL'] = $this->google->loginURL();
 		$this->load->view('auth/login', $d);
 	
     }
