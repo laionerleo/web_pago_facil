@@ -9,6 +9,7 @@
                 <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
+                    <th>Codigo Fijo</th>
                     <th>Nombre</th>
                     <th>Direccion</th>
                     <th>Otros </th>
@@ -18,6 +19,8 @@
                 <tbody>
                     <?php  for ($i=0; $i <  count($clientes->values) ; $i++) { ?>
                         <tr>
+                        
+                            <td><?= $clientes->values[$i]->codigoClienteEmpresa ?></td>
                             <td><?= $clientes->values[$i]->nombre ?></td>
                             <td><?= $clientes->values[$i]->direccion ?></td>
                             <td><?= $clientes->values[$i]->uvMzaLote ?></td>

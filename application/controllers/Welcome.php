@@ -32,11 +32,6 @@ class Welcome extends CI_Controller {
             $this->Msecurity->url_and_lan($d);
             redirect($d['url']."?m=Usted tiene que iniciar session !!!");
 		}
-		
-		
-		
-
-
     }
 
 
@@ -46,9 +41,12 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 
     // destroy session
-    	//$this->session->sess_destroy();
-		
-	
+		//$this->session->sess_destroy();
+	/*	$d['datossession']=$this->session->userdata();
+		echo "<pre>";
+		print_r($d);
+		echo "</pre>";
+	*/
 		$this->load->view('index', $d);
 	
 	}
@@ -147,29 +145,42 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$empresa_id=$datos["empresa_id"];
 		$codigo_fijo=$datos["codigo"];
+		$urliconoempresa=$datos["urlimagen"];
 		$id_cliente=$this->session->userdata('cliente');
 		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo,$id_cliente);
-		if(!isset($lista)){
+		if(!is_null($lista->values)  ){
 			$d['facturas']=$lista->values;
 			$d['cantidadfacturas']=count($lista->values);
+
 			$facturaprincipal=$this->servicios->get_detalle_factura($lista->values[0]->factura , $empresa_id,$codigo_fijo,$id_cliente);
 			$d['facturaprincipal']=$facturaprincipal->values;
+		//	print_r($facturaprincipal->values);
+			$_SESSION['periodomes']=$facturaprincipal->values->periodo;
 			for ($i=0; $i < count($lista->values); $i++) { 
 				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
 				$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
+				
 	
 			}
-		}
+		}else{
+			$d['facturas']= array();
 			$d['cantidadfacturas']=0;
-			$d['idCliente']=  $_SESSION['codigofijo']; 
-			$d['nombre']=  $_SESSION['nombreclienteempresa'];
-			$d['codigoUbicacion']=  $_SESSION['codigoubicacion'];
 			
-	
+		}	
+		
+		$d['idCliente']=  $_SESSION['codigofijo']; 
+		$d['nombre']=  $_SESSION['nombreclienteempresa'];
+		$d['codigoUbicacion']=  $_SESSION['codigoubicacion'];
+		$d['urlimagenempresa']=$urliconoempresa;
+		$d['nombreempresa']=$datos["nombreempresa"];
+		$d['idempresa']=$datos["empresa_id"];
+		$_SESSION['idempresa']=$datos["empresa_id"];
+		$_SESSION['nombreempresa']=$datos["nombreempresa"];
+		$_SESSION['urlimagenempresa']=$d['urlimagenempresa'];
 
-
-		$metodos=$this->servicios->get_metodos_pago($id_cliente);
-		$d['metodospago']=$metodos->values;
+		$metodos=$this->servicios->get_metodos_pago_empresa($id_cliente ,$empresa_id);
+		$d['tiposdecomision']=$metodos->values->aTipoComisionDetalle;
+		$d['metodospago']=$metodos->values->aMetodosDePago;
 		$etiquetas=$this->servicios->get_etiquetas($id_cliente);
 		//$d['etiquetas']=$etiquetas->values;
 		
@@ -183,17 +194,11 @@ class Welcome extends CI_Controller {
 		
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
-		
-		
-		
-
-		/*
+	/*			
 	echo "<pre>";
 	print_r($d);
-	echo "</pre>";
-		*/
-		
-		$this->load->view('pago_rapido/facturaspendientes', $d);
+	echo "</pre>";*/
+	$this->load->view('pago_rapido/facturaspendientes', $d);
 	}
 	public function getavisofacturames()
 	{
@@ -203,13 +208,10 @@ class Welcome extends CI_Controller {
 		$id_empresa= $datos["empresa_id"];
 		$idcliente=$this->session->userdata('cliente');
 		$empresadetalle=$this->servicios->getempresasimple($id_empresa,$idcliente);
-	
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
-		
 		$codigo_fijo= $datos["codigo_fijo"];//codigofijodelcliente
 		$factura=$datos["periodo"];//periodo
 		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura ,$idcliente);
-		//$lista=$this->servicios->getempresasimple();
 		$cadena="";
 		foreach($lista->values->facturaPDF as $byte){
 			$cadena.=chr($byte);
@@ -239,16 +241,17 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
-		//$id_empresa=$id_empresa;//  $datos["empresa_id"];
 		$idcliente=$this->session->userdata('cliente');
 		$empresadetalle=$this->servicios->getempresasimple($id_empresa ,$idcliente);
-	
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
 		
 		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
 		//$factura="2020-02";//$datos["periodo"];//periodo
-		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$facturam,$idcliente);
+		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura,$idcliente);
 		//$lista=$this->servicios->getempresasimple();
+		/*echo "<pre>";
+		print_r($lista);
+		echo "</pre>";*/
 		$cadena="";
 		foreach($lista->values->facturaPDF as $byte){
 			$cadena.=chr($byte);
@@ -274,6 +277,7 @@ class Welcome extends CI_Controller {
 		echo $fileToDownload;
 		//echo "esto es el dato del pdf ";
 		//exit;
+		
 	
 		
 		
@@ -323,6 +327,124 @@ class Welcome extends CI_Controller {
 		
 	}
 
+	public function vistafacturacion()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$metodopago=$datos["metododepago"];
+		$d['nombrecliente'] =  $this->session->userdata('nombre')." ".$this->session->userdata('apellido') ;
+		$d['cionit']=  $this->session->userdata('cinit');
+		$d['numerocelular']=  $this->session->userdata('telefonoDePago');
+		$d["correo"]= $this->session->userdata('correo');
+		$_SESSION['montototal']=$datos["montototal"];
+		$_SESSION['idfactura']=$datos["idfactura"];
+			/*echo "<pre>";
+			print_r($d);
+			echo print_r($_SESSION);
+			echo "</pre>";*/
+		$this->load->view('pago_rapido/facturacion', $d);
+
+	}
+	public function vistaconfirmacion()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$nombrecliente=$datos["nombrecliente"];
+		$cionit=$datos["inpcionit"];
+		$numero=$datos["inpnumero"];
+		$correo=$datos["inpcorreo"];
+		//var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
+		if($nombrecliente != $_SESSION['nombreclienteempresa'])
+		{
+			$_SESSION['nombreclienteempresa']=$nombrecliente ;
+		}
+		if($cionit != $_SESSION['cinit'] )
+		{
+			$_SESSION['cinit'] =$cionit ;
+		}
+		if(	$numero != $_SESSION['nombreclienteempresa'] )
+		{
+			$_SESSION['nombreclienteempresa'] =	$numero;
+		}
+		if($correo != $_SESSION['telefonoDePago'] )
+		{
+			$_SESSION['nombreclienteempresa']=$correo;
+		}
+
+
+		$metodopago=$datos["metododepago"];
+		$id_empresa= $_SESSION['idempresa'];
+		$idcliente=$this->session->userdata('cliente');
+		$metodos=$this->servicios->get_metodos_pago_empresa($idcliente ,$id_empresa);
+		$tipodecomision=0;
+		$montocomision=0;
+		$d['metodosdepago']=$metodos->values->aMetodosDePago;
+		$d['tipocomision']=$metodos->values->aTipoComisionDetalle;
+		$varinicio=0;
+		$varfinal=0;
+		echo "<pre>";
+			print_r($d);
+
+		for ($i=0; $i <count($d['metodosdepago']) ; $i++) { 
+			if($d['metodosdepago'][$i]->metodoPago==$metodopago )
+			{
+				$tipodecomision=$d['metodosdepago'][$i]->tipoComisionCliente;
+				echo  "el tipo de comision es :".$tipodecomision;
+			}
+		}
+		for ($j=0; $j <count($d['tipocomision']) ; $j++) { 
+			if(  $d['tipocomision'][$j]->tipoComision == $tipodecomision )
+			{
+				
+				$varfinal=$d['tipocomision'][$j]->hasta;
+				echo "rango".$varinicio."<".$_SESSION['montototal']."<".$varfinal;
+				if(  ( strval($varinicio) < strval($_SESSION['montototal']) )  && ( strval($varfinal) > strval($_SESSION['montototal']) )    )
+				{
+					$montocomision=$d['tipocomision'][$i]->valor;
+					$_SESSION['montocomision']=$montocomision;
+					echo "entro y cambio";
+				}
+				$varinicio=$d['tipocomision'][$j]->hasta;
+				echo "vfinal :".$varinicio;
+			}
+				
+
+
+		}
+		$d['nombre']=$_SESSION['nombreclienteempresa'];
+		$d['cinit']=$_SESSION['cinit'];
+		$d['periodo']=$_SESSION['periodomes'];
+		
+		$d['monto']=$_SESSION['montototal'];
+		$d['comision']=$_SESSION['montocomision'];
+		$d['nombremetodopago']=$_SESSION['nombreclienteempresa'];
+		$d['mediosbcp']= $this->session->userdata('telefonoDePago');
+		$d['email']=$this->session->userdata('correo');		
+		$d['nombreempresa']=$_SESSION['nombreempresa'];
+		$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
+		//echo "<pre>";
+		echo  "entro aqui final ";
+		print_r($d);
+		echo "</pre>";
+		
+		//$this->load->view('pago_rapido/confirmacion', $d);
+
+	}
+	public function vistaprepararpago()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
+		/*echo "<pre>";
+		print_r($d);
+		echo "</pre>";
+		*/
+		$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
+
+
+	}
 
 	public function get_periodo($cadena)
 	{

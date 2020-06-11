@@ -93,7 +93,6 @@
                                        
                                         <label id="nombre_region"  href=""><?php echo $region->values[0]->cNombre  ?> </label>
                                     </div>
-                                   
                                 </div>
                                   <div id="vistas_empresas"  >
                                        
@@ -105,14 +104,14 @@
                                         <label for="">Tipo de documento</label><br>
                                         <div class="form-check">
                                           <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                id="exampleRadios4" value="option1" >
+                                                id="exampleRadios4" value="option1" checked >
                                           <label class="form-check-label" for="exampleRadios4">
                                               Codigo Fijo 
                                           </label>
                                       </div>
                                       <div class="form-check">
                                           <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                id="exampleRadios5" value="option2" checked>
+                                                id="exampleRadios5" value="option2" >
                                           <label class="form-check-label" for="exampleRadios5">
                                               Carnet de Identidad
                                           </label>
@@ -123,8 +122,6 @@
                                         <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci">
                                     </div>
                                 </div>
-
-
                                 <div class="form-row">
                                     <div class="col-md-1 mb-1">
                                         <input type="hidden" id="url"  value="<?= $url ?>">
@@ -167,9 +164,12 @@ var id_fugure_region="";
 var id_fugure_empresa="";
 var id_fila="";
 var swregion=1;
+var urlimagenempresa="";
+var nombreempresa="";
+
 
 //0 es carnet y uno es 
-var sw=2;
+var sw=1;
 
 
 
@@ -196,8 +196,10 @@ function cambiar_rubro(id_rubro,id_figure)
     $(id_figure).addClass("avatar-state-success");
     
 }
-function cambiar_empresa(id_empresa,id_figure,fila_id)
-{
+function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
+{   
+    nombreempresa=nombre;
+    urlimagen=urlimagen1
     empresa_id=id_empresa;
     $(id_fugure_empresa).removeClass("avatar-state-success");
     id_fugure_empresa=id_figure;
@@ -207,21 +209,21 @@ function cambiar_empresa(id_empresa,id_figure,fila_id)
 
     $(id_fila).css("background-color", "rgb(45, 206, 222)");
     
-    
+    $('html, body').animate({
+ scrollTop: $("#vista_clientes").offset().top
+ }, 2000);
     
     //$('#btn_empresa').click();
     
 }
 function  cambiar_tipo_switch()
 {
-//sw=0
     if(sw==1)
     {
         sw=2;
     }else{
         sw=1;
     }
-    console.log("el valor del swith  es :" + sw);
 }
 function filtrar_empresas()
 {
@@ -253,22 +255,45 @@ function  busqueda_datos()
 {
     var codigo=$("#inp_dato").val();
     var tipo=sw;
+    if( (codigo!='') && (empresa_id!=0))
+    {
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
     $("#vista_clientes").load(urlajax,{datos});                    
+    }else{
+        if(codigo=='')
+        {
+            alert(' no  inserto el codigo ');
+        }
+        if(empresa_id==0)
+        {
+            alert('no selecciono la empresa ');
+        }
+        
+    }
 }
 function facturaspendientes()
 {
   var codigo=$("#inp_dato").val();
     var tipo=sw;
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
     var urlajax=$("#url").val()+"facturaspendientes";   
     $("#vista_general").load(urlajax,{datos});   
 }
 
+  
+
 </script>
   
   <?php $this->load->view('theme/js');  ?>
+<script>
+    
+$( document ).ready(function() {
+    cambiar_rubro(1,'#rub-0');
+});
+
+</script>
+
 </body>
 
 

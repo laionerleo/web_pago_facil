@@ -13,9 +13,17 @@ $i                                        = '^(en|es|de|it|po)';
 $route['default_controller']                = 'Auth';
 $route[$l.'inicio']                    = 'Welcome';
 
-/* vistas*/
-$route[$l.'pago_rapido']                    = 'Welcome/pago_rapido';
-$route[$l.'facturaspendientes']                    = 'Welcome/vistafacturaspendientes';
+/* vistas pago rapido */
+$route[$l.'pagorapido']                    = 'Welcome/pago_rapido';
+$route[$l.'facturaspendientes']             = 'Welcome/vistafacturaspendientes';
+$route[$l.'vistafacturacion']               = 'Welcome/vistafacturacion';
+$route[$l.'vistaconfirmacion']               = 'Welcome/vistaconfirmacion';
+$route[$l.'vistaprepararpago']               = 'Welcome/vistaprepararpago';
+
+
+
+
+
 $route[$l.'getavisomes2/(:any)/(:any)/(:any)']                    = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
 $route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/getavisoactualizado/$1/$2/$3';
 

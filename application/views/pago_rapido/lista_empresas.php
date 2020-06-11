@@ -15,7 +15,7 @@
                                 <tbody>
                                 
                                 <?php  for ($i=0; $i < count($empresas->values) ; $i++) { ?>
-                                    <tr id="fila-<?= $i ?>" onclick="cambiar_empresa(<?= $empresas->values[$i]->nEmpresa ?>,'#emp-<?= $i ?>','#fila-<?= $i ?>'   )" > 
+                                    <tr id="fila-<?= $i ?>" onclick="cambiar_empresa(<?= $empresas->values[$i]->nEmpresa ?>,'#emp-<?= $i ?>','#fila-<?= $i ?>','<?= $empresas->values[$i]->cUrl_icon ?>', '<?= $empresas->values[$i]->cDescripcion ?>'   )" > 
                                     <td   > 
                                         <figure id="emp-<?= $i ?>" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black" onclick="cambiar_empresa(<?= $empresas->values[$i]->nEmpresa  ?> , '#emp-<?= $i ?>')" >
                                             <img src="<?= $empresas->values[$i]->cUrl_icon ?>" class="rounded-circle"

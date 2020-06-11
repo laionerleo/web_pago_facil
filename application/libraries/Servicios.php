@@ -247,9 +247,6 @@ class servicios {
          'content' => http_build_query($data) 
       )
                   );
-   
-   
-   
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
@@ -325,6 +322,41 @@ class servicios {
  
 
    }
+   public function get_metodos_pago_empresa($id_cliente,$idempresa)
+   {
+
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarMetodosPagoPorEmpresa2';
+      $data = array('tnCliente' => $id_cliente , 'tnEmpresa' => $idempresa ,'tnIdAccion' => 0  );
+      /*      @POST(cPagoFacilPHP + "/Empresa/listarMetodosPagoPorEmpresa2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<mMetodoPagoTipoComision>> listarMetodosPagoPorEmpresa(
+            @Field("tnCliente")     long    cliente,
+            @Field("tnEmpresa")     long    tnEmpresa,
+            @Field("tnIdAccion")    int     tnIdAccion); */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+
+   }
+   
    public function get_etiquetas($id_cliente)
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/getEtiquetas';
@@ -580,6 +612,56 @@ class servicios {
           return null;
           //echo json_decode($respuesta);
       }
+   }
+
+   public function  prepararpago()
+   {
+      
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_PrepararPago';
+      //$data = array('tnCliente' =>   , 'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>      );
+  
+        
+    /*  @POST(cPagoFacilPHP + "/Factura/BCP_PrepararPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> BCP_PrepararPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              int     tnMetodoPago,
+            @Field("tnTelefono")                String  tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   String  tnCiNit,
+            @Field("tcNroPago")                 String  tcNroPago,
+            @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
+            @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcImei")                    String  tcImei,
+            @Field("tcExtension")               String  tcExtension,
+            @Field("tcComplement")              String  tcComplement,
+            @Field("tcServiceCode")             String  tcServiceCode,
+            @Field("tcExpireDate")              String  tcExpireDate);*/
+        
+        $header = array(
+           "Content-Type: application/x-www-form-urlencoded",
+           "Content-Length: ".strlen( http_build_query($data))
+           );
+           
+        // use key 'http' even if you send the request to https://...
+        $options = array('http' => array(
+           'method'  => 'POST',
+           'header' => implode("\r\n", $header),
+           'content' => http_build_query($data) 
+        )
+                    );
+     
+     
+     
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+         $resultado =json_decode($result);
+        return $resultado;
+   
+    
    }
    
 
