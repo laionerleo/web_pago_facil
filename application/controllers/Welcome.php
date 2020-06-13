@@ -117,6 +117,8 @@ class Welcome extends CI_Controller {
 			$_SESSION['codigofijo']=$d['clientes']->values[0]->codigoClienteEmpresa;
 			$_SESSION['codigoubicacion']= $d['clientes']->values[0]->codidgoUbicacion;
 			$_SESSION['nombreclienteempresa'] = $d['clientes']->values[0]->nombre;
+			$_SESSION['cionitclienteempresa'] = $d['clientes']->values[0]->Nit;
+			
 			
 			
 		}
@@ -154,8 +156,10 @@ class Welcome extends CI_Controller {
 
 			$facturaprincipal=$this->servicios->get_detalle_factura($lista->values[0]->factura , $empresa_id,$codigo_fijo,$id_cliente);
 			$d['facturaprincipal']=$facturaprincipal->values;
-		//	print_r($facturaprincipal->values);
-			$_SESSION['periodomes']=$facturaprincipal->values->periodo;
+			//print_r($facturaprincipal->values);
+			$_SESSION['periodomes']=$lista->values[0]->periodo;
+			$_SESSION['nrofactura']=$facturaprincipal->values->nroFactura;
+
 			for ($i=0; $i < count($lista->values); $i++) { 
 				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
 				$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
@@ -194,8 +198,8 @@ class Welcome extends CI_Controller {
 		
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
-	/*			
-	echo "<pre>";
+				
+	/*echo "<pre>";
 	print_r($d);
 	echo "</pre>";*/
 	$this->load->view('pago_rapido/facturaspendientes', $d);
@@ -240,7 +244,7 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$datos=$this->input->post("datos");
+		//$datos=$this->input->post("datos");
 		$idcliente=$this->session->userdata('cliente');
 		$empresadetalle=$this->servicios->getempresasimple($id_empresa ,$idcliente);
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
@@ -277,16 +281,13 @@ class Welcome extends CI_Controller {
 		echo $fileToDownload;
 		//echo "esto es el dato del pdf ";
 		//exit;
-		
-	
-		
-		
+			
 	}
 	public function getavisoactualizado($lan,$codigo_fijo,$id_empresa)
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$datos=$this->input->post("datos");
+		//$datos=$this->input->post("datos");
 		$idcliente=$this->session->userdata('cliente');
 		//$id_empresa=;//  $datos["empresa_id"];
 		$empresadetalle=$this->servicios->getempresasimple($id_empresa,$idcliente);
@@ -333,12 +334,13 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
 		$metodopago=$datos["metododepago"];
-		$d['nombrecliente'] =  $this->session->userdata('nombre')." ".$this->session->userdata('apellido') ;
-		$d['cionit']=  $this->session->userdata('cinit');
+		$d['nombrecliente'] =  $this->session->userdata('nombreclienteempresa') ;
+		$d['cionit']=  $this->session->userdata('cionitclienteempresa');
 		$d['numerocelular']=  $this->session->userdata('telefonoDePago');
 		$d["correo"]= $this->session->userdata('correo');
 		$_SESSION['montototal']=$datos["montototal"];
 		$_SESSION['idfactura']=$datos["idfactura"];
+		$_SESSION['metododepago']=$datos["metododepago"];
 			/*echo "<pre>";
 			print_r($d);
 			echo print_r($_SESSION);
@@ -360,17 +362,17 @@ class Welcome extends CI_Controller {
 		{
 			$_SESSION['nombreclienteempresa']=$nombrecliente ;
 		}
-		if($cionit != $_SESSION['cinit'] )
+		if($cionit != $_SESSION['cionitclienteempresa'] )
 		{
-			$_SESSION['cinit'] =$cionit ;
+			$_SESSION['cionitclienteempresa'] =$cionit ;
 		}
-		if(	$numero != $_SESSION['nombreclienteempresa'] )
+		if(	$numero != $_SESSION['telefonoDePago'] )
 		{
-			$_SESSION['nombreclienteempresa'] =	$numero;
+			$_SESSION['telefonoDePago'] =	$numero;
 		}
-		if($correo != $_SESSION['telefonoDePago'] )
+		if($correo != $_SESSION['correo'] )
 		{
-			$_SESSION['nombreclienteempresa']=$correo;
+			$_SESSION['correo']=$correo;
 		}
 
 
@@ -384,14 +386,14 @@ class Welcome extends CI_Controller {
 		$d['tipocomision']=$metodos->values->aTipoComisionDetalle;
 		$varinicio=0;
 		$varfinal=0;
-		echo "<pre>";
-			print_r($d);
+	//	echo "<pre>";
+	//		print_r($d);
 
 		for ($i=0; $i <count($d['metodosdepago']) ; $i++) { 
 			if($d['metodosdepago'][$i]->metodoPago==$metodopago )
 			{
 				$tipodecomision=$d['metodosdepago'][$i]->tipoComisionCliente;
-				echo  "el tipo de comision es :".$tipodecomision;
+				//echo  "el tipo de comision es :".$tipodecomision;
 			}
 		}
 		for ($j=0; $j <count($d['tipocomision']) ; $j++) { 
@@ -399,53 +401,193 @@ class Welcome extends CI_Controller {
 			{
 				
 				$varfinal=$d['tipocomision'][$j]->hasta;
-				echo "rango".$varinicio."<".$_SESSION['montototal']."<".$varfinal;
+				
 				if(  ( strval($varinicio) < strval($_SESSION['montototal']) )  && ( strval($varfinal) > strval($_SESSION['montototal']) )    )
 				{
-					$montocomision=$d['tipocomision'][$i]->valor;
-					$_SESSION['montocomision']=$montocomision;
-					echo "entro y cambio";
+				//	echo "rango".$varinicio."<".$_SESSION['montototal']."<".$varfinal;
+					$montocomision=$d['tipocomision'][$j]->valor;
+					
+				//	echo "valor comision: ".$montocomision;
 				}
 				$varinicio=$d['tipocomision'][$j]->hasta;
-				echo "vfinal :".$varinicio;
+				//echo "vfinal :".$varinicio;
 			}
 				
 
 
 		}
 		$d['nombre']=$_SESSION['nombreclienteempresa'];
-		$d['cinit']=$_SESSION['cinit'];
+		$d['cinit']=$_SESSION['cionitclienteempresa'];
 		$d['periodo']=$_SESSION['periodomes'];
-		
 		$d['monto']=$_SESSION['montototal'];
+		$_SESSION['montocomision']=$montocomision;
 		$d['comision']=$_SESSION['montocomision'];
 		$d['nombremetodopago']=$_SESSION['nombreclienteempresa'];
 		$d['mediosbcp']= $this->session->userdata('telefonoDePago');
 		$d['email']=$this->session->userdata('correo');		
 		$d['nombreempresa']=$_SESSION['nombreempresa'];
 		$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
+		$_SESSION['montototalpagar']= $d['monto'] + $d['comision'];
+		$d['montototalpagar']=$_SESSION['montototalpagar'];
 		//echo "<pre>";
-		echo  "entro aqui final ";
-		print_r($d);
-		echo "</pre>";
+		//echo  "entro aqui final ";
+		//print_r($d);
+		//echo "</pre>";
 		
-		//$this->load->view('pago_rapido/confirmacion', $d);
+		$this->load->view('pago_rapido/confirmacion', $d);
 
 	}
 	public function vistaprepararpago()
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+		$d['montototal']=$_SESSION['montototalpagar'];
+
 		//$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
-		/*echo "<pre>";
-		print_r($d);
+	
+	/*	echo "<pre>";
+		print_r($_SESSION);
 		echo "</pre>";
-		*/
+	*/	
 		$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
 
 
 	}
 
+
+	public function prepararpago()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		/*$cionit=$datos["inpcionit"];
+		$numero=$datos["inpnumero"];
+		$correo=$datos["inpcorreo"];
+		$_SESSION['montocomision']
+		$_SESSION['extension']
+		$_SESSION['complemento']
+		$_SESSION['servicecode']
+		$_SESSION['expiredate']*/
+	}
+
+	public function metodoprepararpago()
+	{
+		$datos=$this->input->post("datos");
+		//$nombrecliente=$datos["nombrecliente"];
+		$ci=$datos["ci"];
+		$complemento=$datos["complemento"];
+		$extension=$datos["extension"];
+		$fechaexpiracion=$datos["fechaexpiracion"];
+		$codigoservicio=$datos["codigoservicio"];
+		
+		 $tncliente=$_SESSION['cliente'];
+		 $tnempresa = $_SESSION['idempresa'];
+		 $codigoclienteempresa=$_SESSION['codigofijo'];
+		 $tnmetodopago= $_SESSION['metododepago'];
+		$tnTelefono = $_SESSION['telefonoDePago'];
+		 $tcFacturaA= $_SESSION['nombreclienteempresa'] ;//'el nombre del cliente ';//$_SESSION['CLIENTE'];
+		 $tnCiNit=$ci;
+		 $tcNroPago=$_SESSION['nrofactura'];
+		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
+		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
+		 $tcPeriodo=$_SESSION['periodomes'];
+		 $tcImei=$_SESSION['imei'];
+		 $tcExtension=$extension ;
+		 $tcComplement=$complemento;
+		 $tcServiceCode=$codigoservicio;
+		 $tcExpireDate =$fechaexpiracion;
+		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate );
+		
+					$mensajeerror=$metodos->error ;
+					$valor= $metodos->values;
+					if($mensajeerror== 0 ){
+						if(!isset($valor))
+						{
+							//donde 555 es el numero de transaccion que se creo y 666 el codigo de autorizacion de BCP
+							$valores = explode(";", $valor );
+							$_SESSION['numerodetransaccion']=$valores[0];
+							$_SESSION['numeroautorizacion']=$valores[1];
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+							
+
+						}else{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+						}
+
+					}else{
+						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+					}
+					echo json_encode($arreglo);
+					/*
+				echo	"<pre>";
+					print_r($metodos);
+					print_r($metodos->error);
+					print_r($metodos->message);
+					print_r($metodos->values);
+					
+					echo "</pre>";
+*/
+	
+		//	$arreglo=array('mensaje' => $metodos->message, 'error' => $metodos->error , 'valor'=> $metodos->values);
+		
+		//$arreglo=array('mensaje' => $metodos->message, 'error' => $metodos->error);
+	//	echo json_encode($arreglo);
+		
+		/*echo	"<pre>";
+		print_r($metodos);
+		print_r($metodos->error);
+		print_r($metodos->message);
+		print_r($metodos->values);
+		
+		echo "</pre>";
+*/
+		//var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio};
+	}
+	public function confirmarpagobcp()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		/*
+		@Field("tnCliente")                 long    tnCliente,
+		@Field("tnEmpresa")                 long    tnEmpresa,
+		@Field("tnAuthorizationNumber")     String  tnAuthorizationNumber,
+		@Field("tnCorrelationId")           int     tnCorrelationId,
+		@Field("tcOTP")       
+					  String  tcOTP);*/
+		$datos=$this->input->post("datos");
+		$tnCliente=$_SESSION['cliente'];
+		$tnEmpresa=$_SESSION['idempresa'];
+		$tnAuthorizationNumber=$_SESSION['numeroautorizacion'];
+		$tnCorrelationId=  $_SESSION['numerodetransaccion'];
+		$tcOTP=$datos["codigo"];
+		$metodos=$this->servicios->bcpconfirmarpago($tnCliente,$tnEmpresa , $tnAuthorizationNumber,$tnCorrelationId , $tcOTP );
+		$mensajeerror=$metodos->error ;
+		$valor= $metodos->values;
+		if($mensajeerror== 0 ){
+			if(!isset($valor))
+			{
+				if($_SESSION['numerodetransaccion']==$valores[0] && $_SESSION['numeroautorizacion']==$valores[1])
+				{
+					$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+				}
+				else{
+					$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
+				}
+				
+		
+				
+
+			}else{
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+			}
+
+		}else{
+			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+		}
+		echo json_encode($arreglo);
+
+
+
+	}
 	public function get_periodo($cadena)
 	{
 		$porciones = explode("-", $cadena);

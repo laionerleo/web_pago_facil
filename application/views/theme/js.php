@@ -18,6 +18,7 @@
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/vmap.js"></script>
     <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
+    <script src="<?=  base_url() ?>/application/assets/assets/js/examples/sweet-alert.js"></script>
 
     <!-- To use theme colors with Javascript -->
     <div class="colors">
@@ -40,4 +41,10 @@
 
     <!-- App scripts -->
   <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
+  <script>
+      $(document).ready(function(){
+        //toastr.success('<?= $_SESSION["nombre"]." ".$_SESSION["apellido"] ?>');
+
+      });
+  </script>
   

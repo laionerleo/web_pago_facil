@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label for="">Codigo</label>
-                                        <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci">
+                                        <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
                                     </div>
                                 </div>
                                 <div class="form-row">

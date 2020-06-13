@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pago facil</title>
+    <title>PagoFacil Bolivia</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/favicon.png"/>

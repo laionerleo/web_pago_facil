@@ -14,13 +14,13 @@ $route['default_controller']                = 'Auth';
 $route[$l.'inicio']                    = 'Welcome';
 
 /* vistas pago rapido */
-$route[$l.'pagorapido']                    = 'Welcome/pago_rapido';
-$route[$l.'facturaspendientes']             = 'Welcome/vistafacturaspendientes';
-$route[$l.'vistafacturacion']               = 'Welcome/vistafacturacion';
-$route[$l.'vistaconfirmacion']               = 'Welcome/vistaconfirmacion';
-$route[$l.'vistaprepararpago']               = 'Welcome/vistaprepararpago';
-
-
+$route[$l.'pagorapido']                         = 'Welcome/pago_rapido';
+$route[$l.'facturaspendientes']                 = 'Welcome/vistafacturaspendientes';
+$route[$l.'vistafacturacion']                   = 'Welcome/vistafacturacion';
+$route[$l.'vistaconfirmacion']                  = 'Welcome/vistaconfirmacion';
+$route[$l.'vistaprepararpago']                  = 'Welcome/vistaprepararpago';
+$route[$l.'metodoprepararpago']                 = 'Welcome/metodoprepararpago';
+$route[$l.'confirmarpago']                      = 'Welcome/confirmarpago';
 
 
 
@@ -30,7 +30,7 @@ $route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/get
 
 
 //metodos para el login y logout
-$route[$l.'login_user']                     = 'Auth/loginusuario';
+$route[$l.'login_user']                     = 'Auth/login_user';
 $route[$l.'logout']                         = 'Auth/logout';
 
 //metodos para el login de  faceboook
@@ -62,6 +62,10 @@ $route[$l.'filtro_codigo_fijo']            = 'Welcome/busqueda_clientes';
 
 $route[$l.'(.+)$']                        = "$2";
 $route[$i.'$']                            = $route['default_controller'];
+
+
+
+
 
 /**/
 

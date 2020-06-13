@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Total :</div>
-                                            <div class="col-6"> <?= @$comision+ @$monto  ?> </div>
+                                            <div class="col-6"> <?= @$montototalpagar ?> </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-12 text-muted"> Detalle de la forma de pago :</div>

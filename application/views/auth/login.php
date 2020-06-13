@@ -45,7 +45,7 @@
                         <div class="form-group">  
                             <div class="fxt-transformY-50 fxt-transition-delay-2">                                              
                                 <input id="contraseña" name ="contraseña" type="password" class="form-control" placeholder="********" required="required" style="color: Black;opacity: 1;" >
-                                <i toggle="#password" class="fa fa-fw fa-eye toggle-password field-icon"></i>
+                                <i toggle="#password" id="contraseñaojo" class="fa fa-fw fa-eye toggle-password field-icon"></i>
                             </div>
                         </div>
                         <div class="form-group">
@@ -89,6 +89,8 @@
         </div>
     </section>
     <script>
+      
+            
     function realizar_login()
 		{
 			var datos=$("#form_login").serialize();
@@ -144,6 +146,21 @@
     <script src="<?= base_url() ?>/application/assets/login/js/validator.min.js"></script>
     <!-- Custom Js -->
     <script src="<?= base_url() ?>/application/assets/login/js/main.js"></script>
+    <script>
+        sw=1;
+          $('#contraseñaojo').on("click",function(event) {
+            if(sw=1)
+            {
+                $('#contraseña').attr("type","text");
+                sw=2;
+            }else{
+                $('#contraseña').attr("type","password");
+                sw=1;
+            }
+            
+            });
+
+    </script>
 
 </body>
 

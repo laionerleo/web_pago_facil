@@ -463,7 +463,7 @@ class servicios {
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/getAvisoDeCobranzaActualizado';
       $data = array('tcIPEmpresa' => $ip_empresa , 'tnTransaccionDePago' => $idcliente   ,'tcCodigoClienteEmpresa' => $codigo_fijo  );
-  
+    
         /*
   
          @POST(cPagoFacilPHP + "/Factura/getAvisoDeCobranzaActualizado")
@@ -614,12 +614,14 @@ class servicios {
       }
    }
 
-   public function  prepararpago()
+   public function  prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate )
    {
       
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_PrepararPago';
-      //$data = array('tnCliente' =>   , 'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>  'tnCliente' =>      );
-  
+      $data = array('tnCliente' =>$tncliente   , 'tnEmpresa' =>  $tnempresa , 'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,'tnMetodoPago' =>  $tnmetodopago  ,'tnTelefono' => $tnTelefono ,'tcFacturaA' =>  $tcFacturaA ,'tnCiNit' =>  $tnCiNit ,'tcNroPago' => $tcNroPago,  'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa,   'tnMontoClienteSyscoop' =>$tnMontoClienteSyscoop , 'tcPeriodo' => $tcPeriodo , 'tcImei'=>$tcImei ,   'tcExtension' => $tcExtension , 'tcComplement' =>$tcComplement,  'tcServiceCode' => $tcServiceCode, 'tcExpireDate' =>  $tcExpireDate);
+      echo "<pre>";
+      print_r($data);
+      echo "</pre>";
         
     /*  @POST(cPagoFacilPHP + "/Factura/BCP_PrepararPago")
     @FormUrlEncoded
@@ -660,10 +662,56 @@ class servicios {
         $result = file_get_contents($url, false, $context);
          $resultado =json_decode($result);
         return $resultado;
-   
-    
    }
+   public function bcpconfirmarpago($tnCliente,$tnEmpresa , $tnAuthorizationNumber,$tnCorrelationId , $tcOTP )
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarEmpresas';
+      $data = array('tnCliente' => $tnCliente ,'tnEmpresa'=> $tnEmpresa,'tnAuthorizationNumber'=> $tnAuthorizationNumber , 'tnCorrelationId'=> $tnCorrelationId , 'tcOTP'=> $tcOTP );
+
+     // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
+
+      /*    
+    @POST(cPagoFacilPHP + "/Factura/BCP_ConfirmarPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> BCP_ConfirmarPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tnAuthorizationNumber")     String  tnAuthorizationNumber,
+            @Field("tnCorrelationId")           int     tnCorrelationId,
+            @Field("tcOTP")                     String  tcOTP);
+
+            [13:00, 9/6/2020] Huga Syscoop: y ese OTP se ingresa al metodo confirmar Pago
+[13:01, 9/6/2020] Huga Syscoop: El preprarar pago devuleve elpaquete pagoFacil de siempre, en values devuelves una cadena separada asi:
+[13:01, 9/6/2020] Huga Syscoop: 5555;666
+[13:01, 9/6/2020] Huga Syscoop: donde 555 es el numero de transaccion que se creo y 666 el codigo de autorizacion de BCP
+[13:02, 9/6/2020] Huga Syscoop: ambos datos los usara en elmetodo confirmarPAgo
+[13:02, 9/6/2020] Huga Syscoop: tnCorrelationId= trasnaccionDePago
+
+tnAuthorizationNumber= autorizacion deBCP
+
+*/
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
    
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+      
+   }   
 
 }
 

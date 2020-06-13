@@ -21,7 +21,14 @@ class Auth extends CI_Controller {
 	$this->load->library('google');
 		      
         //cargamos los modelos
-       $this->load->model(array('Msecurity'));
+	   $this->load->model(array('Msecurity'));
+	  
+	 /*  if(!@$this->session->userdata('cliente')){
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		redirect($d['url']."?m=Usted tiene que iniciar session !!!");
+	}
+	*/
 
     }
 

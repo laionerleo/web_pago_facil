@@ -66,8 +66,8 @@
                                                     <td> <center> <button class="btn btn-primary"  onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')">  <?= $etiquetas->EtiquetaAviso  ?></button></center> </td>
                                                 </tr>
                                             <?php  }?>
-                                        <input type="hidden" id="montototal"name="montotoal" value="<?= $facturas[0]->montoTotal  ?>">
-                                        <input type="hidden" id="facturaid"  name="facturaid" value="<?= $facturas[0]->factura  ?>">
+                                        <input type="hidden" id="montototal"name="montotoal" value="<?= @$facturas[0]->montoTotal  ?>">
+                                        <input type="hidden" id="facturaid"  name="facturaid" value="<?= @$facturas[0]->factura  ?>">
                                         
                                         
                                         
@@ -81,27 +81,32 @@
                     <div class="card">
                             <div class="card-body">
                                 <div class="row">
+                                     <?php if($cantidadfacturas>0){ ?>
                                     <div class="col-md-8">
                                     
                                         <div class="slick-center-mode">
-                                            <?php  for ($i=0; $i < count($metodospago) ; $i++) { ?>
+                                            <?php  for ($i=0; $i < count($metodospago) ; $i++) {
+                                                if(  $metodospago[$i]->metodoPago ==5){
+                                                
+                                                ?>
                                                 
 
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                                            id="exampleRadios4" value="option1" >
+                                                <div class="slick-slide-item">
                                                     <label class="form-check-label" for="exampleRadios4">
                                                     <img  id="img-<?=  $metodospago[$i]->url_icon ?>" src="<?=  $metodospago[$i]->url_icon ?>" class="img-fluid" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
                                                     <?=  $metodospago[$i]->nombreMetodoPago ?>
                                                     </label>
-                                                </div>
+                                               </div>
                                                 
-                                            <?php  } ?>
+                                            <?php } } ?>
                                         </div>
                                     </div>
                                     <div class="col-md-3" >
+                                       
                                         <center><button class="btn btn-primary"  onclick="vistafacturacion()"> Siguiente</button></center>
+                                          
                                     </div>
+                                    <?php }else{ echo "usted no tiene facturas por pagar"; }?>
                                 </div>
                             </div>
                     </div>
