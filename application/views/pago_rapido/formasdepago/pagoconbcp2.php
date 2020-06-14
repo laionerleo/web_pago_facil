@@ -1,7 +1,4 @@
 
-                <div class="content" >
-                    <div class="row">
-                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-8">
                                 <div class="card">
@@ -136,9 +133,7 @@
                                 
                                 
                             </div>
-                        </div>
-                    </div>
-                </div>
+                   
 <!-- begin::footer -->
 
 <!-- begin::modal -->
@@ -172,7 +167,7 @@
     </div>
 </div>
 
-    <?php $this->load->view('theme/footer');  ?>
+  
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
 <!-- end::footer -->
 <script>

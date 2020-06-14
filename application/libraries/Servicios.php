@@ -618,10 +618,12 @@ class servicios {
    {
       
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_PrepararPago';
-      $data = array('tnCliente' =>$tncliente   , 'tnEmpresa' =>  $tnempresa , 'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,'tnMetodoPago' =>  $tnmetodopago  ,'tnTelefono' => $tnTelefono ,'tcFacturaA' =>  $tcFacturaA ,'tnCiNit' =>  $tnCiNit ,'tcNroPago' => $tcNroPago,  'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa,   'tnMontoClienteSyscoop' =>$tnMontoClienteSyscoop , 'tcPeriodo' => $tcPeriodo , 'tcImei'=>$tcImei ,   'tcExtension' => $tcExtension , 'tcComplement' =>$tcComplement,  'tcServiceCode' => $tcServiceCode, 'tcExpireDate' =>  $tcExpireDate);
-      echo "<pre>";
-      print_r($data);
+      $data = array('tnCliente' =>$tncliente   , 'tnEmpresa' =>  $tnempresa , 'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,'tnMetodoPago' =>  $tnmetodopago  ,'tnTelefono' => (String)$tnTelefono ,'tcFacturaA' => (String) $tcFacturaA ,'tnCiNit' =>(String)  $tnCiNit ,'tcNroPago' =>(String) $tcNroPago,  'tnMontoClienteEmpresa' => (string)($tnMontoClienteEmpresa) ,   'tnMontoClienteSyscoop' =>(string)$tnMontoClienteSyscoop , 'tcPeriodo' =>(String) $tcPeriodo , 'tcImei'=> (String)$tcImei ,   'tcExtension' =>(String) $tcExtension , 'tcComplement' =>$tcComplement,  'tcServiceCode' => (String)$tcServiceCode, 'tcExpireDate' =>  (String)$tcExpireDate);
+      /*echo "<pre>";
+      print_r(json_encode($data));
       echo "</pre>";
+      */
+      
         
     /*  @POST(cPagoFacilPHP + "/Factura/BCP_PrepararPago")
     @FormUrlEncoded

@@ -149,7 +149,7 @@
     <script>
         sw=1;
           $('#contraseñaojo').on("click",function(event) {
-            if(sw=1)
+            if(sw==1)
             {
                 $('#contraseña').attr("type","text");
                 sw=2;

@@ -75,6 +75,17 @@ class Welcome extends CI_Controller {
 		$this->load->view('pago_rapido/index', $d);
 	
 	}
+	public function nuevavista()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//echo "hola mundo ";
+		$id_cliente=$this->session->userdata('cliente');
+		$d['rubros']=$this->servicios->get_list_rubros($id_cliente);
+		$d['region']=$this->servicios->get_list_regiones($id_cliente);
+		$this->load->view('pago_rapido/prueba', $d);
+
+	}
 	public function filtro_empresas_by_tipo_region()
 	{
 		$d = array();
@@ -202,7 +213,7 @@ class Welcome extends CI_Controller {
 	/*echo "<pre>";
 	print_r($d);
 	echo "</pre>";*/
-	$this->load->view('pago_rapido/facturaspendientes', $d);
+	$this->load->view('pago_rapido/facturaspendientes2', $d);
 	}
 	public function getavisofacturames()
 	{
@@ -345,7 +356,7 @@ class Welcome extends CI_Controller {
 			print_r($d);
 			echo print_r($_SESSION);
 			echo "</pre>";*/
-		$this->load->view('pago_rapido/facturacion', $d);
+		$this->load->view('pago_rapido/facturacion2', $d);
 
 	}
 	public function vistaconfirmacion()
@@ -434,7 +445,7 @@ class Welcome extends CI_Controller {
 		//print_r($d);
 		//echo "</pre>";
 		
-		$this->load->view('pago_rapido/confirmacion', $d);
+		$this->load->view('pago_rapido/confirmacion2', $d);
 
 	}
 	public function vistaprepararpago()
@@ -449,7 +460,7 @@ class Welcome extends CI_Controller {
 		print_r($_SESSION);
 		echo "</pre>";
 	*/	
-		$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
+		$this->load->view('pago_rapido/formasdepago/pagoconbcp2', $d);
 
 
 	}
@@ -483,8 +494,10 @@ class Welcome extends CI_Controller {
 		 $tnempresa = $_SESSION['idempresa'];
 		 $codigoclienteempresa=$_SESSION['codigofijo'];
 		 $tnmetodopago= $_SESSION['metododepago'];
-		$tnTelefono = $_SESSION['telefonoDePago'];
-		 $tcFacturaA= $_SESSION['nombreclienteempresa'] ;//'el nombre del cliente ';//$_SESSION['CLIENTE'];
+
+		$tnTelefono =  (($datos['numbersoli']==''))? null : $datos['numbersoli'] ;
+		 
+		$tcFacturaA= $_SESSION['nombreclienteempresa'] ;//'el nombre del cliente ';//$_SESSION['CLIENTE'];
 		 $tnCiNit=$ci;
 		 $tcNroPago=$_SESSION['nrofactura'];
 		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
@@ -492,18 +505,27 @@ class Welcome extends CI_Controller {
 		 $tcPeriodo=$_SESSION['periodomes'];
 		 $tcImei=$_SESSION['imei'];
 		 $tcExtension=$extension ;
-		 $tcComplement=$complemento;
+		 $tcComplement= (($complemento==''))? null : $complemento; //$complemento;  //(!isset($tcComplement))? null : $tcComplement; // $complemento;
 		 $tcServiceCode=$codigoservicio;
 		 $tcExpireDate =$fechaexpiracion;
 		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate );
-		
+						
+				/*echo	"<pre>";
+					print_r($metodos);
+					print_r($metodos->error);
+					print_r($metodos->message);
+					print_r($metodos->values);
+					
+					echo "</pre>";*/
+
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
 					if($mensajeerror== 0 ){
-						if(!isset($valor))
+						if(isset($valor))
 						{
 							//donde 555 es el numero de transaccion que se creo y 666 el codigo de autorizacion de BCP
 							$valores = explode(";", $valor );
+							print_r($valores);
 							$_SESSION['numerodetransaccion']=$valores[0];
 							$_SESSION['numeroautorizacion']=$valores[1];
 							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );

@@ -22,6 +22,9 @@ $route[$l.'vistaprepararpago']                  = 'Welcome/vistaprepararpago';
 $route[$l.'metodoprepararpago']                 = 'Welcome/metodoprepararpago';
 $route[$l.'confirmarpago']                      = 'Welcome/confirmarpago';
 
+$route[$l.'nuevavista']                      = 'Welcome/nuevavista';
+
+
 
 
 $route[$l.'getavisomes2/(:any)/(:any)/(:any)']                    = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
@@ -30,7 +33,7 @@ $route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/get
 
 
 //metodos para el login y logout
-$route[$l.'login_user']                     = 'Auth/login_user';
+$route[$l.'login_user']                     = 'Auth/loginusuario';
 $route[$l.'logout']                         = 'Auth/logout';
 
 //metodos para el login de  faceboook
