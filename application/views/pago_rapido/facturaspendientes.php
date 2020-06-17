@@ -1,11 +1,6 @@
-
-<div class="content" >
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
+<div class="row">
                 <div class="col-md-4">
-
-                    <div class="card" style="height: 100%;">
+                   <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
                                         <div class="row mb-2">
@@ -44,6 +39,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
@@ -82,24 +78,18 @@
                             <div class="card-body">
                                 <div class="row">
                                      <?php if($cantidadfacturas>0){ ?>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 row ">
                                     
-                                        <div class="slick-center-mode">
                                             <?php  for ($i=0; $i < count($metodospago) ; $i++) {
-                                                if(  $metodospago[$i]->metodoPago ==5){
-                                                
                                                 ?>
-                                                
+                                                <div class="col-xs-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#item<?=  $metodospago[$i]->metodoPago ?>')"  style=" border-color:blue;height:80px; width:150px;padding:10px; padding: 5px 5px 5px 5px;overflow:hidden;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
+                                                <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:40px" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
+                                                <!--<?=  $metodospago[$i]->nombreMetodoPago ?> -->
+                                                </div>
 
-                                                <div class="slick-slide-item">
-                                                    <label class="form-check-label" for="exampleRadios4">
-                                                    <img  id="img-<?=  $metodospago[$i]->url_icon ?>" src="<?=  $metodospago[$i]->url_icon ?>" class="img-fluid" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
-                                                    <?=  $metodospago[$i]->nombreMetodoPago ?>
-                                                    </label>
-                                               </div>
                                                 
-                                            <?php } } ?>
-                                        </div>
+                                                
+                                            <?php  } ?>
                                     </div>
                                     <div class="col-md-3" >
                                        
@@ -111,16 +101,14 @@
                             </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
-</div>
+      
 <!-- begin::footer -->
     <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
     <input type="hidden" id="codigofijo" name="codigofijo" value="<?= $codigofijo ?>">
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
     
-    <?php $this->load->view('theme/footer');  ?>
+
 <!-- end::footer -->
 													
 <script>
@@ -143,28 +131,47 @@ function getpdfactualizado()
     var codigo_fijo=$("#codigofijo").val();
     var nuevaVentana= window.open("<?=  base_url() ?>es/getavisoactualizado/"+codigo_fijo+"/"+empresa_id,"ventana","left=200,top=200,height=300,width=500,scrollbar=si,location=no ,resizable=si,menubar=no");
 }
-/*
-function cambiar_metodo_de_pago(id_region)
-{
-    //region_id=id_region;
-    //$(id_fugure_region).removeClass("avatar-state-success");
-    //id_fugure_region=id_figure;
-    //$('#btn_region').click();
-    $(id_region).addClass("avatar-state-success");
-    //$("#nombre_region").text(nombre);
-    //filtrar_empresas();
 
-}
-*/
+
+
 // en este metodo se  guardar el metodo de pago el monto y la comision en variables de session 
 function vistafacturacion()
 {
     var montototal=$("#montototal").val();
     var idfactura=$("#facturaid").val();
-    var datos= {metododepago:5 , montototal:montototal , idfactura:idfactura };
-    var urlajax=$("#url").val()+"vistafacturacion";   
-    $("#vista_general").load(urlajax,{datos});   
+    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura };
+    var urlajax=$("#url").val()+"vistafacturacion";  
+     
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+     
+    $("#facturacionbody").load(urlajax,{datos});   
+    $("#li3").show();
+    $("#facturacion-tab").click();
+    
 }
+idmetododepago=0;
+    function ledioaeste(idmetododepagonuevo,id_item)
+            {
+                console.log(id_item);
+            
+              $("#item"+idmetododepago).css("border", "none");
+              idmetododepago=idmetododepagonuevo;
+                //id_fugure_region=id_figure;
+                //$('#btn_region').click();
+                $(id_item).css("border", "solid");
+                //$("#nombre_region").text(nombre);
+                //filtrar_empresas();
+
+            }
+            ledioaeste(5,"item5")
+
 </script>
 
       <!-- Slick -->

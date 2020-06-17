@@ -53,11 +53,11 @@ class Auth extends CI_Controller {
         
         $resultado=$this->servicios->loginpagofacil($usuario,$contraseña);
         $data = get_object_vars($resultado->values);
-       // print_r($data);
+     //  /print_r($data);
       
        if($resultado->error  == 0)
 		{
-//            $_SESSION['user'] = $resultado;
+           $_SESSION['user'] = $resultado;
            $this->session->set_userdata($data);
       
 			$respuesta=0;

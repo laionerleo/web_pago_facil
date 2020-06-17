@@ -96,6 +96,9 @@ class Welcome extends CI_Controller {
 		$id_cliente=$this->session->userdata('cliente');
 		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
 		//		echo json_encode($empresas);
+		/*echo "<pre>";
+		print_r($d);
+		echo "</pre>";*/
 		$this->load->view('pago_rapido/lista_empresas', $d);
 		
 
@@ -169,7 +172,7 @@ class Welcome extends CI_Controller {
 			$d['facturaprincipal']=$facturaprincipal->values;
 			//print_r($facturaprincipal->values);
 			$_SESSION['periodomes']=$lista->values[0]->periodo;
-			$_SESSION['nrofactura']=$facturaprincipal->values->nroFactura;
+			$_SESSION['nrofactura']=$facturaprincipal->values->factura;
 
 			for ($i=0; $i < count($lista->values); $i++) { 
 				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
@@ -192,10 +195,12 @@ class Welcome extends CI_Controller {
 		$_SESSION['idempresa']=$datos["empresa_id"];
 		$_SESSION['nombreempresa']=$datos["nombreempresa"];
 		$_SESSION['urlimagenempresa']=$d['urlimagenempresa'];
-
+		
 		$metodos=$this->servicios->get_metodos_pago_empresa($id_cliente ,$empresa_id);
 		$d['tiposdecomision']=$metodos->values->aTipoComisionDetalle;
 		$d['metodospago']=$metodos->values->aMetodosDePago;
+		$_SESSION['todosmetodosdepago']=$metodos->values->aMetodosDePago;
+
 		$etiquetas=$this->servicios->get_etiquetas($id_cliente);
 		//$d['etiquetas']=$etiquetas->values;
 		
@@ -209,11 +214,13 @@ class Welcome extends CI_Controller {
 		
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
-				
-	/*echo "<pre>";
+	/*			
+	echo "<pre>";
 	print_r($d);
-	echo "</pre>";*/
-	$this->load->view('pago_rapido/facturaspendientes2', $d);
+	print_r($lista);
+	echo "</pre>";
+	*/
+	$this->load->view('pago_rapido/facturaspendientes', $d);
 	}
 	public function getavisofacturames()
 	{
@@ -356,7 +363,7 @@ class Welcome extends CI_Controller {
 			print_r($d);
 			echo print_r($_SESSION);
 			echo "</pre>";*/
-		$this->load->view('pago_rapido/facturacion2', $d);
+		$this->load->view('pago_rapido/facturacion', $d);
 
 	}
 	public function vistaconfirmacion()
@@ -445,7 +452,7 @@ class Welcome extends CI_Controller {
 		//print_r($d);
 		//echo "</pre>";
 		
-		$this->load->view('pago_rapido/confirmacion2', $d);
+		$this->load->view('pago_rapido/confirmacion', $d);
 
 	}
 	public function vistaprepararpago()
@@ -460,7 +467,24 @@ class Welcome extends CI_Controller {
 		print_r($_SESSION);
 		echo "</pre>";
 	*/	
-		$this->load->view('pago_rapido/formasdepago/pagoconbcp2', $d);
+	$var=$_SESSION['metododepago'];
+
+	switch ($var) {
+		case 5:
+			$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
+		  break;
+		case 6:
+			$this->load->view('pago_rapido/formasdepago/pagoconelinkser', $d);
+		break;
+		
+		default:
+		$this->load->view('endesarrollo', $d);
+	  }
+	  
+
+		
+		
+		
 
 
 	}
@@ -470,20 +494,12 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		/*$cionit=$datos["inpcionit"];
-		$numero=$datos["inpnumero"];
-		$correo=$datos["inpcorreo"];
-		$_SESSION['montocomision']
-		$_SESSION['extension']
-		$_SESSION['complemento']
-		$_SESSION['servicecode']
-		$_SESSION['expiredate']*/
+
 	}
 
 	public function metodoprepararpago()
 	{
 		$datos=$this->input->post("datos");
-		//$nombrecliente=$datos["nombrecliente"];
 		$ci=$datos["ci"];
 		$complemento=$datos["complemento"];
 		$extension=$datos["extension"];
@@ -503,20 +519,12 @@ class Welcome extends CI_Controller {
 		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
 		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		 $tcPeriodo=$_SESSION['periodomes'];
-		 $tcImei=$_SESSION['imei'];
+		 $tcImei= $_SESSION['imei']."W"  ;//$_SESSION['imei'];
 		 $tcExtension=$extension ;
 		 $tcComplement= (($complemento==''))? null : $complemento; //$complemento;  //(!isset($tcComplement))? null : $tcComplement; // $complemento;
 		 $tcServiceCode=$codigoservicio;
 		 $tcExpireDate =$fechaexpiracion;
 		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate );
-						
-				/*echo	"<pre>";
-					print_r($metodos);
-					print_r($metodos->error);
-					print_r($metodos->message);
-					print_r($metodos->values);
-					
-					echo "</pre>";*/
 
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
@@ -525,7 +533,7 @@ class Welcome extends CI_Controller {
 						{
 							//donde 555 es el numero de transaccion que se creo y 666 el codigo de autorizacion de BCP
 							$valores = explode(";", $valor );
-							print_r($valores);
+							//print_r($valores);
 							$_SESSION['numerodetransaccion']=$valores[0];
 							$_SESSION['numeroautorizacion']=$valores[1];
 							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
@@ -581,22 +589,28 @@ class Welcome extends CI_Controller {
 		$tnAuthorizationNumber=$_SESSION['numeroautorizacion'];
 		$tnCorrelationId=  $_SESSION['numerodetransaccion'];
 		$tcOTP=$datos["codigo"];
+/*		echo	"<pre>";
+		print_r($tnCliente);
+		echo "--";
+		print_r($tnEmpresa);
+		echo "--";
+		print_r($tnAuthorizationNumber);
+		echo "--";
+		print_r($tnCorrelationId);
+		echo "--";
+		print_r($tcOTP);
+		echo "--";
+		echo "</pre>";
+*/
 		$metodos=$this->servicios->bcpconfirmarpago($tnCliente,$tnEmpresa , $tnAuthorizationNumber,$tnCorrelationId , $tcOTP );
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
+		
+
 		if($mensajeerror== 0 ){
 			if(!isset($valor))
 			{
-				if($_SESSION['numerodetransaccion']==$valores[0] && $_SESSION['numeroautorizacion']==$valores[1])
-				{
 					$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
-				}
-				else{
-					$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
-				}
-				
-		
-				
 
 			}else{
 				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
@@ -610,9 +624,67 @@ class Welcome extends CI_Controller {
 
 
 	}
+
+	public function pagarelinkser()
+	{
+		$datos=$this->input->post("datos");
+		// aqui van los datos de  el formulario elinkser 
+		//nrotarjeta:nrotarjeta, nombretarjeta:nombretarjeta, fechaexpiracion:fechaexpiracion , codigoseguridad :codigoseguridad  };
+		$tcTarjeta =$datos["nrotarjeta"];
+		$tcTarjetaHabiente= $datos['nombretarjeta'];
+		$tcCodigoSeguridad = $datos['codigoseguridad'];
+		$tcFechaExpiracion = $datos['fechaexpiracion'];
+		// aqui son los datos que tengo recolectados
+		
+		 $tncliente=$_SESSION['cliente'];
+		 $tnempresa = $_SESSION['idempresa'];
+		 $codigoclienteempresa=$_SESSION['codigofijo'];
+		 $tnmetodopago= $_SESSION['metododepago'];
+
+		$tnTelefono =  null  ;  //(($datos['numbersoli']==''))? null : $datos['numbersoli'] ;
+		 
+		$tcFacturaA= $_SESSION['nombreclienteempresa'] ;//'el nombre del cliente ';//$_SESSION['CLIENTE'];
+		 $tnCiNit=$ci;
+		 $tcNroPago=$_SESSION['nrofactura'];
+		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
+		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
+		 $tcPeriodo=$_SESSION['periodomes'];
+		 $tcImei= $_SESSION['imei']."W"  ;//$_SESSION['imei'];
+		$metodos=$this->servicios->ejecuparpagoelinkser($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcTarjeta , $tcTarjetaHabiente  , $tcCodigoSeguridad , $tcFechaExpiracion );
+
+					$mensajeerror=$metodos->error ;
+					$valor= $metodos->values;
+					if($mensajeerror== 0 ){
+						if(isset($valor))
+						{
+						
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+						}else{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+						}
+
+					}else{
+						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+					}
+					echo json_encode($arreglo);
+					/*
+				echo	"<pre>";
+					print_r($metodos);
+					print_r($metodos->error);
+					print_r($metodos->message);
+					print_r($metodos->values);
+					
+					echo "</pre>";
+
+		echo "</pre>";
+*/
+		//var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio};
+
+	}
 	public function get_periodo($cadena)
 	{
-		$porciones = explode("-", $cadena);
+		$cadenanueva=substr($cadena, 0, 7);
+		$porciones = explode("-", $cadenanueva);
 		$arraymeses=["01"=> "ENE" ,"02"=> "FEB" ,"03"=> "MAR"  ,"04"=> "ABR" ,"05"=> "MAY"  ,"06"=> "JUN"  ,"07"=>"JUL"  ,"08"=>"AGO"  ,"09"=> "SEP" ,"10"=> "OCT" ,"11"=>"NOV"  ,"12"=> "DIC"  ];
 		return $porciones[0]."-".$arraymeses[$porciones[1]];
 	}

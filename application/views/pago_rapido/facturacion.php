@@ -1,13 +1,11 @@
 
-<div class="content" >
-    <div class="row">
-        <div class="col-md-12">
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
-                                <h4>Datos de Facturacion</h4>
+                                <h4>Verificacion de Pago</h4>
                     
                                 <label for=""> nombre cliente</label>
                             <input class="form-control" id="inpnombrecliente" type="text" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
@@ -39,12 +37,10 @@
                 </div>
                 
             </div>
-        </div>
-    </div>
-</div>
+     
 <!-- begin::footer -->
 <input type="hidden" id="url" name="url" value="<?= $url ?>">
-    <?php $this->load->view('theme/footer');  ?>
+ 
 <!-- end::footer -->
 													
 <script>
@@ -59,7 +55,17 @@ function vistaconfirmacion()
     
     var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
     var urlajax=$("#url").val()+"vistaconfirmacion";   
-    $("#vista_general").load(urlajax,{datos});   
+    
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+    $("#confirmacionbody").load(urlajax,{datos}); 
+    $("#li4").show();
+
+    $("#confirmacion-tab").click();
 }
 </script>
       <!-- Slick -->

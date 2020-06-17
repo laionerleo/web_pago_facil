@@ -19,8 +19,9 @@ $route[$l.'facturaspendientes']                 = 'Welcome/vistafacturaspendient
 $route[$l.'vistafacturacion']                   = 'Welcome/vistafacturacion';
 $route[$l.'vistaconfirmacion']                  = 'Welcome/vistaconfirmacion';
 $route[$l.'vistaprepararpago']                  = 'Welcome/vistaprepararpago';
-$route[$l.'metodoprepararpago']                 = 'Welcome/metodoprepararpago';
-$route[$l.'confirmarpago']                      = 'Welcome/confirmarpago';
+$route[$l.'metodoprepararpagobcp']                 = 'Welcome/metodoprepararpagobcp';
+$route[$l.'confirmarpagobcp']                      = 'Welcome/confirmarpagobcp';
+$route[$l.'ejecuparpagoeLinkser']                      = 'Welcome/pagarelinkser';
 
 $route[$l.'nuevavista']                      = 'Welcome/nuevavista';
 

@@ -45,9 +45,35 @@
                     <div class="col-md-12">
                         <div class="card">
                               <div class="card-body">
-                                <h6 class="card-title">Pago rapido</h6>
-                                <div class="form-row">
-                                    <div class="col-md-4 mb-2">
+                                 
+                            <ul class="nav nav-tabs mb-3" role="tablist">
+                                <li class="nav-item" id="li1"  >
+                                    <a class="nav-link active" id="inicio-tab"  data-toggle="tab" href="#iniciobody" role="tab"
+                                       aria-controls="home" aria-selected="true">Inicio</a>
+                                </li>
+                                <li class="nav-item" id="li2" style="display:none" >
+                                    <a class="nav-link" id="facturaspendientes-tab" data-toggle="tab" href="#facturaspendientesbody" role="tab"
+                                       aria-controls="profile" aria-selected="false">Facturas Pendientes </a>
+                                </li>
+                                <li class="nav-item" id="li3" style="display:none">
+                                    <a class="nav-link" id="facturacion-tab" data-toggle="tab" href="#facturacionbody" role="tab"
+                                       aria-controls="contact" aria-selected="false">Datos de Facturacion</a>
+                                </li>
+                                <li class="nav-item" id="li4" style="display:none" >
+                                    <a class="nav-link" id="confirmacion-tab" data-toggle="tab" href="#confirmacionbody" role="tab"
+                                       aria-controls="contact" aria-selected="false">Verificacion de Pago</a>
+                                </li>
+                                <li class="nav-item" id="li5" style="display:none" > 
+                                    <a class="nav-link" id="prepararpago-tab" data-toggle="tab" href="#prepararpagobody" role="tab"
+                                       aria-controls="contact" aria-selected="false">Procesar Pago </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
+                                     aria-labelledby="home-tab">
+
+                                     <div class="form-row">
+                                        <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
                                         <div class="avatar-group ml-4">
                                                     <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
@@ -99,41 +125,72 @@
                                   </div>
                                   <br>
                                  
-                                <div class="form-row">
-                                    <div class="col-md-3 mb-2 ">
-                                        <label for="">Tipo de documento</label><br>
+                                    <div class="form-row">
+                                        <div class="col-md-3 mb-2 ">
+                                            <label for="">Tipo de documento</label><br>
+                                            <div class="form-check">
+                                            <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                    id="exampleRadios4" value="option1" checked >
+                                            <label class="form-check-label" for="exampleRadios4">
+                                                Codigo Fijo 
+                                            </label>
+                                        </div>
                                         <div class="form-check">
-                                          <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                id="exampleRadios4" value="option1" checked >
-                                          <label class="form-check-label" for="exampleRadios4">
-                                              Codigo Fijo 
-                                          </label>
-                                      </div>
-                                      <div class="form-check">
-                                          <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                id="exampleRadios5" value="option2" >
-                                          <label class="form-check-label" for="exampleRadios5">
-                                              Carnet de Identidad
-                                          </label>
-                                      </div>
+                                            <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                    id="exampleRadios5" value="option2" >
+                                            <label class="form-check-label" for="exampleRadios5">
+                                                Carnet de Identidad
+                                            </label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="">Codigo</label>
+                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
                                     </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="">Codigo</label>
-                                        <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                    <div class="form-row">
+                                        <div class="col-md-1 mb-1" id="idlugarboton" >
+                                            <input type="hidden" id="url"  value="<?= $url ?>">
+                                            <br>
+                                            <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-1 mb-1">
-                                        <input type="hidden" id="url"  value="<?= $url ?>">
-                                        <br>
-                                        <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-12 mb-12" id="vista_clientes">
-                                        
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-12" id="vista_clientes">
+                                            
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane fade" id="facturaspendientesbody" role="tabpanel" aria-labelledby="facturaspendientesbody">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="facturacionbody" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="facturacionbody" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="confirmacionbody" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="prepararpagobody" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>                     
+                                </div>
+                                
+                            </div>
+                            
+                             
                               </div>
                         </div>
                         
@@ -210,7 +267,7 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
     $(id_fila).css("background-color", "rgb(45, 206, 222)");
     
     $('html, body').animate({
- scrollTop: $("#vista_clientes").offset().top
+ scrollTop: $("#idlugarboton").offset().top
  }, 2000);
     
     //$('#btn_empresa').click();
@@ -257,9 +314,12 @@ function  busqueda_datos()
     var tipo=sw;
     if( (codigo!='') && (empresa_id!=0))
     {
+        
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
+      
     $("#vista_clientes").load(urlajax,{datos});                    
+  
     }else{
         if(codigo=='')
         {
@@ -271,6 +331,7 @@ function  busqueda_datos()
         }
         
     }
+    
 }
 function facturaspendientes()
 {
@@ -278,7 +339,21 @@ function facturaspendientes()
     var tipo=sw;
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
     var urlajax=$("#url").val()+"facturaspendientes";   
-    $("#vista_general").load(urlajax,{datos});   
+    $("#facturaspendientesbody").empty();
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+    $("#facturaspendientesbody").load(urlajax,{datos});   
+    
+    $("#li2").show();
+    $("#facturaspendientes-tab").click();
+
 }
 
   
@@ -290,6 +365,7 @@ function facturaspendientes()
     
 $( document ).ready(function() {
     cambiar_rubro(1,'#rub-0');
+    $('#li2').attr('disabled', true); //add
 });
 
 </script>

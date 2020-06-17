@@ -667,7 +667,7 @@ class servicios {
    }
    public function bcpconfirmarpago($tnCliente,$tnEmpresa , $tnAuthorizationNumber,$tnCorrelationId , $tcOTP )
    {
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarEmpresas';
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_ConfirmarPago';
       $data = array('tnCliente' => $tnCliente ,'tnEmpresa'=> $tnEmpresa,'tnAuthorizationNumber'=> $tnAuthorizationNumber , 'tnCorrelationId'=> $tnCorrelationId , 'tcOTP'=> $tcOTP );
 
      // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
@@ -713,7 +713,65 @@ tnAuthorizationNumber= autorizacion deBCP
        $resultado =json_decode($result);
       return $resultado;
       
-   }   
+   }
+   
+   
+
+
+   public function ejecuparpagoelinkser($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcTarjeta , $tcTarjetaHabiente  , $tcCodigoSeguridad , $tcFechaExpiracion )
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/Linkser_RealizarPago';
+      $data = array('tnCliente' =>$tncliente   , 'tnEmpresa' =>  $tnempresa , 'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,'tnMetodoPago' =>  $tnmetodopago  ,'tnTelefono' => (String)$tnTelefono ,'tcFacturaA' => (String) $tcFacturaA ,'tnCiNit' =>(String)  $tnCiNit ,'tcNroPago' =>(String) $tcNroPago,  'tnMontoClienteEmpresa' => (string)($tnMontoClienteEmpresa) ,   'tnMontoClienteSyscoop' =>(string)$tnMontoClienteSyscoop , 'tcPeriodo' =>(String) $tcPeriodo , 'tcImei'=> (String)$tcImei ,   'tcTarjeta' =>(String) $tcTarjeta , 'tcTarjetaHabiente' =>$tcTarjetaHabiente,  'tcCodigoSeguridad' => (String)$tcCodigoSeguridad, 'tcFechaExpiracion' =>  (String)$tcFechaExpiracion);
+     /*
+      echo "<pre>";
+      print_r(json_encode($data));
+      echo "</pre>";
+      
+      */
+     
+      /*   @POST(cPagoFacilPHP + "/Factura/Linkser_RealizarPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<String>> Linkser_RealizarPago(
+            @Field("tnCliente")                 long    tnCliente,
+            @Field("tnEmpresa")                 long    tnEmpresa,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+            @Field("tnMetodoPago")              int     tnMetodoPago,
+            @Field("tnTelefono")                String  tnTelefono,
+            @Field("tcFacturaA")                String  tcFacturaA,
+            @Field("tnCiNit")                   String  tnCiNit,
+            @Field("tcNroPago")                 String  tcNroPago,
+            @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
+            @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
+            @Field("tcPeriodo")                 String  tcPeriodo,
+            @Field("tcImei")                    String  tcImei,
+            @Field("tcTarjeta")                 String  tcTarjeta,
+            @Field("tcTarjetaHabiente")         String  tcTarjetaHabiente,
+            @Field("tcFechaExpiracion")         String  tcFechaExpiracion,
+            @Field("tcCodigoSeguridad")         String  tcCodigoSeguridad);
+
+
+      */
+
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
 
 }
 

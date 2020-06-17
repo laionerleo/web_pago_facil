@@ -1,14 +1,11 @@
 
-<div class="content" >
-    <div class="row">
-        <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
                                         <div class="row mb-2">
-                                            <div class="col-12 text-muted">Datos facturacion</div>
+                                            <div class="col-12 text-muted">Verificacion de Pago</div>
                                             
                                         </div>
                                         <div class="row mb-2">
@@ -36,15 +33,15 @@
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Monto :</div>
-                                            <div class="col-6">  <?= @$monto;  ?>   </div>
+                                            <div class="col-6">  <?= number_format((float)$monto, 2, '.', '');   ?>   </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Comision Online:</div>
-                                            <div class="col-6"> <?= @$comision;  ?>  </div>
+                                            <div class="col-6"> <?= number_format((float)$comision, 2, '.', '');   ?>  </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Total :</div>
-                                            <div class="col-6"> <?= @$montototalpagar ?> </div>
+                                            <div class="col-6"> <?= number_format((float)$montototalpagar, 2, '.', '');  ?> </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-12 text-muted"> Detalle de la forma de pago :</div>
@@ -77,19 +74,24 @@
                 <input type="hidden" id="url" name="url" value="<?= $url ?>">
                 
             </div>
-        </div>
-    </div>
-</div>
+      
 <!-- begin::footer -->
 
-    <?php $this->load->view('theme/footer');  ?>
+
 <!-- end::footer -->
 	<script>
         function vistaprepararpago()
         {
             var datos= {metododepago:5 };
             var urlajax=$("#url").val()+"vistaprepararpago";   
-            $("#vista_general").load(urlajax,{datos});   
+            $("#prepararpagobody").empty();   
+            $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+            $("#prepararpagobody").load(urlajax,{datos});  
+            
+            $("#li5").show();
+            $("#prepararpago-tab").click();  
+            
+
         }
     </script>
 

@@ -1,8 +1,6 @@
-
-                <div class="content" >
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
+                       
+                       
+                       <div class="row">
                                 <div class="col-md-8">
                                 <div class="card">
                                         <img id="baner" src="<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tdebito.png" class="card-img-top" alt="...">
@@ -31,13 +29,15 @@
 
                                             <div class="form-row">
                                                 <div class="col-md-3 mb-3" >
-                                                   
-                                                    <input class="form-control" type="number" name="inpci"  id="inpci" value="<?=  $_SESSION['cinit'] ?>" >
+                                                <label for="inpci">CI</label>
+                                                    <input class="form-control" type="number" name="inpci" placeholder="CI" id="inpci" value="<?=  $_SESSION['cinit'] ?>" >
                                                 </div>
                                                 <div class="col-md-3 mb-3" >
-                                                    <input  style="display:none"  class="form-control" type="text" name="inpcomplemento"  id="inpcomplemento" value="" >
+                                                <label for=""></label>
+                                                    <input  style="display:none"  class="form-control" type="text" name="inpcomplemento"  id="inpcomplemento" value="" placeholder="Complemento" >
                                                 </div>
                                                 <div class="col-md-3 mb-3">
+                                                <label for="">Extensión</label>
                                                     <select class="custom-select custom-select-m" name="slcext" id="slcext">
                                                         <option value="SC">SC</option>
                                                         <option value="BE">BE</option>
@@ -80,8 +80,10 @@
                                                     
                                             </div>
                                             <div class="form-row">
+                                            <label id="etiquetatipopago" for="">Fecha Expiracion</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  <br>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-3 mb-3" >
+                                              
                                                 <select class="custom-select custom-select-m" name="slcmes" id="slcmes">
                                                         <option value="01">ENE</option>
                                                         <option value="02">FEB</option>
@@ -102,24 +104,29 @@
                                                 </div>
                                                 <div class="col-md-3 mb-3" >
                                                     <?php
-                                                    $cont = 2025;
+                                                    $cont = date('Y');
+                                                    $contfinal = $cont+10;
+                                                    
+                                             
                                                  
                                                     ?>
                                                     <select class="custom-select custom-select-m" name="slcaño" id="slcaño">
-                                                    <?php while ($cont >= 1950) { ?>
+                                                    <?php while ($cont <= $contfinal) { ?>
                                                     <option value="<?php echo(substr($cont, 2)); ?>"><?php echo($cont); ?></option>
-                                                    <?php $cont = ($cont-1); } ?>
+                                                    <?php $cont = ($cont+1); } ?>
                                                     </select>
                                                     <?php ?>
                                                 </div>
                                                 <div class="col-md-3 mb-3">
-                                                <input class="form-control" style="display:none" type="number" name="inpnumbersoli"  id="inpnumbersoli" value="" >
+                                                <input class="form-control" style="display:none" type="number" name="inpnumbersoli"  id="inpnumbersoli" placeholder="Numero Soli" >
                                                 </div>
                                                 
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                <center> <button class="btn btn-primary "onclick="metodoprepararpago()">preparar pago</button> </center>
+                                                <center> <button class="btn btn-primary "onclick="metodoprepararpago()">Procesar Pago </button> </center>
+
+                                        <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                                                 </div>
                                             
                                             </div>
@@ -128,7 +135,6 @@
                                         
                                         </div>
                                         <hr class="m-0">
-                                        
                                     </div>
                                   
                                 </div>
@@ -136,9 +142,7 @@
                                 
                                 
                             </div>
-                        </div>
-                    </div>
-                </div>
+                   
 <!-- begin::footer -->
 
 <!-- begin::modal -->
@@ -154,17 +158,18 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <label for=""> Resiva tus mensajes SMS <br> ingrese el còdigo de pago bcp <br>enviado al numero xxxx  y correo xxxx </label>
+                    <label for=""> Revisar tus mensajes SMS <br> ingrese el còdigo de pago bcp <br>enviado al numero xxxx  y correo xxxx </label>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Codigo:</label>
-                        <input type="text">
+                        <label for="message-text" class="col-form-label">SMS o OTP:</label>
+                        <input type="number" id="inpcodigo" name="inpcodigo" >
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Close
                 </button>
-                <button type="button" id="btnaceptar" conclick="ejecutarpago()" class="btn btn-primary">Aceptar</button>
+                <input type="button"  onclick="ejecutarpago()" class="btn btn-primary" value="Aceptar">
+
                 
                 
             </div>
@@ -172,7 +177,7 @@
     </div>
 </div>
 
-    <?php $this->load->view('theme/footer');  ?>
+  
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
 <!-- end::footer -->
 <script>
@@ -191,16 +196,20 @@
         function cambiarimagen(valor,codigo)
         {
             if(valor=="debito")
-            {   $("#inpnumbersoli").hide();
-                $("#inpnumbersoli").value('');
-                
+            {   
+                $("#etiquetatipopago").text('Fecha Expiracion');
                 $("#slcaño").show();
                 $("#slcmes").show();
+                $("#inpnumbersoli").hide();
+                $("#inpnumbersoli").value('');
+                
+          
 
                 $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tdebito.png");
             }
             if(valor=="credito")
             {
+                $("#etiquetatipopago").text('Fecha Expiracion');
                 $("#slcaño").show();
                 $("#slcmes").show();
                 $("#inpnumbersoli").hide();
@@ -209,6 +218,7 @@
             }
             if(valor=="soli")
             {
+                $("#etiquetatipopago").text('Number Soli ');
                 $("#inpnumbersoli").show();
                 $("#slcaño").hide();
                 $("#slcmes").hide();
@@ -236,9 +246,9 @@
             
             
             var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli };
-            var urlajax=$("#url").val()+"metodoprepararpago";   
-           // $("#vista_general").load(urlajax,{datos});   
-            $.ajax({                    
+            var urlajax=$("#url").val()+"metodoprepararpagobcp";   
+        //   $("#prepararpagobody").load(urlajax,{datos});   
+         $.ajax({                    
                     url: urlajax,
                     data: {datos},
                     type : 'POST',
@@ -251,11 +261,14 @@
                         console.log(response);
                         if(response.tipo==10)
                         {
-                            swal("Pago exitoso", response.mensaje , "success");  
+                            $("#confirmarpago").click();
+                            
                         }
                         if(response.tipo==1)
                         {
                             swal("Mensaje", response.mensaje , "error");
+                            facturaspendientes()
+                            //$("#confirmarpago").click();
                         }
                             
                         },
@@ -274,15 +287,10 @@
         //var expiracion 
         function ejecutarpago()
         {
-               /*        @Field("tcExtension")               String  tcExtension,  $session['extension'] si es la extencion del carnet es el departamendo del ci 
-            @Field("tcComplement")              String  tcComplement,  $session['complemento']-- si hay duplicados  
-            @Field("tcServiceCode")             String  tcServiceCode,  $session['servicecode']  
-            @Field("tcExpireDate")              String  tcExpireDate);  $session['expiredate'] dato de expiracion 
-
-            */
-            var ci=$('#inpcodigo').val();
+            
+            var codigo=$('#inpcodigo').val();
             var datos= {codigo:codigo};
-            var urlajax=$("#url").val()+"confirmarpago";   
+            var urlajax=$("#url").val()+"confirmarpagobcp";   
             $.ajax({                    
                     url: urlajax,
                     data: {datos},
@@ -294,15 +302,20 @@
                         },                    
                         success:function(response) {
                             console.log(response);
-                            
+                            $("#btncerrar").click();
                             if(response.tipo==10)
                                 {
-                                    $("#modalconfirmar").click();
+                                    //$("#modalconfirmar").click();
+                                    swal("Pago exitoso", response.mensaje , "success");  
+                                    facturaspendientes()
                                 }
                             if(response.tipo==1)
                                 {
                                     swal("Mensaje", response.mensaje , "error");
                                 }
+                         
+                                
+
                         },
                         error: function (data) {
                             console.log(data.responseText);
@@ -311,6 +324,8 @@
                         },
                     });  
         }
+  
+
 </script>
 
 

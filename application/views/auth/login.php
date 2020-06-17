@@ -95,7 +95,7 @@
 		{
 			var datos=$("#form_login").serialize();
 			var urlajax=$("#url").val()+"login_user";   
-            var urlsucces=$("#url").val()+"inicio";   
+            var urlsucces=$("#url").val()+"pagorapido";   
                  
             $.ajax({                    
                 url: urlajax,
