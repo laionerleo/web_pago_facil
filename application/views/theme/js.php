@@ -19,6 +19,7 @@
     <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/sweet-alert.js"></script>
+    <script src="<?=  base_url() ?>/application/assets/vendors/prism/prism.js"></script>
 
     <!-- To use theme colors with Javascript -->
     <div class="colors">

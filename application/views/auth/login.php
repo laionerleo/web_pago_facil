@@ -2,15 +2,33 @@
 <html class="no-js" lang="">
 
 
-<!-- Mirrored from affixtheme.com/html/xmee/demo/register-23.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jun 2020 20:13:15 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Pago facil</title>
-    <meta name="description" content="">
+    <title> PagoFacil Bolivia</title>
+    <meta name="description" content="sitio Web para poder realizar tus pagos ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Primary Meta Tags -->
+    <title> PagoFacil Bolivia</title>
+<meta name="title" content="PagoFacil Bolivia">
+<meta name="description" content="PagoFacil Bolivia es un motor de pago y de recaudación de productos y/o servicios en línea, a través de múltiples métodos de pago que se encuentra disponible las 24 horas del día." >
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.pagofacil.com.bo/online/">
+<meta property="og:title" content="PagoFacil Bolivia">
+<meta property="og:description" content="PagoFacil Bolivia es un motor de pago y de recaudación de productos y/o servicios en línea, a través de múltiples métodos de pago que se encuentra disponible las 24 horas del día.">
+
+<meta property="og:image" content="https://pagofacil.com.bo/wp-content/uploads/2018/10/BanerPagoFacil.jpg">
+<meta property="og:image:secure_url" content="https://pagofacil.com.bo/wp-content/uploads/2018/10/BanerPagoFacil.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1155">
+
+
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>/application/assets/login/img/favicon.png">
+        <!-- <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png"/>  -->
+        <link rel="shortcut icon" href="https://pagofacil.com.bo/wp-content/uploads/2017/11/favicon.png"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/application/assets/login/css/bootstrap.min.css">
     <!-- Fontawesome CSS -->
@@ -36,12 +54,35 @@
                 <div class="fxt-form"> 
                     
                     <form id="form_login">
-                        <div class="form-group"> 
+                    <div class="form-group" > 
                             <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
-                                <input type="text" id="usuario" name="usuario" class="form-control" name="name" placeholder="Name" required="required" style="color: Black;opacity: 1;"   >
+                                <input type="text" style="display:none ;color: Black;opacity: 1;" id="inpnombre" name="inpnombre" class="form-control"  placeholder="Nombre" required="required" style="color: Black;opacity: 1;"   >
                             </div>
                         </div>
-                      
+                        
+                        <div class="form-group"> 
+                            <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
+                                <input type="text" id="inpapellido" style="display:none ;color: Black;opacity: 1;" name="inpapellido" class="form-control" placeholder="Apellido" required="required" style="color: Black;opacity: 1;"   >
+                            </div>
+                        </div>
+                        
+                        <div class="form-group"> 
+                            <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
+                                <input type="text" id="inpnumero" name="inpnumero" style="display:none ;color: Black;opacity: 1;" class="form-control" placeholder="Telefono" required="required" style="color: Black;opacity: 1;"   >
+                            </div>
+                        </div>
+                        
+                        <div class="form-group"> 
+                            <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
+                                <input type="text" id="inpcorreo" name="inpcorreo" style="display:none ;color: Black;opacity: 1;" class="form-control"  placeholder="Correo" required="required" style="color: Black;opacity: 1;"   >
+                            </div>
+                        </div>
+                        
+                        <div class="form-group"> 
+                            <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
+                                <input type="text" id="usuario" name="usuario" class="form-control" name="Login" placeholder="Name" required="required" style="color: Black;opacity: 1;"   >
+                            </div>
+                        </div>
                         <div class="form-group">  
                             <div class="fxt-transformY-50 fxt-transition-delay-2">                                              
                                 <input id="contraseña" name ="contraseña" type="password" class="form-control" placeholder="********" required="required" style="color: Black;opacity: 1;" >
@@ -57,7 +98,12 @@
                         </div>
                         <div class="form-group">
                             <div class="fxt-transformY-50 fxt-transition-delay-4">  
-                                <input type="button" class="fxt-btn-fill" name="" id="" onclick="realizar_login()" value="Login">
+                                <input type="button" class="fxt-btn-fill" name="" id="btnlogin" onclick="realizar_login()" value="Ingreso">
+                                <input type="button" class="fxt-btn-fill" name="" id="btnregistrar" style="display:none " onclick="realizar_registro()" value="Agregar">
+                                <input type="button" class="fxt-btn-fill"  name="" id="btnregistrate" onclick="Registrate()" value="Registrate">
+                                
+                                
+
                             </div>
                         </div>
                     </form>                
@@ -68,14 +114,18 @@
                     </div>
                 </div>
                 <ul class="fxt-socials">
-                <li class="fxt-google">
-                        <div class="fxt-transformY-50 fxt-transition-delay-6">  
-                        <a href="<?php echo $loginURL; ?>" title="google"><i class="fab fa-google" style="color: #040404;" ></i><span style="color: #040404;">Google</span></a>
+                    <li >
+                        <div >  
+                            <center>
+                            <a href="<?php echo @$loginURL; ?>" title="google"> <img src="<?= base_url() ?>/application/assets/assets/media/image/iconogoogle.svg" alt=""></a>
+                            </center>
                         </div>
                     </li>                                    
-                
-                    <li class="fxt-facebook"><div class="fxt-transformY-50 fxt-transition-delay-8">  
-                        <a href="<?php echo $authURL; ?>" title="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                    <li >
+                        <div >  
+                            <center>
+                            <a href="<?php echo $authURL; ?>" title="Facebook">  <img style="height:83px" src="<?= base_url() ?>/application/assets/assets/media/image/icons8-facebook2.svg" alt=""></a>
+                            </center>
                         </div>
                     </li>   
                                                   
@@ -133,6 +183,75 @@
             ); 
 
 		}
+        sw=1;
+        function realizar_registro()
+		{
+			var datos=$("#form_login").serialize();
+			var urlajax=$("#url").val()+"login_registro";   
+            var urlsucces=$("#url").val()+"pagorapido";   
+                 
+            $.ajax({                    
+                url: urlajax,
+                data: {datos},
+                type : 'POST',
+                dataType: "json",
+                beforeSend:function( ) {   
+                    //$("#waitLoadinglogin").fadeIn(1000);
+                },                    
+                success:function(response) {
+                
+                console.log(response);
+            
+                    if(response==0)
+                    {
+                        alert("se registro con Exito");
+                        window.location.href = urlsucces;
+                        //location.reload();
+                        
+                    }
+                    
+                },
+                error: function (data) {
+                    //console.log(data);
+                    $("#mensaje").text('usuario o contraseña incorrectos');
+                  
+                },               
+                complete:function( ) {
+                    //$("#waitLoadinglogin").fadeOut(1000);  
+                },
+            }
+            ); 
+
+		}
+    function Registrate()
+    {
+        // aqui entra para habilitar 
+        if(sw==1)
+        {
+            usuario
+            $("#usuario").val('');
+            $("#contraseña").val('');
+        $("#inpnombre").show();
+        $("#inpapellido").show();
+        $("#inpnumero").show();
+        $("#inpcorreo").show();
+        $('#btnlogin').hide();
+        $('#btnregistrar').show();
+        
+        sw=2;
+        }else{
+            $("#inpnombre").hide();
+        $("#inpapellido").hide();
+        $("#inpnumero").hide();
+        $("#inpcorreo").hide();
+        $('#btnlogin').show();
+        $('#btnregistrar').hide();
+        sw=1;
+        }
+        
+        
+
+    }
     </script>
     <!-- jquery-->
     <script src="<?= base_url() ?>/application/assets/login/js/jquery-3.5.0.min.js"></script>
@@ -165,5 +284,4 @@
 </body>
 
 
-<!-- Mirrored from affixtheme.com/html/xmee/demo/register-23.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jun 2020 20:13:15 GMT -->
 </html>

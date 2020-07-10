@@ -8849,7 +8849,7 @@ ul {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: flex-start;
-  padding: 60px 30px;
+  padding: 150px 30px;
 }
 @media only screen and (max-width: 767px) {
   .fxt-template-layout23 .fxt-bg-overlay {
@@ -8859,9 +8859,9 @@ ul {
   }
 }
 .fxt-template-layout23 .fxt-content {
-  max-width: 460px;
+  max-width: 321px;
   width: 100%;
-  margin-left: 15vw;
+  margin-left: 2vw;
 }
 @media only screen and (max-width: 767px) {
   .fxt-template-layout23 .fxt-content {
@@ -8870,7 +8870,7 @@ ul {
 }
 .fxt-template-layout23 .fxt-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: -45px;
 }
 .fxt-template-layout23 .fxt-logo {
   display: block;
@@ -9061,7 +9061,7 @@ ul {
   -ms-flex-pack: center;
   justify-content: center;
   margin-right: -5px;
-  margin-left: -5px;
+  margin-left: 30px;
   margin-bottom: 20px;
 }
 .fxt-template-layout23 ul.fxt-socials li {

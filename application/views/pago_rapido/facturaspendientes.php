@@ -76,28 +76,40 @@
                     </div>
                     <div class="card">
                             <div class="card-body">
+                            <?php if($cantidadfacturas>0){ ?>
                                 <div class="row">
-                                     <?php if($cantidadfacturas>0){ ?>
-                                    <div class="col-md-8 row ">
-                                    
+                                
+                                      
                                             <?php  for ($i=0; $i < count($metodospago) ; $i++) {
                                                 ?>
-                                                <div class="col-xs-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#item<?=  $metodospago[$i]->metodoPago ?>')"  style=" border-color:blue;height:80px; width:150px;padding:10px; padding: 5px 5px 5px 5px;overflow:hidden;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
-                                                <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:40px" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
-                                                <!--<?=  $metodospago[$i]->nombreMetodoPago ?> -->
+                                                <div class="col-md-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#item<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:100px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
+                                                <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:100%; position: relative;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
+                                                <label for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label>
+                                                
                                                 </div>
 
                                                 
                                                 
                                             <?php  } ?>
-                                    </div>
-                                    <div class="col-md-3" >
-                                       
-                                        <center><button class="btn btn-primary"  onclick="vistafacturacion()"> Siguiente</button></center>
-                                          
-                                    </div>
-                                    <?php }else{ echo "usted no tiene facturas por pagar"; }?>
+                  
+                                 
+                                    
+                                  
                                 </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12" >
+                                       
+                                       <center><button class="btn btn-primary"  onclick="vistafacturacion()"> Siguiente</button></center>
+                                         
+                                   </div>
+                                
+                                </div>
+                                <?php }else{ echo "usted no tiene facturas por pagar"; }?>
+
+
+
                             </div>
                     </div>
                 </div>
@@ -170,7 +182,12 @@ idmetododepago=0;
                 //filtrar_empresas();
 
             }
-            ledioaeste(5,"item5")
+
+            $(document).ready(function() {
+            // Instrucciones a ejecutar al terminar la carga
+            ledioaeste(5,"#item5");
+            });
+         
 
 </script>
 

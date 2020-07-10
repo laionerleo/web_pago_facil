@@ -71,7 +71,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Pago rapido
                             </li>
                             <li>
-                                <a class="active" href="<?=$url?>pago_rapido">Pago rapido </a>
+                                <a class="active" href="<?=$url?>pagorapido">Pago rapido </a>
                             </li>
                        
                         </ul>
@@ -82,7 +82,7 @@
                                 <i class="mr-2" data-feather="copy"></i> pagos realizados
                             </li>
                             <li>
-                                <a  href="timeline.html">Pagos realizados </a>
+                                <a  href="<?=$url?>endesarrollo">Pagos realizados </a>
                             </li>
                        
                         </ul>
@@ -93,7 +93,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Pago rapido
                             </li>
                             <li>
-                                <a  href="timeline.html">Pago rapido </a>
+                                <a  href="<?=$url?>endesarrollo" >Pago rapido </a>
                             </li>
                        
                         </ul>
@@ -104,16 +104,16 @@
                                 <i class="mr-2" data-feather="copy"></i> Empresas Afiliadas
                             </li>
                             <li>
-                                <a  href="timeline.html">empresa 1 </a>
+                                <a  href="<?=$url?>endesarrollo">empresa 1 </a>
                             </li>
                             <li>
-                                <a  href="timeline.html">empresa 2 </a>
+                                <a  href="<?=$url?>endesarrollo">empresa 2 </a>
                             </li>
                             <li>
-                                <a  href="timeline.html">empresa 3 </a>
+                                <a  href= "<?=$url?>endesarrollo">empresa 3 </a>
                             </li>
                             <li>
-                                <a  href="timeline.html">empresa 4 </a>
+                                <a  href="<?=$url?>endesarrollo">empresa 4 </a>
                             </li>
                        
                         </ul>
@@ -124,13 +124,13 @@
                                 <i class="mr-2" data-feather="copy"></i> Puntos de cobranza
                             </li>
                             <li>
-                                <a  href="timeline.html"> puntos de cobranza </a>
+                                <a  href="<?=$url?>endesarrollo"> puntos de cobranza </a>
                             </li>
                             <li>
-                                <a  href="timeline.html"> Empresas</a>
+                                <a  href="<?=$url?>endesarrollo"> Empresas</a>
                             </li>
                             <li>
-                                <a  href="timeline.html"> metodos de pago </a>
+                                <a  href="<?=$url?>endesarrollo"> metodos de pago </a>
                             </li>
                        
                         </ul>
@@ -141,22 +141,22 @@
                                 <i class="mr-2" data-feather="copy"></i> Atencion al cliente
                             </li>
                             <li>
-                                <a  href="timeline.html">Atencion al cliente metodos de pago </a>
+                                <a  href="<?=$url?>endesarrollo">Atencion al cliente metodos de pago </a>
                             </li>
                             <li>
-                                <a  href="timeline.html">Atencion al cliente empresa de servicio  </a>
+                                <a  href="<?=$url?>endesarrollo">Atencion al cliente empresa de servicio  </a>
                             </li>
                             <li>
                             <a href="#">Atencion al cliente App pago facil bolivia</a>
                                 <ul>
                                     <li>
-                                        <a href="#">Sugerir Cambios</a>
+                                        <a href="<?=$url?>endesarrollo">Sugerir Cambios</a>
                                     </li>
                                     <li>
-                                        <a href="#">Sugerir empresa</a>
+                                        <a href="<?=$url?>endesarrollo">Sugerir empresa</a>
                                     </li>
                                     <li>
-                                        <a href="#">  Reclamos/ quejas /Consulta</a>
+                                        <a href="<?=$url?>endesarrollo">  Reclamos/ quejas /Consulta</a>
                                     </li>
                                 </ul>
 
@@ -165,7 +165,7 @@
 
 
                             <li>
-                                <a  href="timeline.html">Mis reclamos y sugerencia</a>
+                                <a  href="<?=$url?>endesarrollo" >Mis reclamos y sugerencia</a>
                             </li>
 
                        
@@ -178,13 +178,13 @@
                                 <i class="mr-2" data-feather="copy"></i> Pago rapido
                             </li>
                             <li>
-                                <a  href="timeline.html">Tigo  </a>
+                                <a  href="<?=$url?>endesarrollo">Tigo  </a>
                             </li>
                             <li>
-                                <a  href="timeline.html">Tarjeta de debito  </a>
+                                <a  href="<?=$url?>endesarrollo">Tarjeta de debito  </a>
                             </li>
                             <li>
-                                <a  href="timeline.html">BCP rapido  </a>
+                                <a  href="<?=$url?>endesarrollo">BCP rapido  </a>
                             </li>
                        
                         </ul>
@@ -195,7 +195,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Pago facil en tu barrio
                             </li>
                             <li>
-                                <a  href="timeline.html">Pago facil en tu barrio  </a>
+                                <a  href="<?=$url?>endesarrollo">Pago facil en tu barrio  </a>
                             </li>
                        
                         </ul>
@@ -206,7 +206,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Sugerir empresas
                             </li>
                             <li>
-                                <a  href="timeline.html"> Sugerir empresas </a>
+                                <a  href="<?=$url?>endesarrollo"> Sugerir empresas </a>
                             </li>
                        
                         </ul>

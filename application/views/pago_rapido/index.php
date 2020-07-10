@@ -188,6 +188,7 @@
                                     </div>                     
                                 </div>
                                 
+                                
                             </div>
                             
                              
@@ -333,9 +334,9 @@ function  busqueda_datos()
     }
     
 }
-function facturaspendientes()
+function facturaspendientes(codigo_usuario)
 {
-  var codigo=$("#inp_dato").val();
+    var codigo=codigo_usuario;
     var tipo=sw;
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
     var urlajax=$("#url").val()+"facturaspendientes";   

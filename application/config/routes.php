@@ -19,11 +19,24 @@ $route[$l.'facturaspendientes']                 = 'Welcome/vistafacturaspendient
 $route[$l.'vistafacturacion']                   = 'Welcome/vistafacturacion';
 $route[$l.'vistaconfirmacion']                  = 'Welcome/vistaconfirmacion';
 $route[$l.'vistaprepararpago']                  = 'Welcome/vistaprepararpago';
-$route[$l.'metodoprepararpagobcp']                 = 'Welcome/metodoprepararpagobcp';
-$route[$l.'confirmarpagobcp']                      = 'Welcome/confirmarpagobcp';
-$route[$l.'ejecuparpagoeLinkser']                      = 'Welcome/pagarelinkser';
+$route[$l.'metodoprepararpagobcp']              = 'Welcome/metodoprepararpagobcp';
+$route[$l.'confirmarpagobcp']                   = 'Welcome/confirmarpagobcp';
+$route[$l.'ejecuparpagoeLinkser']               = 'Welcome/pagarelinkser';
+$route[$l.'nuevavista']                         = 'Welcome/nuevavista';
+$route[$l.'endesarrollo']                      = 'Welcome/endesarrollo';
+$route[$l.'generarqr']                      = 'Welcome/generarqr';
+$route[$l.'getultimaselegidas']                      = 'Welcome/getultimaselegidas';
 
-$route[$l.'nuevavista']                      = 'Welcome/nuevavista';
+
+//
+$route[$l.'actualizardatos']                      = 'Welcome/actualizardatosusuario';
+
+
+
+///Servicios
+$route[$l.'Qr/(:any)']                          = 'Servicio/recuperarqr/$1/$2';
+$route[$l.'Descargarqr/(:any)']                          = 'Servicio/DescargarQr/$1/$2';
+
 
 
 
@@ -35,6 +48,8 @@ $route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/get
 
 //metodos para el login y logout
 $route[$l.'login_user']                     = 'Auth/loginusuario';
+$route[$l.'login_registro']                     = 'Auth/loginregistro';
+
 $route[$l.'logout']                         = 'Auth/logout';
 
 //metodos para el login de  faceboook

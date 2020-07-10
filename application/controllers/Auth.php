@@ -18,7 +18,7 @@ class Auth extends CI_Controller {
         $this->lang->load('welcome');
     // Load facebook library
 	$this->load->library('facebook');
-	$this->load->library('google');
+	//$this->load->library('google');
 		      
         //cargamos los modelos
 	   $this->load->model(array('Msecurity'));
@@ -38,7 +38,7 @@ class Auth extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$d['authURL'] =  $this->facebook->login_url();
-		$d['loginURL'] = $this->google->loginURL();
+		//$d['loginURL'] = $this->google->loginURL();
 		$this->load->view('auth/login', $d);
 	
     }
@@ -70,6 +70,42 @@ class Auth extends CI_Controller {
             echo $respuesta;
 		}
 	
+	}
+	public function loginregistro()
+	{
+		parse_str($this->input->post("datos"), $nuevodato);
+		$nombre=$nuevodato['inpnombre'];
+		$apellido=$nuevodato['inpapellido'];
+		
+		$numero=$nuevodato['inpnumero'];
+		
+		$correo=$nuevodato['inpcorreo'];
+		
+		$login=  $nuevodato['usuario'];
+		$contraseña=md5($nuevodato['contraseña']);
+	
+		
+
+		$resultado=$this->servicios->registropagofacil($nombre,$apellido,$correo,$numero,$login,$contraseña);
+        $data = get_object_vars($resultado->values);
+      //*/ print_r($data);
+      
+	   
+	   if($resultado->error  == 0)
+		{
+           $_SESSION['user'] = $resultado;
+           $this->session->set_userdata($data);
+      
+			$respuesta=0;
+			echo $respuesta;
+		}
+		if($resultado->error == 23)
+		{
+			$respuesta=11;
+            //ho json_decode($respuesta);
+            echo $respuesta;
+		}
+		
 	}
 
     public function  logout()

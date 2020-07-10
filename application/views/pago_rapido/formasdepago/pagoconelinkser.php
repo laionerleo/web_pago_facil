@@ -1,8 +1,8 @@
                        
                        
                        <div class="row">
-                                <div class="col-md-8">
-                                <div class="card">
+                                <div class="col-md-8" id="vistaformulariolinkser" >
+                                    <div class="card">
                                         <img id="baner" src="https://cinecenter.com.bo/assets/images/linkser.png"  style ="height: 90px;"class="card-img-top" alt="...">
                                         <div class="card-body text-center m-t-70-minus">
                                             <br>
@@ -15,7 +15,9 @@
                                                 <div class="form-row">
                                                         <div class="form-group col-md-12">
                                                         <label for="inpci">Nro de tarjeta</label>
-                                                        <input class="form-control" type="number" name="inpnrotarjeta" placeholder="    -   -   -" id="inpnrotarjeta" value="" >
+                                                        
+                                                        <input id="inpnrotarjeta" data-input-mask="tarjeta"   class="form-control"  name="inpnumber" placeholder="" id="inpnumber" value="" >
+                                                       
                                                         </div>
                                                 </div>
                                                 <div class="form-row">
@@ -27,11 +29,11 @@
 
 
                                          
-                                            <div class="form-row">
                                             
-                                                <div class="row col-md-12" >
-                                                <label id="etiquetatipopago" for="">Fecha Expiracion</label> 
-                                                <div class="col-xs-6" >
+                                            <label id="etiquetatipopago" for="">Fecha Expiracion</label> 
+                                            <div class="form-row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-3" >
 
                                                         <select class="custom-select custom-select-m" name="slcmes" id="slcmes">
                                                             <option value="01">ENE</option>
@@ -44,12 +46,12 @@
                                                             <option value="08">AGO</option>
                                                             <option value="09">SEP</option>
                                                             <option value="10">OCT</option>
-                                                            <option value="11">NOM</option>
+                                                            <option value="11">NOV</option>
                                                             <option value="12">DIC</option>
                                                         </select>
                                                 </div>
 
-                                                <div class="col-xs-6" >
+                                                <div class="col-md-3" >
                                                     <?php
                                                     $cont = date('Y');
                                                     $contfinal = $cont+10;
@@ -61,21 +63,29 @@
                                                     </select>
                                                     <?php ?>
                                                 </div>
-                                                </div>
+                                                <div class="col-md-3"></div>
+                                              
                                                 
                                                 
                                                 
                                             </div>
                                             <div class="form-row">
                                                         <div class="form-group col-md-4">
-                                                            <br>
+                                                                                                                 
                                                         
-                                                        <input class="form-control" type="number" name="inpcodigoseguridad" placeholder="Codigo seguridad"  id="inpcodigoseguridad" value="" >
+                                                        <div class="input-group">
+                                                           
+                                                            <input class="form-control" type="number" aria-describedby="inputGroupPrepend" name="inpcodigoseguridad" placeholder="Codigo seguridad"  id="inpcodigoseguridad" value="" >
+                                                            <div class="input-group-prepend">
+                                                                <span data-toggle="popover" data-placement="top" title="El codigo de seguridad de 3 digitos se encuentra detras de su tarjeta Visa o MasterCard"  data-toggle="modal" data-target="#exampleModalCenter class="input-group-text" id="inputGroupPrepend"><a id="btnayuda" "><img style="width:20px;height:20px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a></span>
+                                                            </div>
+                                                        </div>
+                                                        
                                                         </div>
                                                 </div>
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                <center> <button class="btn btn-primary "onclick="ejecutarpago()">Pagar </button> </center>
+                                                <center> <button id="btnejecutarpago" class="btn btn-primary "onclick="ejecutarpago()">Pagar </button> </center>
 
                                         <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                                                 </div>
@@ -88,17 +98,26 @@
                                         <hr class="m-0">
                                     </div>
                                   
+                                  
                                 </div>
-                            
-                                
-                                
-                            </div>
+                                <div class="col-md-8" id="vistacarga" style="display:none" >
+                                    <div class="card">
+                                  
+                                   
+                                    <center >
+                                        <div style="position: absolute;        top:50%;        left: 50%;                   margin-top: 15px;        margin-left: 0px;" class="spinner-border text-primary" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </center>     
+                                    </div>
+                                </div>
+                        </div>
                    
 <!-- begin::footer -->
 
 <!-- begin::modal -->
 
-
+<script src="<?=  base_url() ?>/application/assets/vendors/input-mask/jquery.mask.js"></script>
   
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
 <!-- end::footer -->
@@ -112,12 +131,8 @@
 
         function ejecutarpago()
         {
-            /*        @Field("tcExtension")               String  tcExtension,  $session['extension'] si es la extencion del carnet es el departamendo del ci 
-            @Field("tcComplement")              String  tcComplement,  $session['complemento']-- si hay duplicados  
-            @Field("tcServiceCode")             String  tcServiceCode,  $session['servicecode']  
-            @Field("tcExpireDate")              String  tcExpireDate);  $session['expiredate'] dato de expiracion 
-
-            */
+            if(  ($('#inpnrotarjeta').val().length>0) &&  ($('#inpnombretarjeta').val().length>0) &&  ($('#inpcodigoseguridad').val().length>0)      )
+            { 
             var nrotarjeta=$('#inpnrotarjeta').val();
             var nombretarjeta=$('#inpnombretarjeta').val();
             var fechaexpiracion=$('#slcaño').val()+$('#slcmes').val();
@@ -127,8 +142,7 @@
             
             var datos= {nrotarjeta:nrotarjeta, nombretarjeta:nombretarjeta, fechaexpiracion:fechaexpiracion , codigoseguridad :codigoseguridad  };
             var urlajax=$("#url").val()+"ejecuparpagoeLinkser";   
-        //   $("#prepararpagobody").load(urlajax,{datos});   
-         $.ajax({                    
+            $.ajax({                    
                     url: urlajax,
                     data: {datos},
                     type : 'POST',
@@ -136,12 +150,15 @@
                     
                         beforeSend:function( ) {   
                             //$("#waitLoading").fadeIn(1000);
+                            $("#vistacarga").show();
+                            $("#vistaformulariolinkser").hide();
                         },                    
                         success:function(response) {
                         console.log(response);
                         if(response.tipo==10)
                         {
                             swal("Mensaje", response.mensaje , "success");
+                            facturaspendientes();
                             
                         }
                         if(response.tipo==1)
@@ -157,16 +174,26 @@
                             
                         },               
                         complete:function( ) {
-                            //$("#waitLoading").fadeOut(1000);  
+                               
+                            $("#vistacarga").hide();
+                            $("#vistaformulariolinkser").show();
                         },
                     });  
+            }else{
+                swal("Mensaje", "por favor llenar todos los datos " , "error"); 
+            }
         }
   
-        var extension="";
-        //var expiracion 
-        
-  
+        var contador="";
+        'use strict';
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();   
+            $('[data-input-mask="tarjeta"]').mask('0000-0000-0000-0000');
+            $(".pop-right").popover({placement : 'right'});
 
+
+
+        });
 </script>
 
 

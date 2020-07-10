@@ -1,8 +1,18 @@
                        
                        
+                     <style>
+                     .flotante {
+    display:scroll;
+        position:fixed;
+        bottom:320px;
+        right:0px;
+}
+
+                     </style>
+                     
                        <div class="row">
-                                <div class="col-md-8">
-                                <div class="card">
+                                <div class="col-md-8" >
+                                    <div class="card">
                                         <img id="baner" src="<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tdebito.png" class="card-img-top" alt="...">
                                         <div class="card-body text-center m-t-70-minus">
                                             <figure class="avatar avatar-m m-b-5">
@@ -50,6 +60,7 @@
                                                         <option value="CH">CH</option>
                                                     </select>
                                                 </div>
+                                               
                                             
                                             </div>
                                             <div class="form-row ">
@@ -79,54 +90,52 @@
                                                     
                                                     
                                             </div>
-                                            <div class="form-row">
                                             <label id="etiquetatipopago" for="">Fecha Expiracion</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  <br>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-3 mb-3" >
-                                              
-                                                <select class="custom-select custom-select-m" name="slcmes" id="slcmes">
-                                                        <option value="01">ENE</option>
-                                                        <option value="02">FEB</option>
-                                                        <option value="03">MAR</option>
-                                                        <option value="04">ABR</option>
-                                                        <option value="05">MAY</option>
-                                                        <option value="06">JUN</option>
-                                                        <option value="07">JUL</option>
-                                                        <option value="08">AGO</option>
-                                                        <option value="09">SEP</option>
-                                                        <option value="10">OCT</option>
-                                                        <option value="11">NOM</option>
-                                                        <option value="12">DIC</option>
-                                                        
-                                                        
-
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3 mb-3" >
-                                                    <?php
-                                                    $cont = date('Y');
-                                                    $contfinal = $cont+10;
-                                                    
-                                             
-                                                 
-                                                    ?>
-                                                    <select class="custom-select custom-select-m" name="slcaño" id="slcaño">
-                                                    <?php while ($cont <= $contfinal) { ?>
-                                                    <option value="<?php echo(substr($cont, 2)); ?>"><?php echo($cont); ?></option>
-                                                    <?php $cont = ($cont+1); } ?>
-                                                    </select>
-                                                    <?php ?>
-                                                </div>
-                                                <div class="col-md-3 mb-3">
-                                                <input class="form-control" style="display:none" type="number" name="inpnumbersoli"  id="inpnumbersoli" placeholder="Numero Soli" >
-                                                </div>
+                                            <div class="form-row">
                                                 
+                                                    
+                                                    <div class="col-md-3 mb-3" >
+                                                        <select class="custom-select custom-select-m" name="slcmes" id="slcmes">
+
+                                                            <option value="01">ENE</option>
+                                                            <option value="02">FEB</option>
+                                                            <option value="03">MAR</option>
+                                                            <option value="04">ABR</option>
+                                                            <option value="05">MAY</option>
+                                                            <option value="06">JUN</option>
+                                                            <option value="07">JUL</option>
+                                                            <option value="08">AGO</option>
+                                                            <option value="09">SEP</option>
+                                                            <option value="10">OCT</option>
+                                                            <option value="11">NOV</option>
+                                                            <option value="12">DIC</option>
+                                                        </select>
+                                                       
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <?php
+                                                        $cont = date('Y');
+                                                        $contfinal = $cont+10;
+                                                        ?>
+                                                        <select class="custom-select custom-select-m" name="slcaño" id="slcaño">
+                                                        <?php while ($cont <= $contfinal) { ?>
+                                                        <option value="<?php echo(substr($cont, 2)); ?>"><?php echo($cont); ?></option>
+                                                        <?php $cont = ($cont+1); } ?>
+                                                        </select>
+                                                        <?php ?>
+                                                    </div>
+                                                
+                                                    <div class="col-md-3 mb-3">
+                                                    <input class="form-control" style="display:none" type="number" name="inpnumbersoli"  id="inpnumbersoli" placeholder="Numero Soli" >
+                                                    </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                <center> <button class="btn btn-primary "onclick="metodoprepararpago()">Procesar Pago </button> </center>
+                                                <center> <button id="bntprepararpago" class="btn btn-primary "onclick="metodoprepararpago()">Procesar Pago </button> </center>
 
-                                        <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
+                                                     <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
+                                                     <a id="btnayuda" data-toggle="modal" data-target="#exampleModalCenter"><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a>
+                                                     
                                                 </div>
                                             
                                             </div>
@@ -138,6 +147,7 @@
                                     </div>
                                   
                                 </div>
+                               
                             
                                 
                                 
@@ -168,7 +178,7 @@
             <div class="modal-footer">
                 <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Close
                 </button>
-                <input type="button"  onclick="ejecutarpago()" class="btn btn-primary" value="Aceptar">
+                <input type="button" id="btnejecutartrabajo"  onclick="ejecutarpago()" class="btn btn-primary" value="Aceptar">
 
                 
                 
@@ -176,6 +186,34 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                              
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <i class="ti-close"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <h5 class="card-title">Paso 1</h5>
+                                <p class="card-text">Preparar tu pago con los datos requeridos <br> a) Tarjetas de débito/crédito:CI extension,fecha vencimiento de tu tarjetas <br> b)Solipagos:: CI extension nro Solipagos</p>
+                                <h5 class="card-title">Paso 2</h5>
+                                <p class="card-text"> Confirma tu pago ingresando el codigo que se te enviara a tu nro de telefono como SMS y/o a tu whatsapp y/o tu email registrados en BCP</p>
+                                <h5 class="card-title">Paso 3</h5>
+                                <p class="card-text">Recibe tus facturas de pago en tu correo electronico o descargandop directamente desde la opcion "Pagos realizados"</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+<a class='flotante' href='#' ><img src='<?= base_url(); ?>application/assets/assets/media/image/informacion.svg'  border="0"/></a>
 
   
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
@@ -197,33 +235,52 @@
         {
             if(valor=="debito")
             {   
+                $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tdebito.png");
+                $("#inpci").val('<?=  @$ultimatransacciondebito->CiNit    ?>');
+                $("#slcaño").val('<?=  substr(@$ultimatransacciondebito->ExpireDate,3,2  )     ?>');
+                $("#slcmes").val('<?=  substr(@$ultimatransacciondebito->ExpireDate,0,2  )     ?>');
+                $("#slcext").val('<?=  @$ultimatransacciondebito->Extension    ?>');
+                
+
                 $("#etiquetatipopago").text('Fecha Expiracion');
                 $("#slcaño").show();
                 $("#slcmes").show();
                 $("#inpnumbersoli").hide();
-                $("#inpnumbersoli").value('');
+                $("#inpnumbersoli").val('');
                 
-          
 
-                $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tdebito.png");
+
             }
             if(valor=="credito")
             {
+                $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tcredito.png");
+                $("#inpci").val('<?=  @$ultimatransaccioncredito->CiNit    ?>');
+              /*  $("#slcaño").val('<?=  substr(@$ultimatransaccioncredito->ExpireDate,3,2  )     ?>');
+                $("#slcmes").val('<?=  substr(@$ultimatransaccioncredito->ExpireDate,0,2  )     ?>');*/
+                $("#slcext").val('<?=  @$ultimatransaccioncredito->Extension    ?>');
+
+
                 $("#etiquetatipopago").text('Fecha Expiracion');
                 $("#slcaño").show();
                 $("#slcmes").show();
                 $("#inpnumbersoli").hide();
-                $("#inpnumbersoli").value('');
-                $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_tcredito.png");
+                $("#inpnumbersoli").val('');
+                
             }
             if(valor=="soli")
             {
+                $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_soli.png");
+
+                $("#inpci").val('<?=  @$ultimatransaccionsolipago->CiNit    ?>');
+                $("#inpnumbersoli").val('<?=  @$ultimatransaccionsolipago->Telefono   ?>');
+                $("#slcext").val('<?=  @$ultimatransaccionsolipago->Extension    ?>');
+
                 $("#etiquetatipopago").text('Number Soli ');
                 $("#inpnumbersoli").show();
                 $("#slcaño").hide();
                 $("#slcmes").hide();
                 
-                $("#baner").attr("src","<?= base_url(); ?>application/assets/assets/media/image/metodosdepago/bcp/banner_soli.png");
+                
             }
             codigoservicio=codigo;
             
@@ -231,56 +288,54 @@
 
         function metodoprepararpago()
         {
-            /*        @Field("tcExtension")               String  tcExtension,  $session['extension'] si es la extencion del carnet es el departamendo del ci 
-            @Field("tcComplement")              String  tcComplement,  $session['complemento']-- si hay duplicados  
-            @Field("tcServiceCode")             String  tcServiceCode,  $session['servicecode']  
-            @Field("tcExpireDate")              String  tcExpireDate);  $session['expiredate'] dato de expiracion 
-
-            */
-            var ci=$('#inpci').val();
-            var complemento=$('#inpcomplemento').val();
-            var extension=$('#slcext').val();
-            var fechaexpiracion=$('#slcmes').val()+"/"+$('#slcaño').val();
-            var numbersoli=$('#inpnumbersoli').val();
+            if(  ($('#inpci').val().length>0)      )
+            { 
             
+                var ci=$('#inpci').val();
+                var complemento=$('#inpcomplemento').val();
+                var extension=$('#slcext').val();
+                var fechaexpiracion=$('#slcmes').val()+"/"+$('#slcaño').val();
+                var numbersoli=$('#inpnumbersoli').val();
+                var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli };
+                var urlajax=$("#url").val()+"metodoprepararpagobcp"; 
             
-            
-            var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli };
-            var urlajax=$("#url").val()+"metodoprepararpagobcp";   
-        //   $("#prepararpagobody").load(urlajax,{datos});   
-         $.ajax({                    
-                    url: urlajax,
-                    data: {datos},
-                    type : 'POST',
-                    dataType: "json",
-                    
-                        beforeSend:function( ) {   
-                            //$("#waitLoading").fadeIn(1000);
-                        },                    
-                        success:function(response) {
-                        console.log(response);
-                        if(response.tipo==10)
-                        {
-                            $("#confirmarpago").click();
-                            
-                        }
-                        if(response.tipo==1)
-                        {
-                            swal("Mensaje", response.mensaje , "error");
-                            facturaspendientes()
-                            //$("#confirmarpago").click();
-                        }
-                            
-                        },
-                        error: function (data) {
-                            console.log(data.responseText);
+                $.ajax({                    
+                        url: urlajax,
+                        data: {datos},
+                        type : 'POST',
+                        dataType: "json",
                         
+                            beforeSend:function( ) {   
                             
-                        },               
-                        complete:function( ) {
-                            //$("#waitLoading").fadeOut(1000);  
-                        },
-                    });  
+                            },                    
+                            success:function(response) {
+                            console.log(response);
+                            if(response.tipo==10)
+                            {
+                                $("#bntprepararpago").attr("disabled","disabled");
+                                $("#confirmarpago").click();
+                                
+                            }
+                            if(response.tipo==1)
+                            {
+                                swal("Mensaje", response.mensaje , "error");
+                            
+                                //$("#confirmarpago").click();
+                            }
+                                
+                            },
+                            error: function (data) {
+                                swal("Mensaje", "Ocurrio un error al procesar la solicitud" , "error");
+                                
+                            },               
+                            complete:function( ) {
+                                
+                            },
+                        });  
+
+            }else{
+                swal("Mensaje", "por favor llenar el CI " , "error");
+            }
         }
   
         var extension="";
@@ -306,12 +361,14 @@
                             if(response.tipo==10)
                                 {
                                     //$("#modalconfirmar").click();
+                                    $("#btnejecutartrabajo").attr("disabled","disabled");
                                     swal("Pago exitoso", response.mensaje , "success");  
-                                    facturaspendientes()
+                                    facturaspendientes();
                                 }
                             if(response.tipo==1)
                                 {
                                     swal("Mensaje", response.mensaje , "error");
+                                    $("#bntprepararpago").removeAttr('disabled');
                                 }
                          
                                 
@@ -325,6 +382,12 @@
                     });  
         }
   
+        $(document).ready(function() {
+            // Instrucciones a ejecutar al terminar la carga
+            cambiarimagen('debito','001');
+            $("#btnayuda").click();            
+
+            });
 
 </script>
 

@@ -5,7 +5,9 @@
     <title>PagoFacil Bolivia</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/favicon.png"/>
+    <!-- <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png"/>  -->
+    <link rel="shortcut icon" href="https://pagofacil.com.bo/wp-content/uploads/2017/11/favicon.png"/>
+    
 
     <!-- Plugin styles -->
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/bundle.css" type="text/css">
@@ -25,4 +27,5 @@
     
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick.css" type="text/css">
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/prism/prism.css" type="text/css">
 </head>

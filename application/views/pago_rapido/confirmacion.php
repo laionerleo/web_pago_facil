@@ -48,11 +48,11 @@
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Medio :</div>
-                                            <div class="col-6">  bcp rapido y seguro  </div>
+                                            <div class="col-6">  <?= @$etiquetametodopago  ?>  </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class="col-6 text-muted"> Medios BCP :</div>
-                                            <div class="col-6"> <?= @$mediosbcp;  ?>  </div>
+                                            <div class="col-6 text-muted">  :</div>
+                                            <div class="col-6"> <?= @$medios;  ?>  </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> E-mail:</div>

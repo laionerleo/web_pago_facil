@@ -21,8 +21,8 @@
                     <div class="card">
                         <div class="card-body text-center m-t-10-minus" >
                         <h4>Datos de Transaccion</h4>
-                        <label for=""> Medio BCP</label>
-                        <input class="form-control" type="text" id="inpnumero" placeholder="Medios BCP" value="<?= @$numerocelular ?> " >
+                        <label for=""> <?= @$etiquetametodopago  ?> </label>
+                        <input class="form-control" type="text" id="inpnumero" placeholder=" <?= @$etiquetametodopago  ?>" value="<?= @$numerocelular ?> " >
                         <label for=""> Correo de envio de facturas</label>
                         <input class="form-control" type="text" id="inpcorreo" placeholder="Correo de envio de facturas"  value="<?= @$correo ?>"  >
                         </div>
