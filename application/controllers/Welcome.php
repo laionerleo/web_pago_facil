@@ -490,7 +490,10 @@ class Welcome extends CI_Controller {
 					$entidadeselegidas=$this->servicios->getultimasutilizadas($_SESSION['cliente']);
 					$d['entidadeselegidas']=$entidadeselegidas->values;
 					$d['entidades']=$entidades->values;
-					//$d['montototal']=$_SESSION['monto']+$_SESSION['montocomision'];
+					/*echo "<pre>";
+					print_r($d['entidades']);
+					echo "</pre>";
+					*///$d['montototal']=$_SESSION['monto']+$_SESSION['montocomision'];
 					$_SESSION['entidades']=$entidades->values;
 					$this->load->view('pago_rapido/formasdepago/pagoqr', $d);
 					
@@ -561,21 +564,16 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteEmpresa=$_SESSION['montototal'];
 		$tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		$tcPeriodo=$_SESSION['periodomes'];
-		$tcImei =  $_SESSION['imei'].json_encode($datos)  ; 
+		$tcImei =  $_SESSION['imei']."W";
+		//echo $tcImei;//json_encode($datos);
 
 		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
-	
-/*		echo "<pre>";
-		print_r($metodos);
-		echo "</pre>";
-*/
-		
+
 		if($mensajeerror== 0 ){
 			if(isset($valor))
 			{
-				//http://localhost/web_pago_facil/es/Descargarqr/55928
 				$valores = explode(";", $valor );
 				$linkdescarga= base_url()."es/Descargarqr/".$valores[0];
 				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'imagenqr' =>$valores[1],'linkdescarga'=>$linkdescarga );
@@ -586,7 +584,6 @@ class Welcome extends CI_Controller {
 			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 		}
 		echo json_encode($arreglo);
-
 	
 	}
 	
@@ -861,6 +858,18 @@ class Welcome extends CI_Controller {
 		$porciones = explode("-", $cadenanueva);
 		$arraymeses=["01"=> "ENE" ,"02"=> "FEB" ,"03"=> "MAR"  ,"04"=> "ABR" ,"05"=> "MAY"  ,"06"=> "JUN"  ,"07"=>"JUL"  ,"08"=>"AGO"  ,"09"=> "SEP" ,"10"=> "OCT" ,"11"=>"NOV"  ,"12"=> "DIC"  ];
 		return $porciones[0]."-".$arraymeses[$porciones[1]];
+	}
+	public function finalizartransaccion($tncliente,$tntransaccion)
+	{
+		$metodos=$this->servicios->finalizarpago($tncliente ,$tntransaccion);
+						
+				echo	"<pre>";
+					print_r($metodos);
+					print_r($metodos->error);
+					print_r($metodos->message);
+					print_r($metodos->values);
+					
+					echo "</pre>";
 	}
 
 

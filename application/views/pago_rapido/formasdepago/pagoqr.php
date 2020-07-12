@@ -156,11 +156,18 @@
                     contador=contador-1;
                     entidadesasignadas.splice(numero,1);
                     $( idcheck ).prop( "checked", false );
+                    $("#row-"+id).css("border-radius", "none");
+                    $("#row-"+id).css("border", "none");
+                    $("#row-"+id).css("border-color", "none");
                   
                 }else{
                     if(contador<=3){
                     contador=contador+1;
                     entidadesasignadas.push(id);
+                    $("#row-"+id).css("border-radius", "10px");
+                    $("#row-"+id).css("border", "dashed");
+                    $("#row-"+id).css("border-color", "solid");
+               
                     $(idcheck ).prop( "checked", true );
                     }else{
                         $( idcheck ).prop( "checked", false );
@@ -197,18 +204,18 @@
                                                                     <div class="modal-body">
                                                                         <?php   for ($j=  0  ; $j < count($entidades); $j++) { ?>
                                                                                     
-                                                                                    <div class="row">
-                                                                                        <div class="col-xs-3">
+                                                                                    <div class="row"  onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" id="row-<?= $entidades[$j]->EntidadBancaria  ?>">
+                                                                                        <div class="col-md-3 col-xs-3">
                                                                                             <div class="image">
-                                                                                                <img style="width:100px; height:40px" src=" <?= $entidades[$j]->UrlImagen  ?>" alt="">
+                                                                                                <a href=""><img style="padding:2px; width:100px; height:50px" src=" <?= $entidades[$j]->UrlImagen  ?>" alt=""></a>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="col-xs-6">
+                                                                                        <div class="col-md-6 col-xs-6">
                                                                                             <h3 class="name">   <?= $entidades[$j]->Nombre  ?></h3>
                                                                                         </div>
-                                                                                        <div class="col-xs-2 action">
+                                                                                        <div class="col-md-3 col-xs-2 action">
                                                                                         <input class="checkedleo" onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" type="checkbox" id="idcheck-<?= $j ?>" value="1">
-                                                                                        
+                                                                                        <a id="btnayuda"href="aqui vendra la direcciond e ayuda "  ><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a>
                                                                                         </div>
                                                                                     </div>
                                                                                 
