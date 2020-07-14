@@ -564,7 +564,7 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteEmpresa=$_SESSION['montototal'];
 		$tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		$tcPeriodo=$_SESSION['periodomes'];
-		$tcImei =  $_SESSION['imei']."W";
+		$tcImei =  $_SESSION['imei'].";".json_encode($datos);
 		//echo $tcImei;//json_encode($datos);
 
 		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
@@ -593,8 +593,14 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$metodos=$this->servicios->getultimasutilizadas($_SESSION['cliente']);
 		$d['entidadeselegidas']=$metodos->values;
-	
-
+		
+		/*	
+		echo "<pre>";
+		print_r($_SESSION['entidades']);
+		print_r($d['entidadeselegidas']);
+		echo "</pre>";
+	*/	
+		
 		for ($i=0; $i < count($d['entidadeselegidas']) ; $i++) { 
 			//echo `<img style="width:100px; height:40px" src=" " alt="">"`;
 			for ($j=0; $j < count($_SESSION['entidades']) ; $j++) { 
@@ -605,6 +611,7 @@ class Welcome extends CI_Controller {
 			}
 
 		}
+		
 		
 	}
 

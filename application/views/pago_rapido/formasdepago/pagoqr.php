@@ -182,7 +182,7 @@
             $("#confirmarpago").click();        
             
             <?php   for ($j=  0  ; $j < count($entidadeselegidas); $j++) { ?>
-                $("#idcheck-<?= $entidadeselegidas[$j] ?>").click(); 
+                $("#row-<?= $entidadeselegidas[$j] ?>").click(); 
             <?php  }?>
 
          
@@ -215,7 +215,7 @@
                                                                                         </div>
                                                                                         <div class="col-md-3 col-xs-2 action">
                                                                                         <input class="checkedleo" onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" type="checkbox" id="idcheck-<?= $j ?>" value="1">
-                                                                                        <a id="btnayuda"href="aqui vendra la direcciond e ayuda "  ><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a>
+                                                                                        <!-- <a id="btnayuda"href="aqui vendra la direcciond e ayuda "  ><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a> -->
                                                                                         </div>
                                                                                     </div>
                                                                                 
