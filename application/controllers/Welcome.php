@@ -59,6 +59,8 @@ class Welcome extends CI_Controller {
 		$id_cliente=$this->session->userdata('cliente');
 		$d['rubros']=$this->servicios->get_list_rubros($id_cliente);
 		$d['region']=$this->servicios->get_list_regiones($id_cliente);
+		$metodopagoaux=$this->servicios->getmetodospago(3859);
+		$d["metodosdepago"]=$metodopagoaux->values;
  
  
 	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
@@ -393,11 +395,7 @@ class Welcome extends CI_Controller {
 
 		}	
 		
-		/*
-			echo "<pre>";
-			print_r($d);
-			echo print_r($_SESSION);
-			echo "</pre>";*/
+	
 		$this->load->view('pago_rapido/facturacion', $d);
 
 	}
@@ -437,10 +435,7 @@ class Welcome extends CI_Controller {
 		$montocomision=0;
 		$d['metodosdepago']=$metodos->values->aMetodosDePago;
 		$d['tipocomision']=$metodos->values->aTipoComisionDetalle;
-		//$varinicio=0;
-		//$varfinal=0;
-	//	echo "<pre>";
-	//		print_r($d);
+
 
 		$montocomision=$this->servicios->calcularcomision($idcliente, $_SESSION['idempresa'],$metodopago,$_SESSION['montototal']);
 		//print_r($montocomision);
@@ -461,6 +456,7 @@ class Welcome extends CI_Controller {
 		$d['montototalpagar']=$_SESSION['montototalpagar'];
 		$d['etiquetametodopago']=$_SESSION['etiquetametodopago'];
 		
+	
 
 
 		
@@ -475,12 +471,9 @@ class Welcome extends CI_Controller {
 		$d['montototal']=$_SESSION['montototalpagar'];
 
 		//$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
-	/*
-		echo "<pre>";
-		print_r($_SESSION);
-		echo "</pre>";*/
+	
 		
-	if( (isset($_SESSION['cinit']) ) ||  (isset($_SESSION['telefono']) ))
+	if(  $_SESSION['telefono'] != "0" )
 	{
 		$var=$_SESSION['metododepago'];
 			switch ($var) {
@@ -645,7 +638,7 @@ class Welcome extends CI_Controller {
 		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
 		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		 $tcPeriodo=$_SESSION['periodomes'];
-		 $tcImei= $_SESSION['imei']."W"  ;//$_SESSION['imei'];
+		 $tcImei= $_SESSION['imei']  ;//$_SESSION['imei'];
 		 $tcExtension=$extension ;
 		 $tcComplement= (($complemento==''))? null : $complemento; //$complemento;  //(!isset($tcComplement))? null : $tcComplement; // $complemento;
 		 $tcServiceCode=$codigoservicio;
@@ -773,7 +766,7 @@ class Welcome extends CI_Controller {
 		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
 		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		 $tcPeriodo=$_SESSION['periodomes'];
-		 $tcImei= $_SESSION['imei']."W"  ;//$_SESSION['imei'];
+		 $tcImei= $_SESSION['imei'] ;//$_SESSION['imei'];
 		$metodos=$this->servicios->ejecuparpagoelinkser($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcTarjeta , $tcTarjetaHabiente  , $tcCodigoSeguridad , $tcFechaExpiracion );
 
 					$mensajeerror=$metodos->error ;

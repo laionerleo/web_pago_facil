@@ -39,8 +39,18 @@
         <!-- end::navigation -->
 
         <div class="content-body" id="vista_general"  >
+        
 
             <div class="content" >
+            <div class="page-header justify-content-between">
+              
+                <div>
+                <?php  for ($i=0; $i < count($metodosdepago) ; $i++) {?>
+                            <a href="#" ><img style=" height:25px; width:45px; position: relative;" src="<?=  $metodosdepago[$i]->url_icon ?>" alt=""><a>
+                        <?php  } ?>
+                   
+                </div>
+            </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">

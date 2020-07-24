@@ -52,11 +52,12 @@ class Auth extends CI_Controller {
 		$contraseña=md5($nuevodato['contraseña']);
         
         $resultado=$this->servicios->loginpagofacil($usuario,$contraseña);
-        $data = get_object_vars($resultado->values);
+        
      //  /print_r($data);
       
        if($resultado->error  == 0)
 		{
+			$data = get_object_vars($resultado->values);
            $_SESSION['user'] = $resultado;
            $this->session->set_userdata($data);
       
@@ -87,12 +88,13 @@ class Auth extends CI_Controller {
 		
 
 		$resultado=$this->servicios->registropagofacil($nombre,$apellido,$correo,$numero,$login,$contraseña);
-        $data = get_object_vars($resultado->values);
+        
       //*/ print_r($data);
       
 	   
 	   if($resultado->error  == 0)
 		{
+			$data = get_object_vars($resultado->values);
            $_SESSION['user'] = $resultado;
            $this->session->set_userdata($data);
       

@@ -49,7 +49,8 @@
                                                 <div class="col-md-3 mb-3">
                                                 <label for="">Extensión</label>
                                                     <select class="custom-select custom-select-m" name="slcext" id="slcext">
-                                                        <option value="SC">SC</option>
+                                                        
+                                                        <option  value="SC">SC</option>
                                                         <option value="BE">BE</option>
                                                         <option value="CB">CB</option>
                                                         <option value="TJ">TJ</option>
@@ -96,7 +97,7 @@
                                                     
                                                     <div class="col-md-3 mb-3" >
                                                         <select class="custom-select custom-select-m" name="slcmes" id="slcmes">
-
+                                                            
                                                             <option value="01">ENE</option>
                                                             <option value="02">FEB</option>
                                                             <option value="03">MAR</option>
@@ -118,6 +119,7 @@
                                                         $contfinal = $cont+10;
                                                         ?>
                                                         <select class="custom-select custom-select-m" name="slcaño" id="slcaño">
+                                                        
                                                         <?php while ($cont <= $contfinal) { ?>
                                                         <option value="<?php echo(substr($cont, 2)); ?>"><?php echo($cont); ?></option>
                                                         <?php $cont = ($cont+1); } ?>
@@ -288,8 +290,9 @@
 
         function metodoprepararpago()
         {
-            if(  ($('#inpci').val().length>0)      )
+            if(  ($('#inpci').val().length>0) && ($('#slcext').val() != null)  && ($('#slcmes').val()!= null ) && ($('#slcaño').val() != null)     )
             { 
+                console.log($('#slcext').val());
             
                 var ci=$('#inpci').val();
                 var complemento=$('#inpcomplemento').val();
@@ -334,7 +337,7 @@
                         });  
 
             }else{
-                swal("Mensaje", "por favor llenar el CI " , "error");
+                swal("Mensaje", "por favor llenar todos los datos " , "error");
             }
         }
   
