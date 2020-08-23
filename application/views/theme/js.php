@@ -43,9 +43,111 @@
     <!-- App scripts -->
   <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
   <script>
-      $(document).ready(function(){
-        //toastr.success('<?= $_SESSION["nombre"]." ".$_SESSION["apellido"] ?>');
+    var rubros;
+    var empresaspagadas;
+    
 
-      });
+function cargarrubros()
+        {
+         
+ 
+                var datos= {ci:0};
+                var urlajax=$("#url").val()+"getrubros"; 
+            
+                $.ajax({                    
+                        url: urlajax,
+                        data: {datos},
+                        type : 'POST',
+                        dataType: "json",
+                        
+                            beforeSend:function( ) {   
+                            
+                            },                    
+                            success:function(response) {
+                            rubros= response;
+                            console.log(response);
+                            cargarmenupagorealizados();
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                
+                            },               
+                            complete:function( ) {
+                                
+                            },
+                        });  
+
+       
+        }
+
+        function cargarempresaspagadas()
+        {
+         
+ 
+                var datos= {ci:0};
+                var urlajax=$("#url").val()+"getempresaspagadasfrecuentes"; 
+            
+                $.ajax({                    
+                        url: urlajax,
+                        data: {datos},
+                        type : 'POST',
+                        dataType: "json",
+                        
+                            beforeSend:function( ) {   
+                            
+                            },                    
+                            success:function(response) {
+                            console.log(response);
+                            empresaspagadas=response;
+                            
+
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                
+                            },               
+                            complete:function( ) {
+                                
+                            },
+                        });  
+
+       
+        }
+        function cargarmenupagorealizados()
+        {
+          console.log(rubros.length);
+          console.log(rubros[0].nTipoEmpresa);
+          var urlajax=$("#url").val()+"pagosrealizados/"; 
+          
+          for (let i = 0; i < rubros.length; i++) {
+            console.log(rubros[i]);
+            var elemento=`<li> <a  href="" >`+  rubros[i].nNombre +` </a>   <ul>`;
+            for (let j = 0; j < empresaspagadas.length; j++) {
+              if(empresaspagadas[j].nTipoEmpresa==rubros[i].nTipoEmpresa)
+              {
+               // console.log("entro en " +j+"del rubro :"+i);
+                elemento=elemento+`<li> <a href="`+urlajax+ empresaspagadas[j].nEmpresa+`">`+empresaspagadas[j].cDescripcion +`</a></li>`;
+                console.log(elemento);
+              }
+              
+            }
+            elemento= elemento+`</ul>  </li>`;
+            console.log(elemento);
+            $("#listarubros").append(elemento);
+            
+          }
+          
+
+        }
+          
+        $(document).ready(function() {
+            cargarempresaspagadas();
+            cargarrubros();
+
+            
+            
+            
+            });
+ 
   </script>
   

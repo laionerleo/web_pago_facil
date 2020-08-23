@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Mes:</div>
-                                            <div class="col-6"><?= @$facturaprincipal->periodo  ?>  </div>
+                                            <div class="col-6"><?= @$periodomes ?>  </div>
                                         </div>
                             </div>
                             <hr class="m-0">

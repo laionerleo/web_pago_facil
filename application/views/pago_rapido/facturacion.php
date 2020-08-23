@@ -1,6 +1,10 @@
 
-
+        <?php if(isset($saldo)){ ?>
+        <center><h2>Saldo</h2></center>
+        <center><h4>Bs<?= $saldo ?></h4></center>
+        <?php } ?>
             <div class="row">
+            
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">

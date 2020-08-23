@@ -122,27 +122,15 @@ class Welcome extends CI_Controller {
 		if($tipo==1)
 		{
 			$d['clientes']=$this->servicios->get_busqueda_codigo_fijo($empresa_id,$codigo,$id_cliente);
+
 		}else{
 			$d['clientes']=$this->servicios->get_busqueda_ci($empresa_id,$codigo,$id_cliente);
 		}
-/*
-		echo "<pre>";
-		print_r($d['clientes']->values);
-		echo "</pre>";
-		
-		*/
-		$_SESSION['clientesbusqueda']=$d['clientes']->values;
-		/*
-		if(count($d['clientes']->values)>0 ){
-			$_SESSION['codigofijo']=$d['clientes']->values[0]->codigoClienteEmpresa;
-			$_SESSION['codigoubicacion']= $d['clientes']->values[0]->codidgoUbicacion;
-			$_SESSION['nombreclienteempresa'] = $d['clientes']->values[0]->nombre;
-			$_SESSION['cionitclienteempresa'] = $d['clientes']->values[0]->Nit;
-			
-			
-			
-		}*/
 
+		
+		
+		$_SESSION['clientesbusqueda']=$d['clientes']->values;
+	
 		
 		$this->load->view('pago_rapido/lista_clientes', $d);
 
@@ -186,16 +174,15 @@ class Welcome extends CI_Controller {
 
 
 
-		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo,$id_cliente);
+		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo,$id_cliente);	
 		if(!is_null(@$lista->values)  ){
 			$d['facturas']=$lista->values;
 			$d['cantidadfacturas']=count($lista->values);
-
-			$facturaprincipal=$this->servicios->get_detalle_factura($lista->values[0]->factura , $empresa_id,$codigo_fijo,$id_cliente);
-			$d['facturaprincipal']=$facturaprincipal->values;
-			//print_r($facturaprincipal->values);
+			
 			$_SESSION['periodomes']=$lista->values[0]->periodo;
-			$_SESSION['nrofactura']=$facturaprincipal->values->factura;
+			$_SESSION['nrofactura']=$lista->values[0]->factura;
+			//$_SESSION['nrofactura']=$facturaprincipal->values->factura;
+			$d['periodomes']=$this->get_periodo($lista->values[0]->periodo);
 
 			for ($i=0; $i < count($lista->values); $i++) { 
 				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
@@ -225,8 +212,7 @@ class Welcome extends CI_Controller {
 		$_SESSION['todosmetodosdepago']=$metodos->values->aMetodosDePago;
 
 		$etiquetas=$this->servicios->get_etiquetas($id_cliente);
-		//$d['etiquetas']=$etiquetas->values;
-		
+	
 		for ($i=0; $i < count($etiquetas->values); $i++) { 
 			if($etiquetas->values[$i]->Empresa == $empresa_id) 
 			{
@@ -237,15 +223,7 @@ class Welcome extends CI_Controller {
 		
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
-	/*			
-	echo "<pre>";
-	print_r($datos);
-	print_r($d);
-	print_r($lista);
-	echo "</pre>";
-	*/
-	
-	
+
 	$this->load->view('pago_rapido/facturaspendientes', $d);
 	}
 	public function getavisofacturames()
@@ -386,6 +364,16 @@ class Welcome extends CI_Controller {
 		$_SESSION['montototal']=$datos["montototal"];
 		$_SESSION['idfactura']=$datos["idfactura"];
 		$_SESSION['metododepago']=$datos["metododepago"];
+		$metodopago=$_SESSION['metododepago'];
+		if($metodopago==2)
+		{
+			$tnCliente= $this->session->userdata('cliente');
+		$tnEmpresa=$_SESSION['idempresa'];
+		$billetera=$this->servicios->getbilletera($tnCliente,$tnEmpresa);
+		$d['saldo']=$billetera->values[0]->Saldo;
+		}
+		
+
 
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION['todosmetodosdepago'][$i]->metodoPago."--".$_SESSION['metododepago']; 
@@ -397,6 +385,7 @@ class Welcome extends CI_Controller {
 		
 	
 		$this->load->view('pago_rapido/facturacion', $d);
+		
 
 	}
 	public function vistaconfirmacion()
@@ -469,24 +458,35 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$d['montototal']=$_SESSION['montototalpagar'];
-
-		//$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
-	
 		
 	if(  $_SESSION['telefono'] != "0" )
 	{
 		$var=$_SESSION['metododepago'];
 			switch ($var) {
+				case 1:
+					$d['numeropago']=$_SESSION['telefonoDePago'];
+					$d['clienteempresa']=$_SESSION['codigofijo'];
+					$d['Monto']=$_SESSION['montototal'];
+					$d['Periodo']=$_SESSION['periodomes'];
+					$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
+					$this->load->view('pago_rapido/formasdepago/pagotigomoney', $d);
+				break;
+				case 2:
+					$d['numeropago']=$_SESSION['telefonoDePago'];
+					$d['clienteempresa']=$_SESSION['codigofijo'];
+					$d['Monto']=$_SESSION['montototal'];
+					$d['Periodo']=$_SESSION['periodomes'];
+					$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
+					$this->load->view('pago_rapido/formasdepago/pagobillieterapagofacil', $d);
+				break;
+				
 				case 4:
 						
 					$entidades=$this->servicios->genentidadesfinancieras($_SESSION['cliente']);
 					$entidadeselegidas=$this->servicios->getultimasutilizadas($_SESSION['cliente']);
 					$d['entidadeselegidas']=$entidadeselegidas->values;
 					$d['entidades']=$entidades->values;
-					/*echo "<pre>";
-					print_r($d['entidades']);
-					echo "</pre>";
-					*///$d['montototal']=$_SESSION['monto']+$_SESSION['montocomision'];
+					//$d['montototal']=$_SESSION['monto']+$_SESSION['montocomision'];
 					$_SESSION['entidades']=$entidades->values;
 					$this->load->view('pago_rapido/formasdepago/pagoqr', $d);
 					
@@ -514,6 +514,13 @@ class Welcome extends CI_Controller {
 					$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
 				break;
 				case 6:
+					$transaccion=$this->servicios->get_trancaccioneslinkser($this->session->userdata('cliente'));
+					$d['tntransaccionpago']=@$transaccion->values[0]->TransaccionDePago;
+					$d['Tarjeta']=@$transaccion->values[0]->Tarjeta;
+					$d['Año']=substr(@$transaccion->values[0]->PeriodoExpiracion, 0, 4);
+					$d['Mes']=substr(@$transaccion->values[0]->PeriodoExpiracion, 4, 6);
+					$d['CVV']=@$transaccion->values[0]->CVV;
+					$d['TarjetaHabiente']=@$transaccion->values[0]->TarjetaHabiente;					
 					$this->load->view('pago_rapido/formasdepago/pagoconelinkser', $d);
 				break;
 				
@@ -536,6 +543,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('auth/formularioedicion', $d);
 
 	}
+	
 
 			
 	
@@ -655,7 +663,7 @@ class Welcome extends CI_Controller {
 							//print_r($valores);
 							$_SESSION['numerodetransaccion']=$valores[0];
 							$_SESSION['numeroautorizacion']=$valores[1];
-							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10  );
 							
 
 						}else{
@@ -666,31 +674,7 @@ class Welcome extends CI_Controller {
 						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 					}
 					echo json_encode($arreglo);
-					/*
-				echo	"<pre>";
-					print_r($metodos);
-					print_r($metodos->error);
-					print_r($metodos->message);
-					print_r($metodos->values);
-					
-					echo "</pre>";
-*/
-	
-		//	$arreglo=array('mensaje' => $metodos->message, 'error' => $metodos->error , 'valor'=> $metodos->values);
-		
-		//$arreglo=array('mensaje' => $metodos->message, 'error' => $metodos->error);
-	//	echo json_encode($arreglo);
-		
-		/*echo	"<pre>";
-		print_r($metodos);
-		print_r($metodos->error);
-		print_r($metodos->message);
-		print_r($metodos->values);
-		
-		echo "</pre>";
-*/
-		//var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio};
-	}
+		}
 	public function confirmarpagobcp()
 	{
 		$d = array();
@@ -702,19 +686,6 @@ class Welcome extends CI_Controller {
 		$tnAuthorizationNumber=$_SESSION['numeroautorizacion'];
 		$tnCorrelationId=  $_SESSION['numerodetransaccion'];
 		$tcOTP=$datos["codigo"];
-/*		echo	"<pre>";
-		print_r($tnCliente);
-		echo "--";
-		print_r($tnEmpresa);
-		echo "--";
-		print_r($tnAuthorizationNumber);
-		echo "--";
-		print_r($tnCorrelationId);
-		echo "--";
-		print_r($tcOTP);
-		echo "--";
-		echo "</pre>";
-*/
 		$metodos=$this->servicios->bcpconfirmarpago($tnCliente,$tnEmpresa , $tnAuthorizationNumber,$tnCorrelationId , $tcOTP );
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
@@ -863,15 +834,114 @@ class Welcome extends CI_Controller {
 	{
 		$metodos=$this->servicios->finalizarpago($tncliente ,$tntransaccion);
 						
-				echo	"<pre>";
-					print_r($metodos);
-					print_r($metodos->error);
-					print_r($metodos->message);
-					print_r($metodos->values);
-					
-					echo "</pre>";
+		
 	}
 
+	public function pagarportigomoney()
+	{
+		
+		// aqui son los datos que tengo recolectados
+		
+		 $tncliente=$_SESSION['cliente'];
+		 $tnempresa = $_SESSION['idempresa'];
+		 $codigoclienteempresa= $_SESSION['cliente'];
+		 $tnmetodopago= $_SESSION['metododepago'];
+
+		$tnTelefono = $_SESSION['telefonoDePago'];  ; 
+		$tcFacturaA= $_SESSION['nombreclienteempresa'] ;
+		 $tnCiNit=$_SESSION['cionitclienteempresa'];
+		 $tcNroPago=$_SESSION['nrofactura'];
+		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
+		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
+		 $tcPeriodo=$_SESSION['periodomes'];
+		 $tcImei= $_SESSION['imei'] ;
+		 $metodos=$this->servicios->realizarpagotigo($tncliente  , $tnempresa ,$codigoclienteempresa , $tnmetodopago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tcNroPago , $tnMontoClienteEmpresa ,  $tnMontoClienteSyscoop , $tcImei ,$tcPeriodo ) ;
+
+					$mensajeerror=$metodos->error ;
+					$valor= $metodos->values;
+					if($mensajeerror== 0 ){
+						if(isset($valor))
+						{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'valor'=> $metodos->values);
+						}else{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+						}
+
+					}else{
+						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+					}
+					echo json_encode($arreglo);
+
+	}
+	public function verificartransacciontigo()
+	{
+		// aqui son los datos que tengo recolectados
+		$datos=$this->input->post("datos");
+
+		$tncliente=$_SESSION['cliente'];
+		$tnempresa = $_SESSION['idempresa'];
+		$tnTransaccionDePago= $datos['transaccion'];
+		$metodos=$this->servicios->consultarestadodetransaccion( $tncliente,$tnempresa,$tnTransaccionDePago);
+		$mensajeerror=$metodos->error ;
+		 $valor= $metodos->values;
+				   if($mensajeerror== 0 ){
+					   if(isset($valor))
+					   {
+						
+							$estadotigo =$valor->estadoPago;
+							if($estadotigo==0)
+							{
+								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 0 );
+
+							}
+							if($estadotigo==1)
+							{
+								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
+
+							}
+							if($estadotigo==3)
+							{
+								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 3 );
+
+							}
+							
+
+
+
+						   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+
+
+
+					   }else{
+						   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+					   }
+
+				   }else{
+					   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 ,);
+				   }
+				   echo json_encode($arreglo);
+
+
+	}
+
+	public function pagosrealizados($lan,$tnEmpresa)	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$tnCliente=$this->session->userdata('cliente');
+	
+		
+		$codigoservicio=$this->servicios->getcodigosservicio($tnCliente, $tnEmpresa);
+		$metodopagoaux=$this->servicios->getmetodospago($tnCliente);
+		$d["metodosdepago"]=$metodopagoaux->values;
+		$d['codigoservicio']=$codigoservicio->values;
+		/*echo "<pre>";
+		print_r($d);
+		echo "</pre>";
+		*/
+
+		$this->load->view('pagosrealizados/index', $d);
+
+	}
 
 	public function error404($lan='es')
 	{

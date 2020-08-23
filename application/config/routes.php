@@ -26,6 +26,8 @@ $route[$l.'nuevavista']                         = 'Welcome/nuevavista';
 $route[$l.'endesarrollo']                      = 'Welcome/endesarrollo';
 $route[$l.'generarqr']                      = 'Welcome/generarqr';
 $route[$l.'getultimaselegidas']                      = 'Welcome/getultimaselegidas';
+$route[$l.'metodotigomoney']                    = 'Welcome/pagarportigomoney';
+$route[$l.'verificartransaccion']               = 'Welcome/verificartransacciontigo';
 
 
 //
@@ -35,7 +37,12 @@ $route[$l.'actualizardatos']                      = 'Welcome/actualizardatosusua
 
 ///Servicios
 $route[$l.'Qr/(:any)']                          = 'Servicio/recuperarqr/$1/$2';
-$route[$l.'Descargarqr/(:any)']                          = 'Servicio/DescargarQr/$1/$2';
+$route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
+$route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
+$route[$l.'getrubros']                          = 'Servicio/getrubros';
+//pagos realizados
+$route[$l.'pagosrealizados/(:num)']                 = 'Welcome/pagosrealizados/$1/$2';
+
 
 
 

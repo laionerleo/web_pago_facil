@@ -13,6 +13,7 @@
                         <a href="#" data-toggle="tooltip"
                            data-placement="right" title="Pagos realizados" data-nav-target="#pagos_realizados">
                            <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/pagadas_y_frecuentes.png"  alt="">
+                           
                         </a>
                     </li>
                     
@@ -77,13 +78,11 @@
                         </ul>
                     </div>
                     <div id="pagos_realizados">
-                        <ul>
+                        <ul id="listarubros">
                             <li class="navigation-divider d-flex align-items-center">
                                 <i class="mr-2" data-feather="copy"></i> pagos realizados
                             </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo">Pagos realizados </a>
-                            </li>
+
                        
                         </ul>
                     </div>
@@ -219,3 +218,6 @@
                 </div>
             </div>
         </div>
+        <script>
+   
+        </script>

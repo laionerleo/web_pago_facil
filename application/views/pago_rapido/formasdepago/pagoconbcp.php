@@ -315,6 +315,7 @@
                             console.log(response);
                             if(response.tipo==10)
                             {
+                                
                                 $("#bntprepararpago").attr("disabled","disabled");
                                 $("#confirmarpago").click();
                                 
@@ -342,6 +343,7 @@
         }
   
         var extension="";
+        var intervalo;
         //var expiracion 
         function ejecutarpago()
         {
