@@ -1342,6 +1342,34 @@ tnAuthorizationNumber= autorizacion deBCP
        $resultado =json_decode($result);
       return $resultado;
     }
+    public function getfacturaspagadas( $tnCliente, $tnEmpresa ,$tcCodigoClienteEmpresa )
+    {
+      $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/listarFacturasPagadas';
+      $data = array( 'tnCliente' => intval($tnCliente) ,'tnEmpresa'=>intval($tnEmpresa) , 'tcCodigoClienteEmpresa'=>"$tcCodigoClienteEmpresa" ) ;
+
+      
+      /*  
+@Field("tnEmpresa")                 long    empresa,
+            @Field("tnCliente")                 long    cliente,
+            @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa);
+      */
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         ); 
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+
+    }
     
 
 }

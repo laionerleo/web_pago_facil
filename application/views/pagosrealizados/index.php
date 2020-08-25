@@ -53,11 +53,11 @@
                         <ul class="nav nav-tabs mb-3" role="tablist">
                             <li class="nav-item" id="li1"  >
                                 <a class="nav-link active" id="inicio-tab"  data-toggle="tab" href="#iniciobody" role="tab"
-                                   aria-controls="home" aria-selected="true">CODIGOS DE SERVICIO</a>
+                                   aria-controls="home" aria-selected="true">Codigos de servicio</a>
                             </li>
                             <li class="nav-item" id="li2" style="display:none" >
-                                <a class="nav-link" id="facturaspendientes-tab" data-toggle="tab" href="#facturaspendientesbody" role="tab"
-                                   aria-controls="profile" aria-selected="false">Facturas Pendientes </a>
+                                <a class="nav-link" id="facturaspagadas-tab" data-toggle="tab" href="#facturaspagadasbody" role="tab"
+                                   aria-controls="profile" aria-selected="false">Facturas Pagadas </a>
                             </li>
                             <li class="nav-item" id="li3" style="display:none">
                                 <a class="nav-link" id="facturacion-tab" data-toggle="tab" href="#facturacionbody" role="tab"
@@ -83,6 +83,9 @@
                                                                 <tr>
                                                                     <th>Codigo</th>
                                                                     <th>Alias  </th>
+                                                                    <th>Estado  </th>
+                                                                    
+
                                                                     
                                                                     
                                                                 </tr>
@@ -90,11 +93,19 @@
                                                                 <tbody>
                                                                 
                                                                 <?php  for ($i=0; $i < count($codigoservicio) ; $i++) { ?>
-                                                                    <tr id="fila-<?= $i ?>" onclick="mostrarmodal(<?= $codigoservicio[$i]->codigoClienteEmpresa ?>,'#cod-<?= $i ?>')" > 
+                                                                    <tr id="fila-<?= $i ?>" onclick="mostrarmodal(<?= intval(@$codigoservicio[$i]->codigoClienteEmpresa) ?>,'#cod-<?= $i ?>')" > 
                                                                     <td   > 
                                                                     <label for=""><?= @$codigoservicio[$i]->codigoClienteEmpresa ?></label>
                                                                     </td>
                                                                     <td>  <?= @$codigoservicio[$i]->alias ?></td>
+                                                                    <td>
+                                                                        <?php  if($codigoservicio[$i]->tieneFac==2){ ?>
+                                                                        <label for="">pagada</label>
+                                                                        <?php }else{  ?>
+                                                                            <label for=""> no pagada</label>
+                                                                        <?php   }?>
+                                                                    </td>
+
                                                                     
                                                                     
                                                                 </tr>
@@ -104,8 +115,11 @@
                                                                 </tbody>
                                                                 <tfoot>
                                                                 <tr>
-                                                                    <th>Logo</th>
-                                                                    <th>    Nombre   </th>
+                                                                       <th>Codigo</th>
+                                                                    <th>Alias  </th>
+                                                                    <th>Estado  </th>
+                                                                    
+
                                                                 
                                                                 </tr>
                                                                 </tfoot>
@@ -137,7 +151,7 @@
     
 
                             </div>
-                            <div class="tab-pane fade" id="facturaspendientesbody" role="tabpanel" aria-labelledby="facturaspendientesbody">
+                            <div class="tab-pane fade" id="facturaspagadasbody" role="tabpanel" aria-labelledby="facturaspagadasbody">
                                 <div class="spinner-border text-primary" role="status">
                                     <span class="sr-only">Loading...</span>
                                 </div>
@@ -189,9 +203,27 @@
 <script>
 function mostrarmodal(codigo,idfila)
    {
+       console.log(codigo);
     $("#btnmodal").click();
+    $("#codigocliente").val(codigo);
+    
 
    }
+
+   function facturaspagadas()
+{
+    var codigocliente= $("#codigocliente").val();
+    var codigoempresa=$("#codigoempresa").val();
+    var datos= {codigocliente:codigocliente , codigoempresa:codigoempresa };
+    var urlajax=$("#url").val()+"get_facturaspagadas";  
+    $("#li2").show();
+    $("#btncerrar").click();
+    $("#facturaspagadasbody").load(urlajax,{datos});  
+    $("#facturaspagadas-tab").click(); 
+  
+   
+     
+}
 </script>
 <div class="modal fade" id="modalopciones" tabindex="-1" role="dialog" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
@@ -204,15 +236,16 @@ function mostrarmodal(codigo,idfila)
                                                                     </div>
                                                                     <div class="modal-body">
                                                                    <input class="btn btn-primary" type="button" value="Pagar Facturas">
-                                                                   <input class="btn btn-primary" type="button" value="Ver facturas pagadas">
+                                                                   <input onclick="facturaspagadas()" class="btn btn-primary" type="button" value="Ver facturas pagadas">
+                                                                   <input type="hidden" name="codigocliente" id="codigocliente">
+                                                                   <input type="hidden" name="codigoempresa" id="codigoempresa"  value="<?php echo @$empresa ?>">
                                                                    
-
                                                                       
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Close
+                                                                    <button type="button" id="btncerrar"  class="close" data-dismiss="modal" aria-label="Close">cerrar                                                                 
                                                                         </button>
-                                                                        <input type="button"  onclick="generarqr()" class="btn btn-primary" value="Aceptar">
+                                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -42,6 +42,8 @@ $route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfr
 $route[$l.'getrubros']                          = 'Servicio/getrubros';
 //pagos realizados
 $route[$l.'pagosrealizados/(:num)']                 = 'Welcome/pagosrealizados/$1/$2';
+$route[$l.'get_facturaspagadas']                 = 'Welcome/facturaspagadas';
+
 
 
 

@@ -934,6 +934,7 @@ class Welcome extends CI_Controller {
 		$metodopagoaux=$this->servicios->getmetodospago($tnCliente);
 		$d["metodosdepago"]=$metodopagoaux->values;
 		$d['codigoservicio']=$codigoservicio->values;
+		$d['empresa']=$tnEmpresa;
 		/*echo "<pre>";
 		print_r($d);
 		echo "</pre>";
@@ -941,6 +942,30 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('pagosrealizados/index', $d);
 
+	}
+
+	public function facturaspagadas()
+	{
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post('datos');
+		$tnCliente=$this->session->userdata('cliente');
+		$tnEmpresa=$datos['codigoempresa'];
+		$tcCodigoClienteEmpresa = $datos['codigocliente'];
+
+
+		
+	
+		
+		$d['facturaspagadas']=$this->servicios->getfacturaspagadas( $tnCliente, $tnEmpresa ,$tcCodigoClienteEmpresa );
+		
+		echo "<pre>";
+		print_r($d['facturaspagadas']->values);
+	
+		echo "</pre>";
+		
+		//$this->load->view('pago_rapido/lista_clientes', $d);
 	}
 
 	public function error404($lan='es')
