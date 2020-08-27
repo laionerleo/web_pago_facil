@@ -78,7 +78,7 @@
                                  <?php   if(count($codigoservicio)>0){    ?>
                                         <div class="form-row">
                                         <div class="col-md-12 mb-12 table-responsive">
-                                        <table id="example1" class="table table-striped table-bordered">
+                                            <table id="example1" class="table table-striped table-bordered">
                                                                 <thead>
                                                                 <tr>
                                                                     <th>Codigo</th>

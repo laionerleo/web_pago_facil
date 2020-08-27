@@ -931,14 +931,21 @@ class Welcome extends CI_Controller {
 	
 		
 		$codigoservicio=$this->servicios->getcodigosservicio($tnCliente, $tnEmpresa);
+
 		$metodopagoaux=$this->servicios->getmetodospago($tnCliente);
 		$d["metodosdepago"]=$metodopagoaux->values;
 		$d['codigoservicio']=$codigoservicio->values;
+		$_SESSION['codigoservicio']=$codigoservicio->values;
+		
 		$d['empresa']=$tnEmpresa;
-		/*echo "<pre>";
-		print_r($d);
-		echo "</pre>";
-		*/
+		for ($L=0; $L <count($_SESSION['empresaspagadas']) ; $L++) { 
+			if($_SESSION['empresaspagadas'][$L]->nEmpresa==$tnEmpresa)
+			{
+				$_SESSION['Nombreempresapagada']= $_SESSION['empresaspagadas'][$L]->cDescripcion;
+				$_SESSION['iconoempresapagada']= $_SESSION['empresaspagadas'][$L]->cUrl_icon;
+			}
+		}
+
 
 		$this->load->view('pagosrealizados/index', $d);
 
@@ -953,19 +960,26 @@ class Welcome extends CI_Controller {
 		$tnCliente=$this->session->userdata('cliente');
 		$tnEmpresa=$datos['codigoempresa'];
 		$tcCodigoClienteEmpresa = $datos['codigocliente'];
-
-
-		
-	
-		
-		$d['facturaspagadas']=$this->servicios->getfacturaspagadas( $tnCliente, $tnEmpresa ,$tcCodigoClienteEmpresa );
-		
-		echo "<pre>";
-		print_r($d['facturaspagadas']->values);
-	
+		for ($L=0; $L <count($_SESSION['codigoservicio']) ; $L++) { 
+			if($_SESSION['codigoservicio'][$L]->codigoClienteEmpresa==$tcCodigoClienteEmpresa)
+			{
+				$_SESSION['nombreclientepagada']= $_SESSION['codigoservicio'][$L]->alias;
+				$_SESSION['codigoclientepagada']= $_SESSION['codigoservicio'][$L]->codigoClienteEmpresa;
+			}
+		}
+		$d['nombreempresa']=$_SESSION['Nombreempresapagada'];
+/*		echo "<pre>";
+		print_r($_SESSION['empresaspagadas']);
 		echo "</pre>";
+*/
+		$facturaspagadas=$this->servicios->getfacturaspagadas( $tnCliente, $tnEmpresa ,$tcCodigoClienteEmpresa );
+		$d['codigocliente']=$_SESSION['codigoclientepagada'];
+		$d['nombrecliente']=$_SESSION['nombreclientepagada'];
+		$d['numerofacturas']= count($facturaspagadas->values);
+		$d['urliconoempresapagada']=$_SESSION['iconoempresapagada'];
 		
-		//$this->load->view('pago_rapido/lista_clientes', $d);
+		$d['facturaspagadas'] =$facturaspagadas->values;
+		$this->load->view('pagosrealizados/facturaspagadas', $d);
 	}
 
 	public function error404($lan='es')
