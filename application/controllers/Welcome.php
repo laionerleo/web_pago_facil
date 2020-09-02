@@ -830,6 +830,16 @@ class Welcome extends CI_Controller {
 		$arraymeses=["01"=> "ENE" ,"02"=> "FEB" ,"03"=> "MAR"  ,"04"=> "ABR" ,"05"=> "MAY"  ,"06"=> "JUN"  ,"07"=>"JUL"  ,"08"=>"AGO"  ,"09"=> "SEP" ,"10"=> "OCT" ,"11"=>"NOV"  ,"12"=> "DIC"  ];
 		return $porciones[0]."-".$arraymeses[$porciones[1]];
 	}
+	public function get_periodo_inversa($cadena)
+	{
+		$cadenanueva=substr($cadena, 0, 8);
+		$porciones = explode("-", $cadenanueva);
+		$arraymeses=[ "ENE" => "01", "FEB" =>"02" , "MAR"=>"03" , "ABR"=>"04", "MAY"=> "05" , "JUN"=> "06" ,"JUL"=> "07" ,"AGO"=>"08"  , "SEP"=>"09" , "OCT"=> "10" , "NOV"=> "11"  , "DIC"=> "12" ];
+		return $porciones[0]."-".$arraymeses[$porciones[1]];
+	}
+
+
+
 	public function finalizartransaccion($tncliente,$tntransaccion)
 	{
 		$metodos=$this->servicios->finalizarpago($tncliente ,$tntransaccion);
@@ -960,6 +970,9 @@ class Welcome extends CI_Controller {
 		$tnCliente=$this->session->userdata('cliente');
 		$tnEmpresa=$datos['codigoempresa'];
 		$tcCodigoClienteEmpresa = $datos['codigocliente'];
+		$_SESSION['codigoempresa']=$datos['codigoempresa'];
+		$_SESSION['codigoclientefacturas']= $datos['codigocliente'];
+		
 		for ($L=0; $L <count($_SESSION['codigoservicio']) ; $L++) { 
 			if($_SESSION['codigoservicio'][$L]->codigoClienteEmpresa==$tcCodigoClienteEmpresa)
 			{
@@ -968,10 +981,7 @@ class Welcome extends CI_Controller {
 			}
 		}
 		$d['nombreempresa']=$_SESSION['Nombreempresapagada'];
-/*		echo "<pre>";
-		print_r($_SESSION['empresaspagadas']);
-		echo "</pre>";
-*/
+
 		$facturaspagadas=$this->servicios->getfacturaspagadas( $tnCliente, $tnEmpresa ,$tcCodigoClienteEmpresa );
 		$d['codigocliente']=$_SESSION['codigoclientepagada'];
 		$d['nombrecliente']=$_SESSION['nombreclientepagada'];
@@ -981,6 +991,138 @@ class Welcome extends CI_Controller {
 		$d['facturaspagadas'] =$facturaspagadas->values;
 		$this->load->view('pagosrealizados/facturaspagadas', $d);
 	}
+
+	public function veraviso()
+	{
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$idcliente=$this->session->userdata('cliente');
+		$codigo_fijo=$_SESSION['codigoclientefacturas'];
+		$id_empresa=$_SESSION['codigoempresa'];
+		$factura= $this->get_periodo_inversa($datos['idfactura']);	
+		$empresadetalle=$this->servicios->getempresasimple($id_empresa ,$idcliente);
+		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
+		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
+		//$factura="2020-02";//$datos["periodo"];//periodo
+		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura,$idcliente);
+		/*
+		echo "<pre>";
+		echo $datos['idfactura'];
+		print_r($empresadetalle);
+		print_r($lista);
+		echo "</pre>"; 
+		*/
+		$cadena="";
+		foreach($lista->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		$fileToDownload = $cadena;
+			$cadena="";
+		foreach($lista->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		$fileToDownload = $cadena;
+		//	$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-'.$factura.'.pdf';
+		$fichero ='/web_pago_facil/application/assets/documentospdf/factura-'.$factura.'.pdf';
+		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
+		//file_put_contents($fichero, $fileToDownload);
+		$d['documentopdf']=$fichero;
+		$this->load->view('pagosrealizados/vysorpdf', $d);
+	}
+
+	public function verfacturapagofacil()
+	{
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$datos['transaccion'];
+		$tnEmpresa=$datos['codigoempresa'];
+		$tnFactura= $datos['nrofactura'];	
+		$facturapagofacil=$this->servicios->getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+
+
+		//este codigo sirve para poder visuailzar 
+
+			$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		$fileToDownload = $cadena;
+		//echo  $fileToDownload ;
+		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-'.$tnFactura.'.pdf';
+		//$fichero ='/web_pago_facil/application/assets/documentospdf/factura-pagofacil'.$tnFactura.'.pdf';
+		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
+		file_put_contents($fichero, $fileToDownload);
+		$d['documentopdf']=$fichero;
+		$this->load->view('pagosrealizados/vysorpdf', $d);
+		
+	}
+
+	public function verfacturaempresa()
+	{
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$datos['transaccion'];
+		$tnEmpresa=$datos['codigoempresa'];
+		$tnFactura= $datos['nrofactura'];	
+		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+
+
+		//este codigo sirve para poder visuailzar 
+
+			$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		$fileToDownload = $cadena;
+		//echo  $fileToDownload ;
+		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-empresa'.$tnFactura.'.pdf';
+		//$fichero ='/web_pago_facil/application/assets/documentospdf/factura-empresa'.$tnFactura.'.pdf';
+		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
+		file_put_contents($fichero, $fileToDownload);
+		$d['documentopdf']=$fichero;
+		$this->load->view('pagosrealizados/vysorpdf', $d);
+		
+	}
+	public function enviarfacturacorreo()
+	{
+		$datos=$this->input->post("datos");
+
+		$tnCliente=$_SESSION['cliente'];
+		$tnEmpresa = $datos['empresa'];
+		$tnTransaccion= $datos['transaccion'];
+		$tcCorreo=$datos['tccorreo'];
+		//var datos= {empresa:empresa,tccorreo:tccorreo, transaccion:transaccion };
+		$metodos=$this->servicios->enviarfacturacorreo( $tnCliente, $tnEmpresa ,$tnTransaccion , $tcCorreo );
+		$mensajeerror=$metodos->error ;
+					$valor= $metodos->values;
+					if($mensajeerror== 0 ){
+						if($valor==1)
+						{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+						}else{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
+						}
+
+					}else{
+						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
+					}
+					echo json_encode($arreglo);
+
+	}
+
+
 
 	public function error404($lan='es')
 	{

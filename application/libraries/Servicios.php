@@ -1346,7 +1346,8 @@ tnAuthorizationNumber= autorizacion deBCP
     {
       $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/listarFacturasPagadas';
       $data = array( 'tnCliente' => intval($tnCliente) ,'tnEmpresa'=>intval($tnEmpresa) , 'tcCodigoClienteEmpresa'=>"$tcCodigoClienteEmpresa" ) ;
-
+  
+       
       
       /*  
 @Field("tnEmpresa")                 long    empresa,
@@ -1371,6 +1372,110 @@ tnAuthorizationNumber= autorizacion deBCP
 
     }
     
+    public function enviarfacturacorreo( $tnCliente, $tnEmpresa ,$tnTransaccion , $tcCorreo )
+    {
+      $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/EnviarFacturasCorreoEspecifico';
+      $data = array( 'tnCliente' => intval($tnCliente) ,'tnEmpresa'=>intval($tnEmpresa) , 'tnTransaccion'=>$tnTransaccion ,'tnIdAccion'=> 1  , 'tcCorreo'=> $tcCorreo , 'tnIdAccion'=> 2  ) ;
+    
+     
+      /*  
+
+    @POST(cPagoFacilPHP + "/Factura/EnviarFacturasCorreoEspecifico")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> enviarFacturasCorreoEspecifico(
+            @Field("tnTransaccion")             long    tnTransaccion,
+            @Field("tcCorreo")                  String  tcCorreo,
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tnIdAccion")                int     tnIdAccion);
+      */
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         ); 
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+
+    }
+
+    public function getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente)
+    {
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ObtenerFacturaEmpresaPDF2';
+       $data = array('tnCliente' => $tnCliente  ,'tnFactura' => $tnFactura , 'tnTransaccionDePago'=> $tnTransaccionDePago ,'tnEmpresa'=> $tnEmpresa , 'tcApp'=>2   );
+ 
+       /*  @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaEmpresaPDF2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getFacturaPagoFacilPDF_PHP(
+            @Field("tnCliente")             long tnCliente,
+            @Field("tnEmpresa")             long tnEmpresa,
+            @Field("tnTransaccionDePago")   long tnTransaccionDePago,
+            @Field("tnFactura")             String tnFactura);
+             */
+       
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+                      'method'  => 'POST',
+                      'header' => implode("\r\n", $header),
+                      'content' => http_build_query($data) 
+                      )  );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+        $resultado =json_decode($result);
+       return $resultado;
+  
+    }
+    public function getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente)
+    {
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ObtenerFacturaPDF2';
+       $data = array('tnCliente' => $tnCliente  ,'tnFactura' => $tnFactura , 'tnTransaccionDePago'=> $tnTransaccionDePago ,'tnEmpresa'=> $tnEmpresa , 'tcApp'=>2   );
+ 
+       /*  
+    @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaPDF2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getFacturaEmpresaPDF_PHP(
+            @Field("tnCliente")             long tnCliente,
+            @Field("tnEmpresa")             long tnEmpresa,
+            @Field("tnTransaccionDePago")   long tnTransaccionDePago,
+            @Field("tnFactura")             String tnFactura);
+             */
+       
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+                      'method'  => 'POST',
+                      'header' => implode("\r\n", $header),
+                      'content' => http_build_query($data) 
+                      )  );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+        $resultado =json_decode($result);
+       return $resultado;
+  
+    }
 
 }
 

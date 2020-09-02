@@ -60,8 +60,8 @@
                                    aria-controls="profile" aria-selected="false">Facturas Pagadas </a>
                             </li>
                             <li class="nav-item" id="li3" style="display:none">
-                                <a class="nav-link" id="facturacion-tab" data-toggle="tab" href="#facturacionbody" role="tab"
-                                   aria-controls="contact" aria-selected="false">Datos de Facturacion</a>
+                                <a class="nav-link" id="vysorpdf-tab" data-toggle="tab" href="#vysorpdfbody" role="tab"
+                                   aria-controls="contact" aria-selected="false">PDF</a>
                             </li>
                             <li class="nav-item" id="li4" style="display:none" >
                                 <a class="nav-link" id="confirmacion-tab" data-toggle="tab" href="#confirmacionbody" role="tab"
@@ -84,17 +84,17 @@
                                                                     <th>Codigo</th>
                                                                     <th>Alias  </th>
                                                                     <th>Estado  </th>
-                                                                    
-
-                                                                    
-                                                                    
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 
                                                                 <?php  for ($i=0; $i < count($codigoservicio) ; $i++) { ?>
-                                                                    <tr id="fila-<?= $i ?>" onclick="mostrarmodal(<?= intval(@$codigoservicio[$i]->codigoClienteEmpresa) ?>,'#cod-<?= $i ?>')" > 
-                                                                    <td   > 
+                                                                    <?php  if($codigoservicio[$i]->tieneFac==2){ ?>
+                                                                        <tr id="fila-<?= $i ?>" onclick="mostrarmodal(<?= intval(@$codigoservicio[$i]->codigoClienteEmpresa) ?>,'#cod-<?= $i ?>')" > 
+                                                                        <?php }else{  ?>
+                                                                            <tr id="fila-<?= $i ?>" onclick="notiene()" > 
+                                                                        <?php   }?>
+                                                                         <td> 
                                                                     <label for=""><?= @$codigoservicio[$i]->codigoClienteEmpresa ?></label>
                                                                     </td>
                                                                     <td>  <?= @$codigoservicio[$i]->alias ?></td>
@@ -105,9 +105,6 @@
                                                                             <label for=""> no pagada</label>
                                                                         <?php   }?>
                                                                     </td>
-
-                                                                    
-                                                                    
                                                                 </tr>
                                                         
                                                                 <?php }  ?>
@@ -118,21 +115,13 @@
                                                                        <th>Codigo</th>
                                                                     <th>Alias  </th>
                                                                     <th>Estado  </th>
-                                                                    
-
-                                                                
                                                                 </tr>
                                                                 </tfoot>
                                                             </table>
 
                                                             </div>
                                                             </div>
-
-
-
-
-
-                                                            <input  type="hidden" id="btnmodal" class="btn btn-primary" data-toggle="modal"  value="nada" data-target="#modalopciones">
+                                                        <input  type="hidden" id="btnmodal" class="btn btn-primary" data-toggle="modal"  value="nada" data-target="#modalopciones">
 
 
                                         <script>
@@ -156,10 +145,16 @@
                                     <span class="sr-only">Loading...</span>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="facturacionbody" role="tabpanel" aria-labelledby="contact-tab">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
+                            <div class="tab-pane fade" id="vysorpdfbody" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row">
+                                     
+                                        
+                                        
+
+
+
+
+                                
                             </div>
                             <div class="tab-pane fade" id="facturacionbody" role="tabpanel" aria-labelledby="contact-tab">
                                 <div class="spinner-border text-primary" role="status">
@@ -210,6 +205,11 @@ function mostrarmodal(codigo,idfila)
 
    }
 
+    function notiene()
+    {
+        alert('el usuario no cuenta con facturas pagadas');
+    }
+
    function facturaspagadas()
 {
     var codigocliente= $("#codigocliente").val();
@@ -217,7 +217,7 @@ function mostrarmodal(codigo,idfila)
     var datos= {codigocliente:codigocliente , codigoempresa:codigoempresa };
     var urlajax=$("#url").val()+"get_facturaspagadas";  
     $("#li2").show();
-    $("#btncerrar").click();
+    $("#btncerraropciones").click();
     $("#facturaspagadasbody").load(urlajax,{datos});  
     $("#facturaspagadas-tab").click(); 
   
@@ -235,7 +235,7 @@ function mostrarmodal(codigo,idfila)
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                   <input class="btn btn-primary" type="button" value="Pagar Facturas">
+                                                                    <!-- <input class="btn btn-primary" type="button" value="Pagar Facturas">  -->
                                                                    <input onclick="facturaspagadas()" class="btn btn-primary" type="button" value="Ver facturas pagadas">
                                                                    <input type="hidden" name="codigocliente" id="codigocliente">
                                                                    <input type="hidden" name="codigoempresa" id="codigoempresa"  value="<?php echo @$empresa ?>">
@@ -243,7 +243,7 @@ function mostrarmodal(codigo,idfila)
                                                                       
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                    <button type="button" id="btncerrar"  class="close" data-dismiss="modal" aria-label="Close">cerrar                                                                 
+                                                                    <button type="button" id="btncerraropciones"  class="close" data-dismiss="modal" aria-label="Close">cerrar                                                                 
                                                                         </button>
                                                                         
                                                                     </div>

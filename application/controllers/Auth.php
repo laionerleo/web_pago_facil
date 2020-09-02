@@ -22,16 +22,13 @@ class Auth extends CI_Controller {
 		      
         //cargamos los modelos
 	   $this->load->model(array('Msecurity'));
-	  /*
-	   if(!@$this->session->userdata('cliente')){
+	  
+	   if(isset($_SESSION['cliente'] ) ){
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		redirect($d['url']."?m=Usted tiene que iniciar session !!!");
-		}else{
-			$this->Msecurity->url_and_lan($d);
 		redirect($d['url']."pagorapido");
 		}
-		*/
+		
 	
 
     }

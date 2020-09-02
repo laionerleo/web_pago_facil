@@ -238,14 +238,16 @@ class Servicio extends CI_Controller {
 	public function getempresaspagadasfrecuentes()
 	{
 
-		$d['empresaspagadas']=$this->servicios->getempresaspagadasfrecuentes($_SESSION['cliente']);
-
-		if(isset($d['empresaspagadas']))
+		if(!isset($_SESSION['empresaspagadas']))
 		{
-			$_SESSION['empresaspagadas']=$d['empresaspagadas']->values;
-			echo json_encode($d['empresaspagadas']->values);
+			$d['empresaspagadas']=$this->servicios->getempresaspagadasfrecuentes($_SESSION['cliente']);
+			if(isset($d['empresaspagadas']))
+			{
+				$_SESSION['empresaspagadas']=$d['empresaspagadas']->values;
+				echo json_encode($d['empresaspagadas']->values);
+			}
 		}else{
-			
+			echo json_encode($_SESSION['empresaspagadas']);
 		}
 
 
@@ -253,11 +255,11 @@ class Servicio extends CI_Controller {
 	public function getrubros()
 	{
 
-		$d['empresaspagadas']=$this->servicios->get_list_rubros($_SESSION['cliente']);
+		$d['rubros']=$this->servicios->get_list_rubros($_SESSION['cliente']);
 
-		if(isset($d['empresaspagadas']))
+		if(isset($d['rubros']))
 		{
-			echo json_encode($d['empresaspagadas']->values);
+			echo json_encode($d['rubros']->values);
 		}else{
 
 		}

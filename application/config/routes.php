@@ -23,15 +23,15 @@ $route[$l.'metodoprepararpagobcp']              = 'Welcome/metodoprepararpagobcp
 $route[$l.'confirmarpagobcp']                   = 'Welcome/confirmarpagobcp';
 $route[$l.'ejecuparpagoeLinkser']               = 'Welcome/pagarelinkser';
 $route[$l.'nuevavista']                         = 'Welcome/nuevavista';
-$route[$l.'endesarrollo']                      = 'Welcome/endesarrollo';
-$route[$l.'generarqr']                      = 'Welcome/generarqr';
-$route[$l.'getultimaselegidas']                      = 'Welcome/getultimaselegidas';
+$route[$l.'endesarrollo']                       = 'Welcome/endesarrollo';
+$route[$l.'generarqr']                          = 'Welcome/generarqr';
+$route[$l.'getultimaselegidas']                 = 'Welcome/getultimaselegidas';
 $route[$l.'metodotigomoney']                    = 'Welcome/pagarportigomoney';
 $route[$l.'verificartransaccion']               = 'Welcome/verificartransacciontigo';
 
 
 //
-$route[$l.'actualizardatos']                      = 'Welcome/actualizardatosusuario';
+$route[$l.'actualizardatos']                    = 'Welcome/actualizardatosusuario';
 
 
 
@@ -41,19 +41,14 @@ $route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
 $route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
 $route[$l.'getrubros']                          = 'Servicio/getrubros';
 //pagos realizados
-$route[$l.'pagosrealizados/(:num)']                 = 'Welcome/pagosrealizados/$1/$2';
-$route[$l.'get_facturaspagadas']                 = 'Welcome/facturaspagadas';
-
-
-
-
-
-
-
-$route[$l.'getavisomes2/(:any)/(:any)/(:any)']                    = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
-$route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/getavisoactualizado/$1/$2/$3';
-
-
+$route[$l.'pagosrealizados/(:num)']             = 'Welcome/pagosrealizados/$1/$2';
+$route[$l.'get_facturaspagadas']                = 'Welcome/facturaspagadas';
+$route[$l.'vysoravisopdf']                      = 'Welcome/veraviso';
+$route[$l.'vysorfacturapagofacilpdf']           = 'Welcome/verfacturapagofacil';
+$route[$l.'vysorfacturaempresapdf']             = 'Welcome/verfacturaempresa';
+$route[$l.'enviarfacturacorreo']                = 'Welcome/enviarfacturacorreo';
+$route[$l.'getavisomes2/(:any)/(:any)/(:any)']  = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
+$route[$l.'getavisoactualizado/(:any)/(:any)']  = 'Welcome/getavisoactualizado/$1/$2/$3';
 
 //metodos para el login y logout
 $route[$l.'login_user']                     = 'Auth/loginusuario';
