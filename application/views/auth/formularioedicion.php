@@ -46,6 +46,8 @@
                                            placeholder="" value="<?= $telefonoDePago ?>" >
                                 </div>
                                 <input type="hidden" id="url" name="url" value="<?= $url ?>">
+                                    <p style="color: red;"><?= @$mensajetelefono  ?></p>
+                                    <br>
 
                                 <button type="button" onclick="actualizardatos()" class="btn btn-primary">Guardar</button>
                             </form>

@@ -234,13 +234,8 @@ var id_fila="";
 var swregion=1;
 var urlimagenempresa="";
 var nombreempresa="";
-
-
 //0 es carnet y uno es 
 var sw=1;
-
-
-
 function cambiar_region(id_region,id_figure,nombre,)
 {
     region_id=id_region;
@@ -258,11 +253,8 @@ function cambiar_rubro(id_rubro,id_figure)
     rubro_id=id_rubro;
     $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
-    
-
     filtrar_empresas();
     $(id_figure).addClass("avatar-state-success");
-    
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
@@ -366,21 +358,14 @@ function facturaspendientes(codigo_usuario)
     $("#facturaspendientes-tab").click();
 
 }
-
-  
-
 </script>
-  
   <?php $this->load->view('theme/js');  ?>
 <script>
-    
 $( document ).ready(function() {
     cambiar_rubro(1,'#rub-0');
     $('#li2').attr('disabled', true); //add
 });
-
 </script>
-
 </body>
 
 

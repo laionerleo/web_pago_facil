@@ -330,7 +330,13 @@ class Welcome extends CI_Controller {
 		//GET CONTENT
 		
 		$fileToDownload = $cadena;
-	
+	/*
+		echo "<pre>";
+		echo $ip_empresa."--".$codigo_fijo."---".$idcliente  ;
+		print_r($lista);
+		print_r($cadena);
+		echo "</pre>";
+		*/
 		
 
 		//START DOWNLOAD
@@ -367,11 +373,26 @@ class Welcome extends CI_Controller {
 		$metodopago=$_SESSION['metododepago'];
 		if($metodopago==2)
 		{
-			$tnCliente= $this->session->userdata('cliente');
+		$tnCliente= $this->session->userdata('cliente');
 		$tnEmpresa=$_SESSION['idempresa'];
 		$billetera=$this->servicios->getbilletera($tnCliente,$tnEmpresa);
-		$d['saldo']=$billetera->values[0]->Saldo;
+		if( isset($billetera->values[0]->Saldo)  )
+		{
+			$d['saldo']=@$billetera->values[0]->Saldo;
+		}else{
+			$d['saldo']="0.00";
+			$d['mensaje']="Su billetera movil no se encuentra activada . <br> Contacte con el proveedor para activarla  use otro metodo de pago";
+			
 		}
+		}
+		/*	
+		echo "<pre>";
+		echo $tnEmpresa  ."---".$tnCliente  ;
+		print_r($billetera);
+		print_r($d);
+		echo "</pre>";
+		*/
+		
 		
 
 
@@ -382,6 +403,7 @@ class Welcome extends CI_Controller {
 			$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
 
 		}	
+	
 		
 	
 		$this->load->view('pago_rapido/facturacion', $d);
@@ -488,6 +510,13 @@ class Welcome extends CI_Controller {
 					$d['entidades']=$entidades->values;
 					//$d['montototal']=$_SESSION['monto']+$_SESSION['montocomision'];
 					$_SESSION['entidades']=$entidades->values;
+					$d['clienteempresa']=$_SESSION['codigofijo'];
+					/*echo "<pre>";
+					
+					print_r($d['entidadeselegidas']);
+					echo "</pre>";
+					*/
+					
 					$this->load->view('pago_rapido/formasdepago/pagoqr', $d);
 					
 				break;
@@ -538,6 +567,9 @@ class Welcome extends CI_Controller {
 		
 		$d['cinit']=$_SESSION['cinit'];
 		$d['facturaa']=$_SESSION['facturaa'];
+		$d['mensajetelefono']="falta introducir el Nro de celular de cuenta de usuario";
+		
+		
 		
 
 		$this->load->view('auth/formularioedicion', $d);
@@ -869,7 +901,7 @@ class Welcome extends CI_Controller {
 
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
-					if($mensajeerror== 0 ){
+					if($mensajeerror== 0 ){                
 						if(isset($valor))
 						{
 							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'valor'=> $metodos->values);
@@ -892,25 +924,34 @@ class Welcome extends CI_Controller {
 		$tnempresa = $_SESSION['idempresa'];
 		$tnTransaccionDePago= $datos['transaccion'];
 		$metodos=$this->servicios->consultarestadodetransaccion( $tncliente,$tnempresa,$tnTransaccionDePago);
+
 		$mensajeerror=$metodos->error ;
 		 $valor= $metodos->values;
-				   if($mensajeerror== 0 ){
+				 
 					   if(isset($valor))
 					   {
 						
 							$estadotigo =$valor->estadoPago;
+							/*0= correcto
+							1=incorrecto
+							3=en progreso*/
 							if($estadotigo==0)
 							{
+								// se hizo el pago correctamente
+								$this->servicios->finalizarpago($tncliente ,$tnTransaccionDePago);
 								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 0 );
 
 							}
 							if($estadotigo==1)
 							{
+								//se hizo el pago incorrectamente
+								$this->servicios->finalizarpago($tncliente ,$tnTransaccionDePago);
 								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
 
 							}
 							if($estadotigo==3)
 							{
+								//sigue 
 								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 3 );
 
 							}
@@ -918,7 +959,7 @@ class Welcome extends CI_Controller {
 
 
 
-						   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
+						   //$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
 
 
 
@@ -926,10 +967,11 @@ class Welcome extends CI_Controller {
 						   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 					   }
 
-				   }else{
-					   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 ,);
-				   }
+				  
 				   echo json_encode($arreglo);
+
+
+
 
 
 	}
@@ -948,6 +990,9 @@ class Welcome extends CI_Controller {
 		$_SESSION['codigoservicio']=$codigoservicio->values;
 		
 		$d['empresa']=$tnEmpresa;
+
+		$empresaspagadas=$this->servicios->getempresaspagadasfrecuentes($_SESSION['cliente']);
+		$_SESSION['empresaspagadas']=$empresaspagadas->values;
 		for ($L=0; $L <count($_SESSION['empresaspagadas']) ; $L++) { 
 			if($_SESSION['empresaspagadas'][$L]->nEmpresa==$tnEmpresa)
 			{
@@ -989,6 +1034,23 @@ class Welcome extends CI_Controller {
 		$d['urliconoempresapagada']=$_SESSION['iconoempresapagada'];
 		
 		$d['facturaspagadas'] =$facturaspagadas->values;
+
+		
+		$etiquetas=$this->servicios->get_etiquetas($tnCliente);
+	
+		for ($i=0; $i < count($etiquetas->values); $i++) { 
+			if($etiquetas->values[$i]->Empresa == $tnEmpresa) 
+			{
+				$d['etiquetas']=$etiquetas->values[$i];
+
+			}
+		}
+		
+	//	echo "<pre>";
+		//print_r($_SESSION);
+	//	print_r($etiquetas);
+	//	print_r($d['etiquetas']);
+		//echo "</pre>";  
 		$this->load->view('pagosrealizados/facturaspagadas', $d);
 	}
 
@@ -1121,6 +1183,63 @@ class Welcome extends CI_Controller {
 					echo json_encode($arreglo);
 
 	}
+	public function empresasafiliadas($lan,$empresa)
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$tnEmpresa=$empresa;
+		$tnCliente=$_SESSION['cliente'];
+		$empresas=$this->servicios->EmpresasDetalle($tnEmpresa,$tnCliente);
+		$empresadetalle=$empresas->values;
+		
+		$d['Descripcion']=$empresadetalle[0]->Descripcion ;
+		$d['direccionempresa']=$empresadetalle[0]->direccion ;
+		
+		$d['telefonoempresa']=$empresadetalle[0]->telefono ;
+		$d['direccionwebempresa']=$empresadetalle[0]->url_web ;
+		$d['direccionfacebook']=$empresadetalle[0]->url_facebook ;
+		$d['direcciontwitter']=$empresadetalle[0]->url_twitter ;
+		$d['latitude']=$empresadetalle[0]->latitud  ;
+		$d['longitude']=$empresadetalle[0]->longitud  ;
+
+	
+		$this->load->view('empresasafiliadas/index', $d);
+	}
+	public function metodospagomenu()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+	
+		$tnCliente=$_SESSION['cliente'];
+		$empresas=$this->servicios->listarempresasfull($tnCliente);
+		if(isset($empresas->values))
+		{
+			$d['metodosdepagomenu']=$empresas->values[0]->metodoPago;
+		}
+		
+		echo json_encode($d['metodosdepagomenu']);
+
+	}
+	public function vistacomision()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+//		$datos=$this->input->post("datos");
+//		$id_cliente=$this->session->userdata('cliente');
+//		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
+	
+		//		echo json_encode($empresas);
+		/*echo "<pre>";
+		print_r($d);
+		echo "</pre>";*/
+		$this->load->view('metodosdepago/index', $d);
+		
+
+
+
+	}
+
+
 
 
 

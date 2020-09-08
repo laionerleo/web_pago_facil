@@ -40,6 +40,10 @@ $route[$l.'Qr/(:any)']                          = 'Servicio/recuperarqr/$1/$2';
 $route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
 $route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
 $route[$l.'getrubros']                          = 'Servicio/getrubros';
+$route[$l.'getallempresas']                     = 'Servicio/getallempresas';
+
+
+
 //pagos realizados
 $route[$l.'pagosrealizados/(:num)']             = 'Welcome/pagosrealizados/$1/$2';
 $route[$l.'get_facturaspagadas']                = 'Welcome/facturaspagadas';
@@ -49,6 +53,17 @@ $route[$l.'vysorfacturaempresapdf']             = 'Welcome/verfacturaempresa';
 $route[$l.'enviarfacturacorreo']                = 'Welcome/enviarfacturacorreo';
 $route[$l.'getavisomes2/(:any)/(:any)/(:any)']  = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
 $route[$l.'getavisoactualizado/(:any)/(:any)']  = 'Welcome/getavisoactualizado/$1/$2/$3';
+
+//metodos de pago 
+$route[$l.'metodosdepago']                  = 'Welcome/metodospagomenu';
+$route[$l.'comision']                           = 'Welcome/vistacomision';
+
+
+
+
+// empresas afiliadas
+$route[$l.'empresasafiliadas/(:any)']           = 'Welcome/empresasafiliadas/$1/$2/';
+
 
 //metodos para el login y logout
 $route[$l.'login_user']                     = 'Auth/loginusuario';

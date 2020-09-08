@@ -264,20 +264,31 @@ function enviarfacturacorreo()
                         </button>
                     </div>
                     <div class="modal-body">
-                    <center>
+                   
                         <div class="row">
-                            <div class="col-md-3">
-                                <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver aviso de cobranza"> 
-                            </div>
-                            <div class="col-md-3">
-                                <input class="btn btn-primary" onclick="mostrarmodalvisualizar()" type="button" value="Ver Factura"> 
-                            </div>
-                            <div class="col-md-3">
-                                <input class="btn btn-primary" type="button" onclick="mostrarmodalcorreo()" value="Enviar Factura por correo">
+                            <div class="col-md-12" style="    margin-bottom: 4px;" >
+                                <center>
+                            
+                                    <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver <?=  @ $etiquetas->EtiquetaAviso ?>"> 
+                                </center>
                             </div>
                         </div>
-                       
-                        </center>
+
+                        <div class="row">
+                        <div class="col-md-12" style="    margin-bottom: 4px;" >
+                            <center>
+                                <input class="btn btn-primary" onclick="mostrarmodalvisualizar()" type="button" value="Ver <?=  @ $etiquetas->EtiquetaTipoNota ?>"> 
+                            </center>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                        <div class="col-md-12" style="    margin-bottom: 4px;" >
+                                <center>
+                                <input class="btn btn-primary" type="button" onclick="mostrarmodalcorreo()" value="Enviar Factura por correo">
+                                </center>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                     <button type="button" id="btncerraropcionesfacturas"  class="close" data-dismiss="modal" aria-label="Close">cerrar                                                                 
@@ -298,18 +309,24 @@ function enviarfacturacorreo()
                     </div>
                     <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-12">
-                                <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver aviso <?= @$nombreempresa;  ?>"> 
+                            <div class="col-md-12" style="    margin-bottom: 4px;" >
+                                <center>
+                                <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver  <?=  @$etiquetas->EtiquetaAviso ?> <?= @$nombreempresa;  ?>"> 
+                                </center>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                            <div class="col-md-12" style="    margin-bottom: 4px;" >
+                                <center>
                                 <input class="btn btn-primary" onclick="verfacturapagofacil()" type="button" value="Ver Factura PagoFacil"> 
+                                </center>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
-                                <input class="btn btn-primary" type="button" onclick="verfacturaempresa()"  value="Ver factura <?= @$nombreempresa;  ?>">
+                            <div class="col-md-12" style="    margin-bottom: 4px;" >
+                            <center>
+                                <input class="btn btn-primary" type="button" onclick="verfacturaempresa()"  value="Ver  <?=  @$etiquetas->EtiquetaTipoNota ?> <?= @$nombreempresa;  ?>">
+                                </center>
                                 </div>
                             </div>
                     

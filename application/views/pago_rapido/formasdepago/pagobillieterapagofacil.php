@@ -112,7 +112,9 @@
                             console.log(response);
                             if(response.tipo==10)
                             {
-                                intervalo=setInterval('verificartransaccion('+ response.valor +')',5000);
+                              $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
+                              $("#bntprepararpago").attr("disabled","disabled");
+                                //intervalo=setInterval('verificartransaccion('+ response.valor +')',5000);
                                 //$("#bntprepararpago").attr("disabled","disabled");
                                // $("#confirmarpago").click();
                                 

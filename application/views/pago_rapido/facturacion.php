@@ -1,7 +1,9 @@
 
         <?php if(isset($saldo)){ ?>
         <center><h2>Saldo</h2></center>
-        <center><h4>Bs<?= $saldo ?></h4></center>
+        <center><h4>Bs<?= @$saldo ?></h4></center>
+        <center><h6><?= @$mensaje ?></h6></center>
+        
         <?php } ?>
             <div class="row">
             

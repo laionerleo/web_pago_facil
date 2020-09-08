@@ -39,15 +39,19 @@
 
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/pages/ecommerce-dashboard.js"></script>
 
-
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfY0ZivhLSc_UvIab1HC09cdDlXCgcK0w&callback=initMap">
+    </script>
     <!-- App scripts -->
   <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
   <script>
     var rubros;
     var empresaspagadas;
+    var allemppresas;
+    var metodosdepago;
     
 
-function cargarrubros()
+        function cargarrubros()
         {
          
  
@@ -65,8 +69,57 @@ function cargarrubros()
                             },                    
                             success:function(response) {
                             rubros= response;
-                            console.log(response);
-                            cargarmenupagorealizados();
+                            //console.log(response);
+                           // cargarmenu();
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                
+                            },               
+                            complete:function( ) {
+                                
+                            },
+                        });  
+
+       
+        }
+        function cargarallempresas()
+        {
+                var datos= {empresa_id:0};
+                var urlajax=$("#url").val()+"getallempresas"; 
+            
+                $.ajax({                    
+                        url: urlajax,
+                        data: {datos},
+                        type : 'POST',
+                        dataType: "json",
+                        
+                            beforeSend:function( ) {   
+                            
+                            },                    
+                            success:function(response) {
+                              allempresas= response;
+                              var url=$("#url").val()+"empresasafiliadas/"; 
+                                 
+                              for (let i = 0; i < rubros.length; i++) {
+                               // console.log(rubros[i]);
+                              
+                                var elementoempresasafiliadas=`<li> <a  href="" >`+  rubros[i].nNombre +` </a>   <ul>`;
+                                
+                                for (let j = 0; j < allempresas.length; j++) {
+                                  if(allempresas[j].nTipoEmpresa==rubros[i].nTipoEmpresa)
+                                  {
+                                  elementoempresasafiliadas=elementoempresasafiliadas+`<li> <a href="`+url+ allempresas[j].nEmpresa+`">`+allempresas[j].cDescripcion +`</a></li>`;
+                                  }
+                                }
+                                elementoempresasafiliadas= elementoempresasafiliadas+`</ul>  </li>`;
+                                $("#spinerafiliadas").hide();
+                                $("#listarubrosempresasafiliadas").append(elementoempresasafiliadas);
+                              }
+
+
+
+
                             },
                             error: function (data) {
                                 console.log(data);
@@ -82,8 +135,6 @@ function cargarrubros()
 
         function cargarempresaspagadas()
         {
-         
- 
                 var datos= {ci:0};
                 var urlajax=$("#url").val()+"getempresaspagadasfrecuentes"; 
             
@@ -94,11 +145,29 @@ function cargarrubros()
                         dataType: "json",
                         
                             beforeSend:function( ) {   
-                            
+                           
                             },                    
                             success:function(response) {
-                            console.log(response);
+                            //console.log(response);
                             empresaspagadas=response;
+                            console.log(rubros);
+                              var urlajax=$("#url").val()+"pagosrealizados/"; 
+                                for (let i = 0; i < rubros.length; i++) {
+                                  console.log(rubros[i]);
+                                  var elemento=`<li> <a  href="" >`+  rubros[i].nNombre +` </a>   <ul>`;
+                                  for (let j = 0; j < empresaspagadas.length; j++) {
+                                    if(empresaspagadas[j].nTipoEmpresa==rubros[i].nTipoEmpresa)
+                                    {
+                                      elemento=elemento+`<li> <a href="`+urlajax+ empresaspagadas[j].nEmpresa+`">`+empresaspagadas[j].cDescripcion +`</a></li>`;
+                                    }
+                                  }
+                                  elemento= elemento+`</ul>  </li>`;
+                               
+                                  
+                                  console.log(elemento);
+                                  $("#spinerrealizados").hide();
+                                  $("#listarubros").append(elemento);
+                               }
                             
 
                             },
@@ -113,36 +182,93 @@ function cargarrubros()
 
        
         }
-        function cargarmenupagorealizados()
+        function cargarmetodosdepago()
         {
-          console.log(rubros.length);
-          console.log(rubros[0].nTipoEmpresa);
-          var urlajax=$("#url").val()+"pagosrealizados/"; 
-          
-          for (let i = 0; i < rubros.length; i++) {
-            console.log(rubros[i]);
-            var elemento=`<li> <a  href="" >`+  rubros[i].nNombre +` </a>   <ul>`;
-            for (let j = 0; j < empresaspagadas.length; j++) {
-              if(empresaspagadas[j].nTipoEmpresa==rubros[i].nTipoEmpresa)
-              {
-               // console.log("entro en " +j+"del rubro :"+i);
-                elemento=elemento+`<li> <a href="`+urlajax+ empresaspagadas[j].nEmpresa+`">`+empresaspagadas[j].cDescripcion +`</a></li>`;
-                console.log(elemento);
-              }
-              
-            }
-            elemento= elemento+`</ul>  </li>`;
-            console.log(elemento);
-            $("#listarubros").append(elemento);
+                var datos= {ci:0};
+                var urlajax=$("#url").val()+"metodosdepago"; 
             
-          }
-          
+                $.ajax({                    
+                        url: urlajax,
+                        data: {datos},
+                        type : 'POST',
+                        dataType: "json",
+                        
+                            beforeSend:function( ) {   
+                           
+                            },                    
+                            success:function(response) {
+                            //console.log(response);
+                            metodosdepago=response;
+                          //  console.log(metodosdepago);
+                              var url=$("#url").val()+"comision/"; 
+                                for (let i = 0; i < metodosdepago.length; i++) {
+                                  console.log(metodosdepago[i]);
+                                  var elemento=`<li> <a  href=""   >`+  metodosdepago[i].nombreMetodoPago +` </a>   <ul>`;
+                                  elemento=elemento+`<li> <a target="_blank" href="`+metodosdepago[i].url_metodopago+`">Informacion de Metodo de pago </a></li>`;
+                                  elemento=elemento+`<li> <a href="`+url+`"> Ver Comisiones por Empresa</a></li>`;
+                                 
+                                  elemento= elemento+`</ul>  </li>`;
+                               
+                                  
+                                  console.log(elemento);
+                                  $("#spinermetodosdepago").hide();
+                                 $("#listametodosdepago").append(elemento);
+                               }
+                            
 
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                
+                            },               
+                            complete:function( ) {
+                                
+                            },
+                        });  
+
+       
+        }
+        function cargarmenu()
+        {
+          
+          console.log(rubros);
+          console.log(empresaspagadas);
+          var urlajax=$("#url").val()+"pagosrealizados/"; 
+        
+              
+            for (let i = 0; i < rubros.length; i++) {
+              console.log(rubros[i]);
+              var elemento=`<li> <a  href="" >`+  rubros[i].nNombre +` </a>   <ul>`;
+              var elementoempresasafiliadas=`<li> <a  href="" >`+  rubros[i].nNombre +` </a>   <ul>`;
+              
+              for (let j = 0; j < empresaspagadas.length; j++) {
+                if(empresaspagadas[j].nTipoEmpresa==rubros[i].nTipoEmpresa)
+                {
+                // console.log("entro en " +j+"del rubro :"+i);
+                  elemento=elemento+`<li> <a href="`+urlajax+ empresaspagadas[j].nEmpresa+`">`+empresaspagadas[j].cDescripcion +`</a></li>`;
+                 // elementoempresasafiliadas="";
+                }
+                
+                
+              }
+              elemento= elemento+`</ul>  </li>`;
+              elementoempresasafiliadas= elementoempresasafiliadas+`</ul>  </li>`;
+              
+              console.log(elemento);
+              $("#listarubros").append(elemento);
+              $("#listarubrosempresasafiliadas").append(elementoempresasafiliadas);
+              
+            
+          
+          }
         }
           
         $(document).ready(function() {
-            cargarempresaspagadas();
             cargarrubros();
+           // cargarallempresas();
+           // cargarempresaspagadas();
+          
+           // cargarmenu();
 
             
             

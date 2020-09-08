@@ -3,14 +3,14 @@
                 <ul>
                  
                     <li>
-                        <a href="" data-toggle="tooltip" data-placement="right" title="Pago Rapido"
+                        <a href=""  data-toggle="tooltip" data-placement="right" title="Pago Rapido"
                            data-nav-target="#pago_rapido">
                             <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/pago_rapido.png"  alt="">
                             
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tooltip"
+                        <a href="#" onclick="cargarempresaspagadas()" data-toggle="tooltip"
                            data-placement="right" title="Pagos realizados" data-nav-target="#pagos_realizados">
                            <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/pagadas_y_frecuentes.png"  alt="">
                            
@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tooltip"
+                        <a href="#" onclick="cargarallempresas()" data-toggle="tooltip"
                            data-placement="right" title="Empresas afiliadas" data-nav-target="#Empresas_afiliadas">
                            <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/empresas_afiliadas.png"  alt="">
                         </a>
@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tooltip"
+                        <a href="#" onclick="cargarmetodosdepago()" data-toggle="tooltip"
                            data-placement="right" title="metodos de pago" data-nav-target="#Metodos_de_pago">
                            <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/metodos_pago.png"  alt="">
                         </a>
@@ -82,6 +82,13 @@
                             <li class="navigation-divider d-flex align-items-center">
                                 <i class="mr-2" data-feather="copy"></i> pagos realizados
                             </li>
+                            <li>
+                                    <div id="spinerrealizados" class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                            </li>
+                            
+                          
 
                        
                         </ul>
@@ -98,22 +105,18 @@
                         </ul>
                     </div>
                     <div id="Empresas_afiliadas">
-                        <ul>
+                      
+                        <ul id="listarubrosempresasafiliadas">
                             <li class="navigation-divider d-flex align-items-center">
                                 <i class="mr-2" data-feather="copy"></i> Empresas Afiliadas
                             </li>
                             <li>
-                                <a  href="<?=$url?>endesarrollo">empresa 1 </a>
+                            <div id="spinerafiliadas" class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+
                             </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo">empresa 2 </a>
-                            </li>
-                            <li>
-                                <a  href= "<?=$url?>endesarrollo">empresa 3 </a>
-                            </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo">empresa 4 </a>
-                            </li>
+                            
                        
                         </ul>
                     </div>
@@ -172,21 +175,19 @@
                         </ul>
                     </div>
                     <div id="Metodos_de_pago">
-                        <ul>
+                        <ul  id="listametodosdepago">
                             <li class="navigation-divider d-flex align-items-center">
-                                <i class="mr-2" data-feather="copy"></i> Pago rapido
+                                <i class="mr-2" data-feather="copy"></i> Metodos de pago
                             </li>
                             <li>
-                                <a  href="<?=$url?>endesarrollo">Tigo  </a>
+                                    <div id="spinermetodosdepago" class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                             </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo">Tarjeta de debito  </a>
-                            </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo">BCP rapido  </a>
-                            </li>
+                            
                        
                         </ul>
+                      
                     </div>
                     <div id="pago_facil_tu_barrio">
                         <ul>

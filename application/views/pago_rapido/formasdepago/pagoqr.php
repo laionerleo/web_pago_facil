@@ -46,6 +46,18 @@
                                                         </center>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                
+                                                <div class="col-md-12">
+                                                    <center>
+                                                    <a id="btnayuda" data-toggle="modal" data-target="#exampleModalCenter"><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a>
+                                                <input class="btn btn-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+                                                    </center>
+                                                </div>
+                                                
+                                                
+                                                
+                                                </div>
                                     </center>
                                 </div>
                                 
@@ -65,20 +77,18 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <i class="ti-close"></i>
                                     </button>
+                                    <Label>Pagos con QR</Label>
                                 </div>
                                 <div class="modal-body">
                                 <p class="card-text">
-                                    Felicidades , Generaste exitosamente el código QR para tu pago , imagen a sido descargada <br>
-                                    Ahora sigue estos pasos para que tu pago se lleve a cabo
-
-
-                                </p>
-                                <h5 class="card-title">Paso 1</h5>
-                                <p class="card-text">Abre la aplicacion movil de tu banco favorito(Bancos de ASOBAN)</p>
-                                <h5 class="card-title">Paso 2</h5>
-                                <p class="card-text"> Seleccionea la opcion SIMPLE </p>
-                                <h5 class="card-title">Paso 3</h5>
-                                <p class="card-text">Escanea o descarga la imgen QR que se genero</p>
+                                    Felicidades , Generaste exitosamente el código QR para tu pago , <br>
+                                    Ahora sigue estos pasos para que tu pago se lleve a cabo                                </p>
+                                <h5 class="card-title" style="margin-bottom: 0px;"  >Paso 1</h5>
+                                <p class="card-text">Abre la aplicación movil de tu banco favorito(Bancos de ASOBAN)</p>
+                                <h5 class="card-title" style="margin-bottom: 0px;" >Paso 2</h5>
+                                <p class="card-text"> Selecciona la opcion SIMPLE </p>
+                                <h5 class="card-title" style="margin-bottom: 0px;">Paso 3</h5>
+                                <p class="card-text">Escanea o descarga la imagen QR que se generó</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar
@@ -155,7 +165,7 @@
                 {
                     contador=contador-1;
                     entidadesasignadas.splice(numero,1);
-                    $( idcheck ).prop( "checked", false );
+                  //  $( idcheck ).prop( "checked", false );
                     $("#row-"+id).css("border-radius", "none");
                     $("#row-"+id).css("border", "none");
                     $("#row-"+id).css("border-color", "none");
@@ -168,9 +178,9 @@
                     $("#row-"+id).css("border", "dashed");
                     $("#row-"+id).css("border-color", "solid");
                
-                    $(idcheck ).prop( "checked", true );
+                    //$(idcheck ).prop( "checked", true );
                     }else{
-                        $( idcheck ).prop( "checked", false );
+                       $( idcheck ).prop( "checked", false );
                     }
                 }
                 console.log(entidadesasignadas);
@@ -182,7 +192,7 @@
             $("#confirmarpago").click();        
             
             <?php   for ($j=  0  ; $j < count($entidadeselegidas); $j++) { ?>
-                $("#row-<?= $entidadeselegidas[$j] ?>").click(); 
+                $("#idcheck-<?= $entidadeselegidas[$j] ?>").click(); 
             <?php  }?>
 
          
@@ -204,17 +214,17 @@
                                                                     <div class="modal-body">
                                                                         <?php   for ($j=  0  ; $j < count($entidades); $j++) { ?>
                                                                                     
-                                                                                    <div class="row"  onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" id="row-<?= $entidades[$j]->EntidadBancaria  ?>">
+                                                                                    <div class="row"  id="row-<?= $entidades[$j]->EntidadBancaria  ?>">
                                                                                         <div class="col-md-3 col-xs-3">
                                                                                             <div class="image">
-                                                                                                <a href=""><img style="padding:2px; width:100px; height:50px" src=" <?= $entidades[$j]->UrlImagen  ?>" alt=""></a>
+                                                                                                <img style="padding:2px; width:100px; height:50px" src=" <?= $entidades[$j]->UrlImagen  ?>" alt="">
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-md-6 col-xs-6">
                                                                                             <h3 class="name">   <?= $entidades[$j]->Nombre  ?></h3>
                                                                                         </div>
                                                                                         <div class="col-md-3 col-xs-2 action">
-                                                                                        <input class="checkedleo" onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" type="checkbox" id="idcheck-<?= $j ?>" value="1">
+                                                                                        <input class="checkedleo"  onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" type="checkbox" id="idcheck-<?= $j ?>" value="1">
                                                                                         <!-- <a id="btnayuda"href="aqui vendra la direcciond e ayuda "  ><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a> -->
                                                                                         </div>
                                                                                     </div>
@@ -223,10 +233,12 @@
                                                                                 <?php  } ?>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Close
+                                                                        <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar
                                                                         </button>
                                                                         <input type="button"  onclick="generarqr()" class="btn btn-primary" value="Aceptar">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                       

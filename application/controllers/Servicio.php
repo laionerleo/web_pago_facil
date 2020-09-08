@@ -252,6 +252,24 @@ class Servicio extends CI_Controller {
 
 
 	}
+	public function getallempresas()
+	{
+		
+		$empresaiID= '';
+		if(!isset($_SESSION['allempresa']))
+		{
+			$d['empresas']=$this->servicios->getempresasimple($empresaiID ,$_SESSION['cliente']);
+			if(isset($d['empresas']))
+			{
+				$_SESSION['allempresas']=$d['empresas']->values;
+				echo json_encode($d['empresas']->values);
+			}
+		}else{
+			echo json_encode($_SESSION['allempresas']);
+		}
+
+
+	}
 	public function getrubros()
 	{
 
@@ -261,8 +279,8 @@ class Servicio extends CI_Controller {
 		{
 			echo json_encode($d['rubros']->values);
 		}else{
-
-		}
+				echo json_encode(array());
+		}		
 	
 
 	}

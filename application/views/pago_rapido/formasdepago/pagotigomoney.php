@@ -88,7 +88,7 @@
 
   <script>
 
-      var intervalo;
+      var intervalo=null;
           function pagarportigomoney()
           {
             
@@ -111,9 +111,11 @@
                               },                    
                               success:function(response) {
                               console.log(response);
+                              console.log(response.valor);
                               if(response.tipo==10)
                               {
-                                  intervalo=setInterval('verificartransaccion('+ response.valor +')',5000);
+                                  intervalo=setInterval('verificartransaccion('+ response.valor +')',6000);
+                                  console.log("valor del intervalo ="+intervalo);
                                   //$("#bntprepararpago").attr("disabled","disabled");
                                  // $("#confirmarpago").click();
                                   
@@ -156,17 +158,22 @@
                               },                    
                               success:function(response) {
                                 console.log(response);
+                                
+                                console.log("llego algo y entro aqui ");
                                 if(response.tipo==3)
                                 {
                                   texto=$("#mensajerecibido").val();
                                   $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
-                                    console.log(response);
+                                  console.log(response);
+                                  console.log("entro por el 3 ");
+
                                 }else{
                                   texto=$("#mensajerecibido").val();
                                   $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
+                                  console.log(intervalo);
                                   clearInterval(intervalo);
-                                  console.log(response);
-                                }
+                                  console.log("entro por diferente de 3  ");
+                                }  
                               },
                               error: function (data) {
                                 console.log(data);
