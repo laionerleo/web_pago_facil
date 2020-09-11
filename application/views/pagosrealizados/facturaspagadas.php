@@ -255,7 +255,7 @@ function enviarfacturacorreo()
 
 
         <div class="modal fade" id="modalopcionesfacturas" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Elija una opcion</h5>
@@ -299,7 +299,7 @@ function enviarfacturacorreo()
             </div>
         </div>
         <div class="modal fade" id="modalvisualizar" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="correotitulo">Visualizar</h5>
@@ -343,7 +343,7 @@ function enviarfacturacorreo()
         </div>
 
         <div class="modal fade" id="modalenviocorreo" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="correotitulo">Correo</h5>

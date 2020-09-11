@@ -199,13 +199,13 @@
                             success:function(response) {
                             //console.log(response);
                             metodosdepago=response;
-                          //  console.log(metodosdepago);
+                            console.log(metodosdepago);
                               var url=$("#url").val()+"comision/"; 
                                 for (let i = 0; i < metodosdepago.length; i++) {
                                   console.log(metodosdepago[i]);
                                   var elemento=`<li> <a  href=""   >`+  metodosdepago[i].nombreMetodoPago +` </a>   <ul>`;
                                   elemento=elemento+`<li> <a target="_blank" href="`+metodosdepago[i].url_metodopago+`">Informacion de Metodo de pago </a></li>`;
-                                  elemento=elemento+`<li> <a href="`+url+`"> Ver Comisiones por Empresa</a></li>`;
+                                  elemento=elemento+`<li> <a href="`+url+metodosdepago[i].metodoPago+`"> Ver Comisiones por Empresa</a></li>`;
                                  
                                   elemento= elemento+`</ul>  </li>`;
                                

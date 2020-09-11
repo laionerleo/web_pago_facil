@@ -55,14 +55,28 @@ $route[$l.'getavisomes2/(:any)/(:any)/(:any)']  = 'Welcome/getavisofacturames2/$
 $route[$l.'getavisoactualizado/(:any)/(:any)']  = 'Welcome/getavisoactualizado/$1/$2/$3';
 
 //metodos de pago 
-$route[$l.'metodosdepago']                  = 'Welcome/metodospagomenu';
-$route[$l.'comision']                           = 'Welcome/vistacomision';
+$route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';
+$route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/';
 
 
+//puntos de cobranza
+$route[$l.'puntosdecobranza']                      = 'Welcome/puntosdecobranza';
 
 
 // empresas afiliadas
 $route[$l.'empresasafiliadas/(:any)']           = 'Welcome/empresasafiliadas/$1/$2/';
+
+
+
+//atencion al clinete metodos de pago 
+$route[$l.'atencionmetodopago']                      = 'Welcome/vistareclamometodopago';
+$route[$l.'atencionempresa']                      = 'Welcome/metodospagomenu';
+$route[$l.'atencionpagofacil']                      = 'Welcome/metodospagomenu';
+
+
+
+
+
 
 
 //metodos para el login y logout

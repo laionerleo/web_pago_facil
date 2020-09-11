@@ -61,6 +61,9 @@ class Welcome extends CI_Controller {
 		$d['region']=$this->servicios->get_list_regiones($id_cliente);
 		$metodopagoaux=$this->servicios->getmetodospago(3859);
 		$d["metodosdepago"]=$metodopagoaux->values;
+
+		
+		
  
  
 	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
@@ -886,7 +889,7 @@ class Welcome extends CI_Controller {
 		
 		 $tncliente=$_SESSION['cliente'];
 		 $tnempresa = $_SESSION['idempresa'];
-		 $codigoclienteempresa= $_SESSION['cliente'];
+		 $codigoclienteempresa= $_SESSION['codigofijo'];
 		 $tnmetodopago= $_SESSION['metododepago'];
 
 		$tnTelefono = $_SESSION['telefonoDePago'];  ; 
@@ -1212,32 +1215,76 @@ class Welcome extends CI_Controller {
 	
 		$tnCliente=$_SESSION['cliente'];
 		$empresas=$this->servicios->listarempresasfull($tnCliente);
+		$d['metodosdepagomenu']=array();
 		if(isset($empresas->values))
 		{
+			$_SESSION['metodosdepagomenu']=$empresas->values[0]->metodoPago;
 			$d['metodosdepagomenu']=$empresas->values[0]->metodoPago;
 		}
 		
 		echo json_encode($d['metodosdepagomenu']);
 
 	}
-	public function vistacomision()
+	public function vistacomision($lan,$metodo)
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-//		$datos=$this->input->post("datos");
-//		$id_cliente=$this->session->userdata('cliente');
-//		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
-	
+		$empresaiID= '';
+		$empresas=$this->servicios->getempresasimple($empresaiID ,$_SESSION['cliente']);
+		$rubros=$this->servicios->get_list_rubros($_SESSION['cliente']);
+		$metodosdepago=$_SESSION['metodosdepagomenu'];
+		for ($i=0; $i < count($metodosdepago); $i++) { 
+			if($metodosdepago[$i]->metodoPago == $metodo)
+			{
+				$d['comisiones']=$metodosdepago[$i];
+			}
+
+		}
+		$d['empresas']=$empresas->values;
+		$d['rubros']=$rubros->values;
+		//		echo json_encode($empresas);
+		/*echo "<pre>";
+		print_r($d['comisiones']);
+		echo "</pre>";
+		*/
+		
+		$this->load->view('metodosdepago/index', $d);
+	}
+	public function puntosdecobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$id_cliente=$this->session->userdata('cliente');
+		$ubicaciones=$this->servicios->getubicaciones($id_cliente);
+
+		$d["ubicaciones"]=json_encode($ubicaciones->values);
 		//		echo json_encode($empresas);
 		/*echo "<pre>";
 		print_r($d);
 		echo "</pre>";*/
-		$this->load->view('metodosdepago/index', $d);
+		$this->load->view('puntosdecobranza/index', $d);
 		
-
-
-
 	}
+
+	public function vistareclamometodopago()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$id_cliente=$this->session->userdata('cliente');
+		//$ubicaciones=$this->servicios->getubicaciones($id_cliente);
+
+		//$d["ubicaciones"]=json_encode($ubicaciones->values);
+		//		echo json_encode($empresas);
+		
+		$metodopagoaux=$this->servicios->getmetodospago(3859);
+		$d["metodosdepago"]=$metodopagoaux->values;
+		/*echo "<pre>";
+		print_r($d);
+		echo "</pre>";
+		*/$this->load->view('atencioncliente/atencionmetodopago', $d);
+		
+	}
+
 
 
 

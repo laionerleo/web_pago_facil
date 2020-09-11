@@ -1228,7 +1228,7 @@ tnAuthorizationNumber= autorizacion deBCP
       /*$tcFirma= $request->input('tcFirma');
       $tcParametros= $request->input('tcParametros');*/
       $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/realizarPago';
-      $data = array( 'tnCliente' => $tnCliente , 'tnEmpresa'=> $tnEmpresa , 'tcCodigoClienteEmpresa'=> "$tnCliente", 'tnMetodoPago'=> intval($tnMetodoPago) , 'tnTelefono'=>intval($tnTelefono), 'tcFacturaA'=>$tcFacturaA, 'tnCiNit'=> intval($tnCiNit), 'tnFactura'=> intval($tnFactura) , 'tcMonto' => "$tcMonto" , 'tcComision'=> "$tcComision" , 'tnIdAccion'=> 1 ,'tcImei'=>  $tcImei ,'tcApp'=>2,'tcPeriodo' =>(String) $tcPeriodo ) ;
+      $data = array( 'tnCliente' => $tnCliente , 'tnEmpresa'=> $tnEmpresa , 'tcCodigoClienteEmpresa'=> "$tcCodigoClienteEmpresa", 'tnMetodoPago'=> intval($tnMetodoPago) , 'tnTelefono'=>intval($tnTelefono), 'tcFacturaA'=>$tcFacturaA, 'tnCiNit'=> intval($tnCiNit), 'tnFactura'=> intval($tnFactura) , 'tcMonto' => "$tcMonto" , 'tcComision'=> "$tcComision" , 'tnIdAccion'=> 1 ,'tcImei'=>  $tcImei ,'tcApp'=>2,'tcPeriodo' =>(String) $tcPeriodo ) ;
      
       /*
        @POST(cPagoFacilPHP + "/Empresa/listarMetodosDePago")
@@ -1529,6 +1529,81 @@ tnAuthorizationNumber= autorizacion deBCP
             @Field("tnTransaccionDePago")   long tnTransaccionDePago,
             @Field("tnFactura")             String tnFactura);
              */
+       
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+                      'method'  => 'POST',
+                      'header' => implode("\r\n", $header),
+                      'content' => http_build_query($data) 
+                      )  );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+        $resultado =json_decode($result);
+       return $resultado;
+  
+    }
+    public function getubicaciones($tnCliente)
+    {
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getAllPuntosPagoFacil';
+       $data = array('tnCliente' => $tnCliente);
+       /*  
+    @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaPDF2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getFacturaEmpresaPDF_PHP(
+            @Field("tnCliente")             long tnCliente,
+            @Field("tnEmpresa")             long tnEmpresa,
+            @Field("tnTransaccionDePago")   long tnTransaccionDePago,
+            @Field("tnFactura")             String tnFactura);
+             */
+       
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+                      'method'  => 'POST',
+                      'header' => implode("\r\n", $header),
+                      'content' => http_build_query($data) 
+                      )  );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+        $resultado =json_decode($result);
+       return $resultado;
+  
+    }
+
+    public function reclamometodopago($tnCliente ,  $tnEmpresa,$tcSolicitante,  $tcDocId, $tnTelefono,$tcEmail, $tnclaseAtencioncliente, $tnTipoAtencioncliente,  $tnMetodoDePago,$tnTransaccion,$tcGlosa )
+    {
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Servicio/EnviarReclamoMetodoPago';
+       $data = array('tnCliente' => $tnCliente, 'tnEmpresa' => $tnEmpresa, 'tcSolicitante' => $tcSolicitante, 'tcDocId' => $tcDocId, 'tnTelefono' => $tnTelefono, 'tcEmail' => $tcEmail, 'tnclaseAtencioncliente' => $tnclaseAtencioncliente, 'tnTipoAtencioncliente' => $tnTipoAtencioncliente, 'tnMetodoDePago' => $tnMetodoDePago, 'tnTransaccion' => $tnTransaccion,'tcGlosa' => $tcGlosa    );
+       /*  
+   @POST(cPagoFacilPHP + "/Servicio/EnviarReclamoMetodoPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> EnviarReclamoMetodoPago(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tcSolicitante")             String  tcSolicitante,
+            @Field("tcDocId")                   String  tcDocId,
+            @Field("tnTelefono")                int     tnTelefono,
+            @Field("tcEmail")                   String  tcEmail,
+            @Field("tnclaseAtencioncliente")    int     tnclaseAtencioncliente,
+            @Field("tnTipoAtencioncliente")     int     tnTipoAtencioncliente,
+            @Field("tnMetodoDePago")            int     tnMetodoDePago,
+            @Field("tnTransaccion")             int     tnTransaccion,
+            @Field("tcGlosa")                   String  tcGlosa);*/
        
        $header = array(
           "Content-Type: application/x-www-form-urlencoded",

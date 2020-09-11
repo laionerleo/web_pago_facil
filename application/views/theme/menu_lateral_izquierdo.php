@@ -126,13 +126,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Puntos de cobranza
                             </li>
                             <li>
-                                <a  href="<?=$url?>endesarrollo"> puntos de cobranza </a>
-                            </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo"> Empresas</a>
-                            </li>
-                            <li>
-                                <a  href="<?=$url?>endesarrollo"> metodos de pago </a>
+                                <a  href="<?=$url?>puntosdecobranza">Puntos de Cobranza </a>
                             </li>
                        
                         </ul>
@@ -143,7 +137,7 @@
                                 <i class="mr-2" data-feather="copy"></i> Atencion al cliente
                             </li>
                             <li>
-                                <a  href="<?=$url?>endesarrollo">Atencion al cliente metodos de pago </a>
+                                <a  href="<?=$url?>atencionmetodopago">Atencion al cliente metodos de pago </a>
                             </li>
                             <li>
                                 <a  href="<?=$url?>endesarrollo">Atencion al cliente empresa de servicio  </a>

@@ -70,12 +70,10 @@ class Facebook_Authentication extends CI_Controller {
                    $respuesta_registro= $this->servicios->registro_parcial($userData['first_name'],$userData['last_name'],$userData['email']);
                     if( isset($respuesta_registro))
                     {
-                           $data = get_object_vars($respuesta_registro->values);
+                        $data = get_object_vars($respuesta_registro->values);
                         $this->session->set_userdata($data);
                         //si el registro manda 1 significa que se registro bien 
                         redirect('/es/inicio', 'refresh');
-                   
-                     
                     }
                     
                    
