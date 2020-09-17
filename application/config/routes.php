@@ -74,6 +74,13 @@ $route[$l.'atencionempresa']                      = 'Welcome/metodospagomenu';
 $route[$l.'atencionpagofacil']                      = 'Welcome/metodospagomenu';
 
 
+//billetera 
+$route[$l.'vistarecargas']                      = 'Welcome/vistarecargas';
+
+$route[$l.'buscadorbilletera']                      = 'Servicio/buscadorbilletera';
+$route[$l.'recargabilletera']                      = 'Welcome/realizarrecarga';
+
+
 
 
 

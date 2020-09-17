@@ -162,7 +162,7 @@ class Welcome extends CI_Controller {
 		$codigo_fijo=$datos["codigo"];
 		$urliconoempresa=$datos["urlimagen"];
 		$id_cliente=$this->session->userdata('cliente');
-		//$_SESSION['clientesbusqueda']=$d['clientes']->values;
+		
 		for ($L=0; $L <count($_SESSION['clientesbusqueda']) ; $L++) { 
 			if($_SESSION['clientesbusqueda'][$L]->codigoClienteEmpresa==$codigo_fijo)
 			{
@@ -184,21 +184,15 @@ class Welcome extends CI_Controller {
 			
 			$_SESSION['periodomes']=$lista->values[0]->periodo;
 			$_SESSION['nrofactura']=$lista->values[0]->factura;
-			//$_SESSION['nrofactura']=$facturaprincipal->values->factura;
 			$d['periodomes']=$this->get_periodo($lista->values[0]->periodo);
-
 			for ($i=0; $i < count($lista->values); $i++) { 
 				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
 				$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
-				
-	
 			}
 		}else{
 			$d['facturas']= array();
 			$d['cantidadfacturas']=0;
-			
 		}	
-		
 		$d['idCliente']=  $_SESSION['codigofijo']; 
 		$d['nombre']=  $_SESSION['nombreclienteempresa'];
 		$d['codigoUbicacion']=  $_SESSION['codigoubicacion'];
@@ -208,14 +202,11 @@ class Welcome extends CI_Controller {
 		$_SESSION['idempresa']=$datos["empresa_id"];
 		$_SESSION['nombreempresa']=$datos["nombreempresa"];
 		$_SESSION['urlimagenempresa']=$d['urlimagenempresa'];
-		
 		$metodos=$this->servicios->get_metodos_pago_empresa($id_cliente ,$empresa_id);
 		$d['tiposdecomision']=$metodos->values->aTipoComisionDetalle;
 		$d['metodospago']=$metodos->values->aMetodosDePago;
 		$_SESSION['todosmetodosdepago']=$metodos->values->aMetodosDePago;
-
 		$etiquetas=$this->servicios->get_etiquetas($id_cliente);
-	
 		for ($i=0; $i < count($etiquetas->values); $i++) { 
 			if($etiquetas->values[$i]->Empresa == $empresa_id) 
 			{
@@ -226,6 +217,7 @@ class Welcome extends CI_Controller {
 		
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
+		
 
 	$this->load->view('pago_rapido/facturaspendientes', $d);
 	}
@@ -1278,14 +1270,62 @@ class Welcome extends CI_Controller {
 		
 		$metodopagoaux=$this->servicios->getmetodospago(3859);
 		$d["metodosdepago"]=$metodopagoaux->values;
-		/*echo "<pre>";
-		print_r($d);
-		echo "</pre>";
-		*/$this->load->view('atencioncliente/atencionmetodopago', $d);
+			$this->load->view('atencioncliente/atencionmetodopago', $d);
 		
 	}
 
+	public function vistarecargas()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnCliente=$datos["codigo"];
+		$billetera=$this->servicios->getbilleterausuario($tnCliente);
+		if(count($billetera->values)>0)
+		{
+			$tnIdentificador=$billetera->values[0]->idBilletera;
+			$billeteradependientes=$this->servicios->getbilleterasdependientes($tnCliente,$tnIdentificador);
+	
 
+				if(isset($billeteradependientes->values))
+				{
+					$d["billeteradependientes"]=$billeteradependientes->values;
+				}else{
+					$d["billeteradependientes"]=array();
+				}
+				
+			$this->load->view('pago_rapido/vistabilletera', $d);
+			
+		}else{
+			echo "<br><br> <br> <br>";
+			echo "<center><H1> El usuario no cuenta con billetera</H1></center>";
+		}
+		
+
+
+		
+		
+	}
+	public function realizarrecarga()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnBilletera=$datos["billetera"];
+		$tnMonto=$datos["monto"];
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionBancaria=0;
+		//echo $tnCliente ."--".  $tnBilletera ."--".$tnMonto."--".  $tnTransaccionBancaria;
+		$montocomision=$this->servicios->calcularcomision($tnCliente,20 ,2,$tnMonto);
+		$montoarecargar=$tnMonto + $montocomision->values;
+
+
+		$recarga=$this->servicios->recargabilletera($tnCliente ,  $tnBilletera,$montoarecargar,  $tnTransaccionBancaria );
+		
+		echo "<pre>";
+		print_r($recarga);
+		echo "</pre>";
+	}
 
 
 

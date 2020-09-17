@@ -284,6 +284,15 @@ class Servicio extends CI_Controller {
 	
 
 	}
+	public function buscadorbilletera()
+	{
+		$datos=$this->input->post("datos");
+		$tnCliente=$datos["codigo"];
+		//echo json_encode($tnCliente);
+		$billetera=$this->servicios->getbilleterausuario($tnCliente);
+		echo json_encode($billetera->values);
+
+	}
 
 	/**/
 }

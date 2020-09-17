@@ -155,14 +155,16 @@
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="">Codigo</label>
-                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>  3859">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
                                             <br>
-                                            <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                            <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                            <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
+                                            
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -255,6 +257,8 @@ function cambiar_rubro(id_rubro,id_figure)
     id_fugure_rubro=id_figure;
     filtrar_empresas();
     $(id_figure).addClass("avatar-state-success");
+   
+    
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
@@ -272,6 +276,13 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
     $('html, body').animate({
  scrollTop: $("#idlugarboton").offset().top
  }, 2000);
+ 
+    if(id_empresa==20)
+    {
+        habilitarrecarga();
+    }else{
+        dehabilitarrecarga();
+    }
     
     //$('#btn_empresa').click();
     
@@ -289,7 +300,6 @@ function filtrar_empresas()
 {
     var datos= {rubro_id:rubro_id,region_id:region_id  };
     var urlajax=$("#url").val()+"get_filtro_regiones";  
-   // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax,{datos});   
   
    
@@ -342,6 +352,42 @@ function facturaspendientes(codigo_usuario)
     var tipo=sw;
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
     var urlajax=$("#url").val()+"facturaspendientes";   
+    $("#facturaspendientesbody").empty();
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+    $("#facturaspendientesbody").load(urlajax,{datos});   
+    
+    $("#li2").show();
+    $("#facturaspendientes-tab").click();
+
+}
+
+function habilitarrecarga()
+{
+    $('#btnbuscar').hide();
+    $('#btnrecarga').show();
+    $('#inp_dato').val(<?= $_SESSION['cliente']; ?> );
+    
+}
+function dehabilitarrecarga()
+{
+    $('#btnbuscar').show();
+    $('#btnrecarga').hide();
+    $('#inp_dato').val("<?= @$_SESSION['codigofijo']; ?>" );
+    
+}
+function vistarecarga()
+{
+    var codigo=$('#inp_dato').val();
+    var datos= {codigo:codigo  };
+    var urlajax=$("#url").val()+"vistarecargas";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#facturacionbody").empty();   

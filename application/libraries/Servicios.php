@@ -1625,6 +1625,119 @@ tnAuthorizationNumber= autorizacion deBCP
        return $resultado;
   
     }
+    public function recargabilletera($tnCliente ,  $tnBilletera,$tnMonto,  $tnTransaccionBancaria )
+    {
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/recargaBilleteraPagoFacil';
+       $data = array('tnCliente' => intval($tnCliente), 'tnBilletera' => intval($tnBilletera), 'tnMonto' => intval($tnMonto), 'tnTransaccionBancaria' => $tnTransaccionBancaria  );
+       echo json_encode($data);
+       /*  
+
+
+
+$tnCliente, tnBilletera, tnMonto, tnTransaccionBancaria
+   @POST(cPagoFacilPHP + "/Servicio/EnviarReclamoMetodoPago")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<Integer>> EnviarReclamoMetodoPago(
+            @Field("tnCliente")                 int     tnCliente,
+            @Field("tnEmpresa")                 int     tnEmpresa,
+            @Field("tcSolicitante")             String  tcSolicitante,
+            @Field("tcDocId")                   String  tcDocId,
+            @Field("tnTelefono")                int     tnTelefono,
+            @Field("tcEmail")                   String  tcEmail,
+            @Field("tnclaseAtencioncliente")    int     tnclaseAtencioncliente,
+            @Field("tnTipoAtencioncliente")     int     tnTipoAtencioncliente,
+            @Field("tnMetodoDePago")            int     tnMetodoDePago,
+            @Field("tnTransaccion")             int     tnTransaccion,
+            @Field("tcGlosa")                   String  tcGlosa);*/
+       
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+                      'method'  => 'POST',
+                      'header' => implode("\r\n", $header),
+                      'content' => http_build_query($data) 
+                      )  );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+        $resultado =json_decode($result);
+       return $resultado;
+  
+    }
+   
+    public function getbilleterausuario($tnCliente)
+    {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getBilletera';
+       $data = array('tnCliente' => $tnCliente, 'tnIdentificador' => $tnCliente, 'tnIdAccion' => 0);
+       /*  
+      @POST(cPagoFacilPHP + "/Usuario/getBilletera")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<ArrayList<Billetera>>> getBilletera(
+              @Field("tnCliente")         long    tnCliente,
+              @Field("tnIdentificador")   long    tnIdentificador,
+              @Field("tnIdAccion")        int     tnIdAccion);
+              */
+       
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+                      'method'  => 'POST',
+                      'header' => implode("\r\n", $header),
+                      'content' => http_build_query($data) 
+                      )  );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+        $resultado =json_decode($result);
+       return $resultado;
+
+    }
+
+
+
+    public function getbilleterasdependientes($tnCliente,$tnIdentificador)
+    {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getBilleterasDependientes';
+      $data = array('tnCliente' => $tnCliente, 'tnIdentificador' => $tnIdentificador );
+      /*  
+        @POST(cPagoFacilPHP + "/Usuario/getBilleterasDependientes")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<ArrayList<Billetera>>> getBilleterasDependientes(
+              @Field("tnCliente")         long tnCliente,
+              @Field("tnIdentificador")   long tnIdentificador);  */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+                     'method'  => 'POST',
+                     'header' => implode("\r\n", $header),
+                     'content' => http_build_query($data) 
+                     )  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+    }
 
 }
 
