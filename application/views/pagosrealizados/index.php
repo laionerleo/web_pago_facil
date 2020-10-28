@@ -78,7 +78,7 @@
                                  <?php   if(count($codigoservicio)>0){    ?>
                                         <div class="form-row">
                                         <div class="col-md-12 mb-12 table-responsive">
-                                            <table id="example1" class="table table-striped table-bordered">
+                                            <table id="tabla1" class="table table-striped table-bordered">
                                                                 <thead>
                                                                 <tr>
                                                                     <th>Codigo</th>
@@ -124,11 +124,7 @@
                                                         <input  type="hidden" id="btnmodal" class="btn btn-primary" data-toggle="modal"  value="nada" data-target="#modalopciones">
 
 
-                                        <script>
-                                                                                $(document).ready( function () {
-                                                                                    $('#example1').DataTable();
-                                                                                } );
-                                                                                </script>
+                                
 
                                             <?php  }else{
 
@@ -196,6 +192,10 @@
 <?php $this->load->view('theme/js');  ?>
 <!-- Plugin scripts -->
 <script>
+$(document).ready( function () {
+    $('#tabla1').DataTable();
+} );
+
 function mostrarmodal(codigo,idfila)
    {
        console.log(codigo);

@@ -380,17 +380,6 @@ class Welcome extends CI_Controller {
 			
 		}
 		}
-		/*	
-		echo "<pre>";
-		echo $tnEmpresa  ."---".$tnCliente  ;
-		print_r($billetera);
-		print_r($d);
-		echo "</pre>";
-		*/
-		
-		
-
-
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION['todosmetodosdepago'][$i]->metodoPago."--".$_SESSION['metododepago']; 
 			if($_SESSION['todosmetodosdepago'][$i]->metodoPago==$_SESSION['metododepago'])
@@ -476,8 +465,8 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$d['montototal']=$_SESSION['montototalpagar'];
 		
-	if(  $_SESSION['telefono'] != "0" )
-	{
+		if(  ($_SESSION['telefono'] != "0" ) &&  ($_SESSION['telefonoDePago'] != "0")  && ($_SESSION['telefono'] > "0" ) && ($_SESSION['telefonoDePago'] > "0")  )
+		{
 		$var=$_SESSION['metododepago'];
 			switch ($var) {
 				case 1:
@@ -557,12 +546,14 @@ class Welcome extends CI_Controller {
 		$d['nombre']=$_SESSION['nombre'];
 		$d['apellido']=$_SESSION['apellido'];
 		$d['direccion']=$_SESSION['direccion'];
-		$d['telefono']=$_SESSION['telefono'];
-		$d['telefonoDePago']=$_SESSION['telefonoDePago'];
+		$d['telefono']=   ( $_SESSION['telefono'] >0   ) ? @$_SESSION['telefono'] : 0;
+		//$d['telefono']= $_SESSION['telefono'];
+		$d['telefonoDePago']=  ( $_SESSION['telefonoDePago'] >0   ) ? @$_SESSION['telefonoDePago'] : 0;  
+		//$d['telefonoDePago']= $_SESSION['telefonoDePago'];
 		
 		$d['cinit']=$_SESSION['cinit'];
 		$d['facturaa']=$_SESSION['facturaa'];
-		$d['mensajetelefono']="falta introducir el Nro de celular de cuenta de usuario";
+		$d['mensajetelefono']="falta introducir el Nro de celular de cuenta de usuario y el Nro de celular de pago ";
 		
 		
 		
@@ -580,7 +571,7 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$datos=$this->input->post("datos");
+		$laEntidadesElegidas=$this->input->post("datos");
 		$tnCliente=$_SESSION['cliente'];
 		$tnEmpresa=$_SESSION['idempresa'];;
 		$tcCodigoClienteEmpresa = $_SESSION['codigofijo'];
@@ -592,7 +583,9 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteEmpresa=$_SESSION['montototal'];
 		$tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		$tcPeriodo=$_SESSION['periodomes'];
-		$tcImei =  $_SESSION['imei'].";".json_encode($datos);
+		$tcImei =  $_SESSION['imei'] ; 
+		
+		
 		//echo $tcImei;//json_encode($datos);
 
 		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
@@ -604,6 +597,7 @@ class Welcome extends CI_Controller {
 			{
 				$valores = explode(";", $valor );
 				$linkdescarga= base_url()."es/Descargarqr/".$valores[0];
+				$this->servicios->GuardarEntidadesBancarias($tnCliente ,$datos, $valores[0] );
 				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'imagenqr' =>$valores[1],'linkdescarga'=>$linkdescarga );
 			}else{
 				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
@@ -678,8 +672,21 @@ class Welcome extends CI_Controller {
 		 $tcComplement= (($complemento==''))? null : $complemento; //$complemento;  //(!isset($tcComplement))? null : $tcComplement; // $complemento;
 		 $tcServiceCode=$codigoservicio;
 		 $tcExpireDate =$fechaexpiracion;
-		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate );
+		 //echo $tncliente.'-'.$tnempresa.'-'.$codigoclienteempresa.'-'. $tnmetodopago.'-'.$tnTelefono .'-nuemrofactuir'. $tcFacturaA .'-'. $tnCiNit .'-'.$tcNroPago .'-'.$tnMontoClienteEmpresa .'-'. $tnMontoClienteSyscoop .'-'. $tcPeriodo .'-'. $tcImei .'-'. $tcExtension .'-'. $tcComplement  .'-'. $tcServiceCode .'-'. $tcExpireDate ;
+	
+		 $laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnempresa, $tcNroPago);
+		 if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) == floatval($tnMontoClienteEmpresa) )  )
+		 {
+			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
+			$tcPeriodo=$laConsultaFactura->periodo;
+			$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION['idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
+			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
+			$tnMontoClienteSyscoop= $montocomision->values;
+		 }
+		
 
+		 /*
+		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate );
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
 					if($mensajeerror== 0 ){
@@ -701,6 +708,9 @@ class Welcome extends CI_Controller {
 						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 					}
 					echo json_encode($arreglo);
+					
+*/
+					
 		}
 	public function confirmarpagobcp()
 	{
@@ -892,7 +902,21 @@ class Welcome extends CI_Controller {
 		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		 $tcPeriodo=$_SESSION['periodomes'];
 		 $tcImei= $_SESSION['imei'] ;
-		 $metodos=$this->servicios->realizarpagotigo($tncliente  , $tnempresa ,$codigoclienteempresa , $tnmetodopago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tcNroPago , $tnMontoClienteEmpresa ,  $tnMontoClienteSyscoop , $tcImei ,$tcPeriodo ) ;
+		// echo  $tncliente  .'--'. $tnempresa .'--'.$codigoclienteempresa .'--'.$tnmetodopago .'--'. $tnTelefono.'--'. $tcFacturaA.'--'.  $tnCiNit.'--'. $tcNroPago .'--'. $tnMontoClienteEmpresa .'--'.  $tnMontoClienteSyscoop .'--'. $tcImei .'--'.$tcPeriodo  ;
+
+
+		 
+		$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnempresa, $tcNroPago);
+		if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) == floatval($tnMontoClienteEmpresa) )  )
+		{
+		   $this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
+		   $tcPeriodo=$laConsultaFactura->periodo;
+		   $montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION['idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
+		   $tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
+		   $tnMontoClienteSyscoop= $montocomision->values;
+		}
+
+		 $metodos=$this->servicios->realizarpagotigo( $tncliente  , $tnempresa ,$codigoclienteempresa , $tnmetodopago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tcNroPago , $tnMontoClienteEmpresa ,  $tnMontoClienteSyscoop , $tcImei ,$tcPeriodo ) ;
 
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
@@ -908,24 +932,28 @@ class Welcome extends CI_Controller {
 						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 					}
 					echo json_encode($arreglo);
+				
 
 	}
 	public function verificartransacciontigo()
 	{
 		// aqui son los datos que tengo recolectados
 		$datos=$this->input->post("datos");
-
 		$tncliente=$_SESSION['cliente'];
 		$tnempresa = $_SESSION['idempresa'];
 		$tnTransaccionDePago= $datos['transaccion'];
 		$metodos=$this->servicios->consultarestadodetransaccion( $tncliente,$tnempresa,$tnTransaccionDePago);
-
 		$mensajeerror=$metodos->error ;
 		 $valor= $metodos->values;
-				 
+		 echo	"<pre>";
+		 print_r($metodos);
+		// print_r($metodos->error);
+		// print_r($metodos->message);
+		 //print_r($metodos->values);
+		 
+		 echo "</pre>";
 					   if(isset($valor))
 					   {
-						
 							$estadotigo =$valor->estadoPago;
 							/*0= correcto
 							1=incorrecto
@@ -935,40 +963,23 @@ class Welcome extends CI_Controller {
 								// se hizo el pago correctamente
 								$this->servicios->finalizarpago($tncliente ,$tnTransaccionDePago);
 								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 0 );
-
 							}
 							if($estadotigo==1)
 							{
 								//se hizo el pago incorrectamente
-								$this->servicios->finalizarpago($tncliente ,$tnTransaccionDePago);
+								//$this->servicios->finalizarpago($tncliente ,$tnTransaccionDePago);
 								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
-
 							}
 							if($estadotigo==3)
 							{
 								//sigue 
 								$arreglo=array('mensaje' => $metodos->message, 'tipo' => 3 );
-
 							}
-							
-
-
-
 						   //$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 );
-
-
-
 					   }else{
 						   $arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 					   }
-
-				  
 				   echo json_encode($arreglo);
-
-
-
-
-
 	}
 
 	public function pagosrealizados($lan,$tnEmpresa)	{
@@ -1293,7 +1304,11 @@ class Welcome extends CI_Controller {
 				}else{
 					$d["billeteradependientes"]=array();
 				}
-				
+				$metodos=$this->servicios->get_metodos_pago_empresa($tnCliente ,20);
+				$d['metodospago']=$metodos->values->aMetodosDePago;
+				/*echo "<pre>";
+				print_r($d);
+				echo "</pre>";*/
 			$this->load->view('pago_rapido/vistabilletera', $d);
 			
 		}else{
@@ -1321,10 +1336,21 @@ class Welcome extends CI_Controller {
 
 
 		$recarga=$this->servicios->recargabilletera($tnCliente ,  $tnBilletera,$montoarecargar,  $tnTransaccionBancaria );
+		$mensajeerror=$recarga->error ;
+		$valor= $recarga->values;
+		if($mensajeerror== 0 ){
+			if(isset($valor))
+			{
+				$arreglo=array('mensaje' => $recarga->message, 'tipo' => 10 );
+			}else{
+				$arreglo=array('mensaje' => $recarga->message, 'tipo' => 1 );
+			}
+
+		}else{
+			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 );
+		}
+		echo json_encode($arreglo);
 		
-		echo "<pre>";
-		print_r($recarga);
-		echo "</pre>";
 	}
 
 
@@ -1357,6 +1383,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('error403', $d);
 	
 	}
+	public function cargarlog($Mensajeerror)
+    {
+      $logFile = fopen("log.txt", 'a') or die("Error creando archivo");
+      fwrite($logFile, "\n".date("d/m/Y H:i:s").$Mensajeerror) or die("Error escribiendo en el archivo");
+      fclose($logFile);
+    }
 
 	/**/
 }

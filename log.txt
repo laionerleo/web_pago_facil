@@ -1,0 +1,9 @@
+
+12/10/2020 16:42:50listarfacturasnull
+12/10/2020 16:43:42consultar-factura-pendiente{"factura":"3766382","periodo":"2020-04 ","montoTotal":"21.19","estado":1}
+12/10/2020 16:44:48consultar-factura-pendiente{"factura":"3766382","periodo":"2020-04 ","montoTotal":"21.19","estado":1}
+12/10/2020 16:46:37consultar-factura-pendiente{"factura":"3766382","periodo":"2020-04 ","montoTotal":"21.19","estado":1}
+12/10/2020 16:50:12consultar-factura-pendiente{"factura":"3908340","periodo":"2020-09 ","montoTotal":"36.90","estado":1}
+12/10/2020 16:50:49consultar-factura-pendiente{"factura":"3908340","periodo":"2020-09 ","montoTotal":"36.90","estado":1}
+12/10/2020 16:51:08consultar-factura-pendiente{"factura":"3908340","periodo":"2020-09 ","montoTotal":"36.90","estado":1}
+12/10/2020 16:55:38consultar-factura-pendiente{"factura":"3766382","periodo":"2020-04 ","montoTotal":"21.19","estado":1}

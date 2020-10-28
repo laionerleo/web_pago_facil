@@ -1074,7 +1074,7 @@ tnAuthorizationNumber= autorizacion deBCP
     public function generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei)
     {
  
-       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_GenerarQR';
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_GenerarQR_V2';
        $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 );
         /*echo "<pre>";
        print_r(json_encode($data));
@@ -1629,7 +1629,7 @@ tnAuthorizationNumber= autorizacion deBCP
     {
        $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/recargaBilleteraPagoFacil';
        $data = array('tnCliente' => intval($tnCliente), 'tnBilletera' => intval($tnBilletera), 'tnMonto' => intval($tnMonto), 'tnTransaccionBancaria' => $tnTransaccionBancaria  );
-       echo json_encode($data);
+       //echo json_encode($data);
        /*  
 
 
@@ -1738,6 +1738,75 @@ $tnCliente, tnBilletera, tnMonto, tnTransaccionBancaria
       return $resultado;
  
     }
+
+    public function consultarfacturaempresa($tnEmpresa,$tnFactura)
+
+    {
+
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ConsultarFacturaEmpresa2';
+      $data = array('tnEmpresa' => $tnEmpresa, 'tnFactura' => $tnFactura );
+      /*  
+         http://serviciopagofacil.syscoop.com.bo/api/Factura/ConsultarFacturaEmpresa2?tnEmpresa=2&tnFactura=4582150 */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+                     'method'  => 'POST',
+                     'header' => implode("\r\n", $header),
+                     'content' => http_build_query($data) 
+                     )  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+
+    }
+
+    public function GuardarEntidadesBancarias($tnCliente , $tcEntidades, $tnTransaccion  )
+{
+
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Transaccion/guardarEntidadesBancarias';
+   $data = array( 'tnCliente' =>$tnCliente , 'tcEntidades'=>  json_encode($tcEntidades)  ,'tnTransaccion' =>$tnTransaccion ,  'tnApp'=>3 );
+  // $this->cargarlogservicio("guardarentidadbancaria".json_encode($data));
+   
+ /*    
+  tnCliente
+tcEntidades
+tnTransaccion
+   */
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+
+}
+
+
+   
 
 }
 

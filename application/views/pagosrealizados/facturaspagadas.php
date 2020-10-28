@@ -84,10 +84,18 @@
 
                                                             <input  type="hidden" id="btnmodal" class="btn btn-primary" data-toggle="modal"  value="nada" data-target="#modalopciones">
 
+                                                            <script src="<?=  base_url() ?>/application/assets/vendors/dataTable/datatables.min.js"></script>
 
-                                        <script>
+                                                                                <script>
                                                                                 $(document).ready( function () {
-                                                                                    $('#example1').DataTable();
+                                                                                    //$('#example1').DataTable();
+
+
+                                                                                        $('#example1').DataTable({
+                                                                                        "ordering": false,
+                                                                                        //"order": [[ 2, "asc" ]],
+                                                                                        });    
+                                                                                                                                                                        
                                                                                 } );
                                                                                 </script>
 

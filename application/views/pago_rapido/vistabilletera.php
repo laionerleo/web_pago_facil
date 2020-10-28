@@ -1,6 +1,6 @@
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
@@ -51,14 +51,41 @@
                     </div>
                 </div>
                 
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-
-                        <center style="padding-bottom: 10px;"  ><input id="inpmonto" type="number" placeolders="Monto" ></center>
-                        <center><button class="btn btn-primary"  onclick="realizarrecarga()"> Realizar recarga</button></center>
+                <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <center style="padding-bottom: 10px;"  >
+                                <label for="">Monto a Recargar</label>
+                                <input id="inpmonto" type="number" placeolders="Monto" >
+                                </center>
+                                
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="card">
+                            <div class="card-body">
+               
+                                <div class="row">
+                                
+                                      
+                                            <?php  for ($i=0; $i < count($metodospago) ; $i++) {
+                                                ?>
+                                                <div class="col-md-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:100px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
+                                                <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:100%; position: relative;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
+                                                <!-- <label for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label> -->
+                                                </div>
+                                            <?php  } ?>
+                  
+                                 
+                                    
+                                  
+                                </div>
+
+                                <div class="ROW">
+                                    <center><button class="btn btn-primary"  onclick="vistafacturacion()"> Recargar</button></center>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <input type="hidden" id="url" name="url" value="<?= $url ?>">
                 
@@ -69,19 +96,7 @@
 
 <!-- end::footer -->
 	<script>
-        function vistaprepararpago()
-        {
-            var datos= {metododepago:5 };
-            var urlajax=$("#url").val()+"vistaprepararpago";   
-            $("#prepararpagobody").empty();   
-            $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-            $("#prepararpagobody").load(urlajax,{datos});  
-            
-            $("#li5").show();
-            $("#prepararpago-tab").click();  
-            
-
-        }
+      
         function buscarbilletera()
         {       var codigousuario=$('#codigousuario').val();
                 if( codigousuario != ""){
@@ -171,10 +186,18 @@
                             },                    
                             success:function(response) {
                             console.log(response);
-                           // billeteras=response;
-                          
-                               
-                           
+                            if(response.tipo==10)
+                                {
+                                    //$("#modalconfirmar").click();
+                                  
+                                    swal("Recarga Exitosa", response.mensaje , "success");  
+                                   
+                                }
+                            if(response.tipo==1)
+                                {
+                                    swal("Error", response.mensaje , "error");
+                                
+                                }
                             
 
                             },
@@ -190,16 +213,51 @@
                     
                
                     if( (monto == "")){
-                        alert("introducir Monto ");
+                        swal("Error", 'debe asignar un monto' , "error");
+                        
                     }
                     if(( billetera == "")){
-                        alert("Elegir billetera");
+                        swal("Error", 'Elegir billetera' , "error");
+                        
                     }
                 } 
                 
 
        
         }
+
+        function vistafacturacion()
+            {
+                var montototal=$('#inpmonto').val();
+                var idfactura=$("#facturaid").val();
+                var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0 };
+                var urlajax=$("#url").val()+"vistafacturacion";  
+                
+                $("#facturacionbody").empty();   
+                $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+                $("#confirmacionbody").empty();   
+                $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+                $("#prepararpagobody").empty();   
+                $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);                   
+                $("#facturacionbody").load(urlajax,{datos});   
+                $("#li3").show();
+                $("#facturacion-tab").click();
+            }
+        idmetododepago=0;
+    function ledioaeste(idmetododepagonuevo,id_item)
+            {
+            console.log(id_item);
+            
+            $("#img-"+idmetododepago).css("border", "none");
+            idmetododepago=idmetododepagonuevo;
+            $(id_item).css("border", "solid");
+            }
+
+            $(document).ready(function() {
+            // Instrucciones a ejecutar al terminar la carga
+            ledioaeste(5,"#img-5");
+            });
+         
 
     </script>
 

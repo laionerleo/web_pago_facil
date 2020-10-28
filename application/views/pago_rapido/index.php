@@ -61,6 +61,11 @@
                                     <a class="nav-link active" id="inicio-tab"  data-toggle="tab" href="#iniciobody" role="tab"
                                        aria-controls="home" aria-selected="true">Inicio</a>
                                 </li>
+                                <li class="nav-item" id="lir"  style="display:none" >
+                                    <a class="nav-link" id="recarga-tab"  data-toggle="tab" href="#recargabody" role="tab"
+                                       aria-controls="home" aria-selected="true">Recarga Billetera</a>
+                                </li>
+                                
                                 <li class="nav-item" id="li2" style="display:none" >
                                     <a class="nav-link" id="facturaspendientes-tab" data-toggle="tab" href="#facturaspendientesbody" role="tab"
                                        aria-controls="profile" aria-selected="false">Facturas Pendientes </a>
@@ -155,7 +160,7 @@
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="">Codigo</label>
-                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>  3859">
+                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>  ">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -171,6 +176,11 @@
                                         <div class="col-md-12 mb-12" id="vista_clientes">
                                             
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="recargabody" role="tabpanel" aria-labelledby="recargabody">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="facturaspendientesbody" role="tabpanel" aria-labelledby="facturaspendientesbody">
@@ -237,6 +247,7 @@ var swregion=1;
 var urlimagenempresa="";
 var nombreempresa="";
 //0 es carnet y uno es 
+
 var sw=1;
 function cambiar_region(id_region,id_figure,nombre,)
 {
@@ -398,10 +409,10 @@ function vistarecarga()
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
     
-    $("#facturaspendientesbody").load(urlajax,{datos});   
+    $("#recargabody").load(urlajax,{datos});   
     
-    $("#li2").show();
-    $("#facturaspendientes-tab").click();
+    $("#lir").show();
+    $("#recarga-tab").click();
 
 }
 </script>
@@ -410,6 +421,12 @@ function vistarecarga()
 $( document ).ready(function() {
     cambiar_rubro(1,'#rub-0');
     $('#li2').attr('disabled', true); //add
+});
+
+$("#inp_dato").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        busqueda_datos();
+    }
 });
 </script>
 </body>
