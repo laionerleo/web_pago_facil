@@ -1,63 +1,49 @@
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p>billeteras dependientes</p>
-                                        <ul class="list-group">
-
-                                        <?php 
-                                        
-                                        
-                                        for ($i=0; $i < count($billeteradependientes) ; $i++) { ?>
-                                            <li class="list-group-item">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" value="  <?= @$billeteradependientes[$i]->idBilletera ?>"  name="billeteraid" id="">
-                                                <label class="form-check-label" for="defaultCheck3">
-                                                    <?= @$billeteradependientes[$i]->NombreCliente ?>
-                                                </label>
+                        <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-6 text-muted"><?=  @$nombreempresa  ?></div>
+                                            <div class="col-6" style="display: flex;flex-flow: column wrap;  justify-content: center;  align-items: center; "  >  
+                                                    <img src="<?=  @$urlimagenempresa  ?>" class="rounded-circle" style="width:100%; height:75px" alt="...">
                                             </div>
-
-                                            </li>
-                                        <?php  } ?>
-                                        </ul>
-
-
-                                    </div>   
-                                    <div class="col-md-6">
-                                        <p>Buscador de billeteras </p>
-                                        <div class="row">
-                                                <div class="col-md-8"> <input type="number" placeolder="introducir billetera" id="codigousuario" ></div>
-                                                <div class="col-md-4"><input onclick="buscarbilletera()" type="button" value="Buscar"></div>
-                                            </div>
-                                        <ul id="listabuscador" class="list-group">
-                                           
-                                           
-
-                                          
-             
-                                        </ul>
-
-
-                                    </div>   
-                                </div>      
-                                      
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-6 text-muted">Billetera:</div>
+                                            <div class="col-6"><?= @$taDatosBilletera->idBilletera;  ?></div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-6 text-muted">CI NIT </div>
+                                            <div class="col-6"><?=  @$taDatosBilletera->cinit;  ?></div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-6 text-muted"> Nombre:</div>
+                                            <div class="col-6"> <?=  @$taDatosBilletera->NombreCliente;   ?> </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-6 text-muted"> Saldo Actual:</div>
+                                            <div class="col-6"> <?=  @$taDatosBilletera->Saldo;   ?> </div>
+                                        </div>
+                                        
                             </div>
-                           
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-md-6">
+                <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
+                          
                                 <center style="padding-bottom: 10px;"  >
-                                <label for="">Monto a Recargar</label>
-                                <input id="inpmonto" type="number" placeolders="Monto" >
+                                    <div class="col-md-4">
+                                        <label for="">Monto a Recargar</label>
+                                        <input id="inpmonto" class="form-control" type="number" placeolders="Monto a recargar " style="    text-align: end;" >
+                                    </div>
                                 </center>
+                            
+                               
                                 
                             </div>
                         </div>
@@ -70,7 +56,7 @@
                                       
                                             <?php  for ($i=0; $i < count($metodospago) ; $i++) {
                                                 ?>
-                                                <div class="col-md-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:100px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
+                                                <div class="col-md-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:40px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
                                                 <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:100%; position: relative;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
                                                 <!-- <label for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label> -->
                                                 </div>
@@ -88,6 +74,10 @@
                         </div>
                 </div>
                 <input type="hidden" id="url" name="url" value="<?= $url ?>">
+                <input type="hidden" id="tnBilletera" name="tnBilletera" value="<?= $tnBilletera ?>">
+
+
+
                 
             </div>
       
@@ -141,6 +131,7 @@
                                  $("#listabuscador").append(elemento);
                                }
                             }else{
+                                $("#listabuscador").empty(); 
                                 $("#listabuscador").append('<p> No existe billetera </p>');
                             }
                                
@@ -230,8 +221,13 @@
             {
                 var montototal=$('#inpmonto').val();
                 var idfactura=$("#facturaid").val();
-                var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0 };
-                var urlajax=$("#url").val()+"vistafacturacion";  
+                var billetera=$('#tnBilletera').val();
+                
+            
+                if( (montototal != "") ){
+             
+                var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0, idbilletera:billetera };
+                var urlajax=$("#url").val()+"vistafacturacionrecarga";  
                 
                 $("#facturacionbody").empty();   
                 $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -242,6 +238,15 @@
                 $("#facturacionbody").load(urlajax,{datos});   
                 $("#li3").show();
                 $("#facturacion-tab").click();
+            }else{
+                    
+               
+                    if( (montototal == "")){
+                        swal("Error", 'debe asignar un monto' , "error");
+                        
+                    }
+                
+                }
             }
         idmetododepago=0;
     function ledioaeste(idmetododepagonuevo,id_item)

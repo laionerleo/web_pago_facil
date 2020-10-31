@@ -133,8 +133,15 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                <center> <button id="bntprepararpago" class="btn btn-primary "onclick="metodoprepararpago()">Procesar Pago </button> </center>
-
+                                                <center> 
+                                                    <button id="bntprepararpago" class="btn btn-primary "onclick="metodoprepararpago()">Procesar Pago </button>
+                                                    <?php if($recarga==20) { ?>
+                                                            <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                                          <?php }else{ ?>
+                                                            <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
+                                                          <?php }  ?>
+                                                </center>
+                                                     
                                                      <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                                                      <a id="btnayuda" data-toggle="modal" data-target="#exampleModalCenter"><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a>
                                                      
@@ -315,7 +322,6 @@
                             console.log(response);
                             if(response.tipo==10)
                             {
-                                
                                 $("#bntprepararpago").attr("disabled","disabled");
                                 $("#confirmarpago").click();
                                 
@@ -343,7 +349,6 @@
         }
   
         var extension="";
-        var intervalo;
         //var expiracion 
         function ejecutarpago()
         {
@@ -368,7 +373,7 @@
                                     //$("#modalconfirmar").click();
                                     $("#btnejecutartrabajo").attr("disabled","disabled");
                                     swal("Pago exitoso", response.mensaje , "success");  
-                                    facturaspendientes();
+                                    //facturaspendientes();
                                 }
                             if(response.tipo==1)
                                 {

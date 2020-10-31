@@ -288,8 +288,8 @@ class Servicio extends CI_Controller {
 	{
 		$datos=$this->input->post("datos");
 		$tnCliente=$datos["codigo"];
-		//echo json_encode($tnCliente);
 		$billetera=$this->servicios->getbilleterausuario($tnCliente);
+		$_SESSION['gaBilleteras']=$billetera->values;
 		echo json_encode($billetera->values);
 
 	}

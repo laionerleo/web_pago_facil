@@ -58,20 +58,17 @@ function vistaconfirmacion()
     var inpcionit=$('#inpcionit').val();
     var inpnumero=$('#inpnumero').val();
     var inpcorreo=$('#inpcorreo').val();
-    
+  
     var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
     var urlajax=$("#url").val()+"vistaconfirmacion";   
-    
     $("#confirmacionbody").empty();   
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
     $("#confirmacionbody").load(urlajax,{datos}); 
     $("#li4").show();
-
     $("#confirmacion-tab").click();
+    
 }
 </script>
       <!-- Slick -->

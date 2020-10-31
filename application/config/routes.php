@@ -17,6 +17,8 @@ $route[$l.'inicio']                    = 'Welcome';
 $route[$l.'pagorapido']                         = 'Welcome/pago_rapido';
 $route[$l.'facturaspendientes']                 = 'Welcome/vistafacturaspendientes';
 $route[$l.'vistafacturacion']                   = 'Welcome/vistafacturacion';
+$route[$l.'vistafacturacionrecarga']            = 'Welcome/vistafacturacionrecarga';
+
 $route[$l.'vistaconfirmacion']                  = 'Welcome/vistaconfirmacion';
 $route[$l.'vistaprepararpago']                  = 'Welcome/vistaprepararpago';
 $route[$l.'metodoprepararpagobcp']              = 'Welcome/metodoprepararpagobcp';
@@ -76,12 +78,10 @@ $route[$l.'atencionpagofacil']                      = 'Welcome/metodospagomenu';
 
 //billetera 
 $route[$l.'vistarecargas']                      = 'Welcome/vistarecargas';
-
-$route[$l.'buscadorbilletera']                      = 'Servicio/buscadorbilletera';
-$route[$l.'recargabilletera']                      = 'Welcome/realizarrecarga';
-
-
-
+$route[$l.'buscadorbilletera']                  = 'Servicio/buscadorbilletera';
+$route[$l.'recargabilletera']                   = 'Welcome/realizarrecarga';
+$route[$l.'filtro_billeteras_dependientes']                  = 'Welcome/busquedabilleteradependiente';
+$route[$l.'filtro_billeteras_general']                  = 'Welcome/busquedabilleteras';
 
 
 

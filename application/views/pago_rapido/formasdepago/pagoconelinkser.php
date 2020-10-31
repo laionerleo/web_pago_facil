@@ -1,4 +1,6 @@
-<div class="row">
+                       
+                       
+                       <div class="row">
                                 <div class="col-md-8" id="vistaformulariolinkser" >
                                     <div class="card">
                                         <img id="baner" src="https://cinecenter.com.bo/assets/images/linkser.png"  style ="height: 90px;"class="card-img-top" alt="...">
@@ -6,20 +8,22 @@
                                             <br>
                                                 <div class="row mb-2">
                                                     <div class="col-6 text-muted"> <h3 style=" color: aliceblue;">Monto</h3></div>
-                                                    <div class="col-6"> <h3 style=" color: aliceblue;"> <?= number_format((float)$montototal, 2, '.', '');   ?>  <?=  $_SESSION['Moneda']  ?></h3></div>
+                                                    <div class="col-6"> <h3 style=" color: aliceblue;"> <?= number_format((float)$montototal, 2, '.', '');   ?></h3></div>
                                                 </div>
                                             
                                             
                                                 <div class="form-row">
                                                         <div class="form-group col-md-12">
                                                         <label for="inpci">Nro de tarjeta</label>
-                                                        <input id="inpnrotarjeta" data-input-mask="tarjeta"   class="form-control"  name="inpnumber"  id="inpnumber" value="<?= $Tarjeta ?>" >                                             
+                                                        
+                                                        <input id="inpnrotarjeta" data-input-mask="tarjeta"   class="form-control"  name="inpnumber" placeholder="" id="inpnumber" value="" >
+                                                       
                                                         </div>
                                                 </div>
                                                 <div class="form-row">
                                                         <div class="form-group col-md-12">
                                                         <label for="inpci">Nombre del tarjeta habiente</label>
-                                                        <input class="form-control" type="text" name="inpnombretarjeta" placeholder="" id="inpnombretarjeta" value="<?= $TarjetaHabiente ?>" >
+                                                        <input class="form-control" type="text" name="inpnombretarjeta" placeholder="" id="inpnombretarjeta" value="" >
                                                         </div>
                                                 </div>
 
@@ -45,9 +49,7 @@
                                                             <option value="11">NOV</option>
                                                             <option value="12">DIC</option>
                                                         </select>
-                                                        <input type="Hidden"  id="mes" value="<?= $Mes ?>">
                                                 </div>
-                               
 
                                                 <div class="col-md-3" >
                                                     <?php
@@ -60,46 +62,40 @@
                                                     <?php $cont = ($cont+1); } ?>
                                                     </select>
                                                     <?php ?>
-                                                    <input type="hidden" name="año" id="año" value="<?= $Año ?>">
                                                 </div>
-                                                <script type="text/javascript">
-                                                        var mes =$("#mes").val();
-                                                        var año =$("#año").val();
-                                                        
-                                                    
-                                                        if (mes) {
-                                                            $("#slcmes").val(mes);
-                                                        }
-                                                        if (año) {
-                                                            $("#slcaño").val(año);
-                                                        }
-                                                    </script>
                                                 <div class="col-md-3"></div>
                                               
                                                 
                                                 
                                                 
                                             </div>
-                                            
                                             <div class="form-row">
-                                            
-                                                        <div class="form-group col-md-4">                                                                     
+                                                        <div class="form-group col-md-4">
+                                                                                                                 
+                                                        
                                                         <div class="input-group">
-                                                            <input class="form-control" type="number" aria-describedby="inputGroupPrepend" name="inpcodigoseguridad" placeholder="Codigo seguridad"  id="inpcodigoseguridad" value="<?= $CVV ?>" >
+                                                           
+                                                            <input class="form-control" type="number" aria-describedby="inputGroupPrepend" name="inpcodigoseguridad" placeholder="Codigo seguridad"  id="inpcodigoseguridad" value="" >
                                                             <div class="input-group-prepend">
                                                                 <span data-toggle="popover" data-placement="top" title="El codigo de seguridad de 3 digitos se encuentra detras de su tarjeta Visa o MasterCard"  data-toggle="modal" data-target="#exampleModalCenter class="input-group-text" id="inputGroupPrepend"><a id="btnayuda" "><img style="width:20px;height:20px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a></span>
                                                             </div>
                                                         </div>
                                                         
                                                         </div>
-                                                        
                                                 </div>
-                                                
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                <center> <button id="btnejecutarpago" class="btn btn-primary "onclick="ejecutarpago()">Pagar </button> </center>
+                                                <center> 
+                                                    <button id="btnejecutarpago" class="btn btn-primary "onclick="ejecutarpago()">Pagar </button> 
+                                                    <?php if($recarga==20) { ?>
+                                                            <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                                          <?php }else{ ?>
+                                                            <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
+                                                          <?php }  ?>
+                                                  
+                                                </center>
 
-                                                    <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
+                                        <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                                                 </div>
                                             
                                             </div>
@@ -123,7 +119,11 @@
                                     </center>     
                                     </div>
                                 </div>
-                        </div>
+
+                            
+                                
+                                
+                            </div>
                    
 <!-- begin::footer -->
 
@@ -170,7 +170,7 @@
                         if(response.tipo==10)
                         {
                             swal("Mensaje", response.mensaje , "success");
-                            facturaspendientes();
+                            
                             
                         }
                         if(response.tipo==1)

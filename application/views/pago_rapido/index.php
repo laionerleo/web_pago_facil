@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <?php $this->load->view('theme/head'); ?>
+<style>
+        input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+</style>
 
 <body  class="">
 
@@ -39,18 +46,8 @@
         <!-- end::navigation -->
 
         <div class="content-body" id="vista_general"  >
-        
 
             <div class="content" >
-            <div class="page-header justify-content-between">
-              
-                <div>
-                <?php  for ($i=0; $i < count($metodosdepago) ; $i++) {?>
-                            <a href="#" ><img style=" height:25px; width:45px; position: relative;" src="<?=  $metodosdepago[$i]->url_icon ?>" alt=""><a>
-                        <?php  } ?>
-                   
-                </div>
-            </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -65,7 +62,6 @@
                                     <a class="nav-link" id="recarga-tab"  data-toggle="tab" href="#recargabody" role="tab"
                                        aria-controls="home" aria-selected="true">Recarga Billetera</a>
                                 </li>
-                                
                                 <li class="nav-item" id="li2" style="display:none" >
                                     <a class="nav-link" id="facturaspendientes-tab" data-toggle="tab" href="#facturaspendientesbody" role="tab"
                                        aria-controls="profile" aria-selected="false">Facturas Pendientes </a>
@@ -141,7 +137,7 @@
                                   <br>
                                  
                                     <div class="form-row">
-                                        <div class="col-md-3 mb-2 ">
+                                        <div  id="divcriteriobusqueda" class="col-md-3 mb-2 ">
                                             <label for="">Tipo de documento</label><br>
                                             <div class="form-check">
                                             <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
@@ -159,8 +155,12 @@
                                         </div>
                                         </div>
                                         <div class="col-md-3 mb-3">
-                                            <label for="">Codigo</label>
-                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>  ">
+                                            <label id ="lblcodigo" for="">Codigo</label>
+                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
+                                        <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
+                                            <br>
+                                            <input  type="button" class="btn btn-primary"  onclick="busqueda_billeteras_general()"  value="Buscar Billeteras ">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -169,7 +169,6 @@
                                             <br>
                                             <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
                                             <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
-                                            
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -183,11 +182,14 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
+
+
                                 <div class="tab-pane fade" id="facturaspendientesbody" role="tabpanel" aria-labelledby="facturaspendientesbody">
                                     <div class="spinner-border text-primary" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="facturacionbody" role="tabpanel" aria-labelledby="contact-tab">
                                     <div class="spinner-border text-primary" role="status">
                                         <span class="sr-only">Loading...</span>
@@ -246,9 +248,13 @@ var id_fila="";
 var swregion=1;
 var urlimagenempresa="";
 var nombreempresa="";
-//0 es carnet y uno es 
 
+
+//0 es carnet y uno es 
 var sw=1;
+
+
+
 function cambiar_region(id_region,id_figure,nombre,)
 {
     region_id=id_region;
@@ -266,9 +272,10 @@ function cambiar_rubro(id_rubro,id_figure)
     rubro_id=id_rubro;
     $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
+    
+
     filtrar_empresas();
     $(id_figure).addClass("avatar-state-success");
-   
     
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
@@ -287,15 +294,13 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
     $('html, body').animate({
  scrollTop: $("#idlugarboton").offset().top
  }, 2000);
- 
-    if(id_empresa==20)
+    
+if(id_empresa==20)
     {
         habilitarrecarga();
     }else{
         dehabilitarrecarga();
     }
-    
-    //$('#btn_empresa').click();
     
 }
 function  cambiar_tipo_switch()
@@ -311,6 +316,7 @@ function filtrar_empresas()
 {
     var datos= {rubro_id:rubro_id,region_id:region_id  };
     var urlajax=$("#url").val()+"get_filtro_regiones";  
+   // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax,{datos});   
   
    
@@ -341,7 +347,54 @@ function  busqueda_datos()
         
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
-      
+    $("#vista_clientes").show();
+    $("#vista_clientes").load(urlajax,{datos});                    
+  
+    }else{
+        if(codigo=='')
+        {
+            alert(' no  inserto el codigo ');
+        }
+        if(empresa_id==0)
+        {
+            alert('no selecciono la empresa ');
+        }
+        
+    }
+    
+}
+
+function  busqueda_billeteras_dependientes()
+{
+    var codigo=$("#inp_dato").val();
+    if( (codigo!='') && (empresa_id!=0))
+    {
+    var datos= {codigo:codigo  };
+    var urlajax=$("#url").val()+"filtro_billeteras_dependientes";   
+    $("#vista_clientes").show();
+    $("#vista_clientes").load(urlajax,{datos});                    
+  
+    }else{
+        if(codigo=='')
+        {
+            alert(' no  inserto el codigo ');
+        }
+        if(empresa_id==0)
+        {
+            alert('no selecciono la empresa ');
+        }
+        
+    }
+    
+}
+function  busqueda_billeteras_general()
+{
+    var codigo=$("#inp_dato").val();
+    if( (codigo!='') && (empresa_id!=0))
+    {
+    var datos= {codigo:codigo  };
+    var urlajax=$("#url").val()+"filtro_billeteras_general";   
+    $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
   
     }else{
@@ -383,20 +436,33 @@ function facturaspendientes(codigo_usuario)
 function habilitarrecarga()
 {
     $('#btnbuscar').hide();
-    $('#btnrecarga').show();
-    $('#inp_dato').val(<?= $_SESSION['cliente']; ?> );
+    $('#divrecarga').show();
+    $('#lblcodigo').text('Telefono - Carnet ');
     
+    $("#vista_clientes").hide();
+    
+   $('#inp_dato').val(<?= $_SESSION['cliente']; ?> );
+   $('#divcriteriobusqueda').hide();
+   
+    busqueda_billeteras_dependientes();
 }
 function dehabilitarrecarga()
 {
     $('#btnbuscar').show();
-    $('#btnrecarga').hide();
+    $('#divrecarga').hide();
+    $('#lblcodigo').text('Codigo');
+    $('#lir').hide();
+    $("#recargabody").empty(); 
+    $('#divcriteriobusqueda').show();
+    $("#vista_clientes").empty();
+    
     $('#inp_dato').val("<?= @$_SESSION['codigofijo']; ?>" );
     
 }
-function vistarecarga()
+  
+function vistarecarga(codigo)
 {
-    var codigo=$('#inp_dato').val();
+   // var codigo=$('#inp_dato').val();
     var datos= {codigo:codigo  };
     var urlajax=$("#url").val()+"vistarecargas";   
     $("#facturaspendientesbody").empty();
@@ -415,20 +481,41 @@ function vistarecarga()
     $("#recarga-tab").click();
 
 }
+
+function limpiar()
+{
+ 
+    $("#facturaspendientesbody").empty();
+    $("#recargabody").empty();  
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#inicio-tab").click();
+
+}
+
+
 </script>
+  
   <?php $this->load->view('theme/js');  ?>
 <script>
+    
 $( document ).ready(function() {
     cambiar_rubro(1,'#rub-0');
     $('#li2').attr('disabled', true); //add
 });
-
 $("#inp_dato").on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
         busqueda_datos();
     }
-});
+}); 
+
 </script>
+
 </body>
 
 
