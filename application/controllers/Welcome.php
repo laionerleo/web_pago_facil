@@ -1195,8 +1195,12 @@ class Welcome extends CI_Controller {
 		$tnEmpresa=$datos['codigoempresa'];
 		$tnFactura= $datos['nrofactura'];	
 		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
-
-
+		$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
+		$lcNombreEmpresa=$laDatosEmpresa->values[0]->cDescripcion;
+		/*echo "<pre>";
+		print_r($laDatosEmpresa);
+		echo "</pre>";
+		*/
 		//este codigo sirve para poder visuailzar 
 
 			$cadena="";
@@ -1206,7 +1210,7 @@ class Welcome extends CI_Controller {
 		//GET CONTENT
 		$fileToDownload = $cadena;
 		//echo  $fileToDownload ;
-		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-empresa'.$tnFactura.'.pdf';
+		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-'.$lcNombreEmpresa.$tnFactura.'.pdf';
 		//$fichero ='/web_pago_facil/application/assets/documentospdf/factura-empresa'.$tnFactura.'.pdf';
 		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
 		file_put_contents($fichero, $fileToDownload);
@@ -1408,11 +1412,20 @@ class Welcome extends CI_Controller {
 		$billeteradependientes=$this->servicios->getbilleterasdependientes($tnCliente,$tnBilletera);
 		$laMibilletera=$this->servicios->getbilleterausuario($tnCliente);
 		$d['billeteras']= $laMibilletera->values ;
-
+		$d['tcTitulo']= "Su Billetera " ;
+		
+		//echo "<pre>";
 		for ($i=0; $i < count( $billeteradependientes->values) ; $i++) { 
 			array_push($d['billeteras'], $billeteradependientes->values[$i]);	
 		}
+		if(count( $billeteradependientes->values)>0)
+		{
+			$d['tcTitulo']= $d['tcTitulo'] . "Y sus Billeteras  Dependientes" ;
+		}
 		$_SESSION['gaBilleteras']=$d['billeteras'];
+		
+		//print_r($billeteradependientes);
+		//echo "</pre>";
 		$this->load->view('pago_rapido/lista_billeteras', $d);
 	}
 	
@@ -1425,6 +1438,7 @@ class Welcome extends CI_Controller {
 		$tnBilletera=$datos["codigo"];
 		$tnCliente=$this->session->userdata('cliente');
 		$billeteras=$this->servicios->getbilleterausuario($tnBilletera);
+		$d['tcTitulo']= "Busqueda Realizada con Exito" ;
 		$d['billeteras']=$billeteras->values;
 		for ($i=0; $i < count($d['billeteras']) ; $i++) { 
 			$d['billeteras'][$i]->Saldo= "";
@@ -1432,7 +1446,10 @@ class Welcome extends CI_Controller {
 		
 
 		$_SESSION['gaBilleteras']=$d['billeteras'];	
-		$this->load->view('pago_rapido/lista_billeteras', $d);
+
+		
+
+		//$this->load->view('pago_rapido/lista_billeteras', $d);
 	}
 
 

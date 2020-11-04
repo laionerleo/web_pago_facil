@@ -156,12 +156,9 @@ input[type=number]::-webkit-outer-spin-button {
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
-                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                            <input id="inp_dato"  min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
                                         </div>
-                                        <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
-                                            <br>
-                                            <input  type="button" class="btn btn-primary"  onclick="busqueda_billeteras_general()"  value="Buscar Billeteras ">
-                                        </div>
+                                        
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
@@ -176,6 +173,15 @@ input[type=number]::-webkit-outer-spin-button {
                                             
                                         </div>
                                     </div>
+                                    <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
+                                            <br>
+                                          
+                                            
+                                            <button type="button" class="btn btn-primary m-r-5" onclick="busqueda_billeteras_general()" data-toggle="tooltip"
+                                                data-placement="top" title="Buscar otras Billeteras">
+                                                Buscar Billeteras
+                                            </button>
+                                        </div>
                                 </div>
                                 <div class="tab-pane fade" id="recargabody" role="tabpanel" aria-labelledby="recargabody">
                                     <div class="spinner-border text-primary" role="status">
@@ -437,7 +443,7 @@ function habilitarrecarga()
 {
     $('#btnbuscar').hide();
     $('#divrecarga').show();
-    $('#lblcodigo').text('Telefono - Carnet ');
+    $('#lblcodigo').text('Busqueda por Telefono o Ci ');
     
     $("#vista_clientes").hide();
     

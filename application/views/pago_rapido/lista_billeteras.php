@@ -40,6 +40,7 @@
 
 <div class="card" id="cardlistaclientes" >
     <div  class="card-body">
+    <center><label for=""><?= @$tcTitulo ?></label></center>
         <?php if(count($billeteras) >0 ){ ?>
             <div class="table-responsive">
                 <table id="tablaclientes" class="table table-striped table-bordered">
@@ -47,7 +48,9 @@
                 <tr >
                     <th>Billetera </th>
                     <th>Nombre</th>
-                    <th>Nombre Establecimiento</th>
+                    <?php if($billeteras[0]->nombreEstablecimiento!= ""){ ?>
+                    <th>Establecimiento</th>
+                    <?php } ?>
                     <?php if($billeteras[0]->Saldo!= ""){ ?>
                     <th>Saldo </th>
                     <?php } ?>
@@ -60,16 +63,22 @@
                         
                             <td  data-title="Billetera"><?= $billeteras[$i]->idBilletera ?></td>
                             <td  data-title="Nombre" ><?= $billeteras[$i]->NombreCliente ?></td>
-                            <td  data-title="" ><?= @$billeteras[$i]->nombreEstablecimiento ?></td>
+                            <?php if($billeteras[$i]->nombreEstablecimiento!= ""){ ?>
+                            <td  data-title="Establecimiento" ><?= @$billeteras[$i]->nombreEstablecimiento ?></td>
+                            <?php } ?>
                             <?php if($billeteras[$i]->Saldo!= ""){ ?>
                             <td  data-title="Saldo" ><?= @$billeteras[$i]->Saldo ?></td>
                             <?php } ?>
-                            <td  data-title="Opciones" > <button class="btn btn-primary" onclick="vistarecarga(<?= $billeteras[$i]->idBilletera ?>)"  >Realizar recarga</button></td>
+                            <td  data-title="Opciones" >
+                                 <button class="btn btn-primary" onclick="vistarecarga(<?= $billeteras[$i]->idBilletera ?>)"  >Realizar recarga</button>
+                                 
+                            </td>
                         </tr>
                     <?php    }  ?>
             
                 
                 </table>
+                <center>Elegir Billetera que va a recargar </center>
             </div>
                     <?php  }else{
                         echo "no hay resultados";
