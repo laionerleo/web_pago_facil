@@ -1846,6 +1846,80 @@ public function get_trancaccioneslinkser($tncliente)
 
 }
 
+public function listarmaspagadas($tncliente)
+{
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarEmpresasMasPagadas';
+   $data = array( 'tnCliente' =>$tncliente , 'tnAccion' => 94   );
+   //print_r($data);
+   
+   /*
+
+    @POST(cPagoFacilPHP + "/Empresa/listarEmpresasMasPagadas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<EmpresaFull>>> ListarEmpresasMasPagadas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tnAccion")      int     tnAccion);
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+
+}
+
+public function actualizarperfilfrecuente($tnCliente,$tnPerfilFrecuente){
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/actualizarPerfilFrecuente';
+   $data = array( 'tnCliente' =>$tnCliente , 'tnPerfilFrecuente' => $tnPerfilFrecuente   );
+   //print_r($data);
+   
+   /*
+
+      @POST(cPagoFacilPHP + "/Usuario/actualizarPerfilFrecuente")
+    @FormUrlEncoded
+    Call<Void> ActualizarPerfilFrecuente(
+            @Field("tnCliente") long cliente,
+            @Field("tnPerfilFrecuente") boolean tnPerfilFrecuente);
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+}
+
 public function cargarlogservicio($Mensajeerror)
 {
   $logFile = fopen("logservicio.txt", 'a') or die("Error creando archivo");

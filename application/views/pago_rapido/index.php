@@ -134,6 +134,15 @@ input[type=number]::-webkit-outer-spin-button {
                                   <div id="vistas_empresas"  >
                                        
                                   </div>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <center>
+                                          <input id="btnperfil" style="" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
+                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
+                                          
+                                          </center>
+                                      </div>
+                                  </div>
                                   <br>
                                  
                                     <div class="form-row">
@@ -156,13 +165,21 @@ input[type=number]::-webkit-outer-spin-button {
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
-                                            <input id="inp_dato"  min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                            <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
                                         </div>
-                                        
+                                        <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
+                                            <br>
+                                            <button type="button" class="btn btn-primary m-r-5" onclick="busqueda_billeteras_general()" data-toggle="tooltip"
+                                                data-placement="top" title="Buscar otras Billeteras">
+                                                Buscar Billeteras
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
+                                            <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
+                                            
                                             <br>
                                             <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
                                             <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
@@ -173,15 +190,6 @@ input[type=number]::-webkit-outer-spin-button {
                                             
                                         </div>
                                     </div>
-                                    <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
-                                            <br>
-                                          
-                                            
-                                            <button type="button" class="btn btn-primary m-r-5" onclick="busqueda_billeteras_general()" data-toggle="tooltip"
-                                                data-placement="top" title="Buscar otras Billeteras">
-                                                Buscar Billeteras
-                                            </button>
-                                        </div>
                                 </div>
                                 <div class="tab-pane fade" id="recargabody" role="tabpanel" aria-labelledby="recargabody">
                                     <div class="spinner-border text-primary" role="status">
@@ -278,6 +286,8 @@ function cambiar_rubro(id_rubro,id_figure)
     rubro_id=id_rubro;
     $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
+    $("#btnperfilempresa").hide();
+    $("#btnperfil").show();
     
 
     filtrar_empresas();
@@ -324,10 +334,20 @@ function filtrar_empresas()
     var urlajax=$("#url").val()+"get_filtro_regiones";  
    // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax,{datos});   
-  
-   
-     
 }
+function perfilfrecuente()
+{
+    $("#btnperfilempresa").show();
+    $("#btnperfil").hide();
+    
+    var urlajax=$("#url").val()+"perfilfrecuente";  
+   // $("#waitLoading").fadeIn(1000);
+    $("#vistas_empresas").load(urlajax);   
+}
+//perfilfrecuente
+
+
+
 function habilitarregiones()
 {
   if(swregion==1)
@@ -443,7 +463,7 @@ function habilitarrecarga()
 {
     $('#btnbuscar').hide();
     $('#divrecarga').show();
-    $('#lblcodigo').text('Busqueda por Telefono o Ci ');
+    $('#lblcodigo').text('Telefono - Carnet ');
     
     $("#vista_clientes").hide();
     
@@ -509,9 +529,22 @@ function limpiar()
   
   <?php $this->load->view('theme/js');  ?>
 <script>
-    
+    var perfil =$('#perfil').val();
+    var swperfil=0;
 $( document ).ready(function() {
-    cambiar_rubro(1,'#rub-0');
+ 
+    if(perfil==1)
+    {
+        perfilfrecuente();
+        $("#btnperfil").hide();
+        swperfil=1;
+    }else{
+        swperfil=0;
+        cambiar_rubro(1,'#rub-0');
+        $("#btnperfilempresa").hide();
+    }
+    //
+    
     $('#li2').attr('disabled', true); //add
 });
 $("#inp_dato").on('keyup', function (e) {

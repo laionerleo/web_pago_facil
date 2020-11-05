@@ -18,7 +18,6 @@ $route[$l.'pagorapido']                         = 'Welcome/pago_rapido';
 $route[$l.'facturaspendientes']                 = 'Welcome/vistafacturaspendientes';
 $route[$l.'vistafacturacion']                   = 'Welcome/vistafacturacion';
 $route[$l.'vistafacturacionrecarga']            = 'Welcome/vistafacturacionrecarga';
-
 $route[$l.'vistaconfirmacion']                  = 'Welcome/vistaconfirmacion';
 $route[$l.'vistaprepararpago']                  = 'Welcome/vistaprepararpago';
 $route[$l.'metodoprepararpagobcp']              = 'Welcome/metodoprepararpagobcp';
@@ -30,6 +29,9 @@ $route[$l.'generarqr']                          = 'Welcome/generarqr';
 $route[$l.'getultimaselegidas']                 = 'Welcome/getultimaselegidas';
 $route[$l.'metodotigomoney']                    = 'Welcome/pagarportigomoney';
 $route[$l.'verificartransaccion']               = 'Welcome/verificartransacciontigo';
+$route[$l.'perfilfrecuente']               = 'Welcome/listarempresafrecuentes';
+
+
 
 
 //
@@ -43,6 +45,8 @@ $route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
 $route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
 $route[$l.'getrubros']                          = 'Servicio/getrubros';
 $route[$l.'getallempresas']                     = 'Servicio/getallempresas';
+$route[$l.'actualizarperfilfrecuente']                     = 'Servicio/actualizarperfilfrecuente';
+
 
 
 

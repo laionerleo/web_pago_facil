@@ -294,5 +294,15 @@ class Servicio extends CI_Controller {
 
 	}
 
+	public function actualizarperfilfrecuente()
+	{
+		//$datos=$this->input->post("datos");
+		$tnCliente=$_SESSION['cliente'];
+		$tnPerfil=$this->input->post("perfil");
+		$_SESSION['PerfilFrecuente']=$tnPerfil;
+		$laServicio=$this->servicios->actualizarperfilfrecuente($tnCliente,$tnPerfil);
+		echo json_encode($laServicio);
+	}
+
 	/**/
 }

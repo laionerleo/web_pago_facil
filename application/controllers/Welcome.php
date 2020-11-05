@@ -61,21 +61,10 @@ class Welcome extends CI_Controller {
 		$d['region']=$this->servicios->get_list_regiones($id_cliente);
 		$metodopagoaux=$this->servicios->getmetodospago(3859);
 		$d["metodosdepago"]=$metodopagoaux->values;
-
-		
-		
- 
- 
-	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
-		// Puedes usar un método más sofisticado para recuperar el contenido de una página web con PHP usando una biblioteca o algo así
-		// Vamos a recuperar los datos rápidamente con file_get_contents
-		$dataArray = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));
-		
-		var_dump($dataArray);
-		
-		echo "Hola visitante desde: ".$dataArray["geoplugin_countryName"];*/
-	/*echo "<pre>";
-		print_r($d);
+		$d['perfilfrecuente']=$_SESSION['PerfilFrecuente'];
+		/*echo "<pre>";
+		echo $_SESSION['PerfilFrecuente'];
+		print_r($_SESSION);
 		echo "</pre>";*/
 		$this->load->view('pago_rapido/index', $d);
 	
@@ -622,6 +611,7 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$laEntidadesElegidas=$this->input->post("datos");
+		//$_SESSION['laEntidadesElegidas']=$laEntidadesElegidas;
 		$tnCliente=$_SESSION['cliente'];
 		$tnEmpresa=$_SESSION['idempresa'];;
 		$tcCodigoClienteEmpresa = $_SESSION['codigofijo'];
@@ -634,7 +624,10 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		$tcPeriodo=$_SESSION['periodomes'];
 		$tcImei =  $_SESSION['imei'] ; 
-	
+		print_r($_SESSION['laEntidadesElegidas']);
+
+
+	/*
 		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
 		$this->cargarlog("llego -->generar qr ".json_encode($metodos));
 		$mensajeerror=$metodos->error ;
@@ -653,7 +646,9 @@ class Welcome extends CI_Controller {
 		}else{
 			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 		}
-		echo json_encode($arreglo);
+		
+		*/
+		//echo json_encode($arreglo);
 		
 	
 	}
@@ -662,8 +657,8 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$metodos=$this->servicios->getultimasutilizadas($_SESSION['cliente']);
-		$d['entidadeselegidas']=$metodos->values;
+		//$metodos=$this->servicios->getultimasutilizadas($_SESSION['cliente']);
+		$d['entidadeselegidas']=$_SESSION['laEntidadesElegidas'];
 		
 		/*	
 		echo "<pre>";
@@ -1450,6 +1445,27 @@ class Welcome extends CI_Controller {
 		
 
 		//$this->load->view('pago_rapido/lista_billeteras', $d);
+	}
+	public function listarempresafrecuentes()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$region_id=$datos['region_id'];
+		$rubro_id=$datos['rubro_id'];
+		$tncliente=$this->session->userdata('cliente');
+		$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($tncliente);
+		$d['empresas']=$laEmpresasMasPagadas->values;
+		$_SESSION['todaslasempresas']=$d['empresas'];
+		
+		//		echo json_encode($empresas);
+		/*(echo "<pre>";
+		print_r($d);
+		echo "</pre>";*/
+		$this->load->view('pago_rapido/listarempresasfrecuentes', $d);
+		
+
+
 	}
 
 

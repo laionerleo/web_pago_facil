@@ -51,7 +51,13 @@
                                                 <div class="col-md-12">
                                                     <center>
                                                     <a id="btnayuda" data-toggle="modal" data-target="#exampleModalCenter"><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a>
-                                                <input class="btn btn-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+
+                                                    
+                                                    <?php if($recarga==20) { ?>
+                                                        <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                                    <?php }else{ ?>
+                                                        <input class="btn btn-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+                                                    <?php }  ?>
                                                     </center>
                                                 </div>
                                                 
@@ -116,6 +122,7 @@
                     url: urlajax,
                     data: {datos:entidadesasignadas},
                     type : 'POST',
+                    cache: false,
                     dataType: "json",
                     
                         beforeSend:function( ) {   
@@ -215,15 +222,15 @@
                                                                         <?php   for ($j=  0  ; $j < count($entidades); $j++) { ?>
                                                                                     
                                                                                     <div class="row"  id="row-<?= $entidades[$j]->EntidadBancaria  ?>">
-                                                                                        <div class="col-md-3 col-xs-3">
+                                                                                        <div class="col-md-3 col-xs-3 col-4">
                                                                                             <div class="image">
                                                                                                 <img style="padding:2px; width:100px; height:50px" src=" <?= $entidades[$j]->UrlImagen  ?>" alt="">
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="col-md-6 col-xs-6">
+                                                                                        <div class="col-md-6 col-xs-6 col-6">
                                                                                             <h3 class="name">   <?= $entidades[$j]->Nombre  ?></h3>
                                                                                         </div>
-                                                                                        <div class="col-md-3 col-xs-2 action">
+                                                                                        <div class="col-md-3 col-xs-2  col-2 action">
                                                                                         <input class="checkedleo"  onclick="elegirentidad(<?= $entidades[$j]->EntidadBancaria  ?> , '#idcheck-<?= $j ?>')" type="checkbox" id="idcheck-<?= $j ?>" value="1">
                                                                                         <!-- <a id="btnayuda"href="aqui vendra la direcciond e ayuda "  ><img style="width:25px;height:25px" src="<?= base_url(); ?>application/assets/assets/media/image/informacion.svg" alt=""></a> -->
                                                                                         </div>
