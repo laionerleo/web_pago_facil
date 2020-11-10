@@ -186,12 +186,24 @@
                     <div id="pago_facil_tu_barrio">
                         <ul>
                             <li class="navigation-divider d-flex align-items-center">
-                                <i class="mr-2" data-feather="copy"></i> Pago facil en tu barrio
+                                <i class="mr-2" data-feather="copy"></i> Pago facil en tu barrio cabeza
                             </li>
+
                             <li>
-                                <a  href="<?=$url?>endesarrollo">Pago facil en tu barrio  </a>
+                            <a href="#">BILLETERA PAGOFACIL</a>
+                                <ul>
+                                    <li>
+                                        <a href="<?=$url?>endesarrollo">Sugerir Cambios</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?=$url?>endesarrollo">Sugerir empresa</a>
+                                    </li>
+                                 
+                                </ul>
+
                             </li>
-                       
+                            
+                           
                         </ul>
                     </div>
                     <div id="sugerir_empresa">

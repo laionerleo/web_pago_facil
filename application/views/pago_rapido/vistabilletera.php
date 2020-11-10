@@ -1,5 +1,14 @@
+<style>
 
-            <div class="row">
+
+input.radiomontoclass { 
+            width: 20px; 
+            height: 20px; 
+ } 
+</style>
+         
+         
+         <div class="row">
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
@@ -35,11 +44,42 @@
                 <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
+                            <label for="">Monto a Recargar</label>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input  radiomontoclass" type="radio" name="radiomonto"
+                                                id="inlineRadio1" value="100">
+                                            <label class="form-check-label" for="inlineRadio1">100 bs </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
+                                                id="inlineRadio2" value="200">
+                                            <label class="form-check-label" for="inlineRadio2">200 bs </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
+                                                id="inlineRadio3" value="500" >
+                                            <label class="form-check-label" for="inlineRadio3">500 bs </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
+                                                id="inlineRadio4" value="1000" >
+                                            <label class="form-check-label" for="inlineRadio3">1000 bs  </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
+                                                id="inlineRadio5" value="0" >
+                                            <label class="form-check-label" for="inlineRadio3">Otro Monto  </label>
+                                        </div>
+                                    </div>
+                                </div>
                           
-                                <center style="padding-bottom: 10px;"  >
+                                <center style="padding-bottom: 10px; display:none" id="cajamonto"  >
                                     <div class="col-md-4">
                                         <label for="">Monto a Recargar</label>
-                                        <input id="inpmonto" class="form-control" type="number" placeolders="Monto a recargar " style="    text-align: end;" >
+                                        <input id="inpmonto" class="form-control" value="0" min="0" type="number" placeolders="Monto a recargar " style="    text-align: end;" >
                                     </div>
                                 </center>
                             
@@ -56,9 +96,9 @@
                                       
                                             <?php  for ($i=0; $i < count($metodospago) ; $i++) {
                                                 ?>
-                                                <div class="col-md-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:40px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
+                                                <div class="col-md-2 col-6 col-sm-4"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:55px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
                                                 <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:100%; position: relative;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
-                                                <!-- <label for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label> -->
+                                                <label style="    font-size: 10px;" for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label> 
                                                 </div>
                                             <?php  } ?>
                   
@@ -153,78 +193,15 @@
        
         }
 
-        function realizarrecarga()
-        {       var monto=$('#inpmonto').val();
-                var billetera=$('input:radio[name=billeteraid]:checked').val();
-                console.log(billetera);
-                if( billetera== null)
-                {
-                    billetera="";
-                }
-            
-                if( (monto != "") && (billetera != "")    ){
-                var datos= {monto:monto , billetera:billetera };
-                var urlajax=$("#url").val()+"recargabilletera"; 
-            
-                $.ajax({                    
-                        url: urlajax,
-                        data: {datos},
-                        type : 'POST',
-                        dataType: "json",
-                        
-                            beforeSend:function( ) {   
-                           
-                            },                    
-                            success:function(response) {
-                            console.log(response);
-                            if(response.tipo==10)
-                                {
-                                    //$("#modalconfirmar").click();
-                                  
-                                    swal("Recarga Exitosa", response.mensaje , "success");  
-                                   
-                                }
-                            if(response.tipo==1)
-                                {
-                                    swal("Error", response.mensaje , "error");
-                                
-                                }
-                            
-
-                            },
-                            error: function (data) {
-                                console.log(data);
-                                
-                            },               
-                            complete:function( ) {
-                                
-                            },
-                        }); 
-                }else{
-                    
-               
-                    if( (monto == "")){
-                        swal("Error", 'debe asignar un monto' , "error");
-                        
-                    }
-                    if(( billetera == "")){
-                        swal("Error", 'Elegir billetera' , "error");
-                        
-                    }
-                } 
-                
-
-       
-        }
-
+     
         function vistafacturacion()
             {
                 var montototal=$('#inpmonto').val();
                 var idfactura=$("#facturaid").val();
                 var billetera=$('#tnBilletera').val();
-                
+             
             
-                if( (montototal != "") ){
+                if( (montototal != 0) && (montototal != "") && (montototal > 0)  ){
              
                 var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0, idbilletera:billetera };
                 var urlajax=$("#url").val()+"vistafacturacionrecarga";  
@@ -241,12 +218,14 @@
             }else{
                     
                
-                    if( (montototal == "")){
-                        swal("Error", 'debe asignar un monto' , "error");
+                    if( (montototal == 0) || (montototal == "" )  || (montototal < 0)   ){
+                        swal("Error", 'debe asignar un monto valido' , "error");
                         
                     }
                 
                 }
+
+                
             }
         idmetododepago=0;
     function ledioaeste(idmetododepagonuevo,id_item)
@@ -256,12 +235,36 @@
             $("#img-"+idmetododepago).css("border", "none");
             idmetododepago=idmetododepagonuevo;
             $(id_item).css("border", "solid");
+            $(id_item).css("border-color", "red");
+            $(id_item).css("border-style", "outset");
+            $(id_item).css("border-radius", "15px");
+            
+            
             }
 
             $(document).ready(function() {
             // Instrucciones a ejecutar al terminar la carga
             ledioaeste(5,"#img-5");
             });
+
+
+    
+        $("input[name=radiomonto]").change(function () {	
+          //  console.log("ingreso aqui ");
+           // alert($(this).val());
+           if($(this).val() == 0 ){
+                $("#inpmonto").val(0);
+                $("#cajamonto").show();
+           }else{
+            $("#cajamonto").hide();
+            $("#inpmonto").val($(this).val());
+            
+           }
+
+
+
+           
+        });
          
 
     </script>

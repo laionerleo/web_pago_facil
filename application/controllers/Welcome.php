@@ -26,12 +26,13 @@ class Welcome extends CI_Controller {
         //cargamos los modelos
 		$this->load->model(array('Msecurity'));
 		
-		
+		/*
 		if(!@$this->session->userdata('cliente')){
             $d = array();
             $this->Msecurity->url_and_lan($d);
             redirect($d['url']."?m=Usted tiene que iniciar session !!!");
 		}
+		*/
     }
 
 
@@ -355,6 +356,10 @@ class Welcome extends CI_Controller {
 		$_SESSION['idfactura']=$datos["idfactura"];
 		$_SESSION['metododepago']=$datos["metododepago"];
 		$metodopago=$_SESSION['metododepago'];
+		$montocomision=$this->servicios->calcularcomision($_SESSION['cliente'], $_SESSION['idempresa'],$metodopago,$_SESSION['montototal']);
+		$_SESSION['montocomision']=$montocomision->values;
+		$d['comision']=$_SESSION['montocomision'];
+		
 		if($metodopago==2)
 		{
 		$tnCliente= $this->session->userdata('cliente');
@@ -400,7 +405,10 @@ class Welcome extends CI_Controller {
 		$metodopago=$_SESSION['metododepago'];
 		$d['nombrecliente']=(isset($_SESSION['gaDatosBilletera']->NombreCliente)) ? $_SESSION['gaDatosBilletera']->NombreCliente  : "Sin Nombre";    ;
 		$d['cionit']=(isset($_SESSION['gaDatosBilletera']->cinit)) ? $_SESSION['gaDatosBilletera']->cinit  : 0; 
-
+		
+		$montocomision=$this->servicios->calcularcomision($_SESSION['cliente'], $_SESSION['idempresa'],$metodopago,$_SESSION['montototal']);
+		$_SESSION['montocomision']=$montocomision->values;
+		$d['comision']=$_SESSION['montocomision'];
 	
 		
 		if($metodopago==2)
@@ -611,7 +619,7 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$laEntidadesElegidas=$this->input->post("datos");
-		//$_SESSION['laEntidadesElegidas']=$laEntidadesElegidas;
+		$_SESSION['laEntidadesElegidas']=$laEntidadesElegidas;
 		$tnCliente=$_SESSION['cliente'];
 		$tnEmpresa=$_SESSION['idempresa'];;
 		$tcCodigoClienteEmpresa = $_SESSION['codigofijo'];
@@ -624,10 +632,10 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		$tcPeriodo=$_SESSION['periodomes'];
 		$tcImei =  $_SESSION['imei'] ; 
-		print_r($_SESSION['laEntidadesElegidas']);
+		//print_r($_SESSION['laEntidadesElegidas']);
 
 
-	/*
+	
 		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
 		$this->cargarlog("llego -->generar qr ".json_encode($metodos));
 		$mensajeerror=$metodos->error ;
@@ -647,8 +655,8 @@ class Welcome extends CI_Controller {
 			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 		}
 		
-		*/
-		//echo json_encode($arreglo);
+		
+		echo json_encode($arreglo);
 		
 	
 	}
@@ -1466,6 +1474,16 @@ class Welcome extends CI_Controller {
 		
 
 
+	}
+	public function cargarpdf()
+	{
+		$laDatosView = array();
+		$this->Msecurity->url_and_lan($laDatosView);	
+		//$this->load->view('vistapdfrecarga', $laDatosView);
+		$this->load->view('vistarecibo', $laDatosView);
+		
+
+		
 	}
 
 

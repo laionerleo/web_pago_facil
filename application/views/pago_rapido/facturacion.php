@@ -1,12 +1,15 @@
 
+
         <?php if(isset($saldo)){ ?>
         <center><h2>Saldo</h2></center>
         <center><h4>Bs<?= @$saldo ?></h4></center>
         <center><h6><?= @$mensaje ?></h6></center>
         
         <?php } ?>
-            <div class="row">
             
+            
+            <div class="row">
+            <?php if($comision>0 ){  ?>
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
@@ -23,6 +26,12 @@
                         </div>
                     </div>
                 </div>
+            <?php }else{ ?>
+                <input class="form-control" id="inpnombrecliente" type="hidden" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
+                <input class="form-control" type="hidden" id="inpcionit" placeholder="CI o NIT de cliente" value="<?= @$cionit ?>">
+                <?php }?>
+
+
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center m-t-10-minus" >
@@ -58,17 +67,20 @@ function vistaconfirmacion()
     var inpcionit=$('#inpcionit').val();
     var inpnumero=$('#inpnumero').val();
     var inpcorreo=$('#inpcorreo').val();
-  
+    
     var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
     var urlajax=$("#url").val()+"vistaconfirmacion";   
+    
     $("#confirmacionbody").empty();   
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
     $("#confirmacionbody").load(urlajax,{datos}); 
     $("#li4").show();
+
     $("#confirmacion-tab").click();
-    
 }
 </script>
       <!-- Slick -->

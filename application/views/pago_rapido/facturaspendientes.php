@@ -82,14 +82,10 @@
                                       
                                             <?php  for ($i=0; $i < count($metodospago) ; $i++) {
                                                 ?>
-                                                <div class="col-md-2"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#item<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:100px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
+                                                <div class="col-md-2 col-6 col-sm-4"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:55px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
                                                 <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:100%; position: relative;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
-                                                <label for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label>
-                                                
+                                                <label style="    font-size: 10px;" for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label> 
                                                 </div>
-
-                                                
-                                                
                                             <?php  } ?>
                   
                                  
@@ -173,11 +169,14 @@ idmetododepago=0;
             {
                 console.log(id_item);
             
-              $("#item"+idmetododepago).css("border", "none");
+              $("#img-"+idmetododepago).css("border", "none");
               idmetododepago=idmetododepagonuevo;
                 //id_fugure_region=id_figure;
                 //$('#btn_region').click();
                 $(id_item).css("border", "solid");
+                $(id_item).css("border-color", "red");
+                $(id_item).css("border-style", "outset");
+                $(id_item).css("border-radius", "15px");
                 //$("#nombre_region").text(nombre);
                 //filtrar_empresas();
 
@@ -185,7 +184,7 @@ idmetododepago=0;
 
             $(document).ready(function() {
             // Instrucciones a ejecutar al terminar la carga
-            ledioaeste(5,"#item5");
+            ledioaeste(5,"#img-5");
             });
          
 
