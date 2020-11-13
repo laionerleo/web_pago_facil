@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tooltip"
+                        <a href="#" onclick="cargarpagofacilentubarrio()" data-toggle="tooltip"
                            data-placement="right" title="Pago facil en tu barrio" data-nav-target="#pago_facil_tu_barrio">
                            <img style="width:45px" src="<?=  base_url() ?>/application/assets/assets/media/logomenu/punto_pago_facil.png"  alt="">
                         </a>
@@ -184,24 +184,18 @@
                       
                     </div>
                     <div id="pago_facil_tu_barrio">
-                        <ul>
+                        <ul id="listapuntosdecobranza">
                             <li class="navigation-divider d-flex align-items-center">
-                                <i class="mr-2" data-feather="copy"></i> Pago facil en tu barrio cabeza
+                                <i class="mr-2" data-feather="copy"></i> PagoFacil en tu barrio
                             </li>
-
-                            <li>
-                            <a href="#">BILLETERA PAGOFACIL</a>
-                                <ul>
-                                    <li>
-                                        <a href="<?=$url?>endesarrollo">Sugerir Cambios</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?=$url?>endesarrollo">Sugerir empresa</a>
-                                    </li>
-                                 
-                                </ul>
+                            <center>
+                                <div id="spinerpagofacil" class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                            </center>   
 
                             </li>
+                            
                             
                            
                         </ul>

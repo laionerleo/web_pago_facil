@@ -1106,11 +1106,7 @@ class Welcome extends CI_Controller {
 			}
 		}
 		
-	//	echo "<pre>";
-		//print_r($_SESSION);
-	//	print_r($etiquetas);
-	//	print_r($d['etiquetas']);
-		//echo "</pre>";  
+	 
 		$this->load->view('pagosrealizados/facturaspagadas', $d);
 	}
 
@@ -1367,7 +1363,19 @@ class Welcome extends CI_Controller {
 		$metodos=$this->servicios->get_metodos_pago_empresa($tnCliente ,20);
 		$d['metodospago']=$metodos->values->aMetodosDePago;
 		$d['tnBilletera']=$lnBilletera;
-		$_SESSION['todosmetodosdepago']=$metodos->values->aMetodosDePago;		
+		$d['tnMontoMinimo']=$d['taDatosBilletera']->MontoMinimoCargaDiaBilletera;
+		$d['tnRecargasMaximo']=$d['taDatosBilletera']->NroCargasDiaBilletera;
+		$d['tnRecargasHechas']= $d['taDatosBilletera']->RecargasAlDia;
+		
+		
+		$_SESSION['todosmetodosdepago']=$metodos->values->aMetodosDePago;	
+		/*echo "<pre>";
+		
+		print_r($d);
+		echo "</pre>";
+		*/
+		
+		
 		$this->load->view('pago_rapido/vistabilletera', $d);
 			
 		
@@ -1427,8 +1435,8 @@ class Welcome extends CI_Controller {
 		}
 		$_SESSION['gaBilleteras']=$d['billeteras'];
 		
-		//print_r($billeteradependientes);
-		//echo "</pre>";
+	//	print_r($d);
+	//	echo "</pre>";
 		$this->load->view('pago_rapido/lista_billeteras', $d);
 	}
 	

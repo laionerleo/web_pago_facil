@@ -262,6 +262,72 @@
           
           }
         }
+
+        function cargarpagofacilentubarrio()
+        {
+                var datos= {ci:0};
+                var urlajax=$("#url").val()+"cargarpagofacilentubarrio"; 
+
+            
+                $.ajax({                    
+                        url: urlajax,
+                        data: {datos},
+                        type : 'POST',
+                        dataType: "json",
+                        
+                            beforeSend:function( ) {   
+                           
+                            },                    
+                            success:function(response) {
+                            console.log(response);
+                            puntoscobranza=response;
+                            
+                              var url=$("#url").val()+"pagofacilentubarrio/"; 
+                             
+
+                                      for (let i = 0; i < puntoscobranza.length; i++) {
+                                        console.log(puntoscobranza[i]);
+                                        var nombre="";
+                                        if(puntoscobranza[i].tipo=="PF")
+                                        {
+                                          nombre="Billetera PagoFacil";
+                                          tipo=1;
+                                        }
+                                        if(puntoscobranza[i].tipo=="TM")
+                                        {
+                                          nombre="Punto Tigo Money ";
+                                          tipo=2;
+                                        }
+                                        var elemento=`<ul> <li  id="link-`+i+`" > <a  href="`+url+tipo+` "   >`+ nombre +` </a>   `;
+                                        elemento= elemento+`</ul>  </li>`;
+                                        $("#spinerpagofacil").hide();
+                                        $("#listapuntosdecobranza").append(elemento);
+
+                                        if(puntoscobranza.length ==1)
+                                        {
+                                          $(window).attr('location',url+tipo)
+                                        }
+                                  
+                                   
+                                 
+                                 
+                                 }
+                               
+                                 
+                            
+
+                            },
+                            error: function (data) {
+                                console.log(data);
+                                
+                            },               
+                            complete:function( ) {
+                                
+                            },
+                        });  
+
+       
+        }
           
         $(document).ready(function() {
             cargarrubros();

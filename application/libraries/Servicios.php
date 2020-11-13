@@ -1776,7 +1776,7 @@ $tnCliente, tnBilletera, tnMonto, tnTransaccionBancaria
 
    $url = 'http://serviciopagofacil.syscoop.com.bo/api/Transaccion/guardarEntidadesBancarias';
    $data = array( 'tnCliente' =>$tnCliente , 'tcEntidades'=>  json_encode($tcEntidades)  ,'tnTransaccion' =>$tnTransaccion ,  'tnApp'=>3 );
-  // $this->cargarlogservicio("guardarentidadbancaria".json_encode($data));
+   $this->cargarlogservicio("guardarentidadbancaria".json_encode($data));
    
  /*    
   tnCliente
@@ -1920,6 +1920,158 @@ public function actualizarperfilfrecuente($tnCliente,$tnPerfilFrecuente){
    return $resultado;
 }
 
+public function getPuntoCobranza($tnCliente){
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getPuntoDeCobranza';
+   $data = array( 'tnCliente' =>$tnCliente    );
+   //print_r($data);
+   
+   /*
+@POST(cPagoFacilPHP + "/Usuario/getPuntoDeCobranza")
+@FormUrlEncoded
+Call<mPaquetePagoFacil<ArrayList<PuntoCobranza>>> getPuntoCobranza(
+        @Field("tnCliente")         long    tnCliente,
+        @Field("tnIdAccion")        int     tnIdAccion);;
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+}
+
+public function ListarEmpresas2($tnCliente){
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarEmpresas2';
+   $data = array( 'tnCliente' =>$tnCliente    );
+   //print_r($data);
+   
+   /*
+@POST(cPagoFacilPHP + "/Empresa/listarEmpresas2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresa>>> listarEmpresas2(
+            @Field("tnCliente")     long    cliente)
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+}
+
+
+
+public function reportebilletera($tnCliente  ,$tcFechaInicial  , $tcfechaFinal , $tnBilletera ){
+   $url = 'http://190.186.90.42/ServicioSyscoopPagoFacil2/Usuario/getReporteBilletera2';
+   //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getReporteBilletera2';
+   
+   $data = array( 'tnCliente' =>$tnCliente  ,  'tcFechaInicial' =>"$tcFechaInicial" , 'tcfechaFinal' =>"$tcfechaFinal" , 'tnBilletera' => intval($tnBilletera) );
+   //print_r($data);
+   
+   /*
+
+@POST(PagoFacil + "/Usuario/getReporteBilletera2")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<FacturaPDF>> getReporteBilletera(
+            @Field("tnCliente")         long    cliente,
+            @Field("tcFechaInicial")    String  fechaInicial,
+            @Field("tcfechaFinal")      String  fechaFinal,
+            @Field("tnBilletera")       int     idBilletera);
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+}
+
+public function reportecomisiones($tnCliente)
+{
+
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getComisionesBilletera';
+   $data = array( 'tnCliente' =>$tnCliente   );
+   $this->cargarlogservicio("reportecomisiones".json_encode($data));
+   //print_r($data);
+   
+   /*
+
+   @POST(cPagoFacilPHP + "/Usuario/getComisionesBilletera")
+   @FormUrlEncoded
+   Call<mPaquetePagoFacil<ArrayList<Comision>>> getComisionesBilletera(
+           @Field("tnCliente")         long tnCliente);
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+   
+}
+
+
+
 public function cargarlogservicio($Mensajeerror)
 {
   $logFile = fopen("logservicio.txt", 'a') or die("Error creando archivo");
@@ -1933,3 +2085,4 @@ public function cargarlogservicio($Mensajeerror)
 
 
 ?>
+

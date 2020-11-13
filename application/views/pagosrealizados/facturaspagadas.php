@@ -45,19 +45,25 @@
                                             <table id="example1" class="table table-striped table-bordered">
                                                                 <thead>
                                                                 <tr>
+                                                                <th>Nro Transaccion</th>
                                                                     <th>Periodo</th>
                                                                     <th>Importe  </th>
                                                                     <th>Fecha de Pago</th>
+                                                                    <th>Hora de Pago</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>                                                                
                                                                 <?php  for ($i=0; $i < count($facturaspagadas) ; $i++) { ?>
+                                                                    
                                                                     <tr id="fila-<?= $i ?>" onclick="mostrarmodalfacturas(<?= @$facturaspagadas[$i]->transaccionDePago ?> , '<?= @$facturaspagadas[$i]->periodo ?>' ,<?= @$facturaspagadas[$i]->factura ?> )"  > 
-                                                                    <td   > 
+                                                                    <td>  <?= @$facturaspagadas[$i]->transaccionDePago ?></td>
+                                                                    <td > 
                                                                     <label for=""><?= @$facturaspagadas[$i]->periodo ?></label>
                                                                     </td>
                                                                     <td>  <?= @$facturaspagadas[$i]->importe ?></td>
                                                                     <td>  <?= @$facturaspagadas[$i]->fechaPago ?></td>
+                                                                    <td>  <?= @$facturaspagadas[$i]->horaPago ?></td>
+                                                                    
                                                                  </tr>
                                                         
                                                                 <?php }  ?>
@@ -65,9 +71,11 @@
                                                                 </tbody>
                                                                 <tfoot>
                                                                 <tr>
+                                                                    <th>Nro Transaccion</th>
                                                                 <th>Periodo</th>
                                                                     <th>Importe  </th>
                                                                     <th>Fecha de Pago</th>
+                                                                    <th>Hora de Pago</th>
                                                                     
 
                                                                 
@@ -84,20 +92,16 @@
 
                                                             <input  type="hidden" id="btnmodal" class="btn btn-primary" data-toggle="modal"  value="nada" data-target="#modalopciones">
 
+
                                                             <script src="<?=  base_url() ?>/application/assets/vendors/dataTable/datatables.min.js"></script>
 
-                                                                                <script>
-                                                                                $(document).ready( function () {
-                                                                                    //$('#example1').DataTable();
-
-
-                                                                                        $('#example1').DataTable({
+                                                                <script>
+                                                                $(document).ready( function () {                                                                    
+                                                                    $('#example1').DataTable({
                                                                                         "ordering": false,
-                                                                                        //"order": [[ 2, "asc" ]],
-                                                                                        });    
-                                                                                                                                                                        
-                                                                                } );
-                                                                                </script>
+                                                                                        });  
+                                                                } );
+                                                                </script>
 
                                             <?php  }else{echo "No hay datos";}    ?>
 

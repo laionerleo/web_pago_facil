@@ -50,23 +50,23 @@ input.radiomontoclass {
                                 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input  radiomontoclass" type="radio" name="radiomonto"
-                                                id="inlineRadio1" value="100">
-                                            <label class="form-check-label" for="inlineRadio1">100 bs </label>
+                                                id="inlineRadio1" value="500">
+                                            <label class="form-check-label" for="inlineRadio1">500 bs </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
-                                                id="inlineRadio2" value="200">
-                                            <label class="form-check-label" for="inlineRadio2">200 bs </label>
+                                                id="inlineRadio2" value="1000">
+                                            <label class="form-check-label" for="inlineRadio2">1000 bs </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
-                                                id="inlineRadio3" value="500" >
-                                            <label class="form-check-label" for="inlineRadio3">500 bs </label>
+                                                id="inlineRadio3" value="1500" >
+                                            <label class="form-check-label" for="inlineRadio3">1500 bs </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
-                                                id="inlineRadio4" value="1000" >
-                                            <label class="form-check-label" for="inlineRadio3">1000 bs  </label>
+                                                id="inlineRadio4" value="2000" >
+                                            <label class="form-check-label" for="inlineRadio3">2000 bs  </label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input radiomontoclass" type="radio" name="radiomonto"
@@ -79,7 +79,7 @@ input.radiomontoclass {
                                 <center style="padding-bottom: 10px; display:none" id="cajamonto"  >
                                     <div class="col-md-4">
                                         <label for="">Monto a Recargar</label>
-                                        <input id="inpmonto" class="form-control" value="0" min="0" type="number" placeolders="Monto a recargar " style="    text-align: end;" >
+                                        <input id="inpmonto" class="form-control" value="<?= $tnMontoMinimo ?>" min="<?= $tnMontoMinimo ?>" type="number" placeolders="Monto a recargar " style="    text-align: end;" >
                                     </div>
                                 </center>
                             
@@ -115,6 +115,11 @@ input.radiomontoclass {
                 </div>
                 <input type="hidden" id="url" name="url" value="<?= $url ?>">
                 <input type="hidden" id="tnBilletera" name="tnBilletera" value="<?= $tnBilletera ?>">
+                <input type="hidden" id="inpMontoMinimo" name="inpMontoMinimo" value="<?= $tnMontoMinimo ?>">
+                <input type="hidden" id="inpCantidadRecargas" name="inpCantidadRecargas" value="<?= $tnRecargasMaximo    ?>">
+                <input type="hidden" id="inpRecargasHechas" name="inpRecargasHechas" value="<?= $tnRecargasHechas ?>">
+                
+                
 
 
 
@@ -126,6 +131,10 @@ input.radiomontoclass {
 
 <!-- end::footer -->
 	<script>
+    var lnMontoMinimo= parseInt($('#inpMontoMinimo').val());
+    var lnrecargamax=$('#inpCantidadRecargas').val();
+    var lnRecargashechas=$('#inpRecargasHechas').val();
+    
       
         function buscarbilletera()
         {       var codigousuario=$('#codigousuario').val();
@@ -196,34 +205,43 @@ input.radiomontoclass {
      
         function vistafacturacion()
             {
-                var montototal=$('#inpmonto').val();
+                var montototal=$('#inpmonto').val();      
                 var idfactura=$("#facturaid").val();
                 var billetera=$('#tnBilletera').val();
-             
+                console.log(lnrecargamax);
+             if(  lnRecargashechas   < lnrecargamax)
+             {
             
-                if( (montototal != 0) && (montototal != "") && (montototal > 0)  ){
+                if( (montototal != 0) && (montototal != "") && (montototal > 0) && (montototal >= lnMontoMinimo)   ){
              
-                var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0, idbilletera:billetera };
-                var urlajax=$("#url").val()+"vistafacturacionrecarga";  
-                
-                $("#facturacionbody").empty();   
-                $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-                $("#confirmacionbody").empty();   
-                $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-                $("#prepararpagobody").empty();   
-                $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);                   
-                $("#facturacionbody").load(urlajax,{datos});   
-                $("#li3").show();
-                $("#facturacion-tab").click();
-            }else{
+                    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0, idbilletera:billetera };
+                    var urlajax=$("#url").val()+"vistafacturacionrecarga";  
                     
-               
+                    $("#facturacionbody").empty();   
+                    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+                    $("#confirmacionbody").empty();   
+                    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+                    $("#prepararpagobody").empty();   
+                    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);                   
+                    $("#facturacionbody").load(urlajax,{datos});   
+                    $("#li3").show();
+                    $("#facturacion-tab").click();
+                }else{
                     if( (montototal == 0) || (montototal == "" )  || (montototal < 0)   ){
                         swal("Error", 'debe asignar un monto valido' , "error");
                         
                     }
+                    if(montototal <= lnMontoMinimo) 
+                    {
+                        swal("Error", 'Monto minimo a recargar es de '+lnMontoMinimo + 'Bs' , "error");
+                    }
                 
                 }
+
+             }else{
+                swal("Error", 'ya supero su limite de recargas al dia' , "error");
+                 //aqui entra si ya supero su limite de recargas
+             }
 
                 
             }
@@ -253,7 +271,8 @@ input.radiomontoclass {
           //  console.log("ingreso aqui ");
            // alert($(this).val());
            if($(this).val() == 0 ){
-                $("#inpmonto").val(0);
+            var tnMontoMinimo=$('#inpMontoMinimo').val();
+                $("#inpmonto").val(tnMontoMinimo);
                 $("#cajamonto").show();
            }else{
             $("#cajamonto").hide();

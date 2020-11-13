@@ -45,7 +45,8 @@ $route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
 $route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
 $route[$l.'getrubros']                          = 'Servicio/getrubros';
 $route[$l.'getallempresas']                     = 'Servicio/getallempresas';
-$route[$l.'actualizarperfilfrecuente']                     = 'Servicio/actualizarperfilfrecuente';
+$route[$l.'cargarpagofacilentubarrio']          = 'Servicio/cargaragofacilentubarrio';
+
 
 
 
@@ -67,6 +68,8 @@ $route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/'
 
 //puntos de cobranza
 $route[$l.'puntosdecobranza']                      = 'Welcome/puntosdecobranza';
+$route[$l.'puntosdecobranzapagofacil']             = 'Servicio/puntosdecobranza';
+
 
 
 // empresas afiliadas
@@ -84,8 +87,14 @@ $route[$l.'atencionpagofacil']                      = 'Welcome/metodospagomenu';
 $route[$l.'vistarecargas']                      = 'Welcome/vistarecargas';
 $route[$l.'buscadorbilletera']                  = 'Servicio/buscadorbilletera';
 $route[$l.'recargabilletera']                   = 'Welcome/realizarrecarga';
-$route[$l.'filtro_billeteras_dependientes']                  = 'Welcome/busquedabilleteradependiente';
-$route[$l.'filtro_billeteras_general']                  = 'Welcome/busquedabilleteras';
+$route[$l.'filtro_billeteras_dependientes']     = 'Welcome/busquedabilleteradependiente';
+$route[$l.'filtro_billeteras_general']          = 'Welcome/busquedabilleteras';
+
+
+// pagofacil en tu barrio 
+$route[$l.'pagofacilentubarrio/(:num)']       = 'BilleteraPagoFacil/inicio/$1/$2/';
+$route[$l.'reportemovimiento']                = 'BilleteraPagoFacil/reportemovimientobilletera';
+$route[$l.'reportecomisiones']                = 'BilleteraPagoFacil/reportecomisionbilletera';
 
 
 

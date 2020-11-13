@@ -284,6 +284,21 @@ class Servicio extends CI_Controller {
 	
 
 	}
+	public function cargaragofacilentubarrio()
+	{
+		//echo json_encode();
+		$d['puntoscobranza']=$this->servicios->getPuntoCobranza($_SESSION['cliente']);
+		
+
+		if(isset($d['puntoscobranza']))
+		{
+			echo json_encode($d['puntoscobranza']->values);
+		}else{
+				echo json_encode(array());
+		}		
+	
+
+	}
 	public function buscadorbilletera()
 	{
 		$datos=$this->input->post("datos");
@@ -302,6 +317,41 @@ class Servicio extends CI_Controller {
 		$_SESSION['PerfilFrecuente']=$tnPerfil;
 		$laServicio=$this->servicios->actualizarperfilfrecuente($tnCliente,$tnPerfil);
 		echo json_encode($laServicio);
+	}
+	public function puntosdecobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$tnCliente=1;
+		$ubicaciones=$this->servicios->getubicaciones($tnCliente);
+		$metodopagoaux=$this->servicios->getmetodospago($tnCliente);
+		$empresas=$this->servicios->ListarEmpresas2($tnCliente);
+		$d["metodosdepago"]=$metodopagoaux->values;
+		$d["puntos"]=$ubicaciones->values;
+		$d["empresas"]=$empresas->values;
+		$d["ubicaciones"]=array();
+		
+		
+		
+
+		for ($i=0; $i < count($d["puntos"]) ; $i++) { 
+			$nuevo=array("nombreEstablecimiento"=> $d["puntos"][$i]->nombreEstablecimiento , 'latitud'=>$d["puntos"][$i]->latitud , 'latitud'=>$d["puntos"][$i]->latitud  , 'tipo'=> "PF" , 'longitud'=> $d["puntos"][$i]->longitud );
+			array_push($d['ubicaciones'], $nuevo);	
+		} 
+
+		for ($i=0; $i < count($d["metodosdepago"]) ; $i++) { 
+			$nuevo=array("nombreEstablecimiento"=> $d["metodosdepago"][$i]->nombre , 'latitud'=>$d["metodosdepago"][$i]->latitud , 'latitud'=>$d["metodosdepago"][$i]->latitud  , 'tipo'=> "MP" , 'longitud'=> $d["metodosdepago"][$i]->longitud );
+			array_push($d['ubicaciones'], $nuevo);	
+		}
+		for ($i=0; $i < count($d["empresas"]) ; $i++) { 
+			$nuevo=array("nombreEstablecimiento"=> $d["empresas"][$i]->descripcion , 'latitud'=>$d["empresas"][$i]->latitud , 'latitud'=>$d["empresas"][$i]->latitud  , 'tipo'=> "EM" , 'longitud'=> $d["empresas"][$i]->longitud );
+			array_push($d['ubicaciones'], $nuevo);	
+		}
+		$d["ubicaciones"]=json_encode($d["ubicaciones"]);
+
+		$this->load->view('puntosdecobranza/index2', $d);
+		
+		
 	}
 
 	/**/
