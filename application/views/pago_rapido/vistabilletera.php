@@ -82,10 +82,17 @@ input.radiomontoclass {
                                         <input id="inpmonto" class="form-control" value="<?= $tnMontoMinimo ?>" min="<?= $tnMontoMinimo ?>" type="number" placeolders="Monto a recargar " style="    text-align: end;" >
                                     </div>
                                 </center>
+                              
                             
                                
                                 
                             </div>
+                            <center  >
+                                    <div class="col-md-12">
+                                        <p for="">Cantidad de recargas al dia : <?= $tnRecargasMaximo    ?>  Recargas Realizadas con exito : <?= $tnRecargasHechas    ?>   </p>
+                                        
+                                        
+                                </center>
                         </div>
 
                         <div class="card">

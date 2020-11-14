@@ -2,6 +2,7 @@
 <html lang="en">
 <?php $this->load->view('theme/head'); ?>
 
+
 <body  class="">
 
 <!-- begin::preloader-->
@@ -158,7 +159,12 @@
 </div>
 <input type="hidden" id="url"  value="<?= $url ?>">
 <!-- end::main -->
+<script src=" https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
+<script src="https://cdnjs.com/libraries/pdf.js"></script>
+<script src="https://unpkg.com/pdfjs-dist/"></script>
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 <?php $this->load->view('theme/js');  ?>
+
 <!-- Plugin scripts -->
 <script>
     var map, infoWindow;

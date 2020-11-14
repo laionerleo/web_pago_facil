@@ -28,4 +28,5 @@
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick.css" type="text/css">
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/prism/prism.css" type="text/css">
+    
 </head>

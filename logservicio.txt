@@ -159,3 +159,10 @@
 12/11/2020 19:50:19reportecomisiones{"tnCliente":"743"}
 12/11/2020 19:53:06reportecomisiones{"tnCliente":"743"}
 12/11/2020 20:14:02reportecomisiones{"tnCliente":"743"}
+13/11/2020 19:45:35reportecomisiones{"tnCliente":"3859"}
+13/11/2020 20:13:47reportecomisiones{"tnCliente":"3859"}
+13/11/2020 20:17:39reportecomisiones{"tnCliente":"3859"}
+13/11/2020 20:20:07reportecomisiones{"tnCliente":"3859"}
+13/11/2020 20:23:30reportecomisiones{"tnCliente":"3859"}
+13/11/2020 20:29:38reportecomisiones{"tnCliente":"3859"}
+13/11/2020 20:30:06reportecomisiones{"tnCliente":"3859"}

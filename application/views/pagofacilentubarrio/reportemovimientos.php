@@ -1,3 +1,7 @@
+<head>
+<base href="https://mozilla.github.io">
+</head>
+
 <div class="row">
                                           <!--  <div class="col-md-12">
                                                     <div class="card" style="height: 100%;">
@@ -32,10 +36,8 @@
 
                                         </div>
 
-                                        <script src=" https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
-                                        <script src="https://cdnjs.com/libraries/pdf.js"></script>
-                                        <script src="https://unpkg.com/pdfjs-dist/"></script>
-                                        <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+                                  
+                                     
                                        
 
 
