@@ -2031,6 +2031,75 @@ public function reportebilletera($tnCliente  ,$tcFechaInicial  , $tcfechaFinal ,
    return $resultado;
 }
 
+public function jwtvalidation($tcJWT , $tnMetodoPago)
+{
+ 
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/jwt_validation';
+   $data = array( 'tcJWT' => $tcJWT , 'tnMetodoPago' => $tnMetodoPago   );
+   $this->cargarlogservicio("cybersourseinit".json_encode($data));
+
+   /*
+
+//https://serviciopagofacil.syscoop.com.bo/api/jwt_validation
+
+
+tcJWT
+    */
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+            )
+         );
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+
+} 
+public function realizarpagoatc($datos)
+{
+ 
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/pay/cybersource_RealizarPago';
+   $data = $datos ;// array( 'tcJWT' => $tcJWT   );
+   $this->cargarlogservicio("realizarpagoatc".json_encode($data));
+
+   /*
+
+//https://serviciopagofacil.syscoop.com.bo/api/jwt_validation
+
+
+tcJWT
+    */
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+            )
+         );
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+
+} 
+
 public function reportecomisiones($tnCliente)
 {
 
@@ -2070,7 +2139,207 @@ public function reportecomisiones($tnCliente)
    
 }
 
+public function cybersourseinit($tcApiRest, $tnCantidad , $tnMetodoPago)
+{
+ 
+ /*  [9:00, 5/1/2021] Huga Syscoop: 
+tnCantidad
+[9:01, 5/1/2021] Huga Syscoop: tcApiRest
+*/
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/pay/cybersource_Init';
+   $data = array( 'tcApiRest' => $tcApiRest , 'tnMetodoPago' => $tnMetodoPago  ,  'tnCantidad' => intval($tnCantidad ));
+   $this->cargarlogservicio("cybersourseinit".json_encode($data));
 
+   /*guardarUbicacionDePago(Request $request) 
+    {
+        $tnCliente = $request->input('tnCliente');
+        $tnEmpresa = $request->input('tnEmpresa');
+        $tnTransaccion = $request->input('tnTransaccion');
+        $tcLatitud = $request->input('tcLatitud');
+        $tcLongitud = $request->input('tcLongitud');
+        $tcIPv4 = $request->input('tcIPv4');
+
+
+    */
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+            )
+         );
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+
+} 
+
+public function getpaises($tncliente)
+{
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/getPaises';
+   $data = array( 'tnCliente' =>$tncliente   );
+   //print_r($data);
+   
+   /*
+    @POST(cPagoFacilPHP + "/Factura/calcularComision")    @FormUrlEncoded
+ Call<mPaquetePagoFacil<Double>> calcularComision
+         (@Field("tnEmpresa")    long    empresa,
+          @Field("tnCliente")    long    cliente,
+          @Field("tnMetodoPago") long    metodoPago,
+          @Field("tcMonto")      String  monto,
+          @Field("tnIdAccion")   int     tnIdAccion);
+
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+
+}
+
+
+public function getestados($tncliente,$tnPais)
+{
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/getEstadosDePaises';
+   $data = array( 'tnCliente' =>$tncliente , 'tnPais'=> intval($tnPais) );
+   //print_r($data);
+   
+   /*
+   @POST(cPagoFacilPHP + "/Factura/calcularComision")    @FormUrlEncoded
+Call<mPaquetePagoFacil<Double>> calcularComision
+         (@Field("tnEmpresa")    long    empresa,
+         @Field("tnCliente")    long    cliente,
+         @Field("tnMetodoPago") long    metodoPago,
+         @Field("tcMonto")      String  monto,
+         @Field("tnIdAccion")   int     tnIdAccion);
+
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+} 
+
+public function getciudades($tncliente,$tnPais)
+{
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/getCiudades';
+   $data = array( 'tnCliente' =>$tncliente , 'tnPais'=> intval($tnPais) );
+   //print_r($data);
+   
+   /*
+   @POST(cPagoFacilPHP + "/Factura/calcularComision")    @FormUrlEncoded
+Call<mPaquetePagoFacil<Double>> calcularComision
+         (@Field("tnEmpresa")    long    empresa,
+         @Field("tnCliente")    long    cliente,
+         @Field("tnMetodoPago") long    metodoPago,
+         @Field("tcMonto")      String  monto,
+         @Field("tnIdAccion")   int     tnIdAccion);
+
+   */
+
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+   )
+               );
+
+
+
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+}
+
+
+public function guardarUbicacionDePago($tnCliente  ,  $tnEmpresa,$tnTransaccion, $tcLatitud ,$tcLongitud ,$tcIPv4 )
+{
+   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/guardarUbicacionDePago';
+   $data = array( 'tnCliente' =>$tnCliente  , 'tnEmpresa' => $tnEmpresa,'tnTransaccion'=>$tnTransaccion, 'tcLatitud'=>$tcLatitud ,'tcLongitud' =>$tcLongitud ,'tcIPv4' =>$tcIPv4 );
+   $this->cargarlogservicio("guardarUbicacionDePago".json_encode($data));
+
+   /*guardarUbicacionDePago(Request $request) 
+    {
+        $tnCliente = $request->input('tnCliente');
+        $tnEmpresa = $request->input('tnEmpresa');
+        $tnTransaccion = $request->input('tnTransaccion');
+        $tcLatitud = $request->input('tcLatitud');
+        $tcLongitud = $request->input('tcLongitud');
+        $tcIPv4 = $request->input('tcIPv4');
+
+
+    */
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+            )
+         );
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+
+} 
 
 public function cargarlogservicio($Mensajeerror)
 {

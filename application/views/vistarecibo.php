@@ -39,43 +39,22 @@
       <tr>
         <td>   	        
           <div align="center">
-            <img src="http://syscoop.com.bo/LogoPagoFacil/logo2.png" width="80" height="80"/>
+            <img src="https://www.syscoop.com.bo/img_emp/easyelectronics3.gif" style="width: 150px;" />
           </div> 
 
 
           <div align="center" style="padding-top:2px">         	  
               <label style="font-size: 11px;">
-                <b><?php    @$laDatosView['Syscoop']->NombreEmpresa ?></b>
+                <b>Nombre Empresa</b>
               </label> 
           </div>    
-          <div align="center" style="padding-top:3px">     
-            <label style="font-size: 10px">   	
-                <b>Recarga Billetera PagoFacil   </b>              
-            </label>                                   
-          </div> 
-          
 
           <div align="center" style="padding-top:3px">     
             <label style="font-size: 10px">   	
-                <b>De César Corvera Murakami</b>              
+                <b>Descripcion</b>              
             </label>                                   
           </div>  
 
-          <div align="center" style="padding-top:3px">     
-            <label style="font-size: 10px">   	              
-                <b>Caza Matriz</b>  
-            </label>                                   
-          </div>                   
-          
-          <div align="center" style="padding-top:3px">        
-            <label style="font-size: 11px">
-                <?php    @$laDatosView['Syscoop']->Direccion ?>              
-                <br />
-                Telf :<?php    @$laDatosView['Syscoop']->Telefono ?>              
-                <br />
-                <?php    @$laDatosView['Syscoop']->Region ?>-Bolivia              
-            </label>
-          </div>
                               
           <div align="center" style="padding-top:3px">      
             <label style="font-size: 14px">
@@ -85,7 +64,10 @@
           <div align="left" style="padding-left:20px">
               <br/>
           </div>
-        <hr>
+          <hr />
+   
+        
+     
                  
           <div align="center" style="padding-left: 13px;height: 20px;background: #57c9f054;border: groove;border-radius: 16px;line-height: 20px;">
             <label style="font-size: 11px">
@@ -156,15 +138,15 @@
                 </thead>
                 <tbody>
                     <tr> 
-                        <td  data-title="BILLETERA"> RECARGA BILLETERA </td>
+                        <td  data-title="detalle"> Detalle producto </td>
                         <td  data-title="TOTAL" style="text-align: end;" > 100.00 <?php    @$laDatosView['TransaccionPago']->MontoClienteSYSCOOP ?></td>
                     </tr>
                     <tr> 
-                        <td  data-title="BILLETERA"> COMISIÓN DE COBRANZA  </td>
+                        <td  data-title="detalle"> COMISIÓN DE COBRANZA  </td>
                         <td  data-title="TOTAL" style="text-align: end;" > 2.50 <?php    @$laDatosView['TransaccionPago']->MontoClienteSYSCOOP ?></td>
                     </tr>
                     <tr> 
-                        <td  data-title="BILLETERA" style="text-align: right;"  > <b>TOTAL</b></td>
+                        <td  data-title="detalle" style="text-align: right;"  > <b>TOTAL</b></td>
                         <td  data-title="TOTAL"  style="text-align: end;" > <b>102.50 <?php    @$laDatosView['TransaccionPago']->MontoClienteSYSCOOP ?>  </b> </td>
                     </tr>
                   

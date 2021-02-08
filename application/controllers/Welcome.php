@@ -511,6 +511,10 @@ class Welcome extends CI_Controller {
 		
 		if(  ($_SESSION['telefono'] != "0" ) &&  ($_SESSION['telefonoDePago'] != "0")  && ($_SESSION['telefono'] > "0" ) && ($_SESSION['telefonoDePago'] > "0")  )
 		{
+		$laubicacion=$this->vermiubicacion();
+		$_SESSION['gcUbicacion']= $laubicacion->geoplugin_countryName;
+	
+		
 		$var=$_SESSION['metododepago'];
 			switch ($var) {
 				case 1:
@@ -547,7 +551,7 @@ class Welcome extends CI_Controller {
 					echo "</pre>";
 					*/
 					$d['recarga']=$_SESSION['idempresa'];
-					$this->load->view('pago_rapido/formasdepago/pagoqr', $d);
+					$this->load->view('pago_rapido/formasdepago/pagoqr2', $d);
 					
 				break;
 				
@@ -569,7 +573,7 @@ class Welcome extends CI_Controller {
 					}
 					$d['clienteempresa']=$_SESSION['codigofijo'];
 					$d['recarga']=$_SESSION['idempresa'];
-					$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
+					//$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
 				break;
 				case 6:
 					$transaccion=$this->servicios->get_trancaccioneslinkser($this->session->userdata('cliente'));
@@ -583,6 +587,72 @@ class Welcome extends CI_Controller {
 					$d['clienteempresa']=$_SESSION['codigofijo'];	
 					$this->load->view('pago_rapido/formasdepago/pagoconelinkser', $d);
 				break;
+
+				case 9:
+			
+					$d['Simbolo']="Bs" ;//  $_SESSION['Simbolo'];
+					$lapaises=$this->servicios->getpaises(1);
+					$d['paises']=@$lapaises->values;
+					$totalmonto=$_SESSION['montototal'] + $_SESSION['montocomision'];
+					$laServicioCybersource=$this->servicios->cybersourseinit(true, $totalmonto ,9  );
+	
+					$this->cargarlog("laServicioCybersource-".json_encode($laServicioCybersource));
+					$d['result']=@$laServicioCybersource;
+					$d['tnCliente']=$_SESSION['cliente'];
+					$d['tnEmpresa']=$_SESSION['idempresa'];
+					$d['tcCodigoClienteEmpresa']=$_SESSION['codigofijo'];
+					$d['tnMetodoPago']=$_SESSION['metododepago'];
+					$d['tnFactura']=$_SESSION['nrofactura'];
+					
+					$d['Simbolo']=  "Bs";//$_SESSION['Simbolo'];
+					
+					$d['Moneda']= 2 ;//;$_SESSION['Moneda'];
+					$d['tcPeriodo'] = $_SESSION['periodomes'];
+					
+					$d['tnpedidocheckout']= 0 ;//$_SESSION['tnpedidocheckout'];
+					$d['tcMonto']=$_SESSION['montototal'];
+					$d['Sigla']="Bs";//$_SESSION['Sigla'];; //$_SESSION['Simbolo'];
+					$d['tcComision']=$_SESSION['montocomision'];
+					$d['tnCiNit']=$_SESSION['cionitclienteempresa'];
+					/// datos pallenar el formulario 
+					$d['tnTelefono']= $this->session->userdata('telefonoDePago');
+					$d['tcCorreo']=$this->session->userdata('correo');	
+
+					$d['tnPais']= $_SESSION['pais'];
+					
+					
+					for ($i=0; $i < count($d['paises']) ; $i++) { 
+						//echo $d['paises'][$i]->Pais ."---".$d['tnPais'] ."]";; 
+						if($d['paises'][$i]->Pais == $d['tnPais'] )
+						{
+							$d['tcPais']=$d['paises'][$i]->Code2."-".$d['tnPais'];
+						}
+						# code...
+					}
+
+					$d['tnCiudad']= $_SESSION['ciudad'];
+					
+					$d['tcDireccion']= $this->session->userdata('direccion');
+					$d['tnCodigopostal']= "0000"; //
+					$d['tnCinNit']=$_SESSION['cionitclienteempresa'];
+
+					$d['tcNombre']= "usuario";
+					$d['tcApellido']= "apellido"; //
+					$d['tcFechaExiracion']="00/2020";
+					$d['tnNumeroTrajeta']= 4040404040404040440 ;
+					
+					$d['tncodigo']=$_SESSION['cionitclienteempresa'];
+
+
+					
+
+					
+					
+					$this->load->view('pago_rapido/formasdepago/pagoatc', $d);
+				break;
+
+				
+				
 				
 				default:
 				$this->load->view('endesarrollo', $d);
@@ -751,6 +821,7 @@ class Welcome extends CI_Controller {
 							//print_r($valores);
 							$_SESSION['numerodetransaccion']=$valores[0];
 							$_SESSION['numeroautorizacion']=$valores[1];
+							$this->guardariptransaccion( $tncliente , $tnempresa , $_SESSION['numerodetransaccion']);
 							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10  );
 							
 
@@ -765,7 +836,7 @@ class Welcome extends CI_Controller {
 					
 
 					
-		}
+	}
 	public function confirmarpagobcp()
 	{
 		$d = array();
@@ -1035,6 +1106,47 @@ class Welcome extends CI_Controller {
 					   }
 				   echo json_encode($arreglo);
 	}
+
+
+	public function pagarporatc()
+	{
+		
+		// aqui son los datos que tengo recolectados
+		
+		$datos=$this->input->post();
+
+		 $metodos=$this->servicios->realizarpagoatc($datos ) ;
+		 $this->cargarlog("realizarpagoatc ".json_encode($metodos));
+					$mensajeerror=$metodos->error ;
+					$valor= $metodos->values;
+					if($mensajeerror== 0 ){
+						if(isset($valor))
+						{
+							//$valores = explode(";", $valor );
+							//print_r($valores);
+							$tntransaccion=$valor;
+							$this->servicios->finalizarpago($tncliente ,$tntransaccion);
+							/*if(isset($_SESSION['gaEntidadesElegidas']) )
+							{
+							///$this->servicios->GuardarEntidadesBancarias($tncliente , $_SESSION['gaEntidadesElegidas'] , $valor );
+							}*/
+						//	$this->servicios->GuardarTransaccionPago($tncliente , $valores[0]  ,$_SESSION['gnNumeroWhatsApp'] , $_SESSION['gcCorreoEnvio']  );
+							
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'valor'=> $metodos->values ,  'tnTransaccion'=>$valor);
+						}else{
+							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+						}
+						
+
+					}else{
+						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+					}
+					echo json_encode($arreglo);
+
+					
+					
+	}
+
 
 	public function pagosrealizados($lan,$tnEmpresa)	{
 		$d = array();
@@ -1494,7 +1606,95 @@ class Welcome extends CI_Controller {
 		
 	}
 
+	public function vermiubicacion()
+	{
+		$ip="mi.ip.";
+		$new_ip=$this->get_client_ip();
+		if ($new_ip!==$ip){
+            $now = new DateTime();
+			$datosip=$this->ip_info($new_ip, "Country");
+			$this->cargarlog("datosip--".json_encode($datosip));
+			return $datosip;
+			
+        }
 
+
+	}
+
+
+    public function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
+        $output = NULL;
+        if (filter_var($ip, FILTER_VALIDATE_IP) === FALSE) {
+            $ip = $_SERVER["REMOTE_ADDR"];
+            if ($deep_detect) {
+                if (filter_var(@$_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP))
+                    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                if (filter_var(@$_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP))
+                    $ip = $_SERVER['HTTP_CLIENT_IP'];
+            }
+        }
+        $purpose    = str_replace(array("name", "\n", "\t", " ", "-", "_"), NULL, strtolower(trim($purpose)));
+        $support    = array("country", "countrycode", "state", "region", "city", "location", "address");
+        $continents = array(
+            "AF" => "Africa",
+            "AN" => "Antarctica",
+            "AS" => "Asia",
+            "EU" => "Europe",
+            "OC" => "Australia (Oceania)",
+            "NA" => "North America",
+            "SA" => "South America"
+        );
+        if (filter_var($ip, FILTER_VALIDATE_IP) && in_array($purpose, $support)) {
+            $ipdat = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip));
+        }
+		return $ipdat;
+	}
+
+	public function guardariptransaccion( $tnCliente,$tnEmpresa , $tnTransaccion , $tcIPv4)
+	{
+		$ip="mi.ip.";
+		$new_ip=$this->get_client_ip();
+		if ($new_ip!==$ip){
+            $now = new DateTime();
+
+       //Distinguir el tipo de petición, 
+       // tiene importancia en mi contexto pero no es obligatorio
+
+			$datosip=$this->ip_info($new_ip, "Country");
+			/*echo '<pre>';
+			echo $new_ip;
+			print_r($datosip ) ;
+			echo '</pre>' ;
+			*/
+			$laServicioubicacion=$this->servicios->guardarUbicacionDePago($tnCliente  ,  $tnEmpresa,$tnTransaccion, $datosip->geoplugin_latitude ,$datosip->geoplugin_longitude ,'$new_ip' );
+			$this->cargarlog("llego guardar ubicacion --".json_encode($laServicioubicacion));
+
+
+           
+        }
+
+
+	}
+
+	public function get_client_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+		 }
+		 
 
 	public function error404($lan='es')
 	{

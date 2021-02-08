@@ -1,168 +1,55 @@
-
-28/10/2020 23:08:56mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 1","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"","tnCiNit":"","tcNroPago":0,"tnMontoClienteEmpresa":"50","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-28/10/2020 23:10:18mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 1","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"cesar corvera ","tnCiNit":"1111111","tcNroPago":0,"tnMontoClienteEmpresa":"50","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-28/10/2020 23:22:13mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 1","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"cesar corvera ","tnCiNit":"3879294","tcNroPago":"0","tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":"","tcPeriodo":"RECARGA","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
-28/10/2020 23:23:29mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 1","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"cesar corvera ","tnCiNit":"3879294","tcNroPago":"0","tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":"","tcPeriodo":"RECARGA","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
-28/10/2020 23:24:52mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 1","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"cesar corvera ","tnCiNit":"3879294","tcNroPago":"0","tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":"0","tcPeriodo":"RECARGA","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
-29/10/2020 14:11:48mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 4","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"","tnCiNit":"","tcNroPago":0,"tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-29/10/2020 14:13:38mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 4","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"hugo","tnCiNit":"1111231","tcNroPago":0,"tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-29/10/2020 14:18:26mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 4","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"hugo","tnCiNit":"1111231","tcNroPago":0,"tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-29/10/2020 14:28:18mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 4","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"","tnCiNit":"3879294","tcNroPago":"0","tnMontoClienteEmpresa":"2","tnMontoClienteSyscoop":"0","tcPeriodo":"RECARGA","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
-29/10/2020 16:22:57mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":" 4","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"V. H O. C.","tnCiNit":"3879294","tcNroPago":"0","tnMontoClienteEmpresa":"34","tnMontoClienteSyscoop":"0","tcPeriodo":"RECARGA","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
-30/10/2020 16:58:08mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"3879294","tcNroPago":"0","tnMontoClienteEmpresa":"15","tnMontoClienteSyscoop":"0","tcPeriodo":"RECARGA","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
-30/10/2020 19:45:12mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"1","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-05/11/2020 13:44:49mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"7","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-05/11/2020 13:45:35mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"7","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-05/11/2020 13:48:52mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"10","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-05/11/2020 14:07:34mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"12","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-07/11/2020 17:44:10mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"500","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-07/11/2020 17:48:24mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"300","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-09/11/2020 22:21:46mando generar qr <--{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Leonardo Ayala Cayo","tnCiNit":"11385389","tcNroPago":0,"tnMontoClienteEmpresa":"1000","tnMontoClienteSyscoop":0,"tcPeriodo":"RECARGA","tcImei":"359771070316867","tcApp":2}
-11/11/2020 20:00:04reportebilletera{"tnCliente":1,"tcFechaInicial":"2020\/10\/31","tcfechaFinal":"2020\/11\/10","tnBilletera":14}
-11/11/2020 20:03:59reportebilletera{"tnCliente":1,"tcFechaInicial":"2020\/10\/31","tcfechaFinal":"2020\/11\/10","tnBilletera":14}
-11/11/2020 20:04:18reportebilletera{"tnCliente":743,"tcFechaInicial":"2020-10-31","tcfechaFinal":"2020-11-10","tnBilletera":14}
-11/11/2020 20:09:28reportebilletera{"tnCliente":743,"tcFechaInicial":"2020-10-31","tcfechaFinal":"2020-11-10","tnBilletera":14}
-11/11/2020 20:11:52reportebilletera{"tnCliente":743,"tcFechaInicial":"2020-10-31","tcfechaFinal":"2020-11-10","tnBilletera":14}
-11/11/2020 20:24:49reportebilletera{"tnCliente":743,"tcFechaInicial":"2020-10-31","tcfechaFinal":"2020-11-10","tnBilletera":14}
-11/11/2020 20:25:40reportebilletera{"tnCliente":743,"tcFechaInicial":"2020-10-31","tcfechaFinal":"2020-11-10","tnBilletera":14}
-11/11/2020 20:35:30reportecomisiones{"tnCliente":1}
-11/11/2020 20:36:27reportecomisiones{"tnCliente":1}
-11/11/2020 21:12:26reportecomisiones{"tnCliente":743}
-11/11/2020 22:34:06reportecomisiones{"tnCliente":743}
-11/11/2020 22:35:34reportecomisiones{"tnCliente":743}
-11/11/2020 22:36:50reportecomisiones{"tnCliente":743}
-11/11/2020 22:37:36reportecomisiones{"tnCliente":743}
-11/11/2020 22:38:34reportecomisiones{"tnCliente":743}
-11/11/2020 22:46:41reportecomisiones{"tnCliente":743}
-11/11/2020 22:48:36reportecomisiones{"tnCliente":743}
-11/11/2020 22:49:01reportecomisiones{"tnCliente":743}
-11/11/2020 22:58:18reportecomisiones{"tnCliente":743}
-11/11/2020 23:01:00reportecomisiones{"tnCliente":743}
-11/11/2020 23:03:05reportecomisiones{"tnCliente":743}
-11/11/2020 23:04:06reportecomisiones{"tnCliente":743}
-11/11/2020 23:09:53reportecomisiones{"tnCliente":743}
-11/11/2020 23:12:40reportecomisiones{"tnCliente":743}
-11/11/2020 23:13:35reportecomisiones{"tnCliente":743}
-11/11/2020 23:15:00reportecomisiones{"tnCliente":743}
-11/11/2020 23:17:17reportecomisiones{"tnCliente":743}
-11/11/2020 23:31:16reportecomisiones{"tnCliente":743}
-11/11/2020 23:32:16reportecomisiones{"tnCliente":743}
-11/11/2020 23:33:22reportecomisiones{"tnCliente":743}
-11/11/2020 23:35:23reportecomisiones{"tnCliente":743}
-11/11/2020 23:37:13reportecomisiones{"tnCliente":743}
-11/11/2020 23:37:43reportecomisiones{"tnCliente":743}
-11/11/2020 23:38:46reportecomisiones{"tnCliente":743}
-11/11/2020 23:39:50reportecomisiones{"tnCliente":743}
-11/11/2020 23:42:14reportecomisiones{"tnCliente":743}
-11/11/2020 23:42:35reportecomisiones{"tnCliente":743}
-11/11/2020 23:42:56reportecomisiones{"tnCliente":743}
-11/11/2020 23:43:35reportecomisiones{"tnCliente":743}
-11/11/2020 23:43:57reportecomisiones{"tnCliente":743}
-11/11/2020 23:53:22reportecomisiones{"tnCliente":743}
-11/11/2020 23:58:29reportecomisiones{"tnCliente":743}
-12/11/2020 00:00:39reportecomisiones{"tnCliente":743}
-12/11/2020 00:00:54reportecomisiones{"tnCliente":743}
-12/11/2020 00:01:20reportecomisiones{"tnCliente":743}
-12/11/2020 00:02:02reportecomisiones{"tnCliente":743}
-12/11/2020 00:02:24reportecomisiones{"tnCliente":743}
-12/11/2020 00:03:10reportecomisiones{"tnCliente":743}
-12/11/2020 00:04:26reportecomisiones{"tnCliente":743}
-12/11/2020 00:05:01reportecomisiones{"tnCliente":743}
-12/11/2020 13:13:34reportecomisiones{"tnCliente":743}
-12/11/2020 13:19:40reportecomisiones{"tnCliente":743}
-12/11/2020 13:22:14reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:23:41reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:25:29reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:26:15reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:27:28reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:30:45reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:31:28reportecomisiones{"tnCliente":"1"}
-12/11/2020 13:35:59reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:36:53reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:36:55reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:40:05reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:40:45reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:41:49reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:42:04reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:42:15reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:43:03reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:43:20reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:44:30reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:46:36reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:47:08reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:47:56reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:50:34reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:51:03reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:52:01reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:52:59reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:56:50reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:57:53reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:58:07reportecomisiones{"tnCliente":"3859"}
-12/11/2020 13:58:50reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:22:15reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:25:10reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:26:41reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:27:58reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:34:06reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:34:45reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:36:15reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:38:14reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:48:44reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:49:29reportecomisiones{"tnCliente":"1"}
-12/11/2020 14:57:56reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:02:37reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:03:20reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:04:03reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:04:56reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:05:35reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:06:05reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:07:41reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:09:13reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:10:03reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:12:40reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:14:14reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:15:31reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:17:59reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:18:40reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:19:25reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:19:46reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:19:58reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:20:30reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:20:58reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:21:18reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:21:54reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:22:44reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:23:25reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:24:15reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:24:36reportecomisiones{"tnCliente":"1"}
-12/11/2020 15:36:56reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:37:00reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:44:08reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:47:28reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:49:02reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:49:43reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:50:38reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:51:38reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:53:04reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:53:28reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:54:19reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:54:59reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:55:30reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:56:15reportecomisiones{"tnCliente":"743"}
-12/11/2020 15:56:34reportecomisiones{"tnCliente":"743"}
-12/11/2020 16:02:25reportecomisiones{"tnCliente":"743"}
-12/11/2020 16:02:50reportecomisiones{"tnCliente":"743"}
-12/11/2020 16:03:31reportecomisiones{"tnCliente":"743"}
-12/11/2020 16:14:57reportecomisiones{"tnCliente":"743"}
-12/11/2020 16:32:13reportecomisiones{"tnCliente":"743"}
-12/11/2020 19:19:20reportecomisiones{"tnCliente":"743"}
-12/11/2020 19:50:19reportecomisiones{"tnCliente":"743"}
-12/11/2020 19:53:06reportecomisiones{"tnCliente":"743"}
-12/11/2020 20:14:02reportecomisiones{"tnCliente":"743"}
-13/11/2020 19:45:35reportecomisiones{"tnCliente":"3859"}
-13/11/2020 20:13:47reportecomisiones{"tnCliente":"3859"}
-13/11/2020 20:17:39reportecomisiones{"tnCliente":"3859"}
-13/11/2020 20:20:07reportecomisiones{"tnCliente":"3859"}
-13/11/2020 20:23:30reportecomisiones{"tnCliente":"3859"}
-13/11/2020 20:29:38reportecomisiones{"tnCliente":"3859"}
-13/11/2020 20:30:06reportecomisiones{"tnCliente":"3859"}
+ss
+14/01/2021 16:08:40cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:10:37cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:11:15cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:13:30cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:14:45cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:16:11cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:37:14cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:40:18cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 16:41:35cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA2Mzg4OTQsImV4cCI6MTYxMDY0NjA5NCwianRpIjoiYmY4OWFhZjUtYzM4Zi00NzljLWEyOGItOTNiNWMwZjRiNjRjIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIxXzc3NWEzYmM1LThmNTQtNDNmMS05ZDMyLTU4N2U1YTRhNzgyMCIsImF1ZCI6ImlQSjZDUmdLLWpSRVktWklFRy04aVVSLXBOdkZMVW56cXI5UyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6InozZGc5amtTMG82NkJWVEMzWkIxIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjUxMDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.gT2vpVz-Hi_4CPI4CXumYsBqOl-lxZF9Dj5jQJWd2ZY","tnMetodoPago":9}
+14/01/2021 16:41:37realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23038","tnMetodoPago":"9","tnFactura":"4026938","tcPeriodo":"2021-01","tcApp":"3","tcMonto":"49.34","tnMoneda":"2","tcComision":"2.00","tnCiNit":"12355577","CardNumber":"4899971883602748","CardExpMonth":"08","CardExpYear":"2023","CardCode":"753","BillingFirstName":"leonardo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Santa Cruz de la Sierra","BillingState":"S","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"iPJ6CRgK-jREY-ZIEG-8iUR-pNvFLUnzqr9S","Amount":"51","CurrencyCode":"Bs","tcTransactionID":"z3dg9jkS0o66BVTC3ZB1","tcFingerPrint":"DQ829UebFdlSyZ4f","mdd12":"56565656 ","mdd19":"1231212 ","mdd42":" ","mdd11":"1212121 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+14/01/2021 16:44:30cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA2MzkwNjksImV4cCI6MTYxMDY0NjI2OSwianRpIjoiOTJiYTNiODgtOWI0OS00MTg5LTllMmEtZTlkMjE5YjY1M2ExIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIxXzc3NWEzYmM1LThmNTQtNDNmMS05ZDMyLTU4N2U1YTRhNzgyMCIsImF1ZCI6ImlQSjZDUmdLLWpSRVktWklFRy04aVVSLXBOdkZMVW56cXI5UyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6InNRd3lHZWw1eHl2b1djRFp1dFQxIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjUxMDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.zezqWljt8tqiHSpPtU-ePEO2WDQzH46UX4NSBGWUgCA","tnMetodoPago":9}
+14/01/2021 16:44:32realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23038","tnMetodoPago":"9","tnFactura":"4026938","tcPeriodo":"2021-01","tcApp":"3","tcMonto":"49.34","tnMoneda":"2","tcComision":"2.00","tnCiNit":"12355577","CardNumber":"4491920434791114","CardExpMonth":"02","CardExpYear":"2023","CardCode":"615","BillingFirstName":"leonardo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Santa Cruz de la Sierra","BillingState":"S","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"iPJ6CRgK-jREY-ZIEG-8iUR-pNvFLUnzqr9S","Amount":"51","CurrencyCode":"Bs","tcTransactionID":"sQwyGel5xyvoWcDZutT1","tcFingerPrint":"DQ829UebFdlSyZ4f","mdd12":"56565656 ","mdd19":"1231212 ","mdd42":" ","mdd11":"1212121 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+14/01/2021 16:53:43cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+14/01/2021 19:19:36cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":51}
+18/01/2021 15:24:44cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:27:38cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:28:50cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:30:14cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:31:25cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:31:52cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:32:24cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:33:01cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:33:37cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:34:30cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:36:38cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:38:57cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:40:25cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:42:56cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:44:33cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:46:15cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:48:21cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:50:31cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:56:15cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 15:56:46cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA5ODE4MDUsImV4cCI6MTYxMDk4OTAwNSwianRpIjoiNTQxNmRjYjQtM2M0OS00OTA4LWEwMzEtMTE1OTZjNzQwY2VhIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwXzcxMjg0ZmU3LTAwMTktNDM1NS1hMjllLTlhZmQwN2Y0MTE5YSIsImF1ZCI6IlkyMEtpV3E0LUpGaEQtVGo4Qi15OXFlLVBiUkU3eUtyTHBtaCIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6IktZVDNEWGVJbEdac2QxVVh0a3UwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjM4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.mCbftF_1CIK_Xs6qVTPR4twR6BaUnrZZ6jbovzBYLq8","tnMetodoPago":9}
+18/01/2021 15:56:53realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"9","tnFactura":"3855989","tcPeriodo":"2020-07","tcApp":"3","tcMonto":"37.31","tnMoneda":"2","tcComision":"1.50","tnCiNit":"5853238","CardNumber":"4040404044040404","CardExpMonth":"06","CardExpYear":"2025","CardCode":"321","BillingFirstName":"leonardo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Acasio","BillingState":"B","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"Y20KiWq4-JFhD-Tj8B-y9qe-PbRE7yKrLpmh","Amount":"38","CurrencyCode":"Bs","tcTransactionID":"KYT3DXeIlGZsd1UXtku0","tcFingerPrint":"8HAlfJKjQXYTDaBg","mdd12":"60817621 ","mdd19":"5853238 ","mdd42":" ","mdd11":"5853238 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+18/01/2021 16:14:17cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:15:21cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA5ODI5MjEsImV4cCI6MTYxMDk5MDEyMSwianRpIjoiOThkOGZmNzAtOTgwZi00N2YyLWEzOWMtODc2MzExNjc4NjI0IiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwXzcxMjg0ZmU3LTAwMTktNDM1NS1hMjllLTlhZmQwN2Y0MTE5YSIsImF1ZCI6IjFFNkhqU3FrLUFuc1otaDlGRS1wM1JRLUxVdXZiVkpTWTltVyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6Ikg0Q25xOFBMTkQ0RXNuMTA1RDMwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjM4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.wqHIYYgiASYSS22hIe2dfKA931QGjA4tKwhvdMyd9eA","tnMetodoPago":9}
+18/01/2021 16:15:24realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"9","tnFactura":"3855989","tcPeriodo":"2020-07","tcApp":"3","tcMonto":"37.31","tnMoneda":"2","tcComision":"1.50","tnCiNit":"5853238","CardNumber":"4899971883602748","CardExpMonth":"08","CardExpYear":"2023","CardCode":"753","BillingFirstName":"leo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Acasio","BillingState":"B","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"1E6HjSqk-AnsZ-h9FE-p3RQ-LUuvbVJSY9mW","Amount":"38","CurrencyCode":"Bs","tcTransactionID":"H4Cnq8PLND4Esn105D30","tcFingerPrint":"HL9Ojc83ru0i7KCS","mdd12":"60817621 ","mdd19":"5853238 ","mdd42":" ","mdd11":"5853238 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+18/01/2021 16:28:28cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:33:09cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:34:49cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA5ODQwODgsImV4cCI6MTYxMDk5MTI4OCwianRpIjoiYWI3MmE1NjYtYzVjNC00YmE4LTliZTgtZTkwNTBkMzk0NjYzIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwXzcxMjg0ZmU3LTAwMTktNDM1NS1hMjllLTlhZmQwN2Y0MTE5YSIsImF1ZCI6IjFFNkhqU3FrLUFuc1otaDlGRS1wM1JRLUxVdXZiVkpTWTltVyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6IlMzM0Fnd1h0MGVFcGpRZHlnV2UwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjM4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.XIXfNdGKWSIQ7nUGTx_75j09gFFZoXYVTqL4vlrCh2c","tnMetodoPago":9}
+18/01/2021 16:34:51cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA5ODQwODgsImV4cCI6MTYxMDk5MTI4OCwianRpIjoiYWI3MmE1NjYtYzVjNC00YmE4LTliZTgtZTkwNTBkMzk0NjYzIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwXzcxMjg0ZmU3LTAwMTktNDM1NS1hMjllLTlhZmQwN2Y0MTE5YSIsImF1ZCI6IjFFNkhqU3FrLUFuc1otaDlGRS1wM1JRLUxVdXZiVkpTWTltVyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6IlMzM0Fnd1h0MGVFcGpRZHlnV2UwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjM4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.XIXfNdGKWSIQ7nUGTx_75j09gFFZoXYVTqL4vlrCh2c","tnMetodoPago":9}
+18/01/2021 16:34:53cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA5ODQwODgsImV4cCI6MTYxMDk5MTI4OCwianRpIjoiYWI3MmE1NjYtYzVjNC00YmE4LTliZTgtZTkwNTBkMzk0NjYzIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwXzcxMjg0ZmU3LTAwMTktNDM1NS1hMjllLTlhZmQwN2Y0MTE5YSIsImF1ZCI6IjFFNkhqU3FrLUFuc1otaDlGRS1wM1JRLUxVdXZiVkpTWTltVyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6IlMzM0Fnd1h0MGVFcGpRZHlnV2UwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjM4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.XIXfNdGKWSIQ7nUGTx_75j09gFFZoXYVTqL4vlrCh2c","tnMetodoPago":9}
+18/01/2021 16:34:56realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"9","tnFactura":"3855989","tcPeriodo":"2020-07","tcApp":"3","tcMonto":"37.31","tnMoneda":"2","tcComision":"1.50","tnCiNit":"5853238","CardNumber":"4899971883602748","CardExpMonth":"08","CardExpYear":"2023","CardCode":"123","BillingFirstName":"leo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Acasio","BillingState":"B","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"aL0Pu5jc-kTwO-cUnW-YrMH-UAjtn4LzDSlk","Amount":"38","CurrencyCode":"Bs","tcTransactionID":"S33AgwXt0eEpjQdygWe0","tcFingerPrint":"f2sFNTkx3JC41uyv","mdd12":"60817621 ","mdd19":"5853238 ","mdd42":" ","mdd11":"5853238 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+18/01/2021 16:34:59realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"9","tnFactura":"3855989","tcPeriodo":"2020-07","tcApp":"3","tcMonto":"37.31","tnMoneda":"2","tcComision":"1.50","tnCiNit":"5853238","CardNumber":"4899971883602748","CardExpMonth":"08","CardExpYear":"2023","CardCode":"123","BillingFirstName":"leo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Acasio","BillingState":"B","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"aL0Pu5jc-kTwO-cUnW-YrMH-UAjtn4LzDSlk","Amount":"38","CurrencyCode":"Bs","tcTransactionID":"S33AgwXt0eEpjQdygWe0","tcFingerPrint":"f2sFNTkx3JC41uyv","mdd12":"60817621 ","mdd19":"5853238 ","mdd42":" ","mdd11":"5853238 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+18/01/2021 16:35:00realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"9","tnFactura":"3855989","tcPeriodo":"2020-07","tcApp":"3","tcMonto":"37.31","tnMoneda":"2","tcComision":"1.50","tnCiNit":"5853238","CardNumber":"4899971883602748","CardExpMonth":"08","CardExpYear":"2023","CardCode":"123","BillingFirstName":"leo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Acasio","BillingState":"B","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"aL0Pu5jc-kTwO-cUnW-YrMH-UAjtn4LzDSlk","Amount":"38","CurrencyCode":"Bs","tcTransactionID":"S33AgwXt0eEpjQdygWe0","tcFingerPrint":"f2sFNTkx3JC41uyv","mdd12":"60817621 ","mdd19":"5853238 ","mdd42":" ","mdd11":"5853238 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+18/01/2021 16:38:21cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:39:16cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTA5ODQzNTUsImV4cCI6MTYxMDk5MTU1NSwianRpIjoiODQ5MmU5YjQtZTk4Mi00MTJiLWIxZDctZTI1ZTQwYTZlMTIzIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwXzcxMjg0ZmU3LTAwMTktNDM1NS1hMjllLTlhZmQwN2Y0MTE5YSIsImF1ZCI6IldpY2xSOWdVLWlNMW8tZ09OQy1nQjc4LURqN0tlWDlCc29MUyIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6InFLYmo2eFBrM0trSzlIWE1FaU4wIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjM4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.wlYLBKdekEBd6mTxwsZkEYFDD1wH_PnT5t7_4QUFUIs","tnMetodoPago":9}
+18/01/2021 16:39:20realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23936","tnMetodoPago":"9","tnFactura":"4030542","tcPeriodo":"2021-01","tcApp":"2","tcMonto":"36.99","tnMoneda":"2","tcComision":"1.50","tnCiNit":"3834814","CardNumber":"4899971883602748","CardExpMonth":"08","CardExpYear":"2023","CardCode":"753","BillingFirstName":"leo","BillingLastName":"cayo","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Santa Cruz de la Sierra","BillingState":"S","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"WiclR9gU-iM1o-gONC-gB78-Dj7KeX9BsoLS","Amount":"38","CurrencyCode":"Bs","tcTransactionID":"qKbj6xPk3KkK9HXMEiN0","tcFingerPrint":"tVZQBxc9qOzjbi4n","mdd12":"60817621 ","mdd19":"3834814 ","mdd42":" ","mdd11":"3834814 ","mdd17":"NO ","mdd18":" ","tnPedidoCheckout":"0"}
+18/01/2021 16:49:37cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:52:41cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:57:21cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 16:59:20cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}
+18/01/2021 20:02:13cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":38}

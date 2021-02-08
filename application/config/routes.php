@@ -46,6 +46,9 @@ $route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfr
 $route[$l.'getrubros']                          = 'Servicio/getrubros';
 $route[$l.'getallempresas']                     = 'Servicio/getallempresas';
 $route[$l.'cargarpagofacilentubarrio']          = 'Servicio/cargaragofacilentubarrio';
+$route[$l.'cargarciudades']                     = 'Servicio/cargarciudades';
+$route[$l.'cargarestados']                      = 'Servicio/cargarestados';
+
 
 
 
@@ -74,6 +77,10 @@ $route[$l.'puntosdecobranzapagofacil']             = 'Servicio/puntosdecobranza'
 
 // empresas afiliadas
 $route[$l.'empresasafiliadas/(:any)']           = 'Welcome/empresasafiliadas/$1/$2/';
+
+//cybersource metodos
+$route[$l.'jwt_validation']                      = 'Servicio/jwtvalidation';
+$route[$l.'metodoatc']                          = 'Welcome/pagarporatc';
 
 
 

@@ -60,8 +60,8 @@ class Servicio extends CI_Controller {
 		if(isset($valor))
 		{
 			$d['imagenqr']=$metodos->values;
+			$d['imagenqrhead']=base64_decode($metodos->values);
 			$d['transaccion']=$transaccion;
-		
 			$this->load->view('vistaqr', $d);
 	   
 		}else{
@@ -70,23 +70,7 @@ class Servicio extends CI_Controller {
 			$this->load->view('vistaqr', $d);
 			
 		}
-		
 
-		/*
-		$tnCliente= 3859;  //$_SESSION['cliente'];
-		$tcNroPago = $numerotransaccion;
-		$metodos=$this->servicios->recuperarqr($tnCliente ,$tcNroPago);
-		$mensajeerror=$metodos->error ;
-		$valor= $metodos->values;
-		if(isset($valor))
-		{
-		header('Content-Disposition: attachment;filename="CodigoQr'.$numerotransaccion.'.png"');
-	   header('Content-Type: application/force-download'); 
-	   echo base64_decode($valor);
-		}else{
-			echo "ocurrio un error o no existe la transaccion";
-		}
-		*/
 	
 	}
 
@@ -354,5 +338,48 @@ class Servicio extends CI_Controller {
 		
 	}
 
+	public function cargarciudades()
+	{
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+
+		$tnPais=$datos['Pais'];
+		$tncliente=$_SESSION['cliente'];
+		$d['ciudades']=$this->servicios->getciudades($tncliente,$tnPais)   ;
+		echo json_encode($d['ciudades']->values);
+	}
+	public function cargarestados()
+	{
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+
+		$tnPais=$datos['Pais'];
+		$tncliente=$_SESSION['cliente'];
+		$d['ciudades']=$this->servicios->getestados($tncliente,$tnPais)   ;
+		echo json_encode($d['ciudades']->values);
+	}
+
+	public function jwtvalidation()
+	{
+
+		$jwt=$this->input->post("tcJWT");
+	
+		//$metodos=$this->servicios->jwtvalidation($jwt, $_SESSION['metododepago']);
+		$metodos=$this->servicios->jwtvalidation($jwt, 9);
+		echo json_encode($metodos);
+	
+	//	$this->cargarlogbasico("llegoconfirmarbcp--".json_encode($metodos));
+		
+	}
 	/**/
+
+
+
+
+
+	
 }
