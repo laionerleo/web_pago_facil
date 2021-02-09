@@ -238,9 +238,15 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
             </div>
 
-              <!-- begin::footer -->
-            <?php $this->load->view('theme/footer');  ?>
+              <!-- begin::footer 
+         
+  
+            -->
               <!-- end::footer -->
+              <script src="<?=  base_url() ?>/application/assets/vendors/bundle.js"></script>
+      <!-- App scripts -->
+    <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
+ 
 
         </div>
 
@@ -556,6 +562,9 @@ $("#inp_dato").on('keyup', function (e) {
 </script>
 
 </body>
+
+
+
 
 
 </html>

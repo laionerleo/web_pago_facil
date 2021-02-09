@@ -14,11 +14,11 @@
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
-                                <h4>Verificacion de Pago</h4>
+                                <h4>Datos para la Factura PagoFacil </h4>
                     
-                                <label for=""> nombre cliente</label>
+                                <label for=""> Nombre Cliente</label>
                             <input class="form-control" id="inpnombrecliente" type="text" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
-                            <label for=""> CI o NIT de cliente</label>
+                            <label for=""> CI o NIT de Cliente</label>
                             <input class="form-control" type="text" id="inpcionit" placeholder="CI o NIT de cliente" value="<?= @$cionit ?>">
                                    
                             </div>
@@ -35,10 +35,10 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center m-t-10-minus" >
-                        <h4>Datos de Transaccion</h4>
-                        <label for=""> <?= @$etiquetametodopago  ?> </label>
+                        <h4>Datos de Envio</h4>
+                        <label for=""> Nro De Whatsapp </label>
                         <input class="form-control" type="text" id="inpnumero" placeholder=" <?= @$etiquetametodopago  ?>" value="<?= @$numerocelular ?> " >
-                        <label for=""> Correo de envio de facturas</label>
+                        <label for=""> Correo de Envio de Facturas</label>
                         <input class="form-control" type="text" id="inpcorreo" placeholder="Correo de envio de facturas"  value="<?= @$correo ?>"  >
                         </div>
                     </div>

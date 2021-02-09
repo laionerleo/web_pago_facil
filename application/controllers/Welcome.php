@@ -513,6 +513,8 @@ class Welcome extends CI_Controller {
 		{
 		$laubicacion=$this->vermiubicacion();
 		$_SESSION['gcUbicacion']= $laubicacion->geoplugin_countryName;
+		//$this->cargarlogbasico("mipais--".json_encode($laubicacion));
+		$_SESSION['gcCodePais']= $laubicacion->geoplugin_countryCode;
 	
 		
 		$var=$_SESSION['metododepago'];
@@ -573,7 +575,7 @@ class Welcome extends CI_Controller {
 					}
 					$d['clienteempresa']=$_SESSION['codigofijo'];
 					$d['recarga']=$_SESSION['idempresa'];
-					//$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
+					$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
 				break;
 				case 6:
 					$transaccion=$this->servicios->get_trancaccioneslinkser($this->session->userdata('cliente'));
@@ -643,11 +645,9 @@ class Welcome extends CI_Controller {
 					
 					$d['tncodigo']=$_SESSION['cionitclienteempresa'];
 
-
-					
-
-					
-					
+					///ubicacion 
+					$d['taUbicacion']=$laubicacion;
+					$d['tcCodePais']=(isset($_SESSION['gcCodePais'])) ? $_SESSION['gcCodePais'] : 0;
 					$this->load->view('pago_rapido/formasdepago/pagoatc', $d);
 				break;
 

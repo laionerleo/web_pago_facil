@@ -1,55 +1,99 @@
+<style>
+::-webkit-scrollbar {
+    display: none;
+}
+@media
+  only screen 
+    and (max-width: 500px) {
+        .botonesabajo{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 24px;
+    height: 50px;
+    z-index: 0;
+ }
+}
+
+* unvisited link */
+.linkcomopagar:link {
+  color: red;
+}
+
+/* visited link */
+.linkcomopagar:visited {
+  color: green;
+}
+
+/* mouse over link */
+.linkcomopagar:hover {
+  color: blue;
+}
+
+/* selected link */
+.linkcomopagar:active {
+  color: blue;
+}
+input.largerCheckbox { 
+            width: 20px; 
+            height: 20px; 
+ }
+ .table td, .table th {
+    padding: .35rem;
+ }
+</style>
 <div class="row">
-                <div class="col-md-4">
-                   <div class="card" style="height: 100%;">
-                        <div class="card-body text-center m-t-10-minus">
-                            <div class="card-body">
-                                        <div class="row mb-2">
-                                            <div class="col-6 text-muted"><?=  @$nombreempresa  ?></div>
-                                            <div class="col-6" style="display: flex;flex-flow: column wrap;  justify-content: center;  align-items: center; "  >  
-                                                    <img src="<?=  @$urlimagenempresa  ?>" class="rounded-circle" style="width:100%; height:75px" alt="...">
-                                            </div>
+                <div class="col-md-12">
+                   <div class="card" >
+                        <div class="card-body text-center m-t-10-minus" style="padding-bottom: 0.3rem;">
+                            <div class="card-body" style="overflow: hidden;overflow-x: scroll;    text-align: initial;    padding: 0.1rem;">
+                                       
+                                        <div class="mb-2" style="display: -webkit-inline-box;     padding: 0.1rem;">
+                                            <div  style="width:100px">Codigo Fijo:</div>
+                                            <div style="width:100px"> Mes:</div>
+                                            <div style="width:100px">Codigo Ubicacion:</div>
+                                            <div style="width:150px"> Nombre:</div>
+                                            <div style="width:100px">Facturas por pagar:</div>
+                                            <div style="width:100px">  <a onclick="getpdfactualizado()" class="btn btn-outline-primary"><i class="mr-2" data-feather="edit-2"></i> <?= $etiquetas->EtiquetaAvisoCompleta  ?></a>    </div>    
+                                          
                                         </div>
-                                        <div class="row mb-2">
-                                            <div class="col-6 text-muted">Codigo Fijo:</div>
-                                            <div class="col-6"><?= @$idCliente;  ?></div>
+                                        <div class="mb-2" style="display: -webkit-inline-box;" >
+                                                <div style="width:100px"> <?= @$idCliente;  ?>     </div>
+                                                <div style="width:100px"><?= @$periodomes ?>      </div>
+                                                <div style="width:100px"> <?= @$codigoUbicacion;  ?>   </div>
+                                                <div style="width:150px"> <?= @$nombre;  ?>    </div>
+                                                <div style="width:100px"> <?= @$cantidadfacturas;  ?>     </div>       
+                                                
+                                            
                                         </div>
-                                        <div class="row mb-2">
-                                            <div class="col-6 text-muted">Codigo Ubicacion:</div>
-                                            <div class="col-6"><?= @$codigoUbicacion;  ?></div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-6 text-muted"> Nombre:</div>
-                                            <div class="col-6"> <?= @$nombre;  ?> </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-6 text-muted">Facturas por pagar:</div>
-                                            <div class="col-6"> <?= @$cantidadfacturas;  ?>  </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-6 text-muted"> Mes:</div>
-                                            <div class="col-6"><?= @$periodomes ?>  </div>
+                                       
+                                        <div id="divinformacion" style="display:none">
+                                                <div class="row mb-2">
+                                                    <div class="col-6 text-muted" style="align-self: center;"><?=  @$nombreempresa  ?></div>
+                                                    <div class="col-6" style="display: flex;flex-flow: column wrap;  justify-content: center;  align-items: center; "  >  
+                                                            <img src="<?=  @$urlimagenempresa  ?>" class="rounded-circle" style="width:100%; height:75px" alt="...">
+                                                    </div>
+                                                </div>
                                         </div>
                             </div>
-                            <hr class="m-0">
-                            <div class="card-body text-center m-t-10-minus" > 
-                                <a onclick="getpdfactualizado()" class="btn btn-outline-primary">
-                                        <i class="mr-2" data-feather="edit-2"></i> <?= $etiquetas->EtiquetaAvisoCompleta  ?>
-                                </a>
-                            </div>
+                            <a href="#" onclick="funcionvermas()">Ver Mas</a>
+                         
                         </div>
                     </div>
                 </div>
+</div>
+    <div class="row">
                 
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
+                                            <th>N</th>
                                             <th>Mes </th>
                                             <th> Monto</th>
-                                            
                                             <th>opcion</th>
                                         </tr>
                                         </thead>
@@ -57,9 +101,16 @@
                                             <?php if(isset($facturas)){
                                                 for ($i=0; $i < count($facturas) ; $i++) { ?>
                                                 <tr>
-                                                    <td> <?= ($i+1).":".$facturas[$i]->periodo ?> </td>
+                                                    <td> <?= $i+1 ?> </td>
+                                                    <td> <?= $facturas[$i]->periodo ?> (<a href="#" class="linkcomopagar" onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')" ><?= $etiquetas->EtiquetaAviso  ?></a> )</td>
                                                     <td> <?= $facturas[$i]->montoTotal ?> </td>
-                                                    <td> <center> <button class="btn btn-primary"  onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')">  <?= $etiquetas->EtiquetaAviso  ?></button></center> </td>
+                                                    <td> 
+                                                        <?php  if($i==0){   ?>
+                                                            <center>  
+                                                            <button class="btn btn-outline-primary" onclick="$('#divcajametodopago').toggle(1500);  $('html, body').animate({ scrollTop: $('#divcajametodopago').offset().top}, 2000);" > Pagar  </button>
+                                                            </center> 
+                                                            <?php  }   ?>
+                                                    </td>
                                                 </tr>
                                             <?php  }?>
                                         <input type="hidden" id="montototal"name="montotoal" value="<?= @$facturas[0]->montoTotal  ?>">
@@ -74,43 +125,44 @@
                                 </div>
                         </div>
                     </div>
+                </div>
+
+
+                <div clas="col-md-6" id="divcajametodopago" style="display:none">
                     <div class="card">
-                            <div class="card-body">
-                            <?php if($cantidadfacturas>0){ ?>
-                                <div class="row">
-                                
-                                      
-                                            <?php  for ($i=0; $i < count($metodospago) ; $i++) {
-                                                ?>
-                                                <div class="col-md-2 col-6 col-sm-4"   onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')"  style=" word-wrap: break-word; border-color:blue;height:55px; width:140px;padding:10px; padding: 5px 5px 5px 5px;overflow:visible;   object-fit: cover;" id="item<?=  $metodospago[$i]->metodoPago ?>" >
-                                                <img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:100%; position: relative;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">    
-                                                <label style="    font-size: 10px;" for=""><?=  $metodospago[$i]->nombreMetodoPago ?> </label> 
+                         
+                                <?php if($cantidadfacturas>0){ ?>
+                                    <div class="card-body">
+                                            <?php  for ($i=0; $i < count($metodospago) ; $i++) { ?>
+                                               
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')">
+                                                        <input type="radio" id="metodopago-<?=  $metodospago[$i]->metodoPago ?>"  name="customRadio"  class="custom-control-input" >
+                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospago[$i]->metodoPago ?>"><img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:60px;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">     <?=  $metodospago[$i]->nombreMetodoPago ?></label>
+                                                    </div>
                                                 </div>
-                                            <?php  } ?>
-                  
-                                 
-                                    
-                                  
+                                            <?php }  ?>
                                 </div>
-                                <br>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-12" >
-                                       
-                                       <center><button class="btn btn-primary"  onclick="vistafacturacion()"> Siguiente</button></center>
-                                         
+                                <div class="row botonesabajo" style="padding-bottom: 10px;">
+                                            <div class="col-md-12" >
+                                            
+                                            <center><button class="btn btn-primary"  onclick="vistafacturacion()"> Siguiente</button></center>
+                                                
+                                    </div>
                                    </div>
-                                
-                                </div>
+
+
                                 <?php }else{ echo "usted no tiene facturas por pagar"; }?>
 
 
 
-                            </div>
+
+                                
+                            
                     </div>
                 </div>
+    
     </div>
-      
 <!-- begin::footer -->
     <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
     <input type="hidden" id="codigofijo" name="codigofijo" value="<?= $codigofijo ?>">
@@ -169,23 +221,30 @@ idmetododepago=0;
             {
                 console.log(id_item);
             
-              $("#img-"+idmetododepago).css("border", "none");
+             // $("#img-"+idmetododepago).css("border", "none");
               idmetododepago=idmetododepagonuevo;
                 //id_fugure_region=id_figure;
                 //$('#btn_region').click();
-                $(id_item).css("border", "solid");
+           /*     $(id_item).css("border", "solid");
                 $(id_item).css("border-color", "red");
                 $(id_item).css("border-style", "outset");
                 $(id_item).css("border-radius", "15px");
-                //$("#nombre_region").text(nombre);
+                //$("#nombre_region").text(nombre);*/
                 //filtrar_empresas();
 
             }
 
             $(document).ready(function() {
             // Instrucciones a ejecutar al terminar la carga
-            ledioaeste(5,"#img-5");
+            //ledioaeste(5,"#img-5");
+            $("#metodopago-5").click();
+            
+            
             });
+             function funcionvermas()
+             {
+                $("#divinformacion").toggle(500);
+             }
          
 
 </script>
