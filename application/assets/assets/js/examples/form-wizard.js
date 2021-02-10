@@ -24,6 +24,8 @@ $(document).ready(function () {
                         event.stopPropagation();
                         form.classList.add('was-validated');
                     } else {
+                        console.log("entro aqui ");
+                        $("#btnprepararpago").prop('disabled', false);
                         return true;
                     }
                 } else if (currentIndex === 1) {

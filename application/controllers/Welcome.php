@@ -374,13 +374,15 @@ class Welcome extends CI_Controller {
 			
 		}
 		}
+		$index=0;
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION['todosmetodosdepago'][$i]->metodoPago."--".$_SESSION['metododepago']; 
 			if($_SESSION['todosmetodosdepago'][$i]->metodoPago==$_SESSION['metododepago'])
 			$d['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
 			$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
-
+			$index=$i;
 		}	
+		$_SESSION['metodopagoelegido']=$_SESSION['todosmetodosdepago'][$index];
 	
 		
 	
@@ -589,6 +591,34 @@ class Welcome extends CI_Controller {
 					$d['clienteempresa']=$_SESSION['codigofijo'];	
 					$this->load->view('pago_rapido/formasdepago/pagoconelinkser', $d);
 				break;
+				case 7:
+					
+					$d['tiempo']=  $_SESSION['metodopagoelegido']->TiempoLatencia;
+					$d['intentos']= $_SESSION['metodopagoelegido']->IntentosProcesar;
+					
+					$transaccion=$this->servicios->get_trancaccionesbcp($_SESSION['cliente']);
+					for ($k=0; $k <count($transaccion->values) ; $k++) { 
+						
+						if($transaccion->values[$k]->ServiceCode=="001"){
+							$d['ultimatransacciondebito']=$transaccion->values[$k];
+						}
+						if($transaccion->values[$k]->ServiceCode=="002"){
+							$d['ultimatransaccioncredito']=$transaccion->values[$k];
+						}
+						
+						if($transaccion->values[$k]->ServiceCode=="003"){
+							$d['ultimatransaccionsolipago']=$transaccion->values[$k];
+						}
+						
+					}
+					$d['clienteempresa']=$_SESSION['codigofijo'];
+					
+					$d['Simbolo']=  "Bs"  ;//$_SESSION['Simbolo'];
+					$d['urlimagenbanner']= base_url()."application/assets/assets/media/image/metodosdepago/bcp/banner_soli.png"; //$_SESSION['urlimagenbanner'];
+					$d['numeropago']=$_SESSION['telefonoDePago'];								
+					//$this->cargarlogbasico("llego prepararpago--".json_encode($d));
+					$this->load->view('pago_rapido/formasdepago/pagosolipago', $d);
+				break;
 
 				case 9:
 			
@@ -648,6 +678,7 @@ class Welcome extends CI_Controller {
 					///ubicacion 
 					$d['taUbicacion']=$laubicacion;
 					$d['tcCodePais']=(isset($_SESSION['gcCodePais'])) ? $_SESSION['gcCodePais'] : 0;
+					$d['clienteempresa']=$_SESSION['codigofijo'];
 					$this->load->view('pago_rapido/formasdepago/pagoatc', $d);
 				break;
 
@@ -822,7 +853,7 @@ class Welcome extends CI_Controller {
 							$_SESSION['numerodetransaccion']=$valores[0];
 							$_SESSION['numeroautorizacion']=$valores[1];
 							$this->guardariptransaccion( $tncliente , $tnempresa , $_SESSION['numerodetransaccion']);
-							$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10  );
+							$arreglo=array('mensaje' => $metodos->message, 'mensajemodal'=>$metodos->messageSistema,'tipo' => 10  );
 							
 
 						}else{
@@ -1650,7 +1681,7 @@ class Welcome extends CI_Controller {
 		return $ipdat;
 	}
 
-	public function guardariptransaccion( $tnCliente,$tnEmpresa , $tnTransaccion , $tcIPv4)
+	public function guardariptransaccion( $tnCliente,$tnEmpresa , $tnTransaccion)
 	{
 		$ip="mi.ip.";
 		$new_ip=$this->get_client_ip();

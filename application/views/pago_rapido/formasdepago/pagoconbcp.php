@@ -138,7 +138,7 @@
                                                     <?php if($recarga==20) { ?>
                                                             <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
                                                           <?php }else{ ?>
-                                                            <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
+                                                            <button id="btnpagarotrafactura"  class=""onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
                                                           <?php }  ?>
                                                 </center>
                                                      
