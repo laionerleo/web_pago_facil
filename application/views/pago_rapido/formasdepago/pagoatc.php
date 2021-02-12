@@ -3,351 +3,393 @@
 <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/form-wizard/jquery.steps.css" type="text/css">
 <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/select2/css/select2.min.css" type="text/css">
 <style>
-   .tips {
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-   height: 30px;
-   background: #f1f1f1;
-   line-height: 30px;
-   font-size: 14px;
-   padding: 2px 15px;
-   }
-   .container {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   margin: auto;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   }
-   .container .col1 {
-   perspective: 1000;
-   transform-style: preserve-3d;
-   }
-   .container .col1 .card2 {
-   position: relative;
-   width: 420px;
-   height: 250px;
-   margin-bottom: 85px;
-   margin-right: 10px;
-   border-radius: 17px;
-   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
-   transition: all 1s;
-   transform-style: preserve-3d;
-   }
-   .container .col1 .card2 .front {
-   position: absolute;
-   background: var(--card-color);
-   border-radius: 17px;
-   padding: 50px;
-   width: 100%;
-   height: 100%;
-   transform: translateZ(1px);
-   -webkit-transform: translateZ(1px);
-   transition: background 0.3s;
-   z-index: 50;
-   background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);
-   -webkit-backface-visibility: hidden;
-   backface-visibility: hidden;
-   }
-   .container .col1 .card2 .front .type {
-   position: absolute;
-   width: 75px;
-   height: 45px;
-   top: 20px;
-   right: 20px;
-   }
-   .container .col1 .card2 .front .type img {
-   width: 100%;
-   float: right;
-   }
-   .container .col1 .card2 .front .card_number {
-   position: absolute;
-   font-size: 26px;
-   font-weight: 500;
-   letter-spacing: -1px;
-   top: 110px;
-   left: 40px;
-   color: var(--text-color);
-   word-spacing: 3px;
-   transition: color 0.5s;
-   }
-   .container .col1 .card2 .front .date {
-   position: absolute;
-   bottom: 40px;
-   right: 55px;
-   width: 90px;
-   height: 35px;
-   color: var(--text-color);
-   transition: color 0.5s;
-   }
-   .container .col1 .card2 .front .date .date_value {
-   font-size: 12px;
-   position: absolute;
-   margin-left: -25px;
-   margin-top: 12px;
-   color: var(--text-color);
-   font-weight: 500;
-   transition: color 0.5s;
-   }
-   .container .col1 .card2 .front .date:after {
-   content: "Mes / Año ";
-   position: absolute;
-   display: block;
-   font-size: 7px;
-   margin-left: 20px;
-   }
-   .container .col1 .card2 .front .date:before {
-   content: "valido\hasta";
-   position: absolute;
-   display: block;
-   font-size: 8px;
-   white-space: pre;
-   margin-top: 8px;
-   left: -25px;
-   top: 8px;
-   }
-   .container .col1 .card2 .front .fullname {
-   position: absolute;
-   font-size: 20px;
-   bottom: 40px;
-   color: var(--text-color);
-   transition: color 0.5s;
-   left:36px;
-   }
-   .container .col1 .card2 .back {
-   position: absolute;
-   width: 100%;
-   border-radius: 17px;
-   height: 100%;
-   background: var(--card-color);
-   transform: rotateY(180deg);
-   }
-   .container .col1 .card2 .back .magnetic {
-   position: absolute;
-   width: 100%;
-   height: 50px;
-   background: rgba(0, 0, 0, 0.7);
-   margin-top: 25px;
-   }
-   .container .col1 .card2 .back .bar {
-   position: absolute;
-   width: 80%;
-   height: 37px;
-   background: rgba(255, 255, 255, 0.7);
-   left: 10px;
-   margin-top: 100px;
-   }
-   .container .col1 .card2 .back .seccode {
-   font-size: 13px;
-   color: var(--text-color);
-   font-weight: 500;
-   position: absolute;
-   top: 100px;
-   right: 40px;
-   }
-   .container .col1 .card2 .back .chip {
-   bottom: 45px;
-   left: 10px;
-   }
-   .container .col1 .card2 .back .disclaimer {
-   position: absolute;
-   width: 65%;
-   left: 80px;
-   color: #f1f1f1;
-   font-size: 8px;
-   bottom: 55px;
-   }
-   .container .col2 input:focus {
-   outline-width: 0;
-   background: rgba(31, 134, 252, 0.15);
-   transition: background 0.5s;
-   }
-   .container .col2 label {
-   padding-left: 8px;
-   font-size: 15px;
-   color: #444;
-   }
-   .container .col2 .ccv {
-   width: 100%;
-   }
-   .container .col2 .buy {
-   width: 260px;
-   height: 50px;
-   position: relative;
-   display: block;
-   margin: 20px auto;
-   border-radius: 10px;
-   border: none;
-   background: #42C2DF;
-   color: white;
-   font-size: 20px;
-   transition: background 0.4s;
-   cursor: pointer;
-   }
-   .container .col2 .buy i {
-   font-size: 20px;
-   }
-   .container .col2 .buy:hover {
-   background: #3594A9;
-   transition: background 0.4s;
-   }
-   .chip {
-   position: absolute;
-   width: 55px;
-   height: 40px;
-   background: #bbb;
-   border-radius: 7px;
-   left: 36px;
-   }
-   .chip:after {
-   content: "";
-   display: block;
-   width: 35px;
-   height: 25px;
-   border-radius: 4px;
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   margin: auto;
-   background: #ddd;
-   }
-   @media
-   only screen 
-   and (max-width: 1440px) {
-   .botones{
-   text-align: center;
-   }
-   .container .col1 .card2 {
-   position: relative;
-   /* width: 420px; */
-   width: 227px;
-   height: 159px;
-   margin-bottom: 85px;
-   margin-right: 10px;
-   border-radius: 17px;
-   box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
-   transition: all 1s;
-   transform-style: preserve-3d;
-   }
-   .container .col1 .card2 .front .fullname {
-   position: absolute;
-   font-size: 9px;
-   bottom: 40px;
-   color: var(--text-color);
-   transition: color 0.5s;
-   left: 36px;
-   }
-   .container .col1 .card2 .front .card_number {
-   position: absolute;
-   font-size: 10px;
-   font-weight: 500;
-   letter-spacing: -1px;
-   top: 70px;
-   left: 40px;
-   color: var(--text-color);
-   word-spacing: 3px;
-   transition: color 0.5s;
-   }
-   .chip {
-   position: absolute;
-   width: 42px;
-   height: 33px;
-   background: #bbb;
-   border-radius: 7px;
-   left: 23px;
-   top: 27px;
-   }
-   .container .col1 .card2 .front .date {
-   position: absolute;
-   bottom: 18px;
-   right: 2px;
-   width: 82px;
-   height: 35px;
-   color: var(--text-color);
-   transition: color 0.5s;
-   }
-   .container .col1 .card2 .front .date:before {
-   content: "valido\hasta";
-   position: absolute;
-   display: block;
-   font-size: 7px;
-   white-space: pre;
-   margin-top: 8px;
-   left: -15px;
-   top: 8px;
-   }
-<style>
-   .container .col1 .card2 .front .date:after {
-   content: "Mes / Año ";
-   position: absolute;
-   display: block;
-   font-size: 7px;
-   margin-left: 20px;
-   }
-   .container .col1 .card2 .front .date .date_value {
-   font-size: 8px;
-   position: absolute;
-   margin-left: -18px;
-   margin-top: 15px;
-   color: var(--text-color);
-   font-weight: 500;
-   transition: color 0.5s;
-   }
-   .container .col1 .card2 .back .magnetic {
-   position: absolute;
-   width: 100%;
-   height: 25px;
-   background: rgba(0, 0, 0, 0.7);
-   margin-top: 24px;
-   }
-   .container .col1 .card2 .back .bar {
-   position: absolute;
-   width: 76%;
-   height: 27px;
-   background: rgba(255, 255, 255, 0.7);
-   left: 0px;
-   margin-top: 62px;
-   }
-   .container .col1 .card2 .back .seccode {
-   font-size: 13px;
-   color: var(--text-color);
-   font-weight: 500;
-   position: absolute;
-   top: 68px;
-   right: 2px;
-   left: 164px;
-   }
-   .container .col1 .card2 .back .disclaimer {
-   position: absolute;
-   width: 65%;
-   left: 44px;
-   color: #f1f1f1;
-   font-size: 5px;
-   bottom: 29px;
-   }
-   .col1 {
-   perspective: 1000;
-   transform-style: preserve-3d;
-   height: 183px;
-   }
-   }
-   .wizard > .steps > ul > li
-   {
-   width: 100%;
-   }
-   @media screen and (min-width: 770px) {
-   .botones{
-   text-align: left;
-   }
-   .wizard > .steps > ul > li
-   {
-   width: 25%;
-   }
-   }
+            .tips {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 30px;
+          background: #f1f1f1;
+          line-height: 30px;
+          font-size: 14px;
+          padding: 2px 15px;
+          }
+
+          .container {
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          }
+          .container .col1 {
+          perspective: 1000;
+          transform-style: preserve-3d;
+          }
+          .container .col1 .card2 {
+          position: relative;
+          width: 420px;
+          height: 250px;
+          margin-bottom: 85px;
+          margin-right: 10px;
+          border-radius: 17px;
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
+          transition: all 1s;
+          transform-style: preserve-3d;
+
+          }
+          .container .col1 .card2 .front {
+          position: absolute;
+          background: var(--card-color);
+          border-radius: 17px;
+          padding: 50px;
+          width: 100%;
+          height: 100%;
+          transform: translateZ(1px);
+          -webkit-transform: translateZ(1px);
+          transition: background 0.3s;
+          z-index: 50;
+          background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          }
+          .container .col1 .card2 .front .type {
+          position: absolute;
+          width: 75px;
+          height: 45px;
+          top: 20px;
+          right: 20px;
+          }
+          .container .col1 .card2 .front .type img {
+          width: 100%;
+          float: right;
+          }
+          .container .col1 .card2 .front .card_number {
+          position: absolute;
+          font-size: 26px;
+          font-weight: 500;
+          letter-spacing: -1px;
+          top: 110px;
+          left: 40px;
+          color: var(--text-color);
+          word-spacing: 3px;
+          transition: color 0.5s;
+          }
+          .container .col1 .card2 .front .date {
+          position: absolute;
+          bottom: 40px;
+          right: 55px;
+          width: 90px;
+          height: 35px;
+          color: var(--text-color);
+          transition: color 0.5s;
+          }
+          .container .col1 .card2 .front .date .date_value {
+          font-size: 12px;
+          position: absolute;
+          margin-left: -25px;
+          margin-top: 12px;
+          color: var(--text-color);
+          font-weight: 500;
+          transition: color 0.5s;
+          }
+          .container .col1 .card2 .front .date:after {
+          content: "Mes / Año ";
+          position: absolute;
+          display: block;
+          font-size: 7px;
+          margin-left: 20px;
+          }
+          .container .col1 .card2 .front .date:before {
+          content: "valido\hasta";
+          position: absolute;
+          display: block;
+          font-size: 8px;
+          white-space: pre;
+          margin-top: 8px;
+          left: -25px;
+          top: 8px;
+          }
+          .container .col1 .card2 .front .fullname {
+          position: absolute;
+          font-size: 20px;
+          bottom: 40px;
+          color: var(--text-color);
+          transition: color 0.5s;
+          left:36px;
+
+          }
+          .container .col1 .card2 .back {
+          position: absolute;
+          width: 100%;
+          border-radius: 17px;
+          height: 100%;
+          background: var(--card-color);
+          transform: rotateY(180deg);
+          }
+          .container .col1 .card2 .back .magnetic {
+          position: absolute;
+          width: 100%;
+          height: 50px;
+          background: rgba(0, 0, 0, 0.7);
+          margin-top: 25px;
+          }
+          .container .col1 .card2 .back .bar {
+          position: absolute;
+          width: 80%;
+          height: 37px;
+          background: rgba(255, 255, 255, 0.7);
+          left: 10px;
+          margin-top: 100px;
+          }
+          .container .col1 .card2 .back .seccode {
+          font-size: 13px;
+          color: var(--text-color);
+          font-weight: 500;
+          position: absolute;
+          top: 100px;
+          right: 40px;
+          }
+          .container .col1 .card2 .back .chip {
+          bottom: 45px;
+          left: 10px;
+          }
+          .container .col1 .card2 .back .disclaimer {
+          position: absolute;
+          width: 65%;
+          left: 80px;
+          color: #f1f1f1;
+          font-size: 8px;
+          bottom: 55px;
+          }
+
+          .container .col2 input:focus {
+          outline-width: 0;
+          background: rgba(31, 134, 252, 0.15);
+          transition: background 0.5s;
+          }
+          .container .col2 label {
+          padding-left: 8px;
+          font-size: 15px;
+          color: #444;
+          }
+          .container .col2 .ccv {
+          width: 60%;
+          }
+          .container .col2 .buy {
+          width: 260px;
+          height: 50px;
+          position: relative;
+          display: block;
+          margin: 20px auto;
+          border-radius: 10px;
+          border: none;
+          background: #42C2DF;
+          color: white;
+          font-size: 20px;
+          transition: background 0.4s;
+          cursor: pointer;
+          }
+          .container .col2 .buy i {
+          font-size: 20px;
+          }
+          .container .col2 .buy:hover {
+          background: #3594A9;
+          transition: background 0.4s;
+          }
+
+          .chip {
+          position: absolute;
+          width: 55px;
+          height: 40px;
+          background: #bbb;
+          border-radius: 7px;
+          left: 36px;
+          }
+          .chip:after {
+          content: "";
+          display: block;
+          width: 35px;
+          height: 25px;
+          border-radius: 4px;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          background: #ddd;
+          }
+
+
+
+          @media
+          only screen 
+          and (max-width: 1440px) {
+
+            .container {
+               display: unset;
+               flex-direction: row;
+               align-items: center;
+               margin: auto;
+               top: 0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               padding: initial;
+
+            }  
+          .botones{
+            text-align: center;
+          }
+
+          .container .col1 .card2 {
+          position: relative;
+          /* width: 420px; */
+          width: 227px;
+          height: 159px;
+          margin-bottom: 85px;
+          margin-right: 10px;
+          border-radius: 17px;
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
+          transition: all 1s;
+          transform-style: preserve-3d;
+          }
+
+          .container .col1 .card2 .front .fullname {
+          position: absolute;
+          font-size: 9px;
+          bottom: 40px;
+          color: var(--text-color);
+          transition: color 0.5s;
+          left: 36px;
+          }
+
+          .container .col1 .card2 .front .card_number {
+          position: absolute;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: -1px;
+          top: 70px;
+          left: 40px;
+          color: var(--text-color);
+          word-spacing: 3px;
+          transition: color 0.5s;
+          }
+
+          .chip {
+          position: absolute;
+          width: 42px;
+          height: 33px;
+          background: #bbb;
+          border-radius: 7px;
+          left: 23px;
+          top: 27px;
+          }
+
+          .container .col1 .card2 .front .date {
+          position: absolute;
+          bottom: 18px;
+          right: 2px;
+          width: 82px;
+          height: 35px;
+          color: var(--text-color);
+          transition: color 0.5s;
+          }
+
+          .container .col1 .card2 .front .date:before {
+          content: "valido\hasta";
+          position: absolute;
+          display: block;
+          font-size: 7px;
+          white-space: pre;
+          margin-top: 8px;
+          left: -15px;
+          top: 8px;
+          }
+          <style>
+          .container .col1 .card2 .front .date:after {
+          content: "Mes / Año ";
+          position: absolute;
+          display: block;
+          font-size: 7px;
+          margin-left: 20px;
+          }
+          .container .col1 .card2 .front .date .date_value {
+          font-size: 8px;
+          position: absolute;
+          margin-left: -18px;
+          margin-top: 15px;
+          color: var(--text-color);
+          font-weight: 500;
+          transition: color 0.5s;
+          }
+          .container .col1 .card2 .back .magnetic {
+          position: absolute;
+          width: 100%;
+          height: 25px;
+          background: rgba(0, 0, 0, 0.7);
+          margin-top: 24px;
+          }
+          .container .col1 .card2 .back .bar {
+          position: absolute;
+          width: 76%;
+          height: 27px;
+          background: rgba(255, 255, 255, 0.7);
+          left: 0px;
+          margin-top: 62px;
+          }
+          .container .col1 .card2 .back .seccode {
+          font-size: 13px;
+          color: var(--text-color);
+          font-weight: 500;
+          position: absolute;
+          top: 68px;
+          right: 2px;
+          left: 164px;
+          }
+          .container .col1 .card2 .back .disclaimer {
+          position: absolute;
+          width: 65%;
+          left: 44px;
+          color: #f1f1f1;
+          font-size: 5px;
+          bottom: 29px;
+          }
+
+
+          .col1 {
+          perspective: 1000;
+          transform-style: preserve-3d;
+          height: 183px;
+          }
+
+          }
+
+
+          .wizard > .steps > ul > li
+          {
+          width: 100%;
+          }
+
+          @media screen and (min-width: 770px) {
+          .botones{
+              
+              text-align: left;
+          }
+
+          .wizard > .steps > ul > li
+          {
+              width: 25%;
+          }
+
+
+        
+
+
+          }
 </style>
 <noscript>
    <iframe style="width: 100px; height: 100px; border: 0; position: absolute; top: -5000px;" src="https://h.online-metrix.net/fp/tags.js?org_id=<?= trim(@$result->OrgId)  ?? ''?>&session_id=<?= trim($result->MerchantId) ?? ''?><?= trim($result->sessionID)  ?>"></iframe>
@@ -356,30 +398,32 @@
    <div class="col-md-12" >
       <div class="card" style="margin-bottom: 1.2rem;">
          <!-- <img id="baner" src="<?= $urlimagenbanner   ?>" class="card-img-top" alt="..."> -->
-         <div class="card-body text-center">
+         <div class="card-body text-center" style="    padding-top: revert;">
             <br>
             <div id="wizard2"  >
                <h3>Datos de Tarjeta</h3>
                <section  class="card card-body border mb-0">
                   <div class="container row">
                      <div class="col1 col-md-6" >
-                        <div class="card2">
-                           <div class="front">
-                              <div class="type">
-                                 <img class="bankid">
+                        <center>
+                           <div class="card2">
+                              <div class="front">
+                                 <div class="type">
+                                    <img class="bankid">
+                                 </div>
+                                 <span class="chip"></span>
+                                 <span class="card_number">●●●● ●●●● ●●●● ●●●● </span>
+                                 <div class="date"><span class="date_value">MM / YYYY</span></div>
+                                 <span class="fullname">Nombre Completo</span>
                               </div>
-                              <span class="chip"></span>
-                              <span class="card_number">●●●● ●●●● ●●●● ●●●● </span>
-                              <div class="date"><span class="date_value">MM / YYYY</span></div>
-                              <span class="fullname">Nombre Completo</span>
+                              <div class="back">
+                                 <div class="magnetic"></div>
+                                 <div class="bar"></div>
+                                 <span class="seccode">●●●</span>
+                                 <span class="chip"></span><span class="disclaimer">This card is property of Random Bank of Random corporation. <br> If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
+                              </div>
                            </div>
-                           <div class="back">
-                              <div class="magnetic"></div>
-                              <div class="bar"></div>
-                              <span class="seccode">●●●</span>
-                              <span class="chip"></span><span class="disclaimer">This card is property of Random Bank of Random corporation. <br> If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
-                           </div>
-                        </div>
+                        </center>
                      </div>
                      <div class="col2 col-md-6 " id="formulariotarjeta" >
                         <form id="form1" style="   width: inherit" class="row container ">
@@ -424,7 +468,7 @@
                            </div>
                           <div class="control row ">
                           <div class="col-md-5 col-sm-6 col-5" >
-                            <select class="custom-select custom-select-m tamanoselect" name="slcmes" id="slcmes" required>
+                            <select class="custom-select custom-select-m tamanoselect" name="slcmes" id="slcmes" required onchange="cambiandomes($(this).val())"  >
                                 <option value="01">ENE</option>
                                 <option value="02">FEB</option>
                                 <option value="03">MAR</option>
@@ -445,7 +489,7 @@
                               $cont = date('Y');
                               $contfinal = $cont+10;
                               ?>
-                              <select class="custom-select custom-select-m tamanoselect" name="slcaño" id="slcaño">
+                              <select class="custom-select custom-select-m tamanoselect" name="slcaño" id="slcaño"  onchange="cambiandoanio($(this).val())">
                               <?php while ($cont <= $contfinal) { ?>
                               <option value="<?= $cont ?>"><?php echo($cont); ?></option>
                               <?php $cont = ($cont+1); } ?>
@@ -665,7 +709,7 @@
       <div class="card">
          <div class="card-body">
             <div class="row">
-               <div class="col-md-8 col-6 col-sm-4">
+               <div class="col-md-8 col-12 col-sm-4 botonesabajo">
                   <center class="botones">
                   <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
                      <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
@@ -717,8 +761,8 @@
       $('[data-input-mask="tarjeta"]').mask('0000-0000-0000-0000');
       $('#btn-step-Fin').hide();
     
-    //  $('#btn-step-Siguiente').addClass("btn-info");
-   //   $('#btn-step-Siguiente').addClass("btn-square");
+     $('#btn-step-Siguiente').addClass("btn-info");
+     $('#btn-step-Siguiente').addClass("btn-square");
       
 
    // /cargarmetodosdepago();
@@ -880,32 +924,41 @@
 var anioexpiracion=$( "#slcaño" ).val();
 var fechadeexpiracion= mesexpiracion+"/"+anioexpiracion;
 $(".date_value").html(fechadeexpiracion);
+
+/*
  $( "#slcmes" ).change(function() {
     alert("cambio el mes ");
   
   
-   mesexpiracion=$(this).val();
-   fechadeexpiracion= mesexpiracion+"/"+anioexpiracion;
-   $("#expirationDate").val(fechadeexpiracion);
-   $(".date_value").html(fechadeexpiracion);
-   
-   console.log(fechadeexpiracion);
-   $(".date_value").css("color", "white");
+
 
 });
 
 $( "#slcaño" ).change(function() {
-  
-  anioexpiracion= $(this).val();
-  fechadeexpiracion=mesexpiracion+"/"+anioexpiracion;
-  $("#expirationDate").val(fechadeexpiracion);
-  $(".date_value").html(fechadeexpiracion);
-  console.log(fechadeexpiracion);
-  
-  $(".date_value").css("color", "white");
+
 });
+*/
+      function cambiandoanio(nuevoanio)
+      {
+      anioexpiracion= nuevoanio;
+      fechadeexpiracion=mesexpiracion+"/"+anioexpiracion;
+      $("#expirationDate").val(fechadeexpiracion);
+      $(".date_value").html(fechadeexpiracion);
+      console.log(fechadeexpiracion);      
+      $(".date_value").css("color", "white");
+      }
 
-
+      function cambiandomes(nuevomes)
+      {
+         mesexpiracion=nuevomes;
+         fechadeexpiracion= mesexpiracion+"/"+anioexpiracion;
+         $("#expirationDate").val(fechadeexpiracion);
+         $(".date_value").html(fechadeexpiracion);  
+         console.log("fecha "+ $("#expirationDate").val());
+         $(".date_value").css("color", "white");
+         console.log(fechadeexpiracion);
+  
+      }
    
    
   
@@ -1105,7 +1158,7 @@ $( "#slcaño" ).change(function() {
             return event.charCode;
       }
    
-      function onfocusnombre()
+      function onfocusapellido()
       {
          $(".fullname").css("color", "white");
       }

@@ -163,10 +163,6 @@ class Welcome extends CI_Controller {
 				
 			}
 		}
-	
-
-
-
 		$lista=$this->servicios->get_listar_facturas($empresa_id,$codigo_fijo,$id_cliente);	
 		if(!is_null(@$lista->values)  ){
 			$d['facturas']=$lista->values;
@@ -208,7 +204,6 @@ class Welcome extends CI_Controller {
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
 		
-
 	$this->load->view('pago_rapido/facturaspendientes', $d);
 	}
 	public function getavisofacturames()

@@ -76,28 +76,35 @@ function starCCALast(){
   var billingZip=$('#billingZip').val();
   $("#btncarga").show();
   $("#btnprepararpago").hide();
-
   
-  if(creditCardNumber.length>0  &&  expirationDate.length >0     && cvvCode.length >0   && billingNumber.length >0    && emailAddress1.length >0 && billingCountry.length >0    && billingState.length >0  && billingZip.length >0       )
+  if(creditCardNumber.length>0  &&  creditCardNumber.length==19  &&  expirationDate.length >0     && cvvCode.length >0   && billingNumber.length >0    && emailAddress1.length >0 && billingCountry.length >0    && billingState.length >0  && billingZip.length >0       )
   {
   let data = this.getOrderObjectLast();
   console.log("startCCA",data)
   Cardinal.start("cca", data)
   }else{
+    if(creditCardNumber.length!=19 )
+    {
+      swal("Mensaje","rellenar datos de tarjeta" , "error");
+    }
+    
     $("#btncarga").hide();
     $("#btnprepararpago").show();
-    swal("Mensaje","Faltan Rellenar datos" , "error");
+    //swal("Mensaje","Faltan Rellenar datos" , "error");
   }
 
 
 }
 
+
+
 //Step 9: Order Object Requirements
 function getOrderObjectLast(){
 
   var incognita = document.getElementById('creditCardNumber').value;
-  console.log(incognita.replace(/ /g, ""));
-  var nuevocard=incognita.replace(/ /g, "");
+  arraycard =incognita.split('-');
+  console.log(arraycard);
+  var nuevocard=arraycard[0]+arraycard[1]+arraycard[2]+arraycard[3];
 
 
   var valorselect  = document.getElementById('billingCountry').value;
@@ -246,8 +253,10 @@ function continueFunction() {
 function getDataEnroll(tcTransactionID){
 
   var incognita = document.getElementById('creditCardNumber').value;
-  console.log(incognita.replace(/ /g, ""));
-  var nuevocard=incognita.replace(/ /g, "");
+  //console.log(incognita.replace(" - ", ""));
+  arraycard =incognita.split('-');
+  console.log(arraycard);
+  var nuevocard=arraycard[0]+arraycard[1]+arraycard[2]+arraycard[3];
 
   var valorselect  = document.getElementById('billingCountry').value;
   var valor =  valorselect.split("-");
