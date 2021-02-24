@@ -68,7 +68,10 @@
                 </table>
             </div>
                     <?php  }else{
-                        echo "no hay resultados";
+                        
+                        echo $clientes->message;
+                    
+                    
                     } ?>
     </div>
 </div>

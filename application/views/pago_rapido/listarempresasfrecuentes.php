@@ -72,7 +72,7 @@
         //$(document).on('change','input[type="checkbox"]' ,function(e) {
         $('#chkperfil').on("change", function(){
             console.log("ingreso aqui ");
-            alert("leonardo ingreso aqui ");
+           // alert("leonardo ingreso aqui ");
            
             if(swperfil==1)
             {
@@ -84,7 +84,7 @@
             //alert("perfil:"+swperfil);
             cambiarperfil();
         });
-/*
+
         function cambiarperfil()
         {
             
@@ -111,7 +111,7 @@
                     });  
         }
 
-        */
+        
     </script>
 
     <?php  }else{

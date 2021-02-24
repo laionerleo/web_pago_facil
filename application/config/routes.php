@@ -65,6 +65,7 @@ $route[$l.'getavisomes2/(:any)/(:any)/(:any)']  = 'Welcome/getavisofacturames2/$
 $route[$l.'getavisoactualizado/(:any)/(:any)']  = 'Welcome/getavisoactualizado/$1/$2/$3';
 
 //metodos de pago 
+//metodos de pago 
 $route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';
 $route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/';
 

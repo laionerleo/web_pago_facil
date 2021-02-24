@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <?php $this->load->view('theme/head'); ?>
+<link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
+
+
 <style>
         input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -86,49 +89,25 @@ input[type=number]::-webkit-outer-spin-button {
                                      <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
-                                        <div class="avatar-group ml-4">
-                                                    <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
-                                                            <figure id="rub-<?= $i ?>" class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
-                                                                <a href="#" title="  <?php echo $rubros->values[$i]->nNombre  ?>" data-toggle="tooltip" onclick="cambiar_rubro(<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,'#rub-<?= $i ?>')">
-                                                                    <img src="<?php echo $rubros->values[$i]->cImagenUrl  ?>" class="rounded-circle"
-                                                                        alt="avatar">
-                                                                </a>
-                                                            </figure>
-                                                            &nbsp;&nbsp;
-                                                    <?php }  ?>
-                                        </div>
+
+                                        <select name="slcrubro"  class=" form-control" id="slcrubro" >
+                                            <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
+                                                <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?> "  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
+                                            <?php  } ?> 
+                                        </select>    
+
                                     </div>
                                     <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
-                                        <div class="avatar-group ml-4">
-                                                    <figure id="reg-0"  class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
-                                                                <a href="#" title=" <?php echo $region->values[0]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[0]->nRegion  ?>,'#reg-0' ,'<?php echo $region->values[0]->cNombre  ?>'   )">
-                                                                <img id="region_principal" src="<?php echo $region->values[0]->nEstado  ?>"class="rounded-circle"
-                                                                        alt="avatar">
-                                                                </a>
-                                                    </figure>
-                                                    <div id="div_regiones"  style="display:none">
-                                                        <?php  for ($i=1; $i < count($region->values) ; $i++) { ?>
-                                                            <figure id="reg-<?= $i ?>"  class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
-                                                                <a href="#" title=" <?php echo $region->values[$i]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[$i]->nRegion  ?>,'#reg-<?= $i ?>','<?php echo $region->values[$i]->cNombre  ?>' )">
-                                                                <img src="<?php echo $region->values[$i]->nEstado  ?>"class="rounded-circle"
-                                                                        alt="avatar">
-                                                                </a>
-                                                            </figure>
-                                                            &nbsp;
-                                                        <?php }  ?>
-                                                    </div>
-                                                    <figure id="reg-x" onclick="habilitarregiones()"  class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
-                                                        <a href="#" title="Cambiar"  data-toggle="tooltip" onclick="">
-                                                        <img src="<?=  base_url() ?>/application/assets/assets/media/image/cambio.svg"class="rounded-circle"
-                                                                alt="avatar">
-                                                        </a>
-                                                    </figure>
 
-                                                    
-                                        </div>
+                                        <select name="slgregion"  class=" form-control" id="slgregion" >
+                                            <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
+                                                <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
+                                            <?php  } ?> 
+                                        </select>   
+                                      
                                        
-                                        <label id="nombre_region"  href=""><?php echo $region->values[0]->cNombre  ?> </label>
+                                        <label id="nombre_region"  href=""></label>
                                     </div>
                                 </div>
                                   <div id="vistas_empresas"  >
@@ -246,6 +225,8 @@ input[type=number]::-webkit-outer-spin-button {
               <script src="<?=  base_url() ?>/application/assets/vendors/bundle.js"></script>
       <!-- App scripts -->
     <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
+    
+
  
 
         </div>
@@ -290,14 +271,14 @@ function cambiar_region(id_region,id_figure,nombre,)
 function cambiar_rubro(id_rubro,id_figure)
 {
     rubro_id=id_rubro;
-    $(id_fugure_rubro).removeClass("avatar-state-success");
+  //  $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
     $("#btnperfilempresa").hide();
     $("#btnperfil").show();
     
 
     filtrar_empresas();
-    $(id_figure).addClass("avatar-state-success");
+   // $(id_figure).addClass("avatar-state-success");
     
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
@@ -336,13 +317,32 @@ function  cambiar_tipo_switch()
 }
 function filtrar_empresas()
 {
+    $("#vistas_empresas").empty();
+    $("#vistas_empresas").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+
     var datos= {rubro_id:rubro_id,region_id:region_id  };
     var urlajax=$("#url").val()+"get_filtro_regiones";  
    // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax,{datos});   
+    $("#vista_clientes").empty();
 }
 function perfilfrecuente()
 {
+    $("#vistas_empresas").empty();
+    $("#vistas_empresas").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+
     $("#btnperfilempresa").show();
     $("#btnperfil").hide();
     
@@ -372,6 +372,16 @@ function habilitarregiones()
 
 function  busqueda_datos()
 {
+
+    $("#vista_clientes").empty();
+    $("#vista_clientes").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+
     var codigo=$("#inp_dato").val();
     var tipo=sw;
     if( (codigo!='') && (empresa_id!=0))
@@ -379,7 +389,7 @@ function  busqueda_datos()
         
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
-    $("#vista_clientes").show();
+    //$("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
   
     }else{
@@ -391,6 +401,7 @@ function  busqueda_datos()
         {
             alert('no selecciono la empresa ');
         }
+        $("#vista_clientes").empty();
         
     }
     
@@ -398,6 +409,14 @@ function  busqueda_datos()
 
 function  busqueda_billeteras_dependientes()
 {
+    $("#vista_clientes").empty();
+    $("#vista_clientes").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
     var codigo=$("#inp_dato").val();
     if( (codigo!='') && (empresa_id!=0))
     {
@@ -415,6 +434,7 @@ function  busqueda_billeteras_dependientes()
         {
             alert('no selecciono la empresa ');
         }
+        $("#vista_clientes").empty();
         
     }
     
@@ -534,24 +554,81 @@ function limpiar()
 </script>
   
   <?php $this->load->view('theme/js');  ?>
+
+  <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
     var perfil =$('#perfil').val();
     var swperfil=0;
+    var slcregion,slcrubro;
+    var indexunico=0;
 $( document ).ready(function() {
+
+    try {
+		     slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
+												var val = data.value;
+                                                console.log(val);
+                                                var result=val.split(',');
+                                                console.log(result);
+                                           
+                                                    cambiar_rubro(result[0], result[1]);
+                                           
+                                                
+                                
+											}}}).data("dd");
+        //var pagename = document.location.pathname.toString();
+		//pagename = pagename.split("/");
+                                        slcregion.set("selectedIndex", 100);
+		//$("#ver").html(msBeautify.version.msDropdown);
+                      //  pages.set("selectedIndex", 0);
+	} catch(e) {
+		//console.log(e);	
+	}
+	
+
+    try {
+		            slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
+												var val = data.value;
+                                                console.log(val);
+                                                var result=val.split(',');
+                                                console.log(result);
+                                           
+                                                    cambiar_region(result[0], result[1] ,result[2]   ); 
+                                                
+                                             
+											}}}).data("dd");
+                                            slcrubro.set("selectedIndex", 1000);
+                                         
+
+	} catch(e) {
+		//console.log(e);	
+	}
+
+
  
     if(perfil==1)
     {
         perfilfrecuente();
         $("#btnperfil").hide();
         swperfil=1;
+        
     }else{
         swperfil=0;
         cambiar_rubro(1,'#rub-0');
         $("#btnperfilempresa").hide();
+        slcregion.set("selectedIndex", 0);
+        slcrubro.set("selectedIndex", 0);
+     
     }
     //
     
     $('#li2').attr('disabled', true); //add
+
+    
+   
+
+
+
+
 });
 $("#inp_dato").on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {

@@ -91,11 +91,6 @@ class Welcome extends CI_Controller {
 		$id_cliente=$this->session->userdata('cliente');
 		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
 		$_SESSION['todaslasempresas']=$d['empresas'];
-		
-		//		echo json_encode($empresas);
-		/*echo "<pre>";
-		print_r($d);
-		echo "</pre>";*/
 		$this->load->view('pago_rapido/lista_empresas', $d);
 		
 
@@ -123,8 +118,11 @@ class Welcome extends CI_Controller {
 		
 		
 		$_SESSION['clientesbusqueda']=$d['clientes']->values;
-	
-		
+		/*
+		echo '<pre>';
+		print_r($d ) ;
+		echo '</pre>' ;
+		*/
 		$this->load->view('pago_rapido/lista_clientes', $d);
 
 	}
