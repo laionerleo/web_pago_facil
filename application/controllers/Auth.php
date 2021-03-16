@@ -56,6 +56,7 @@ class Auth extends CI_Controller {
         $resultado=$this->servicios->loginpagofacil($usuario,$contraseña);
         
      //  /print_r($data);
+	 
       
        if($resultado->error  == 0)
 		{

@@ -97,8 +97,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                        
                             <div class="fxt-transformY-50 fxt-transition-delay-4">  
                                 <input type="button" class="fxt-btn-fill" name="" id="btnlogin" onclick="realizar_login()" value="Ingreso">
+                                <input type="button" class="fxt-btn-fill" name="" style="display:none" id="btncarga" disabled value="Cargando">
+                                
+                               
                                 <input type="button" class="fxt-btn-fill" name="" id="btnregistrar" style="display:none " onclick="realizar_registro()" value="Agregar">
                                 <input type="button" class="fxt-btn-fill"  name="" id="btnregistrate" onclick="Registrate()" value="Registrate">
                                 
@@ -117,7 +121,7 @@
                     <li >
                         <div >  
                             <center>
-                            <a href="<?php echo @$loginURL; ?>" title="google"> <img src="<?= base_url() ?>/application/assets/assets/media/image/iconogoogle.svg" alt=""></a>
+                            <a href="<?php echo $loginURL; ?>" title="google"> <img src="<?= base_url() ?>/application/assets/assets/media/image/iconogoogle.svg" alt=""></a>
                             </center>
                         </div>
                     </li>                                    
@@ -146,14 +150,18 @@
 			var datos=$("#form_login").serialize();
 			var urlajax=$("#url").val()+"login_user";   
             var urlsucces=$("#url").val()+"pagorapido";   
-                 
-            $.ajax({                    
+            if($("#usuario").val().length>0  &&  $("#contraseña").val().length>0  )
+            {
+                $.ajax({                    
                 url: urlajax,
                 data: {datos},
                 type : 'POST',
                 dataType: "json",
-                beforeSend:function( ) {   
-                    //$("#waitLoadinglogin").fadeIn(1000);
+                beforeSend:function( ) {  
+                    $("#mensaje").text('...'); 
+                    $("#btncarga").show();
+                    $("#btnlogin").hide();
+
                 },                    
                 success:function(response) {
                 
@@ -161,11 +169,15 @@
             
                     if(response==0)
                     {
-                        alert("se logueo con exito");
+                        $("#mensaje").css("color","black");
+                        $("#mensaje").text("Ingreso Exitoso "); 
+
+
                         window.location.href = urlsucces;
                         //location.reload();
                         
                     }else{
+                        $("#mensaje").css("color","red");
                         $("#mensaje").text('usuario o contraseña incorrectos');
                        
                     }
@@ -173,15 +185,26 @@
                 },
                 error: function (data) {
                     //console.log(data);
-                    $("#mensaje").text('usuario o contraseña incorrectos');
+                    $("#mensaje").css("color","red");
+                    $("#mensaje").text('A ocurrido algun error en el sistema o la conexion de internet');
                   
                 },               
                 complete:function( ) {
                     //$("#waitLoadinglogin").fadeOut(1000);  
+                    $("#btnlogin").show();
+                    $("#btncarga").hide();
                 },
             }
             ); 
 
+
+            }else{
+                //alert("Falta rellenar datos ");
+                $("#mensaje").css("color","red");
+                $("#mensaje").text('Falta Rellenar datos ');
+            }
+                 
+            
 		}
         sw=1;
         function realizar_registro()
