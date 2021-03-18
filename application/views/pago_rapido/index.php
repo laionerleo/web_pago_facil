@@ -636,6 +636,21 @@ $("#inp_dato").on('keyup', function (e) {
     }
 }); 
 
+
+function error(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "red");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+            //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
+        }
+        function valido(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "#47FB13");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+        }
+
 </script>
 
 </body>

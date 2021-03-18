@@ -41,135 +41,134 @@
 
               <div class="card-body text-center m-t-70-minus">   
               
-                  <figure class="avatar avatar-m m-b-5">
-                  </figure>
-                    <br>
-                   
-                    <div class="form-row" style="padding-bottom: 5px;">
-                          
-                            <div class="col-md-4 col-12 titulos">
-                                <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Monto  ( <?= @$Simbolo  ?>): </b></label>
+              <figure class="avatar avatar-m m-b-5">
+              </figure>
+                <br>
+               
+                <div class="form-row" style="padding-bottom: 5px;">
+                      
+                        <div class="col-md-4 col-12 titulos">
+                            <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Monto  ( <?= @$Simbolo  ?>): </b></label>
+                        </div>
+                        <div class="col-md-2 col-12">
+                            <div class="controls" style="    text-align: justify;">
+                            <input class="form-control" readonly type="text"  value="<?= number_format((float)$montototal, 2, '.', '');   ?>  " >
                             </div>
-                            <div class="col-md-2 col-12">
-                                <div class="controls" style="    text-align: justify;">
-                                <input class="form-control" readonly type="text"  value="<?= number_format((float)$montototal, 2, '.', '');   ?>  " >
-                                </div>
-                                
-                            </div>
-                    </div>
-                         <!--   Inicio tipo CI -->
-                         <div class="form-row" style="padding-bottom: 5px;">
-                            <div class="col-md-4 col-12 titulos">
-                            <label for="inpci"> <b> Tipo Ci : </b></label>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="row">
-                                    <div class="form-group col-md-4 col-6">
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio" name="customRadio"  onclick="ocultar()" class="custom-control-input"
-                                                checked>
-                                            <label class="custom-control-label" for="customRadio">Normal</label>
-                                        </div>
+                            
+                        </div>
+                </div>
+                     <!--   Inicio tipo CI -->
+                     <div class="form-row" style="padding-bottom: 5px;">
+                        <div class="col-md-4 col-12 titulos">
+                        <label for="inpci"> <b> Tipo Ci : </b></label>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="row">
+                                <div class="form-group col-md-4 col-6">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio" name="customRadio"  onclick="ocultar()" class="custom-control-input"
+                                            checked>
+                                        <label class="custom-control-label" for="customRadio">Normal</label>
                                     </div>
-                                    <div class="form-group col-md-4 col-6">
-                                        <div class="custom-control custom-radio custom-checkbox-secondary">
-                                            <input type="radio" id="customRadio1" name="customRadio"
-                                                class="custom-control-input"  onclick="mostrar()">
-                                            <label class="custom-control-label" for="customRadio1">Duplicado</label>
-                                        </div>
-                                    </div> 
+                                </div>
+                                <div class="form-group col-md-4 col-6">
+                                    <div class="custom-control custom-radio custom-checkbox-secondary">
+                                        <input type="radio" id="customRadio1" name="customRadio"
+                                            class="custom-control-input"  onclick="mostrar()">
+                                        <label class="custom-control-label" for="customRadio1">Duplicado</label>
+                                    </div>
                                 </div> 
-                                
-                            </div>
-                    </div>
-                <!--   Final tipo CI -->
-                   
-                    <!--   NRO CI -->
-                    <div class="form-row" style="padding-bottom: 5px;">
-                      <div class="col-md-4 col-12 titulos " >
-                      <label for="inpci"> <b>Nro Ci : </b></label>
-                      </div>
-                      <div class="col-md-6 col-12">
-                          <div class="row">
-                          <div class="col-md-4 mb-3 col-8" >
-                                  <input class="form-control" type="number" min="0" name="inpci" placeholder="CI" id="inpci" value="<?=  $_SESSION['cinit'] ?>" >
-                              </div>
-                              <div class="col-md-4 mb-3 col-4 " id="divcomplemento" style="display:none" >
-                                  <input   class="form-control" type="text" name="inpcomplemento"  id="inpcomplemento" value="" placeholder="Complemento" >
-                              </div>
-                              <div class="col-md-4 mb-3 col-4" >
-                                  <select class="custom-select custom-select-m" name="slcext" id="slcext">
-                                      <option value="0" selected>Extensión</option>
-                                      <option value="SC">SC</option>
-                                      <option value="BE">BE</option>
-                                      <option value="CB">CB</option>
-                                      <option value="TJ">TJ</option>
-                                      <option value="PA">PA</option>
-                                      <option value="LP">LP</option>
-                                      <option value="PT">PT</option>
-                                      <option value="OR">OR</option>
-                                      <option value="CH">CH</option>
-                                  </select>
-                              </div>
-                              
-                          </div> 
-                          
-                      </div>
-              </div>
-              <!--   NRO CI --> 
-
-                    <div class="form-row">
-                      <div class="col-md-4 col-12 titulos">
-                        <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b>Numero Soli :</b></label>
-                      </div>
-                      <div class="col-md-2">
-                          <div class="controls" style="    text-align: justify;">
-                              <input class="form-control" type="text"  name="inpnumbersoli" id="inpnumbersoli"    value="<?= $numeropago ?>" class="validate[required]"  />
+                            </div> 
+                            
+                        </div>
+                </div>
+            <!--   Final tipo CI -->
+               
+                <!--   NRO CI -->
+                <div class="form-row" style="padding-bottom: 5px;">
+                  <div class="col-md-4 col-12 titulos " >
+                  <label for="inpci"> <b>Nro Ci : </b></label>
+                  </div>
+                  <div class="col-md-6 col-12">
+                      <div class="row">
+                      <div class="col-md-4 mb-3 col-8" >
+                              <input class="form-control" type="number" min="0" name="inpci" placeholder="CI" id="inpci" value="<?=  $_SESSION['cinit'] ?>" >
                           </div>
-
-                          
-                          <p class="text-muted"> <h3>  </h3> </p>
-
-                      </div>
-                    </div>  
-                    
-
-
-                    <div class="form-row" id="divtransaccion" style="padding-bottom: 5px; display:none ">
-                              <div class="col-md-4 col-2" style="text-align: right;">
-                              
-                              <label for="inpci"  style="margin-bottom: 0.2rem;"> <b>Transacción : </b></label>
-                              
-                              </div>
-                              <div class="col-md-6 col-6">
-                                  <div class="controls"  style="    text-align: justify;">
-                                      <input class="form-control" type="text" name="lcTransaccion" placeholder="" id="lcTransaccion" value="" readonly >
-                                  </div>
-                                  
-                              </div>
-                      </div>
-
-                   
-                    
-                    <div class="form-row">
-                          <div class="col-md-12" style="display:none">      
-                              <textarea name="mensajerecibido" id="mensajerecibido" cols="30" rows="10"></textarea>
+                          <div class="col-md-4 mb-3 col-4 " id="divcomplemento" style="display:none" >
+                              <input   class="form-control" type="text" name="inpcomplemento"  id="inpcomplemento" value="" placeholder="Complemento" >
                           </div>
-                    </div>
-                  
-                    
-                    <div class="form-row">
-                        
-                    </div>
-                 
+                          <div class="col-md-4 mb-3 col-4" >
+                              <select class="custom-select custom-select-m" name="slcext" id="slcext">
+                                  <option value="0" selected>Extensión</option>
+                                  <option value="SC">SC</option>
+                                  <option value="BE">BE</option>
+                                  <option value="CB">CB</option>
+                                  <option value="TJ">TJ</option>
+                                  <option value="PA">PA</option>
+                                  <option value="LP">LP</option>
+                                  <option value="PT">PT</option>
+                                  <option value="OR">OR</option>
+                                  <option value="CH">CH</option>
+                              </select>
+                          </div>
+                          
+                      </div> 
+                      
+                  </div>
+          </div>
+          <!--   NRO CI --> 
+
+                <div class="form-row">
+                  <div class="col-md-4 col-12 titulos">
+                    <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b>Numero Soli :</b></label>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="controls" style="    text-align: justify;">
+                          <input class="form-control" type="text"  name="inpnumbersoli" id="inpnumbersoli"    value="<?= $numeropago ?>" class="validate[required]"  />
+                      </div>
+
+                      
+                      <p class="text-muted"> <h3>  </h3> </p>
+
+                  </div>
+                </div>  
+                
+
+
+                <div class="form-row" id="divtransaccion" style="padding-bottom: 5px; display:none ">
+                          <div class="col-md-4 col-2" style="text-align: right;">
+                          
+                          <label for="inpci"  style="margin-bottom: 0.2rem;"> <b>Transacción : </b></label>
+                          
+                          </div>
+                          <div class="col-md-6 col-6">
+                              <div class="controls"  style="    text-align: justify;">
+                                  <input class="form-control" type="text" name="lcTransaccion" placeholder="" id="lcTransaccion" value="" readonly >
+                              </div>
+                              
+                          </div>
+                  </div>
 
                 
+                <div class="form-row">
+                      <div class="col-md-12" style="display:none">      
+                          <textarea name="mensajerecibido" id="mensajerecibido" cols="30" rows="10"></textarea>
+                      </div>
                 </div>
+              
+                
+                <div class="form-row">
+                    
+                </div>
+             
+
+            
+            </div>
                 <hr class="m-0">
             </div>
           
         </div>
-  </div>
+        </div>
   
               <div class="row">
                 <div class="col-md-8">
@@ -214,7 +213,7 @@
             </div>
             <div class="modal-body">
                 <form>
-               
+             
                     <label id="mensaje" for=""> </label>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">SMS o OTP:</label>
@@ -280,6 +279,10 @@ function metodoprepararpago()
             var datosfaltantes="Faltan los siguientes Datos :";
             if( ($('#inpci').val().length>0)   &&  ($('#inpnumbersoli').val()!= 0) && ($('#inpci').val()>0)   &&   ($('#inpnumbersoli').val().length > 0)   && ($('#slcext').val()!= 0)  &&  (/^\d{8}$/.test($('#inpnumbersoli').val())  ) )
             { 
+                valido("#inpci");
+                valido("#inpnumbersoli");
+                valido("#slcext");
+                valido("#inpnumbersoli");
 
                     intentos=intentos+1;
                     var ci=$('#inpci').val();
@@ -317,7 +320,6 @@ function metodoprepararpago()
                                     console.log(tiemposegundos);
                                    // $("#bntprepararpago").attr("disabled","disabled");
                                     $("#mensaje").text(response.mensajemodal);
-                                    //$("#mensaje").text(response.mensajemodal);
                                  //   $("#divtransaccion").show();
                                    // $("#lntransacccion").val(response.tnTransaccion);
                                     //$("#lnTransaccionresultado").text(response.tnTransaccion);
@@ -425,9 +427,6 @@ function metodoprepararpago()
                            
                             if(response.tipo==10)
                                 {
-                                    //$("#modalconfirmar").click();
-                                    //$("#btnejecutartrabajo").attr("disabled","disabled");
-                                    //swal("Pago exitoso", response.mensaje , "success");  
                                     $("#Idpedido").val(response.Idpedido);
                                     console.log(response);
                                     $("#btnejecutartrabajo").attr("disabled","disabled");
@@ -436,25 +435,23 @@ function metodoprepararpago()
                                 }
                             if(response.tipo==1)
                                 {
-                                    
                                     swal("Mensaje", response.mensaje , "error");
                                     $("#bntprepararpago").removeAttr('disabled');
-                                    console.log(response);
-                                   /// $('#vistaresultado').show();
-                                    //$("#resultado-tab").click();
                                     $("#btncarga").hide();
                                     $("#bntprepararpago").show();
-                                    
-                                  
                                 }
-                               
+                              
                                 
 
                         },
                         error: function (data) {
-                            console.log(data.responseText);
+                            
+                            swal("Mensaje", data.responseText , "error");
                         },               
                         complete:function( ) {
+                            $("#modalconfirmarpago").modal('toggle');
+                                $('.modal-backdrop').remove();
+                               
                         
                             $("#btncargaconfirmar").hide();
                             $("#btnejecutartrabajo").show();
@@ -515,19 +512,7 @@ function metodoprepararpago()
 
 
 
-              function error(tnIdImput)
-        {             
-            $(tnIdImput).css("border-color", "red");
-            $(tnIdImput).css("border-style", "outset");
-            $(tnIdImput).css("border-width", "revert");
-            //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
-        }
-        function valido(tnIdImput)
-        {             
-            $(tnIdImput).css("border-color", "#47FB13");
-            $(tnIdImput).css("border-style", "outset");
-            $(tnIdImput).css("border-width", "revert");
-        }
+      
 
   </script>
   

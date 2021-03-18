@@ -370,14 +370,18 @@ class Welcome extends CI_Controller {
 		$index=0;
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION['todosmetodosdepago'][$i]->metodoPago."--".$_SESSION['metododepago']; 
+			
+
 			if($_SESSION['todosmetodosdepago'][$i]->metodoPago==$_SESSION['metododepago'])
-			$d['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
-			$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
-			$index=$i;
+			{
+				$d['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
+				$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
+				$index=$i;
+				echo "ingreso aqui ".$i;
+			}
+		
 		}	
 		$_SESSION['metodopagoelegido']=$_SESSION['todosmetodosdepago'][$index];
-	
-		
 	
 		$this->load->view('pago_rapido/facturacion', $d);
 		
@@ -553,6 +557,8 @@ class Welcome extends CI_Controller {
 				break;
 				
 				case 5:
+					$d['tiempo']=$_SESSION['metodopagoelegido']->TiempoLatencia;
+					$d['intentos']=$_SESSION['metodopagoelegido']->IntentosProcesar;
 					$transaccion=$this->servicios->get_trancaccionesbcp($_SESSION['cliente']);
 					for ($k=0; $k <count($transaccion->values) ; $k++) { 
 						
@@ -570,6 +576,8 @@ class Welcome extends CI_Controller {
 					}
 					$d['clienteempresa']=$_SESSION['codigofijo'];
 					$d['recarga']=$_SESSION['idempresa'];
+					$d['Simbolo']="Bs";
+			
 					$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
 				break;
 				case 6:
