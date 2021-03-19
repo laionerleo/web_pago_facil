@@ -1232,7 +1232,7 @@ tnAuthorizationNumber= autorizacion deBCP
       $tcParametros= $request->input('tcParametros');*/
       $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/realizarPago';
       $data = array( 'tnCliente' => $tnCliente , 'tnEmpresa'=> $tnEmpresa , 'tcCodigoClienteEmpresa'=> "$tcCodigoClienteEmpresa", 'tnMetodoPago'=> intval($tnMetodoPago) , 'tnTelefono'=>intval($tnTelefono), 'tcFacturaA'=>$tcFacturaA, 'tnCiNit'=> intval($tnCiNit), 'tnFactura'=> intval($tnFactura) , 'tcMonto' => "$tcMonto" , 'tcComision'=> "$tcComision" , 'tnIdAccion'=> 1 ,'tcImei'=>  $tcImei ,'tcApp'=>2,'tcPeriodo' =>(String) $tcPeriodo ) ;
-     
+      $this->cargarlogservicio("realizarpagotigo".json_encode($data));
       /*
        @POST(cPagoFacilPHP + "/Empresa/listarMetodosDePago")
          @FormUrlEncoded

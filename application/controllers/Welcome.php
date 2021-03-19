@@ -370,14 +370,13 @@ class Welcome extends CI_Controller {
 		$index=0;
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION['todosmetodosdepago'][$i]->metodoPago."--".$_SESSION['metododepago']; 
-			
-
 			if($_SESSION['todosmetodosdepago'][$i]->metodoPago==$_SESSION['metododepago'])
 			{
 				$d['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
 				$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
 				$index=$i;
-				echo "ingreso aqui ".$i;
+				$_SESSION['urlimagenmetodo']=$_SESSION['todosmetodosdepago'][$i]->url_icon;
+				$_SESSION['urlimagenbanner']=$_SESSION['todosmetodosdepago'][$i]->url_banner;
 			}
 		
 		}	
@@ -423,13 +422,19 @@ class Welcome extends CI_Controller {
 				$d['mensaje']="Su billetera movil no se encuentra activada . <br> Contacte con el proveedor para activarla  use otro metodo de pago";
 			}
 		}
+		$index=0;
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION['todosmetodosdepago'][$i]->metodoPago."--".$_SESSION['metododepago']; 
 			if($_SESSION['todosmetodosdepago'][$i]->metodoPago==$_SESSION['metododepago'])
-			$d['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
-			$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
-
+			{
+				$index=$i;
+				$d['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
+				$_SESSION['etiquetametodopago']=$_SESSION['todosmetodosdepago'][$i]->etiquetaBilletera;
+				$_SESSION['urlimagenmetodo']=$_SESSION['todosmetodosdepago'][$i]->url_icon;
+				$_SESSION['urlimagenbanner']=$_SESSION['todosmetodosdepago'][$i]->url_banner;
+			}
 		}	
+		$_SESSION['metodopagoelegido']=$_SESSION['todosmetodosdepago'][$index];
 		
 	
 		
@@ -525,6 +530,13 @@ class Welcome extends CI_Controller {
 					$d['Periodo']=$_SESSION['periodomes'];
 					$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
 					$d['recarga']=$_SESSION['idempresa'];
+					$d['urlimagenbanner']=$_SESSION['urlimagenbanner'];
+					$d['Simbolo']="Bs";
+					$d['tiempo']=$_SESSION['metodopagoelegido']->TiempoLatencia;
+					$d['intentos']=$_SESSION['metodopagoelegido']->IntentosProcesar;
+					$d['EtiquetaBilletera']='Billetera Tigo Money ';
+					
+						
 					$this->load->view('pago_rapido/formasdepago/pagotigomoney', $d);
 				break;
 				case 2:
@@ -532,9 +544,18 @@ class Welcome extends CI_Controller {
 					$d['clienteempresa']=$_SESSION['codigofijo'];
 					$d['Monto']=$_SESSION['montototal'];
 					$d['Periodo']=$_SESSION['periodomes'];
+					$d['urlimagenbanner']=$_SESSION['urlimagenbanner'];
 					$d['urlimagenempresa']=$_SESSION['urlimagenempresa'];
 					$d['recarga']=$_SESSION['idempresa'];
-					$this->load->view('pago_rapido/formasdepago/pagobillieterapagofacil', $d);
+					$d['tiempo']=$_SESSION['metodopagoelegido']->TiempoLatencia;
+					$d['intentos']=$_SESSION['metodopagoelegido']->IntentosProcesar;
+					$d['EtiquetaBilletera']='Billetera PagoFacil ';
+					$d['Simbolo']="Bs";
+					
+					
+					
+					$this->load->view('pago_rapido/formasdepago/pagotigomoney', $d);
+				//	$this->load->view('pago_rapido/formasdepago/pagobillieterapagofacil', $d);
 				break;
 				
 				case 4:
@@ -1045,13 +1066,13 @@ class Welcome extends CI_Controller {
 	{
 		
 		// aqui son los datos que tengo recolectados
-		
-		 $tncliente=$_SESSION['cliente'];
-		 $tnempresa = $_SESSION['idempresa'];
-		 $codigoclienteempresa= $_SESSION['codigofijo'];
-		 $tnmetodopago= $_SESSION['metododepago'];
-
-		$tnTelefono = $_SESSION['telefonoDePago'];  ; 
+		$datos=$this->input->post("datos");
+		$tnTelefono = $datos['tnNumeroTigoMoney'];
+		$tncliente=$_SESSION['cliente'];
+		$tnempresa = $_SESSION['idempresa'];
+		$codigoclienteempresa= $_SESSION['codigofijo'];
+		$tnmetodopago= $_SESSION['metododepago'];
+		//$tnTelefono = $_SESSION['telefonoDePago'];  ; 
 		$tcFacturaA= $_SESSION['nombreclienteempresa'] ;
 		 $tnCiNit=$_SESSION['cionitclienteempresa'];
 		 $tcNroPago=$_SESSION['nrofactura'];
@@ -1059,22 +1080,20 @@ class Welcome extends CI_Controller {
 		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
 		 $tcPeriodo=$_SESSION['periodomes'];
 		 $tcImei= $_SESSION['imei'] ;
-		// echo  $tncliente  .'--'. $tnempresa .'--'.$codigoclienteempresa .'--'.$tnmetodopago .'--'. $tnTelefono.'--'. $tcFacturaA.'--'.  $tnCiNit.'--'. $tcNroPago .'--'. $tnMontoClienteEmpresa .'--'.  $tnMontoClienteSyscoop .'--'. $tcImei .'--'.$tcPeriodo  ;
-
-
-		 
 		$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnempresa, $tcNroPago);
-		if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) == floatval($tnMontoClienteEmpresa) )  )
+		if($tcNroPago!=0)
 		{
-		   $this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
-		   $tcPeriodo=$laConsultaFactura->periodo;
-		   $montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION['idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
-		   $tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
-		   $tnMontoClienteSyscoop= $montocomision->values;
+			if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) != floatval($tnMontoClienteEmpresa) )  )
+			{
+				$this->cargarlog("consultar-factura-pendiente-si entro aqui significa que hay algun error mal ".json_encode($laConsultaFactura));
+				$tcPeriodo=$laConsultaFactura->periodo;
+				$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION['idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
+				$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
+				$tnMontoClienteSyscoop= $montocomision->values;
+			}
 		}
-
 		 $metodos=$this->servicios->realizarpagotigo( $tncliente  , $tnempresa ,$codigoclienteempresa , $tnmetodopago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tcNroPago , $tnMontoClienteEmpresa ,  $tnMontoClienteSyscoop , $tcImei ,$tcPeriodo ) ;
-
+		 $this->cargarlog("realizarpagotigo".json_encode($metodos));
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
 					if($mensajeerror== 0 ){                
@@ -1089,8 +1108,6 @@ class Welcome extends CI_Controller {
 						$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 					}
 					echo json_encode($arreglo);
-				
-
 	}
 	public function verificartransacciontigo()
 	{
@@ -1102,13 +1119,7 @@ class Welcome extends CI_Controller {
 		$metodos=$this->servicios->consultarestadodetransaccion( $tncliente,$tnempresa,$tnTransaccionDePago);
 		$mensajeerror=$metodos->error ;
 		 $valor= $metodos->values;
-		 echo	"<pre>";
-		 print_r($metodos);
-		// print_r($metodos->error);
-		// print_r($metodos->message);
-		 //print_r($metodos->values);
-		 
-		 echo "</pre>";
+
 					   if(isset($valor))
 					   {
 							$estadotigo =$valor->estadoPago;
