@@ -554,8 +554,8 @@ class Welcome extends CI_Controller {
 					
 					
 					
-					$this->load->view('pago_rapido/formasdepago/pagotigomoney', $d);
-				//	$this->load->view('pago_rapido/formasdepago/pagobillieterapagofacil', $d);
+				//	$this->load->view('pago_rapido/formasdepago/pagotigomoney', $d);
+					$this->load->view('pago_rapido/formasdepago/pagobillieterapagofacil', $d);
 				break;
 				
 				case 4:
@@ -567,13 +567,12 @@ class Welcome extends CI_Controller {
 					//$d['montototal']=$_SESSION['monto']+$_SESSION['montocomision'];
 					$_SESSION['entidades']=$entidades->values;
 					$d['clienteempresa']=$_SESSION['codigofijo'];
-					/*echo "<pre>";
-					
-					print_r($d['entidadeselegidas']);
-					echo "</pre>";
-					*/
+					$d['Monto']=$_SESSION['montototal'];
+					$d['Simbolo']="Bs";
+					$d['Periodo']=$_SESSION['periodomes'];
+					$d['urlimagenbanner']=$_SESSION['urlimagenbanner'];
 					$d['recarga']=$_SESSION['idempresa'];
-					$this->load->view('pago_rapido/formasdepago/pagoqr2', $d);
+					$this->load->view('pago_rapido/formasdepago/pagoqr', $d);
 					
 				break;
 				
@@ -770,7 +769,7 @@ class Welcome extends CI_Controller {
 				$valores = explode(";", $valor );
 				$linkdescarga= base_url()."es/Descargarqr/".$valores[0];
 				$this->servicios->GuardarEntidadesBancarias($tnCliente ,$laEntidadesElegidas, $valores[0] );
-				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'imagenqr' =>$valores[1],'linkdescarga'=>$linkdescarga );
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'imagenqr' =>$valores[1],'linkdescarga'=>$linkdescarga ,'tnTransaccion'=>$valores[0] );
 			}else{
 				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 			}
@@ -1765,6 +1764,32 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$this->load->view('error403', $d);
 	
+	}
+
+	public function verificarqr()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		
+		$datos=$this->input->post("datos");
+		$tnTransaccion=$datos["tnTransaccion"];
+		$this->cargarlog("datos--".json_encode($datos));
+		$tnCliente=$_SESSION['cliente'];	
+		$metodos=$this->servicios->verificarqr($tnCliente , $tnTransaccion );
+		$this->cargarlog("verificarqr--".json_encode($metodos));
+		$mensajeerror=$metodos->error ;
+		$valor= $metodos->values;
+			if($mensajeerror== 0 ){
+			if(isset($valor))
+			{
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'Estado' =>$valor->Estado );
+			}else{
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+			}
+		}else{
+			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+		}
+		echo json_encode($arreglo);
 	}
 	public function cargarlog($Mensajeerror)
     {

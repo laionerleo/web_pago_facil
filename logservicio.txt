@@ -332,3 +332,43 @@ ss
 18/03/2021 23:11:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
 18/03/2021 23:12:02realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":5853238,"tnFactura":4039026,"tcMonto":"37.49","tcComision":"1.50","tnIdAccion":1,"tcImei":"359771070316867","tcApp":2,"tcPeriodo":"2021-01"}
 19/03/2021 01:38:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 15:46:44get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 15:51:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 16:04:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 16:05:02mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Quintanilla Campos Marcos Manuel","tnCiNit":"3862198","tcNroPago":4088348,"tnMontoClienteEmpresa":"45.38","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-03","tcImei":"359771070316867","tcApp":2}
+19/03/2021 16:05:11guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"9\",\"7\",\"12\"]","tnTransaccion":"149405","tnApp":3}
+19/03/2021 16:24:23get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 16:25:24mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Quintanilla Campos Marcos Manuel","tnCiNit":"3862198","tcNroPago":4088348,"tnMontoClienteEmpresa":"45.38","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-03","tcImei":"359771070316867","tcApp":2}
+19/03/2021 16:25:29guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"9\",\"7\",\"12\"]","tnTransaccion":"149414","tnApp":3}
+19/03/2021 18:21:59get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 18:35:51get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 19:38:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 19:39:13get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 20:11:40get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 20:20:14get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 20:36:01mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":"3056737","tcNroPago":4045681,"tnMontoClienteEmpresa":"51.06","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-02","tcImei":"359771070316867","tcApp":2}
+19/03/2021 20:36:09guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"7\"]","tnTransaccion":"149510","tnApp":3}
+19/03/2021 20:51:10get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 21:02:32mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":"5853238","tcNroPago":4039026,"tnMontoClienteEmpresa":"37.49","tnMontoClienteSyscoop":"1.50","tcPeriodo":"2021-01","tcImei":"359771070316867","tcApp":2}
+19/03/2021 21:02:40guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"9\",\"7\",\"12\"]","tnTransaccion":"149517","tnApp":3}
+19/03/2021 21:56:56get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 21:57:48get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 21:58:21mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":"5853238","tcNroPago":4039026,"tnMontoClienteEmpresa":"37.49","tnMontoClienteSyscoop":"1.50","tcPeriodo":"2021-01","tcImei":"359771070316867","tcApp":2}
+19/03/2021 21:58:25guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"9\",\"7\",\"12\"]","tnTransaccion":"149535","tnApp":3}
+19/03/2021 21:58:32verificarqr{"tnCliente":"3859","tnTransaccion":null,"tcApp":3}
+19/03/2021 21:58:48verificarqr{"tnCliente":"3859","tnTransaccion":null,"tcApp":3}
+19/03/2021 22:01:04get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 22:01:35get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 22:02:23mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Cespedes Torrico Jhoanna Edith","tnCiNit":"6258835","tcNroPago":3974914,"tnMontoClienteEmpresa":"53.27","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2020-11","tcImei":"359771070316867","tcApp":2}
+19/03/2021 22:02:28guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"9\",\"7\",\"12\"]","tnTransaccion":"149539","tnApp":3}
+19/03/2021 22:02:31verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:03:11verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:03:28verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:03:34verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:03:38verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:04:05verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:04:10verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:04:32verificarqr{"tnCliente":"3859","tnTransaccion":"149539","tcApp":3}
+19/03/2021 22:07:32get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+19/03/2021 22:08:06mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Cespedes Torrico Jhoanna Edith","tnCiNit":"6258835","tcNroPago":3974914,"tnMontoClienteEmpresa":"53.27","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2020-11","tcImei":"359771070316867","tcApp":2}
+19/03/2021 22:08:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":"3859","tnIdAccion":17,"tcApp":2}

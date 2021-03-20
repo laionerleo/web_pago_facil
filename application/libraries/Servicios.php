@@ -2341,7 +2341,32 @@ public function guardarUbicacionDePago($tnCliente  ,  $tnEmpresa,$tnTransaccion,
    return $resultado;
 
 } 
+public function verificarqr($tnCliente , $tnTransaccion )
+{
 
+   $url = 'https://serviciopagofacil.syscoop.com.bo/api/Transaccion/getTransaccionDePago';
+   $data = array('tnCliente' => strval($tnCliente )  , 'tnTransaccion' => $tnTransaccion , 'tcApp'=>3 );
+   $this->cargarlogservicio("verificarqr".json_encode($data));
+
+   
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+                  )
+               );
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+    $resultado =json_decode($result);
+   return $resultado;
+
+}
 public function cargarlogservicio($Mensajeerror)
 {
   $logFile = fopen("logservicio.txt", 'a') or die("Error creando archivo");
