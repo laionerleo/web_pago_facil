@@ -2,20 +2,32 @@
 ::-webkit-scrollbar {
     display: none;
 }
+.linea:{
+        width: 45%;
+    }
 @media
-  only screen 
-    and (max-width: 500px) {
-        .botonesabajo{
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 24px;
-    height: 50px;
-    z-index: 0;
- }
-}
+  only screen and (max-width: 500px) {
+    .botonesabajo{
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        bottom: 24px;
+        height: 50px;
+        z-index: 0;
+    }
 
-* unvisited link */
+
+ .linea{
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 1440px) {
+
+.linea{
+    width: 45%;
+}
+}
+/* unvisited link */
 .linkcomopagar:link {
   color: red;
 }
@@ -41,6 +53,19 @@ input.largerCheckbox {
  .table td, .table th {
     padding: .35rem;
  }
+ fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
 </style>
 <div class="row">
                 <div class="col-md-12">
@@ -133,15 +158,33 @@ input.largerCheckbox {
                          
                                 <?php if($cantidadfacturas>0){ ?>
                                     <div class="card-body">
-                                            <?php  for ($i=0; $i < count($metodospago) ; $i++) { ?>
-                                               
-                                                <div class="form-group">
-                                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospago[$i]->metodoPago ?>,'#img-<?=  $metodospago[$i]->metodoPago ?>')">
-                                                        <input type="radio" id="metodopago-<?=  $metodospago[$i]->metodoPago ?>"  name="customRadio"  class="custom-control-input" >
-                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospago[$i]->metodoPago ?>"><img    id="img-<?=  $metodospago[$i]->metodoPago ?>" style=" height:30px; width:60px;" src="<?=  $metodospago[$i]->url_icon ?>" alt="<?=  $metodospago[$i]->nombreMetodoPago ?>">     <?=  $metodospago[$i]->nombreMetodoPago ?></label>
+                                    <form>
+                                    <?php  for ($i=0; $i <  count($metodospagogrupos); $i++) { ?>
+                                        <fieldset id="group<?= $i  ?>"  style="border:2px groove #ccc;">
+                                            <legend class="linea">
+                                                <figure class="avatar">
+                                                <img src="<?= $metodospagogrupos[$i]->Logo  ?>" alt="avatar">
+                                                </figure>
+                                                
+                                                <label  style="color: #267ce6;        font-size: small;" for=""><?= $metodospagogrupos[$i]->Nombre  ?></label>
+                                                
+                                            </legend>
+
+                                        <?php  for ($j=0; $j < count($metodospagogrupos[$i]->MetodosPago) ; $j++) {  ?>
+                                                <div class="form-group" style="margin-bottom: 0rem;">
+                                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
+                                                        <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
+                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px; width:60px;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?></label>
                                                     </div>
                                                 </div>
-                                            <?php }  ?>
+                                        <?php }  ?>
+                                        </fieldset>
+                                        
+                                    <?php }  ?>
+                                    </form>
+
+
+
                                 </div>
                                 <div class="row botonesabajo" style="padding-bottom: 10px;">
                                             <div class="col-md-12" >

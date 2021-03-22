@@ -186,10 +186,16 @@ class Welcome extends CI_Controller {
 		$_SESSION['idempresa']=$datos["empresa_id"];
 		$_SESSION['nombreempresa']=$datos["nombreempresa"];
 		$_SESSION['urlimagenempresa']=$d['urlimagenempresa'];
-		$metodos=$this->servicios->get_metodos_pago_empresa($id_cliente ,$empresa_id);
+		$metodos=$this->servicios->get_metodos_pago_empresa(3859 ,$empresa_id);
 		$d['tiposdecomision']=$metodos->values->aTipoComisionDetalle;
 		$d['metodospago']=$metodos->values->aMetodosDePago;
 		$_SESSION['todosmetodosdepago']=$metodos->values->aMetodosDePago;
+		
+		$laServicioMetodosbyGrupo=$this->servicios->getmetodosbygrupos($_SESSION['idempresa'] ,0  );
+		//$_SESSION['gaMetodoByGrupos']=$laServicioMetodosbyGrupo->values;
+		$d['metodospagogrupos']=$laServicioMetodosbyGrupo->values;
+
+
 		$etiquetas=$this->servicios->get_etiquetas($id_cliente);
 		for ($i=0; $i < count($etiquetas->values); $i++) { 
 			if($etiquetas->values[$i]->Empresa == $empresa_id) 
@@ -202,7 +208,9 @@ class Welcome extends CI_Controller {
 		$d["empresa_id"]= $datos["empresa_id"];
 		$d["codigofijo"]= $datos["codigo"];
 		
-	$this->load->view('pago_rapido/facturaspendientes', $d);
+		
+		
+		$this->load->view('pago_rapido/facturaspendientes', $d);
 	}
 	public function getavisofacturames()
 	{
@@ -700,6 +708,57 @@ class Welcome extends CI_Controller {
 					$d['taUbicacion']=$laubicacion;
 					$d['tcCodePais']=(isset($_SESSION['gcCodePais'])) ? $_SESSION['gcCodePais'] : 0;
 					$d['clienteempresa']=$_SESSION['codigofijo'];
+					$this->load->view('pago_rapido/formasdepago/pagoatc', $d);
+				break;
+				case 10:
+			
+					$d['Simbolo']="Bs" ;//  $_SESSION['Simbolo'];
+					$lapaises=$this->servicios->getpaises(1);
+					$d['paises']=@$lapaises->values;
+					$totalmonto=$_SESSION['montototal'] + $_SESSION['montocomision'];
+					$laServicioCybersource=$this->servicios->cybersourseinit(true, $totalmonto ,9  );
+	
+					$this->cargarlog("laServicioCybersource-".json_encode($laServicioCybersource));
+					$d['result']=@$laServicioCybersource;
+					$d['tnCliente']=$_SESSION['cliente'];
+					$d['tnEmpresa']=$_SESSION['idempresa'];
+					$d['tcCodigoClienteEmpresa']=$_SESSION['codigofijo'];
+					$d['tnMetodoPago']=$_SESSION['metododepago'];
+					$d['tnFactura']=$_SESSION['nrofactura'];
+					
+					$d['Simbolo']=  "Bs";//$_SESSION['Simbolo'];
+					
+					$d['Moneda']= 2 ;//;$_SESSION['Moneda'];
+					$d['tcPeriodo'] = $_SESSION['periodomes'];
+					
+					$d['tnpedidocheckout']= 0 ;//$_SESSION['tnpedidocheckout'];
+					$d['tcMonto']=$_SESSION['montototal'];
+					$d['Sigla']="Bs";//$_SESSION['Sigla'];; //$_SESSION['Simbolo'];
+					$d['tcComision']=$_SESSION['montocomision'];
+					$d['tnCiNit']=$_SESSION['cionitclienteempresa'];
+					/// datos pallenar el formulario 
+					$d['tnTelefono']= $this->session->userdata('telefonoDePago');
+					$d['tcCorreo']=$this->session->userdata('correo');	
+
+					$d['tnPais']= $_SESSION['pais'];
+					
+					
+					for ($i=0; $i < count($d['paises']) ; $i++) { 
+						//echo $d['paises'][$i]->Pais ."---".$d['tnPais'] ."]";; 
+						if($d['paises'][$i]->Pais == $d['tnPais'] )
+						{
+							$d['tcPais']=$d['paises'][$i]->Code2."-".$d['tnPais'];
+						}
+						# code...
+					}
+
+					$d['tnCiudad']= $_SESSION['ciudad'];
+					
+					$d['tcDireccion']= $this->session->userdata('direccion');
+					$d['tnCodigopostal']= "0000"; //
+					$d['tnCinNit']=$_SESSION['cionitclienteempresa'];
+					
+					
 					$this->load->view('pago_rapido/formasdepago/pagoatc', $d);
 				break;
 
