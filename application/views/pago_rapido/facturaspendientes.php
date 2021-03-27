@@ -2,11 +2,8 @@
 ::-webkit-scrollbar {
     display: none;
 }
-.linea:{
-        width: 45%;
-    }
-@media
-  only screen and (max-width: 500px) {
+
+@media only screen and (max-width: 500px) {
     .botonesabajo{
         position: fixed;
         left: 0px;
@@ -21,12 +18,13 @@
         width: 60%;
     }
 }
-@media only screen and (max-width: 1440px) {
+@media only screen and (min-width: 1440px) {
 
-.linea{
-    width: 45%;
+    .linea{
+        width: 50%;
+    }
 }
-}
+
 /* unvisited link */
 .linkcomopagar:link {
   color: red;
@@ -53,22 +51,52 @@ input.largerCheckbox {
  .table td, .table th {
     padding: .35rem;
  }
- fieldset.scheduler-border {
-    border: 1px groove #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
-}
-
-legend.scheduler-border {
-    width:inherit; /* Or auto */
-    padding:0 10px; /* To give a bit of padding on the left and right */
-    border-bottom:none;
-}
 </style>
 <div class="row">
-                <div class="col-md-12">
+
+<div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>N</th>
+                                            <th>Mes </th>
+                                            <th> Monto</th>
+                                            <th>opcion</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if(isset($facturas)){
+                                                for ($i=0; $i < count($facturas) ; $i++) { ?>
+                                                <tr>
+                                                    <td> <?= $i+1 ?> </td>
+                                                    <td> <?= $facturas[$i]->periodo ?> (<a href="#" class="linkcomopagar" onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')" ><?= $etiquetas->EtiquetaAviso  ?></a> )</td>
+                                                    <td style="text-align: end;"> <?= $facturas[$i]->montoTotal ?> </td>
+                                                    <td> 
+                                                        <?php  if($i==0){   ?>
+                                                            <center>  
+                                                            <button class="btn btn-outline-primary" onclick="$('#divcajametodopago').toggle(1500);  $('html, body').animate({ scrollTop: $('#divcajametodopago').offset().top}, 2000);" > Pagar  </button>
+                                                            </center> 
+                                                            <?php  }   ?>
+                                                    </td>
+                                                </tr>
+                                            <?php  }?>
+                                        <input type="hidden" id="montototal"name="montotoal" value="<?= @$facturas[0]->montoTotal  ?>">
+                                        <input type="hidden" id="facturaid"  name="facturaid" value="<?= @$facturas[0]->factura  ?>">
+                                        
+                                        
+                                        
+                                        
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
                    <div class="card" >
                         <div class="card-body text-center m-t-10-minus" style="padding-bottom: 0.3rem;">
                             <div class="card-body" style="overflow: hidden;overflow-x: scroll;    text-align: initial;    padding: 0.1rem;">
@@ -106,85 +134,76 @@ legend.scheduler-border {
                         </div>
                     </div>
                 </div>
+
+               
 </div>
     <div class="row">
                 
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>N</th>
-                                            <th>Mes </th>
-                                            <th> Monto</th>
-                                            <th>opcion</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php if(isset($facturas)){
-                                                for ($i=0; $i < count($facturas) ; $i++) { ?>
-                                                <tr>
-                                                    <td> <?= $i+1 ?> </td>
-                                                    <td> <?= $facturas[$i]->periodo ?> (<a href="#" class="linkcomopagar" onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')" ><?= $etiquetas->EtiquetaAviso  ?></a> )</td>
-                                                    <td> <?= $facturas[$i]->montoTotal ?> </td>
-                                                    <td> 
-                                                        <?php  if($i==0){   ?>
-                                                            <center>  
-                                                            <button class="btn btn-outline-primary" onclick="$('#divcajametodopago').toggle(1500);  $('html, body').animate({ scrollTop: $('#divcajametodopago').offset().top}, 2000);" > Pagar  </button>
-                                                            </center> 
-                                                            <?php  }   ?>
-                                                    </td>
-                                                </tr>
-                                            <?php  }?>
-                                        <input type="hidden" id="montototal"name="montotoal" value="<?= @$facturas[0]->montoTotal  ?>">
-                                        <input type="hidden" id="facturaid"  name="facturaid" value="<?= @$facturas[0]->factura  ?>">
-                                        
-                                        
-                                        
-                                        
-                                        <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+              
 
 
                 <div clas="col-md-6" id="divcajametodopago" style="display:none">
                     <div class="card">
                          
                                 <?php if($cantidadfacturas>0){ ?>
-                                    <div class="card-body">
-                                    <form>
-                                    <?php  for ($i=0; $i <  count($metodospagogrupos); $i++) { ?>
-                                        <fieldset id="group<?= $i  ?>"  style="border:2px groove #ccc;">
-                                            <legend class="linea">
-                                                <figure class="avatar">
-                                                <img src="<?= $metodospagogrupos[$i]->Logo  ?>" alt="avatar">
-                                                </figure>
-                                                
-                                                <label  style="color: #267ce6;        font-size: small;" for=""><?= $metodospagogrupos[$i]->Nombre  ?></label>
-                                                
-                                            </legend>
+                                    
+                                    <div class="card-body" style="padding: 0rem;">
+                                                    <div class="accordion" style="border-bottom: ridge; border-radius: 10px;border: #e8e6ec; border-style: double" id="accordionExample">
+                                                    <?php  for ($i=0; $i <  count($metodospagogrupos); $i++) { ?>
+                                                    
+                                                        <div class="card shadow-none"  style="padding-top:7px">
+                                                            <div class="card-header" id="headingThree" style="width: -webkit-fill-available;">
+                                                                    <div class="row" style="width: -webkit-fill-available;">
+                                                                        <a href="" id="grupometodopago<?=  $i ?>" class="btn btn-link collapsed"  style="    width: -webkit-fill-available;" data-toggle="collapse" data-target="#collapse<?= $metodospagogrupos[$i]->GrupoMetodoPago  ?>" aria-expanded="false" aria-controls="collapseThree">
+                                                                            <div class="col-md-2 col-3">
+                                                                                <figure class="avatar">
+                                                                                    <img src="<?= $metodospagogrupos[$i]->Logo  ?>" alt="avatar">
+                                                                                </figure>
+                                                                            </div>
+                                                                            <div class="col-md-10 col-9" style="    text-align: initial;">
+                                                                                <p for="" class="card-title" style="     margin-bottom: 0.4rem;"><?= $metodospagogrupos[$i]->Nombre  ?></p>
+                                                                                <label for="" class="mb-2" style="font-weight: 100; color:black"> <?= $metodospagogrupos[$i]->Descripcion  ?> </label>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                            </div>
+                                                            <div id="collapse<?= $metodospagogrupos[$i]->GrupoMetodoPago  ?>" class="collapse" aria-labelledby="headingThree"     data-parent="#accordionExample">
+                                                                <div class="card-body" style="    background: #dedede8a;">
+                                                                
+                                                                    <div class="row">
+                                                                            <div class="col-md-2 col-4">
+                                                                                
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-md-10 col-8 row">
+                                                                                
+                                                                                
+                                                                            <?php  for ($j=0; $j < count($metodospagogrupos[$i]->MetodosPago) ; $j++) {  ?>
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group" style="margin-bottom: 0rem;">
+                                                                                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
+                                                                                                        <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
+                                                                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px; width:60px;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?></label>
+                                                                                                    </div>
+                                                                                        </div>
+                                                                                    
+                                                                                    </div>
+                                                                                <?php }  ?>
+                                                                                
 
-                                        <?php  for ($j=0; $j < count($metodospagogrupos[$i]->MetodosPago) ; $j++) {  ?>
-                                                <div class="form-group" style="margin-bottom: 0rem;">
-                                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
-                                                        <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
-                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px; width:60px;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?></label>
+
+                                                                            </div>
+                                                                        </div>
+                                                                
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php } ?>   
                                                     </div>
-                                                </div>
-                                        <?php }  ?>
-                                        </fieldset>
-                                        
-                                    <?php }  ?>
-                                    </form>
+                                 
 
-
-
+                                
+                                    
                                 </div>
                                 <div class="row botonesabajo" style="padding-bottom: 10px;">
                                             <div class="col-md-12" >
@@ -280,7 +299,10 @@ idmetododepago=0;
             $(document).ready(function() {
             // Instrucciones a ejecutar al terminar la carga
             //ledioaeste(5,"#img-5");
+            $("#grupometodopago3").click();
             $("#metodopago-5").click();
+            
+            
             
             
             });

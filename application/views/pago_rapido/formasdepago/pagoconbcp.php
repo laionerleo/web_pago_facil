@@ -514,6 +514,8 @@
                                    $('#bntprepararpago').hide();
                                    resultadopago=10;
                                    resultadomensaje=response.mensaje;
+                                   getfacturaempresa(response.tnTransaccion);
+                                    getfacturapagofacil(response.tnTransaccion);
 
                                 }
                             if(response.tipo==1)
@@ -557,28 +559,42 @@
             $("#btnayuda").click();            
 
             });
+
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             clearInterval(intervalo);
             intervalo=setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
+
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
+
                 display.textContent = minutes + ":" + seconds;
+
                 if (--timer < 0) {
                     ///ejecutar metodo y cancelar el timer timer = duration;
                     clearInterval(intervalo);
                     //alert("se termino el tiempo de espera ");
                     clearInterval(intervalo);
                     ejecutarerror();
+
                 }
             }, 1000);
         }
+
         function ejecutarerror()
         {
             $("#modalconfirmarpago").modal('toggle');
-            $('.modal-backdrop').remove();
+
+//            $("#popupBusquedaParroquia").modal('hide');//ocultamos el modal
+           // $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+            $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+
+            //$('#myModal').modal('hide')
+         //   $("#btncerrar").click();
+         //   var intentos=<?= $intentos; ?> ;
+           
         }
 </script>
 

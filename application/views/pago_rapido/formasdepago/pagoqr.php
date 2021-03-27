@@ -252,6 +252,8 @@
                             if(response.Estado==2)
                             {
                                 swal("Consulta Qr", "El Pago se a realizado con exito", "succes");
+                                getfacturaempresa(gntransaccion);
+                                getfacturapagofacil(gntransaccion);
                             }
                             if(response.Estado==4)
                             {

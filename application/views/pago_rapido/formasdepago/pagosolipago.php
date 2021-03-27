@@ -450,7 +450,7 @@ function metodoprepararpago()
                         },               
                         complete:function( ) {
                             $("#modalconfirmarpago").modal('toggle');
-                                $('.modal-backdrop').remove();
+                            $('.modal-backdrop').remove();
                                
                         
                             $("#btncargaconfirmar").hide();
@@ -491,6 +491,9 @@ function metodoprepararpago()
             display = document.querySelector('#time');
             display.textContent="Tiempo de espera Agotado";
             $("#btnejecutartrabajo").hide();
+            $("#modalconfirmarpago").modal('toggle');
+            $('.modal-backdrop').remove();
+                            
           //  $("#btncerrar").click();
           //  $("#li6").show();
            // $('#vistaresultado').show();

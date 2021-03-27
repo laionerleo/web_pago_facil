@@ -2,8 +2,6 @@
 <html lang="en">
 <?php $this->load->view('theme/head'); ?>
 <link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
-
-
 <style>
         input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -75,7 +73,7 @@ input[type=number]::-webkit-outer-spin-button {
                                 </li>
                                 <li class="nav-item" id="li4" style="display:none" >
                                     <a class="nav-link" id="confirmacion-tab" data-toggle="tab" href="#confirmacionbody" role="tab"
-                                       aria-controls="contact" aria-selected="false">Verificacion de Pago</a>
+                                       aria-controls="contact" aria-selected="false">Confirmación de Pago</a>
                                 </li>
                                 <li class="nav-item" id="li5" style="display:none" > 
                                     <a class="nav-link" id="prepararpago-tab" data-toggle="tab" href="#prepararpagobody" role="tab"
@@ -86,28 +84,30 @@ input[type=number]::-webkit-outer-spin-button {
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                      aria-labelledby="home-tab">
 
+                                     <button onclick=" getfacturaempresa(150340)" >getfacturaempresa</button>
+                                     <button onclick="getfacturapagofacil(150340)" >getfacturapagofacil</button>
+
+                                     
+
                                      <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
-
                                         <select name="slcrubro"  class=" form-control" id="slcrubro" >
                                             <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
                                                 <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?> "  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>    
-
+                                        </select>   
                                     </div>
                                     <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
-
+                                       
                                         <select name="slgregion"  class=" form-control" id="slgregion" >
                                             <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
                                                 <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
                                             <?php  } ?> 
                                         </select>   
-                                      
                                        
-                                        <label id="nombre_region"  href=""></label>
+                                        <label id="nombre_region"  href=""> </label>
                                     </div>
                                 </div>
                                   <div id="vistas_empresas"  >
@@ -217,17 +217,9 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
             </div>
 
-              <!-- begin::footer 
-         
-  
-            -->
+              <!-- begin::footer -->
+            <?php $this->load->view('theme/footer');  ?>
               <!-- end::footer -->
-              <script src="<?=  base_url() ?>/application/assets/vendors/bundle.js"></script>
-      <!-- App scripts -->
-    <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
-    
-
- 
 
         </div>
 
@@ -259,12 +251,12 @@ var sw=1;
 function cambiar_region(id_region,id_figure,nombre,)
 {
     region_id=id_region;
-    $(id_fugure_region).removeClass("avatar-state-success");
-    id_fugure_region=id_figure;
+  //  $(id_fugure_region).removeClass("avatar-state-success");
+    //id_fugure_region=id_figure;
     
     $('#btn_region').click();
-    $(id_figure).addClass("avatar-state-success");
-    $("#nombre_region").text(nombre);
+    //$(id_figure).addClass("avatar-state-success");
+    //$("#nombre_region").text(nombre);
     filtrar_empresas();
 
 }
@@ -352,8 +344,6 @@ function perfilfrecuente()
 }
 //perfilfrecuente
 
-
-
 function habilitarregiones()
 {
   if(swregion==1)
@@ -369,7 +359,6 @@ function habilitarregiones()
   }
   
 }
-
 function  busqueda_datos()
 {
 
@@ -554,77 +543,76 @@ function limpiar()
 </script>
   
   <?php $this->load->view('theme/js');  ?>
-
   <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
-$( document ).ready(function() {
+    $( document ).ready(function() {
 
-    try {
-		     slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
-												var val = data.value;
-                                                console.log(val);
-                                                var result=val.split(',');
-                                                console.log(result);
-                                           
-                                                    cambiar_rubro(result[0], result[1]);
-                                           
-                                                
-                                
-											}}}).data("dd");
-        //var pagename = document.location.pathname.toString();
-		//pagename = pagename.split("/");
-                                        slcregion.set("selectedIndex", 100);
-		//$("#ver").html(msBeautify.version.msDropdown);
-                      //  pages.set("selectedIndex", 0);
-	} catch(e) {
-		//console.log(e);	
-	}
-	
+try {
+         slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
+                                            var val = data.value;
+                                            console.log(val);
+                                            var result=val.split(',');
+                                            console.log(result);
+                                       
+                                                cambiar_rubro(result[0], result[1]);
+                                       
+                                            
+                            
+                                        }}}).data("dd");
+    //var pagename = document.location.pathname.toString();
+    //pagename = pagename.split("/");
+                                    slcregion.set("selectedIndex", 100);
+    //$("#ver").html(msBeautify.version.msDropdown);
+                  //  pages.set("selectedIndex", 0);
+} catch(e) {
+    //console.log(e);	
+}
 
-    try {
-		            slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
-												var val = data.value;
-                                                console.log(val);
-                                                var result=val.split(',');
-                                                console.log(result);
-                                           
-                                                    cambiar_region(result[0], result[1] ,result[2]   ); 
-                                                
-                                             
-											}}}).data("dd");
-                                            slcrubro.set("selectedIndex", 1000);
+
+try {
+                slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
+                                            var val = data.value;
+                                            console.log(val);
+                                            var result=val.split(',');
+                                            console.log(result);
+                                       
+                                                cambiar_region(result[0], result[1] ,result[2]   ); 
+                                            
                                          
+                                        }}}).data("dd");
+                                        slcrubro.set("selectedIndex", 1000);
+                                     
 
-	} catch(e) {
-		//console.log(e);	
-	}
+} catch(e) {
+    //console.log(e);	
+}
 
 
+
+if(perfil==1)
+{
+    perfilfrecuente();
+    $("#btnperfil").hide();
+    swperfil=1;
+    
+}else{
+    swperfil=0;
+    cambiar_rubro(1,'#rub-0');
+    $("#btnperfilempresa").hide();
+    slcregion.set("selectedIndex", 0);
+    slcrubro.set("selectedIndex", 0);
  
-    if(perfil==1)
-    {
-        perfilfrecuente();
-        $("#btnperfil").hide();
-        swperfil=1;
-        
-    }else{
-        swperfil=0;
-        cambiar_rubro(1,'#rub-0');
-        $("#btnperfilempresa").hide();
-        slcregion.set("selectedIndex", 0);
-        slcrubro.set("selectedIndex", 0);
-     
-    }
-    //
-    
-    $('#li2').attr('disabled', true); //add
+}
+//
 
-    
-   
+$('#li2').attr('disabled', true); //add
+
+
+
 
 
 
@@ -635,7 +623,6 @@ $("#inp_dato").on('keyup', function (e) {
         busqueda_datos();
     }
 }); 
-
 
 function error(tnIdImput)
         {             
@@ -650,13 +637,34 @@ function error(tnIdImput)
             $(tnIdImput).css("border-style", "outset");
             $(tnIdImput).css("border-width", "revert");
         }
+        
+        function getfacturaempresa(transaccion)
+        {
+
+            
+            var link = document.createElement('a');
+            var tntransaccion=transaccion;
+            link.href =" <?=  base_url() ?>/es/getfacturaempresa/"+tntransaccion;
+            link.download = "recibo-"+tntransaccion+"pdf";
+            link.dispatchEvent(new MouseEvent('click'));
+       
+       
+       }
+
+       function getfacturapagofacil(transaccion)
+        {
+            var link = document.createElement('a');
+            var tntransaccion=transaccion;
+            link.href =" <?=  base_url() ?>/es/getfacturapagofacil/"+tntransaccion;
+            link.download = "recibo-"+tntransaccion+"pdf";
+            link.dispatchEvent(new MouseEvent('click'));
+       
+       
+       }
 
 </script>
 
 </body>
-
-
-
 
 
 </html>

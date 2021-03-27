@@ -66,6 +66,10 @@ $route[$l.'enviarfacturacorreo']                = 'Welcome/enviarfacturacorreo';
 $route[$l.'getavisomes2/(:any)/(:any)/(:any)']  = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
 $route[$l.'getavisoactualizado/(:any)/(:any)']  = 'Welcome/getavisoactualizado/$1/$2/$3';
 
+
+$route[$l.'getfacturapagofacil/(:any)']         = 'Welcome/GetFacturaPagoFacil/$1/$2';
+$route[$l.'getfacturaempresa/(:any)']           = 'Welcome/GetFacturaEmpresa/$1/$2';
+
 //metodos de pago 
 //metodos de pago 
 $route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';

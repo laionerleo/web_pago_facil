@@ -1850,6 +1850,200 @@ class Welcome extends CI_Controller {
 		}
 		echo json_encode($arreglo);
 	}
+
+
+
+
+	public function GetFacturaEmpresa($lan,$transaccion)
+	{
+		/*
+		$datos=$this->input->post("datos");
+		$tnTelefono = $datos['tnNumeroTigoMoney'];
+		$tncliente=$_SESSION['cliente'];
+		$tnempresa = $_SESSION['idempresa'];
+		$codigoclienteempresa= $_SESSION['codigofijo'];
+		$tnmetodopago= $_SESSION['metododepago'];
+		//$tnTelefono = $_SESSION['telefonoDePago'];  ; 
+		$tcFacturaA= $_SESSION['nombreclienteempresa'] ;
+		 $tnCiNit=$_SESSION['cionitclienteempresa'];
+		 $tcNroPago=$_SESSION['nrofactura'];
+		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
+		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
+		 $tcPeriodo=$_SESSION['periodomes'];
+		 $tcImei= $_SESSION['imei'] ;
+
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$datos['transaccion'];
+		$tnEmpresa=$datos['codigoempresa'];
+		$tnFactura= $datos['nrofactura'];	
+		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+		$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
+		$lcNombreEmpresa=$laDatosEmpresa->values[0]->cDescripcion;
+	
+		//este codigo sirve para poder visuailzar 
+
+		$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		$fileToDownload = $cadena;
+		//echo  $fileToDownload ;
+		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-'.$lcNombreEmpresa.$tnFactura.'.pdf';
+		//$fichero ='/web_pago_facil/application/assets/documentospdf/factura-empresa'.$tnFactura.'.pdf';
+		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
+		file_put_contents($fichero, $fileToDownload);
+		$d['documentopdf']=$fichero;
+		$this->load->view('pagosrealizados/vysorpdf', $d);
+
+
+		*/
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$datos=$this->input->post("datos");
+/*
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$transaccion;
+		$tnEmpresa=  $_SESSION['idempresa'];
+		$tnFactura= $_SESSION['nrofactura'];
+*/
+
+		$tnCliente=16468;
+		$tnTransaccionDePago=$transaccion;
+		$tnEmpresa=  1;
+		$tnFactura= 479813;
+
+		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+		$this->cargarlog("GetFacturaEmpresa--------------------".$tnTransaccionDePago."--".$tnEmpresa."--". $tnFactura."--". $tnCliente  );
+		//$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
+		//$lcNombreEmpresa=$laDatosEmpresa->values[0]->cDescripcion;
+
+		$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		
+		$fileToDownload = $cadena;
+		//START DOWNLOAD
+		//header('Content-Description: File Transfer');
+		//header('Content-Type', 'application/octet-stream');
+		header('Content-Disposition: attachment; filename= FactutaEmpresa-'.$tnFactura.'.pdf');
+		header('Content-Transfer-Encoding: base64');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		
+		header('Content-Length: '. strlen($fileToDownload));
+		ob_clean();
+		flush();
+		//	readfile($fileToDownload);
+		//	exit;
+			
+		echo $fileToDownload;
+	
+		
+	}
+
+
+public function GetFacturaPagoFacil($lan,$transaccion)
+	{
+		/*
+	$datos=$this->input->post("datos");
+		$tnTelefono = $datos['tnNumeroTigoMoney'];
+		$tncliente=$_SESSION['cliente'];
+		$tnempresa = $_SESSION['idempresa'];
+		$codigoclienteempresa= $_SESSION['codigofijo'];
+		$tnmetodopago= $_SESSION['metododepago'];
+		//$tnTelefono = $_SESSION['telefonoDePago'];  ; 
+		$tcFacturaA= $_SESSION['nombreclienteempresa'] ;
+		 $tnCiNit=$_SESSION['cionitclienteempresa'];
+		 $tcNroPago=$_SESSION['nrofactura'];
+		 $tnMontoClienteEmpresa=$_SESSION['montototal'];
+		 $tnMontoClienteSyscoop =$_SESSION['montocomision'];
+		 $tcPeriodo=$_SESSION['periodomes'];
+		 $tcImei= $_SESSION['imei'] ;
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$datos['transaccion'];
+		$tnEmpresa=$datos['codigoempresa'];
+		$tnFactura= $datos['nrofactura'];	
+		$facturapagofacil=$this->servicios->getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+
+
+		//este codigo sirve para poder visuailzar 
+
+			$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		$fileToDownload = $cadena;
+		//echo  $fileToDownload ;
+		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-'.$tnFactura.'.pdf';
+		//$fichero ='/web_pago_facil/application/assets/documentospdf/factura-pagofacil'.$tnFactura.'.pdf';
+		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
+		file_put_contents($fichero, $fileToDownload);
+		$d['documentopdf']=$fichero;
+		$this->load->view('pagosrealizados/vysorpdf', $d);
+
+
+
+		*/
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$datos=$this->input->post("datos");
+/*		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$transaccion;
+		$tnEmpresa=   $_SESSION['Empresaid'];;  //$tnEmpresa;
+		$tnFactura= $_SESSION['Idpedido']; // "LNK-1379" ; // $nropago;
+*/
+		$tnCliente=16468;
+		$tnTransaccionDePago=$transaccion;
+		$tnEmpresa=  1;
+		$tnFactura= 479813;
+
+
+
+		//$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+		$facturapagofacil=$this->servicios->getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+		$this->cargarlog("GetFacturaPagoFacil--------------------".$tnTransaccionDePago."--".$tnEmpresa."--". $tnFactura."--". $tnCliente  );
+		//$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
+		//$lcNombreEmpresa=$laDatosEmpresa->values[0]->cDescripcion;
+
+		$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		
+		$fileToDownload = $cadena;
+		//START DOWNLOAD
+		//header('Content-Description: File Transfer');
+		//header('Content-Type', 'application/octet-stream');
+		header('Content-Disposition: attachment; filename=FacturaPagoFacil-'.$tnFactura.'.pdf');
+		header('Content-Transfer-Encoding: base64');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		
+		header('Content-Length: '. strlen($fileToDownload));
+		ob_clean();
+		flush();
+		//	readfile($fileToDownload);
+		//	exit;
+			
+		echo $fileToDownload;
+	
+		
+	}
+
+
 	public function cargarlog($Mensajeerror)
     {
       $logFile = fopen("log.txt", 'a') or die("Error creando archivo");
