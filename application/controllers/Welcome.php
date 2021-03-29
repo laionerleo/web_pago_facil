@@ -165,18 +165,23 @@ class Welcome extends CI_Controller {
 		if(!is_null(@$lista->values)  ){
 			$d['facturas']=$lista->values;
 			$d['cantidadfacturas']=count($lista->values);
-			
+			unset($_SESSION['periodomes']);
+			unset($_SESSION['nrofactura']);
 			$_SESSION['periodomes']=$lista->values[0]->periodo;
 			$_SESSION['nrofactura']=$lista->values[0]->factura;
+
+			$this->cargarlog("factura a pagar :".$_SESSION['nrofactura'] . "--" .$_SESSION['periodomes']);
 			$d['periodomes']=$this->get_periodo($lista->values[0]->periodo);
 			for ($i=0; $i < count($lista->values); $i++) { 
 				$lista->values[$i]->periodoaux=$lista->values[$i]->periodo;
 				$lista->values[$i]->periodo =$this->get_periodo($lista->values[$i]->periodo);
 			}
+			$this->cargarlog("listarfacturas".json_encode($lista));
 		}else{
 			$d['facturas']= array();
 			$d['cantidadfacturas']=0;
-		}	
+			
+		}
 		$d['idCliente']=  $_SESSION['codigofijo']; 
 		$d['nombre']=  $_SESSION['nombreclienteempresa'];
 		$d['codigoUbicacion']=  $_SESSION['codigoubicacion'];

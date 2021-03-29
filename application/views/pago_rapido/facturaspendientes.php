@@ -183,11 +183,22 @@ input.largerCheckbox {
                                                                                         <div class="form-group" style="margin-bottom: 0rem;">
                                                                                                     <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
                                                                                                         <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
-                                                                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px; width:60px;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?></label>
+                                                                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?></label>
                                                                                                     </div>
                                                                                         </div>
                                                                                     
                                                                                     </div>
+
+                                                                                    <script>
+                                                                                        <?php  if(isset( $_SESSION['metododepago'])){ 
+                                                                                            if($_SESSION['metododepago']== $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago){
+                                                                                            ?> 
+                                                                                                var grupometododepago="#grupometodopago<?=  $i ?>";     
+                                                                                        <?php }} ?> 
+                                                                                            
+                                                                                    </script>
+                                                                                    
+
                                                                                 <?php }  ?>
                                                                                 
 
@@ -299,8 +310,14 @@ idmetododepago=0;
             $(document).ready(function() {
             // Instrucciones a ejecutar al terminar la carga
             //ledioaeste(5,"#img-5");
-            $("#grupometodopago3").click();
-            $("#metodopago-5").click();
+           <?php  if(isset( $_SESSION['metododepago'])){  ?> 
+                $(grupometododepago).click();
+                $("#metodopago-<?= $_SESSION['metododepago'] ?>").click();
+                
+            <?php  }else{?> 
+                $("#grupometodopago3").click();
+                $("#metodopago-5").click();
+            <?php  } ?> 
             
             
             

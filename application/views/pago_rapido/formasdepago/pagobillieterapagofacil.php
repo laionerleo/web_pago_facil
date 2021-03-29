@@ -103,21 +103,7 @@
                         <div class="form-row">
                         
                         
-                              <div class="col-md-6 col-6 col-sm-4">
-                                <center>
-                                 
-                                 <?php if($recarga==20) { ?>
-                                  <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
-                                <?php }else{ ?>
-                                  <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
-                                <?php }  ?>
-                                 
-                                 
-                                 
-                                 
-                                 </center>
-                                
-                              </div>
+                           
                               <div class="col-md-6 col-6 col-sm-4">
                                 <center  class="botones" > 
                                     <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
@@ -127,6 +113,17 @@
                                     </button> 
                                     <button id="bntprepararpago" class="btn btn-primary "onclick="pagarportigomoney()">Pagar</button> </center>
                                 <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
+                              </div>
+
+                              <div class="col-md-6 col-6 col-sm-4">
+                                <center>                                 
+                                  <?php if($recarga==20) { ?>
+                                      <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                    <?php }else{ ?>
+                                      <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
+                                  <?php }  ?>
+                                 </center>
+                               
                               </div>
                           </div>
                       </div>
@@ -182,6 +179,8 @@
                         $("#btncarga").hide();
                         $("#bntprepararpago").show();
                           swal("Pago exitoso",response.mensaje , "success");  
+                          getfacturaempresa(response.tnTransaccion);
+                          getfacturapagofacil(response.tnTransaccion);
                       }
                       if(response.tipo==1)
                       {
