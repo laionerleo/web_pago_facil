@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
+/*
 define('server_local', 'localhost');
 define('ip1', '172.16.15.202');
 define('ip2', '192.168.0.14');
@@ -40,8 +40,8 @@ switch($nombreServerActual)
             $config['base_url'] = 'http://localhost/web_pago_facil/';
             break;       
 }
-
-//$config['base_url'] = 'http://localhost/web_pago_facil/';
+*/
+$config['base_url'] = 'http://localhost/web_pago_facil/';
 
 /*
 |--------------------------------------------------------------------------
@@ -283,7 +283,7 @@ $config['log_file_extension'] = '';
 | IMPORTANT: This MUST be an integer (no quotes) and you MUST use octal
 |            integer notation (i.e. 0700, 0644, etc.)
 */
-$config['log_file_permissions'] = 0644;
+$config['log_file_permissions'] = 0777;
 
 /*
 |--------------------------------------------------------------------------
@@ -347,7 +347,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'AlXdnerCludAljnr2019$';
+$config['encryption_key'] = 'AlXdnerCludAljnr2019$webpagofacil';
 
 /*
 |--------------------------------------------------------------------------
@@ -402,11 +402,13 @@ $config['encryption_key'] = 'AlXdnerCludAljnr2019$';
 */
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 0;
-$config['sess_save_path'] = NULL;
+$config['sess_expiration'] = 82400;
+$config['sess_save_path'] = sys_get_temp_dir();
 $config['sess_match_ip'] = FALSE;
-$config['sess_time_to_update'] = 30;
+$config['sess_time_to_update'] = 1;
 $config['sess_regenerate_destroy'] = FALSE;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -511,7 +513,8 @@ $config['compress_output'] = FALSE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-$config['time_reference'] = 'local';
+//$config['time_reference'] = 'local';
+$config['time_reference'] = 'America/La_Paz';
 
 /*
 |--------------------------------------------------------------------------

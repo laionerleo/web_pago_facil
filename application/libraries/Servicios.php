@@ -875,6 +875,8 @@ tnAuthorizationNumber= autorizacion deBCP
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/calcularComision';
       $data = array( 'tnEmpresa'=> $tnempresa,'tnCliente' =>$tncliente   , 'tnMetodoPago'=> $tnmetodopago ,'tcMonto'=> $tcMonto ,'tnIdAccion'=> 0 , 'tcApp'=>2);
+      
+      $this->cargarlogservicio("calcularcomision--".json_encode($data));
       //print_r($data);
       
       /*

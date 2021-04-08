@@ -1,11 +1,12 @@
 
+            
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card" style="height: 100%;">
+                    <div class="card" >
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
                                         <div class="row mb-2">
-                                            <div class="col-12 text-muted">Verificacion de Pago</div>
+                                            <div class="col-12 text-muted">Confirmación de Pago</div>
                                             
                                         </div>
                                         <div class="row mb-2">
@@ -82,10 +83,15 @@
 	<script>
         function vistaprepararpago()
         {
-            var datos= {metododepago:5 };
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            var datos= { tnIdentificarPestaña:tnIdentificarPestaña };
             var urlajax=$("#url").val()+"vistaprepararpago";   
             $("#prepararpagobody").empty();   
             $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+            $.ajaxSetup(
+        {
+            cache: false,
+                    });
             $("#prepararpagobody").load(urlajax,{datos});  
             
             $("#li5").show();

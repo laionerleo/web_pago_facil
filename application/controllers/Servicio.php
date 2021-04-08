@@ -338,6 +338,16 @@ class Servicio extends CI_Controller {
 		
 	}
 
+	public function comopagar()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$entidades=$this->servicios->genentidadesfinancieras(1);
+		$d['entidades']=$entidades->values;	
+		$this->load->view('entidadescomopagar' , $d);
+
+	}
+
 	public function cargarciudades()
 	{
 
@@ -363,19 +373,30 @@ class Servicio extends CI_Controller {
 		echo json_encode($d['ciudades']->values);
 	}
 
+
 	public function jwtvalidation()
 	{
 
 		$jwt=$this->input->post("tcJWT");
+		$tnIdentificarPestaña=$this->input->post("0");
 	
-		//$metodos=$this->servicios->jwtvalidation($jwt, $_SESSION['metododepago']);
-		$metodos=$this->servicios->jwtvalidation($jwt, 9);
+		$metodos=$this->servicios->jwtvalidation($jwt, $_SESSION[$tnIdentificarPestaña.'metododepago']);
+		//$metodos=$this->servicios->jwtvalidation($jwt, 9);
+		$this->cargarlogbasico("llegocojwtvalidationnfirmarbcp--".json_encode($metodos));
 		echo json_encode($metodos);
 	
-	//	$this->cargarlogbasico("llegoconfirmarbcp--".json_encode($metodos));
+	
 		
 	}
 	/**/
+
+	public function cargarlogbasico($Mensajeerror)
+    {
+      $logFile = fopen("logservicio.txt", 'a') or die("Error creando archivo");
+      fwrite($logFile, "\n".date("d/m/Y H:i:s").$Mensajeerror) or die("Error escribiendo en el archivo");
+      fclose($logFile);
+    }
+
 
 
 

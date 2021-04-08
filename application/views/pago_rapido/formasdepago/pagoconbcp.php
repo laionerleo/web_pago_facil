@@ -380,7 +380,8 @@
                 var extension=$('#slcext').val();
                 var fechaexpiracion=$('#slcmes').val()+"/"+$('#slcaño').val();
                 var numbersoli=$('#inpnumbersoli').val();
-                var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli };
+                var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+                var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli ,tnIdentificarPestaña:tnIdentificarPestaña };
                 var urlajax=$("#url").val()+"metodoprepararpagobcp"; 
                 
                 
@@ -482,11 +483,9 @@
         //var expiracion 
         function ejecutarpago()
         {
-            //$("#btncerrar").click();
-            //clearInterval(intervalo);
-            
             var codigo=$('#inpcodigo').val();
-            var datos= {codigo:codigo};
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            var datos= {codigo:codigo , tnIdentificarPestaña:tnIdentificarPestaña};
             var urlajax=$("#url").val()+"confirmarpagobcp";   
             var resultadopago=0;
             var resultadomensaje="";

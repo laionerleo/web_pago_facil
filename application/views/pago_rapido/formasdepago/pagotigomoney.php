@@ -141,7 +141,9 @@
           if(tnNumeroTigoMoney.length >0 &&  (/^\d{8}$/.test(tnNumeroTigoMoney))   )
           {
             valido("#tnNumeroTigoMoney");
-              var datos= {tnNumeroTigoMoney:tnNumeroTigoMoney, };
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+
+              var datos= {tnNumeroTigoMoney:tnNumeroTigoMoney, tnIdentificarPestaña:tnIdentificarPestaña  };
               var urlajax=$("#url").val()+"metodotigomoney"; 
           
                 $.ajax({                    
@@ -206,7 +208,8 @@
       
         function verificartransaccion(codigo){
               var trans=codigo;
-                var datos= {transaccion:trans };
+              var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+                var datos= {transaccion:trans ,tnIdentificarPestaña:tnIdentificarPestaña };
                 var urlajax=$("#url").val()+"verificartransaccion"; 
             
                 $.ajax({                    

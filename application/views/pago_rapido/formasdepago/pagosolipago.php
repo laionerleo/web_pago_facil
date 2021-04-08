@@ -290,8 +290,8 @@ function metodoprepararpago()
                     var extension=$('#slcext').val();
                     var fechaexpiracion="" //$('#slcmes').val()+"/"+$('#slcaño').val();
                     var numbersoli=$('#inpnumbersoli').val();
-                
-                    var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli  };
+                    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+                    var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli ,tnIdentificarPestaña:tnIdentificarPestaña };
                     
                      //var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli };
                    
@@ -409,7 +409,8 @@ function metodoprepararpago()
             
 
             var codigo=$('#inpcodigo').val();
-            var datos= {codigo:codigo};
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            var datos= {codigo:codigo , tnIdentificarPestaña:tnIdentificarPestaña};
             var urlajax=$("#url").val()+"confirmarpagobcp";   
             $.ajax({                    
                     url: urlajax,
@@ -432,6 +433,8 @@ function metodoprepararpago()
                                     $("#btnejecutartrabajo").attr("disabled","disabled");
                                     swal("Pago exitoso", response.mensaje , "success");  
                                     clearInterval(intervalo);
+                                    getfacturaempresa(response.tnTransaccion);
+                                    getfacturapagofacil(response.tnTransaccion);
                                 }
                             if(response.tipo==1)
                                 {

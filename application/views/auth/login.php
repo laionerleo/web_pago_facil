@@ -80,12 +80,12 @@
                         
                         <div class="form-group"> 
                             <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
-                                <input type="text" id="usuario" name="usuario" class="form-control" name="Login" placeholder="Name" required="required" style="color: Black;opacity: 1;"   >
+                                <input type="text" id="usuario" name="usuario" class="form-control" name="Login" placeholder="Name" required="required" style="color: Black;opacity: 1;"  value="laionerplus@gmail.com"  >
                             </div>
                         </div>
                         <div class="form-group">  
                             <div class="fxt-transformY-50 fxt-transition-delay-2">                                              
-                                <input id="contraseña" name ="contraseña" type="password" class="form-control" placeholder="********" required="required" style="color: Black;opacity: 1;" >
+                                <input id="contraseña" name ="contraseña" type="password" class="form-control" placeholder="********" required="required" style="color: Black;opacity: 1;" value="ticketfacil123" >
                                 <i toggle="#password" id="contraseñaojo" class="fa fa-fw fa-eye toggle-password field-icon"></i>
                             </div>
                         </div>

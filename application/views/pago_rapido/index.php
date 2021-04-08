@@ -84,11 +84,6 @@ input[type=number]::-webkit-outer-spin-button {
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                      aria-labelledby="home-tab">
 
-                                     <button onclick=" getfacturaempresa(150340)" >getfacturaempresa</button>
-                                     <button onclick="getfacturapagofacil(150340)" >getfacturapagofacil</button>
-
-                                     
-
                                      <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
@@ -375,8 +370,8 @@ function  busqueda_datos()
     var tipo=sw;
     if( (codigo!='') && (empresa_id!=0))
     {
-        
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , tnIdentificarPestaña:tnIdentificarPestaña };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
     //$("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -453,9 +448,10 @@ function  busqueda_billeteras_general()
 }
 function facturaspendientes(codigo_usuario)
 {
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     var codigo=codigo_usuario;
     var tipo=sw;
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
     var urlajax=$("#url").val()+"facturaspendientes";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -465,13 +461,9 @@ function facturaspendientes(codigo_usuario)
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
     $("#facturaspendientesbody").load(urlajax,{datos});   
-    
     $("#li2").show();
     $("#facturaspendientes-tab").click();
-
 }
 
 function habilitarrecarga()
@@ -515,7 +507,10 @@ function vistarecarga(codigo)
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
-    
+    $.ajaxSetup(
+        {
+            cache: false,
+                    });
     $("#recargabody").load(urlajax,{datos});   
     
     $("#lir").show();
@@ -545,10 +540,12 @@ function limpiar()
   <?php $this->load->view('theme/js');  ?>
   <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
+	sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
+
     $( document ).ready(function() {
 
 try {
@@ -637,7 +634,8 @@ function error(tnIdImput)
             $(tnIdImput).css("border-style", "outset");
             $(tnIdImput).css("border-width", "revert");
         }
-        
+
+             
         function getfacturaempresa(transaccion)
         {
 
@@ -661,6 +659,7 @@ function error(tnIdImput)
        
        
        }
+        
 
 </script>
 

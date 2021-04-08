@@ -183,7 +183,7 @@ input.largerCheckbox {
                                                                                         <div class="form-group" style="margin-bottom: 0rem;">
                                                                                                     <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
                                                                                                         <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
-                                                                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?></label>
+                                                                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->etiquetaBilletera ?></label>
                                                                                                     </div>
                                                                                         </div>
                                                                                     
@@ -272,7 +272,9 @@ function vistafacturacion()
 {
     var montototal=$("#montototal").val();
     var idfactura=$("#facturaid").val();
-    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura };
+    var codigo_fijo=$("#codigofijo").val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo };
     var urlajax=$("#url").val()+"vistafacturacion";  
      
     $("#facturacionbody").empty();   
@@ -283,7 +285,10 @@ function vistafacturacion()
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
     
-     
+    $.ajaxSetup(
+        {
+            cache: false,
+                    });
     $("#facturacionbody").load(urlajax,{datos});   
     $("#li3").show();
     $("#facturacion-tab").click();

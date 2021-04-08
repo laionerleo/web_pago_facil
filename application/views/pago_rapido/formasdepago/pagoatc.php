@@ -733,7 +733,7 @@
 <input type="hidden" id="tnCliente" value="<?=   trim($tnCliente) ?>" />
 <input type="hidden" id="tnEmpresa" value="<?=   trim($tnEmpresa) ?>" />
 <input type="hidden" id="tcCodigoClienteEmpresa" value="<?=   trim($tcCodigoClienteEmpresa) ?>" />
-<input type="hidden" id="tnMetodoPago" value="9" />
+<input type="hidden" id="tnMetodoPago" value="<?= trim($tnMetodoPago)  ?>" />
 <input type="hidden" id="tnFactura" value="<?=   trim($tnFactura) ?>" />
 <input type="hidden" id="tcPeriodo" value="<?=   trim($tcPeriodo) ?>" />
 <input type="hidden" id="tcApp" value="2" />

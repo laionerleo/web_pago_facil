@@ -525,3 +525,950 @@ ss
 27/03/2021 17:35:06getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
 27/03/2021 17:37:11get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
 27/03/2021 17:37:14getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:17:14get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:17:17getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:17:44get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:17:46getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:18:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:18:37getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:19:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:19:29getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:19:53get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:19:56getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:20:42get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:20:45getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:21:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+30/03/2021 16:21:26getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:22:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:22:37getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:28:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:28:42getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:30:21get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:30:27getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:30:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:30:53getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:31:00get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:31:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:31:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:31:37getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:42:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:42:10getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:42:26get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:42:32getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:42:56get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:43:06getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:44:05get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:44:11getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:46:30get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:46:35getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:47:11get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:47:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 16:51:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 16:51:22getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 22:27:58get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 22:28:00getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 22:28:17get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 22:28:19getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 22:33:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 22:33:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 22:33:34get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 22:33:38getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 22:49:30get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 22:49:33getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+30/03/2021 22:50:11realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":3056737,"tnFactura":4045681,"tcMonto":"51.06","tcComision":"2.00","tnIdAccion":1,"tcImei":"359771070316867","tcApp":2,"tcPeriodo":"2021-02"}
+30/03/2021 22:50:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/03/2021 22:50:28getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 15:40:07get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 15:40:09getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 15:41:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 15:41:06getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 15:41:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 15:41:19getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 16:06:21get_listar_facturas <--{"tnEmpresa":null,"tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 16:07:22getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 16:15:08get_listar_facturas <--{"tnEmpresa":null,"tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 16:15:12getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 16:18:17get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 16:18:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 16:28:01get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 16:28:03getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 16:32:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 16:32:13getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 16:34:21get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 16:34:29getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 20:46:00get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 20:46:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 20:46:07getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 21:01:59get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:02:02get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:02:07getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 21:02:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:02:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:02:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 21:13:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:13:41get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:13:44getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 21:14:47get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:14:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:14:53getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 21:42:38get_listar_facturas <--{"tnEmpresa":"3","tcCodigoClienteEmpresa":"4000","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:42:40get_listar_facturas <--{"tnEmpresa":"3","tcCodigoClienteEmpresa":"4000","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:42:46getmetodosbygrupos{"tnEmpresa":"3","tcApp":3,"tcLink":0}
+31/03/2021 21:43:30get_listar_facturas <--{"tnEmpresa":"1","tcCodigoClienteEmpresa":"1500","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:43:32get_listar_facturas <--{"tnEmpresa":"1","tcCodigoClienteEmpresa":"1500","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:43:36getmetodosbygrupos{"tnEmpresa":"1","tcApp":3,"tcLink":0}
+31/03/2021 21:44:18get_listar_facturas <--{"tnEmpresa":"1","tcCodigoClienteEmpresa":"1509","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:44:19get_listar_facturas <--{"tnEmpresa":"1","tcCodigoClienteEmpresa":"1509","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 21:44:26getmetodosbygrupos{"tnEmpresa":"1","tcApp":3,"tcLink":0}
+31/03/2021 23:01:56get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 23:01:59get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 23:02:02getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+31/03/2021 23:02:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 23:02:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 23:02:12getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+31/03/2021 23:57:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 23:57:38get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+31/03/2021 23:57:44getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:11:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:11:10get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:11:13getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:11:22get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:11:23get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:11:41getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:12:04get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:12:05get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:12:09getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:18:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:18:39get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:18:43getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:19:34get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:19:36get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:19:39getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:22:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:22:59get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:23:03getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:23:35get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:23:36get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:23:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:23:54get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:23:55get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:23:58getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:32:27get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:32:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:32:34getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:34:45get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:34:49get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:34:54getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:36:53get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:36:54get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:36:59getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:37:34get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:37:39get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:37:43getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 00:41:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23935","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:41:39get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23935","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:41:43getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:44:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:44:39get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:44:43getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:53:55get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:53:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:54:02getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:58:07get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:58:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:58:14getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 00:58:20get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:58:23get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 00:58:26getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 01:03:08get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 01:03:09get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 01:03:14getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 01:06:37get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 01:06:39get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 01:06:45getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 01:07:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 01:07:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 01:08:01getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 14:37:18get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 14:37:26get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 14:37:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 14:37:54get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 14:37:58get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 14:38:06getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 14:56:01get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 14:56:05get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 14:56:10getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 15:03:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:04:02get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:04:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 15:05:30get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:05:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:05:40getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 15:08:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:08:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:08:10getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 15:10:46get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:10:48get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:10:51getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 15:13:47get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:13:49get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:13:53getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 15:14:12get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:14:15get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:14:19getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 15:57:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:57:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:57:27getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 15:57:29get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:57:34get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 15:57:37getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:01:29calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:01:35calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:07:47get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:07:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:07:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:07:58get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:08:00get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:08:02getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:08:30calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"55.10","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:08:36calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:09:23get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:09:26get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:09:30getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:11:25get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:11:28get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:11:30getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:11:33get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:11:35get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:11:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:14:27get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:14:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:14:41getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:14:43get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:14:45get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:14:48getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:17:39calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"55.10","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:17:42calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:17:57calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:18:03calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"55.10","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:18:46realizarpagotigo{"tnCliente":null,"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":3056737,"tnFactura":4045681,"tcMonto":"51.06","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+01/04/2021 16:18:50guardarUbicacionDePago{"tnCliente":null,"tnEmpresa":"13","tnTransaccion":null,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/04/2021 16:18:57realizarpagotigo{"tnCliente":null,"tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Prada Garcia Hamilton","tnCiNit":0,"tnFactura":4700271,"tcMonto":"55.10","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+01/04/2021 16:18:59guardarUbicacionDePago{"tnCliente":null,"tnEmpresa":"2","tnTransaccion":null,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/04/2021 16:20:25realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":3056737,"tnFactura":4045681,"tcMonto":"51.06","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+01/04/2021 16:20:33guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":154267,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/04/2021 16:20:38realizarpagotigo{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"23930","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Prada Garcia Hamilton","tnCiNit":0,"tnFactura":4700271,"tcMonto":"55.10","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+01/04/2021 16:20:44guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":154268,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/04/2021 16:25:07get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:25:10get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:25:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:25:18get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:26:18get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:26:21getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:30:27calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:30:31calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:30:32calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:32:34calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:37:05get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:37:07get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:37:09getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:37:13get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:37:17get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:37:19getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:37:33calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:37:39calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 16:38:24realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":3056737,"tnFactura":4045681,"tcMonto":"51.06","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+01/04/2021 16:38:31guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":154277,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/04/2021 16:38:36realizarpagotigo{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Rojas Guzman Mirian","tnCiNit":0,"tnFactura":4730199,"tcMonto":"63.11","tcComision":"2.50","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-03"}
+01/04/2021 16:38:41guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":154278,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/04/2021 16:40:48get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:40:51get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 16:40:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 16:40:56get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 16:40:57get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 16:40:58getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 16:41:14get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 16:41:15get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 16:41:18getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 17:33:05get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 17:33:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 17:33:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 17:33:27calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+01/04/2021 17:34:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 17:34:40get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 17:34:59getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 17:35:50calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+01/04/2021 17:36:43realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Quintanilla Campos Marcos Manuel","tnCiNit":3862198,"tnFactura":4088348,"tcMonto":"45.38","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-03"}
+01/04/2021 17:59:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 17:59:21get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 17:59:27getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 18:02:39get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23928","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 18:02:40get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23928","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 18:02:49getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 18:03:25get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 18:03:28get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 18:03:30getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 18:03:35calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"48.81","tnIdAccion":0,"tcApp":2}
+01/04/2021 18:03:41calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+01/04/2021 18:05:40calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"48.81","tnIdAccion":0,"tcApp":2}
+01/04/2021 18:06:25calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"48.81","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:46:34get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 21:46:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 21:46:39getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 21:48:02calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:48:04get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 21:48:07get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 21:48:12getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 21:48:50calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:50:54calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:50:59calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:52:44calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:53:04calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:54:21calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:55:21calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+01/04/2021 21:58:43calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+01/04/2021 22:00:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:00:40get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:00:45getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 22:00:52get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:00:55get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:01:00getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 22:03:29get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:03:31get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:03:35getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 22:06:03get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:06:05get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:06:09getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 22:07:50get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:07:51get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:07:55getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 22:07:59get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:08:01get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:08:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/04/2021 22:09:09get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:09:12get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/04/2021 22:09:15getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 22:22:22get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 22:22:42get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 22:23:22getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+01/04/2021 23:44:39get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 23:44:39get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+01/04/2021 23:44:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+02/04/2021 00:23:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:23:22get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:23:23get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:23:25get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:23:26getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+02/04/2021 00:23:28getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+02/04/2021 00:23:37calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:23:49calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:23:58calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:24:11calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:26:13calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:27:02calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:27:38calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:37:54get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:37:56get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:37:58getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+02/04/2021 00:56:28calcularcomision--{"tnEmpresa":"51.06","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+02/04/2021 00:56:31get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:56:33get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 00:56:36getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+02/04/2021 00:56:55calcularcomision--{"tnEmpresa":"50.73","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+02/04/2021 01:18:58calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+02/04/2021 01:19:04calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+02/04/2021 01:21:21calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+02/04/2021 01:24:27calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+02/04/2021 01:24:36calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+02/04/2021 02:05:02get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 02:05:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 02:05:07getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+02/04/2021 02:07:55calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+02/04/2021 02:08:55calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+02/04/2021 02:23:21realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":3056737,"tnFactura":4045681,"tcMonto":"51.06","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+02/04/2021 04:06:21get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:06:25get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:06:38get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:06:43get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:07:29get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:07:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:07:37get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:07:42get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:08:53get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:08:56get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:09:02getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+02/04/2021 04:09:26calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+02/04/2021 04:09:30get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:09:32get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:09:37getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+02/04/2021 04:09:50calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+02/04/2021 04:10:21realizarpagotigo{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Rojas Guzman Mirian","tnCiNit":0,"tnFactura":4730199,"tcMonto":"63.11","tcComision":"2.50","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-03"}
+02/04/2021 04:10:30guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":154518,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+02/04/2021 04:55:47get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:55:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:55:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+02/04/2021 04:56:07calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+02/04/2021 04:56:16calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+02/04/2021 04:56:29get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:56:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+02/04/2021 04:56:37getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+02/04/2021 04:57:01realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Quintanilla Campos Marcos Manuel","tnCiNit":3862198,"tnFactura":4088348,"tcMonto":"45.38","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-03"}
+02/04/2021 04:57:09guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":154522,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+02/04/2021 04:57:12calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:12:21get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:12:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:12:29getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:12:43calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:12:51get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:12:53get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:13:02getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 15:13:14calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:25:51get_listar_facturas <--{"tnEmpresa":"8","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:25:52get_listar_facturas <--{"tnEmpresa":"8","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:25:54getmetodosbygrupos{"tnEmpresa":"8","tcApp":3,"tcLink":0}
+03/04/2021 15:26:17get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:26:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:26:23getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:26:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+03/04/2021 15:26:32get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+03/04/2021 15:26:35getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:32:23get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:32:25get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:32:31getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:34:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:34:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:34:12getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:34:17calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:34:27calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:40:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:40:34get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:40:37getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:43:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:51:54get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:51:55get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:51:58getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 15:52:27calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 15:54:08realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":3056737,"tnFactura":4045681,"tcMonto":"51.06","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-02"}
+03/04/2021 15:54:15guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":154679,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+03/04/2021 15:54:29realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":5853238,"tnFactura":4039026,"tcMonto":"37.49","tcComision":"1.50","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-01"}
+03/04/2021 15:54:39guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":154680,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+03/04/2021 15:58:35get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:58:37get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 15:58:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 15:59:31calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 16:14:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:15:00get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:15:07getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 16:15:26calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 16:25:46get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23840","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:25:50get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23840","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:25:53getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 16:26:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23841","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:26:11get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23841","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:26:16getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 16:26:40calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"38.71","tnIdAccion":0,"tcApp":2}
+03/04/2021 16:27:04calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 16:40:14get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:40:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:40:23getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 16:40:32calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 16:41:01get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:41:06get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:41:11getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 16:41:22calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 16:47:06get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:47:10get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 16:47:13getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 17:01:46get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:01:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:01:52getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:04:32get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:04:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:05:58getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:10:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:10:53getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:21:26calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:31:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:31:12getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:31:42get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:31:44getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 17:32:41calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:32:44calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:32:44calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:40:00get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:40:05getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 17:40:08get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:40:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:40:52calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:40:54calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:41:12calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:41:26calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:44:12get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:44:18getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:44:20get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:44:22getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 17:45:23calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:45:27calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:45:28calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 17:53:59get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:54:09getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 17:54:26get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:55:25getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 17:57:33get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 17:57:35getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:00:06calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:00:14calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:05:31calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:05:38calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:26:45get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:26:51getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 18:27:41get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:27:45getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:27:48get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:27:52getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:28:33calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:28:33calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:28:39calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:30:43get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:30:47getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:30:56get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:31:01getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 18:31:07calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"63.11","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:31:14calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:35:02get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:35:15getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:35:18get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:35:21getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:35:25get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:35:31getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 18:35:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:35:40getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 18:35:43calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:35:53calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:36:35calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:36:40calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:36:40calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:37:37calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:38:09calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:39:46calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:39:53calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:41:50get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:41:54getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:41:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:42:02getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 18:42:10calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:42:17calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:43:37calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:43:42calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:43:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:43:47calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:51:55get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:51:58getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 18:52:07calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:53:11get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:53:18getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 18:53:28calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 18:59:57get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 18:59:59getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+03/04/2021 19:00:05calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 19:00:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 19:00:23getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 19:00:55calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 19:04:05mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":null,"tcCodigoClienteEmpresa":"","tnMetodoPago":null,"tnTelefono":"","tcFacturaA":"","tnCiNit":"11385389","tcNroPago":"","tnMontoClienteEmpresa":null,"tnMontoClienteSyscoop":"","tcPeriodo":"","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2}
+03/04/2021 19:04:12realizarpagotigo{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":5853238,"tnFactura":4039026,"tcMonto":"37.49","tcComision":"1.50","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-01"}
+03/04/2021 19:04:22guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":154771,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+03/04/2021 19:08:07calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+03/04/2021 19:10:12get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 19:10:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 19:10:26calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+03/04/2021 19:15:30get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 19:15:33getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 19:15:42calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 19:17:54get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+03/04/2021 19:17:56getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+03/04/2021 19:18:16calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+03/04/2021 19:22:20mando generar qr <--{"tnCliente":"3859","tnEmpresa":null,"tcCodigoClienteEmpresa":null,"tnMetodoPago":null,"tnTelefono":null,"tcFacturaA":null,"tnCiNit":null,"tcNroPago":null,"tnMontoClienteEmpresa":null,"tnMontoClienteSyscoop":null,"tcPeriodo":null,"tcImei":"359771070316867","tcApp":2}
+05/04/2021 14:39:12get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 14:39:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 14:39:25calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 14:42:54mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":"3056737","tcNroPago":4045681,"tnMontoClienteEmpresa":"51.06","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-02","tcImei":null,"tcApp":2}
+05/04/2021 14:43:13guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"9\",\"7\",\"12\"]","tnTransaccion":"154961","tnApp":3}
+05/04/2021 14:43:14guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"154961","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+05/04/2021 14:47:40get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 14:47:43getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 15:45:27calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 15:47:04mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":null,"tcCodigoClienteEmpresa":"","tnMetodoPago":null,"tnTelefono":"","tcFacturaA":"","tnCiNit":"11385389","tcNroPago":"","tnMontoClienteEmpresa":null,"tnMontoClienteSyscoop":"","tcPeriodo":"","tcImei":"359771070316867","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2}
+05/04/2021 15:48:51calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 15:48:57mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":"11385389","tcNroPago":"4045681","tnMontoClienteEmpresa":"51.06","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-02 ","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2}
+05/04/2021 15:50:58get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 15:51:01getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 15:51:08calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 15:52:56calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 15:53:02mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":"11385389","tcNroPago":"4039026","tnMontoClienteEmpresa":"37.49","tnMontoClienteSyscoop":"1.50","tcPeriodo":"2021-01 ","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2}
+05/04/2021 15:53:15guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"155015","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+05/04/2021 16:02:47get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 16:02:59getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 16:03:32calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 16:04:23calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 16:04:29mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Garsilazo Menchaca Josefina","tnCiNit":"11385389","tcNroPago":"4039026","tnMontoClienteEmpresa":"37.49","tnMontoClienteSyscoop":"1.50","tcPeriodo":"2021-01 ","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2}
+05/04/2021 16:04:38guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"155033","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+05/04/2021 16:51:24get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 16:51:32getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 16:51:47calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"10","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 16:52:02cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":53}
+05/04/2021 17:03:55cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":53}
+05/04/2021 17:04:19cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":53}
+05/04/2021 17:09:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 17:09:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 17:09:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"9","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+05/04/2021 17:11:31cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":48}
+05/04/2021 17:18:53cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTc2MzU5MzIsImV4cCI6MTYxNzY0MzEzMiwianRpIjoiNzY5YTEyNTItZjY3ZC00MzMwLWI2ZjktM2U3YzkxYjVlMTk3IiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIxX2UzZDM0ZjJlLTQ2OGMtNGUyMy1iNzBjLTliZGEwNjZiZjA0ZCIsImF1ZCI6ImdZMXhNMFFaLUw1dnctbTQwWS1XdUY2LWF2M1pGUjBwZmo2bSIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6InNYZ2Jqd0ZyWWxMMTBydlM1MkYwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjQ4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.IweHV-m8d3_l_jd9WEIPLna8X8kfcrv54e8yHuvVLOI","tnMetodoPago":null}
+05/04/2021 17:18:56llegocojwtvalidationnfirmarbcp--null
+05/04/2021 17:22:55cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTc2MzYxNzQsImV4cCI6MTYxNzY0MzM3NCwianRpIjoiOTMzYTc2NGUtNzc2ZC00ZDk3LTgyNWUtNGRjZDU2NmEzMzliIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIxX2UzZDM0ZjJlLTQ2OGMtNGUyMy1iNzBjLTliZGEwNjZiZjA0ZCIsImF1ZCI6ImdZMXhNMFFaLUw1dnctbTQwWS1XdUY2LWF2M1pGUjBwZmo2bSIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6ImdCMnI3aUtCN3FxYTF6b2RLRnMwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjQ4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.j_ZDTZzzRK_-EQHHAYmQ3KvXK6PpKEnDSsa4MbSL0qo","tnMetodoPago":"9"}
+05/04/2021 17:22:58llegocojwtvalidationnfirmarbcp--{"iss":"5fad1324c953507286ca4415","iat":1617636174,"exp":1617643374,"jti":"933a764e-776d-4d97-825e-4dcd566a339b","ConsumerSessionId":"1_e3d34f2e-468c-4e23-b70c-9bda066bf04d","aud":"gY1xM0QZ-L5vw-m40Y-WuF6-av3ZFR0pfj6m","Payload":{"Payment":{"Type":"CCA","ProcessorTransactionId":"gB2r7iKB7qqa1zodKFs0","ExtendedData":{"Amount":"4800","CurrencyCode":"BOB"}},"ErrorNumber":0,"ErrorDescription":"Success"}}
+05/04/2021 17:27:24cybersourseinit{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2MTc2MzY0NDMsImV4cCI6MTYxNzY0MzY0MywianRpIjoiZTA3MjBjYmMtYjY1Yi00ZDRhLTk3YjYtMDQxMWExNmY2NzlkIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIxX2UzZDM0ZjJlLTQ2OGMtNGUyMy1iNzBjLTliZGEwNjZiZjA0ZCIsImF1ZCI6ImdZMXhNMFFaLUw1dnctbTQwWS1XdUY2LWF2M1pGUjBwZmo2bSIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6InplUkloQTJhaHZrUmxQWE40WkMwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjQ4MDAiLCJDdXJyZW5jeUNvZGUiOiJCT0IifX0sIkVycm9yTnVtYmVyIjowLCJFcnJvckRlc2NyaXB0aW9uIjoiU3VjY2VzcyJ9fQ.1ILJo6HpKIwX68qDUdTAdUYQPg09WEv1eDz5N3374xQ","tnMetodoPago":"9"}
+05/04/2021 17:27:31llegocojwtvalidationnfirmarbcp--{"iss":"5fad1324c953507286ca4415","iat":1617636443,"exp":1617643643,"jti":"e0720cbc-b65b-4d4a-97b6-0411a16f679d","ConsumerSessionId":"1_e3d34f2e-468c-4e23-b70c-9bda066bf04d","aud":"gY1xM0QZ-L5vw-m40Y-WuF6-av3ZFR0pfj6m","Payload":{"Payment":{"Type":"CCA","ProcessorTransactionId":"zeRIhA2ahvkRlPXN4ZC0","ExtendedData":{"Amount":"4800","CurrencyCode":"BOB"}},"ErrorNumber":0,"ErrorDescription":"Success"}}
+05/04/2021 17:27:31realizarpagoatc{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnMetodoPago":"9","tnFactura":"4088348","tcPeriodo":"2021-03","tcApp":"2","tcMonto":"45.38","tnMoneda":"2","tcComision":"2.80","tnCiNit":"3862198","CardNumber":"4454545454545454","CardExpMonth":"02","CardExpYear":"2023","CardCode":"321","BillingFirstName":"fabio","BillingLastName":"ayala","BillingAddress1":"Barrio caminero 5 de octubre;[{","BillingAddress2":"Barrio caminero 5 de octubre;[{","BillingAddress3":" ","BillingCity":"Santa Cruz de la Sierra","BillingState":"S","BillingPostalCode":"0000","BillingCountryCode":"BO","MobilePhone":"60817621","Email":"laionerplus@gmail.com","OrderNumber":"gY1xM0QZ-L5vw-m40Y-WuF6-av3ZFR0pfj6m","Amount":"48","CurrencyCode":"Bs","tcTransactionID":"zeRIhA2ahvkRlPXN4ZC0","tcFingerPrint":"oscwzNpr4xqXt5VZ","mdd12":"60817621 ","mdd19":"3862198 ","mdd42":" ","mdd11":"3862198 ","mdd17":"NO ","mdd18":" ","swguardartarjeta":"0","tnIdentificarPesta\u00f1a":"64","tnPedidoCheckout":"0","0":"64"}
+05/04/2021 17:30:41get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 17:30:44getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 17:30:48get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 17:30:53getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 17:31:10calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"30.90","tnIdAccion":0,"tcApp":2}
+05/04/2021 17:31:13calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 17:33:26calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 17:40:51get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 17:40:54getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 17:41:00get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 17:41:04getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 17:41:14calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 17:41:20calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:01:14get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:01:19getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 18:01:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:01:22getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:01:29calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:01:38calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:16:06calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:16:52calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:22:52calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:27:47calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:27:51get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:27:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 20:28:09get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:28:13getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 20:28:14get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:28:17getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 20:28:21calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:28:25calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:30:53get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:30:56getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 20:31:07get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:31:10getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 20:31:13calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:32:55get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:32:57getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 20:33:18get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:33:21getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 20:35:36calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:35:45calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:43:24calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:44:35calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:45:09calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:47:16calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:48:02calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:49:06calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:51:02calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:58:49get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:58:52getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 20:59:02calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 20:59:13get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 20:59:17getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 20:59:46calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:00:20calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:00:25calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:01:28get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:01:36getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:01:38get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:01:44getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:02:00calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:02:11calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:04:46get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:04:49getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:04:52get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:04:57getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:04:59calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:05:04calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"10","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:05:23calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:08:42calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"10","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:08:47calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:10:36get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:10:38getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:12:29get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:12:33getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:12:38calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:12:52calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:22:23get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:22:26getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:32:25calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:32:28calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:34:46get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:34:52getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:34:53get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:34:56getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:35:04calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:35:08calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:39:23get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:39:26getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:39:28get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:39:31getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:39:45calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:39:50calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:40:32calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:40:33mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":"11385389","tcNroPago":"4045681","tnMontoClienteEmpresa":"51.06","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-02 ","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
+05/04/2021 21:40:43realizarpagotigo{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Justiniano Rocha Sergio","tnCiNit":4616818012,"tnFactura":0,"tcMonto":"50.73","tcComision":"2.00","tnIdAccion":1,"tcImei":null,"tcApp":2,"tcPeriodo":""}
+05/04/2021 21:42:06get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:42:10getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:42:13get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:42:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:42:27calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:42:55calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:44:01calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:44:05calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:44:24calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"1","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:47:27get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 21:48:39getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 21:48:44get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 21:48:44get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 21:48:45getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:48:45getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:48:54get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 21:49:00calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:49:00getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:51:44get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 21:51:47getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 21:53:48calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 21:54:27get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 21:54:33getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 22:19:31get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:19:34getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:19:55calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 22:31:21get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:31:25getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:31:32calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 22:37:04get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:37:11getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:38:37calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 22:38:39get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:38:44getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 22:38:55calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 22:43:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:44:00getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 22:44:01get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 22:44:03getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:47:49get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 22:47:53get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 22:47:55getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 22:47:55getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:58:50get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:58:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 22:58:55get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"21931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:58:57getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:59:11get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"21931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 22:59:14getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 22:59:17calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 23:00:08get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"21931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:00:11getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:01:10get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:01:16getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:01:44get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:01:50getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:17:30calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 23:17:32get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:17:34getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:17:54calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+05/04/2021 23:18:56get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:19:04getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:19:05get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:19:06getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:19:25get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:19:31getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:28:58get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:29:02getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:29:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:29:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:29:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:29:19getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:32:37get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:32:41getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:32:43get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:32:44getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:32:53calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 23:34:43get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:34:46getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:35:04calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 23:35:33calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 23:39:58get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:40:00getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:40:15get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 23:40:16getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:44:00get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:44:02getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 23:44:33get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 23:44:40getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 23:44:41calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+06/04/2021 00:03:22get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 00:03:26getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 00:04:10calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:13:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:13:26getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:13:27get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:13:30getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 18:13:39calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:13:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:16:54calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:17:00calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:22:41calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:22:54calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:25:06calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:25:25calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:30:45calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:30:53calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:31:32calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:33:03calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:33:31get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:33:36getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 18:33:45calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:34:23get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:34:28getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 18:34:49calcularcomision--{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"50.73","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:42:45calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:42:55get_listar_facturas <--{"tnEmpresa":"2","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:43:00getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/04/2021 18:43:04get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+05/04/2021 18:43:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:49:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:49:38getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:49:43get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:49:45getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:50:01calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:51:08get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:51:10getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:52:47get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/04/2021 18:52:52getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/04/2021 18:53:00calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"41.44","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:53:02calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+05/04/2021 18:53:53calcularcomision--{"tnEmpresa":null,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:07:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:07:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:08:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:14:27get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:14:33getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:14:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:15:46calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:16:04calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:17:18get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"2338","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:17:23getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:17:49calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"102.83","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:21:31get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"2338","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:21:36getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:21:40get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 08:21:42getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:21:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 08:22:00getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:22:45get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 08:22:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:31:10get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:31:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:32:22get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:32:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:32:44calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:32:48calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:33:33calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:42:15get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:42:18getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:42:32calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:50:08get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:50:15getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:50:18get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:50:23getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:50:48get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:50:52calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:50:55getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:50:57get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:51:00calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"41.44","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:51:01getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:51:30calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:51:36get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:51:41getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:58:08get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:58:13getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:58:20get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:58:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:58:52get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:58:54getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:58:57calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"41.44","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:59:11calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:59:14get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 08:59:22getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 08:59:25calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 08:59:32calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"61.19","tnIdAccion":0,"tcApp":2}
+06/04/2021 10:37:41get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 10:37:44getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 10:37:52calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 10:54:01get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 10:54:08getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 10:54:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 10:54:17getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 10:54:21calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 10:54:43get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 10:54:47getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 10:56:49get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 10:56:53getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:06:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:06:11getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:06:13get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:06:17getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:06:55get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23934","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:06:59getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:07:27get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23937","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:07:37getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:53:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:53:08getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:53:47calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 11:54:04get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:54:10getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 11:54:25calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"45.38","tnIdAccion":0,"tcApp":2}
+06/04/2021 11:55:38calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 11:55:43mando preparar pago qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":"3879294","tcNroPago":"4045681","tnMontoClienteEmpresa":"51.06","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-02 ","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"01\/23","tcApp":2}
+06/04/2021 11:55:57guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"155723","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+06/04/2021 11:56:13get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 11:56:20getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 12:04:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 12:04:21getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 12:04:22get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23932","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 12:04:26getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 12:04:35calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"41.44","tnIdAccion":0,"tcApp":2}
+06/04/2021 12:04:40calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 12:07:03get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23933","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 12:07:09getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 12:07:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 12:07:17getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 15:50:47get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 15:50:50getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 15:50:59calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 15:52:33mando generar qr <--{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"FUENTES ZEPITA OSCAR","tnCiNit":"3056737","tcNroPago":4045681,"tnMontoClienteEmpresa":"51.06","tnMontoClienteSyscoop":"2.00","tcPeriodo":"2021-02","tcImei":null,"tcApp":2}
+06/04/2021 15:52:53get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 15:52:58getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 15:53:06get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 15:53:13getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 15:53:16calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"4","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}
+06/04/2021 15:54:26get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23938","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 15:54:31getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 15:54:46calcularcomision--{"tnEmpresa":"13","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"37.49","tnIdAccion":0,"tcApp":2}
+06/04/2021 21:48:55get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 21:49:02getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 21:49:19get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":null,"tnIdAccion":17,"tcApp":2}
+06/04/2021 21:49:21getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 21:50:16get_listar_facturas <--{"tnEmpresa":"13","tcCodigoClienteEmpresa":"23931","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+06/04/2021 21:50:24getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/04/2021 21:50:38calcularcomision--{"tnEmpresa":null,"tnCliente":null,"tnMetodoPago":"5","tcMonto":"51.06","tnIdAccion":0,"tcApp":2}

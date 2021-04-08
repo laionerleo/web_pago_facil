@@ -176,11 +176,11 @@
         var extension="";
         function generarqr()
         {
-       
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
             var urlajax=$("#url").val()+"/generarqr";   
             $.ajax({                    
                     url: urlajax,
-                    data: {datos:entidadesasignadas},
+                    data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña },
                     type : 'POST',
                     cache: false,
                     dataType: "json",
@@ -229,8 +229,9 @@
         function verificacionpagoqr()
         {
             var tnTransaccion=gntransaccion;
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
             var urlajax="<?= base_url(); ?>es"+"/verificarqr";  
-            var datos= {tnTransaccion:tnTransaccion }; 
+            var datos= {tnTransaccion:tnTransaccion  ,tnIdentificarPestaña:tnIdentificarPestaña}; 
             $.ajax({                    
                     url: urlajax,
                     data: {datos} , 
@@ -252,8 +253,12 @@
                             if(response.Estado==2)
                             {
                                 swal("Consulta Qr", "El Pago se a realizado con exito", "succes");
+                                <?php if($recarga!=20) { ?>
                                 getfacturaempresa(gntransaccion);
                                 getfacturapagofacil(gntransaccion);
+                                <?php }else{ ?>
+                                    console.log("hola =-- <?=$recarga ?>");
+                                <?php } ?>
                             }
                             if(response.Estado==4)
                             {
@@ -296,7 +301,7 @@
                     $("#row-"+id).css("border-color", "none");
                   
                 }else{
-                    if(contador<=3){
+                    if(contador<=1){
                     contador=contador+1;
                     entidadesasignadas.push(id);
                     $("#row-"+id).css("border-radius", "10px");

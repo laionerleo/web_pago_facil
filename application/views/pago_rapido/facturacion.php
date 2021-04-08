@@ -67,8 +67,9 @@ function vistaconfirmacion()
     var inpcionit=$('#inpcionit').val();
     var inpnumero=$('#inpnumero').val();
     var inpcorreo=$('#inpcorreo').val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     
-    var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
+    var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo  , tnIdentificarPestaña:tnIdentificarPestaña};
     var urlajax=$("#url").val()+"vistaconfirmacion";   
     
     $("#confirmacionbody").empty();   
@@ -76,7 +77,10 @@ function vistaconfirmacion()
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
-    
+    $.ajaxSetup(
+        {
+            cache: false,
+                    });
     $("#confirmacionbody").load(urlajax,{datos}); 
     $("#li4").show();
 
