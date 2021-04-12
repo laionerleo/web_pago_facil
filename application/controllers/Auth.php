@@ -41,7 +41,18 @@ class Auth extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$d['authURL'] =  $this->facebook->login_url();
 		//$d['loginURL'] = $this->google->loginURL();
-		$this->load->view('auth/login', $d);
+		
+	   if(isset($_SESSION['cliente'] ) ){
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		
+		redirect($d['url']."pagorapido");
+		
+		}else{
+			$this->load->view('auth/login', $d);	
+		}
+		
+		
 	
     }
 

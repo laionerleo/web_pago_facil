@@ -402,9 +402,10 @@ function  busqueda_billeteras_dependientes()
                             <br>
                             `);
     var codigo=$("#inp_dato").val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  };
+    var datos= {codigo:codigo  , tnIdentificarPestaña:tnIdentificarPestaña  };
     var urlajax=$("#url").val()+"filtro_billeteras_dependientes";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -426,9 +427,11 @@ function  busqueda_billeteras_dependientes()
 function  busqueda_billeteras_general()
 {
     var codigo=$("#inp_dato").val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  };
+        
+    var datos= {codigo:codigo  , tnIdentificarPestaña : tnIdentificarPestaña };
     var urlajax=$("#url").val()+"filtro_billeteras_general";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -496,7 +499,8 @@ function dehabilitarrecarga()
 function vistarecarga(codigo)
 {
    // var codigo=$('#inp_dato').val();
-    var datos= {codigo:codigo  };
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var datos= {codigo:codigo , tnIdentificarPestaña :tnIdentificarPestaña   };
     var urlajax=$("#url").val()+"vistarecargas";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   

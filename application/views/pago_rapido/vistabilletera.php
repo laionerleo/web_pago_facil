@@ -215,13 +215,14 @@ input.radiomontoclass {
                 var montototal=$('#inpmonto').val();      
                 var idfactura=$("#facturaid").val();
                 var billetera=$('#tnBilletera').val();
+                var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
                 console.log(lnrecargamax);
              if(  lnRecargashechas   < lnrecargamax)
              {
             
                 if( (montototal != 0) && (montototal != "") && (montototal > 0) && (montototal >= lnMontoMinimo)   ){
              
-                    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0, idbilletera:billetera };
+                    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:0, idbilletera:billetera , tnIdentificarPestaña:tnIdentificarPestaña };
                     var urlajax=$("#url").val()+"vistafacturacionrecarga";  
                     
                     $("#facturacionbody").empty();   

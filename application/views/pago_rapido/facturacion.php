@@ -80,6 +80,7 @@ function vistaconfirmacion()
     $.ajaxSetup(
         {
             cache: false,
+            
                     });
     $("#confirmacionbody").load(urlajax,{datos}); 
     $("#li4").show();

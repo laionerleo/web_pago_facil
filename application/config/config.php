@@ -72,9 +72,9 @@ $config['index_page'] = '';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 
-$config['uri_protocol']	= $_SERVER['REQUEST_URI'];
+//$config['uri_protocol']	= $_SERVER['REQUEST_URI'];
 
-//$config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
+$config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
 
 /*
 |--------------------------------------------------------------------------

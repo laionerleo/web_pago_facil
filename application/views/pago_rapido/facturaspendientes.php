@@ -288,6 +288,7 @@ function vistafacturacion()
     $.ajaxSetup(
         {
             cache: false,
+            
                     });
     $("#facturacionbody").load(urlajax,{datos});   
     $("#li3").show();
