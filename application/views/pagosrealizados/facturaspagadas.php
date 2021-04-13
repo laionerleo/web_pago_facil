@@ -136,7 +136,14 @@
 {
     //
     var idfactura= $("#periodo").val();
-    var datos= { idfactura:idfactura };
+    var tipo ;
+         if(screen.width>=1024)
+         {
+            tipo =1
+         }else{
+            tipo=2;
+         }
+    var datos= { idfactura:idfactura , tipo:tipo };
     var urlajax=$("#url").val()+"vysoravisopdf";  
     $("#btncerrarvisualizar").click();
     $("#btncerraropcionesfacturas").click();
@@ -159,9 +166,15 @@ function verfacturapagofacil()
     var codigoempresa= $("#codigoempresa").val();
     var nrofactura= $("#nrofactura").val();
     var transaccion= $("#codigotransaccion").val();
-    
+    var tipo ;
+         if(screen.width>=1024)
+         {
+            tipo =1
+         }else{
+            tipo=2;
+         }
 
-    var datos= { nrofactura:nrofactura ,transaccion:transaccion ,codigoempresa:codigoempresa  };
+    var datos= { nrofactura:nrofactura ,transaccion:transaccion ,codigoempresa:codigoempresa , tipo:tipo  };
     var urlajax=$("#url").val()+"vysorfacturapagofacilpdf";  
     $("#btncerrarvisualizar").click();
     $("#btncerraropcionesfacturas").click();
@@ -177,9 +190,15 @@ function verfacturaempresa()
     var codigoempresa= $("#codigoempresa").val();
     var nrofactura= $("#nrofactura").val();
     var transaccion= $("#codigotransaccion").val();
-    
+    var tipo ;
+         if(screen.width>=1024)
+         {
+            tipo =1
+         }else{
+            tipo=2;
+         }
 
-    var datos= { nrofactura:nrofactura ,transaccion:transaccion ,codigoempresa:codigoempresa  };
+    var datos= { nrofactura:nrofactura ,transaccion:transaccion ,codigoempresa:codigoempresa , tipo:tipo };
     var urlajax=$("#url").val()+"vysorfacturaempresapdf";  
     $("#btncerrarvisualizar").click();
     $("#btncerraropcionesfacturas").click();

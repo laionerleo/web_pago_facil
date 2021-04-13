@@ -1455,13 +1455,14 @@ class Welcome extends CI_Controller {
 		$factura= $this->get_periodo_inversa($datos['idfactura']);	
 		$empresadetalle=$this->servicios->getempresasimple($id_empresa ,$idcliente);
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
+		$tnTipo=$datos['tipo'];	
 		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
 		//$factura="2020-02";//$datos["periodo"];//periodo
 		$lista=$this->servicios->getavisofacturames($codigo_fijo,$ip_empresa,$factura,$idcliente);
 		/*
 		echo "<pre>";
 		echo $datos['idfactura'];
-		print_r($empresadetalle);
+		print_r($empresadcccetalle);
 		print_r($lista);
 		echo "</pre>"; 
 		*/
@@ -1483,7 +1484,17 @@ class Welcome extends CI_Controller {
 		file_put_contents($fichero, $fileToDownload);
 		$fichero2 ='/online/application/assets/documentospdf/factura-'.$idcliente.$factura.date('y-m-d--H:i:s').'.pdf';
 		$d['documentopdf']=$fichero2;
-		$this->load->view('pagosrealizados/vysorpdf', $d);
+		//$this->load->view('pagosrealizados/vysorpdf', $d);
+
+		if($tnTipo==1){
+			//si es uno demo mostrar normal 
+			$this->load->view('pagosrealizados/vysorpdf', $taData);
+		}else{
+			//si es distinto de uno se debe mostrar la url de googledrive
+			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$taData['documentopdf'] ;
+			//echo $taData['urlweb'];
+			$this->load->view('pagosrealizados/vistaiframepdf', $taData);
+		}
 	}
 
 	public function verfacturapagofacil()
@@ -1496,6 +1507,7 @@ class Welcome extends CI_Controller {
 		$tnTransaccionDePago=$datos['transaccion'];
 		$tnEmpresa=$datos['codigoempresa'];
 		$tnFactura= $datos['nrofactura'];	
+		$tnTipo=$datos['tipo'];	
 		$facturapagofacil=$this->servicios->getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
 
 
@@ -1514,7 +1526,17 @@ class Welcome extends CI_Controller {
 		file_put_contents($fichero, $fileToDownload);
 		$fichero2 ='/online/application/assets/documentospdf/factura-pagofacil'.$tnCliente.$tnFactura.date('y-m-d--H:i:s').'.pdf';
 		$d['documentopdf']=$fichero2;
-		$this->load->view('pagosrealizados/vysorpdf', $d);
+		//$this->load->view('pagosrealizados/vysorpdf', $d);
+
+		if($tnTipo==1){
+			//si es uno demo mostrar normal 
+			$this->load->view('pagosrealizados/vysorpdf', $taData);
+		}else{
+			//si es distinto de uno se debe mostrar la url de googledrive
+			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$taData['documentopdf'] ;
+			//echo $taData['urlweb'];
+			$this->load->view('pagosrealizados/vistaiframepdf', $taData);
+		}
 		
 	}
 
@@ -1528,6 +1550,7 @@ class Welcome extends CI_Controller {
 		$tnTransaccionDePago=$datos['transaccion'];
 		$tnEmpresa=$datos['codigoempresa'];
 		$tnFactura= $datos['nrofactura'];	
+		$tnTipo=$datos['tipo'];	
 		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
 		//$this->cargarlog("facturaempresa".json_encode($facturapagofacil));
 		$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
@@ -1548,9 +1571,21 @@ class Welcome extends CI_Controller {
 		file_put_contents($fichero, $fileToDownload);
 		$fichero2 ='/online/application/assets/documentospdf/factura'.$lcNombreEmpresa.$tnCliente.$tnFactura.date('y-m-d--H:i:s').'.pdf';
 		$d['documentopdf']=$fichero2;
-		$this->load->view('pagosrealizados/vysorpdf', $d);
+		//$this->load->view('pagosrealizados/vysorpdf', $d);
+		if($tnTipo==1){
+			//si es uno demo mostrar normal 
+			$this->load->view('pagosrealizados/vysorpdf', $taData);
+		}else{
+			//si es distinto de uno se debe mostrar la url de googledrive
+			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$taData['documentopdf'] ;
+			//echo $taData['urlweb'];
+			$this->load->view('pagosrealizados/vistaiframepdf', $taData);
+		}
 		
 	}
+
+
+
 	public function enviarfacturacorreo()
 	{
 		$datos=$this->input->post("datos");
