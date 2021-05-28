@@ -6,30 +6,48 @@
         right:0px;
 }
 
-                     </style>
 
+img.fnone {
+  float: none !important;
+  height: 21px;
+}
+.dd .ddTitle {
+    color: #000;
+    background: #ffffff 
+}
+.dd .ddTitle .ddTitleText {
+    padding: 5px 20px 5px 5px;
+    text-align: start;
+}
+.dd .ddChild li {
+    padding: 5px;
+    background-color: #fff;
+    border-bottom: 1px solid #c3c3c3;
+    text-align: start;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
 <div class="col-md-12"  style="display:none"  >
     <center>
         <input  type="button" id="confirmarpago" class="btn btn-primary" data-toggle="modal"  value="elegirentidades" data-target="#elegirempresas">
     </center>
 </div>
                 
-                                     <div class="row">
-                                <div class="col-md-8" >
+                        <div class="row">
+                            <div class="col-md-8" >
                                 <div class="card" style="margin-bottom: 1.2rem;">
-                                        <img id="baner" src="<?= $urlimagenbanner   ?>" class="card-img-top" alt="...">
-                                        <div class="card-body text-center">
-                                        <div class="form-row" style="padding-bottom: 5px;">
-                          
-                                                <div class="col-md-6 col-12 titulos">
-                                                    <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Monto  ( <?= @$Simbolo  ?>): </b></label>
-                                                </div>
-                                                <div class="col-md-2 col-12">
-                                                    <div class="controls" style="    text-align: justify;">
+                                    <img id="baner" src="<?= $urlimagenbanner   ?>" class="card-img-top" alt="...">
+                                    <div class="card-body text-center">
+                                        <div class="form-row" style="padding-bottom: 5px;">                       
+                                            <div class="col-md-6 col-12 titulos">
+                                                <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Monto  ( <?= @$Simbolo  ?>): </b></label>
+                                            </div>
+                                            <div class="col-md-2 col-12">
+                                                <div class="controls" style="    text-align: justify;">
                                                     <input class="form-control" readonly type="text" style="text-align: end;"  value="<?= number_format((float)$montototal, 2, '.', '');   ?>  " >
-                                                    </div>
-                                                    
                                                 </div>
+                                            </div>
                                         </div>
                                         <div class="form-row" style="padding-bottom: 5px;">
                                                 <div class="col-md-6 col-12 titulos">
@@ -37,57 +55,63 @@
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <div class="controls" style="    text-align: justify;">
-                                                    <input class="form-control" readonly type="text" style="text-align: end;"  value="<?= $Periodo ?> " >
+                                                        <input class="form-control" readonly type="text" style="text-align: end;"  value="<?= $Periodo ?> " >
                                                     </div>
                                                     
                                                 </div>
                                         </div>
-                                     
-                                          <div class="form-row">
+
+                                        <div class="form-row" style="padding-bottom: 5px;">
+                                                <div class="col-md-6 col-12 titulos">
+                                                    <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Entidades Bancarias </b></label>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="controls" style=" text-align: justify; text-align: left;">
+                                                            <select name="webmenu"  class=" form-control" id="webmenu" >
+                                                                    <option   value="0"  data-image="<?= $entidades[$j]->UrlImagen  ?>"> Seleccionar  Entidad Bancaria </option>
+                                                                <?php   for ($j=  0  ; $j < count($entidades); $j++) { ?>   
+                                                                    <option   value="<?= $entidades[$j]->EntidadBancaria  ?>, #imgentidad-<?= $entidades[$j]->EntidadBancaria  ?> , <?= $entidades[$j]->UrlImagen  ?> ,<?= $entidades[$j]->HabilitadaInternet  ?> , <?= $entidades[$j]->Nombre  ?> "  data-image="<?= $entidades[$j]->UrlImagen  ?>"> <?= $entidades[$j]->Nombre  ?>  </option>
+                                                                <?php  } ?> 
+                                                            </select>   
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-row">
                                             <div class="col-md-12 col-6" >
                                                 <center>
                                                     <h2 id="time"></h2>
                                                 </center>
                                             </div>
-                                            </div>
+                                        </div>
                                             
                                         <div id="vistaform" style="display:none" >
-                                                        <div class="form-row" style="padding-bottom: 5px;">
-                                                            <div class="col-md-6 col-12 titulos">
-                                                                <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Valido hasta </b></label>
-                                                            </div>
-                                                            <div class="col-md-6 col-12">
-                                                                <div class="controls" style="    text-align: justify;">
-                                                                <input class="form-control" id="dateexpiracion" readonly type="text"   value="" >
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                
-                                                        
-                                                        <center> 
-                                                            <div id="bancoselegidos"></div>
-                                                        
-                                                        
-                                                            <div class="row">
-                                                                <div class="col-md-12 col-xs-8">
-                                                                    <center>
-                                                                        <img id="imagenqr" src="" alt="">
-                                                                    </center>
-                                                                    <center>
-                                                                    <a id="linkdescarga" href="">Descargar</a>
-                                                                    </center>
-                                                                </div>
-                                                            </div>
+                                            <div class="form-row" style="padding-bottom: 5px;">
+                                                <div class="col-md-6 col-12 titulos">
+                                                    <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Valido hasta </b></label>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="controls" style="    text-align: justify;">
+                                                        <input class="form-control" id="dateexpiracion" readonly type="text"   value="" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <center> 
+                                                <div id="bancoselegidos"></div>                                                        
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-8">
+                                                        <center>
+                                                            <img id="imagenqr" src="" alt="">
                                                         </center>
-                                            
+                                                        <center>
+                                                        <a id="linkdescarga" href="">Descargar</a>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </center>
                                         </div>
-                                            
-                                        </div>
-                                     
                                     </div>
-                                  
                                 </div>
+                            </div>
                         </div>
 
 
@@ -98,22 +122,10 @@
                                             <div class="row">
                                  
 
-                                                
-                                                
-                                                <div class="col-md-3 col-6 col-sm-4">
-                                                    <center>
-                                                    <?php if($recarga==20) { ?>
-                                                        <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
-                                                    <?php }else{ ?>
-                                                        <input class="btn btn-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
-                                                    <?php }  ?>
-                                                    
-                                                     </center>                                                     
-                                                </div>
-                                                <div class="col-md-4 col-6 col-sm-4">
+                                            <div class="col-md-4 col-6 col-sm-4">
                                                     <center class="botones">
                                                     
-                                                        <button id="bntprepararpago" class="btn btn-primary "  data-toggle="modal"  value="elegirentidades" data-target="#elegirempresas">Generar Qr </button>
+                                                        <button id="bntprepararpago" class="btn btn-primary " onclick="generarqr()" >Generar Qr </button>
                                                         <button id="bntconsultarpago" style="display:none" onclick="verificacionpagoqr()" class="btn btn-primary " >Consultar  Qr </button>
                                                         <button id="btncargaconsulta"  class="btn btn-primary" type="button" style="display:none" disabled>
                                                             <span class="spinner-border spinner-border-sm mr-2" role="status"
@@ -123,6 +135,18 @@
                                                         
                                                      </center>
                                                 </div>
+                                                
+                                                <div class="col-md-3 col-6 col-sm-4">
+                                                    <center>
+                                                    <?php if($recarga==20) { ?>
+                                                        <button id="btnpagarotrafactura"  class=" btn btn-outline-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                                    <?php }else{ ?>
+                                                        <input class="btn btn-outline-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+                                                    <?php }  ?>
+                                                    
+                                                     </center>                                                     
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -166,6 +190,7 @@
 
 
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
+     <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <!-- end::footer -->
 <script>
     var codigoservicio="001";
@@ -176,8 +201,11 @@
         var extension="";
         function generarqr()
         {
-            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            if(entidadesasignadas.length>0 )
+            {
+                var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
             var urlajax=$("#url").val()+"/generarqr";   
+            
             $.ajax({                    
                     url: urlajax,
                     data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña },
@@ -185,9 +213,10 @@
                     cache: false,
                     dataType: "json",
                     
-                        beforeSend:function( ) {   
-                            $('#btngenerarqr').hide();
-                            $('#btncarga').show();
+                        beforeSend:function( ) {  
+                            $('#bntprepararpago').hide();
+                            $('#btncargaconsulta').show();
+                            
                             
                         },                    
                         success:function(response) {
@@ -199,8 +228,8 @@
                             console.log(arrayqr.qrImage);
                             $("#dateexpiracion").val(arrayqr.expirationDate);
                             $('#vistaform').show();
-                            $("#elegirempresas").modal('toggle');
-                            $('.modal-backdrop').remove();
+                            //$("#elegirempresas").modal('toggle');
+                            //$('.modal-backdrop').remove();
                             $('#bntprepararpago').hide();
                             $('#bntconsultarpago').show();
                             $('#imagenqr').attr('src', `data:image/png;base64,${arrayqr.qrImage}`);
@@ -213,16 +242,23 @@
                         }
                         },
                         error: function (data) {
-                            $("#elegirempresas").modal('toggle');
-                            $('.modal-backdrop').remove();
+                        // $("#elegirempresas").modal('toggle');
+                        //   $('.modal-backdrop').remove();
                             swal("Error ", data.responseText , "error");
                         },               
                         complete:function( ) {
-                            $('#btngenerarqr').show();
+                            $('#bntprepararpago').hide();
                             
-                            $('#btncarga').hide();
+                            $('#btncargaconsulta').hide();
                         },
                     });  
+
+            }else{
+
+                swal("Mensaje", "Falta Elegir Entidad Bancaria" , "error");
+                error("#webmenu_title")
+            }
+            
         }
 
 
@@ -321,13 +357,49 @@
           //  cambiarimagen('debito','001');
          //   $("#confirmarpago").click();        
             
-            <?php   for ($j=  0  ; $j < count($entidadeselegidas); $j++) { ?>
+ /*           <?php   for ($j=  0  ; $j < count($entidadeselegidas); $j++) { ?>
                 $("#idcheck-<?= $entidadeselegidas[$j] ?>").click(); 
             <?php  }?>
+*/
 
+  try {
+		            var pages = $("#webmenu").msDropdown({on:{change:function(data, ui) {
+												var val = data.value;
+                                                var result=val.split(',');
+                                                var identidad=result[1].replace("'", '');
+                                               //  identidad=identidad.replace("'", '');
+                                                var srcimagen=result[2].replace("'", '');
+                                               // srcimagen=srcimagen.replace("'", '');
+                                                console.log(result);
+                                                if(result[0]!=0)
+                                                {
+                                                    elegirentidad(result[0],identidad);
+                                                }
+                                                
+												if(val!="")
+												console.log(val);
+											}}}).data("dd");
+
+                                            slcrubro.set("selectedIndex", 0);
+
+	/*	var pagename = document.location.pathname.toString();
+		pagename = pagename.split("/");
+		pages.setIndexByValue(pagename[pagename.length-1]);
+		$("#ver").html(msBeautify.version.msDropdown);
+        */
+	} catch(e) {
+		//console.log(e);	
+	}
+    
          
             });
-
+            function error(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "red");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+            //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
+        }
 </script>
 
 

@@ -559,10 +559,12 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
 		$tnIdentificarPestaña=$datos[0];
-
-		$d['montototal']=$_SESSION[$tnIdentificarPestaña.'montototalpagar'];
+		try {
+			//code...
+			$d['montototal']=$_SESSION[$tnIdentificarPestaña.'montototalpagar'];
 		$laubicacion=$this->vermiubicacion();
-		$_SESSION['gcUbicacion']= $laubicacion->geoplugin_countryName;	
+		$_SESSION['gcUbicacion']= $laubicacion->geoplugin_countryName;
+			
 		if(  ($_SESSION['telefono'] != "0" ) &&  ($_SESSION['telefonoDePago'] != "0")  && ($_SESSION['telefono'] > "0" ) && ($_SESSION['telefonoDePago'] > "0")  )
 		{
 			$var=$_SESSION[$tnIdentificarPestaña.'metododepago'];
@@ -616,6 +618,9 @@ class Welcome extends CI_Controller {
 					$d['Periodo']=$_SESSION[$tnIdentificarPestaña.'periodomes'];
 					$d['urlimagenbanner']=$_SESSION[$tnIdentificarPestaña.'urlimagenbanner'];
 					$d['recarga']=$_SESSION[$tnIdentificarPestaña.'idempresa'];
+					
+					
+				
 					$this->load->view('pago_rapido/formasdepago/pagoqr', $d);
 					
 				break;
@@ -813,6 +818,16 @@ class Welcome extends CI_Controller {
 			$this->load->view('auth/formularioedicion', $d);
 
 		}
+
+		} catch (\Throwable $th) {
+			//throw $th;
+
+			echo '<pre>';  
+			print_r($th ) ;
+			echo '</pre>' ;
+		}
+
+		
 
 			
 	
@@ -1371,10 +1386,7 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$tnCliente=$this->session->userdata('cliente');
-	
-		
 		$codigoservicio=$this->servicios->getcodigosservicio($tnCliente, $tnEmpresa);
-
 		$metodopagoaux=$this->servicios->getmetodospago($tnCliente);
 		$d["metodosdepago"]=$metodopagoaux->values;
 		$d['codigoservicio']=$codigoservicio->values;
@@ -1394,6 +1406,34 @@ class Welcome extends CI_Controller {
 		$this->load->view('pagosrealizados/index', $d);
 
 	}
+
+	public function listapagosrealizados()	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$tnCliente=$this->session->userdata('cliente');
+		$tnEmpresa=$this->input->post('Empresa');
+		$codigoservicio=$this->servicios->getcodigosservicio($tnCliente, $tnEmpresa);
+		$metodopagoaux=$this->servicios->getmetodospago($tnCliente);
+		$d["metodosdepago"]=$metodopagoaux->values;
+		$d['codigoservicio']=$codigoservicio->values;
+		$_SESSION['codigoservicio']=$codigoservicio->values;
+		$d['empresa']=$tnEmpresa;
+		$empresaspagadas=$this->servicios->getempresaspagadasfrecuentes($_SESSION['cliente']);
+		$_SESSION['empresaspagadas']=$empresaspagadas->values;
+		for ($L=0; $L <count($_SESSION['empresaspagadas']) ; $L++) { 
+			if($_SESSION['empresaspagadas'][$L]->nEmpresa==$tnEmpresa)
+			{
+				$_SESSION['Nombreempresapagada']= $_SESSION['empresaspagadas'][$L]->cDescripcion;
+				$_SESSION['iconoempresapagada']= $_SESSION['empresaspagadas'][$L]->cUrl_icon;
+			}
+		}
+
+
+		$this->load->view('pagosrealizados/listapagosrealizados', $d);
+
+	}
+
+	
 
 	public function facturaspagadas()
 	{
@@ -1488,12 +1528,12 @@ class Welcome extends CI_Controller {
 
 		if($tnTipo==1){
 			//si es uno demo mostrar normal 
-			$this->load->view('pagosrealizados/vysorpdf', $taData);
+			$this->load->view('pagosrealizados/vysorpdf', $d);
 		}else{
 			//si es distinto de uno se debe mostrar la url de googledrive
-			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$taData['documentopdf'] ;
+			$d['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$d['documentopdf'] ;
 			//echo $taData['urlweb'];
-			$this->load->view('pagosrealizados/vistaiframepdf', $taData);
+			$this->load->view('pagosrealizados/vistaiframepdf', $d);
 		}
 	}
 
@@ -1530,12 +1570,12 @@ class Welcome extends CI_Controller {
 
 		if($tnTipo==1){
 			//si es uno demo mostrar normal 
-			$this->load->view('pagosrealizados/vysorpdf', $taData);
+			$this->load->view('pagosrealizados/vysorpdf', $d);
 		}else{
 			//si es distinto de uno se debe mostrar la url de googledrive
-			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$taData['documentopdf'] ;
+			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$d['documentopdf'] ;
 			//echo $taData['urlweb'];
-			$this->load->view('pagosrealizados/vistaiframepdf', $taData);
+			$this->load->view('pagosrealizados/vistaiframepdf', $d);
 		}
 		
 	}
@@ -1557,6 +1597,9 @@ class Welcome extends CI_Controller {
 		$lcNombreEmpresa=@$laDatosEmpresa->values[0]->cDescripcion;
 
 		//este codigo sirve para poder visuailzar 
+		echo '<pre>';  
+		print_r($facturapagofacil ) ;
+		echo '</pre>' ;
 
 			$cadena="";
 		foreach($facturapagofacil->values->facturaPDF as $byte){
@@ -1574,12 +1617,12 @@ class Welcome extends CI_Controller {
 		//$this->load->view('pagosrealizados/vysorpdf', $d);
 		if($tnTipo==1){
 			//si es uno demo mostrar normal 
-			$this->load->view('pagosrealizados/vysorpdf', $taData);
+			//$this->load->view('pagosrealizados/vysorpdf', $taData);
 		}else{
 			//si es distinto de uno se debe mostrar la url de googledrive
 			$taData['urlweb']='https://docs.google.com/gview?embedded=true&url=https://'.$taData['documentopdf'] ;
 			//echo $taData['urlweb'];
-			$this->load->view('pagosrealizados/vistaiframepdf', $taData);
+			//$this->load->view('pagosrealizados/vistaiframepdf', $taData);
 		}
 		
 	}

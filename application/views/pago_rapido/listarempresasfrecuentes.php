@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-<?php   if(count($empresas)>0){    ?>
+<?php   if(count($empresas)>0){        ?>
 
 <div class="form-row">
     <div class="col-md-12 mb-12 table-responsive">

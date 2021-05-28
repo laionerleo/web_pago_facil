@@ -137,7 +137,8 @@
     //
     var idfactura= $("#periodo").val();
     var tipo ;
-         if(screen.width>=1024)
+    console.log(screen.width);
+         if(screen.width>=1025)
          {
             tipo =1
          }else{
@@ -149,6 +150,14 @@
     $("#btncerraropcionesfacturas").click();
  
     $("#li3").show();
+    $("#vysorpdfbody").empty();
+    $("#vysorpdfbody").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
     
     $("#vysorpdfbody").load(urlajax,{datos});  
     $("#vysorpdf-tab").click(); 
@@ -167,7 +176,7 @@ function verfacturapagofacil()
     var nrofactura= $("#nrofactura").val();
     var transaccion= $("#codigotransaccion").val();
     var tipo ;
-         if(screen.width>=1024)
+         if(screen.width>=1025)
          {
             tipo =1
          }else{
@@ -179,6 +188,14 @@ function verfacturapagofacil()
     $("#btncerrarvisualizar").click();
     $("#btncerraropcionesfacturas").click();
     $("#li3").show();
+    $("#vysorpdfbody").empty();
+    $("#vysorpdfbody").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
     $("#vysorpdfbody").load(urlajax,{datos});  
     $("#vysorpdf-tab").click(); 
   
@@ -203,6 +220,14 @@ function verfacturaempresa()
     $("#btncerrarvisualizar").click();
     $("#btncerraropcionesfacturas").click();
     $("#li3").show();
+    $("#vysorpdfbody").empty();
+    $("#vysorpdfbody").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
     $("#vysorpdfbody").load(urlajax,{datos});  
     $("#vysorpdf-tab").click(); 
   

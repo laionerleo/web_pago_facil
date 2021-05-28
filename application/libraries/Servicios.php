@@ -1128,6 +1128,9 @@ tnAuthorizationNumber= autorizacion deBCP
     {
        $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/getEntidadesFinancieras';
        $data = array('tnCliente' => strval($tnCliente ) , 'tcApp'=>2 );
+       $this->cargarlogservicio("genentidadesfinancieras".json_encode($data));
+
+       
        /* echo "<pre>";
        print_r(json_encode($data));
        echo "</pre>";

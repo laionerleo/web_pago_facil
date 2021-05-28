@@ -1,6 +1,7 @@
 
 
-<?php   if(count($empresas->values)>0){    ?>
+<?php   if(count($empresas->values)>0){ ?>
+
 <div class="form-row">
     <div class="col-md-12 mb-12 table-responsive">
     <table id="example1" class="table table-striped table-bordered">

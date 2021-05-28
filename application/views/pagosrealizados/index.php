@@ -75,73 +75,16 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                  aria-labelledby="home-tab">
-                                 <?php   if(count($codigoservicio)>0){    ?>
-                                        <div class="form-row">
-                                        <div class="col-md-12 mb-12 table-responsive">
-                                            <table id="tabla1" class="table table-striped table-bordered">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>Codigo</th>
-                                                                    <th>Alias  </th>
-                                                                    <th>Estado  </th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                
-                                                                <?php  for ($i=0; $i < count($codigoservicio) ; $i++) { ?>
-                                                                    <?php  if($codigoservicio[$i]->tieneFac==2){ ?>
-                                                                        <tr id="fila-<?= $i ?>" onclick="mostrarmodal(<?= intval(@$codigoservicio[$i]->codigoClienteEmpresa) ?>,'#cod-<?= $i ?>')" > 
-                                                                        <?php }else{  ?>
-                                                                            <tr id="fila-<?= $i ?>" onclick="notiene()" > 
-                                                                        <?php   }?>
-                                                                         <td> 
-                                                                    <label for=""><?= @$codigoservicio[$i]->codigoClienteEmpresa ?></label>
-                                                                    </td>
-                                                                    <td>  <?= @$codigoservicio[$i]->alias ?></td>
-                                                                    <td>
-                                                                        <?php  if($codigoservicio[$i]->tieneFac==2){ ?>
-                                                                        <label for="">pagada</label>
-                                                                        <?php }else{  ?>
-                                                                            <label for=""> no pagada</label>
-                                                                        <?php   }?>
-                                                                    </td>
-                                                                </tr>
-                                                        
-                                                                <?php }  ?>
-                                                                
-                                                                </tbody>
-                                                                <tfoot>
-                                                                <tr>
-                                                                       <th>Codigo</th>
-                                                                    <th>Alias  </th>
-                                                                    <th>Estado  </th>
-                                                                </tr>
-                                                                </tfoot>
-                                                            </table>
-
-                                                            </div>
-                                                            </div>
-                                                        <input  type="hidden" id="btnmodal" class="btn btn-primary" data-toggle="modal"  value="nada" data-target="#modalopciones">
-
-
-                                
-
-                                            <?php  }else{
-
-                                            echo "No hay datos";
-                                        }    
-                                            ?>
-
-
-    
-
+                                 <div id="listapagosrealizados">
+                                    
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="facturaspagadasbody" role="tabpanel" aria-labelledby="facturaspagadasbody">
                                 <div class="spinner-border text-primary" role="status">
                                     <span class="sr-only">Loading...</span>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="vysorpdfbody" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="tab-pane fade" id="vysorpdfbody" role="tabpanel" aria-labelledby="contact-tab" style="height:500px"  >
                             <div class="row">
                                      
                                         
@@ -190,25 +133,45 @@
 </div>
 <!-- end::main -->
 <?php $this->load->view('theme/js');  ?>
+<input type="hidden" name="codigocliente" id="codigocliente">
+<input type="hidden" name="codigoempresa" id="codigoempresa"  value="<?php echo @$empresa ?>">
+            
+                
 <!-- Plugin scripts -->
 <script>
 $(document).ready( function () {
-    $('#tabla1').DataTable();
+   // $('#tabla1').DataTable();
+   listapagosrealizados();
 } );
 
 function mostrarmodal(codigo,idfila)
    {
-       console.log(codigo);
+     console.log(codigo);
     $("#btnmodal").click();
     $("#codigocliente").val(codigo);
-    
-
    }
 
     function notiene()
     {
         alert('el usuario no cuenta con facturas pagadas');
     }
+
+    function listapagosrealizados()
+{
+    $("#listapagosrealizados").empty();
+    $("#listapagosrealizados").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+    var codigoempresa=$("#codigoempresa").val();
+    
+    var urlajax=$("#url").val()+"listapagosrealizados";  
+   // $("#waitLoading").fadeIn(1000);
+    $("#listapagosrealizados").load(urlajax  ,{ Empresa: codigoempresa} );   
+}
 
    function facturaspagadas()
 {
@@ -219,38 +182,11 @@ function mostrarmodal(codigo,idfila)
     $("#li2").show();
     $("#btncerraropciones").click();
     $("#facturaspagadasbody").load(urlajax,{datos});  
-    $("#facturaspagadas-tab").click(); 
-  
+    $("#facturaspagadas-tab").click();
    
      
 }
 </script>
-<div class="modal fade" id="modalopciones" tabindex="-1" role="dialog" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">Elija una opcion</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <i class="ti-close"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                    <!-- <input class="btn btn-primary" type="button" value="Pagar Facturas">  -->
-                                                                   <input onclick="facturaspagadas()" class="btn btn-primary" type="button" value="Ver facturas pagadas">
-                                                                   <input type="hidden" name="codigocliente" id="codigocliente">
-                                                                   <input type="hidden" name="codigoempresa" id="codigoempresa"  value="<?php echo @$empresa ?>">
-                                                                   
-                                                                      
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                    <button type="button" id="btncerraropciones"  class="close" data-dismiss="modal" aria-label="Close">cerrar                                                                 
-                                                                        </button>
-                                                                        
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
 
 </body>
 

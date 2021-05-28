@@ -30,6 +30,8 @@ $route[$l.'getultimaselegidas']                 = 'Welcome/getultimaselegidas';
 $route[$l.'metodotigomoney']                    = 'Welcome/pagarportigomoney';
 $route[$l.'verificartransaccion']               = 'Welcome/verificartransacciontigo';
 $route[$l.'perfilfrecuente']                    = 'Welcome/listarempresafrecuentes';
+$route[$l.'listapagosrealizados']               = 'Welcome/listapagosrealizados';
+
 
 
 $route[$l.'verificarqr']                        = 'Welcome/verificarqr';
