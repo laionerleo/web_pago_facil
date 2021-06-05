@@ -40,7 +40,6 @@ class Welcome extends CI_Controller {
 		
     }
 
-
 	public function index()
 	{	
 		$d = array();
@@ -1705,6 +1704,8 @@ class Welcome extends CI_Controller {
 		echo json_encode($d['metodosdepagomenu']);
 
 	}
+
+	
 	public function vistacomision($lan,$metodo)
 	{
 		$d = array();
@@ -2161,6 +2162,26 @@ class Welcome extends CI_Controller {
 	
 		
 	}
+
+	public function metodosdepagopagofacil()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+	
+		$tnCliente=$_SESSION['cliente'];
+		$empresas=$this->servicios->listarempresasfull($tnCliente);
+		$d['metodosdepagomenu']=array();
+		if(isset($empresas->values))
+		{
+			$_SESSION['metodosdepagomenu']=$empresas->values[0]->metodoPago;
+			$d['metodosdepagomenu']=$empresas->values[0]->metodoPago;
+		}
+		
+		//echo json_encode($d['metodosdepagomenu']);
+		$this->load->view('metodosdepagopagofacil' , $d);
+
+	}
+
 	public function cargarlog($Mensajeerror)
     {
       $logFile = fopen("log2.txt", 'a') or die("Error creando archivo");

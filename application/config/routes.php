@@ -52,6 +52,7 @@ $route[$l.'getallempresas']                     = 'Servicio/getallempresas';
 $route[$l.'cargarpagofacilentubarrio']          = 'Servicio/cargaragofacilentubarrio';
 $route[$l.'cargarciudades']                     = 'Servicio/cargarciudades';
 $route[$l.'cargarestados']                      = 'Servicio/cargarestados';
+$route[$l.'vistametodosdepago/(:any)']          = 'Servicio/metodospagovista/$1/$2';
 
 
 

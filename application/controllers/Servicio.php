@@ -348,6 +348,18 @@ class Servicio extends CI_Controller {
 
 	}
 
+	public function metodospagovista($lan,$tokenservice)
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$metodopago=$this->servicios->getmetodosbyToken($tokenservice)
+		$d['metodosdepago']=$metodopago->values;
+		$this->load->view('metodosdepagospagofacil' , $d);		
+	
+				//echo json_encode($d['metodosdepagomenu']);
+	}
+
+
 	public function cargarciudades()
 	{
 
