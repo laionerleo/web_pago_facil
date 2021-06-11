@@ -352,13 +352,118 @@ class Servicio extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$metodopago=$this->servicios->getmetodosbyToken($tokenservice)
+		$metodopago=$this->servicios->getmetodosbyToken($tokenservice);
 		$d['metodosdepago']=$metodopago->values;
 		$this->load->view('metodosdepagospagofacil' , $d);		
 	
 				//echo json_encode($d['metodosdepagomenu']);
 	}
 
+
+	public function empresasafiliadas()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$tnMontoTotal= 1000;
+        $tnEmpresa= 1;
+        $tnCliente= "3859";
+        $tcDireccion= "c. Madrejón # 264 Barrio Santa Rosita ";
+        $tnTipoDocumentoFiscal= 1;
+        $tnCodigoTipoDocumentoIdentidad= 1;
+        $tnNumeroDocumento= 11385389;
+        $tcNombreRazonSocial = "cesarcorvera";
+        $tnMontoDescuento= 200;
+        $tnCodigoCliente= 3859;
+        $tnCodigoDocumentoSector= 1 ;
+        $tnNitEmisor= 11111;
+        $tcLeyenda= "Ley Nº 453: Está prohibido importar, distribuir o comercializar productos prohibidos o retirados en el país de origen por atentar a la integridad física y a la salud."; 
+        $tcCodigoMoneda= 1;
+        $tnMontoMoneda= 1000;
+        $tnTipoCambio= 1;
+        $tnNroPedido= 2;
+        $tnTipoModalidad= 4;
+		$ArrayProductos= array();
+		$product_detalle=array( 
+			"ActividadEconomica"=>11110,
+			"CodigoProducto" => "codigo1", 
+			"DescripcionProducto" => "descripcionproducto1", 
+			'Cantidad'=>  1,
+			"PrecioUnitario"=>500  ,  
+			"MontoDescuento" => 100, 
+			"CodigoProductoSin"=> 1377,
+			"UnidadMedida"=> 1
+			);
+		$product_detalle2=array( 
+				"ActividadEconomica"=>11110,
+				"CodigoProducto" => "codigo2", 
+				"DescripcionProducto" => "descripcionproducto2", 
+				'Cantidad'=>  1,
+				"PrecioUnitario"=> 500  ,  
+				"MontoDescuento" => 100, 
+				"CodigoProductoSin"=> 1377,
+				"UnidadMedida"=> 1
+		);
+		array_push($ArrayProductos , $product_detalle );
+		array_push($ArrayProductos , $product_detalle2 );
+		$taDetalle= json_encode($ArrayProductos);
+        $d['servicio']=$this->servicios->emitirfactura(  $tnMontoTotal, $tnEmpresa,$tnCliente,$tcDireccion, $tnTipoDocumentoFiscal, $tnCodigoTipoDocumentoIdentidad,$tnNumeroDocumento, $tcNombreRazonSocial,  $tnMontoDescuento, $tnCodigoCliente,  $tnCodigoDocumentoSector, $tnNitEmisor, $tcLeyenda,$tcCodigoMoneda,$tnMontoMoneda, $tnTipoCambio, $tnNroPedido, $tnTipoModalidad, $taDetalle);
+		$this->cargarlogbasico("emitirfactura--".json_encode($d['servicio']));
+		echo json_encode($d['servicio']);
+	}
+
+	function dec_to($num, $sistema = 2) {
+		$valores_hexa = array(10 => 'A', 11 => 'B', 12 => 'C', 13 => 'D', 14 => 'E', 15 => 'F');
+		if ($sistema > 1 && $sistema < 17) {
+			$num_retornar = array();
+			while ($num > 1) {
+				//$residuo = $num % $sistema;
+				$residuo = bcdiv($num, $sistema, 3);
+				
+				//$residuo =gmp_div_qr($num ,16);
+				
+				$num = floor($num / $sistema);
+				echo "num".$num."<br>";
+				$valor=$residuo > 9 ? $valores_hexa[$residuo] : $residuo;
+				echo "valor ".$valor."<br>";
+				$num_retornar[] = $residuo > 9 ? $valores_hexa[$residuo] : $residuo;
+				//print_r($num_retornar);
+				//echo "num ".$num."<br>";
+			}
+			return implode('', array_reverse($num_retornar));
+		}
+		return 'Verifica que el sistema al que deseas convertir sea válido';
+	}
+
+	/**
+     * @author Ing. Alfonzo Salgado Flores
+     * @fecha 10-06-2021
+     */
+    public static function str_baseconvert($tcCadena, $tnFromBase=10, $tnToBase=16) {
+        $tcCadena = trim($tcCadena);
+        if (intval($tnFromBase) != 10) {
+            $lnLen = strlen($tcCadena);
+            $lcEnCodeFromBase = 0;
+            for ($lnIndex=0; $lnIndex<$lnLen; $lnIndex++) {
+                $lnValor = base_convert($tcCadena[$lnIndex], $tnFromBase, 10);
+                $lcEnCodeFromBase = bcadd(bcmul($lcEnCodeFromBase, $tnFromBase), $lnValor);
+            }
+        }
+        else
+            $lcEnCodeFromBase = $tcCadena;
+    
+        if (intval($tnToBase) != 10) {
+            $lcEnCodeToBase = '';
+            while (bccomp($lcEnCodeFromBase, '0', 0) > 0) {
+                $lnValor = intval(bcmod($lcEnCodeFromBase, $tnToBase));
+                $lcEnCodeToBase = base_convert($lnValor, 10, $tnToBase) . $lcEnCodeToBase;
+                $lcEnCodeFromBase = bcdiv($lcEnCodeFromBase, $tnToBase, 0);
+            }
+        }
+        else 
+            $lcEnCodeToBase = $lcEnCodeFromBase;
+
+        return strtoupper($lcEnCodeToBase);
+    }
 
 	public function cargarciudades()
 	{

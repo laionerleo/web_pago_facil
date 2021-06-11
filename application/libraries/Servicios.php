@@ -2196,7 +2196,7 @@ public function getpaises($tncliente)
    
    /*
     @POST(cPagoFacilPHP + "/Factura/calcularComision")    @FormUrlEncoded
- Call<mPaquetePagoFacil<Double>> calcularComision
+   Call<mPaquetePagoFacil<Double>> calcularComision
          (@Field("tnEmpresa")    long    empresa,
           @Field("tnCliente")    long    cliente,
           @Field("tnMetodoPago") long    metodoPago,
@@ -2422,6 +2422,30 @@ public function getmetodosbyToken($tnTokenService)
    $resultado =json_decode($result);
    return $resultado;
 
+}
+public function emitirfactura(  $tnMontoTotal, $tnEmpresa,$tnCliente,$tcDireccion, $tnTipoDocumentoFiscal, $tnCodigoTipoDocumentoIdentidad,$tnNumeroDocumento, $tcNombreRazonSocial,  $tnMontoDescuento, $tnCodigoCliente,  $tnCodigoDocumentoSector, $tnNitEmisor, $tcLeyenda,$tcCodigoMoneda,$tnMontoMoneda, $tnTipoCambio, $tnNroPedido, $tnTipoModalidad, $taDetalle)
+{
+   $url = 'http://localhost:8000/api/factura/emitirfactura';
+   $data = array( "tnMontoTotal"=> $tnMontoTotal,  "tnEmpresa"=> $tnEmpresa, "tnCliente"=> $tnCliente,"tcDireccion"=> $tcDireccion, "tnTipoDocumentoFiscal"=> $tnTipoDocumentoFiscal,"tnCodigoTipoDocumentoIdentidad"=>  $tnCodigoTipoDocumentoIdentidad, "tnNumeroDocumento"=>$tnNumeroDocumento,"tcNombreRazonSocial"=> $tcNombreRazonSocial, "tnMontoDescuento"=>  $tnMontoDescuento,"tnCodigoCliente"=>  $tnCodigoCliente,"tnCodigoDocumentoSector"=>  $tnCodigoDocumentoSector,"tnNitEmisor"=>  $tnNitEmisor,"tcLeyenda"=> $tcLeyenda, "tcCodigoMoneda"=> $tcCodigoMoneda,"tnMontoMoneda"=> $tnMontoMoneda,"tnTipoCambio"=> $tnTipoCambio,"tnNroPedido"=>  $tnNroPedido, "tnTipoModalidad"=> $tnTipoModalidad,"taDetalle"=>  $taDetalle   , 'tcApp'=>3  );
+   $this->cargarlogservicio("getmetodosbygrupos".json_encode($data));
+
+   $header = array(
+      "Content-Type: application/x-www-form-urlencoded",
+      "Content-Length: ".strlen( http_build_query($data))
+      );
+      
+   // use key 'http' even if you send the request to https://...
+   $options = array('http' => array(
+      'method'  => 'POST',
+      'header' => implode("\r\n", $header),
+      'content' => http_build_query($data) 
+            )
+         );
+   $context  = stream_context_create($options);
+   $result = file_get_contents($url, false, $context);
+   $resultado =json_decode($result);
+   return $resultado;
+  
 }
 
 public function cargarlogservicio($Mensajeerror)

@@ -102,8 +102,44 @@ body{
                                     <label for=""> <?=  $metodosdepago[$i]->Nombre ?> </label>
                                     </center>
                             <?php  } ?>
+                            <?php  for ($i=0; $i <  count($metodosdepago); $i++) { ?>
+                                    <center>
+                                    <img src="<?=  $metodosdepago[$i]->url_icon ?>" width="100" height="50" style="object-fit:contain" alt="<?=  $metodosdepago[$i]->Nombre ?>" />
+                                    <br>
+                                    <label for=""> <?=  $metodosdepago[$i]->Nombre ?> </label>
+                                    </center>
+                            <?php  } ?>
+                            <?php  for ($i=0; $i <  count($metodosdepago); $i++) { ?>
+                                    <center>
+                                    <img src="<?=  $metodosdepago[$i]->url_icon ?>" width="100" height="50" style="object-fit:contain" alt="<?=  $metodosdepago[$i]->Nombre ?>" />
+                                    <br>
+                                    <label for=""> <?=  $metodosdepago[$i]->Nombre ?> </label>
+                                    </center>
+                            <?php  } ?>
                             
+                            <?php  for ($i=0; $i <  count($metodosdepago); $i++) { ?>
+                                    <center>
+                                    <img src="<?=  $metodosdepago[$i]->url_icon ?>" width="100" height="50" style="object-fit:contain" alt="<?=  $metodosdepago[$i]->Nombre ?>" />
+                                    <br>
+                                    <label for=""> <?=  $metodosdepago[$i]->Nombre ?> </label>
+                                    </center>
+                            <?php  } ?>
+                            <?php  for ($i=0; $i <  count($metodosdepago); $i++) { ?>
+                                    <center>
+                                    <img src="<?=  $metodosdepago[$i]->url_icon ?>" width="100" height="50" style="object-fit:contain" alt="<?=  $metodosdepago[$i]->Nombre ?>" />
+                                    <br>
+                                    <label for=""> <?=  $metodosdepago[$i]->Nombre ?> </label>
+                                    </center>
+                            <?php  } ?>
+                            <?php  for ($i=0; $i <  count($metodosdepago); $i++) { ?>
+                                    <center>
+                                    <img src="<?=  $metodosdepago[$i]->url_icon ?>" width="100" height="50" style="object-fit:contain" alt="<?=  $metodosdepago[$i]->Nombre ?>" />
+                                    <br>
+                                    <label for=""> <?=  $metodosdepago[$i]->Nombre ?> </label>
+                                    </center>
+                            <?php  } ?>
                         </marquee>
+
                         </div>
                         </div>
                     </div>
