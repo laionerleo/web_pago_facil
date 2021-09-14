@@ -142,7 +142,9 @@ class Welcome extends CI_Controller {
 			
 			
 		}*/
-
+	echo '<pre>';  
+		print_r($d ) ;
+echo '</pre>' ;
 		$this->load->view('pago_rapido/lista_clientes', $d);
 
 	}
@@ -327,7 +329,7 @@ class Welcome extends CI_Controller {
 		
 
 		//START DOWNLOAD
-	//header('Content-Description: File Transfer');
+		//header('Content-Description: File Transfer');
 		//header('Content-Type', 'application/octet-stream');
 		header('Content-Disposition: attachment; filename=factura-'.$factura.'.pdf');
 		header('Content-Transfer-Encoding: base64');
@@ -354,7 +356,6 @@ class Welcome extends CI_Controller {
 	
 		$ip_empresa=$empresadetalle->values[0]->cServerIP;//ip de la empresa
 		
-		//$codigo_fijo=23931;//  $datos["codigo_fijo"];;//codigofijodelcliente
 		
 		$lista=$this->servicios->getavisocobranzaactualizado($ip_empresa,$codigo_fijo,$idcliente);
 		//$lista=$this->servicios->getempresasimple();
@@ -397,9 +398,7 @@ class Welcome extends CI_Controller {
 		$lncodigofijo=$datos["codigofijo"];
 
 		$tnIdentificarPestaña=$datos[0];
-		echo '<pre>';
-		print_r($datos ) ;
-		echo '</pre>' ;
+		
 		
 		try {
 			
@@ -624,6 +623,26 @@ class Welcome extends CI_Controller {
 					
 				break;
 				
+				case 8:
+						
+					$entidades=$this->servicios->genentidadesfinancieras($_SESSION['cliente']);
+					$entidadeselegidas=$this->servicios->getultimasutilizadas($_SESSION['cliente']);
+					$d['entidadeselegidas']=$entidadeselegidas->values;
+					$d['entidades']=$entidades->values;
+					$d['clienteempresa']=$_SESSION[$tnIdentificarPestaña.'codigofijo'];
+					$d['recarga']=$_SESSION[$tnIdentificarPestaña.'idempresa'];
+					$_SESSION[$tnIdentificarPestaña.'entidades']=$entidades->values;
+					$d['Simbolo']="Bs";
+					$d['Periodo']=$_SESSION[$tnIdentificarPestaña.'periodomes'];
+					$d['urlimagenbanner']=$_SESSION[$tnIdentificarPestaña.'urlimagenbanner'];
+					$d['recarga']=$_SESSION[$tnIdentificarPestaña.'idempresa'];
+					
+					
+				
+					$this->load->view('pago_rapido/formasdepago/pagoqrbnb', $d);
+					
+				break;
+
 				case 5:
 					$d['tiempo']=$_SESSION[$tnIdentificarPestaña.'metodopagoelegido']->TiempoLatencia;
 					$d['intentos']=$_SESSION[$tnIdentificarPestaña.'metodopagoelegido']->IntentosProcesar;
@@ -793,6 +812,24 @@ class Welcome extends CI_Controller {
 					$d['tnCodigopostal']= "0000"; //
 					$d['tnCinNit']=$_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'];
 					$this->load->view('pago_rapido/formasdepago/pagoatc', $d);
+
+				case 11:
+						
+						$d['numeropago']=$_SESSION['telefonoDePago'];
+						$d['clienteempresa']=$_SESSION[$tnIdentificarPestaña.'codigofijo'];
+						$d['Monto']= $_SESSION[$tnIdentificarPestaña.'montototal'];
+						$d['Periodo']=$_SESSION[$tnIdentificarPestaña.'periodomes'];
+						$d['urlimagenempresa']=$_SESSION[$tnIdentificarPestaña.'urlimagenempresa'];
+						$d['recarga']=$_SESSION[$tnIdentificarPestaña.'idempresa'];
+						$d['urlimagenbanner']=$_SESSION[$tnIdentificarPestaña.'urlimagenbanner'];
+						$d['Simbolo']="Bs";
+						$d['tiempo']=$_SESSION[$tnIdentificarPestaña.'metodopagoelegido']->TiempoLatencia;
+						$d['intentos']= $_SESSION[$tnIdentificarPestaña.'metodopagoelegido']->IntentosProcesar;
+						$d['EtiquetaBilletera']='Billetera Tigo Money ';
+						
+						$this->load->view('pago_rapido/formasdepago/pagoexpress', $d);
+	
+					break;
 				break;
 
 				default:
@@ -838,11 +875,15 @@ class Welcome extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$laEntidadesElegidas=$this->input->post("datos");
 		$tnIdentificarPestaña=$this->input->post("tnIdentificarPestaña");
+		
+		$tnMetodoPago =$_SESSION[$tnIdentificarPestaña.'metododepago'];
+	
+
 		$_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']=$laEntidadesElegidas;
 		$tnCliente=$_SESSION['cliente'];
 		$tnEmpresa=$_SESSION[$tnIdentificarPestaña.'idempresa'];;
 		$tcCodigoClienteEmpresa = $_SESSION[$tnIdentificarPestaña.'codigofijo'];
-		$tnMetodoPago =$_SESSION[$tnIdentificarPestaña.'metododepago'];
+		$_SESSION['laEntidadesElegidas']=
 		$tnTelefono = null;
 		$tcFacturaA = $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] ;
 		$tnCiNit = $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'];
@@ -850,22 +891,25 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteEmpresa=$_SESSION[$tnIdentificarPestaña.'montototal'];
 		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
 		$tcPeriodo=$_SESSION[$tnIdentificarPestaña.'periodomes'];
-		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'];
+		//$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'];
+		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'].";".json_encode($laEntidadesElegidas);
 		if($tcNroPago!=0)
 		{
-		$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnEmpresa, $tcNroPago);
+			$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnEmpresa, $tcNroPago);
 			if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) != floatval($tnMontoClienteEmpresa) )  )
 			{
 			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
 			$tcPeriodo=$laConsultaFactura->periodo;
-			$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
+			$montocomision=$this->servicios->calcularcomision($tnCliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnMetodoPago,$laConsultaFactura->montoTotal);
 			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
 			$tnMontoClienteSyscoop= $montocomision->values;
 			}
 		}
-
-		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
+		
+		
+		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei , $_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']);
 		$this->cargarlog("generar qr ".json_encode($metodos));
+	
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
 
@@ -883,6 +927,126 @@ class Welcome extends CI_Controller {
 		}else{
 			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
 		}
+		echo json_encode($arreglo);
+		
+	
+	}
+
+	public function generarqrbnb()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$laEntidadesElegidas=$this->input->post("datos");
+		$tnIdentificarPestaña=$this->input->post("tnIdentificarPestaña");
+		$tnMetodoPago =$_SESSION[$tnIdentificarPestaña.'metododepago'];
+	
+		$_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']=$laEntidadesElegidas;
+		$tnCliente=$_SESSION['cliente'];
+		$tnEmpresa=$_SESSION[$tnIdentificarPestaña.'idempresa'];;
+		$tcCodigoClienteEmpresa = $_SESSION[$tnIdentificarPestaña.'codigofijo'];
+		
+		$tnTelefono = null;
+		$tcFacturaA = $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] ;
+		$tnCiNit = $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'];
+		$tcNroPago = $_SESSION[$tnIdentificarPestaña.'nrofactura'];
+		$tnMontoClienteEmpresa=$_SESSION[$tnIdentificarPestaña.'montototal'];
+		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
+		$tcPeriodo=$_SESSION[$tnIdentificarPestaña.'periodomes'];
+		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'].";".json_encode($laEntidadesElegidas);
+		if($tcNroPago!=0)
+		{
+		$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnEmpresa, $tcNroPago);
+			if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) != floatval($tnMontoClienteEmpresa) )  )
+			{
+			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
+			$tcPeriodo=$laConsultaFactura->periodo;
+			$montocomision=$this->servicios->calcularcomision($tnCliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnMetodoPago,$laConsultaFactura->montoTotal);
+			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
+			$tnMontoClienteSyscoop= $montocomision->values;
+			}
+		}
+	
+		
+		$metodos=$this->servicios->generarqrbnb($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']);
+		
+		$this->cargarlog("generar qr BNB".json_encode($metodos));
+		$mensajeerror=$metodos->error ;
+		$valor= $metodos->values;
+		if($mensajeerror== 0 ){
+			if(isset($valor))
+			{
+				$valores = explode(";", $valor );
+				$linkdescarga= base_url()."es/Descargarqr/".$valores[0];
+				$this->servicios->GuardarEntidadesBancarias($tnCliente ,$laEntidadesElegidas, $valores[0] );
+				$this->guardariptransaccion( $tnCliente , $tnEmpresa , $valores[0]);
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 , 'imagenqr' =>$valores[1],'linkdescarga'=>$linkdescarga ,'tnTransaccion'=>$valores[0]);
+			}else{
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+			}
+		}else{
+			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+		}
+		echo json_encode($arreglo);
+		
+		
+	
+	}
+
+	public function generarpagoexpress()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$datos=$this->input->post("datos");
+		$tnIdentificarPestaña=$this->input->post("tnIdentificarPestaña");
+		
+		$tnCliente=$_SESSION['cliente'];
+		$tnEmpresa=$_SESSION[$tnIdentificarPestaña.'idempresa'];;
+		$tcCodigoClienteEmpresa = $_SESSION[$tnIdentificarPestaña.'codigofijo'];
+		$tnMetodoPago =$_SESSION[$tnIdentificarPestaña.'metododepago'];
+		$tnTelefono = $datos["celular"];
+		$tcFacturaA = $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] ;
+		$tnCiNit = $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'];
+		$tcNroPago = $_SESSION[$tnIdentificarPestaña.'nrofactura'];
+		$tnMontoClienteEmpresa=$_SESSION[$tnIdentificarPestaña.'montototal'];
+		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
+		$tcPeriodo=$_SESSION[$tnIdentificarPestaña.'periodomes'];
+		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'];
+		if($tcNroPago!=0)
+		{
+		$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnEmpresa, $tcNroPago);
+			if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) != floatval($tnMontoClienteEmpresa) )  )
+			{
+			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
+			$tcPeriodo=$laConsultaFactura->periodo;
+			$montocomision=$this->servicios->calcularcomision($tnCliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnMetodoPago,$laConsultaFactura->montoTotal);
+			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
+			$tnMontoClienteSyscoop= $montocomision->values;
+			}
+		}
+		/*
+		echo '<pre>';  
+		print_r($datos ) ;
+		echo '</pre>' ;
+		echo  "$tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei";
+		*/
+		$metodos=$this->servicios->generarticketpagoexpress($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei);
+		$this->cargarlog("generar qr BNB".json_encode($metodos));
+		$mensajeerror=$metodos->error ;
+		$valor= $metodos->values;
+
+		if($mensajeerror== 0 ){
+			if(isset($valor))
+			{
+				
+				//$this->guardariptransaccion( $tnCliente , $tnEmpresa , $valor);
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 10 ,'tnTransaccion'=>$valor);
+			}else{
+				$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> 0 );
+			}
+		}else{
+			$arreglo=array('mensaje' => $metodos->message, 'tipo' => 1 , 'valor'=> $metodos->values);
+		}
+		
 		echo json_encode($arreglo);
 	
 	}
@@ -1548,8 +1712,10 @@ class Welcome extends CI_Controller {
 		$tnFactura= $datos['nrofactura'];	
 		$tnTipo=$datos['tipo'];	
 		$facturapagofacil=$this->servicios->getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
-
-
+		echo '<pre>';  
+		print_r($facturapagofacil ) ;
+		echo '</pre>' ;
+/*
 		//este codigo sirve para poder visuailzar 
 
 		$cadena="";
@@ -1576,6 +1742,8 @@ class Welcome extends CI_Controller {
 			//echo $taData['urlweb'];
 			$this->load->view('pagosrealizados/vistaiframepdf', $d);
 		}
+
+		*/
 		
 	}
 

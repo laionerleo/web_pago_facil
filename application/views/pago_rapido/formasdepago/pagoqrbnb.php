@@ -103,7 +103,7 @@ img.fnone {
                                                             <img id="imagenqr" src="" alt="">
                                                         </center>
                                                         <center>
-                                                        <a id="linkdescarga" href=""> <img src="<?= base_url(); ?>application/assets/assets/iconos/descarga.png" style="height: 50px;" alt=""></a>
+                                                        <a style="display:none" id="linkdescarga" href="">Descargar</a>
                                                         </center>
                                                     </div>
                                                 </div>
@@ -199,16 +199,20 @@ img.fnone {
     contador=1;
                                                                             
         var extension="";
+        
         function generarqr()
         {
-            var tnCambiarMetodo=0;
             if(entidadesasignadas.length>0 )
             {
                 var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-                var urlajax=$("#url").val()+"/generarqr";   
+               
+                    var urlajax=$("#url").val()+"/generarqrbnb";   
+                
+            
+            
             $.ajax({                    
                     url: urlajax,
-                    data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña },
+                    data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña  },
                     type : 'POST',
                     cache: false,
                     dataType: "json",
@@ -242,8 +246,8 @@ img.fnone {
                         }
                         },
                         error: function (data) {
-                            // $("#elegirempresas").modal('toggle');
-                            //   $('.modal-backdrop').remove();
+                        // $("#elegirempresas").modal('toggle');
+                        //   $('.modal-backdrop').remove();
                             swal("Error ", data.responseText , "error");
                         },               
                         complete:function( ) {
@@ -251,7 +255,8 @@ img.fnone {
                             
                             $('#btncargaconsulta').hide();
                         },
-                    });  
+                    }); 
+                    
 
             }else{
 

@@ -376,12 +376,16 @@ class Servicio extends CI_Controller {
         $tnCodigoCliente= 3859;
         $tnCodigoDocumentoSector= 1 ;
         $tnNitEmisor= 11111;
-        $tcLeyenda= "Ley Nº 453: Está prohibido importar, distribuir o comercializar productos prohibidos o retirados en el país de origen por atentar a la integridad física y a la salud."; 
-        $tcCodigoMoneda= 1;
+        $tcLeyenda= 20; 
+        $tcCodigoMoneda= 688;
         $tnMontoMoneda= 1000;
-        $tnTipoCambio= 1;
+        $tnTipoCambio= 688;
         $tnNroPedido= 2;
         $tnTipoModalidad= 4;
+		$tnMetodoPago= 2;
+        $tnNumeroTarjeta="4797000000007896"  ;
+		$tcUsuario="Layala";
+		
 		$ArrayProductos= array();
 		$product_detalle=array( 
 			"ActividadEconomica"=>11110,
@@ -398,15 +402,26 @@ class Servicio extends CI_Controller {
 				"CodigoProducto" => "codigo2", 
 				"DescripcionProducto" => "descripcionproducto2", 
 				'Cantidad'=>  1,
-				"PrecioUnitario"=> 500  ,  
-				"MontoDescuento" => 100, 
+				"PrecioUnitario"=> 200  ,  
+				"MontoDescuento" => 50, 
 				"CodigoProductoSin"=> 1377,
 				"UnidadMedida"=> 1
 		);
+		$product_detalle3=array( 
+			"ActividadEconomica"=>11110,
+			"CodigoProducto" => "codigo3", 
+			"DescripcionProducto" => "descripcionproducto3", 
+			'Cantidad'=>  1,
+			"PrecioUnitario"=> 300  ,  
+			"MontoDescuento" => 50, 
+			"CodigoProductoSin"=> 1377,
+			"UnidadMedida"=> 1
+	);
 		array_push($ArrayProductos , $product_detalle );
 		array_push($ArrayProductos , $product_detalle2 );
+		array_push($ArrayProductos , $product_detalle3 );
 		$taDetalle= json_encode($ArrayProductos);
-        $d['servicio']=$this->servicios->emitirfactura(  $tnMontoTotal, $tnEmpresa,$tnCliente,$tcDireccion, $tnTipoDocumentoFiscal, $tnCodigoTipoDocumentoIdentidad,$tnNumeroDocumento, $tcNombreRazonSocial,  $tnMontoDescuento, $tnCodigoCliente,  $tnCodigoDocumentoSector, $tnNitEmisor, $tcLeyenda,$tcCodigoMoneda,$tnMontoMoneda, $tnTipoCambio, $tnNroPedido, $tnTipoModalidad, $taDetalle);
+        $d['servicio']=$this->servicios->emitirfactura(  $tnMontoTotal, $tnEmpresa,$tnCliente,$tcDireccion, $tnTipoDocumentoFiscal, $tnCodigoTipoDocumentoIdentidad,$tnNumeroDocumento, $tcNombreRazonSocial,  $tnMontoDescuento, $tnCodigoCliente,  $tnCodigoDocumentoSector, $tnNitEmisor, $tcLeyenda,$tcCodigoMoneda,$tnMontoMoneda, $tnTipoCambio, $tnNroPedido, $tnTipoModalidad, $taDetalle , $tnMetodoPago  , $tnNumeroTarjeta , $tcUsuario);
 		$this->cargarlogbasico("emitirfactura--".json_encode($d['servicio']));
 		echo json_encode($d['servicio']);
 	}

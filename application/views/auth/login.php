@@ -39,18 +39,34 @@
     <link href="../../../../fonts.googleapis.com/css89ea.css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/application/assets/login/style.css">
+
+    <style>
+    
+@media only screen and (max-width: 500px) {
+    .cambiarimagen{
+        background-image: url(http://localhost/web_pago_facil//application/assets/assets/media/image/bannerpagofacilloginmovil.jpeg);
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cambiarimagen{
+        background-image: url(http://localhost/web_pago_facil//application/assets/assets/media/image/bannerpagofacillogin.jpeg);
+    }
+}
+    
+    </style>
 </head>
 
 <body>
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->      
-    <section class="fxt-template-animation fxt-template-layout23" data-bg-image="<?= base_url() ?>/application/assets/assets/media/image/BanerPagoFacil.jpg">          
-        <div class="fxt-bg-overlay" data-bg-image="<?= base_url() ?>/application/assets/assets/media/image/BanerPagoFacil.jpg">
+    <section class="fxt-template-animation fxt-template-layout23 cambiarimagen" >          
+        <div class="fxt-bg-overlay cambiarimagen"  style="background-size: cover;" >
             <div class="fxt-content">
-                <div class="fxt-header">
+                <div class="fxt-header" style="display:none">
                     <a href="login-23.html" class="fxt-logo"><img src="<?= base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png" alt="Logo"></a> 
-                </div>                            
+                </div>         
+                <br><br><br><br>                   
                 <div class="fxt-form"> 
                     
                     <form id="form_login">
@@ -80,12 +96,12 @@
                         
                         <div class="form-group"> 
                             <div class="fxt-transformY-50 fxt-transition-delay-1">                                              
-                                <input type="text" id="usuario" name="usuario" class="form-control" name="Login" placeholder="Name" required="required" style="color: Black;opacity: 1;"  value="laionerplus@gmail.com"  >
+                                <input type="text" id="usuario" name="usuario" class="form-control" name="Login" placeholder="Name" required="required" style="color: Black;opacity: 1;"   >
                             </div>
                         </div>
                         <div class="form-group">  
                             <div class="fxt-transformY-50 fxt-transition-delay-2">                                              
-                                <input id="contraseña" name ="contraseña" type="password" class="form-control" placeholder="********" required="required" style="color: Black;opacity: 1;" value="ticketfacil123" >
+                                <input id="contraseña" name ="contraseña" type="password" class="form-control" placeholder="********" required="required" style="color: Black;opacity: 1;" >
                                 <i toggle="#password" id="contraseñaojo" class="fa fa-fw fa-eye toggle-password field-icon"></i>
                             </div>
                         </div>
