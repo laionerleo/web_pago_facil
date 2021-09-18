@@ -1,19 +1,24 @@
 
+
         <?php if(isset($saldo)){ ?>
         <center><h2>Saldo</h2></center>
-        <center><h4>Bs<?= $saldo ?></h4></center>
+        <center><h4>Bs<?= @$saldo ?></h4></center>
+        <center><h6><?= @$mensaje ?></h6></center>
+        
         <?php } ?>
-            <div class="row">
             
+            
+            <div class="row">
+            <?php if($comision>0 ){  ?>
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
                             <div class="card-body">
-                                <h4>Verificacion de Pago</h4>
+                                <h4>Datos para la Factura PagoFacil </h4>
                     
-                                <label for=""> nombre cliente</label>
+                                <label for=""> Nombre Cliente</label>
                             <input class="form-control" id="inpnombrecliente" type="text" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
-                            <label for=""> CI o NIT de cliente</label>
+                            <label for=""> CI o NIT de Cliente</label>
                             <input class="form-control" type="text" id="inpcionit" placeholder="CI o NIT de cliente" value="<?= @$cionit ?>">
                                    
                             </div>
@@ -21,13 +26,19 @@
                         </div>
                     </div>
                 </div>
+            <?php }else{ ?>
+                <input class="form-control" id="inpnombrecliente" type="hidden" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
+                <input class="form-control" type="hidden" id="inpcionit" placeholder="CI o NIT de cliente" value="<?= @$cionit ?>">
+                <?php }?>
+
+
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body text-center m-t-10-minus" >
-                        <h4>Datos de Transaccion</h4>
-                        <label for=""> <?= @$etiquetametodopago  ?> </label>
+                        <h4>Datos de Envio</h4>
+                        <label for=""> Nro De Whatsapp </label>
                         <input class="form-control" type="text" id="inpnumero" placeholder=" <?= @$etiquetametodopago  ?>" value="<?= @$numerocelular ?> " >
-                        <label for=""> Correo de envio de facturas</label>
+                        <label for=""> Correo de Envio de Facturas</label>
                         <input class="form-control" type="text" id="inpcorreo" placeholder="Correo de envio de facturas"  value="<?= @$correo ?>"  >
                         </div>
                     </div>
@@ -56,8 +67,9 @@ function vistaconfirmacion()
     var inpcionit=$('#inpcionit').val();
     var inpnumero=$('#inpnumero').val();
     var inpcorreo=$('#inpcorreo').val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     
-    var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
+    var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo  , tnIdentificarPestaña:tnIdentificarPestaña};
     var urlajax=$("#url").val()+"vistaconfirmacion";   
     
     $("#confirmacionbody").empty();   
@@ -65,7 +77,11 @@ function vistaconfirmacion()
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
-    
+    $.ajaxSetup(
+        {
+            cache: false,
+            
+                    });
     $("#confirmacionbody").load(urlajax,{datos}); 
     $("#li4").show();
 

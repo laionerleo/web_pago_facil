@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
 <?php $this->load->view('theme/head'); ?>
+<link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
+<style>
+        input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+</style>
 
 <body  class="">
 
@@ -39,18 +47,8 @@
         <!-- end::navigation -->
 
         <div class="content-body" id="vista_general"  >
-        
 
             <div class="content" >
-            <div class="page-header justify-content-between">
-              
-                <div>
-                <?php  for ($i=0; $i < count($metodosdepago) ; $i++) {?>
-                            <a href="#" ><img style=" height:25px; width:45px; position: relative;" src="<?=  $metodosdepago[$i]->url_icon ?>" alt=""><a>
-                        <?php  } ?>
-                   
-                </div>
-            </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -60,6 +58,10 @@
                                 <li class="nav-item" id="li1"  >
                                     <a class="nav-link active" id="inicio-tab"  data-toggle="tab" href="#iniciobody" role="tab"
                                        aria-controls="home" aria-selected="true">Inicio</a>
+                                </li>
+                                <li class="nav-item" id="lir"  style="display:none" >
+                                    <a class="nav-link" id="recarga-tab"  data-toggle="tab" href="#recargabody" role="tab"
+                                       aria-controls="home" aria-selected="true">Recarga Billetera</a>
                                 </li>
                                 <li class="nav-item" id="li2" style="display:none" >
                                     <a class="nav-link" id="facturaspendientes-tab" data-toggle="tab" href="#facturaspendientesbody" role="tab"
@@ -71,7 +73,7 @@
                                 </li>
                                 <li class="nav-item" id="li4" style="display:none" >
                                     <a class="nav-link" id="confirmacion-tab" data-toggle="tab" href="#confirmacionbody" role="tab"
-                                       aria-controls="contact" aria-selected="false">Verificacion de Pago</a>
+                                       aria-controls="contact" aria-selected="false">Confirmación de Pago</a>
                                 </li>
                                 <li class="nav-item" id="li5" style="display:none" > 
                                     <a class="nav-link" id="prepararpago-tab" data-toggle="tab" href="#prepararpagobody" role="tab"
@@ -85,58 +87,40 @@
                                      <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
-                                        <div class="avatar-group ml-4">
-                                                    <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
-                                                            <figure id="rub-<?= $i ?>" class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
-                                                                <a href="#" title="  <?php echo $rubros->values[$i]->nNombre  ?>" data-toggle="tooltip" onclick="cambiar_rubro(<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,'#rub-<?= $i ?>')">
-                                                                    <img src="<?php echo $rubros->values[$i]->cImagenUrl  ?>" class="rounded-circle"
-                                                                        alt="avatar">
-                                                                </a>
-                                                            </figure>
-                                                            &nbsp;&nbsp;
-                                                    <?php }  ?>
-                                        </div>
+                                        <select name="slcrubro"  class=" form-control" id="slcrubro" >
+                                            <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
+                                                <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?> "  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
+                                            <?php  } ?> 
+                                        </select>   
                                     </div>
                                     <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
-                                        <div class="avatar-group ml-4">
-                                                    <figure id="reg-0"  class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
-                                                                <a href="#" title=" <?php echo $region->values[0]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[0]->nRegion  ?>,'#reg-0' ,'<?php echo $region->values[0]->cNombre  ?>'   )">
-                                                                <img id="region_principal" src="<?php echo $region->values[0]->nEstado  ?>"class="rounded-circle"
-                                                                        alt="avatar">
-                                                                </a>
-                                                    </figure>
-                                                    <div id="div_regiones"  style="display:none">
-                                                        <?php  for ($i=1; $i < count($region->values) ; $i++) { ?>
-                                                            <figure id="reg-<?= $i ?>"  class="avatar avatar-lg" style="background-color: #FFFF;border-color:black" >
-                                                                <a href="#" title=" <?php echo $region->values[$i]->cNombre  ?>" data-toggle="tooltip" onclick="cambiar_region(<?php echo $region->values[$i]->nRegion  ?>,'#reg-<?= $i ?>','<?php echo $region->values[$i]->cNombre  ?>' )">
-                                                                <img src="<?php echo $region->values[$i]->nEstado  ?>"class="rounded-circle"
-                                                                        alt="avatar">
-                                                                </a>
-                                                            </figure>
-                                                            &nbsp;
-                                                        <?php }  ?>
-                                                    </div>
-                                                    <figure id="reg-x" onclick="habilitarregiones()"  class="avatar avatar-sm" style="background-color: #FFFF;border-color:black" >
-                                                        <a href="#" title="Cambiar"  data-toggle="tooltip" onclick="">
-                                                        <img src="<?=  base_url() ?>/application/assets/assets/media/image/cambio.svg"class="rounded-circle"
-                                                                alt="avatar">
-                                                        </a>
-                                                    </figure>
-
-                                                    
-                                        </div>
                                        
-                                        <label id="nombre_region"  href=""><?php echo $region->values[0]->cNombre  ?> </label>
+                                        <select name="slgregion"  class=" form-control" id="slgregion" >
+                                            <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
+                                                <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
+                                            <?php  } ?> 
+                                        </select>   
+                                       
+                                        <label id="nombre_region"  href=""> </label>
                                     </div>
                                 </div>
                                   <div id="vistas_empresas"  >
                                        
                                   </div>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <center>
+                                          <input id="btnperfil" style="" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
+                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
+                                          
+                                          </center>
+                                      </div>
+                                  </div>
                                   <br>
                                  
                                     <div class="form-row">
-                                        <div class="col-md-3 mb-2 ">
+                                        <div  id="divcriteriobusqueda" class="col-md-3 mb-2 ">
                                             <label for="">Tipo de documento</label><br>
                                             <div class="form-check">
                                             <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
@@ -154,15 +138,25 @@
                                         </div>
                                         </div>
                                         <div class="col-md-3 mb-3">
-                                            <label for="">Codigo</label>
-                                            <input id="inp_dato" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                            <label id ="lblcodigo" for="">Codigo</label>
+                                            <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
+                                        <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
+                                            <br>
+                                            <button type="button" class="btn btn-primary m-r-5" onclick="busqueda_billeteras_general()" data-toggle="tooltip"
+                                                data-placement="top" title="Buscar otras Billeteras">
+                                                Buscar Billeteras
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
+                                            <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
+                                            
                                             <br>
-                                            <input type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                            <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                            <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -171,11 +165,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane fade" id="recargabody" role="tabpanel" aria-labelledby="recargabody">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+
+
                                 <div class="tab-pane fade" id="facturaspendientesbody" role="tabpanel" aria-labelledby="facturaspendientesbody">
                                     <div class="spinner-border text-primary" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="facturacionbody" role="tabpanel" aria-labelledby="contact-tab">
                                     <div class="spinner-border text-primary" role="status">
                                         <span class="sr-only">Loading...</span>
@@ -244,24 +246,26 @@ var sw=1;
 function cambiar_region(id_region,id_figure,nombre,)
 {
     region_id=id_region;
-    $(id_fugure_region).removeClass("avatar-state-success");
-    id_fugure_region=id_figure;
+  //  $(id_fugure_region).removeClass("avatar-state-success");
+    //id_fugure_region=id_figure;
     
     $('#btn_region').click();
-    $(id_figure).addClass("avatar-state-success");
-    $("#nombre_region").text(nombre);
+    //$(id_figure).addClass("avatar-state-success");
+    //$("#nombre_region").text(nombre);
     filtrar_empresas();
 
 }
 function cambiar_rubro(id_rubro,id_figure)
 {
     rubro_id=id_rubro;
-    $(id_fugure_rubro).removeClass("avatar-state-success");
+  //  $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
+    $("#btnperfilempresa").hide();
+    $("#btnperfil").show();
     
 
     filtrar_empresas();
-    $(id_figure).addClass("avatar-state-success");
+   // $(id_figure).addClass("avatar-state-success");
     
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
@@ -281,7 +285,12 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
  scrollTop: $("#idlugarboton").offset().top
  }, 2000);
     
-    //$('#btn_empresa').click();
+if(id_empresa==20)
+    {
+        habilitarrecarga();
+    }else{
+        dehabilitarrecarga();
+    }
     
 }
 function  cambiar_tipo_switch()
@@ -295,14 +304,41 @@ function  cambiar_tipo_switch()
 }
 function filtrar_empresas()
 {
+    $("#vistas_empresas").empty();
+    $("#vistas_empresas").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+
     var datos= {rubro_id:rubro_id,region_id:region_id  };
     var urlajax=$("#url").val()+"get_filtro_regiones";  
    // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax,{datos});   
-  
-   
-     
+    $("#vista_clientes").empty();
 }
+function perfilfrecuente()
+{
+    $("#vistas_empresas").empty();
+    $("#vistas_empresas").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+
+    $("#btnperfilempresa").show();
+    $("#btnperfil").hide();
+    
+    var urlajax=$("#url").val()+"perfilfrecuente";  
+   // $("#waitLoading").fadeIn(1000);
+    $("#vistas_empresas").load(urlajax);   
+}
+//perfilfrecuente
+
 function habilitarregiones()
 {
   if(swregion==1)
@@ -318,9 +354,18 @@ function habilitarregiones()
   }
   
 }
-
 function  busqueda_datos()
 {
+
+    $("#vista_clientes").empty();
+    $("#vista_clientes").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+
     var codigo=$("#inp_dato").val();
     var tipo=sw;
     if( (codigo!='') && (empresa_id!=0))
@@ -328,7 +373,64 @@ function  busqueda_datos()
         
     var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
-      
+    //$("#vista_clientes").show();
+    $("#vista_clientes").load(urlajax,{datos});                    
+  
+    }else{
+        if(codigo=='')
+        {
+            alert(' no  inserto el codigo ');
+        }
+        if(empresa_id==0)
+        {
+            alert('no selecciono la empresa ');
+        }
+        $("#vista_clientes").empty();
+        
+    }
+    
+}
+
+function  busqueda_billeteras_dependientes()
+{
+    $("#vista_clientes").empty();
+    $("#vista_clientes").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+    var codigo=$("#inp_dato").val();
+    if( (codigo!='') && (empresa_id!=0))
+    {
+    var datos= {codigo:codigo  };
+    var urlajax=$("#url").val()+"filtro_billeteras_dependientes";   
+    $("#vista_clientes").show();
+    $("#vista_clientes").load(urlajax,{datos});                    
+  
+    }else{
+        if(codigo=='')
+        {
+            alert(' no  inserto el codigo ');
+        }
+        if(empresa_id==0)
+        {
+            alert('no selecciono la empresa ');
+        }
+        $("#vista_clientes").empty();
+        
+    }
+    
+}
+function  busqueda_billeteras_general()
+{
+    var codigo=$("#inp_dato").val();
+    if( (codigo!='') && (empresa_id!=0))
+    {
+    var datos= {codigo:codigo  };
+    var urlajax=$("#url").val()+"filtro_billeteras_general";   
+    $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
   
     }else{
@@ -367,17 +469,195 @@ function facturaspendientes(codigo_usuario)
 
 }
 
+function habilitarrecarga()
+{
+    $('#btnbuscar').hide();
+    $('#divrecarga').show();
+    $('#lblcodigo').text('Telefono - Carnet ');
+    
+    $("#vista_clientes").hide();
+    
+   $('#inp_dato').val(<?= $_SESSION['cliente']; ?> );
+   $('#divcriteriobusqueda').hide();
+   
+    busqueda_billeteras_dependientes();
+}
+function dehabilitarrecarga()
+{
+    $('#btnbuscar').show();
+    $('#divrecarga').hide();
+    $('#lblcodigo').text('Codigo');
+    $('#lir').hide();
+    $("#recargabody").empty(); 
+    $('#divcriteriobusqueda').show();
+    $("#vista_clientes").empty();
+    
+    $('#inp_dato').val("<?= @$_SESSION['codigofijo']; ?>" );
+    
+}
   
+function vistarecarga(codigo)
+{
+   // var codigo=$('#inp_dato').val();
+    var datos= {codigo:codigo  };
+    var urlajax=$("#url").val()+"vistarecargas";   
+    $("#facturaspendientesbody").empty();
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+    $("#recargabody").load(urlajax,{datos});   
+    
+    $("#lir").show();
+    $("#recarga-tab").click();
+
+}
+
+function limpiar()
+{
+ 
+    $("#facturaspendientesbody").empty();
+    $("#recargabody").empty();  
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#inicio-tab").click();
+
+}
+
 
 </script>
   
   <?php $this->load->view('theme/js');  ?>
+  <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
+    var perfil =$('#perfil').val();
+    var swperfil=0;
+    var slcregion,slcrubro;
+    var indexunico=0;
+    $( document ).ready(function() {
+
+try {
+         slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
+                                            var val = data.value;
+                                            console.log(val);
+                                            var result=val.split(',');
+                                            console.log(result);
+                                       
+                                                cambiar_rubro(result[0], result[1]);
+                                       
+                                            
+                            
+                                        }}}).data("dd");
+    //var pagename = document.location.pathname.toString();
+    //pagename = pagename.split("/");
+                                    slcregion.set("selectedIndex", 100);
+    //$("#ver").html(msBeautify.version.msDropdown);
+                  //  pages.set("selectedIndex", 0);
+} catch(e) {
+    //console.log(e);	
+}
+
+
+try {
+                slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
+                                            var val = data.value;
+                                            console.log(val);
+                                            var result=val.split(',');
+                                            console.log(result);
+                                       
+                                                cambiar_region(result[0], result[1] ,result[2]   ); 
+                                            
+                                         
+                                        }}}).data("dd");
+                                        slcrubro.set("selectedIndex", 1000);
+                                     
+
+} catch(e) {
+    //console.log(e);	
+}
+
+
+
+if(perfil==1)
+{
+    perfilfrecuente();
+    $("#btnperfil").hide();
+    swperfil=1;
     
-$( document ).ready(function() {
+}else{
+    swperfil=0;
     cambiar_rubro(1,'#rub-0');
-    $('#li2').attr('disabled', true); //add
+    $("#btnperfilempresa").hide();
+    slcregion.set("selectedIndex", 0);
+    slcrubro.set("selectedIndex", 0);
+ 
+}
+//
+
+$('#li2').attr('disabled', true); //add
+
+
+
+
+
+
+
 });
+$("#inp_dato").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        busqueda_datos();
+    }
+}); 
+
+function error(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "red");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+            //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
+        }
+        function valido(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "#47FB13");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+        }
+
+             
+        function getfacturaempresa(transaccion)
+        {
+
+            
+            var link = document.createElement('a');
+            var tntransaccion=transaccion;
+            link.href =" <?=  base_url() ?>/es/getfacturaempresa/"+tntransaccion;
+            link.download = "recibo-"+tntransaccion+"pdf";
+            link.dispatchEvent(new MouseEvent('click'));
+       
+       
+       }
+
+       function getfacturapagofacil(transaccion)
+        {
+            var link = document.createElement('a');
+            var tntransaccion=transaccion;
+            link.href =" <?=  base_url() ?>/es/getfacturapagofacil/"+tntransaccion;
+            link.download = "recibo-"+tntransaccion+"pdf";
+            link.dispatchEvent(new MouseEvent('click'));
+       
+       
+       }
+        
 
 </script>
 

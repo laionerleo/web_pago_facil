@@ -1,0 +1,13 @@
+
+16/09/2021 08:58:11listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"423","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+16/09/2021 08:58:15getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+16/09/2021 08:58:28calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"8","tcMonto":"28.49","tnIdAccion":0,"tcApp":2}
+16/09/2021 09:11:13guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"2\"]","tnTransaccion":"210559","tnApp":3}
+16/09/2021 09:11:18guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":"210559","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+16/09/2021 09:15:25listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"423","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+16/09/2021 09:15:27getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+16/09/2021 09:16:22listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"430","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+16/09/2021 09:16:35getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+16/09/2021 09:17:00calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"8","tcMonto":"40.18","tnIdAccion":0,"tcApp":2}
+16/09/2021 09:19:13guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"8\"]","tnTransaccion":"210566","tnApp":3}
+16/09/2021 09:19:15guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":"210566","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
