@@ -73,7 +73,7 @@ $route[$l.'cargarciudades']                     = 'Servicio/cargarciudades';
 $route[$l.'cargarestados']                      = 'Servicio/cargarestados';
 $route[$l.'comopagar']                           = 'Servicio/Comopagar';
 $route[$l.'vistametodosdepago/(:any)']          = 'Servicio/metodospagovista/$1/$2';
-
+$route[$l.'MandarAyudaQr']                           = 'Servicio/MandarAyudaQr';
 
 //pagos realizados
 $route[$l.'pagosrealizados/(:num)']             = 'Welcome/pagosrealizados/$1/$2';

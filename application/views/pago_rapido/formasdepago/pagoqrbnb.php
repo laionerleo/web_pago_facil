@@ -235,6 +235,7 @@ img.fnone {
                             $('#imagenqr').attr('src', `data:image/png;base64,${arrayqr.qrImage}`);
                             $("#linkdescarga").attr("href", response.linkdescarga);
                             gntransaccion=response.tnTransaccion;
+                            MandarAyudaQr(gntransaccion);
                         }
                         if(response.tipo==1)
                         {
@@ -316,6 +317,34 @@ img.fnone {
                     $("#btncargaconsulta").hide();
                     $('#bntconsultarpago').show();
                     //var gnNumeroTransaccion,gnSwVerificacionQr;
+                
+                    
+                },
+            });  
+        } 
+
+        function MandarAyudaQr(tnTransaccion)
+        {
+            //var tnTransaccion=gntransaccion;
+            var datos= {tnTransaccionDePago:tnTransaccion  }; 
+            var urlajax="<?= base_url(); ?>es"+"/MandarAyudaQr";  
+            $.ajax({                    
+                    url: urlajax,
+                    data: {datos} ,
+                    type : 'POST',
+                    dataType: "json",
+                                    
+                    beforeSend:function( ) {   
+              
+                    },                    
+                    success:function(response) {
+                        console.log(response);
+                    },
+                error: function (data) {
+                    console.log(data.responseText);
+                },               
+                complete:function( ) {
+                  
                 
                     
                 },

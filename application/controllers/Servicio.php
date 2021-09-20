@@ -265,5 +265,19 @@ class Servicio extends CI_Controller {
 
 	}
 
+
+	public function MandarAyudaQr()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		
+		$datos=$this->input->post("datos");
+		$tnTransaccionDePago=$datos["tnTransaccionDePago"];
+
+		$metodos=$this->servicios->MandarAyudaQr($tnTransaccionDePago);
+		echo "ñlaksjdalksj".json_encode($tnTransaccionDePago);
+	
+	}
+
 	/**/
 }
