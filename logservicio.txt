@@ -2285,3 +2285,5 @@ ss
 18/08/2021 16:35:42calcularcomision--{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
 18/08/2021 16:35:57genentidadesfinancieras{"tnCliente":"3859","tcApp":2}
 18/08/2021 16:38:21genentidadesfinancieras{"tnCliente":"3859","tcApp":2}
+20/09/2021 15:19:51get_listar_facturas <--{"tnEmpresa":"25","tcCodigoClienteEmpresa":"452","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:20:52getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
