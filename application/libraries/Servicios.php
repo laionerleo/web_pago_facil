@@ -157,14 +157,14 @@ class servicios {
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/buscarClienteEmpresaFullDatos';
       $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => strval($codigo_fijo)  ,'tnCliente' => $codigo_cliente , 'tcApp'=>2  );
-    /*
-    @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
-    @FormUrlEncoded
-    Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasFull(
-            @Field("tnEmpresa")     long tnEmpresa,
-            @Field("tnCliente")     long tnCliente,
-            @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
-      */
+      /*
+      @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasFull(
+               @Field("tnEmpresa")     long tnEmpresa,
+               @Field("tnCliente")     long tnCliente,
+               @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
+         */
 
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
