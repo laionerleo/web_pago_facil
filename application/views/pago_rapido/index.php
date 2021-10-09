@@ -123,19 +123,22 @@ input[type=number]::-webkit-outer-spin-button {
                                         <div  id="divcriteriobusqueda" class="col-md-3 mb-2 ">
                                             <label for="">Tipo de documento</label><br>
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                    id="exampleRadios4" value="option1" checked >
-                                            <label class="form-check-label" for="exampleRadios4">
-                                                Codigo Fijo 
-                                            </label>
+                                                <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                        id="exampleRadios4" value="option1" checked >
+                                                <label class="form-check-label" for="exampleRadios4">
+                                                    Codigo Fijo 
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                        id="exampleRadios5" value="option2" >
+                                                <label class="form-check-label" for="exampleRadios5">
+                                                    Carnet de Identidad
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                    id="exampleRadios5" value="option2" >
-                                            <label class="form-check-label" for="exampleRadios5">
-                                                Carnet de Identidad
-                                            </label>
-                                        </div>
+                                        <div  id="divcriteriobusquedahub" class="col-md-3 mb-2" >
+
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
@@ -148,6 +151,8 @@ input[type=number]::-webkit-outer-spin-button {
                                                 Buscar Billeteras
                                             </button>
                                         </div>
+
+                                       
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
@@ -157,6 +162,8 @@ input[type=number]::-webkit-outer-spin-button {
                                             <br>
                                             <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
                                             <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
+                                            <input id="btnbusquedahub"  type="button" class="btn btn-primary" onclick="cargarcriteriobusquedahub(159)"  value="Busqueda ">
+                                            
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -370,8 +377,8 @@ function  busqueda_datos()
     var tipo=sw;
     if( (codigo!='') && (empresa_id!=0))
     {
-    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , tnIdentificarPestaña:tnIdentificarPestaña };
+        
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
     var urlajax=$("#url").val()+"filtro_codigo_fijo";   
     //$("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -402,10 +409,9 @@ function  busqueda_billeteras_dependientes()
                             <br>
                             `);
     var codigo=$("#inp_dato").val();
-    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  , tnIdentificarPestaña:tnIdentificarPestaña  };
+    var datos= {codigo:codigo  };
     var urlajax=$("#url").val()+"filtro_billeteras_dependientes";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -427,11 +433,9 @@ function  busqueda_billeteras_dependientes()
 function  busqueda_billeteras_general()
 {
     var codigo=$("#inp_dato").val();
-    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-        
-    var datos= {codigo:codigo  , tnIdentificarPestaña : tnIdentificarPestaña };
+    var datos= {codigo:codigo  };
     var urlajax=$("#url").val()+"filtro_billeteras_general";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -451,10 +455,9 @@ function  busqueda_billeteras_general()
 }
 function facturaspendientes(codigo_usuario)
 {
-    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     var codigo=codigo_usuario;
     var tipo=sw;
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
     var urlajax=$("#url").val()+"facturaspendientes";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -464,9 +467,13 @@ function facturaspendientes(codigo_usuario)
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
     $("#facturaspendientesbody").load(urlajax,{datos});   
+    
     $("#li2").show();
     $("#facturaspendientes-tab").click();
+
 }
 
 function habilitarrecarga()
@@ -499,8 +506,7 @@ function dehabilitarrecarga()
 function vistarecarga(codigo)
 {
    // var codigo=$('#inp_dato').val();
-    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-    var datos= {codigo:codigo , tnIdentificarPestaña :tnIdentificarPestaña   };
+    var datos= {codigo:codigo  };
     var urlajax=$("#url").val()+"vistarecargas";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -511,10 +517,7 @@ function vistarecarga(codigo)
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
-    $.ajaxSetup(
-        {
-            cache: false,
-                    });
+    
     $("#recargabody").load(urlajax,{datos});   
     
     $("#lir").show();
@@ -537,6 +540,15 @@ function limpiar()
     $("#inicio-tab").click();
 
 }
+function cargarcriteriobusquedahub(empresa)
+{
+    var datos= {Empresa:empresa  };
+    var urlajax=$("#url").val()+"cargarcriterioshub";   
+    $("#divcriteriobusqueda").hide();
+    $("#divcriteriobusquedahub").show();
+
+    $("#divcriteriobusquedahub").load(urlajax,{datos});   
+}
 
 
 </script>
@@ -544,12 +556,10 @@ function limpiar()
   <?php $this->load->view('theme/js');  ?>
   <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
-	sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
-
     $( document ).ready(function() {
 
 try {
@@ -625,19 +635,19 @@ $("#inp_dato").on('keyup', function (e) {
     }
 }); 
 
-    function error(tnIdImput)
-            {             
-                $(tnIdImput).css("border-color", "red");
-                $(tnIdImput).css("border-style", "outset");
-                $(tnIdImput).css("border-width", "revert");
-                //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
-            }
-            function valido(tnIdImput)
-            {             
-                $(tnIdImput).css("border-color", "#47FB13");
-                $(tnIdImput).css("border-style", "outset");
-                $(tnIdImput).css("border-width", "revert");
-            }
+function error(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "red");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+            //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
+        }
+        function valido(tnIdImput)
+        {             
+            $(tnIdImput).css("border-color", "#47FB13");
+            $(tnIdImput).css("border-style", "outset");
+            $(tnIdImput).css("border-width", "revert");
+        }
 
              
         function getfacturaempresa(transaccion)

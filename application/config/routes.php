@@ -118,6 +118,9 @@ $route[$l.'reportemovimiento']                = 'BilleteraPagoFacil/reportemovim
 $route[$l.'reportecomisiones']                = 'BilleteraPagoFacil/reportecomisionbilletera';
 
 
+$route[$l.'cargarcriterioshub']                = 'HubPago/CargarCriterios';
+
+
 
 
 //metodos para el login y logout

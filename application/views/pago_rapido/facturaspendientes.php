@@ -124,7 +124,7 @@ input.largerCheckbox {
                                                 <div class="row mb-2">
                                                     <div class="col-6 text-muted" style="align-self: center;"><?=  @$nombreempresa  ?></div>
                                                     <div class="col-6" style="display: flex;flex-flow: column wrap;  justify-content: center;  align-items: center; "  >  
-                                                            <img src="<?=  @$urlimagenempresa  ?>" class="rounded-circle" style="width:100%; height:75px" alt="...">
+                                                            <img src="<?=  @$urlimagenempresa  ?>" class="rounded-circle" style="width:100%; height:75px ;     object-fit: contain;" alt="...">
                                                     </div>
                                                 </div>
                                         </div>

@@ -83,15 +83,15 @@ class servicios {
        $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/ListarEmpresasByTipoYRegion';
      //$data = array('tnTipoEmpresa' => $id_tipoempresa , 'tnIdAccion' => '91'  ,'tnCliente' => $id_cliente ,'tnRegion'=>  $id_region , 'tcApp'=>2 );
      $data = array('tnTipoEmpresa' => $id_tipoempresa , 'tnIdAccion' => '91'  ,'tnCliente' => $id_cliente ,'tnRegion'=>  $id_region );
-/*
-     @POST(cPagoFacilPHP + "/Empresa/ListarEmpresasByTipoYRegion")
-     @FormUrlEncoded
-     Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> ListarEmpresasByTipoYRegion(
-             @Field("tnCliente")     long    tnCliente,
-             @Field("tnRegion")      long    tnRegion,
-             @Field("tnTipoEmpresa") long    tnTipoEmpresa,
-             @Field("tnIdAccion")    long    tnIdAccion);
-*/ 
+      /*
+         @POST(cPagoFacilPHP + "/Empresa/ListarEmpresasByTipoYRegion")
+         @FormUrlEncoded
+         Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> ListarEmpresasByTipoYRegion(
+                  @Field("tnCliente")     long    tnCliente,
+                  @Field("tnRegion")      long    tnRegion,
+                  @Field("tnTipoEmpresa") long    tnTipoEmpresa,
+                  @Field("tnIdAccion")    long    tnIdAccion);
+      */ 
    
      $header = array(
         "Content-Type: application/x-www-form-urlencoded",
@@ -2392,6 +2392,51 @@ public function getmetodosbyToken($tnTokenService)
       fwrite($logFile, "\n".date("d/m/Y H:i:s").$Mensajeerror) or die("Error escribiendo en el archivo");
       fclose($logFile);
     }
+
+    
+
+    public function getcriteriobusquedahub($tnEmpresa )
+    {
+    
+       $url= 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getcriteriobusqueda';
+       $data = array( 'tnEmpresa' =>$tnEmpresa  );
+       $this->cargarlog("getcriteriobusquedahub =".json_encode($data));
+       
+       
+     /*    
+       $https://serviciopagofacil.syscoop.com.bo/api/Transaccion/guardarTransaccionDePagoEnvio
+    
+          tnCliente=573
+          tnTransaccion=58600
+          tnNroWhatsapp=0
+          tcCorreo=ejemplo2@gmail.com
+          tnCaller=573
+          tnApp=3
+       */
+    
+       $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+          );
+          
+       // use key 'http' even if you send the request to https://...
+       $options = array('http' => array(
+          'method'  => 'POST',
+          'header' => implode("\r\n", $header),
+          'content' => http_build_query($data) 
+       )
+                   );
+    
+    
+    
+       $context  = stream_context_create($options);
+       $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+       return $resultado;
+    
+    
+    }
+
     public function GuardarTransaccionPago($tnCliente , $tnTransaccion  ,$tnNroWhatsapp , $tcCorreo  )
     {
     

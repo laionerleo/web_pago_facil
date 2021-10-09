@@ -118,9 +118,9 @@
                               <div class="col-md-6 col-6 col-sm-4">
                                 <center>                                 
                                   <?php if($recarga==20) { ?>
-                                      <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                      <button id="btnpagarotrafactura"  class="btn btn-outline-primary"onclick="limpiar()">Comenzar de nuevo</button>
                                     <?php }else{ ?>
-                                      <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
+                                      <button id="btnpagarotrafactura"  class="btn btn-outline-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
                                   <?php }  ?>
                                  </center>
                                
@@ -167,16 +167,12 @@
 
                         $("#btncarga").show();
                           $("#bntprepararpago").hide();
-                      //  $("#mensajerecibido").val("El pago se  a iniciado");
-                      //texto=$("#mensajerecibido").val();
-                      //$("#mensajerecibido").val( texto+" \r\n El pago en proceso . espere porfavor");
                       },                    
                       success:function(response) {
                       console.log(response);
                       console.log(response.valor);
                       if(response.tipo==10)
-                      {//
-                         // intervalo=setInterval('verificartransaccion('+ response.valor +')',6000);
+                      {
                          clearInterval(intervalorelog);
                         $("#time").empty();
                         $("#btncarga").hide();
