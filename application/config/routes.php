@@ -150,7 +150,7 @@ $route[$l.'logout_google']                          = 'Google_Authentication/log
 /* metodos para los servicios  */
 $route[$l.'get_filtro_regiones']            = 'Welcome/filtro_empresas_by_tipo_region';
 
-$route[$l.'filtro_codigo_fijo']            = 'Welcome/busqueda_clientes';
+$route[$l.'filtro_clientes']            = 'Welcome/busqueda_clientes';
 
 
 

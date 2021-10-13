@@ -2401,18 +2401,7 @@ public function getmetodosbyToken($tnTokenService)
        $url= 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getcriteriobusqueda';
        $data = array( 'tnEmpresa' =>$tnEmpresa  );
        $this->cargarlog("getcriteriobusquedahub =".json_encode($data));
-       
-       
-     /*    
-       $https://serviciopagofacil.syscoop.com.bo/api/Transaccion/guardarTransaccionDePagoEnvio
-    
-          tnCliente=573
-          tnTransaccion=58600
-          tnNroWhatsapp=0
-          tcCorreo=ejemplo2@gmail.com
-          tnCaller=573
-          tnApp=3
-       */
+
     
        $header = array(
           "Content-Type: application/x-www-form-urlencoded",
@@ -2519,6 +2508,44 @@ public function getmetodosbyToken($tnTokenService)
     
     }
  
+
+    public function getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+      $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
+      /*
+      @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasFull(
+               @Field("tnEmpresa")     long tnEmpresa,
+               @Field("tnCliente")     long tnCliente,
+               @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
+         */
+
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+
+   }
+
+
 }
 
 

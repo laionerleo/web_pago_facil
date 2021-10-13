@@ -45,11 +45,10 @@
                 <table id="tablaclientes" class="table table-striped table-bordered">
                 <thead id="theadclientes" >
                 <tr >
-                    <th> <?=  $titulo ?> </th>
-                    <th>Nombre</th>
-                    <th>Direccion</th>
-                    <th>Otros </th>
-                    <th>opciones</th>
+                    <?php  foreach ($lanombretitulohub as $letter=>$index) { ?>                    
+                        <th> <?=  $letter ?> </th>
+                    <?php  } ?>
+               
                 </tr>
                 </thead>
                 <tbody>

@@ -120,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button {
                                   <br>
                                  
                                     <div class="form-row">
-                                        <div  id="divcriteriobusqueda" class="col-md-3 mb-2 ">
+                                        <div  id="divcriteriobusqueda" class="col-md-3 mb-2 "  style="display:none" >
                                             <label for="">Tipo de documento</label><br>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
@@ -162,7 +162,6 @@ input[type=number]::-webkit-outer-spin-button {
                                             <br>
                                             <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
                                             <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
-                                            <input id="btnbusquedahub"  type="button" class="btn btn-primary" onclick="cargarcriteriobusquedahub(159)"  value="Busqueda ">
                                             
                                         </div>
                                     </div>
@@ -228,11 +227,8 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 
 </div>
-<!-- end::main -->
-
 <!-- Plugin scripts -->
 <script>
-
 var region_id=1;
 var rubro_id=1;
 var empresa_id=0;
@@ -243,37 +239,22 @@ var id_fila="";
 var swregion=1;
 var urlimagenempresa="";
 var nombreempresa="";
-
-
-//0 es carnet y uno es 
 var sw=1;
-
-
 
 function cambiar_region(id_region,id_figure,nombre,)
 {
     region_id=id_region;
-  //  $(id_fugure_region).removeClass("avatar-state-success");
-    //id_fugure_region=id_figure;
-    
     $('#btn_region').click();
-    //$(id_figure).addClass("avatar-state-success");
-    //$("#nombre_region").text(nombre);
     filtrar_empresas();
 
 }
 function cambiar_rubro(id_rubro,id_figure)
 {
     rubro_id=id_rubro;
-  //  $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
     $("#btnperfilempresa").hide();
     $("#btnperfil").show();
-    
-
     filtrar_empresas();
-   // $(id_figure).addClass("avatar-state-success");
-    
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
@@ -289,15 +270,17 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
     $(id_fila).css("background-color", "rgb(45, 206, 222)");
     
     $('html, body').animate({
- scrollTop: $("#idlugarboton").offset().top
- }, 2000);
-    
-if(id_empresa==20)
-    {
-        habilitarrecarga();
-    }else{
-        dehabilitarrecarga();
-    }
+    scrollTop: $("#idlugarboton").offset().top
+    }, 2000);
+        
+    if(id_empresa==20)
+        {
+            habilitarrecarga();
+        }else{
+            dehabilitarrecarga();
+            cargarcriteriobusquedahub(id_empresa);
+        }
+
     
 }
 function  cambiar_tipo_switch()
@@ -344,7 +327,6 @@ function perfilfrecuente()
    // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax);   
 }
-//perfilfrecuente
 
 function habilitarregiones()
 {
@@ -366,22 +348,26 @@ function  busqueda_datos()
 
     $("#vista_clientes").empty();
     $("#vista_clientes").append(`<div class="d-flex justify-content-center">
-                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                 </div>
-                            </div>
                             <br>
                             `);
+    
 
+    var lacriterio=$("[name=criterio]:checked").val().split('-');
+    
+    var criterio=lacriterio[0];
+    var titulo=lacriterio[1];
+   
     var codigo=$("#inp_dato").val();
-    var tipo=sw;
-    if( (codigo!='') && (empresa_id!=0))
-    {
-        
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
-    var urlajax=$("#url").val()+"filtro_codigo_fijo";   
-    //$("#vista_clientes").show();
-    $("#vista_clientes").load(urlajax,{datos});                    
+  
+    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 )  )
+    {  
+        var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo  };
+        var urlajax=$("#url").val()+"filtro_clientes";   
+        $("#vista_clientes").load(urlajax,{datos});                    
   
     }else{
         if(codigo=='')
@@ -486,6 +472,7 @@ function habilitarrecarga()
     
    $('#inp_dato').val(<?= $_SESSION['cliente']; ?> );
    $('#divcriteriobusqueda').hide();
+   $('#divcriteriobusquedahub').hide();
    
     busqueda_billeteras_dependientes();
 }
@@ -546,7 +533,6 @@ function cargarcriteriobusquedahub(empresa)
     var urlajax=$("#url").val()+"cargarcriterioshub";   
     $("#divcriteriobusqueda").hide();
     $("#divcriteriobusquedahub").show();
-
     $("#divcriteriobusquedahub").load(urlajax,{datos});   
 }
 

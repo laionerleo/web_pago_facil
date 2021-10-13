@@ -1,13 +1,14 @@
-<label for="">Busquedas HubDepago</label><br>
+<label for="">Busquedas </label><br>
 <?php for ($i=0; $i < count($criterios) ; $i++) { ?>
-    
-<div class="form-check">
-    <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-            id="exampleRadios4" value=" <?=  $criterios[$i]->Etiqueta  ?>" checked >
-    <label class="form-check-label" for="exampleRadios4">
-    <?=  $criterios[$i]->Etiqueta  ?>
-    
    
+<div class="form-check">
+    <input class="form-check-input" type="radio"  name="criterio"
+             value="<?=  $criterios[$i]->Criterio  ?>-<?=  $criterios[$i]->Etiqueta  ?>"  <?php  echo  ($i == 0) ? "checked" : "";  ?>  >
+    <label class="form-check-label" for="criterio">
+    <?=  $criterios[$i]->Etiqueta  ?>
     </label>
 </div> 
+<?php ?>
+
+
 <?php   }   ?>

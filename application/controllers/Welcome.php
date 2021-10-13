@@ -117,34 +117,34 @@ class Welcome extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
-		$empresa_id=$datos['empresa_id'];
-		$codigo=$datos['codigo'];
-		$tipo=$datos['tipo'];
-		$tnIdentificarPestaña=$datos[0];
-		$id_cliente=$this->session->userdata('cliente');
 		
-		if($tipo==1)
+		$tnEmpresa=$datos['empresa_id'];
+		$tcCodigo=$datos['codigo'];
+		$tnCriterio=$datos['criterio'];
+		$tcTitulo=$datos['titulo'];
+		//$tnIdentificarPestaña=$datos[0];
+		$tnCliente=$this->session->userdata('cliente');
+
+		$loServicioBusquedaClientes=$this->servicios->getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio);
+		$d['lanombretitulohub']=$loServicioBusquedaClientes->values[0]->loObjeto1;  
+		  
+		if($loServicioBusquedaClientes->error == 0  && !is_null($loServicioBusquedaClientes->values)  )
 		{
-			$d['clientes']=$this->servicios->get_busqueda_codigo_fijo($empresa_id,$codigo,$id_cliente);
+			$d['clientes']=$loServicioBusquedaClientes;
+			$d['mensaje']= $loServicioBusquedaClientes->message ;
 		}else{
-			$d['clientes']=$this->servicios->get_busqueda_ci($empresa_id,$codigo,$id_cliente);
+			$d['clientes']=array();
+			$d['mensaje']= "no se ha encontrado datos".$loServicioBusquedaClientes->message ;
 		}
-
+		$d['titulo']=$tcTitulo;
+		
+		
 	
-		$_SESSION[$tnIdentificarPestaña.'idempresa']=$empresa_id;
-		$_SESSION[$tnIdentificarPestaña.'clientesbusqueda']=$d['clientes']->values;
-		/*
-		if(count($d['clientes']->values)>0 ){
-			$_SESSION['codigofijo']=$d['clientes']->values[0]->codigoClienteEmpresa;
-			$_SESSION['codigoubicacion']= $d['clientes']->values[0]->codidgoUbicacion;
-			$_SESSION['nombreclienteempresa'] = $d['clientes']->values[0]->nombre;
-			$_SESSION['cionitclienteempresa'] = $d['clientes']->values[0]->Nit;
-			
-			
-			
-		}*/
-
-		$this->load->view('pago_rapido/lista_clientes', $d);
+		$_SESSION[$tnIdentificarPestaña.'idempresa']=$tnEmpresa;
+		$_SESSION[$tnIdentificarPestaña.'clientesbusqueda']=$d['clientes'];
+		$this->load->view('pago_rapido/listaclienteshub', $d);
+		
+		
 
 	}
 	//
@@ -173,9 +173,8 @@ class Welcome extends CI_Controller {
 		$tnIdentificarPestaña=$datos[0];
 		
 		try {
-			//$_SESSION[$tnIdentificarPestaña.'clientesbusqueda']=$d['clientes']->values;
 		
-		for ($L=0; $L <count($_SESSION[$tnIdentificarPestaña.'clientesbusqueda']) ; $L++) { 
+			for ($L=0; $L <count($_SESSION[$tnIdentificarPestaña.'clientesbusqueda']) ; $L++) { 
 			// /	echo $_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->codigoClienteEmpresa."====".$lnCodigoFijo ;
 				if($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->codigoClienteEmpresa==$lnCodigoFijo)
 				{
