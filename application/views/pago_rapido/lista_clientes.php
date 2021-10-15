@@ -43,47 +43,38 @@
         
             <div class="table-responsive">
                 <table id="tablaclientes" class="table table-striped table-bordered">
+
+
                 <thead id="theadclientes" >
-                <tr >
-                    <th> <?=  $titulo ?> </th>
-                    <th>Nombre</th>
-                    <th>Direccion</th>
-                    <th>Otros </th>
-                    <th>opciones</th>
-                </tr>
+                    <tr>
+                        <th> <?=  $titulo ?> </th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Otros </th>
+                        <th>opciones</th>
+                    </tr>
                 </thead>
+
+
+
+
                 <tbody>
-                        <?php  for ($i=0; $i <  count($clientes->values) ; $i++) { ?>
+                        <?php  for ($i=0; $i <  count($clientes) ; $i++) { ?>
                             <tr  class="fila_clientes" >                       
-                                <td  data-title="<?=  $titulo ?>"><?= $clientes->values[$i]->codigoClienteEmpresa ?></td>
-                                <td  data-title="Nombre" ><?= $clientes->values[$i]->nombre ?></td>
-                                <td  data-title="Direccion" ><?= $clientes->values[$i]->direccion ?></td>
-                                <td  data-title="Otros" ><?= $clientes->values[$i]->uvMzaLote ?></td>
-                                <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientes(<?= $clientes->values[$i]->codigoClienteEmpresa ?>)">Consultar deuda</button></td>
+                                <td  data-title="<?=  $titulo ?>"><?= $clientes[$i]->codigoClienteEmpresa ?></td>
+                                <td  data-title="Nombre" ><?= $clientes[$i]->nombre ?></td>
+                                <td  data-title="Direccion" ><?= $clientes[$i]->direccion ?></td>
+                                <td  data-title="Otros" ><?= $clientes[$i]->uvMzaLote ?></td>
+                                <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientes(<?= $clientes[$i]->codigoClienteEmpresa ?>)">Consultar deuda</button></td>
                             </tr>
                         <?php    }  ?>
                 </tbody>
                 
+
                 </table>
                 <center>
                     <p>
-                        <?=  $mensaje    
-                        
-                        /*
-                            	foreach ($array as $letter=>$index) {
-                                    //echo $letter; //Here $letter content is the actual index
-                                    //echo $array[$letter]; // echoes the array value
-                                    echo '<pre>'; 
-                                    print_r($letter );
-                                    echo '</pre>' ;
-                                
-                                }
-                                
-
-                        */
-                        
-                        
-                        ?>
+                        <?=  $mensaje    ?>
                     </p>
                 </center>
                

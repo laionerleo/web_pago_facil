@@ -365,7 +365,8 @@ function  busqueda_datos()
   
     if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 )  )
     {  
-        var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo  };
+        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+        var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
         var urlajax=$("#url").val()+"filtro_clientes";   
         $("#vista_clientes").load(urlajax,{datos});                    
   
@@ -395,9 +396,10 @@ function  busqueda_billeteras_dependientes()
                             <br>
                             `);
     var codigo=$("#inp_dato").val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  };
+    var datos= {codigo:codigo , tnIdentificarPestaña:tnIdentificarPestaña  };
     var urlajax=$("#url").val()+"filtro_billeteras_dependientes";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -419,9 +421,11 @@ function  busqueda_billeteras_dependientes()
 function  busqueda_billeteras_general()
 {
     var codigo=$("#inp_dato").val();
+    
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  };
+    var datos= {codigo:codigo  , tnIdentificarPestaña : tnIdentificarPestaña  };
     var urlajax=$("#url").val()+"filtro_billeteras_general";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -441,9 +445,10 @@ function  busqueda_billeteras_general()
 }
 function facturaspendientes(codigo_usuario)
 {
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     var codigo=codigo_usuario;
     var tipo=sw;
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
     var urlajax=$("#url").val()+"facturaspendientes";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -493,7 +498,8 @@ function dehabilitarrecarga()
 function vistarecarga(codigo)
 {
    // var codigo=$('#inp_dato').val();
-    var datos= {codigo:codigo  };
+   var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var datos= {codigo:codigo , tnIdentificarPestaña :tnIdentificarPestaña   };
     var urlajax=$("#url").val()+"vistarecargas";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -529,7 +535,9 @@ function limpiar()
 }
 function cargarcriteriobusquedahub(empresa)
 {
-    var datos= {Empresa:empresa  };
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+
+    var datos= {Empresa:empresa ,tnIdentificarPestaña:tnIdentificarPestaña };
     var urlajax=$("#url").val()+"cargarcriterioshub";   
     $("#divcriteriobusqueda").hide();
     $("#divcriteriobusquedahub").show();
@@ -542,6 +550,7 @@ function cargarcriteriobusquedahub(empresa)
   <?php $this->load->view('theme/js');  ?>
   <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
+    sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;

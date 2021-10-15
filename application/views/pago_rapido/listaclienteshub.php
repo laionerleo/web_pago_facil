@@ -43,22 +43,22 @@
         
             <div class="table-responsive">
                 <table id="tablaclientes" class="table table-striped table-bordered">
-                <thead id="theadclientes" >
-                <tr >
-                    <?php  foreach ($lanombretitulohub as $letter=>$index) { ?>                    
-                        <th> <?=  $letter ?> </th>
-                    <?php  } ?>
                
-                </tr>
+                <thead id="theadclientes" >
+                    <tr>
+                        <?php  foreach ($lanombretitulohub as $letter=>$index) { ?>                    
+                                <th> <?=  $letter ?> </th>
+                        <?php  } ?>
+                        <th> Opciones </th>
+                    </tr>
                 </thead>
                 <tbody>
-                        <?php  for ($i=0; $i <  count($clientes->values) ; $i++) { ?>
+                        <?php  for ($i=0; $i <  count($clientes) ; $i++) { ?>
                             <tr  class="fila_clientes" >                       
-                                <td  data-title="<?=  $titulo ?>"><?= $clientes->values[$i]->codigoClienteEmpresa ?></td>
-                                <td  data-title="Nombre" ><?= $clientes->values[$i]->nombre ?></td>
-                                <td  data-title="Direccion" ><?= $clientes->values[$i]->direccion ?></td>
-                                <td  data-title="Otros" ><?= $clientes->values[$i]->uvMzaLote ?></td>
-                                <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientes(<?= $clientes->values[$i]->codigoClienteEmpresa ?>)">Consultar deuda</button></td>
+                                    <?php foreach ($clientes[$i]->loObjeto1 as $letter=>$index) {?>
+                                        <td  data-title="<?=  $letter ?>"><?=  $index ?></td>
+                                    <?php  } ?>
+                                <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientes(<?= $i ?>)">Consultar deuda</button></td>
                             </tr>
                         <?php    }  ?>
                 </tbody>
@@ -66,23 +66,7 @@
                 </table>
                 <center>
                     <p>
-                        <?=  $mensaje    
-                        
-                        /*
-                            	foreach ($array as $letter=>$index) {
-                                    //echo $letter; //Here $letter content is the actual index
-                                    //echo $array[$letter]; // echoes the array value
-                                    echo '<pre>'; 
-                                    print_r($letter );
-                                    echo '</pre>' ;
-                                
-                                }
-                                
-
-                        */
-                        
-                        
-                        ?>
+                        <?=  $mensaje  ?>
                     </p>
                 </center>
                
@@ -93,4 +77,5 @@
 </div>
 <script>
     $('html, body').animate({scrollTop: $("#cardlistaclientes").offset().top }, 2000);
+
 </script>

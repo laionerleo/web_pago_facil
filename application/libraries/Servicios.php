@@ -229,20 +229,10 @@ class servicios {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ListarFacturasPendientesSimples2';
       $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_cliente_empresa  ,'tnCliente' => $id_cliente , 'tnIdAccion'=> 17 , 'tcApp'=>2  );
       $this->cargarlog("listarfacturas".json_encode($data));
-      /*
-  
-          Call<mPaquetePagoFacil<ArrayList<mFacturasPendientesSimples>>> facturasPendientesSimple
-            (@Field("tnCliente")                long    cliente,
-             @Field("tnEmpresa")                long    empresa,
-             @Field("tcCodigoClienteEmpresa")   String  tcCodigoClienteEmpresa,
-             @Field("tnIdAccion")               int     tnIdAccion);  */
-      
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
          "Content-Length: ".strlen( http_build_query($data))
          );
-         
-      // use key 'http' even if you send the request to https://...
       $options = array('http' => array(
          'method'  => 'POST',
          'header' => implode("\r\n", $header),
@@ -256,6 +246,31 @@ class servicios {
  
 
    } 
+
+   
+   public function get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio )
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getfacturapendiente';
+      $data = array('tnEmpresa' => $lnEmpresa , 'tcCodigoClienteEmpresa' => $lnCodigoFijo  ,'tnCliente' => $lnCliente , 'tnIdAccion'=> 17 , 'tcApp'=>2 , "tcIdOperativo"=> $IdOperativo ,  "tcFechaOperativa"=> $FechaOperativa , "tnNroOperacion"=> $NroOperacion  , "tnServicio"=> $Servicio );
+      $this->cargarlog("get_listar_facturashub".json_encode($data));
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+
+   } 
+   
    public function get_detalle_factura($factura,$id_empresa ,$codigo_fijo,$id_cliente)
    {
 
