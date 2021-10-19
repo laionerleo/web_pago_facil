@@ -230,6 +230,7 @@
         console.log(ubicaciones[i]);
         var latitude=ubicaciones[i]["latitud"];
         var longitude=ubicaciones[i]["longitud"];
+     
 
         console.log(ubicaciones[i]["nombreEstablecimiento"]);
 
@@ -243,7 +244,9 @@
           title: ubicaciones[i]["nombreEstablecimiento"],
           animation: google.maps.Animation.DROP,
           clickeable:true,
-          });        
+          });    
+        
+          
         }
         if(ubicaciones[i]["tipo"]=="EM"  )
         {
@@ -313,11 +316,12 @@
       zoom: 12
     });
     
-
+    var cadenainsertarselect=``;
       for (var i = 0; i < ubicaciones.length; i++) {
         var latitude=ubicaciones[i]["latitud"];
         var longitude=ubicaciones[i]["longitud"];
-
+        $("#slc_ubicacion").empty();
+       
         console.log(ubicaciones[i]);
 
         if(tipo==ubicaciones[i]["tipo"]   &&  tipo=="PF" )
@@ -333,10 +337,17 @@
           animation: google.maps.Animation.DROP,
           clickeable:true,
           });        
+          
+          var lclatitude=ubicaciones[i]['latitud'];
+          var lclongitude=ubicaciones[i]["longitud"];
+          var lcnombre=ubicaciones[i]["nombreEstablecimiento"];
+
+          cadenainsertarselect=cadenainsertarselect+ "<option value='"+lclatitude+"/"+lclongitude+ "/PF'    >   "+lcnombre+" </option> " ;
+          console.log(cadenainsertarselect);        
         }
         if(tipo==ubicaciones[i]["tipo"]  &&  tipo=="EM" )
         {
-            console.log("tm");
+           
             //console.log(ubicaciones[i]);
           var myLatLng = new google.maps.LatLng(latitude,longitude);
           marker = new google.maps.Marker({
@@ -347,6 +358,7 @@
           animation: google.maps.Animation.DROP,
           clickeable:true,
           });        
+          cadenainsertarselect=cadenainsertarselect+ `<option value="`+ubicaciones[i]["latitud"]+` /`+ubicaciones[i]["longitud"]+`/`+ubicaciones[i]["tipo"]+`"   > `+ ubicaciones[i]["tipo"]+`  </option>`;
         }
         if(tipo==ubicaciones[i]["tipo"] &&  tipo=="MP" )
         {
@@ -362,7 +374,9 @@
           clickeable:true,
 
           });        
+          cadenainsertarselect=cadenainsertarselect+ `<option value="`+ubicaciones[i]["latitud"]+` /`+ubicaciones[i]["longitud"]+`/`+ubicaciones[i]["tipo"]+`"   > `+ ubicaciones[i]["tipo"]+`  </option>`;
         }
+ 
 
       
       infowindow = new google.maps.InfoWindow({ content: '' }); 
@@ -393,6 +407,7 @@
         
         
       }
+      $("#slc_ubicacion").append(cadenainsertarselect);
       //infoWindow = new google.maps.InfoWindow;
 
   }

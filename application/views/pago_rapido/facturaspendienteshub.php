@@ -61,10 +61,12 @@ input.largerCheckbox {
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>N</th>
-                                            <th>Concepto </th>
-                                            <th> Monto</th>
-                                            <th>opcion</th>
+                                            <th> N </th>
+                                            <th> Concepto </th>
+                                            <th> Monto </th>
+                                            <th> Comision </th>
+                                            <th> Monto Total  </th>
+                                            <th> Opcion </th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -72,7 +74,7 @@ input.largerCheckbox {
                                                 for ($i=0; $i < count($facturas) ; $i++) { ?>
                                                 <tr>
                                                     <td> <?= $i+1 ?> </td>
-                                                    <td> <?= $facturas[$i]->periodo ?> (<a href="#" class="linkcomopagar" onclick="obteneravisomes('<?= $facturas[$i]->periodoaux ?>')" ><?= $etiquetas->EtiquetaAviso  ?></a> )</td>
+                                                    <td> <?= $facturas[$i]->periodo ?> </td>
                                                     <td style="text-align: end;"> 
                                                         <?php if($facturas[$i]->montoTotal == 0 ){ ?> 
                                                             <input type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
@@ -83,15 +85,32 @@ input.largerCheckbox {
                                                         
                                                             <?php  } ?> 
                                                     </td>
-                                                    <td> 
-                                                        <?php  if($i==0){   ?>
-                                                            <center>  
-                                                            <button class="btn btn-outline-primary" onclick="$('#divcajametodopago').toggle(1500);  $('html, body').animate({ scrollTop: $('#divcajametodopago').offset().top}, 2000);" > Pagar  </button>
-                                                            </center> 
-                                                            <?php  }   ?>
+                                                    <td>
+                                                         <?=   number_format((float)$facturas[$i]->MontoComision, 2, '.', '') ; ?> 
+                                                    </td>
+                                                   
+                                                    <td>
+                                                         <?=   number_format((float)$facturas[$i]->MontoComision, 2, '.', '') +number_format((float)$facturas[$i]->montoTotal, 2, '.', '')  ; ?> 
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <input  type="checkbox" name="Items" id="">
+                                                        </center>                                                    
                                                     </td>
                                                 </tr>
                                             <?php  }?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td> <label id="lblMontototalfinal" for=""></label></td>
+                                                    <td> 
+                                                        <center>  
+                                                            <button class="btn btn-outline-primary" onclick="$('#divcajametodopago').toggle(1500);  $('html, body').animate({ scrollTop: $('#divcajametodopago').offset().top}, 2000);" > Pagar  </button>
+                                                        </center> 
+                                                    </td>
+                                                </tr>
                                         <input type="hidden" id="montototal"name="montotoal" value="<?= @$facturas[0]->montoTotal  ?>">
                                         <input type="hidden" id="facturaid"  name="facturaid" value="<?= @$facturas[0]->factura  ?>">
                                         

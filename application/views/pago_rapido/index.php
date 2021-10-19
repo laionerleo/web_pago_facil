@@ -535,8 +535,14 @@ function limpiar()
 }
 function cargarcriteriobusquedahub(empresa)
 {
+    $("#divcriteriobusquedahub").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-
     var datos= {Empresa:empresa ,tnIdentificarPestaña:tnIdentificarPestaña };
     var urlajax=$("#url").val()+"cargarcriterioshub";   
     $("#divcriteriobusqueda").hide();
