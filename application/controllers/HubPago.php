@@ -112,6 +112,10 @@ class HubPago extends CI_Controller {
 
 	}
 
+	public function paso1multiple()
+	{
+		
+	}
 
 	public function cargarloghub($Mensajeerror)
     {

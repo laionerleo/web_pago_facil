@@ -63,9 +63,11 @@ input.largerCheckbox {
                                         <tr>
                                             <th> N </th>
                                             <th> Concepto </th>
+                                            <th> NroItem  </th>
                                             <th> Monto </th>
                                             <th> Comision </th>
                                             <th> Monto Total  </th>
+                                         
                                             <th> Opcion </th>
                                         </tr>
                                         </thead>
@@ -75,13 +77,14 @@ input.largerCheckbox {
                                                 <tr>
                                                     <td> <?= $i+1 ?> </td>
                                                     <td> <?= $facturas[$i]->periodo ?> </td>
+                                                    <td> <?= $facturas[$i]->nroitem ?> </td>
                                                     <td style="text-align: end;"> 
                                                         <?php if($facturas[$i]->montoTotal == 0 ){ ?> 
                                                             <input type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
                                                         <?php }else{
                                                                 echo   number_format((float)$facturas[$i]->montoTotal, 2, '.', '') ;
                                                          ?>  
-                                                            <input type="hidden" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>"> 
+                                                            <input  type="hidden" id="montototal<?= $i ?>" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>"> 
                                                         
                                                             <?php  } ?> 
                                                     </td>
@@ -94,7 +97,12 @@ input.largerCheckbox {
                                                     </td>
                                                     <td>
                                                         <center>
-                                                            <input  type="checkbox" name="Items" id="">
+                                                        <?php if($i == 0 ){ ?> 
+                                                            <input  type="checkbox"  name="Items"  id="Items<?= $i ?>"  >
+                                                        <?php }else{ ?>
+                                                                <input  type="checkbox" disabled name="Items<?= $i ?>"  id="Items<?= $i ?>"   value="<?= $facturas[$i]->nroitem ?>" >
+                                                        <?php  } ?>    
+
                                                         </center>                                                    
                                                     </td>
                                                 </tr>
@@ -268,6 +276,23 @@ input.largerCheckbox {
 <!-- end::footer -->
 													
 <script>
+
+    function elegiritem(checkitem){
+        
+        $("#Items"+(checkitem)).prop("disabled", false);
+
+    }
+
+    $('input[type=checkbox]').on('change', function() {
+        //$("#Items"+(checkitem)).prop("disabled", false);
+        if ($(this).is(':checked') ) {
+            console.log("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Seleccionado");
+
+        } else {
+            console.log("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Deseleccionado");
+        }
+    });
+
 function obteneravisomes(periodomes)
 {
     var urlajax= $("#url").val()+"Welcome/getavisofacturames"; 

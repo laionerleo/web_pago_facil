@@ -198,11 +198,7 @@ class Welcome extends CI_Controller {
 
 			}else{
 				$laServicioListarFacturas=$this->servicios->get_listar_facturas($lnEmpresa,$lnCodigoFijo,$lnCliente);
-			
-
 			}
-	
-			
 			if(!is_null(@$laServicioListarFacturas->values)  ){
 				$d['facturas']=$laServicioListarFacturas->values;
 				$d['cantidadfacturas']=count($laServicioListarFacturas->values);
@@ -216,9 +212,8 @@ class Welcome extends CI_Controller {
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
 					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[$lnPosicion]->periodo;
 					for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
-						//$montocomision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$metodopago,$_SESSION[$tnIdentificarPestaña.'montototal']);
 						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,4,$laServicioListarFacturas->values[$i]->montoTotal);
-						$laServicioListarFacturas->values[$i]->MontoComision=$lnMontoComision ;					
+						$laServicioListarFacturas->values[$i]->MontoComision=$lnMontoComision->values ;					
 					}
 
 				}else{
@@ -265,13 +260,18 @@ class Welcome extends CI_Controller {
 			$d["empresa_id"]= $datos["empresa_id"];
 			$d["codigofijo"]= $datos["codigo"];	
 			$d["codigofijo"] =$lnCodigoFijo; 
-				$this->load->view('pago_rapido/facturaspendienteshub', $d);
-		
-		} catch (\Throwable $th) {
+			if(isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1))
+			{
+			//	$this->load->view('pago_rapido/facturaspendienteshub', $d);
+				$this->load->view('multiple/paso1', $d);
+
+			}else{
+				$this->load->view('pago_rapido/facturaspendientes', $d);
+			}
+			} catch (\Throwable $th) {
 			echo '<pre>';
 			print_r($th ) ;
 			echo '</pre>' ;
-			//throw $th;
 		}
 		
 		
@@ -297,7 +297,7 @@ class Welcome extends CI_Controller {
 		
 		$fileToDownload = $cadena;
 		//START DOWNLOAD
-	//header('Content-Description: File Transfer');
+		//header('Content-Description: File Transfer');
 		//header('Content-Type', 'application/octet-stream');
 		header("Content-type: application/pdf");
 		header('Content-Disposition: attachment; filename=factura-'.$factura.'.pdf');
@@ -310,8 +310,8 @@ class Welcome extends CI_Controller {
 		header('Content-Length: '. strlen($fileToDownload));
 		ob_clean();
 		flush();
-	//	readfile($fileToDownload);
-	//	exit;
+		 //	readfile($fileToDownload);
+		//	exit;
 		
 		echo $fileToDownload;
 	
@@ -1672,7 +1672,7 @@ class Welcome extends CI_Controller {
 		$tnFactura= $datos['nrofactura'];	
 		$tnTipo=$datos['tipo'];	
 		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
-		//$this->cargarlog("facturaempresa".json_encode($facturapagofacil));
+		$this->cargarlog("facturaempresa".json_encode($facturapagofacil));
 		$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
 		$lcNombreEmpresa=@$laDatosEmpresa->values[0]->cDescripcion;
 

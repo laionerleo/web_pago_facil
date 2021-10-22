@@ -115,6 +115,8 @@ $route[$l.'filtro_billeteras_general']          = 'Welcome/busquedabilleteras';
 // pagofacil en tu barrio 
 $route[$l.'pagofacilentubarrio/(:num)']       = 'BilleteraPagoFacil/inicio/$1/$2/';
 $route[$l.'reportemovimiento']                = 'BilleteraPagoFacil/reportemovimientobilletera';
+$route[$l.'reportehistoricocliente']          = 'BilleteraPagoFacil/reportehistoricocliente';
+
 $route[$l.'reportecomisiones']                = 'BilleteraPagoFacil/reportecomisionbilletera';
 
 

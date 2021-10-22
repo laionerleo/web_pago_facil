@@ -467,6 +467,30 @@ function facturaspendientes(codigo_usuario)
 
 }
 
+function facturaspendientesmultiple(codigo_usuario)
+{
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var codigo=codigo_usuario;
+    var tipo=sw;
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
+    var urlajax=$("#url").val()+"facturaspendientesmultiple";   
+    $("#facturaspendientesbody").empty();
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+    $("#facturaspendientesbody").load(urlajax,{datos});   
+    
+    $("#li2").show();
+    $("#facturaspendientes-tab").click();
+
+}
+
 function habilitarrecarga()
 {
     $('#btnbuscar').hide();

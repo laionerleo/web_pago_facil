@@ -52,7 +52,7 @@
                                     <div class="nav flex-column nav-pills" role="tablist"
                                          aria-orientation="vertical">
                                         <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
-                                           href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                           href="#vistahistorico" role="tab" aria-controls="v-pills-home"
                                            aria-selected="true">Datos</a>
                                         <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
                                            href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
@@ -62,6 +62,9 @@
                                                 href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
                                                 aria-selected="false">Reporte Comisiones</a>
                                             <?php }?>
+                                            <a class="nav-link " id="v-vistahistorico" data-toggle="pill"
+                                           href="#vistahistorico" role="tab" aria-controls="v-pills-home"
+                                           aria-selected="true">Reporte Historico Cliente </a>
                                         
                                      
                                     </div>
@@ -116,13 +119,18 @@
                                                               
                                                                     <div class="row">
                                                                                 
-                                                                                <div class="col-md-4">
-                                                                                    <label for="">Elegir Fecha</label>
-                                                                                    <input type="text" id="rangofechas" readonly name="simple-date-range-picker-callback" class="form-control" style="text-align: center;">
+                                                                     
+                                                                                <div class="col-md-4 col-6">
+                                                                                    <label for="">Fecha Inicio</label>
+                                                                                    <input type="date" id="inpfechainicio1"   class="form-control" style="text-align: center;">
                                                                                 </div>
-                                                                                <div class="col-md-4">
+                                                                                <div class="col-md-4 col-6">
+                                                                                    <label for=""> Fecha Final</label>
+                                                                                    <input type="date" id="inpfechafin1"   class="form-control" style="text-align: center;"  value="<?= date('Y-m-d')  ?>" >
+                                                                                </div>
+                                                                                <div class="col-md-4 col-12">
                                                                                     <br>
-                                                                                    <input type="Button" class="btn btn-primary" id="btnreporte"  value="Generar Reporte" onclick="generarreporte()">
+                                                                                    <input type="Button" class="btn btn-primary" id="btnreporte"  value="Generar Reporte" onclick="generarreporte()" /> 
                                                                                     
                                                                                 </div>
                                                                             
@@ -145,7 +153,47 @@
                                         </div>
                                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
                                              aria-labelledby="v-pills-messages-tab">
-                                              <?php $this->load->view('pagofacilentubarrio/reportecomisiones', $comisiones); ?>
+                                              <?php  $this->load->view('pagofacilentubarrio/reportecomisiones', $comisiones); ?>
+                                        </div>
+                                        <div class="tab-pane fade" id="vistahistorico" role="tabpanel"
+                                             aria-labelledby="vistahistorico-tab">
+                                             <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card" style="height: 100%;">
+                                                            <div class="card-body text-center m-t-10-minus">
+                                                                <div class="card-body">
+                                                              
+                                                                    <div class="row">
+                                                                                
+                                                                                <div class="col-md-4 col-6">
+                                                                                    <label for="">Fecha Inicio</label>
+                                                                                    <input type="date" id="inpfechainicio"   class="form-control" style="text-align: center;">
+                                                                                </div>
+                                                                                <div class="col-md-4 col-6">
+                                                                                    <label for=""> Fecha Final</label>
+                                                                                    <input type="date" id="inpfechafin"   class="form-control" style="text-align: center;" value="<?= date('Y-m-d')  ?>">
+                                                                                </div>
+                                                                                <div class="col-md-4 col-12">
+                                                                                    <br>
+                                                                                    <input type="Button" class="btn btn-primary" id="btnreporte"  value="Generar Reporte" onclick="generarreportehistorico()" /> 
+                                                                                    
+                                                                                </div>
+                                                                            
+
+                                                                           
+                                                                                <div class="col-md-12" style="display:none" id="vistareportehistorico">
+                                                                               
+
+                                                                                </div>
+                                                                           
+                                                                        
+                                                                       
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                         </div>
                                        
                                     </div>
@@ -205,9 +253,13 @@ function  generarreportemovimiento(fechainicial, fechafinal)
     $("#vistareportemovimiento").show();
     $("#vistareportemovimiento").empty();
     $("#vistareportemovimiento").prepend( `  <center> <div id="spinercargapdf" class="spinner-border text-primary" role="status">                                                                                                <span class="sr-only">Loading...</span></div></center> `);
-    
-    
-    var datos= {FechaInicial:fechainicial,FechaFinal:fechafinal };
+    if(screen.width>=1025)
+         {
+            tipo =1
+         }else{
+            tipo=2;
+         }
+    var datos= {FechaInicial:fechainicial,FechaFinal:fechafinal ,tipo:tipo};
     var urlajax=$("#url").val()+"reportemovimiento";   
     $("#vistareportemovimiento").load(urlajax,{datos});                    
   
@@ -215,15 +267,54 @@ function  generarreportemovimiento(fechainicial, fechafinal)
     
 }
 
+function generarreportehistoricocliente(fechainicial, fechafinal)
+{
+    $("#vistareportehistorico").show();
+    $("#vistareportehistorico").empty();
+    $("#vistareportehistorico").prepend( `  <center> <div id="spinercargapdf" class="spinner-border text-primary" role="status">                                                                                                <span class="sr-only">Loading...</span></div></center> `);
+    if(screen.width>=1025)
+         {
+            tipo =1
+         }else{
+            tipo=2;
+         }
+    var datos= {FechaInicial:fechainicial,FechaFinal:fechafinal ,tipo:tipo};
+    var urlajax=$("#url").val()+"reportehistoricocliente";   
+    $("#vistareportemovimiento").load(urlajax,{datos} );                    
+  
+    
+    
+}
 function generarreporte()
 {
-    //alert($('#rangofechas').val());
-    var str = $('#rangofechas').val();
-    var res = str.split("-");
-    console.log(res);
+    var fechaini = $('#inpfechainicio1').val();
+    var fechafin = $('#inpfechafin1').val();
   
-    //$("#vistareportemovimiento").show();
-    generarreportemovimiento(res[0], res[1])
+    if( fechaini.length>0  &&  fechafin.length>0 )
+    {
+         //$("#vistareportemovimiento").show();
+    generarreportemovimiento(fechaini, fechafin);
+    }else{
+        swal("Reporte Movimiento", "Insertar Rango de Fechas ", "info");               // si entra aqui significa que ue exitodo el pago asi que debo finilizarlo
+                            
+    }
+   
+}
+
+
+function generarreportehistorico()
+{
+    //alert($('#rangofechas').val());
+    var fechaini = $('#inpfechainicio').val();
+    var fechafin = $('#inpfechafin').val();
+    if( fechaini.length>0  &&  fechafin.length>0 )
+    {
+        generarreportehistoricocliente(fechaini, fechafin);
+    }else{
+        swal("Reporte Historico Cliente ", "Insertar Rango de Fechas ", "info");             
+                            
+    }
+    
 }
 
   $(document).ready(function () {
@@ -247,7 +338,7 @@ function generarreporte()
                 $("#vistareportemovimiento").show();
               //  generarreportemovimiento(start.format('YYYY-MM-DD'),  end.format('YYYY-MM-DD'));
             });
-            $('#example1').DataTable({   "ordering": true,
+            $('#example1').DataTable({   "ordering": true,"order": [[ 0, "desc" ]]
                                                                                         });  
   });
 

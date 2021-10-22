@@ -247,7 +247,6 @@ class servicios {
 
    } 
 
-   
    public function get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio )
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getfacturapendiente';
@@ -1968,45 +1967,87 @@ public function ListarEmpresas2($tnCliente){
 }
 
 public function reportebilletera($tnCliente  ,$tcFechaInicial  , $tcfechaFinal , $tnBilletera ){
-  // $url = 'http://190.186.90.42/ServicioSyscoopPagoFacil2/Usuario/getReporteBilletera2';
-   $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getReporteBilletera2';
-   
-   $data = array( 'tnCliente' =>$tnCliente  ,  'tcFechaInicial' =>"$tcFechaInicial" , 'tcfechaFinal' =>"$tcfechaFinal" , 'tnBilletera' => intval($tnBilletera) );
-   $this->cargarlog("reportebilletera".json_encode($data));
-   //print_r($data);
-   
-   /*
+   // $url = 'http://190.186.187.77/ServicioSyscoopPagoFacil2/Usuario/getReporteBilletera2';
+     $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getReporteBilletera2';
+     
+     $data = array( 'tnCliente' =>$tnCliente  ,  'tcFechaInicial' =>"$tcFechaInicial" , 'tcfechaFinal' =>"$tcfechaFinal" , 'tnBilletera' => intval($tnBilletera) );
+     $this->cargarlog("reportebilletera".json_encode($data));
+     //print_r($data);
+     
+     /*
+  
+  @POST(PagoFacil + "/Usuario/getReporteBilletera2")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<FacturaPDF>> getReporteBilletera(
+              @Field("tnCliente")         long    cliente,
+              @Field("tcFechaInicial")    String  fechaInicial,
+              @Field("tcfechaFinal")      String  fechaFinal,
+              @Field("tnBilletera")       int     idBilletera);
+     */
+  
+  
+     $header = array(
+        "Content-Type: application/x-www-form-urlencoded",
+        "Content-Length: ".strlen( http_build_query($data))
+        );
+        
+     // use key 'http' even if you send the request to https://...
+     $options = array('http' => array(
+        'method'  => 'POST',
+        'header' => implode("\r\n", $header),
+        'content' => http_build_query($data) 
+     )
+                 );
+  
+  
+  
+     $context  = stream_context_create($options);
+     $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+     return $resultado;
+  }
 
-@POST(PagoFacil + "/Usuario/getReporteBilletera2")
-    @FormUrlEncoded
-    Call<mPaquetePagoFacil<FacturaPDF>> getReporteBilletera(
-            @Field("tnCliente")         long    cliente,
-            @Field("tcFechaInicial")    String  fechaInicial,
-            @Field("tcfechaFinal")      String  fechaFinal,
-            @Field("tnBilletera")       int     idBilletera);
-   */
-
-
-   $header = array(
-      "Content-Type: application/x-www-form-urlencoded",
-      "Content-Length: ".strlen( http_build_query($data))
-      );
-      
-   // use key 'http' even if you send the request to https://...
-   $options = array('http' => array(
-      'method'  => 'POST',
-      'header' => implode("\r\n", $header),
-      'content' => http_build_query($data) 
-   )
-               );
-
-
-
-   $context  = stream_context_create($options);
-   $result = file_get_contents($url, false, $context);
-    $resultado =json_decode($result);
-   return $resultado;
-}
+  public function reportehistoricocliente($tnCliente  ,$tcFechaInicial  , $tcfechaFinal , $tnBilletera ){
+   // $url = 'http://190.186.187.77/ServicioSyscoopPagoFacil2/Usuario/getReporteBilletera2';
+     $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getReporteHistoricoCliente';
+     
+     $data = array( 'tnCliente' =>$tnCliente  ,  'tcFechaInicial' =>"$tcFechaInicial" , 'tcfechaFinal' =>"$tcfechaFinal" , 'tnBilletera' => intval($tnBilletera) );
+     $this->cargarlog("reportebilletera".json_encode($data));
+     //print_r($data);
+     
+     /*
+  
+  @POST(PagoFacil + "/Usuario/getReporteBilletera2")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<FacturaPDF>> getReporteBilletera(
+              @Field("tnCliente")         long    cliente,
+              @Field("tcFechaInicial")    String  fechaInicial,
+              @Field("tcfechaFinal")      String  fechaFinal,
+              @Field("tnBilletera")       int     idBilletera);
+     */
+  
+  
+     $header = array(
+        "Content-Type: application/x-www-form-urlencoded",
+        "Content-Length: ".strlen( http_build_query($data))
+        );
+        
+     // use key 'http' even if you send the request to https://...
+     $options = array('http' => array(
+        'method'  => 'POST',
+        'header' => implode("\r\n", $header),
+        'content' => http_build_query($data) 
+     )
+                 );
+  
+  
+  
+     $context  = stream_context_create($options);
+     $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+     return $resultado;
+  }
+  
 
 public function reportecomisiones($tnCliente)
 {

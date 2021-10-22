@@ -71,30 +71,87 @@ class BilleteraPagoFacil extends CI_Controller {
 
 		$datos=$this->input->post("datos");
 	
-		$d['fechaini'] = $datos['FechaInicial'];
-		$d['fechafin'] = $datos['FechaFinal'];
+		$d['fechaini'] =$datos['FechaInicial'];
+		$d['fechafin'] =  $datos['FechaFinal'];
 		
-		$tnCliente =   $_SESSION['cliente'];
-		$tcFechaInicial=$d['fechaini'];
+		$tnCliente =  $_SESSION['cliente'];
+		$tcFechaInicial= $d['fechaini'];
 		$tcfechaFinal=$d['fechafin'];
 		$tnBilletera =  $_SESSION['lnIdBilletera'] ;
+		$tnTipo=$datos['tipo'];	
 		$reportemovimiento=$this->servicios->reportebilletera($tnCliente  ,$tcFechaInicial  , $tcfechaFinal , $tnBilletera );
 		$this->cargarlog("llego -->reportebilletera ".json_encode($reportemovimiento));
-		
-		$cadena="";
-		foreach($reportemovimiento->values->facturaPDF as $byte){
+		$cadena=""; 
+		$valor= $reportemovimiento->values->facturaPDF  ;	
+		//$valor= json_decode( $reportemovimiento->values->facturaPDF ) ;	
+		foreach($valor  as $byte){
 			$cadena.=chr($byte);
 		}
-		//GET CONTENT
+	
 		$fileToDownload = $cadena;
-		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/billetera-pagoacil.pdf';
-		//$fichero =$_SERVER["DOCUMENT_ROOT"].'/online/application/assets/documentospdf/billetera-'.$idcliente.$factura.date('y-m-d--H:i:s').'.pdf';
+		$fichero =$_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/reportebilletera-'.$tnCliente.date('is').'.pdf';
 		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
 		file_put_contents($fichero, $fileToDownload);
-		$fichero2 ='/web_pago_facil/application/assets/documentospdf/billetera-pagoacil.pdf';
+		$fichero2 ='/web_pago_facil/application/assets/documentospdf/reportebilletera-'.$tnCliente.date('is').'.pdf';
 		$d['documentopdf']=$fichero2;
-		$this->load->view('pagofacilentubarrio/reportemovimientos', $d);
+		if($tnTipo==1){
+			//si es uno demo mostrar normal 
+			$this->load->view('pagosrealizados/vysorpdf', $d);
+		}else{
+			//si es distinto de uno se debe mostrar la url de googledrive
+			$d['urlweb']='https://docs.google.com/gview?embedded=true&url=https://pagofacil.com.bo/'.$d['documentopdf'] ;
+			//echo $taData['urlweb'];
+			$this->load->view('pagosrealizados/vistaiframepdf', $d);
+		}
+		
+	
+	}
 
+	public function reportehistoricocliente()
+	{	
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+
+
+		$datos=$this->input->post("datos");
+	
+		$d['fechaini'] =$datos['FechaInicial'];
+		$d['fechafin'] =  $datos['FechaFinal'];
+		
+		$tnCliente =  $_SESSION['cliente'];
+		$tcFechaInicial= $d['fechaini'];
+		$tcfechaFinal=$d['fechafin'];
+		$tnBilletera =  $_SESSION['lnIdBilletera'] ;
+		$tnTipo=$datos['tipo'];	
+		$reportemovimiento=$this->servicios->reportehistoricocliente($tnCliente  ,$tcFechaInicial  , $tcfechaFinal , $tnBilletera );
+		$this->cargarlog("llego -->reportehistoricocliente ".json_encode($reportemovimiento));
+		$cadena=""; 
+		$valor= $reportemovimiento->values->facturaPDF  ;	
+		//$valor= json_decode( $reportemovimiento->values->facturaPDF ) ;	
+		foreach($valor  as $byte){
+			$cadena.=chr($byte);
+		}
+	
+		$fileToDownload = $cadena;
+		$fichero =$_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/reportehistorico-'.$tnCliente.date('is').'.pdf';
+		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
+		file_put_contents($fichero, $fileToDownload);
+		$fichero2 ='/web_pago_facil/application/assets/documentospdf/reportehistorico-'.$tnCliente.date('is').'.pdf';
+		$d['documentopdf']=$fichero2;
+		if (file_exists($d['documentopdf'])) {
+			echo "El fichero $fichero2 existe";
+		} else {
+			echo "El fichero $fichero2 no existe";
+		}
+		if($tnTipo==1){
+			//si es uno demo mostrar normal 
+			$this->load->view('pagosrealizados/vysorpdf', $d);
+		}else{
+			//si es distinto de uno se debe mostrar la url de googledrive
+			$d['urlweb']='https://docs.google.com/gview?embedded=true&url=https://pagofacil.com.bo/'.$d['documentopdf'] ;
+			//echo $taData['urlweb'];
+			$this->load->view('pagosrealizados/vistaiframepdf', $d);
+		}
 		
 	
 	}
