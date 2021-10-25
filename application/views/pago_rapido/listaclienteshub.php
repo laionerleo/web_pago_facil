@@ -58,7 +58,7 @@
                                     <?php foreach ($clientes[$i]->loObjeto1 as $letter=>$index) {?>
                                         <td  data-title="<?=  $letter ?>"><?=  $index ?></td>
                                     <?php  } ?>
-                                <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientes(<?= $i ?>)">Consultar deuda</button></td>
+                                <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientesmultiple(<?= $i ?>)">Consultar deuda</button></td>
                             </tr>
                         <?php    }  ?>
                 </tbody>

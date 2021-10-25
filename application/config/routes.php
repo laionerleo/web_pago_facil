@@ -26,16 +26,20 @@ $route[$l.'ejecuparpagoeLinkser']               = 'Welcome/pagarelinkser';
 $route[$l.'nuevavista']                         = 'Welcome/nuevavista';
 $route[$l.'endesarrollo']                       = 'Welcome/endesarrollo';
 $route[$l.'generarqr']                          = 'Welcome/generarqr';
-$route[$l.'generarqrbnb']                          = 'Welcome/generarqrbnb';
+$route[$l.'generarqrbnb']                       = 'Welcome/generarqrbnb';
 $route[$l.'getultimaselegidas']                 = 'Welcome/getultimaselegidas';
 $route[$l.'metodotigomoney']                    = 'Welcome/pagarportigomoney';
 $route[$l.'verificartransaccion']               = 'Welcome/verificartransacciontigo';
 $route[$l.'perfilfrecuente']                    = 'Welcome/listarempresafrecuentes';
 $route[$l.'listapagosrealizados']               = 'Welcome/listapagosrealizados';
 $route[$l.'generarticketpagoexpress']           = 'Welcome/generarpagoexpress';
-
-
 $route[$l.'verificarqr']                        = 'Welcome/verificarqr';
+
+
+//vistas y metodos para para ols pagos multiples 
+$route[$l.'facturaspendientesmultiple']         = 'HubPago/facturaspendientesmultiples';//vista
+$route[$l.'listadofacturaspendientes']         = 'HubPago/listadofacturaspendientes';//vista
+
 
 
 
@@ -55,11 +59,6 @@ $route[$l.'cargarciudades']                     = 'Servicio/cargarciudades';
 $route[$l.'cargarestados']                      = 'Servicio/cargarestados';
 $route[$l.'vistametodosdepago/(:any)']          = 'Servicio/metodospagovista/$1/$2';
 $route[$l.'empresascheckout']                   = 'Servicio/empresasafiliadas';
-
-
-
-
-
 //pagos realizados
 $route[$l.'pagosrealizados/(:num)']             = 'Welcome/pagosrealizados/$1/$2';
 $route[$l.'get_facturaspagadas']                = 'Welcome/facturaspagadas';

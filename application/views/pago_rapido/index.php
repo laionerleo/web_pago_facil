@@ -280,6 +280,10 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
             dehabilitarrecarga();
             cargarcriteriobusquedahub(id_empresa);
         }
+    if(id_empresa==165)
+        {
+            $("#inp_dato").val("29101");
+        }
 
     
 }
@@ -521,7 +525,6 @@ function dehabilitarrecarga()
   
 function vistarecarga(codigo)
 {
-   // var codigo=$('#inp_dato').val();
    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     var datos= {codigo:codigo , tnIdentificarPestaña :tnIdentificarPestaña   };
     var urlajax=$("#url").val()+"vistarecargas";   

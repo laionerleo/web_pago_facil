@@ -66,8 +66,7 @@
                                 <td  data-title="Direccion" ><?= $clientes[$i]->direccion ?></td>
                                 <td  data-title="Otros" ><?= $clientes[$i]->uvMzaLote ?></td>
                                 <td  data-title="Opciones" > 
-                                    <button class="btn btn-primary"  onclick="facturaspendientes(<?= $i ?>)">Consultar simple</button>
-                                    <button class="btn btn-primary"  onclick="facturaspendientesmultiple(<?= $i ?>)"> consultarmultiple </button>
+                                    <button class="btn btn-primary"  onclick="facturaspendientesmultiple(<?= $i ?>)"> consultar deuda </button>
                                 </td>
                             </tr>
                         <?php    }  ?>
