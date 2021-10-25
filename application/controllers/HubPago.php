@@ -169,6 +169,7 @@ class HubPago extends CI_Controller {
 				$d['cantidadfacturas']=0;
 				
 			}
+			$d["empresa_id"]= $datos["empresa_id"];
 
 			$laServicioMetodoPagoEmpresa=$this->servicios->get_metodos_pago_empresa($lnCliente ,$lnEmpresa);
 			$d['metodospago']=$laServicioMetodoPagoEmpresa->values->aMetodosDePago;
@@ -177,6 +178,7 @@ class HubPago extends CI_Controller {
 			$d['metodospagogrupos']=$laServicioMetodosbyGrupo->values;
 			$_SESSION[$tnIdentificarPestaña.'metodospagogrupos']=$laServicioMetodosbyGrupo->values;	
 			$this->load->view('multiple/paso1', $d);
+		
 
 		} catch (\Throwable $th) {
 			//throw $th;
@@ -204,12 +206,23 @@ class HubPago extends CI_Controller {
 					$lnFactura=$_SESSION[$tnIdentificarPestaña.'IdOperativo'] ;
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
 					$_SESSION[$tnIdentificarPestaña.'periodomes']=$d['facturas'][$lnPosicion]->periodo;
-				
-				}else{
+	
 					for ($i=0; $i < count($d['facturas']); $i++) { 
+						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);
+						$d['facturas'][$i]->MontoComision=$lnMontoComision->values ;					
+					}
+
+
+				}else{
+				
+					for ($i=0; $i < count($d['facturas']); $i++) { 
+					
 						$d['facturas'][$i]->periodoaux=$d['facturas'][$i]->periodo;
 						$d['facturas'][$i]->periodo =$this->get_periodo($d['facturas'][$i]->periodo);
+					//	$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);
+					//	$d['facturas'][$i]->MontoComision=$lnMontoComision->values ;
 					}
+			
 				}
 			$this->load->view('multiple/listafacturaspendientes', $d);
 		} catch (\Throwable $th) {
@@ -232,7 +245,7 @@ class HubPago extends CI_Controller {
 		$cadenanueva=substr($cadena, 0, 7);
 		$porciones = explode("-", $cadenanueva);
 		$arraymeses=["01"=> "ENE" ,"02"=> "FEB" ,"03"=> "MAR"  ,"04"=> "ABR" ,"05"=> "MAY"  ,"06"=> "JUN"  ,"07"=>"JUL"  ,"08"=>"AGO"  ,"09"=> "SEP" ,"10"=> "OCT" ,"11"=>"NOV"  ,"12"=> "DIC"  ];
-		return $porciones[0]."-".$arraymeses[$porciones[1]];
+		return $porciones[0]."-".@$arraymeses[@$porciones[1]];
 	}
 	
 	/**/

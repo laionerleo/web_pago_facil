@@ -37,11 +37,8 @@
                      </td>
                      <td>
                         <center>
-                           <?php if($i == 0 ){ ?> 
-                           <input  type="checkbox"  name="Items"  id="Items<?= $i ?>"  >
-                           <?php }else{ ?>
-                           <input  type="checkbox" disabled name="Items<?= $i ?>"  id="Items<?= $i ?>"   value="<?= $facturas[$i]->nroitem ?>" >
-                           <?php  } ?>    
+
+                           <input  type="checkbox"  name="Items"  id="Items<?= $i ?>"   value="<?= $facturas[$i]->factura ?>" >
                         </center>
                      </td>
                   </tr>

@@ -3,9 +3,12 @@
                 <div>
                     <nav class="nav">
                        
-                        <?php  for ($i=0; $i < count($metodosdepago) ; $i++) {?>
-                            <a href="#" class="nav-link"><img style=" height:25px; width:45px; position: relative;" src="<?=  $metodosdepago[$i]->url_icon ?>" alt=""><a>
-                        <?php  } ?>
+                        <?php
+                            if(isset($metodosdepago)){
+                        for ($i=0; $i < count($metodosdepago) ; $i++) {?>
+                            <a href="#" class="nav-link"><img style=" height:25px; width:45px; position: relative;" src="<?=  @$metodosdepago[$i]->url_icon ?>" alt=""><a>
+                        <?php  }}
+                         ?>
                     </nav>
                 </div>
     

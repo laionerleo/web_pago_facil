@@ -55,7 +55,7 @@ input.largerCheckbox {
 <div class="row">
 
 <?php if($cantidadfacturas>0){  ?>
-   <div clas="col-md-6 col-sm-6 col-lg-6" id="divcajametodopago" >
+   <div clas="col-md-5 col-sm-5 col-lg-5" id="divcajametodopago" >
       <div class="card">
 
          <div class="card-body" style="padding: 0rem;">
@@ -118,7 +118,7 @@ input.largerCheckbox {
 </div>
     <!-- begin::footer -->
     <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
-    <input type="hidden" id="codigofijo" name="codigofijo" value="<?= $codigofijo ?>">
+    <input type="hidden" id="codigofijo" name="codigofijo" value="<?= @$codigofijo ?>">
     <input type="hidden" id="url" name="url" value="<?= $url ?>">
     <input type="hidden" id="tnPosicion" name="tnPosicion" value="<?= $tnPosicion ?>">
     
@@ -133,8 +133,9 @@ input.largerCheckbox {
 
     }
 
-    $('input[type=checkbox]').on('change', function() {
+    $("input[name='Items']").on('click', function() {
         //$("#Items"+(checkitem)).prop("disabled", false);
+        alert( $(this).val() );
         if ($(this).is(':checked') ) {
             console.log("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Seleccionado");
 
@@ -202,7 +203,7 @@ function vistafacturacion()
               idmetododepago=idmetododepagonuevo;
                 //id_fugure_region=id_figure;
                 $('#cajalistafacturas').show();
-                listarfacturaspendientesmultiple();
+                listarfacturaspendientesmultiple(idmetododepago);
            /*     $(id_item).css("border", "solid");
                 $(id_item).css("border-color", "red");
                 $(id_item).css("border-style", "outset");
@@ -233,12 +234,12 @@ function vistafacturacion()
                 $("#divinformacion").toggle(500);
              }
          
-    function listarfacturaspendientesmultiple()
+    function listarfacturaspendientesmultiple(metododepago)
     {
         var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
         var tnPosicion=$("#tnPosicion").val();
         var tnEmpresa=$("#empresa_id").val();
-        var datos= {tnEmpresa:tnEmpresa,tnPosicion:tnPosicion , tnIdentificarPestaña:tnIdentificarPestaña };
+        var datos=  {  tnMetodoPago:metododepago , tnEmpresa:tnEmpresa,tnPosicion:tnPosicion , tnIdentificarPestaña:tnIdentificarPestaña };
         var urlajax=$("#url").val()+"listadofacturaspendientes";   
         $("#cajalistafacturas").empty();   
         $("#cajalistafacturas").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
