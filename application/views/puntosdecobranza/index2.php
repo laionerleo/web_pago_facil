@@ -668,11 +668,11 @@ var icono =porciones[2];
             var lon = evt.latLng.lng().toFixed(6);
             
             coord2 = { // Creamos el obj de coordenada
-                  lat: evt.latLng.lat().toFixed(6),
-                  lng: evt.latLng.lng().toFixed(6)
+                  lat: parseFloat(evt.latLng.lat().toFixed(6)),
+                  lng: parseFloat(evt.latLng.lng().toFixed(6))
                 };
             lacoordenadapoligono.push(coord2);
-           // console.log(lacoordenadapoligono);
+            console.log(lacoordenadapoligono);
         
                             
         
@@ -693,14 +693,14 @@ var icono =porciones[2];
               return coord;
               
             });
-       
+       console.log(coords);
             for (var i = 0; i < ubicaciones.length; i++) {
                 
                 var latitude=ubicaciones[i]["latitud"];
                 var longitude=ubicaciones[i]["longitud"]; 
             
               
-              var Poligono = VerificarPunto(longitude,latitude, coords)
+              var Poligono = VerificarPunto(longitude,latitude, lacoordenadapoligono)
               if (Poligono == true) {
                // console.log(longitude+'-'+latitude);
                   
@@ -727,7 +727,7 @@ var icono =porciones[2];
             
           // Creamos el poligono
           var area = new google.maps.Polygon({
-            paths: coords,
+            paths: lacoordenadapoligono,
             strokeColor: '#FF0000',
             strokeOpacity: 0.8,
             strokeWeight: 3,
