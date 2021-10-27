@@ -156,7 +156,10 @@
                                             <button  class="btn btn-primary checkout-btn" onclick="mi_ubicacion()" > Mi ubicacion</button>
                                         </div>
                                         <div class="col-md-3">
-                                            <button  class="btn btn-primary checkout-btn" onclick="cargarpoligono()" >Calcular</button>
+                                            <button  class="btn btn-primary checkout-btn" onclick="cargarpoligono()" >Trazar poligono</button>
+                                            <button  class="btn btn-primary checkout-btn" onclick="cargarmapapoligono()" >Cargar Puntos</button>
+                                        </div>
+                                        <div class="col-md-3">
                                         </div>
                                         <div class="col-md-3">
                                             <select class="form-control" name="ubicacion" id="slc_ubicacion">
@@ -165,6 +168,14 @@
                                                 ?>
                                                     <option value="<?php echo $ubicaciones_nuevo[$i]->latitud ?>/<?php echo $ubicaciones_nuevo[$i]->longitud ?>/<?php echo $ubicaciones_nuevo[$i]->tipo ?>"   ><?php echo $ubicaciones_nuevo[$i]->nombreEstablecimiento ?></option>
                                                 <?php  } ?>
+                                            </select>
+                                            <select class="form-control unicase-form-control selectpicker" name="distancia" id="slc_distancia">
+                                                        <option value="1000">1000 MTRS</option>
+                                                        <option value="2000">2000 MTRS</option>
+                                                        <option value="3000">3000 MTRS</option>
+                                                        <option value="4000">4000 MTRS</option>
+                                                        <option value="5000">5000 MTRS</option>
+                                                        <option value="10000">10000 MTRS</option>
                                             </select>
                                         </div>
                                 </div>
@@ -243,7 +254,7 @@
           var myLatLng = new google.maps.LatLng(latitude,longitude);
           marker = new google.maps.Marker({
           position: myLatLng,
-          draggable:true,
+          //draggable:true,
           map: map,
           icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
           title: ubicaciones[i]["nombreEstablecimiento"],
@@ -307,13 +318,6 @@
                   }
           
         })(marker, i));
-         
-        google.maps.event.addListener(marker, 'dragend', function (evt) {
-            //console.log(marker);
-            alert('Latitud = '+evt.latLng.lat().toFixed(6)+ ', Longitud = '+evt.latLng.lng().toFixed(6));
-            
-           // document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
-        });
         
         
       }
@@ -416,9 +420,7 @@
             
         })(marker, i));
          
-      
-        
-        
+       
       }
       $("#slc_ubicacion").append(cadenainsertarselect);
       //infoWindow = new google.maps.InfoWindow;
@@ -514,16 +516,50 @@ var icono =porciones[2];
                 var distancia = getDistanciaMetros(position.coords.latitude, position.coords.longitude, latitude, longitude);
                 //var distancia = getDistanciaMetros(position.coords.latitude, position.coords.longitude, latitude, longitude);
                // console.log(distancia +'--'+ ubicaciones[i]["nombreEstablecimiento"]);
-                if (distancia < 5000) {
-                    var myLatLng = new google.maps.LatLng(latitude,longitude);
-                    marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
-                        title: ubicaciones[i]["nombreEstablecimiento"],
-                        animation: google.maps.Animation.DROP,
-                        clickeable:true,
-                    });        
+               console.log(distancia);
+               var slc_distancia = $('#slc_distancia').val();
+                if (distancia < slc_distancia) {
+                  if(ubicaciones[i]["tipo"]=="PF"  )
+            {
+              var myLatLng = new google.maps.LatLng(latitude,longitude);
+              marker = new google.maps.Marker({
+              position: myLatLng,
+              //draggable:true,
+              map: map,
+              icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+              title: ubicaciones[i]["nombreEstablecimiento"],
+              animation: google.maps.Animation.DROP,
+              clickeable:true,
+              });    
+            
+              
+            }
+            if(ubicaciones[i]["tipo"]=="EM"  )
+            {
+              var myLatLng = new google.maps.LatLng(latitude,longitude);
+              marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_empresa.png',
+              title: ubicaciones[i]["nombreEstablecimiento"],
+              animation: google.maps.Animation.DROP,
+              clickeable:true,
+              });        
+            }
+      
+            if(ubicaciones[i]["tipo"]=="MP"  )
+            {
+              var myLatLng = new google.maps.LatLng(latitude,longitude);
+              marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_metodo_pago.png',
+              title: ubicaciones[i]["nombreEstablecimiento"],
+              animation: google.maps.Animation.DROP,
+              clickeable:true,
+    
+              });        
+            } 
                       
                     var lclatitude=ubicaciones[i]['latitud'];
                     var lclongitude=ubicaciones[i]["longitud"];
@@ -534,8 +570,7 @@ var icono =porciones[2];
                     
                     $("#slc_ubicacion").append(cadenainsertarselect);
                 }
-                
-                
+                                 
             }
             console.log(pos);
             console.log(position);
@@ -552,7 +587,23 @@ var icono =porciones[2];
                   icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image//hombre.svg',
                   map: map,
                 });
-                  
+                     
+                console.log(slc_distancia);
+                      var a = slc_distancia;
+                      // console.log(d);
+                      var alerta = new google.maps.Circle({
+                      strokeColor: '#FF0000',
+                      strokeOpacity: 0.8,
+                      strokeWeight: 2,
+                      fillColor: '#FF0000',
+                      fillOpacity: 0.35,
+                      map: map,
+                      center: myLatLng,
+                      radius: parseFloat(slc_distancia)
+                    });
+                    // Creamos el mapa  
+                    alerta.bindTo('center', marker, 'position');
+                  //  area.setMap(map); 
 
             },handleError,{ enableHighAccuracy: true, timeout: 2000, maximumAge: 3600000 });
 
@@ -612,133 +663,150 @@ var icono =porciones[2];
     }
     
     function cargarpoligono() {
-        
-        map = new google.maps.Map(document.getElementById('map'), {
+      lacoordenadapoligono.length = 0;
+       map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: -17.78315962290801, lng: -63.180976199658176},           
               zoom: 14
             });
-            
-        var myLatLng = new google.maps.LatLng(-17.775643,-63.174831);
-          marker = new google.maps.Marker({
+        var myLatLng = new google.maps.LatLng(-17.78315962290801,-63.180976199658176);
+          marker1 = new google.maps.Marker({
           position: myLatLng,
           draggable:true,
           map: map,
-          icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+         // icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
           title: "vista1",
           animation: google.maps.Animation.DROP,
           clickeable:true,
           }); 
           
-          var myLatLng = new google.maps.LatLng(-17.778483,-63.188459);
-          marker = new google.maps.Marker({
-          position: myLatLng,
-          draggable:true,
-          map: map,
-          icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
-          title: "vista2",
-          animation: google.maps.Animation.DROP,
-          clickeable:true,
-          }); 
-          
-          var myLatLng = new google.maps.LatLng(-17.792395,-63.18793);
-          marker = new google.maps.Marker({
-          position: myLatLng,
-          draggable:true,
-          map: map,
-          icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
-          title: "vista3",
-          animation: google.maps.Animation.DROP,
-          clickeable:true,
-          }); 
-          var myLatLng = new google.maps.LatLng(-17.791047,-63.172971);
-          marker = new google.maps.Marker({
-          position: myLatLng,
-          draggable:true,
-          map: map,
-          icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
-          title: "vista4",
-          animation: google.maps.Animation.DROP,
-          clickeable:true,
-          }); 
-        
-          google.maps.event.addListener(marker, 'dragend', function (evt) {
+          google.maps.event.addListener(marker1, 'dragend', function (evt) {
            // console.log(marker);
-            alert('Latitud = '+evt.latLng.lat().toFixed(6)+ ', Longitud = '+evt.latLng.lng().toFixed(6));
-            var lat = evt.latLng.lat().toFixed(6);
-            var lon = evt.latLng.lng().toFixed(6);
-            
+           // alert('Latitud = '+evt.latLng.lat().toFixed(6)+ ', Longitud = '+evt.latLng.lng().toFixed(6));
+
             coord2 = { // Creamos el obj de coordenada
                   lat: parseFloat(evt.latLng.lat().toFixed(6)),
                   lng: parseFloat(evt.latLng.lng().toFixed(6))
                 };
             lacoordenadapoligono.push(coord2);
-            console.log(lacoordenadapoligono);
-        
-                            
-        
-        
-        var bounds = new google.maps.LatLngBounds();
-        //  var coords = '-17.775643,-63.174831 -17.778483,-63.188459 -17.792395,-63.18793 -17.791047,-63.172971'
-        var coords = '-17.775643,-63.174831 -17.778483,-63.188459 -17.792395,-63.18793 -17.791047,-63.172971'
-        .split(' ') // Separamos por espacio
-            .map(function(data) {
-              var info = data.split(','), // Separamos por coma
-                coord = { // Creamos el obj de coordenada
-                  lat: parseFloat(info[0]),
-                  lng: parseFloat(info[1])
-                };
-              // Agregamos la coordenada al bounds
-              bounds.extend(coord);
-             
-              return coord;
-              
-            });
-       console.log(coords);
-            for (var i = 0; i < ubicaciones.length; i++) {
-                
-                var latitude=ubicaciones[i]["latitud"];
-                var longitude=ubicaciones[i]["longitud"]; 
-            
-              
-              var Poligono = VerificarPunto(longitude,latitude, lacoordenadapoligono)
-              if (Poligono == true) {
-               // console.log(longitude+'-'+latitude);
-                  
-                  var myLatLng = new google.maps.LatLng(latitude,longitude);
-                    marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
-                        title: ubicaciones[i]["nombreEstablecimiento"],
-                        animation: google.maps.Animation.DROP,
-                        clickeable:true,
-                    });        
-                      
-                    var lclatitude=ubicaciones[i]['latitud'];
-                    var lclongitude=ubicaciones[i]["longitud"];
-                    var lcnombre=ubicaciones[i]["nombreEstablecimiento"];
-                
-                   // cadenainsertarselect=cadenainsertarselect+ "<option value='"+lclatitude+"/"+lclongitude+ "/PF'    >   "+lcnombre+" </option> " ;
-                    //console.log(cadenainsertarselect);
-                    
-                   // $("#slc_ubicacion").append(cadenainsertarselect);
-              }
-            }
-            
-          // Creamos el poligono
-          var area = new google.maps.Polygon({
-            paths: lacoordenadapoligono,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 3,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
+            if (lacoordenadapoligono.length > 1) {
+               // Creamos el poligono
+              var area = new google.maps.Polygon({
+                paths: lacoordenadapoligono,
+                strokeColor: '#E74C3C',
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                fillColor: '#E74C3C',
+                fillOpacity: 0
+              });
+              // Creamos el mapa        
+                area.setMap(map);
+                }          
           });
+
         
-          // Creamos el mapa
-         
-            area.setMap(map);
-        });
+    }
+    function cargarmapapoligono() {
+      map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -17.78315962290801, lng: -63.180976199658176},           
+              zoom: 14
+            });
+            
+      var area = new google.maps.Polygon({
+        paths: lacoordenadapoligono,
+        strokeColor: '#E74C3C',
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        fillColor: '#E74C3C',
+        fillOpacity: 0.35
+      });
+      // Creamos el mapa        
+      area.setMap(map);                               
+      
+      for (var i = 0; i < ubicaciones.length; i++) {
+        var cadenainsertarselect=``;
+          var latitude=ubicaciones[i]["latitud"];
+          var longitude=ubicaciones[i]["longitud"];         
+        var Poligono = VerificarPunto(longitude,latitude, lacoordenadapoligono)
+        if (Poligono == true) {
+         // console.log(longitude+'-'+latitude);
+            
+            var myLatLng = new google.maps.LatLng(latitude,longitude);
+           
+            if(ubicaciones[i]["tipo"]=="PF"  )
+            {
+              var myLatLng = new google.maps.LatLng(latitude,longitude);
+              marker = new google.maps.Marker({
+              position: myLatLng,
+              //draggable:true,
+              map: map,
+              icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+              title: ubicaciones[i]["nombreEstablecimiento"],
+              animation: google.maps.Animation.DROP,
+              clickeable:true,
+              });    
+            
+              
+            }
+            if(ubicaciones[i]["tipo"]=="EM"  )
+            {
+              var myLatLng = new google.maps.LatLng(latitude,longitude);
+              marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_empresa.png',
+              title: ubicaciones[i]["nombreEstablecimiento"],
+              animation: google.maps.Animation.DROP,
+              clickeable:true,
+              });        
+            }
+      
+            if(ubicaciones[i]["tipo"]=="MP"  )
+            {
+              var myLatLng = new google.maps.LatLng(latitude,longitude);
+              marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_metodo_pago.png',
+              title: ubicaciones[i]["nombreEstablecimiento"],
+              animation: google.maps.Animation.DROP,
+              clickeable:true,
+    
+              });        
+            }          
+                
+              var lclatitude=ubicaciones[i]['latitud'];
+              var lclongitude=ubicaciones[i]["longitud"];
+              var lcnombre=ubicaciones[i]["nombreEstablecimiento"];
+              
+              cadenainsertarselect=cadenainsertarselect+ "<option value='"+lclatitude+"/"+lclongitude+ "/PF'    >   "+lcnombre+" </option> " ;
+              console.log(cadenainsertarselect);
+              infowindow = new google.maps.InfoWindow({ content: '' }); 
+
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() 
+                          {
+                            map.setZoom(16);
+                          
+                            map.setCenter(marker.getPosition());
+                            console.log(marker);
+                            mensaje=marker.getTitle();
+                            console.log(marker.getTitle());
+                            infowindow.setContent(mensaje);
+                            infowindow.open(map, marker);
+                            if (marker.getAnimation() !== null) {
+                            marker.setAnimation(null);
+                            } else {
+                              marker.setAnimation(google.maps.Animation.BOUNCE);
+                            }
+                          }
+        
+        
+                    
+                })(marker, i));  
+              
+        }
+      }
+      $("#slc_ubicacion").append(cadenainsertarselect);
     }
     function VerificarPunto(x,y, vs) {
         var inside = false;
