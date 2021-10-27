@@ -151,15 +151,21 @@
                                                         <option value="EM"> Empresa</option>
                                                         <option value="MP"> Metodo de pago</option>
                                         </select>
+                                        <select class="form-control unicase-form-control selectpicker" name="distancia" id="slc_distancia">
+                                                        <option value="1000">1000 MTRS</option>
+                                                        <option value="2000">2000 MTRS</option>
+                                                        <option value="3000">3000 MTRS</option>
+                                                        <option value="4000">4000 MTRS</option>
+                                                        <option value="5000">5000 MTRS</option>
+                                                        <option value="10000">10000 MTRS</option>
+                                            </select>
                                     </div>
                                         <div class="col-md-3">
                                             <button  class="btn btn-primary checkout-btn" onclick="mi_ubicacion()" > Mi ubicacion</button>
                                         </div>
                                         <div class="col-md-3">
-                                            <button  class="btn btn-primary checkout-btn" onclick="cargarpoligono()" >Trazar poligono</button>
-                                            <button  class="btn btn-primary checkout-btn" onclick="cargarmapapoligono()" >Cargar Puntos</button>
-                                        </div>
-                                        <div class="col-md-3">
+                                            <button  class="btn btn-danger checkout-btn" onclick="cargarpoligono()" >Trazar poligono</button>
+                                            <button  class="btn btn-success checkout-btn" onclick="cargarmapapoligono()" >Cargar Puntos</button>
                                         </div>
                                         <div class="col-md-3">
                                             <select class="form-control" name="ubicacion" id="slc_ubicacion">
@@ -169,14 +175,7 @@
                                                     <option value="<?php echo $ubicaciones_nuevo[$i]->latitud ?>/<?php echo $ubicaciones_nuevo[$i]->longitud ?>/<?php echo $ubicaciones_nuevo[$i]->tipo ?>"   ><?php echo $ubicaciones_nuevo[$i]->nombreEstablecimiento ?></option>
                                                 <?php  } ?>
                                             </select>
-                                            <select class="form-control unicase-form-control selectpicker" name="distancia" id="slc_distancia">
-                                                        <option value="1000">1000 MTRS</option>
-                                                        <option value="2000">2000 MTRS</option>
-                                                        <option value="3000">3000 MTRS</option>
-                                                        <option value="4000">4000 MTRS</option>
-                                                        <option value="5000">5000 MTRS</option>
-                                                        <option value="10000">10000 MTRS</option>
-                                            </select>
+                                            
                                         </div>
                                 </div>
                             </div>
@@ -673,7 +672,7 @@ var icono =porciones[2];
           position: myLatLng,
           draggable:true,
           map: map,
-         // icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+          //icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/lapiz.png',
           title: "vista1",
           animation: google.maps.Animation.DROP,
           clickeable:true,
@@ -777,7 +776,7 @@ var icono =porciones[2];
               var lclatitude=ubicaciones[i]['latitud'];
               var lclongitude=ubicaciones[i]["longitud"];
               var lcnombre=ubicaciones[i]["nombreEstablecimiento"];
-              
+              console.log(ubicaciones);
               cadenainsertarselect=cadenainsertarselect+ "<option value='"+lclatitude+"/"+lclongitude+ "/PF'    >   "+lcnombre+" </option> " ;
               console.log(cadenainsertarselect);
               infowindow = new google.maps.InfoWindow({ content: '' }); 
@@ -785,14 +784,17 @@ var icono =porciones[2];
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
                     return function() 
                           {
+                            var arrayTest = [lclatitude, lclongitude, marker.getTitle()];
+
                             map.setZoom(16);
                           
                             map.setCenter(marker.getPosition());
                             console.log(marker);
                             mensaje=marker.getTitle();
                             console.log(marker.getTitle());
-                            infowindow.setContent(mensaje);
-                            infowindow.open(map, marker);
+                           // infoWindow.setContent(mensaje);
+                            infoWindow.setContent("<div>Datos</div>" + arrayTest.map(function (val) { return "<div>" + val + "</div>" }).join(""));
+                            infoWindow.open(map, marker);
                             if (marker.getAnimation() !== null) {
                             marker.setAnimation(null);
                             } else {
