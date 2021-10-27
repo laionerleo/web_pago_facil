@@ -160,7 +160,7 @@ class HubPago extends CI_Controller {
 				}else{
 					for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
 						$laServicioListarFacturas->values[$i]->periodoaux=$laServicioListarFacturas->values[$i]->periodo;
-						$laServicioListarFacturas->values[$i]->periodo =$this->get_periodo($laServicioListarFacturas->values[$i]->periodo);
+						$laServicioListarFacturas->values[$i]->periodo =$this->get_periodo($laServicioListarFacturas->values[$i]->periodo);	
 					}
 				}
 				$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$laServicioListarFacturas->values;
@@ -170,6 +170,13 @@ class HubPago extends CI_Controller {
 				
 			}
 			$d["empresa_id"]= $datos["empresa_id"];
+			$d["codigofijo"]=$lnCodigoFijo;
+			$d['urlimagenempresa']=$lcUrlIconoImagen;
+			$d['nombreempresa']=$datos["nombreempresa"];
+			$d['idempresa']=$lnEmpresa;
+			$_SESSION[$tnIdentificarPestaña.'idempresa']=$lnEmpresa;
+			$_SESSION[$tnIdentificarPestaña.'nombreempresa']=$datos["nombreempresa"];
+			$_SESSION[$tnIdentificarPestaña.'urlimagenempresa']=$d['urlimagenempresa'];
 
 			$laServicioMetodoPagoEmpresa=$this->servicios->get_metodos_pago_empresa($lnCliente ,$lnEmpresa);
 			$d['metodospago']=$laServicioMetodoPagoEmpresa->values->aMetodosDePago;
@@ -198,11 +205,15 @@ class HubPago extends CI_Controller {
 		$tnIdentificarPestaña=$datos[0];
 		$lnPosicion=$_SESSION[$tnIdentificarPestaña.'gnPosicion'];
 		try {
+			
+			
 			$lnNroClienteElegido=0;
 			$d['facturas'] =$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
+		
 			
 			if( isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1)  )
 				{	
+					
 					$lnFactura=$_SESSION[$tnIdentificarPestaña.'IdOperativo'] ;
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
 					$_SESSION[$tnIdentificarPestaña.'periodomes']=$d['facturas'][$lnPosicion]->periodo;
@@ -214,17 +225,16 @@ class HubPago extends CI_Controller {
 
 
 				}else{
-				
-					for ($i=0; $i < count($d['facturas']); $i++) { 
 					
-						$d['facturas'][$i]->periodoaux=$d['facturas'][$i]->periodo;
-						$d['facturas'][$i]->periodo =$this->get_periodo($d['facturas'][$i]->periodo);
-					//	$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);
-					//	$d['facturas'][$i]->MontoComision=$lnMontoComision->values ;
+				for ($i=0; $i < count( $d['facturas'] ); $i++) { 
+						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);
+						$d['facturas'][$i]->MontoComision=$lnMontoComision->values ;		
 					}
+						
 			
 				}
-			$this->load->view('multiple/listafacturaspendientes', $d);
+				
+				$this->load->view('multiple/listafacturaspendientes', $d);
 		} catch (\Throwable $th) {
 			//throw $th;
 			echo '<pre>'; 
@@ -245,7 +255,7 @@ class HubPago extends CI_Controller {
 		$cadenanueva=substr($cadena, 0, 7);
 		$porciones = explode("-", $cadenanueva);
 		$arraymeses=["01"=> "ENE" ,"02"=> "FEB" ,"03"=> "MAR"  ,"04"=> "ABR" ,"05"=> "MAY"  ,"06"=> "JUN"  ,"07"=>"JUL"  ,"08"=>"AGO"  ,"09"=> "SEP" ,"10"=> "OCT" ,"11"=>"NOV"  ,"12"=> "DIC"  ];
-		return $porciones[0]."-".@$arraymeses[@$porciones[1]];
+		return $porciones[0]."-".@$arraymeses[ @$porciones[1] ] ;
 	}
 	
 	/**/

@@ -209,9 +209,9 @@ class Welcome extends CI_Controller {
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
 					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[$lnPosicion]->periodo;
 					for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
-						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,4,$laServicioListarFacturas->values[$i]->montoTotal);
-						$laServicioListarFacturas->values[$i]->MontoComision=$lnMontoComision->values ;					
-					}
+					//	$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,4,$laServicioListarFacturas->values[$i]->montoTotal);
+					//	$laServicioListarFacturas->values[$i]->MontoComision=$lnMontoComision->values ;					
+					}////
 
 				}else{
 					//$this->cargarlog("factura a pagar :".$lnFactura . "--" .$lcPeriodo);
@@ -219,6 +219,8 @@ class Welcome extends CI_Controller {
 					for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
 						$laServicioListarFacturas->values[$i]->periodoaux=$laServicioListarFacturas->values[$i]->periodo;
 						$laServicioListarFacturas->values[$i]->periodo =$this->get_periodo($laServicioListarFacturas->values[$i]->periodo);
+					//	$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,4,$laServicioListarFacturas->values[$i]->montoTotal);
+					//	$laServicioListarFacturas->values[$i]->MontoComision=$lnMontoComision->values ;		
 					}
 				}
 			}else{
@@ -409,23 +411,11 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$metodopago=$datos["metododepago"];
 		$lncodigofijo=$datos["codigofijo"];
-
+		$ladetallepago=$datos["detallepago"];
 		$tnIdentificarPestaña=$datos[0];
-
-		
+		$_SESSION[$tnIdentificarPestaña.'gaDetallePago']=$ladetallepago;
 		try {
-			/*
-			for ($L=0; $L <count($_SESSION[$tnIdentificarPestaña.'clientesbusqueda']) ; $L++) { 
-				// /	echo $_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->codigoClienteEmpresa."====".$lnCodigoFijo ;
-				if($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->codigoClienteEmpresa==$lncodigofijo)
-				{
-					$_SESSION[$tnIdentificarPestaña.'codigofijo']= $_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->codigoClienteEmpresa;//;/ $d['clientes']->values[0]->codigoClienteEmpresa;
-					$_SESSION[$tnIdentificarPestaña.'codigoubicacion']=$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->codidgoUbicacion; // $d['clientes']->values[0]->codidgoUbicacion;
-					$_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] =$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->nombre;  // $d['clientes']->values[0]->nombre;
-					$_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'] =$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$L]->Nit;// $d['clientes']->values[0]->Nit;
-				}
-			}
-			*/
+			
 		$d['nombrecliente'] = $this->session->userdata($tnIdentificarPestaña.'nombreclienteempresa');
 		$d['cionit']= $this->session->userdata($tnIdentificarPestaña.'cionitclienteempresa'); 
 		$d['numerocelular']=  $this->session->userdata('telefonoDePago');
@@ -547,13 +537,28 @@ class Welcome extends CI_Controller {
 		$d['urlimagenempresa']=$_SESSION[$tnIdentificarPestaña.'urlimagenempresa'];
 		$_SESSION[$tnIdentificarPestaña.'montototalpagar']= $d['monto'] + $d['comision'];
 		$d['montototalpagar']=$_SESSION[$tnIdentificarPestaña.'montototalpagar'];
-		
-		
 		$d['etiquetametodopago']=$_SESSION[$tnIdentificarPestaña.'etiquetametodopago'];	
-		
+			
+		$d['itnselegidos']=$_SESSION[$tnIdentificarPestaña.'gaDetallePago'];	
+			
+		$d['listadofacturas']=$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];	
 
-		
-		$this->load->view('pago_rapido/confirmacion', $d);
+		for ($i=0; $i < count($d['listadofacturas']) ; $i++) { 
+			$lnitem=$d['listadofacturas'][$i]->factura ;
+			
+			if(!in_array($lnitem,$d['itnselegidos']))
+			{
+			$lnitem=$d['listadofacturas'][$i]->factura ;
+			unset( $d['listadofacturas'][$i]);
+			}
+		}
+		$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$d['listadofacturas'];	
+
+	
+
+		//$this->load->view('pago_rapido/confirmacion', $d);
+		$this->load->view('multiple/confirmacion', $d);
+
 
 	}
 	public function vistaprepararpago()
