@@ -17,7 +17,7 @@
     <!-- END: User Menu -->
 
     <!-- BEGIN: Settings -->
-    <?php  $this->load->view('theme/menu_lateral_configuraciones');   ?>
+  <?php  $this->load->view('theme/menu_lateral_configuraciones');   ?>
    
     <!-- END: Settings -->
 

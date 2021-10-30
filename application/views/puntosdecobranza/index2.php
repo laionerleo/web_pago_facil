@@ -131,10 +131,21 @@
                             </li>
                             <input type="hidden" id="url" value="<?= base_url();   ?>"  >
                             <li class="breadcrumb-item active" aria-current="page">Puntos De Cobranza</li>
+                            <li class="breadcrumb-item active">
+                              
+                            </li>
                         </ol>
+                         
                     </nav>
+                    
                 </div>
-
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-3">
+                      <input type="text" class="form-control" placeholder="Buscar..."> 
+                    </div> 
+                  </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -172,11 +183,11 @@
                                                 <?php 
                                                 for ($i=0; $i < count($ubicaciones_nuevo); $i++) { 
                                                 ?>
-                                                    <option value="<?php echo $ubicaciones_nuevo[$i]->latitud ?>/<?php echo $ubicaciones_nuevo[$i]->longitud ?>/<?php echo $ubicaciones_nuevo[$i]->tipo ?>"   ><?php echo $ubicaciones_nuevo[$i]->nombreEstablecimiento ?></option>
+                                                    <option value="<?php echo $ubicaciones_nuevo[$i]->latitud ?>/<?php echo $ubicaciones_nuevo[$i]->longitud ?>/<?php echo $ubicaciones_nuevo[$i]->tipo ?>/<?php echo $ubicaciones_nuevo[$i]->nroTelefonoProp ?>"   ><?php echo $ubicaciones_nuevo[$i]->nombreEstablecimiento ?></option>
                                                 <?php  } ?>
-                                            </select>
-                                            
+                                            </select>                                            
                                         </div>
+                                        
                                 </div>
                             </div>
                         </div>
@@ -229,6 +240,7 @@
     var marker;
     var mensaje="";
     var lacoordenadapoligono = [];
+    var float = [];
   
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -429,8 +441,7 @@
     // Ejemplo www.php.net
 //$p  = "porción1 porción2 porción3 porción4 porción5 porción6";
 var porciones = latitudes.split('/');
-
-    console.log(porciones);
+console.log(porciones);
 var lati= parseFloat(porciones[0]);
 var long= parseFloat(porciones[1]);
 var icono =porciones[2];
@@ -579,7 +590,21 @@ var icono =porciones[2];
                 
                   infoWindow.setPosition(pos);
                   map.setCenter(pos);
-                  map.setZoom(19);
+                  if (slc_distancia == 1000) {
+                    map.setZoom(15);
+                  }
+                  else if(slc_distancia == 2000){
+                    map.setZoom(14);
+                  }
+                  else if(slc_distancia == 3000){
+                    map.setZoom(13);
+                  }
+                  else if(slc_distancia == 4000){
+                    map.setZoom(13);
+                  }
+                  else if(slc_distancia == 5000){
+                    map.setZoom(13);
+                  }
                   var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                   var marker = new google.maps.Marker({
                   position: myLatLng,
@@ -679,6 +704,7 @@ var icono =porciones[2];
           }); 
           
           google.maps.event.addListener(marker1, 'dragend', function (evt) {
+            lacoordenadapoligono = [];
            // console.log(marker);
            // alert('Latitud = '+evt.latLng.lat().toFixed(6)+ ', Longitud = '+evt.latLng.lng().toFixed(6));
 
@@ -686,28 +712,38 @@ var icono =porciones[2];
                   lat: parseFloat(evt.latLng.lat().toFixed(6)),
                   lng: parseFloat(evt.latLng.lng().toFixed(6))
                 };
-            lacoordenadapoligono.push(coord2);
+            
+             float.push(coord2);
+             
+             lacoordenadapoligono = float;
+            
+            //lacoordenadapoligono.push(coord2);
             if (lacoordenadapoligono.length > 1) {
-               // Creamos el poligono
-              var area = new google.maps.Polygon({
-                paths: lacoordenadapoligono,
-                strokeColor: '#E74C3C',
-                strokeOpacity: 0.8,
-                strokeWeight: 3,
-                fillColor: '#E74C3C',
-                fillOpacity: 0
-              });
-              // Creamos el mapa        
+                // Creamos el poligono
+                console.log(lacoordenadapoligono);
+                var area = new google.maps.Polygon({
+                  paths: lacoordenadapoligono,
+                  geodesic: false,
+                  strokeColor: '#E74C3C',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 3,
+                  fillColor: '#E74C3C',
+                  fillOpacity: 0
+                });
+                // Creamos el mapa        
                 area.setMap(map);
-                }          
+              }          
           });
 
         
     }
+    function dibujar() {
+      
+    }
     function cargarmapapoligono() {
       map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: -17.78315962290801, lng: -63.180976199658176},           
-              zoom: 14
+              center: {lat: lacoordenadapoligono[1].lat, lng: lacoordenadapoligono[lacoordenadapoligono.length - 1].lng},           
+              zoom: 13
             });
             
       var area = new google.maps.Polygon({

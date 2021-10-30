@@ -1801,8 +1801,27 @@ class Welcome extends CI_Controller {
 		$ubicaciones=$this->servicios->getubicaciones($id_cliente);
 
 		$d["ubicaciones"]=json_encode($ubicaciones->values);
-		$this->load->view('puntosdecobranza/index', $d);
-		
+		$this->load->view('puntosdecobranza/index', $d);		
+	}
+	public function visitapuntosdecobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$id_cliente=$this->session->userdata('cliente');
+		$ubicaciones=$this->servicios->getubicaciones($id_cliente);
+
+		$d["ubicaciones"]=json_encode($ubicaciones->values);
+		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
+	}
+	public function createvisitapuntosdecobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$id_cliente=$this->session->userdata('cliente');
+		$ubicaciones=$this->servicios->getubicaciones($id_cliente);
+
+		$d["ubicaciones"]=json_encode($ubicaciones->values);
+		$this->load->view('puntosdecobranza/createvistapuntocobranza', $d);		
 	}
 	public function vistafacturacionrecarga()
 	{

@@ -128,6 +128,9 @@
                             <li>
                                 <a  href="<?=$url?>puntosdecobranza">Puntos de Cobranza </a>
                             </li>
+                            <li>
+                                <a  href="<?=$url?>visitapuntosdecobranza">Visitas Puntos de Cobranza </a>
+                            </li>
                        
                         </ul>
                     </div>
