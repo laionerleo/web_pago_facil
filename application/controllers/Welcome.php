@@ -1807,10 +1807,8 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$id_cliente=$this->session->userdata('cliente');
-		$ubicaciones=$this->servicios->getubicaciones($id_cliente);
-
-		$d["ubicaciones"]=json_encode($ubicaciones->values);
+		$taListadoVisita = $this->servicios->ListadoVisita();
+		$d["visitas"]=$taListadoVisita->values;
 		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
 	public function createvisitapuntosdecobranza()
@@ -1827,11 +1825,42 @@ class Welcome extends CI_Controller {
 		$d["agente"]=$taagente->values;
 		$this->load->view('puntosdecobranza/createvistapuntocobranza', $d);		
 	}
+	public function consultarpuntosdecobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$lnId = $this->input->post('lnId');
+		$taconsultaragente = $this->servicios->ConsultarVisitaAgente();
+		$taconsultarpersonalatendio = $this->servicios->ConsultarVisitaPersonalAtendio();
+		$taListadoVisita = $this->servicios->ListadoVisita();
+		$d["visitas"]=$taListadoVisita->values;
+		$d["consultaragente"]=$taconsultaragente->values;
+		$d["consultarpersonal"]=$taconsultarpersonalatendio->values;
+		$this->load->view('puntosdecobranza/consultarpuntocobranza', $d);		
+	}
+	public function editarvisitaagente()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$lnId = $this->input->post('lnId');
+		$lcAgente = $_SESSION['Agente'];
+		$taeditaragente = $this->servicios->EditarVisitaAgente($lcAgente);
+		
+		$this->load->view('puntosdecobranza/consultarpuntocobranza', $d);		
+	}
+	public function editarvisitapersonalatendio()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$lnId = $this->input->post('lnId');
+		$taeditarvisitapersonalatendio = $this->servicios->EditarVisitaPersonalAtendio();
+		$this->load->view('puntosdecobranza/consultarpuntocobranza', $d);		
+	}
 	public function InsertarVisita()
 	{  
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$lcTabla = 'BILLETERA';
+		$lcTabla = $this->input->post('slcpunto');
 		$lnTablaId = $this->input->post('slcpunto');
 		$lcCliente = $this->input->post('slccliente');
 		$lcLatitud = $this->input->post('lcLatitud');
@@ -1842,7 +1871,7 @@ class Welcome extends CI_Controller {
 		$lcAceptoSerPunto = $this->input->post('AceptoSerPunto');
 		$lcDescripcion = $this->input->post('lcDescripcion');
 		
-		$lcAgenteCliente = $this->input->post('lcAgenteCliente');
+		$lcAgenteCliente = $this->input->post('ClienteAgente');
 		$lcAgenteVisita = $this->input->post('slcagentename');
 		$lnTelefono = $this->input->post('txttelefonoagente');
 
@@ -1850,10 +1879,8 @@ class Welcome extends CI_Controller {
 		$lnTelefonoAtendio = $this->input->post('txttelefonoatendiendo');
 
 		$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
-		echo '<pre>';
-		print_r($taInsertarVisita);
-		echo '</pre>';
-		//$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
+		return "OK";
+		//$this->load->view('puntosdecobranza/createvistapuntocobranza', $d);		
 	}
 	public function vistafacturacionrecarga()
 	{

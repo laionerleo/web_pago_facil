@@ -57,17 +57,40 @@
                                             <thead>
                                                 <tr>
                                                     <th>Cliente</th>
-                                                    <th>Fecha  </th>                                                   
-                                                    <th>Se Entrego Banner</th>
-                                                    <th>Acepto Ser Punto</th>
-                                                    <th>Descripcion</th>
+                                                    <th>Punto Visita</th>
+                                                    <th>Fecha  </th>  
                                                     <th>Direccion</th>
+                                                    <th>Banner</th>
+                                                    <th>Acepto Ser Punto</th>
+                                                    <th>Descripcion</th>                       
                                                     <th>Opciones</th>
                                                 </tr>                            
                                             </thead>
                                             <tbody>                                                                
-                                            
-                                                                                        
+                                                <?php
+                                                    foreach ($visitas as $key) {?>
+                                                        <tr>
+                                                            <td><?php echo $key->Cliente ?></td>
+                                                            <td><?php echo $key->Nombre ?></td>
+                                                            <td><?php echo $key->Fecha ?></td>
+                                                            <td><?php echo $key->Direccion ?></td>
+                                                            <?php
+                                                            if($key->SeEntregoBanner == 1){?>
+                                                                <td>Si</td>
+                                                            <?php } ?>
+                                                            <?php
+                                                            if($key->AceptoSerPunto == 1){?>
+                                                                <td>Si</td>
+                                                            <?php } ?>
+                                                            <td><?php echo $key->Descripcion ?></td>
+                                                            <td>
+                												<a href="<?=$url?>ConsultarVisita">
+                													<button class="btn btn-primary">Consultar</button>
+                												</a>
+                											</td>
+                                                        </tr>
+                                                    <?php }
+                                                ?>                                        
                                             </tbody>                        
                                             <tfoot>
                                                 <tr>                                                                                                                   

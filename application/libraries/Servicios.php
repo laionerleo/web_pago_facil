@@ -2600,12 +2600,21 @@ public function getmetodosbyToken($tnTokenService)
  
 
    }
+   public function ListadoVisita()
+   {
+      $url = 'http://localhost:8000/api/ListadoVisita';
+      $options = array('http' => array(
+         'method'  => 'POST')); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
    public function MostrarPuntos()
    {
       $url = 'http://localhost:8000/api/MostrarPuntos';
       $options = array('http' => array(
-         'method'  => 'POST',
-         'content' => http_build_query($data))); 
+         'method'  => 'POST')); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
@@ -2615,8 +2624,7 @@ public function getmetodosbyToken($tnTokenService)
    {
       $url = 'http://localhost:8000/api/clientepuntocobranza';
       $options = array('http' => array(
-         'method'  => 'POST',
-         'content' => http_build_query($data))); 
+         'method'  => 'POST')); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
@@ -2626,8 +2634,7 @@ public function getmetodosbyToken($tnTokenService)
    {
       $url = 'http://localhost:8000/api/ClienteBilletera';
       $options = array('http' => array(
-         'method'  => 'POST',
-         'content' => http_build_query($data))); 
+         'method'  => 'POST')); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
@@ -2637,21 +2644,16 @@ public function getmetodosbyToken($tnTokenService)
    {
       $url = 'http://localhost:8000/api/MostrarAgente';
       $options = array('http' => array(
-         'method'  => 'POST',
-         'content' => http_build_query($data))); 
+         'method'  => 'POST')); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
       return $resultado;
    }
    public function InsertarVisita($tnTabla, $tnTabalId, $tcCliente, $tcLatitud, $tcLongitud, $tcUbicacionGps, $tcDireccion, $tcSeEntregoBanner, $tcAceptoSerPunto, $tcDescripcion, $tcAgenteCliente, $tcAgente, $tnTelefonoAgente, $tcPersonalAtendio, $tnTelefonoAtendio){
-      echo '<pre>';
-      print_r($tcAgente);
-      echo '</pre>';
-      return "a";
       $url = 'http://localhost:8000/api/InsertarVisita';
       $data = array('Tabla'=>$tnTabla, 'TablaId'=>$tnTabalId, 'Cliente'=>$tcCliente, 'Latitud'=>$tcLatitud, 'Longitud'=>$tcLongitud, 'UbicacionGps'=>$tcUbicacionGps, 'Direccion'=>$tcDireccion, 'SeEntregoBanner'=>$tcSeEntregoBanner, 'AceptoSerPunto'=>$tcAceptoSerPunto, 'Descripcion'=>$tcDescripcion,'ClienteAgente'=>$tcAgenteCliente, 'lcAgenteVisita'=>$tcAgente, 'lnTelefono'=>$tnTelefonoAgente, 'lcPersonaAtendio'=>$tcPersonalAtendio, 'lnTelefonoAtendio'=>$tnTelefonoAtendio);
-
+      
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
          "Content-Length: ".strlen( http_build_query($data))
@@ -2668,7 +2670,52 @@ public function getmetodosbyToken($tnTokenService)
       $resultado =json_decode($result);
       return $resultado;
    }
-
+   public function ConsultarVisitaAgente()
+   {
+      $url = 'http://localhost:8000/api/ConsultarAgente';
+      $options = array('http' => array(
+         'method'  => 'POST')); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function ConsultarVisitaPersonalAtendio()
+   {
+      $url = 'http://localhost:8000/api/ConsultarPersonalAtendio';
+      $options = array('http' => array(
+         'method'  => 'POST')); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function EditarVisitaAgente($lcAgente)
+   {
+      $url = 'http://localhost:8000/api/EditarVisitaAgente';
+      $data = array( 'tnTransaccionDePago'=> $lcAgente  );
+      echo '<pre>';
+      print_r($data);
+      echo '</pre>';
+      return "aqui";
+      $options = array('http' => array(
+         'method'  => 'POST')); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      
+      return $resultado;
+   }
+   public function EditarVisitaPersonalAtendio()
+   {
+      $url = 'http://localhost:8000/api/EditarVisitaAtendio';
+      $options = array('http' => array(
+         'method'  => 'POST')); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
 }
 
 

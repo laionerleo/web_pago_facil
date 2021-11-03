@@ -164,10 +164,12 @@
                                 						<table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                                 							<thead style="background-color:#A9D0F5">
                                 								<th>Opciones</th>
+                                								<th>Cliente</th>
                                 								<th>Agente</th>
                                 								<th>Telefono</th>
                                 							</thead>
                                 							<tfoot>
+                                							    <td></td>
                                 								<td></td>
                                 								<td></td>
                                 								<td></td>
@@ -248,7 +250,7 @@
 
 		if (lnidagente!="") {
 
-			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lnidagente+'">'+lcagente+'</td><td><input type="number" name="txttelefonoagente[]" value=""></td></tr>';
+			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lcagente+'">'+lcagente+'</td><td><input type="number" name="ClienteAgente[]" value="'+lnidagente+'"></td><td><input type="number" name="txttelefonoagente[]" value=""></td></tr>';
 			laCont++;
 			Limpiar();
 			Evaluar();
