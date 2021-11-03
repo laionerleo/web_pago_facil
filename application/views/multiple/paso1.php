@@ -168,11 +168,12 @@ function vistafacturacion()
        
 
     var montototal= montototalgeneral ;//$("#montototal").val(montototalgeneral);
+    var montocomision= montocomisionaux;
     var idfactura=$("#facturaid").val();
     var codigo_fijo=$("#codigofijo").val();
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     var facturasiten=lafacturas;
-    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo, detallepago:facturasiten  };
+    var datos= {metododepago:idmetododepago , montototal:montototal ,montocomision:montocomision  ,idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo, detallepago:facturasiten  };
     var urlajax=$("#url").val()+"vistafacturacion";  
        
     $("#facturacionbody").empty();   

@@ -142,7 +142,7 @@ class HubPago extends CI_Controller {
 				$NroOperacion=	$_SESSION[$tnIdentificarPestaña.'NroOperacion'] ;
 				$Servicio=$_SESSION[$tnIdentificarPestaña.'Servicio'] ;
 				$laServicioListarFacturas=$this->servicios->get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio);
-
+				
 			}else{
 				// listado de facturas 
 				$laServicioListarFacturas=$this->servicios->get_listar_facturas($lnEmpresa,$lnCodigoFijo,$lnCliente);
@@ -155,9 +155,14 @@ class HubPago extends CI_Controller {
 					$d['periodomes']=$laServicioListarFacturas->values[0]->periodo;
 					$lnFactura=$_SESSION[$tnIdentificarPestaña.'IdOperativo'] ;
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
-					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[$lnPosicion]->periodo;
+					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[0]->periodo;
 				
 				}else{
+					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$laServicioListarFacturas->values[0]->factura; //$lnFactura;
+					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[0]->periodo;
+				
+
+
 					for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
 						$laServicioListarFacturas->values[$i]->periodoaux=$laServicioListarFacturas->values[$i]->periodo;
 						$laServicioListarFacturas->values[$i]->periodo =$this->get_periodo($laServicioListarFacturas->values[$i]->periodo);	
@@ -216,7 +221,7 @@ class HubPago extends CI_Controller {
 					
 					$lnFactura=$_SESSION[$tnIdentificarPestaña.'IdOperativo'] ;
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
-					$_SESSION[$tnIdentificarPestaña.'periodomes']=$d['facturas'][$lnPosicion]->periodo;
+					$_SESSION[$tnIdentificarPestaña.'periodomes']=$d['facturas'][0]->periodo;
 	
 					for ($i=0; $i < count($d['facturas']); $i++) { 
 						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);

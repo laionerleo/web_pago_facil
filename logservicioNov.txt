@@ -1,0 +1,196 @@
+
+01/11/2021 11:42:50getcriteriobusquedahub ={"tnEmpresa":"120"}
+01/11/2021 11:43:05listarfacturas{"tnEmpresa":"120","tcCodigoClienteEmpresa":"645","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 11:43:10getmetodosbygrupos{"tnEmpresa":"120","tcApp":3,"tcLink":0}
+01/11/2021 11:43:18calcularcomision{"tnEmpresa":"120","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 11:43:20calcularcomision{"tnEmpresa":"120","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 12:11:33listarfacturas{"tnEmpresa":"120","tcCodigoClienteEmpresa":"645","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 12:11:43getmetodosbygrupos{"tnEmpresa":"120","tcApp":3,"tcLink":0}
+01/11/2021 12:12:31calcularcomision{"tnEmpresa":"120","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 12:12:33calcularcomision{"tnEmpresa":"120","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"37.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 12:12:34calcularcomision{"tnEmpresa":"120","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 12:12:38calcularcomision{"tnEmpresa":"120","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 15:19:15getcriteriobusquedahub ={"tnEmpresa":"2"}
+01/11/2021 15:19:21getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 15:24:33listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"735","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:24:36getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:25:05listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"348","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:25:07getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:25:28listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"9456","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:25:30getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:25:34calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.86","tnIdAccion":0,"tcApp":2}
+01/11/2021 15:25:57listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"523","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:26:00getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:27:54listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"553","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:28:02getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:28:13calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.04","tnIdAccion":0,"tcApp":2}
+01/11/2021 15:28:15calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.05","tnIdAccion":0,"tcApp":2}
+01/11/2021 15:29:15realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"553","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Cabrera  Oscar Arnaldo","tnCiNit":638829,"tnFactura":3168555,"tcMonto":"62.71","tcComision":"0.62","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-07","taDetallePago":[{"factura":3168555,"periodo":"2021-JUL","montoTotal":"31.04","estado":1,"periodoaux":"2021-07","MontoComision":"0.31"},{"factura":3189071,"periodo":"2021-AGO","montoTotal":"31.05","estado":1,"periodoaux":"2021-08","MontoComision":"0.31"}]}
+01/11/2021 15:33:16getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 15:44:46listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"553","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:44:54getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:45:13getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 15:45:27listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"553","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 15:45:30getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 15:45:53calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.04","tnIdAccion":0,"tcApp":2}
+01/11/2021 16:34:49getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 16:52:21listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"554","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 16:52:23getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 16:55:01calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 16:55:20listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"556","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 16:55:22getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 16:55:51listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"561","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 16:55:55getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 16:56:02calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.04","tnIdAccion":0,"tcApp":2}
+01/11/2021 16:56:04calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.05","tnIdAccion":0,"tcApp":2}
+01/11/2021 16:56:59realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"561","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Mamani vda.de Ventura Natividad","tnCiNit":2238086,"tnFactura":3169265,"tcMonto":"62.71","tcComision":"0.62","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-07","taDetallePago":[{"factura":3169265,"periodo":"2021-JUL","montoTotal":"31.04","estado":1,"periodoaux":"2021-07","MontoComision":"0.31"},{"factura":3188184,"periodo":"2021-AGO","montoTotal":"31.05","estado":1,"periodoaux":"2021-08","MontoComision":"0.31"}]}
+01/11/2021 16:57:41guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228317,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 16:57:43GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228317,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 16:57:45getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228317","tnEmpresa":null,"tcApp":2}
+01/11/2021 17:51:08getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 17:51:21listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"623","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:51:25getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:51:31calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"68.49","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:51:32calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:51:43calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"68.49","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:51:45calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:51:52listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"623","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:51:54getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:52:01calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"68.49","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:52:03calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:52:21listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"628","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:52:25getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:52:34calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"792.24","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:52:56listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"633","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:53:00getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:54:57listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"638","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:55:03getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:55:14calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"134.72","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:55:15calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"168.31","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:55:34listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"643","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:55:38getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:55:42calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"48.53","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:55:58listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"658","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:56:03getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:56:42listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"666","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:56:48getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:56:51calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"64.66","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:56:52calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"87.21","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:57:22listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"670","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:57:27getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:57:47listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"676","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:57:49getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:57:55calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:58:15listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"681","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:58:16getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:58:21calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.04","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:58:23calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"73.55","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:59:33listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"691","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:59:35getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 17:59:40calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"47.21","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:59:42calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"47.21","tnIdAccion":0,"tcApp":2}
+01/11/2021 17:59:53listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"697","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 17:59:56getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:00:14listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"702","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:00:17getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:00:21calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"23.40","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:00:35listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"707","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:00:40getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:00:52listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"713","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:00:54getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:00:58calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"72.18","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:01:14listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"716","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:01:17getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:01:20calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:01:42listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"721","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:01:44getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:01:59listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"730","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:02:01getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:02:05calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:02:18listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"760","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:02:21getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:02:27calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"31.04","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:02:28calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"36.05","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:03:02realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"760","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Huarachi Ibarra Cristobal","tnCiNit":8895418,"tnFactura":3170295,"tcMonto":"70.09","tcComision":"3","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-07","taDetallePago":[{"factura":3170295,"periodo":"2021-JUL","montoTotal":"31.04","estado":1,"periodoaux":"2021-07","MontoComision":"1.50"},{"factura":3191491,"periodo":"2021-AGO","montoTotal":"36.05","estado":1,"periodoaux":"2021-08","MontoComision":"1.50"}]}
+01/11/2021 18:03:43guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228328,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 18:03:46GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228328,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 18:03:47getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228328","tnEmpresa":null,"tcApp":2}
+01/11/2021 18:18:47getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 18:18:58listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"765","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:19:00getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:19:05calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"37.34","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:19:07calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"32.68","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:21:11realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"765","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Garcia Cossio Ana Maria","tnCiNit":3161079,"tnFactura":3170387,"tcMonto":"73.02000000000001","tcComision":"3","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-07","taDetallePago":[{"factura":3170387,"periodo":"2021-JUL","montoTotal":"37.34","estado":1,"periodoaux":"2021-07","MontoComision":"1.50"},{"factura":3191583,"periodo":"2021-AGO","montoTotal":"32.68","estado":1,"periodoaux":"2021-08","MontoComision":"1.50"}]}
+01/11/2021 18:21:51guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228337,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 18:21:53GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228337,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 18:21:54getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228337","tnEmpresa":null,"tcApp":2}
+01/11/2021 18:32:40getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 18:33:08listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"123","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:33:12getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:33:15calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"89.89","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:33:18calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"111.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:33:33realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"123","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Merida Trive\u00f1o Alicia","tnCiNit":3204960,"tnFactura":3170315,"tcMonto":"92.89","tcComision":"3","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-07","taDetallePago":[{"factura":3170315,"periodo":"2021-JUL","montoTotal":"89.89","estado":1,"periodoaux":"2021-07","MontoComision":"3.00"}]}
+01/11/2021 18:34:14guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228338,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 18:34:16GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228338,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 18:34:17getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228338","tnEmpresa":null,"tcApp":2}
+01/11/2021 18:40:36getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 18:40:50listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"234","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:40:54getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:41:03listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"245","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:41:08getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:41:12calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:41:31realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"245","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Flores Chavez Luis Abraham","tnCiNit":1537410,"tnFactura":3188860,"tcMonto":"30","tcComision":"1.5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-08","taDetallePago":[{"factura":3188860,"periodo":"2021-AGO","montoTotal":"28.50","estado":1,"periodoaux":"2021-08","MontoComision":"1.50"}]}
+01/11/2021 18:42:12guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228343,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 18:42:14GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228343,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 18:42:16getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228343","tnEmpresa":null,"tcApp":2}
+01/11/2021 18:48:21listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":null,"tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:48:27getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:48:43getcriteriobusquedahub ={"tnEmpresa":"120"}
+01/11/2021 18:48:56getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/11/2021 18:49:03listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"675","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:49:05getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:49:17listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"695","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:49:23getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:49:37listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"704","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:49:40getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:49:44calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:50:29listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"704","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 18:50:31getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 18:50:35calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+01/11/2021 18:50:49realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"704","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Daza de Ponce Ana","tnCiNit":2931818,"tnFactura":3189947,"tcMonto":"30","tcComision":"1.5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-08","taDetallePago":[{"factura":3189947,"periodo":"2021-AGO","montoTotal":"28.50","estado":1,"periodoaux":"2021-08","MontoComision":"1.50"}]}
+01/11/2021 18:51:30guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228344,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 18:51:33GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228344,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 18:51:33getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228344","tnEmpresa":null,"tcApp":2}
+01/11/2021 19:01:00listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"720","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:01:03getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:01:06calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"57.86","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:01:21realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"720","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Guadama Aramayo Leonor","tnCiNit":4550697,"tnFactura":3189198,"tcMonto":"59.86","tcComision":"2","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-08","taDetallePago":[{"factura":3189198,"periodo":"2021-AGO","montoTotal":"57.86","estado":1,"periodoaux":"2021-08","MontoComision":"2.00"}]}
+01/11/2021 19:02:02guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228349,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 19:02:04GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228349,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 19:02:06getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228349","tnEmpresa":null,"tcApp":2}
+01/11/2021 19:06:55listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"732","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:07:00getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:07:03calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"336.00","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:07:04calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"336.00","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:07:16listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"742","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:07:21getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:07:27calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"82.53","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:07:47listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"747","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:07:50getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:08:04listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"758","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:08:06getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:08:19listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"772","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:08:22getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:08:26calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"67.19","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:08:47listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"775","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:08:51getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:09:07listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"779","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+01/11/2021 19:09:10getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/11/2021 19:09:14calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"67.07","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:09:16calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"112.31","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:09:19calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"162.65","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:09:21calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"336.00","tnIdAccion":0,"tcApp":2}
+01/11/2021 19:09:40realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"779","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"Soto Villagomez Ismael","tnCiNit":4556674,"tnFactura":3131576,"tcMonto":"69.57","tcComision":"2.5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-05","taDetallePago":{"0":{"factura":3131576,"periodo":"2021-MAY","montoTotal":"67.07","estado":1,"periodoaux":"2021-05","MontoComision":"2.50"},"3":{"factura":3191497,"periodo":"2021-AGO","montoTotal":"336.00","estado":1,"periodoaux":"2021-08","MontoComision":"6.72"}}}
+01/11/2021 19:10:21guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":228351,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+01/11/2021 19:10:23GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":228351,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+01/11/2021 19:10:24getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"228351","tnEmpresa":null,"tcApp":2}

@@ -6,7 +6,7 @@
                   <tr>
                      <th> N </th>
                      <th> Concepto </th>
-                     <th> NroItem  </th>
+                     <th> NroFactura  </th>
                      <th> Monto </th>
                      <th> Comision </th>
                      <th> Monto Total  </th>
@@ -19,7 +19,7 @@
                   <tr>
                      <td> <?= $i+1 ?> </td>
                      <td> <?= $facturas[$i]->periodo ?> </td>
-                     <td> <?= @$facturas[$i]->nroitem ?> </td>
+                     <td>  <?= (isset($facturas[$i]->nroitem))?  $facturas[$i]->nroitem : $facturas[$i]->factura ?>  </td>
                      <td style="text-align: end;"> 
                         <?php if($facturas[$i]->montoTotal == 0 ){ ?> 
                            <input type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
@@ -77,6 +77,9 @@ function elegiritem(checkitem){
     }
 
     $(".Items").on('click', function() {
+      montototalaux=0;
+      montocomisionaux=0;
+      montototalgeneral=0;
        
        //$("#Items"+(checkitem)).prop("disabled", false);
       //  alert( $(this).val() );

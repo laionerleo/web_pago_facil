@@ -175,22 +175,29 @@
                     <div class="card">
                         <div class="card-body">
                         <div class="form-row">
-                           
-                        
-                              <div class="col-md-8 col-6 col-sm-4">
-                              
-                                <center  class="botones" > 
-                                
-                                <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
-                                    <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
+                            <div class="col-md-6"> 
+                            <center>
+                            <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
                                             <span class="spinner-border spinner-border-sm mr-2" role="status"
                                                   aria-hidden="true"></span>
                                                   Procesando...
                                     </button> 
-                                    <button id="bntprepararpago" class="btn btn-primary "onclick="metodoprepararpago()">Pagar</button> 
-                                    
-                                    
-                                    </center>
+                                    <button id="bntprepararpago" class="btn btn-primary "onclick="metodoprepararpago()">Pagar</button>
+                            </center>
+                        
+                            </div>
+                            <div class="col-md-6">
+                            <center>
+                                <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
+                            </center>
+                            
+                                  
+                            </div>
+                           
+                        
+                           
+                              
+                        
                                 <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                               </div>
                           </div>
@@ -331,6 +338,7 @@ function metodoprepararpago()
                                 {
                                    // swal("Mensaje", response.mensaje , "error");
                                     $("#textoresultado").text(response.mensaje);
+                                    swal(" ", response.mensaje , "error");
                                   
                                     console.log(response);
                                     $('#vistaresultado').show();
@@ -491,19 +499,12 @@ function metodoprepararpago()
        
         function ejecutarerror()
         {
+            console.log("ingreso al ejecutar error ");
             display = document.querySelector('#time');
             display.textContent="Tiempo de espera Agotado";
             $("#btnejecutartrabajo").hide();
             $("#modalconfirmarpago").modal('toggle');
             $('.modal-backdrop').remove();
-                            
-          //  $("#btncerrar").click();
-          //  $("#li6").show();
-           // $('#vistaresultado').show();
-           // $("#resultado-tab").click();
-          // $("#textoresultado").text('Se termino el tiempo  de espera ');
-           
-            
             var intentos=<?= $intentos; ?> ;
            
         }
