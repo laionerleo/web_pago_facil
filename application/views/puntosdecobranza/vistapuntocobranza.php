@@ -66,17 +66,7 @@
                                                 </tr>                            
                                             </thead>
                                             <tbody>                                                                
-                                            <?php  for ($i=0; $i < count($comisiones->tipoComisionDetalle) ; $i++) { ?>
-                                                <tr id="fila-<?= $i ?>"  > 
-                                                    <td> 
-                                                        <label for=""><?= @$aux ?> -<?= @$comisiones->tipoComisionDetalle[$i]->hasta   ?></label>
-                                                        <?php   @$aux=@$comisiones->tipoComisionDetalle[$i]->hasta  ?>
-                                                    </td>
-                                                    <td>  <?=  number_format($comisiones->tipoComisionDetalle[$i]->valor, 2) ?></td>
-                                                    <td>  <?= @$comisiones->tipoComisionDetalle[$i]->unidad->cSimbolo ?></td>
-                                                </tr>
-                                                                                
-                                            <?php }  ?>
+                                            
                                                                                         
                                             </tbody>                        
                                             <tfoot>

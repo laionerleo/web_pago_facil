@@ -46,7 +46,7 @@
                             			<h3 class="card-title">Nueva Visita Punto de Cobranza</h3>
                             		</div>
                                 </div>
-                                <form class="needs-validation" novalidate>
+                                <form class="needs-validation" novalidate action="InsertarVisita" method="post">
                                     <div class="form-row">
                                         <div class="card-body">
                                         
@@ -57,9 +57,13 @@
                                                             <label for="">Tipo Punto</label>
                                                             <select class="custom-select custom-select-m" name="slcpunto" id="slcpunto" placeholder="Selecione una Opcion" required>
                                                                 <option value="" selected>Seleccione una Opcion</option>
-                                                                <option value="1">Punto Pago Facil</option>
-                                                                <option value="2">Billetera</option>
-                                                                <option value="3">Nuevo Punto</option>
+                                                                <?php 
+                                                                    foreach($puntos as $puntos)
+                                                                    {?>
+                                                                        <option value="<?php echo $puntos->TablSoft; ?>"><?php echo $puntos->Nombre; ?></option>
+                                                                   <?php }
+                                                                ?>
+                                                                <option value="3">PUNTO NUEVO</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -67,56 +71,61 @@
                                                         <div class="form-group">
                                                             <label for="">Cliente</label>
                                                             <select class="custom-select custom-select-m" name="slccliente" id="slccliente" placeholder="Selecione una Opcion" required>
-                                                                <option value="" selected>Seleccione una Opcion</option>
+                                                                <?php 
+                                                                    foreach($clientepuntocobranza as $puntoscobranza)
+                                                                    {?>
+                                                                        <option value="<?php echo $puntoscobranza->idCliente; ?>"><?php echo $puntoscobranza->apellido." ".$puntoscobranza->nombre; ?></option>
+                                                                   <?php }
+                                                                ?>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Fecha">Fecha</label>
-                                                            <input type="date" class="form-control" name="" id="txtfecha" required>
+                                                            <input type="date" class="form-control" name="dtfecha" id="txtfecha" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Latitud">Latitud</label>
-                                                            <input type="text" class="form-control" name="" id="txtlatitud" placeholder="Latitud.." required>
+                                                            <input type="text" class="form-control" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Longitud">Longitud</label>
-                                                            <input type="text" class="form-control" name="" id="txtlongitud" placeholder="Longitud.." required>
+                                                            <input type="text" class="form-control" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Ubicacion GPS</label>
-                                                            <input type="text" class="form-control" name="" id="txtubicacion" placeholder="Ubicacion.." required>
+                                                            <input type="text" class="form-control" name="lcUbicacionGps" id="txtubicacion" placeholder="Ubicacion.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Direccion</label>
-                                                            <input type="text" class="form-control" name="" id="txtdireccion" placeholder="Direccion.." required>
+                                                            <input type="text" class="form-control" name="lcDireccion" id="txtdireccion" placeholder="Direccion.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Descripcion</label>
-                                                            <input type="text" class="form-control" name="" id="txtdescripcion" placeholder="Descripcion.." required>
+                                                            <input type="text" class="form-control" name="lcDescripcion" id="txtdescripcion" placeholder="Descripcion.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label style="color:white" for="Ubicacion">Ubicacion</label> <br>
-                                                            <label for=""><input type="checkbox"  name="" id="txtbanner" value=""> Se Entrego Banner</label>
+                                                            <label for=""><input type="checkbox"  name="SeEntregoBanner" id="txtbanner" value="1"> Se Entrego Banner</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                         <label style="color:white" for="Ubicacion">Ubicacion</label> <br>
-                                                            <label for=""><input type="checkbox"  name="" id="txtpunto" value=""> Acepto ser Punto</label>
+                                                            <label for=""><input type="checkbox"  name="AceptoSerPunto" id="txtpunto" value="1"> Acepto ser Punto</label>
                                                         </div>
                                                     </div>
                                                     <div  class="col-md-1">
@@ -128,8 +137,11 @@
                                 						<div class="form-group">
                                                             <select class="custom-select custom-select-m" name="slcagentename" id="slcagente" placeholder="Selecione una Opcion">
                                                                 <option value="" selected>Seleccione un Agente Visitante</option>      
-                                                                <option value="1">Calderon Lopez Pablo</option>   
-                                                                <option value="2">Peres Cespedes Yenny</option>   
+                                                                <?php 
+                                                                    foreach ($agente as $key) {?>
+                                                                        <option value="<?php echo $key->cliente; ?>"><?php echo $key->apellido.' '. $key->nombre; ?></option> 
+                                                                    <?php }
+                                                                ?>
                                                             </select>
                                 						</div>
                                 					</div>
@@ -139,11 +151,7 @@
                                 					</div>
                                 					<div class="col-md-4">
                                                         <div class="form-group">
-                                                            <select class="custom-select custom-select-m" name="slcpersonalatendiendo" id="slcpersonalatendiendo" placeholder="Selecione una Opcion">
-                                                                <option value="" selected>Seleccione un Personal Atendiendo</option>
-                                                                <option value="1">Caceres Canilla Teofila</option>   
-                                                                <option value="2">Condori Churquiño Anastacio</option>  
-                                                            </select>
+                                                            <input type="text" class="form-control" name="slcpersonalatendiendo" id="slcpersonalatendiendo" placeholder="Personal que atendio">
                                                         </div>
                                                     </div>
 
@@ -206,7 +214,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </div>
@@ -227,7 +234,7 @@
 	});
     var idagente = [];
     var idpersonal = [];
-	var laCont=1;
+	var laCont=0;
 	lnTotal=0;
 	subtotal=[];
 	$("#divGuardar").hide();
@@ -241,13 +248,11 @@
 
 		if (lnidagente!="") {
 
-			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td for="id"><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lnidagente+'">'+lcagente+'</td><td><input type="number" name="txttelefonoagente[]" value="'+69021259+'"></td></tr>';
+			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lnidagente+'">'+lcagente+'</td><td><input type="number" name="txttelefonoagente[]" value=""></td></tr>';
 			laCont++;
 			Limpiar();
 			Evaluar();
-			
-			
-			
+						
             let resultagente = idagente.filter((item,index)=>{
             return idagente.indexOf(item) === index;
             })
@@ -267,12 +272,11 @@
 	function AgregarPersonalAtendiendo()
 	{
 		lnidpersonalatendiendo=$("#slcpersonalatendiendo").val();
-		lcpersonalatendiendo=$("#slcpersonalatendiendo option:selected").text();
 		
 
 		if (lnidpersonalatendiendo!="") {
 
-			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" name="slcpersonalatendiendoname[]" value="'+lnidpersonalatendiendo+'">'+lcpersonalatendiendo+'</td><td><input type="number" name="txttelefonoatendiendo[]" value="'+69021259+'"></td></tr>';
+			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" name="slcpersonalatendiendoname[]" value="'+lnidpersonalatendiendo+'">'+lnidpersonalatendiendo+'</td><td><input type="number" name="txttelefonoatendiendo[]" value=""></td></tr>';
 			laCont++;
 			Limpiar();
 			Evaluar();
@@ -280,12 +284,12 @@
             return idpersonal.indexOf(item) === index;
             })
             
-            if (resultpersonal.includes(lnidagente)) {                   
+            if (resultpersonal.includes(lnidpersonalatendiendo)) {                   
                 alert("ya se encuentra este Personal en el detalle");
                 return false;
             }else{
                 $('#detallespersonalatendiendo').append(fila);
-                idpersonal.push(lnidagente);
+                idpersonal.push(lnidpersonalatendiendo);
             }
 			
 
@@ -299,7 +303,7 @@
 		//$("#txtPrecio").val("");
 	}
 	function Evaluar(){
-		if (lnTotal>0) {
+		if (laCont>0) {
 			$("#divGuardar").show();
 		}
 		else{
@@ -308,7 +312,6 @@
 	}
 	function Eliminar(tnId){
 		$("#fila" + tnId).remove();
-		alert("#fila" + tnId);
 		Evaluar();
 	}
 </script>

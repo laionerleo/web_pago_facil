@@ -1817,11 +1817,43 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		$id_cliente=$this->session->userdata('cliente');
-		$ubicaciones=$this->servicios->getubicaciones($id_cliente);
-
-		$d["ubicaciones"]=json_encode($ubicaciones->values);
+		$tapuntos = $this->servicios->MostrarPuntos();
+		$taclientepuntocobranza = $this->servicios->MostrarClientePuntoCobranza();
+		$taclientebilletera = $this->servicios->MostrarClienteBilletera();
+		$taagente = $this->servicios->MostrarAgente();
+		$d["puntos"]=$tapuntos->values;
+		$d["clientepuntocobranza"]=$taclientepuntocobranza->values;
+		$d["clientebilletera"]=$taclientebilletera->values;
+		$d["agente"]=$taagente->values;
 		$this->load->view('puntosdecobranza/createvistapuntocobranza', $d);		
+	}
+	public function InsertarVisita()
+	{  
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$lcTabla = 'BILLETERA';
+		$lnTablaId = $this->input->post('slcpunto');
+		$lcCliente = $this->input->post('slccliente');
+		$lcLatitud = $this->input->post('lcLatitud');
+		$lcLongitud = $this->input->post('lcLongitud');
+		$lcUbicacionGps = $this->input->post('lcUbicacionGps');
+		$lcDireccion = $this->input->post('lcDireccion');
+		$lcSeEntregoBanner = $this->input->post('SeEntregoBanner');
+		$lcAceptoSerPunto = $this->input->post('AceptoSerPunto');
+		$lcDescripcion = $this->input->post('lcDescripcion');
+		
+		$lcAgenteCliente = $this->input->post('lcAgenteCliente');
+		$lcAgenteVisita = $this->input->post('slcagentename');
+		$lnTelefono = $this->input->post('txttelefonoagente');
+
+		$lcPersonaAtendio = $this->input->post('slcpersonalatendiendoname');
+		$lnTelefonoAtendio = $this->input->post('txttelefonoatendiendo');
+
+		$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
+		echo '<pre>';
+		print_r($taInsertarVisita);
+		echo '</pre>';
+		//$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
 	public function vistafacturacionrecarga()
 	{

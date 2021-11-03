@@ -2600,7 +2600,74 @@ public function getmetodosbyToken($tnTokenService)
  
 
    }
+   public function MostrarPuntos()
+   {
+      $url = 'http://localhost:8000/api/MostrarPuntos';
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'content' => http_build_query($data))); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function MostrarClientePuntoCobranza()
+   {
+      $url = 'http://localhost:8000/api/clientepuntocobranza';
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'content' => http_build_query($data))); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function MostrarClienteBilletera()
+   {
+      $url = 'http://localhost:8000/api/ClienteBilletera';
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'content' => http_build_query($data))); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function MostrarAgente()
+   {
+      $url = 'http://localhost:8000/api/MostrarAgente';
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'content' => http_build_query($data))); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function InsertarVisita($tnTabla, $tnTabalId, $tcCliente, $tcLatitud, $tcLongitud, $tcUbicacionGps, $tcDireccion, $tcSeEntregoBanner, $tcAceptoSerPunto, $tcDescripcion, $tcAgenteCliente, $tcAgente, $tnTelefonoAgente, $tcPersonalAtendio, $tnTelefonoAtendio){
+      echo '<pre>';
+      print_r($tcAgente);
+      echo '</pre>';
+      return "a";
+      $url = 'http://localhost:8000/api/InsertarVisita';
+      $data = array('Tabla'=>$tnTabla, 'TablaId'=>$tnTabalId, 'Cliente'=>$tcCliente, 'Latitud'=>$tcLatitud, 'Longitud'=>$tcLongitud, 'UbicacionGps'=>$tcUbicacionGps, 'Direccion'=>$tcDireccion, 'SeEntregoBanner'=>$tcSeEntregoBanner, 'AceptoSerPunto'=>$tcAceptoSerPunto, 'Descripcion'=>$tcDescripcion,'ClienteAgente'=>$tcAgenteCliente, 'lcAgenteVisita'=>$tcAgente, 'lnTelefono'=>$tnTelefonoAgente, 'lcPersonaAtendio'=>$tcPersonalAtendio, 'lnTelefonoAtendio'=>$tnTelefonoAtendio);
 
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      ));
+      
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
 
 }
 
