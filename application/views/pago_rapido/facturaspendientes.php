@@ -266,11 +266,13 @@ function getpdfactualizado()
 // en este metodo se  guardar el metodo de pago el monto y la comision en variables de session 
 function vistafacturacion()
 {
+    var lafacturas=new Array(); 
     var montototal=$("#montototal").val();
     var idfactura=$("#facturaid").val();
     var codigo_fijo=$("#codigofijo").val();
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo };
+    lafacturas.push ($("#facturaid").val()); 
+    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo , detallepago:facturasiten  };
     var urlajax=$("#url").val()+"vistafacturacion";  
      
     $("#facturacionbody").empty();   

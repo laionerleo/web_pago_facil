@@ -60,7 +60,6 @@
                                                         <?= number_format((float)$montototalpagar, 2, '.', '');  ?> 
                                                         </td>
                                                     </tr>
-
                                                 </table>
 
                                             </div>

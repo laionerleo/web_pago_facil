@@ -103,7 +103,7 @@ img.fnone {
                                                             <img id="imagenqr" src="" alt="">
                                                         </center>
                                                         <center>
-                                                        <a style="display:none" id="linkdescarga" href="">Descargar</a>
+                                                        <a id="linkdescarga" href=""> <img src="<?= base_url(); ?>application/assets/assets/iconos/descarga.png" style="height: 50px;" alt=""></a>
                                                         </center>
                                                     </div>
                                                 </div>
@@ -199,20 +199,16 @@ img.fnone {
     contador=1;
                                                                             
         var extension="";
-        
         function generarqr()
         {
             if(entidadesasignadas.length>0 )
             {
                 var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-               
-                    var urlajax=$("#url").val()+"/generarqrbnb";   
-                
-            
+            var urlajax=$("#url").val()+"/generarqrbnb";   
             
             $.ajax({                    
                     url: urlajax,
-                    data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña  },
+                    data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña },
                     type : 'POST',
                     cache: false,
                     dataType: "json",
@@ -239,6 +235,7 @@ img.fnone {
                             $('#imagenqr').attr('src', `data:image/png;base64,${arrayqr.qrImage}`);
                             $("#linkdescarga").attr("href", response.linkdescarga);
                             gntransaccion=response.tnTransaccion;
+                            MandarAyudaQr(gntransaccion);
                         }
                         if(response.tipo==1)
                         {
@@ -255,8 +252,7 @@ img.fnone {
                             
                             $('#btncargaconsulta').hide();
                         },
-                    }); 
-                    
+                    });  
 
             }else{
 
@@ -265,6 +261,34 @@ img.fnone {
             }
             
         }
+
+        function MandarAyudaQr(tnTransaccion)
+        {
+            //var tnTransaccion=gntransaccion;
+            var datos= {tnTransaccionDePago:tnTransaccion  }; 
+            var urlajax="<?= base_url(); ?>es"+"/MandarAyudaQr";  
+            $.ajax({                    
+                    url: urlajax,
+                    data: {datos} ,
+                    type : 'POST',
+                    dataType: "json",
+                                    
+                    beforeSend:function( ) {   
+              
+                    },                    
+                    success:function(response) {
+                        console.log(response);
+                    },
+                error: function (data) {
+                    console.log(data.responseText);
+                },               
+                complete:function( ) {
+                  
+                
+                    
+                },
+            });  
+        } 
 
 
         function verificacionpagoqr()

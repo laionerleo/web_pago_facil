@@ -342,7 +342,7 @@ class Welcome extends CI_Controller {
 		
 
 		//START DOWNLOAD
-	//header('Content-Description: File Transfer');
+		//header('Content-Description: File Transfer');
 		//header('Content-Type', 'application/octet-stream');
 		header("Content-type: application/pdf");
 		header('Content-Disposition: attachment; filename=factura-'.$factura.'.pdf');
@@ -846,6 +846,7 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
 		$tcPeriodo=$_SESSION[$tnIdentificarPestaña.'periodomes'];
 		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'];
+		$taFacturas= $_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
 		
 		/*if($tcNroPago!=0)
 		{
@@ -862,7 +863,7 @@ class Welcome extends CI_Controller {
 		*/
 		
 		//echo "$tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ";
-		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,		$_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']);
+		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,		$_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']  , $taFacturas);
 		$this->cargarlog("generar qr ".json_encode($metodos));
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
@@ -905,6 +906,7 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
 		$tcPeriodo=$_SESSION[$tnIdentificarPestaña.'periodomes'];
 		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'];
+		$taFacturas= $_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
 		/*
 		if($tcNroPago!=0)
 		{
@@ -920,7 +922,7 @@ class Welcome extends CI_Controller {
 		}
 
 		*/
-		$metodos=$this->servicios->generarqrbnb($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei , $_SESSION['laEntidadesElegidas']);
+		$metodos=$this->servicios->generarqrbnb($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei , $_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas'] , $taFacturas );
 		$this->cargarlog("generar qr bnb ".json_encode($metodos));
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
@@ -1000,6 +1002,7 @@ class Welcome extends CI_Controller {
 		$tcComplement= (($complemento==''))? null : $complemento; //$complemento;  //(!isset($tcComplement))? null : $tcComplement; // $complemento;
 		$tcServiceCode=$codigoservicio;
 		$tcExpireDate =$fechaexpiracion;
+		$taFacturas= $_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
 		/*	 
 		if($tcNroPago!=0)
 		{
@@ -1015,7 +1018,7 @@ class Welcome extends CI_Controller {
 		 }
 		}
 		*/
-		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate );
+		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas );
 		$this->cargarlog("prepararpagobcp".json_encode($metodos));
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
@@ -1302,6 +1305,8 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post();
 		$tncliente=$_SESSION['cliente'];
 		$tnIdentificarPestaña=$datos[0];
+		$taFacturas= $_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
+		$datos["taDetallePago"]=$taFacturas ;
 		$metodos=$this->servicios->realizarpagoatc($datos ) ;
 	 	$this->cargarlog("realizarpagoatc ".json_encode($metodos));
 		$mensajeerror=$metodos->error ;

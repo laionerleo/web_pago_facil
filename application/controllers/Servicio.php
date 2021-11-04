@@ -510,14 +510,13 @@ class Servicio extends CI_Controller {
 	{
 
 		$jwt=$this->input->post("tcJWT");
+		$taDataCardinal=$this->input->post("taDataCardinal");
 		$tnIdentificarPestaña=$this->input->post("0");
-	
-		$metodos=$this->servicios->jwtvalidation($jwt, $_SESSION[$tnIdentificarPestaña.'metododepago']);
+		$metodos=$this->servicios->jwtvalidation($jwt, $_SESSION[$tnIdentificarPestaña.'metododepago'] , $taDataCardinal);
+		
 		//$metodos=$this->servicios->jwtvalidation($jwt, 9);
 		$this->cargarlogbasico("llegocojwtvalidationnfirmarbcp--".json_encode($metodos));
 		echo json_encode($metodos);
-	
-	
 		
 	}
 	/**/

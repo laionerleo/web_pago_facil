@@ -709,17 +709,27 @@
       <div class="card">
          <div class="card-body">
             <div class="row">
-               <div class="col-md-8 col-12 col-sm-4 botonesabajo">
-                  <center class="botones">
+            <div class="col-md-6 col-6 botones"  >
+            <center>
+               <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
+               <span class="spinner-border spinner-border-sm mr-2" role="status"
+                  aria-hidden="true"></span>
+               Procesando...
+               </button> 
+               <button id="btnprepararpago" class="btn btn-primary " disabled onclick="starCCALast()" >Pagar  </button> 
+                                       
+            </center>
+             
+                                       
+            </div>
+            <div class="col-md-6 col-6 botones" >
+               <center>
                   <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
-                     <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
-                     <span class="spinner-border spinner-border-sm mr-2" role="status"
-                        aria-hidden="true"></span>
-                     Procesando...
-                     </button> 
-                     <button id="btnprepararpago" class="btn btn-primary " disabled onclick="starCCALast()" >Pagar  </button> 
-                  </center>
-               </div>
+               </center>
+                  
+            </div>
+           
+         
             </div>
          </div>
       </div>

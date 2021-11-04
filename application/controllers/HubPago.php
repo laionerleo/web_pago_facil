@@ -182,13 +182,14 @@ class HubPago extends CI_Controller {
 			$_SESSION[$tnIdentificarPestaña.'idempresa']=$lnEmpresa;
 			$_SESSION[$tnIdentificarPestaña.'nombreempresa']=$datos["nombreempresa"];
 			$_SESSION[$tnIdentificarPestaña.'urlimagenempresa']=$d['urlimagenempresa'];
-
+			
 			$laServicioMetodoPagoEmpresa=$this->servicios->get_metodos_pago_empresa($lnCliente ,$lnEmpresa);
 			$d['metodospago']=$laServicioMetodoPagoEmpresa->values->aMetodosDePago;
 			$_SESSION['todosmetodosdepago']=$laServicioMetodoPagoEmpresa->values->aMetodosDePago;
 			$laServicioMetodosbyGrupo=$this->servicios->getmetodosbygrupos($lnEmpresa ,0  );
 			$d['metodospagogrupos']=$laServicioMetodosbyGrupo->values;
 			$_SESSION[$tnIdentificarPestaña.'metodospagogrupos']=$laServicioMetodosbyGrupo->values;	
+		
 			$this->load->view('multiple/paso1', $d);
 		
 
@@ -211,10 +212,18 @@ class HubPago extends CI_Controller {
 		$lnPosicion=$_SESSION[$tnIdentificarPestaña.'gnPosicion'];
 		try {
 			
-			
+			$laDatosEmpresa=$this->servicios-> EmpresasDetalle($lnEmpresa,1)->values[0];
+			$d["lnMultipago"]=$laDatosEmpresa->Multipago;		
 			$lnNroClienteElegido=0;
 			$d['facturas'] =$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
 		
+			$etiquetas=$this->servicios->get_etiquetas($lnCliente);
+			for ($i=0; $i < count($etiquetas->values); $i++) { 
+				if($etiquetas->values[$i]->Empresa == $lnEmpresa) 
+				{
+					$d['etiquetas']=$etiquetas->values[$i];
+				}
+			}
 			
 			if( isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1)  )
 				{	
