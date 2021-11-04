@@ -52,11 +52,10 @@
                                         
                                             <section>
                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">Tipo Punto</label>
-                                                            <select class="custom-select custom-select-m" name="slcpunto" id="slcpunto" placeholder="Selecione una Opcion" required>
-                                                                <option value="" selected>Seleccione una Opcion</option>
+                                                            <select class="custom-select custom-select-m" name="slcpunto" id="slcpunto" placeholder="Selecione una Opcion" onchange="ocultar();" required>
                                                                 <?php 
                                                                     foreach($puntos as $puntos)
                                                                     {?>
@@ -67,7 +66,20 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4" id="divClienteBilletera">
+                                                        <div class="form-group">
+                                                            <label for="">Cliente</label>
+                                                            <select class="custom-select custom-select-m" name="slcclienteagente" id="slcclienteagente" placeholder="Selecione una Opcion" required>
+                                                                <?php 
+                                                                    foreach($clientebilletera as $puntosbilletera)
+                                                                    {?>
+                                                                        <option value="<?php echo $puntosbilletera->idCliente; ?>"><?php echo $puntosbilletera->apellido." ".$puntosbilletera->nombre; ?></option>
+                                                                   <?php }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4" id="divClientePuntoCobranza">
                                                         <div class="form-group">
                                                             <label for="">Cliente</label>
                                                             <select class="custom-select custom-select-m" name="slccliente" id="slccliente" placeholder="Selecione una Opcion" required>
@@ -80,30 +92,13 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Fecha">Fecha</label>
                                                             <input type="date" class="form-control" name="dtfecha" id="txtfecha" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label for="Latitud">Latitud</label>
-                                                            <input type="text" class="form-control" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label for="Longitud">Longitud</label>
-                                                            <input type="text" class="form-control" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label for="Ubicacion">Ubicacion GPS</label>
-                                                            <input type="text" class="form-control" name="lcUbicacionGps" id="txtubicacion" placeholder="Ubicacion.." required>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Direccion</label>
@@ -119,21 +114,23 @@
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label style="color:white" for="Ubicacion">Ubicacion</label> <br>
-                                                            <label for=""><input type="checkbox"  name="SeEntregoBanner" id="txtbanner" value="1"> Se Entrego Banner</label>
+                                                            <label for=""><input type="checkbox"  name="SeEntregoBanner" id="txtbanner" value=""> Se Entrego Banner</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                         <label style="color:white" for="Ubicacion">Ubicacion</label> <br>
-                                                            <label for=""><input type="checkbox"  name="AceptoSerPunto" id="txtpunto" value="1"> Acepto ser Punto</label>
+                                                            <label for=""><input type="checkbox"  name="AceptoSerPunto" id="txtpunto" value=""> Acepto ser Punto</label>
                                                         </div>
                                                     </div>
-                                                    <div  class="col-md-1">
+                                                     
+ 
+                                                    <div  class="col-md-1" id="divAgregarPuntoCobranza" ">
                                 						<div class="form-group">
                                 							<button type="button" id="btnpuntocobranza" class="btn btn-info">Agregar</button>
                                 						</div>
                                 					</div>
-                                					<div style="padding-left: 25px;" class="col-md-4">
+                                					<div style="padding-left: 25px;" id="divAgente" class="col-md-4">
                                 						<div class="form-group">
                                                             <select class="custom-select custom-select-m" name="slcagentename" id="slcagente" placeholder="Selecione una Opcion">
                                                                 <option value="" selected>Seleccione un Agente Visitante</option>      
@@ -149,28 +146,44 @@
                                 						<div class="form-group">
                                 						</div>
                                 					</div>
-                                					<div class="col-md-4">
+                                					<div class="col-md-4" id="divAtendio" >
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" name="slcpersonalatendiendo" id="slcpersonalatendiendo" placeholder="Personal que atendio">
+                                                            <select class="custom-select custom-select-m" name="slcpersonalatendiendobilletera" id="slcpersonalatendiendobilletera" placeholder="Selecione una Opcion" required>
+                                                                <?php 
+                                                                    foreach($clientebilletera as $puntosbilletera)
+                                                                    {?>
+                                                                        <option value="<?php echo $puntosbilletera->idCliente; ?>"><?php echo $puntosbilletera->apellido." ".$puntosbilletera->nombre; ?></option>
+                                                                   <?php }
+                                                                ?>
+                                                            </select>
+                                                            <select class="custom-select custom-select-m" name="slcpersonalatendiendopuntocobranza" id="slcpersonalatendiendopuntocobranza" placeholder="Selecione una Opcion" required>
+                                                                <?php 
+                                                                    foreach($clientepuntocobranza as $puntoscobranza)
+                                                                    {?>
+                                                                        <option value="<?php echo $puntoscobranza->idCliente; ?>"><?php echo $puntoscobranza->apellido." ".$puntoscobranza->nombre; ?></option>
+                                                                   <?php }
+                                                                ?>
+                                                            </select>
+                                                            <!--<input type="text" class="form-control" name="slcpersonalatendiendo" id="slcpersonalatendiendo" placeholder="Personal que atendio">-->
                                                         </div>
                                                     </div>
 
-                                					<div class="col-md-1">
+                                					<div class="col-md-1" id="divAgregarBilletera" >
                                 						<div class="form-group">
                                 							<button type="button" id="btnbilletera" class="btn btn-success">Agregar</button>
                                 						</div>
                                 					</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6" id="divTablaAgente" >
                                 						<table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                                 							<thead style="background-color:#A9D0F5">
                                 								<th>Opciones</th>
-                                								<th>Cliente</th>
+                                						
                                 								<th>Agente</th>
                                 								<th>Telefono</th>
                                 							</thead>
                                 							<tfoot>
                                 							    <td></td>
-                                								<td></td>
+                                						
                                 								<td></td>
                                 								<td></td>
                                 							</tfoot>
@@ -179,7 +192,7 @@
                                 							</tbody>
                                 						</table>
                                 					</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6" id="divTablaAtendio" >
                                 						<table id="detallespersonalatendiendo" class="table table-striped table-bordered table-condensed table-hover">
                                 							<thead style="background-color:#80FA43">
                                                                 <th>Opciones</th>
@@ -195,19 +208,48 @@
                                 								
                                 							</tbody>
                                 						</table>
-                                					</div>
-                                                   
-                                               </div>
-                                               <div class="col-md-12" id="divGuardar">
-                                    				<div class="form-group">
-                                    					<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
-                                    					<button class="btn btn-primary" id="btnaceptar" type="submit">Aceptar</button>
-                                    					<button class="btn btn-danger" id="btncancelar" type="reset">Cancelar</button>	
-                                    				</div>
-                                    			</div>  
-                                                    
+                                						
+                                					</div>                                                   
+                                               </div>                                                                                                   
                                             </section>
+                                           
                                         </div>
+                                       
+                                                    <div class="col-md-3" >
+                                                        <div class="form-group">
+                                                        <label style="color: white;" for="Latitud">.</label><br>
+                                            			<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
+                                                        <button type="button" style="display: none;" id="divBtnUbicacion" class="btn btn-warning" onclick="mi_ubicacion();">Cargar Ubicacion Actual</button>
+                                            			<button class="btn btn-primary" style="display: none;" id="btnaceptar" id="btnAceptar" type="submit">Aceptar</button>
+                                            			<button class="btn btn-danger" style="display: none;" id="btncancelar" id="btnCancelar" type="reset">Cancelar</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3" >
+                                                        <div class="form-group">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3" id="divLatitud" style="display: none;">
+                                                        <div class="form-group">
+                                                            <label for="Latitud">Latitud</label>
+                                                            <input type="text" class="form-control" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3" id="divLongitud" style="display: none;">
+                                                        <div class="form-group">
+                                                            <label for="Longitud">Longitud</label>
+                                                            <input type="text" class="form-control" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3" id="divUbicacionGps" style="display: none;">
+                                                		<div class="form-group">
+                                                        <label for="Ubicacion">Ubicacion GPS</label>
+                                                            <input type="text" class="form-control" name="lcUbicacionGps" id="txtubicacion" value="Santa Cruz" placeholder="Ubicacion.." required>
+                                                		</div>
+                                                	</div> 
+                                        <div style="height: 200px ; width: 100%"  >
+                                                    <div id="map"  style="height: 100%;width: 100%"></div>
+                                                </div>	
                                     </div>
                                 </div>
                             </div>
@@ -238,6 +280,7 @@
     var idpersonal = [];
 	var laCont=0;
 	lnTotal=0;
+	var laContAtendio=0;
 	subtotal=[];
 	$("#divGuardar").hide();
 
@@ -250,7 +293,7 @@
 
 		if (lnidagente!="") {
 
-			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lcagente+'">'+lcagente+'</td><td><input type="number" name="ClienteAgente[]" value="'+lnidagente+'"></td><td><input type="number" name="txttelefonoagente[]" value=""></td></tr>';
+			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td style="display: none;"><input type="hidden" name="ClienteAgente[]" value="'+lnidagente+'"></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lcagente+'">'+lcagente+'</td><td><input type="number" name="txttelefonoagente[]" value=""></td></tr>';
 			laCont++;
 			Limpiar();
 			Evaluar();
@@ -271,15 +314,26 @@
 			alert("Seleccione un Agente Visitante");
 		}
 	}
+
 	function AgregarPersonalAtendiendo()
 	{
-		lnidpersonalatendiendo=$("#slcpersonalatendiendo").val();
+	    var tipopunto = $('#slcpunto').val();
+	    if (tipopunto == 13) {
+            lnidpersonalatendiendo=$("#slcpersonalatendiendobilletera").val();
+		    lcpersonalatendio=$("#slcpersonalatendiendobilletera option:selected").text();
+        }else if(tipopunto == 29){
+            lnidpersonalatendiendo=$("#slcpersonalatendiendopuntocobranza").val();
+		    lcpersonalatendio=$("#slcpersonalatendiendopuntocobranza option:selected").text();
+        }
+        else{alert("Seleccion un tipo de Punto");}
 		
-
 		if (lnidpersonalatendiendo!="") {
 
-			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td><input type="hidden" name="slcpersonalatendiendoname[]" value="'+lnidpersonalatendiendo+'">'+lnidpersonalatendiendo+'</td><td><input type="number" name="txttelefonoatendiendo[]" value=""></td></tr>';
-			laCont++;
+			var fila='<tr class="selected" id="filaAtendio'+laContAtendio+'"><td><button type="button" class="btn btn-warning" onclick="EliminarAtendio('+laContAtendio+');">x</button></td><td><input type="hidden" name="slcpersonalatendiendoname[]" value="'+lnidpersonalatendiendo+'">'+lcpersonalatendio+'</td><td><input type="number" id="telAgente" name="txttelefonoatendiendo[]" value=""></td></tr>';
+			laContAtendio++;
+            $('#telAgente').focus();
+          
+			
 			Limpiar();
 			Evaluar();
 			let resultpersonal = idpersonal.filter((item,index)=>{
@@ -305,17 +359,92 @@
 		//$("#txtPrecio").val("");
 	}
 	function Evaluar(){
-		if (laCont>0) {
-			$("#divGuardar").show();
+		if (laCont>0 && laContAtendio>0) {
+			$("#divBtnUbicacion").show();
 		}
 		else{
-			$("#divGuardar").hide();
+			$("#divBtnUbicacion").hide();
 		}
 	}
 	function Eliminar(tnId){
 		$("#fila" + tnId).remove();
 		Evaluar();
 	}
+	function EliminarAtendio(tnId){
+		$("#filaAtendio" + tnId).remove();
+		Evaluar();
+	}
+	function ocultar() {
+        var puntos = $('#slcpunto').val();
+        if(puntos == 29){ 
+            $('#divClienteBilletera').hide();
+            $('#divClientePuntoCobranza').show();
+            $('#slcpersonalatendiendobilletera').hide();
+            $('#slcpersonalatendiendopuntocobranza').show();
+        }
+        else if(puntos == 13){
+            $('#divClientePuntoCobranza').hide();
+            $('#divClienteBilletera').show();
+            $('#slcpersonalatendiendobilletera').show();
+            $('#slcpersonalatendiendopuntocobranza').hide();
+        }
+        else{
+ 
+        }
+    }
+$(document).ready(function(){ ocultar(); }) 
+
+function mi_ubicacion() {
+    var checkboxBanner = document.getElementById('txtbanner');
+    var checkboxPunto = document.getElementById('txtpunto');
+      if(checkboxBanner.checked){
+        $('#txtbanner').val(1);
+      }else{
+        $('#txtbanner').val('0');
+      }
+      if(checkboxPunto.checked){
+        $('#txtpunto').val(1);
+      }else{
+        $('#txtpunto').val('0');
+      }
+    $('#divBtnUbicacion').hide();
+    $('#divLatitud').show();
+    $('#divLongitud').show();
+    $('#divAgregarPuntoCobranza').show();
+    $('#divAgente').show();
+    $('#divAtendio').show();
+    $('#divAgregarBilletera').show();
+    $('#btnaceptar').show();
+    $('#btncancelar').show();
+   
+
+    infoWindow = new google.maps.InfoWindow;
+    
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -17.78315962290801, lng: -63.180976199658176},           
+        zoom: 19
+    });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude           
+            };
+            infoWindow.setPosition(pos);
+            map.setCenter(pos);
+            var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+                map: map,
+            });
+            $('#txtlatitud').val(position.coords.latitude);
+            $('#txtlongitud').val(position.coords.longitude);
+        });
+        
+    }
+    
+}
 </script>
 
 

@@ -85,7 +85,7 @@ $route[$l.'puntosdecobranzapagofacil']           = 'Servicio/puntosdecobranza';
 $route[$l.'visitapuntosdecobranza']              = 'Welcome/visitapuntosdecobranza';
 $route[$l.'createvisitapuntosdecobranza']        = 'Welcome/createvisitapuntosdecobranza';
 $route[$l.'InsertarVisita']                      = 'Welcome/InsertarVisita';
-$route[$l.'ConsultarVisita']                     = 'Welcome/consultarpuntosdecobranza/$tnId';
+$route[$l.'ConsultarVisita/(:any)']              = 'Welcome/consultarpuntosdecobranza/$1/$2';
 $route[$l.'EditarVisitaAgente']                  = 'Welcome/editarvisitaagente';
 $route[$l.'EditarVisitaPersonalAtendio']         = 'Welcome/editarvisitapersonalatendio';
 

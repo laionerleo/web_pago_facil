@@ -56,7 +56,7 @@
                                                         <div class="form-group">
                                                             <label for="">Tipo Punto</label>
                                                             <select class="custom-select custom-select-m" name="slcpunto" id="slcpunto" placeholder="Selecione una Opcion" required>
-                                                                <option value="<?php echo $visitas[2]->IdCliente; ?>" selected><?php echo $visitas[2]->Cliente; ?></option>                                  
+                                                                <option value="<?php echo $consultaragente[0]->IdCliente; ?>" selected><?php echo $consultaragente[0]->Cliente; ?></option>                                  
                                                             </select>
                                                         </div>
                                                     </div>
@@ -64,56 +64,56 @@
                                                         <div class="form-group">
                                                             <label for="">Cliente</label>
                                                             <select class="custom-select custom-select-m" name="slccliente" id="slccliente" placeholder="Selecione una Opcion" required>
-                                                            <option value="<?php echo $visitas[2]->PuntoCobranzaBilletera ?>" selected><?php echo $visitas[2]->Nombre ?></option>
+                                                            <option value="<?php echo $consultaragente[0]->PuntoCobranzaBilletera ?>" selected><?php echo $consultaragente[0]->Nombre ?></option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Fecha">Fecha</label>
-                                                            <input type="date" class="form-control" value="<?php echo $visitas[2]->Fecha ?>" name="dtfecha" id="txtfecha" required>
+                                                            <input type="date" class="form-control" value="<?php echo $consultaragente[0]->Fecha ?>" name="dtfecha" id="txtfecha" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Latitud">Latitud</label>
-                                                            <input type="text" class="form-control" value="<?php echo $visitas[2]->Latitud ?>" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
+                                                            <input type="text" class="form-control" value="<?php echo $consultaragente[0]->Latitud ?>" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Longitud">Longitud</label>
-                                                            <input type="text" class="form-control" value="<?php echo $visitas[2]->Longitud ?>" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
+                                                            <input type="text" class="form-control" value="<?php echo $consultaragente[0]->Longitud ?>" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Ubicacion GPS</label>
-                                                            <input type="text" class="form-control" value="<?php echo $visitas[2]->UbicacionGps ?>" name="lcUbicacionGps" id="txtubicacion" placeholder="Ubicacion.." required>
+                                                            <input type="text" class="form-control" value="<?php echo $consultaragente[0]->UbicacionGps ?>" name="lcUbicacionGps" id="txtubicacion" placeholder="Ubicacion.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Direccion</label>
-                                                            <input type="text" class="form-control" value="<?php echo $visitas[2]->Direccion ?>" name="lcDireccion" id="txtdireccion" placeholder="Direccion.." required>
+                                                            <input type="text" class="form-control" value="<?php echo $consultaragente[0]->Direccion ?>" name="lcDireccion" id="txtdireccion" placeholder="Direccion.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Ubicacion">Descripcion</label>
-                                                            <input type="text" class="form-control" value="<?php echo $visitas[2]->Descripcion ?>" name="lcDescripcion" id="txtdescripcion" placeholder="Descripcion.." required>
+                                                            <input type="text" class="form-control" value="<?php echo $consultaragente[0]->Descripcion ?>" name="lcDescripcion" id="txtdescripcion" placeholder="Descripcion.." required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label style="color:white" for="Ubicacion">Ubicacion</label> <br>
-                                                            <label for=""><input type="checkbox" value="<?php echo $visitas[2]->SeEntregoBanner ?>"  name="SeEntregoBanner" id="txtbanner" value="1"> Se Entrego Banner</label>
+                                                            <label for=""><input type="checkbox" value="<?php echo $consultaragente[0]->SeEntregoBanner ?>"  name="SeEntregoBanner" id="txtbanner" value="1"> Se Entrego Banner</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                         <label style="color:white" for="Ubicacion">Ubicacion</label> <br>
-                                                            <label for=""><input type="checkbox" value="<?php echo $visitas[2]->AceptoSerPunto ?>"  name="AceptoSerPunto" id="txtpunto" value="1"> Acepto ser Punto</label>
+                                                            <label for=""><input type="checkbox" value="<?php echo $consultaragente[0]->AceptoSerPunto ?>"  name="AceptoSerPunto" id="txtpunto" value="1"> Acepto ser Punto</label>
                                                         </div>
                                                     </div>
                                                    
@@ -199,7 +199,7 @@
 <script>
     function EditarAgente(Agente, TelefonoAgente) {
    // var goFormularioCliente=$("#FormAgente").serialize();
-    var lcUrlajax="http://localhost:8000/api/EditarVisitaAgente";
+    var lcUrlajax="EditarVisitaAgente";
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -209,6 +209,36 @@
     $.ajax({                  
             url: lcUrlajax,
             data: {Agente: Agente, TelefonoAgente: TelefonoAgente},
+            type : 'POST',
+            dataType: "json",
+            beforeSend:function( ) {   
+            },                    
+            success:function(response) {
+                console.log("Exito");
+                console.log(response);
+            },
+            error: function (data) {
+                console.log("Error");
+                console.log(data.responseText);                
+            },               
+            complete:function( ) {
+                    
+            },
+        }
+        ); 
+    }
+    function EditarPersonalAtendio(Atendio, TelefonoAtendio) {
+   // var goFormularioCliente=$("#FormAgente").serialize();
+    var lcUrlajax="EditarVisitaPersonalAtendio";
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+     
+    $.ajax({                  
+            url: lcUrlajax,
+            data: {Atendio: Atendio, TelefonoAtendio: TelefonoAtendio},
             type : 'POST',
             dataType: "json",
             beforeSend:function( ) {   

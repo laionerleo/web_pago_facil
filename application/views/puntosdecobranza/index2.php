@@ -501,7 +501,7 @@ var icono =porciones[2];
 
 
 
-    function mi_ubicacion()
+  function mi_ubicacion()
   {
      infoWindow = new google.maps.InfoWindow;
     

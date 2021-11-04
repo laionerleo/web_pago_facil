@@ -1825,14 +1825,17 @@ class Welcome extends CI_Controller {
 		$d["agente"]=$taagente->values;
 		$this->load->view('puntosdecobranza/createvistapuntocobranza', $d);		
 	}
-	public function consultarpuntosdecobranza()
+	public function consultarpuntosdecobranza($lan, $tnId)
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		//$lnId = $this->input->post('lnId');
-		$taconsultaragente = $this->servicios->ConsultarVisitaAgente();
-		$taconsultarpersonalatendio = $this->servicios->ConsultarVisitaPersonalAtendio();
+		$lnId=$tnId;
+		$taconsultaragente = $this->servicios->ConsultarVisitaAgente($lnId);
+		$taconsultarpersonalatendio = $this->servicios->ConsultarVisitaPersonalAtendio($lnId);
 		$taListadoVisita = $this->servicios->ListadoVisita();
+		$taagente = $this->servicios->MostrarAgente();
+		$d["agente"]=$taagente->values;
 		$d["visitas"]=$taListadoVisita->values;
 		$d["consultaragente"]=$taconsultaragente->values;
 		$d["consultarpersonal"]=$taconsultarpersonalatendio->values;
@@ -1842,33 +1845,48 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		//$lnId = $this->input->post('lnId');
-		$lcAgente = $_SESSION['Agente'];
-		$taeditaragente = $this->servicios->EditarVisitaAgente($lcAgente);
-		
-		$this->load->view('puntosdecobranza/consultarpuntocobranza', $d);		
+		$lcAgente = $this->input->post('Agente');
+		$lcTelefono = $this->input->post('TelefonoAgente');
+		$taeditaragente = $this->servicios->EditarVisitaAgente($lcAgente, $lcTelefono);
+		echo json_encode($taeditaragente);
 	}
 	public function editarvisitapersonalatendio()
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		//$lnId = $this->input->post('lnId');
-		$taeditarvisitapersonalatendio = $this->servicios->EditarVisitaPersonalAtendio();
-		$this->load->view('puntosdecobranza/consultarpuntocobranza', $d);		
+		$lcPersonalAtendio = $this->input->post('Atendio');
+		$lcTelefono = $this->input->post('TelefonoAtendio');
+		$taeditarvisitapersonalatendio = $this->servicios->EditarVisitaPersonalAtendio($lcPersonalAtendio, $lcTelefono);
+		echo json_encode($taeditarvisitapersonalatendio);		
 	}
 	public function InsertarVisita()
 	{  
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+		if($this->input->post('slcpunto') == 29){
+			$lcCliente = $this->input->post('slccliente');
+		}
+		else{
+			$lcCliente = $this->input->post('slcclienteagente');
+		}
 		$lcTabla = $this->input->post('slcpunto');
 		$lnTablaId = $this->input->post('slcpunto');
-		$lcCliente = $this->input->post('slccliente');
+		
 		$lcLatitud = $this->input->post('lcLatitud');
 		$lcLongitud = $this->input->post('lcLongitud');
 		$lcUbicacionGps = $this->input->post('lcUbicacionGps');
 		$lcDireccion = $this->input->post('lcDireccion');
+		if ($this->input->post('SeEntregoBanner') == "") {
+			$lcSeEntregoBanner = 0;
+		}else{
 		$lcSeEntregoBanner = $this->input->post('SeEntregoBanner');
+		}
+		if ($this->input->post('AceptoSerPunto') == "") {
+			$lcAceptoSerPunto = 0;
+		}else{
 		$lcAceptoSerPunto = $this->input->post('AceptoSerPunto');
+		}
+		
 		$lcDescripcion = $this->input->post('lcDescripcion');
 		
 		$lcAgenteCliente = $this->input->post('ClienteAgente');
@@ -1879,8 +1897,7 @@ class Welcome extends CI_Controller {
 		$lnTelefonoAtendio = $this->input->post('txttelefonoatendiendo');
 
 		$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
-		return "OK";
-		//$this->load->view('puntosdecobranza/createvistapuntocobranza', $d);		
+		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
 	public function vistafacturacionrecarga()
 	{

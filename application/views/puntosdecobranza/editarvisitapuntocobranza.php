@@ -17,11 +17,19 @@
             
                 <div class="form-group">
                     <label for="inputName">Agente Visitante</label>
-                    <input type="text" class="form-control" id="txtAgente" placeholder="Agente Visitante..."/>
+                    <select class="custom-select custom-select-m" name="txtAgente" id="txtAgente" placeholder="Selecione una Opcion">
+                        <option value="" selected><?php echo $key->Visitante ?></option>      
+                        <?php 
+                           foreach ($agente as $agente) {?>
+                            <option value="<?php echo $agente->cliente; ?>"><?php echo $agente->apellido.' '. $agente->nombre; ?></option> 
+                        <?php }
+                        ?>
+                    </select>                                                                                                                                   
+                    <!--<input type="text" class="form-control" value="<?php echo $key->Visitante ?>" id="txtAgente" placeholder="Agente Visitante..."/>-->
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">Telefono</label>
-                    <input type="number" class="form-control" id="txtTelefonoAgente" placeholder="Telefono..."/>
+                    <input type="number" class="form-control" value="<?php echo $key->TelefonoAgente ?>" id="txtTelefonoAgente" placeholder="Telefono..."/>
                 </div>
         </div>                                                                   
         <!-- Modal Footer -->

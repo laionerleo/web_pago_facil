@@ -2653,7 +2653,7 @@ public function getmetodosbyToken($tnTokenService)
    public function InsertarVisita($tnTabla, $tnTabalId, $tcCliente, $tcLatitud, $tcLongitud, $tcUbicacionGps, $tcDireccion, $tcSeEntregoBanner, $tcAceptoSerPunto, $tcDescripcion, $tcAgenteCliente, $tcAgente, $tnTelefonoAgente, $tcPersonalAtendio, $tnTelefonoAtendio){
       $url = 'http://localhost:8000/api/InsertarVisita';
       $data = array('Tabla'=>$tnTabla, 'TablaId'=>$tnTabalId, 'Cliente'=>$tcCliente, 'Latitud'=>$tcLatitud, 'Longitud'=>$tcLongitud, 'UbicacionGps'=>$tcUbicacionGps, 'Direccion'=>$tcDireccion, 'SeEntregoBanner'=>$tcSeEntregoBanner, 'AceptoSerPunto'=>$tcAceptoSerPunto, 'Descripcion'=>$tcDescripcion,'ClienteAgente'=>$tcAgenteCliente, 'lcAgenteVisita'=>$tcAgente, 'lnTelefono'=>$tnTelefonoAgente, 'lcPersonaAtendio'=>$tcPersonalAtendio, 'lnTelefonoAtendio'=>$tnTelefonoAtendio);
-      
+    
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
          "Content-Length: ".strlen( http_build_query($data))
@@ -2670,50 +2670,80 @@ public function getmetodosbyToken($tnTokenService)
       $resultado =json_decode($result);
       return $resultado;
    }
-   public function ConsultarVisitaAgente()
+   public function ConsultarVisitaAgente($tnId)
    {
       $url = 'http://localhost:8000/api/ConsultarAgente';
+      $data = array( 'tnId'=> $tnId);
+    
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
       $options = array('http' => array(
-         'method'  => 'POST')); 
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+         )); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
       return $resultado;
    }
-   public function ConsultarVisitaPersonalAtendio()
+   public function ConsultarVisitaPersonalAtendio($tnId)
    {
       $url = 'http://localhost:8000/api/ConsultarPersonalAtendio';
+      $data = array( 'tnId'=> $tnId);
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
       $options = array('http' => array(
-         'method'  => 'POST')); 
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+         )); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
       $resultado =json_decode($result);
       return $resultado;
    }
-   public function EditarVisitaAgente($lcAgente)
+   public function EditarVisitaAgente($lcAgente, $lnTelefono)
    {
       $url = 'http://localhost:8000/api/EditarVisitaAgente';
-      $data = array( 'tnTransaccionDePago'=> $lcAgente  );
-      echo '<pre>';
-      print_r($data);
-      echo '</pre>';
-      return "aqui";
+      $data = array( 'lcAgente'=> $lcAgente, 'lnTelefonoAgente'=> $lnTelefono);
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
       $options = array('http' => array(
-         'method'  => 'POST')); 
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+         )); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
       $resultado =json_decode($result);
       
       return $resultado;
    }
-   public function EditarVisitaPersonalAtendio()
-   {
+   public function EditarVisitaPersonalAtendio($lcAtendio, $lnTelefono)
+   {    
       $url = 'http://localhost:8000/api/EditarVisitaAtendio';
+      $data = array( 'tcAtendio'=> $lcAtendio, 'tnTelefono'=> $lnTelefono);
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
       $options = array('http' => array(
-         'method'  => 'POST')); 
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+         )); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
       $resultado =json_decode($result);
+      
       return $resultado;
    }
 }
