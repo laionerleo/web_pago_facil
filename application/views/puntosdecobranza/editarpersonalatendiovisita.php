@@ -14,17 +14,25 @@
         <div class="modal-body">
         <p class="statusMsg"></p>
         <form role="form" action="InsertarVisita" method="post">
+            <div class="form-group" style="display: none;">
+                    <label for="inputEmail">Punto Cobranza</label>
+                    <input type="number" class="form-control" value="" id="txtIdPuntoCobranzaAtendio" placeholder="Punto Conbranza..."/>
+             </div>
+            <div class="form-group" style="display: none;">
+                <label for="inputEmail">Serial</label>
+                <input type="number" class="form-control" value="" id="txtSerialAtendio" placeholder="Serial..."/>
+            </div>
             <div class="form-group">
                 <label for="inputName">Personal que Atendio</label>
-                <select class="custom-select custom-select-m" name="txtAtendio" id="txtAtendio" placeholder="Selecione una Opcion">
-                        <option value="" selected><?php echo $key->PersonalAtendio ?></option>      
+               <!-- <select class="custom-select custom-select-m" name="txtAtendio" id="txtAtendio" placeholder="Selecione una Opcion">
+                        <option value="" selected></option>      
                     <?php 
                         foreach ($agente as $atendio) {?>
-                        <!--<option value="<?php echo $atendio->cliente; ?>"><?php echo $atendio->apellido.' '. $atendio->nombre; ?></option> -->
+                        <option value="<?php echo $atendio->cliente; ?>"><?php echo $atendio->apellido.' '. $atendio->nombre; ?></option>
                     <?php }
                     ?>
-                </select>    
-                <!--<input type="text" class="form-control" value="<?php echo $key->PersonalAtendio ?>" id="txtAtendio" placeholder="Personal que Atendio..."/>-->
+                </select> -->   
+                <input type="text" class="form-control" value="" id="txtAtendio" placeholder="Personal que Atendio..."/>
             </div>
             <div class="form-group">
                 <label for="inputEmail">Telefono</label>
@@ -35,7 +43,7 @@
     <!-- Modal Footer -->
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary submitBtn" onclick="EditarPersonalAtendio($('#txtAtendio').val(),$('#txtTelefonoAtendio').val());">Aceptar</button>
+        <button type="button" class="btn btn-primary submitBtn" onclick="EditarPersonalAtendio($('#txtIdPuntoCobranzaAtendio').val(),$('#txtSerialAtendio').val(),$('#txtAtendio').val(),$('#txtTelefonoAtendio').val());">Aceptar</button>
     </div>                                                                    
                                                                         
 </div>

@@ -56,10 +56,9 @@
                                         <table id="example1" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Cliente</th>
-                                                    <th>Punto Visita</th>
+                                                    <th>Cliente Propietario</th>
+                                                    <th>Tipo de Punto</th>
                                                     <th>Fecha  </th>  
-                                                    <th>Direccion</th>
                                                     <th>¿ Banner ?</th>
                                                     <th>¿ Punto ?</th>
                                                     <th>Descripcion</th>                       
@@ -73,7 +72,6 @@
                                                             <td><?php echo $key->Cliente ?></td>
                                                             <td><?php echo $key->Nombre ?></td>
                                                             <td><?php echo $key->Fecha ?></td>
-                                                            <td><?php echo $key->Direccion ?></td>
                                                             <?php
                                                             if($key->SeEntregoBanner == 1){?>
                                                                 <td>Si</td>
@@ -85,7 +83,7 @@
                                                             <td><?php echo $key->Descripcion ?></td>
                                                             <td>  
                 												<a href="<?=$url?>ConsultarVisita/<?php echo $key->VisitaPuntoCobranza ?>">
-                													<button class="btn btn-primary">Consultar</button>
+                													<button class="btn btn-primary">Modificar</button>
                 												</a>
                 											</td>
                                                         </tr>

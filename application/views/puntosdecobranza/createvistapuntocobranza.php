@@ -125,14 +125,14 @@
                                                     </div>
                                                      
  
-                                                    <div  class="col-md-1" id="divAgregarPuntoCobranza" ">
+                                                    <div  class="col-md-1" id="divAgregarPuntoCobranza">
                                 						<div class="form-group">
                                 							<button type="button" id="btnpuntocobranza" class="btn btn-info">Agregar</button>
                                 						</div>
                                 					</div>
                                 					<div style="padding-left: 25px;" id="divAgente" class="col-md-4">
                                 						<div class="form-group">
-                                                            <select class="custom-select custom-select-m" name="slcagentename" id="slcagente" placeholder="Selecione una Opcion">
+                                                            <select class="custom-select custom-select-m" name="slcagente" id="slcagente" placeholder="Selecione una Opcion">
                                                                 <option value="" selected>Seleccione un Agente Visitante</option>      
                                                                 <?php 
                                                                     foreach ($agente as $key) {?>
@@ -177,13 +177,11 @@
                                 						<table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                                 							<thead style="background-color:#A9D0F5">
                                 								<th>Opciones</th>
-                                						
                                 								<th>Agente</th>
                                 								<th>Telefono</th>
                                 							</thead>
                                 							<tfoot>
                                 							    <td></td>
-                                						
                                 								<td></td>
                                 								<td></td>
                                 							</tfoot>
@@ -215,41 +213,41 @@
                                            
                                         </div>
                                        
-                                                    <div class="col-md-3" >
-                                                        <div class="form-group">
-                                                        <label style="color: white;" for="Latitud">.</label><br>
-                                            			<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
-                                                        <button type="button" style="display: none;" id="divBtnUbicacion" class="btn btn-warning" onclick="mi_ubicacion();">Cargar Ubicacion Actual</button>
-                                            			<button class="btn btn-primary" style="display: none;" id="btnaceptar" id="btnAceptar" type="submit">Aceptar</button>
-                                            			<button class="btn btn-danger" style="display: none;" id="btncancelar" id="btnCancelar" type="reset">Cancelar</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3" >
-                                                        <div class="form-group">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3" id="divLatitud" style="display: none;">
-                                                        <div class="form-group">
-                                                            <label for="Latitud">Latitud</label>
-                                                            <input type="text" class="form-control" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3" id="divLongitud" style="display: none;">
-                                                        <div class="form-group">
-                                                            <label for="Longitud">Longitud</label>
-                                                            <input type="text" class="form-control" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3" id="divUbicacionGps" style="display: none;">
-                                                		<div class="form-group">
-                                                        <label for="Ubicacion">Ubicacion GPS</label>
-                                                            <input type="text" class="form-control" name="lcUbicacionGps" id="txtubicacion" value="Santa Cruz" placeholder="Ubicacion.." required>
-                                                		</div>
-                                                	</div> 
-                                        <div style="height: 200px ; width: 100%"  >
-                                                    <div id="map"  style="height: 100%;width: 100%"></div>
-                                                </div>	
+                                            <div class="col-md-3" >
+                                                <div class="form-group">
+                                                <label style="color: white;" for="Latitud">.</label><br>
+                                    			<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
+                                                <button type="button" style="display: none;" id="divBtnUbicacion" class="btn btn-warning" onclick="mi_ubicacion();">Cargar Ubicacion Actual</button>
+                                    			<button class="btn btn-primary" style="display: none;" id="btnAceptar" type="submit">Aceptar</button>
+                                    			<button class="btn btn-danger" style="display: none;" id="btnCancelar" type="reset">Cancelar</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" >
+                                                <div class="form-group">
+        
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="divLatitud" style="display: none;">
+                                                <div class="form-group">
+                                                    <label for="Latitud">Latitud</label>
+                                                    <input type="text" class="form-control" name="lcLatitud" id="txtlatitud" placeholder="Latitud.." required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="divLongitud" style="display: none;">
+                                                <div class="form-group">
+                                                    <label for="Longitud">Longitud</label>
+                                                    <input type="text" class="form-control" name="lcLongitud" id="txtlongitud" placeholder="Longitud.." required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="divUbicacionGps" style="display: none;">
+                                        		<div class="form-group">
+                                                <label for="Ubicacion">Ubicacion GPS</label>
+                                                    <input type="text" class="form-control" name="lcUbicacionGps" id="txtubicacion" value="Santa Cruz" placeholder="Ubicacion.." required>
+                                        		</div>
+                                        	</div> 
+                                            <div style="height: 200px ; width: 100%"  >
+                                                <div id="map"  style="height: 100%;width: 100%"></div>
+                                            </div>	
                                     </div>
                                 </div>
                             </div>
@@ -283,7 +281,33 @@
 	var laContAtendio=0;
 	subtotal=[];
 	$("#divGuardar").hide();
-
+    function ValidarCliente(IdCliente) {
+    var lcUrlajax="http://localhost:8080/web_pago_facil/es/EditarVisitaPersonalAtendio";
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });    
+    $.ajax({                  
+            url: lcUrlajax,
+            data: {IdCliente: IdCliente},
+            type : 'POST',
+            dataType: "json",
+            beforeSend:function( ) {   
+            },                    
+            success:function(response) {
+                console.log("Exito");
+                console.log(response);
+            },
+            error: function (data) {
+                console.log("Error");
+                console.log(data.responseText);
+            },               
+            complete:function( ) {                   
+            },
+        }
+        );         
+    }
 	function AgregarAgente()
 	{
         
@@ -293,7 +317,7 @@
 
 		if (lnidagente!="") {
 
-			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td style="display: none;"><input type="hidden" name="ClienteAgente[]" value="'+lnidagente+'"></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lcagente+'">'+lcagente+'</td><td><input type="number" name="txttelefonoagente[]" value=""></td></tr>';
+			var fila='<tr class="selected" id="fila'+laCont+'"><td><button type="button" id="eliminar" value"'+lnidagente+'" class="btn btn-warning" onclick="Eliminar('+laCont+');">x</button></td><td style="display: none;"><input type="text" name="ClienteAgente[]" value="'+lnidagente+'"></td><td><input type="hidden" id="txtidagente" name="slcagentename[]" value="'+lcagente+'">'+lcagente+'</td><td><input type="number" id="telAgente" name="txttelefonoagente[]" value=""></td></tr>';
 			laCont++;
 			Limpiar();
 			Evaluar();
@@ -306,6 +330,7 @@
                 return false;
             }else{
                 $('#detalles').append(fila);
+                $('#telAgente').focus();
                 idagente.push(lnidagente);
             }
             
@@ -329,9 +354,9 @@
 		
 		if (lnidpersonalatendiendo!="") {
 
-			var fila='<tr class="selected" id="filaAtendio'+laContAtendio+'"><td><button type="button" class="btn btn-warning" onclick="EliminarAtendio('+laContAtendio+');">x</button></td><td><input type="hidden" name="slcpersonalatendiendoname[]" value="'+lnidpersonalatendiendo+'">'+lcpersonalatendio+'</td><td><input type="number" id="telAgente" name="txttelefonoatendiendo[]" value=""></td></tr>';
+			var fila='<tr class="selected" id="filaAtendio'+laContAtendio+'"><td><button type="button" class="btn btn-warning" onclick="EliminarAtendio('+laContAtendio+');">x</button></td><td><input type="hidden" name="slcpersonalatendiendoname[]" value="'+lnidpersonalatendiendo+'">'+lcpersonalatendio+'</td><td><input type="number" id="telAtendio" name="txttelefonoatendiendo[]" value=""></td></tr>';
 			laContAtendio++;
-            $('#telAgente').focus();
+          
           
 			
 			Limpiar();
@@ -345,6 +370,7 @@
                 return false;
             }else{
                 $('#detallespersonalatendiendo').append(fila);
+                $('#telAtendio').focus();
                 idpersonal.push(lnidpersonalatendiendo);
             }
 			
@@ -392,31 +418,28 @@
  
         }
     }
-$(document).ready(function(){ ocultar(); }) 
-
+    $(document).ready(function(){ ocultar(); }) 
+    $(document).on('change','input[type="checkbox"]' ,function(e) {
+	    var checkboxBanner = document.getElementById('txtbanner');
+        var checkboxPunto = document.getElementById('txtpunto');
+        if(checkboxBanner.checked == true){
+            $('#txtbanner').val(1);
+        }else{
+            $('#txtbanner').val('0');
+        }
+        if(checkboxPunto.checked == true){
+            $('#txtpunto').val(1);
+        }else{
+            $('#txtpunto').val('0');
+        }
+	});
 function mi_ubicacion() {
-    var checkboxBanner = document.getElementById('txtbanner');
-    var checkboxPunto = document.getElementById('txtpunto');
-      if(checkboxBanner.checked){
-        $('#txtbanner').val(1);
-      }else{
-        $('#txtbanner').val('0');
-      }
-      if(checkboxPunto.checked){
-        $('#txtpunto').val(1);
-      }else{
-        $('#txtpunto').val('0');
-      }
     $('#divBtnUbicacion').hide();
-    $('#divLatitud').show();
+    $('#btnAceptar').show();
+    $('#btnCancelar').show();
     $('#divLongitud').show();
-    $('#divAgregarPuntoCobranza').show();
-    $('#divAgente').show();
-    $('#divAtendio').show();
-    $('#divAgregarBilletera').show();
-    $('#btnaceptar').show();
-    $('#btncancelar').show();
-   
+    $('#divLatitud').show();
+
 
     infoWindow = new google.maps.InfoWindow;
     

@@ -1811,6 +1811,17 @@ class Welcome extends CI_Controller {
 		$d["visitas"]=$taListadoVisita->values;
 		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
+	public function validarcliente()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$taclientepuntocobranza = $this->servicios->MostrarClientePuntoCobranza();
+		$taclientebilletera = $this->servicios->MostrarClienteBilletera();
+		
+		$d["clientepuntocobranza"]=$taclientepuntocobranza->values;
+		$d["clientebilletera"]=$taclientebilletera->values;
+				
+	}
 	public function createvisitapuntosdecobranza()
 	{
 		$d = array();
@@ -1845,24 +1856,44 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+		$lnIdPuntoCobranza = $this->input->post('IdPuntoCobranza');
+		$lnIdAgente = $this->input->post('IdCliente');
+		$lnSerial = $this->input->post('Serial');
 		$lcAgente = $this->input->post('Agente');
 		$lcTelefono = $this->input->post('TelefonoAgente');
-		$taeditaragente = $this->servicios->EditarVisitaAgente($lcAgente, $lcTelefono);
+		$taeditaragente = $this->servicios->EditarVisitaAgente($lnIdPuntoCobranza ,$lnIdAgente , $lnSerial, $lcAgente, $lcTelefono);
 		echo json_encode($taeditaragente);
 	}
 	public function editarvisitapersonalatendio()
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+		$lnIdPuntoCobranza = $this->input->post('IdPuntoCobranza');
+		$lnSerial = $this->input->post('Serial');
 		$lcPersonalAtendio = $this->input->post('Atendio');
 		$lcTelefono = $this->input->post('TelefonoAtendio');
-		$taeditarvisitapersonalatendio = $this->servicios->EditarVisitaPersonalAtendio($lcPersonalAtendio, $lcTelefono);
-		echo json_encode($taeditarvisitapersonalatendio);		
+		$taeditarvisitapersonalatendio = $this->servicios->EditarVisitaPersonalAtendio($lnIdPuntoCobranza, $lnSerial, $lcPersonalAtendio, $lcTelefono);
+		echo json_encode($taeditarvisitapersonalatendio);
+	}
+	public function editarvisitaPuntoCobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$lnIdPuntoCobranza = $this->input->post('IdPuntoCobranza');
+		$dtFecha = $this->input->post('dtFecha');
+		$lcDireccion = $this->input->post('lcDireccion');
+		$lcDescripcion = $this->input->post('lcDescripcion');
+		$lnBanner = $this->input->post('lnBanner');
+		$lnSerPunto = $this->input->post('lnSerPunto');
+		$taEditarVisitaPuntoCobranza = $this->servicios->EditarVisitaPuntoCobranza($lnIdPuntoCobranza ,$dtFecha , $lcDireccion, $lcDescripcion, $lnBanner, $lnSerPunto);
+		echo json_encode($taEditarVisitaPuntoCobranza);
 	}
 	public function InsertarVisita()
 	{  
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
+		$taListadoVisita = $this->servicios->ListadoVisita();
+		$d["visitas"]=$taListadoVisita->values;
 		if($this->input->post('slcpunto') == 29){
 			$lcCliente = $this->input->post('slccliente');
 		}
