@@ -167,7 +167,7 @@ function vistafacturacion()
         console.log(lafacturas);
        
 
-    var montototal= montototalgeneral ;//$("#montototal").val(montototalgeneral);
+    var montototal= montototalaux ;//$("#montototal").val(montototalgeneral);
     var montocomision= montocomisionaux;
     var idfactura=$("#facturaid").val();
     var codigo_fijo=$("#codigofijo").val();

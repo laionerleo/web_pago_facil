@@ -115,7 +115,6 @@ $route[$l.'filtro_billeteras_general']          = 'Welcome/busquedabilleteras';
 $route[$l.'pagofacilentubarrio/(:num)']       = 'BilleteraPagoFacil/inicio/$1/$2/';
 $route[$l.'reportemovimiento']                = 'BilleteraPagoFacil/reportemovimientobilletera';
 $route[$l.'reportehistoricocliente']          = 'BilleteraPagoFacil/reportehistoricocliente';
-
 $route[$l.'reportecomisiones']                = 'BilleteraPagoFacil/reportecomisionbilletera';
 
 
@@ -125,10 +124,10 @@ $route[$l.'cargarcriterioshub']                = 'HubPago/CargarCriterios';
 
 
 //metodos para el login y logout
-$route[$l.'login_user']                     = 'Auth/loginusuario';
+$route[$l.'login_user']                         = 'Auth/loginusuario';
 $route[$l.'login_registro']                     = 'Auth/loginregistro';
 
-$route[$l.'logout']                         = 'Auth/logout';
+$route[$l.'logout']                          = 'Auth/logout';
 
 //metodos para el login de  faceboook
 
@@ -143,6 +142,8 @@ $route[$l.'login_google']                          = 'Google_Authentication';
 $route[$l.'logout_google']                          = 'Google_Authentication/logout';
 
 
+
+$route[$l.'pay/(:any)/(:any)']                    = 'PagoDirecto/Pay/$1/$2/$3';
 
 
 

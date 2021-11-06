@@ -1154,8 +1154,8 @@ tnAuthorizationNumber= autorizacion deBCP
  
        /*    
             @POST(cPagoFacilPHP + "/Factura/BCP_GenerarQR")
-     @FormUrlEncoded
-     Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
+         @FormUrlEncoded
+         Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
              @Field("tnCliente")                 long    tnCliente,
              @Field("tnEmpresa")                 long    tnEmpresa,
              @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,

@@ -520,26 +520,23 @@ class Welcome extends CI_Controller {
 		$d['itnselegidos']=$_SESSION[$tnIdentificarPestaña.'gaDetallePago'];	
 			
 		$d['listadofacturas']=$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];	
-
-		for ($i=0; $i < count($d['listadofacturas']) ; $i++) { 
-			$lnitem=$d['listadofacturas'][$i]->factura ;
-			
-			if(!in_array($lnitem,$d['itnselegidos']))
-			{
-			$lnitem=$d['listadofacturas'][$i]->factura ;
-			unset( $d['listadofacturas'][$i]);
+		if(!is_null($d['listadofacturas']))
+		{	
+			foreach ($d['listadofacturas'] as $key => $value) {
+				$lnitem=$value->factura ;
+				if(!in_array($lnitem,$d['itnselegidos']))
+				{
+					$lnitem=$value->factura ;
+					unset( $d['listadofacturas'][$key]);
+				}
 			}
+			$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$d['listadofacturas'];		
+			$this->load->view('multiple/confirmacion', $d);
+		}else{
+
+			$this->load->view('pago_rapido/confirmacion', $d);
 		}
-		echo '<pre>'; 
-		print_r($d['listadofacturas'] );
-		echo '</pre>' ;
-		$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$d['listadofacturas'];	
-
 	
-
-		//$this->load->view('pago_rapido/confirmacion', $d);
-		$this->load->view('multiple/confirmacion', $d);
-
 
 	}
 	public function vistaprepararpago()
@@ -553,6 +550,7 @@ class Welcome extends CI_Controller {
 		$d['montototal']=$_SESSION[$tnIdentificarPestaña.'montototalpagar'];
 		$laubicacion=$this->vermiubicacion();
 		$_SESSION['gcUbicacion']= $laubicacion->geoplugin_countryName;	
+		$d['tnPosicion']= $_SESSION[$tnIdentificarPestaña.'gnPosicion'];
 		if(  ($_SESSION['telefono'] != "0" ) &&  ($_SESSION['telefonoDePago'] != "0")  && ($_SESSION['telefono'] > "0" ) && ($_SESSION['telefonoDePago'] > "0")  )
 		{
 			$var=$_SESSION[$tnIdentificarPestaña.'metododepago'];
@@ -650,6 +648,7 @@ class Welcome extends CI_Controller {
 					$d['clienteempresa']=$_SESSION[$tnIdentificarPestaña.'codigofijo'];
 					$d['recarga']=$_SESSION[$tnIdentificarPestaña.'idempresa'];
 					$d['Simbolo']="Bs";
+					
 					$this->load->view('pago_rapido/formasdepago/pagoconbcp', $d);
 				break;
 				case 6:
@@ -1808,6 +1807,9 @@ class Welcome extends CI_Controller {
 		$datos=$this->input->post("datos");
 		$metodopago=$datos["metododepago"];
 		$tnIdentificarPestaña=$datos[0];
+		echo '<pre>'; 
+		print_r($datos );
+		echo '</pre>' ;
 		//$d['nombrecliente'] = ""; //$datos["nombreclienterecarga"]; // $this->session->userdata('nombreclienteempresa') ;
 		//$d['cionit']= ""; //$datos["ciclienterecarga"]; //$this->session->userdata('cionitclienteempresa');
 		$d['numerocelular']=  $this->session->userdata('telefonoDePago');
@@ -1854,6 +1856,9 @@ class Welcome extends CI_Controller {
 			}
 		}	
 		$_SESSION[$tnIdentificarPestaña.'metodopagoelegido']=$_SESSION['todosmetodosdepago'][$index];
+		echo '<pre>'; 
+		print_r($d );
+		echo '</pre>' ;
 		$this->load->view('pago_rapido/facturacion', $d);
 		
 	}

@@ -83,7 +83,7 @@ class HubPago extends CI_Controller {
         {
             $d['criterios']=$loServicioGetCriterios->values;
         }else{
-            echo "ha ocurrido un error ";
+            echo "La empresa no cuenta con  criterios de busquedas";
         }
 
         

@@ -31,7 +31,10 @@
          }
          $("#lblMontototal").text(montototalaux.toFixed(2));
          $("#lblMontocomision").text(montocomisionaux.toFixed(2));
-         $("#lblMontototalfinal").text(montototalgeneral.toFixed(2) );  
+         $("#lblMontototalfinal").text(montototalgeneral.toFixed(2) ); 
+         console.log(montototalaux.toFixed(2)); 
+         console.log(montocomisionaux.toFixed(2)); 
+         console.log(montototalgeneral.toFixed(2)); 
       });
    </script>
    
@@ -41,38 +44,22 @@
             <table class="table table-striped table-bordered">
                <thead>
                   <tr>
-                     <th> N </th>
+                  <th> Seleccionar </th>
+                    <!--    <th> N </th> -->
                      <th> Concepto </th>
-                     <th> <?= $etiquetas->EtiquetaItemPago ?>   </th>
+                   <!--  <th> <?= $etiquetas->EtiquetaItemPago ?>   </th>  -->
                      <th> Monto </th>
                      <th> Comision </th>
                      <th> Monto Total  </th>
-                     <th> Opcion </th>
+                    
+                
                   </tr>
                </thead>
-               <tbody>
+               <tbody  style="    font-size: x-small;">
                   <?php if(isset($facturas)){
                      for ($i=0; $i < count($facturas) ; $i++) { ?>
                   <tr>
-                     <td> <?= $i+1 ?> </td>
-                     <td> <?= $facturas[$i]->periodo ?> </td>
-                     <td>  <?= (isset($facturas[$i]->nroitem))?  $facturas[$i]->nroitem : $facturas[$i]->factura ?>  </td>
-                     <td style="text-align: end;"> 
-                        <?php if($facturas[$i]->montoTotal == 0 ){ ?> 
-                           <input type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
-                        <?php }else{
-                           echo   number_format((float)$facturas[$i]->montoTotal, 2, '.', '') ;
-                        ?>  
-                        <input  type="hidden" id="montototal<?= $i ?>" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>"> 
-                        <?php  } ?> 
-                     </td>
-                     <td style="text-align: end;">
-                        <?=   number_format((float)$facturas[$i]->MontoComision, 2, '.', '') ; ?> 
-                     </td>
-                     <td  style="text-align: end;">
-                        <?= number_format((float)$facturas[$i]->MontoComision +(float)$facturas[$i]->montoTotal   , 2, '.', '') ; ?> 
-                     </td>
-                     <td>
+                  <td>
                         <center>
                         <?php if(   $i == 0 ){ ?> 
                            
@@ -90,11 +77,29 @@
 
                         </center>
                      </td>
+                    <!--    <td> <?= $i+1 ?> </td>-->
+                     <td> <?= $facturas[$i]->periodo ?> </td>
+                  <!--    <td>  <?= (isset($facturas[$i]->nroitem))?  $facturas[$i]->nroitem : $facturas[$i]->factura ?>  </td>  -->
+                     <td style="text-align: end;"> 
+                        <?php if($facturas[$i]->montoTotal == 0 ){ ?> 
+                           <input type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
+                        <?php }else{
+                           echo   number_format((float)$facturas[$i]->montoTotal, 2, '.', '') ;
+                        ?>  
+                        <input  type="hidden" id="montototal<?= $i ?>" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>"> 
+                        <?php  } ?> 
+                     </td>
+                     <td style="text-align: end;">
+                        <?=   number_format((float)$facturas[$i]->MontoComision, 2, '.', '') ; ?> 
+                     </td>
+                     <td  style="text-align: end;">
+                        <?= number_format((float)$facturas[$i]->MontoComision +(float)$facturas[$i]->montoTotal   , 2, '.', '') ; ?> 
+                     </td>
+                    
                   </tr>
                   <?php  }?>
                   <tr>
-                     <td></td>
-                     <td></td>
+                   
                      <td>  </td>
                      <td> <label id="lblMontototal" for=""></label> </td>
                      <td> <label id="lblMontocomision" for=""></label> </td>

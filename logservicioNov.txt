@@ -462,3 +462,123 @@
 04/11/2021 08:48:05calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
 04/11/2021 08:48:07calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
 04/11/2021 08:48:10calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:07:05getcriteriobusquedahub ={"tnEmpresa":"165"}
+04/11/2021 10:07:21get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-716255751202111049031","tcFechaOperativa":20211104,"tnNroOperacion":1540,"tnServicio":1}
+04/11/2021 10:07:29getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:07:39calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:07:41calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:07:44calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:07:47calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:27:41getcriteriobusquedahub ={"tnEmpresa":"165"}
+04/11/2021 10:27:48get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"98183538903120211104","tcFechaOperativa":20211104,"tnNroOperacion":1543,"tnServicio":1}
+04/11/2021 10:27:55getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:28:02calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:28:06calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:28:09calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:28:11calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:30:43get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1567084696202111049031","tcFechaOperativa":20211104,"tnNroOperacion":1544,"tnServicio":1}
+04/11/2021 10:30:48getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:30:53calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:30:56calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:30:58calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:30:59calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:32:37get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1567084696202111049031","tcFechaOperativa":20211104,"tnNroOperacion":1544,"tnServicio":1}
+04/11/2021 10:32:41getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:32:45calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:32:48calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:32:49calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:32:51calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:47:02get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1567084696202111049031","tcFechaOperativa":20211104,"tnNroOperacion":1544,"tnServicio":1}
+04/11/2021 10:47:11getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:47:26calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:47:28calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:47:32calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:47:33calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:51:13get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1567084696202111049031","tcFechaOperativa":20211104,"tnNroOperacion":1544,"tnServicio":1}
+04/11/2021 10:51:18getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:51:29calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:53:31get_listar_facturashub{"tnEmpresa":"165","tcCodigoClienteEmpresa":"00029101","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1567084696202111049031","tcFechaOperativa":20211104,"tnNroOperacion":1544,"tnServicio":1}
+04/11/2021 10:53:36getmetodosbygrupos{"tnEmpresa":"165","tcApp":3,"tcLink":0}
+04/11/2021 10:53:39calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:53:42calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1544.28,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:53:43calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":1029.73,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:53:45calcularcomision{"tnEmpresa":"165","tnCliente":"3859","tnMetodoPago":"5","tcMonto":323.78,"tnIdAccion":0,"tcApp":2}
+04/11/2021 10:56:06getcriteriobusquedahub ={"tnEmpresa":"159"}
+04/11/2021 10:57:59getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 10:58:10listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"2342","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+04/11/2021 10:58:13getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+04/11/2021 10:58:20calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 10:58:22calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"4","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:00:32calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:00:34calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"1","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:00:38calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:00:39calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"7","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:00:52calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:00:55calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"50.94","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:24:56getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 11:25:31getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 11:25:46listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"825","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+04/11/2021 11:25:49getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+04/11/2021 11:26:04calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"577.95","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:26:07calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"152.03","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:29:02getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 11:29:12listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"643","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+04/11/2021 11:29:19getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+04/11/2021 11:29:41listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"650","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+04/11/2021 11:29:49getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+04/11/2021 11:29:57calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"68.47","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:29:59calcularcomision{"tnEmpresa":"2","tnCliente":"3859","tnMetodoPago":"5","tcMonto":"165.41","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:43:53getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+04/11/2021 11:44:18calcularcomision{"tnEmpresa":20,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"500","tnIdAccion":0,"tcApp":2}
+04/11/2021 11:50:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+04/11/2021 14:38:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+04/11/2021 14:38:21calcularcomision{"tnEmpresa":20,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"1000","tnIdAccion":0,"tcApp":2}
+04/11/2021 14:39:27calcularcomision{"tnEmpresa":20,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"1000","tnIdAccion":0,"tcApp":2}
+04/11/2021 14:58:26calcularcomision{"tnEmpresa":20,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"1000","tnIdAccion":0,"tcApp":2}
+04/11/2021 14:58:49prepararpago{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"leonardo Ayala","tnCiNit":"11385389","tcNroPago":"0","tnMontoClienteEmpresa":"1000","tnMontoClienteSyscoop":"0","tcPeriodo":"RECARGA","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2,"taDetallePago":null}
+04/11/2021 15:00:30prepararpago{"tnCliente":"3859","tnEmpresa":20,"tcCodigoClienteEmpresa":"55","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"leonardo Ayala","tnCiNit":"11385389","tcNroPago":"0","tnMontoClienteEmpresa":"1000","tnMontoClienteSyscoop":"0","tcPeriodo":"RECARGA","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2,"taDetallePago":null}
+04/11/2021 15:00:47guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":20,"tnTransaccion":"229297","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+04/11/2021 15:00:55confirmarpago{"tnCliente":"3859","tnEmpresa":20,"tnAuthorizationNumber":"104996","tnCorrelationId":"229297","tcOTP":"63683","tcApp":2}
+04/11/2021 16:07:35getcriteriobusquedahub ={"tnEmpresa":"38"}
+04/11/2021 16:16:47getcriteriobusquedahub ={"tnEmpresa":"40"}
+04/11/2021 16:18:25getcriteriobusquedahub ={"tnEmpresa":"49"}
+04/11/2021 16:19:24getcriteriobusquedahub ={"tnEmpresa":"53"}
+04/11/2021 16:23:23getcriteriobusquedahub ={"tnEmpresa":"41"}
+04/11/2021 16:23:23getcriteriobusquedahub ={"tnEmpresa":"41"}
+04/11/2021 16:24:28getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 16:28:28getcriteriobusquedahub ={"tnEmpresa":"47"}
+04/11/2021 16:28:30getcriteriobusquedahub ={"tnEmpresa":"7"}
+04/11/2021 16:28:39getcriteriobusquedahub ={"tnEmpresa":"27"}
+04/11/2021 16:29:06getcriteriobusquedahub ={"tnEmpresa":"87"}
+04/11/2021 16:29:19getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 16:29:23getcriteriobusquedahub ={"tnEmpresa":"5"}
+04/11/2021 16:29:25getcriteriobusquedahub ={"tnEmpresa":"7"}
+04/11/2021 16:29:38getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+04/11/2021 16:29:54calcularcomision{"tnEmpresa":20,"tnCliente":"3859","tnMetodoPago":"5","tcMonto":"500","tnIdAccion":0,"tcApp":2}
+04/11/2021 16:45:12calcularcomision{"tnEmpresa":20,"tnCliente":"3859","tnMetodoPago":"4","tcMonto":"500","tnIdAccion":0,"tcApp":2}
+04/11/2021 17:10:38getcriteriobusquedahub ={"tnEmpresa":"2"}
+04/11/2021 17:10:48listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"876","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+04/11/2021 17:10:51getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+05/11/2021 10:27:34getcriteriobusquedahub ={"tnEmpresa":"47"}
+05/11/2021 10:27:43listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"456","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/11/2021 10:27:50getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+05/11/2021 10:28:06listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"8345","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/11/2021 10:28:10getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+05/11/2021 10:28:16calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"68.50","tnIdAccion":0,"tcApp":2}
+05/11/2021 10:28:48listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"8336","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/11/2021 10:28:52getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+05/11/2021 10:28:57calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.49","tnIdAccion":0,"tcApp":2}
+05/11/2021 10:28:58calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+05/11/2021 10:31:10listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"8350","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/11/2021 10:31:17getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+05/11/2021 10:31:22calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"68.50","tnIdAccion":0,"tcApp":2}
+05/11/2021 10:31:42listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"8372","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/11/2021 10:31:45getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+05/11/2021 10:31:52calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.49","tnIdAccion":0,"tcApp":2}
+05/11/2021 10:31:54calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"2","tcMonto":"28.50","tnIdAccion":0,"tcApp":2}
+05/11/2021 10:32:54realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"8372","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"limachi rojas ramon","tnCiNit":2410218,"tnFactura":3178296,"tcMonto":"59.989999999999995","tcComision":"3","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-07","taDetallePago":[{"factura":3178296,"periodo":"2021-JUL","montoTotal":"28.49","estado":1,"periodoaux":"2021-07","MontoComision":"1.50"},{"factura":3198763,"periodo":"2021-AGO","montoTotal":"28.50","estado":1,"periodoaux":"2021-08","MontoComision":"1.50"}]}
+05/11/2021 10:33:39guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":229549,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+05/11/2021 10:33:42GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":229549,"tnNroWhatsapp":"60817621 ","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+05/11/2021 10:33:43getfacturaempresa{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"229549","tnEmpresa":null,"tcApp":2}
+05/11/2021 10:37:10listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"8372","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+05/11/2021 10:37:16getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
