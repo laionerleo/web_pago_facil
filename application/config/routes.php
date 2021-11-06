@@ -89,6 +89,7 @@ $route[$l.'ConsultarVisita/(:any)']              = 'Welcome/consultarpuntosdecob
 $route[$l.'EditarVisitaAgente']                  = 'Welcome/editarvisitaagente';
 $route[$l.'EditarVisitaPersonalAtendio']         = 'Welcome/editarvisitapersonalatendio';
 $route[$l.'EditarVisitaPuntoCobranza']           = 'Welcome/editarvisitaPuntoCobranza';
+$route[$l.'ValidarCliente']                      = 'Welcome/validarcliente';
 
 $route[$l.'comopagar']                           = 'Servicio/Comopagar';
 

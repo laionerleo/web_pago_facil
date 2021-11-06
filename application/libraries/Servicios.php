@@ -2653,7 +2653,10 @@ public function getmetodosbyToken($tnTokenService)
    public function InsertarVisita($tnTabla, $tnTabalId, $tcCliente, $tcLatitud, $tcLongitud, $tcUbicacionGps, $tcDireccion, $tcSeEntregoBanner, $tcAceptoSerPunto, $tcDescripcion, $tcAgenteCliente, $tcAgente, $tnTelefonoAgente, $tcPersonalAtendio, $tnTelefonoAtendio){
       $url = 'http://localhost:8000/api/InsertarVisita';
       $data = array('Tabla'=>$tnTabla, 'TablaId'=>$tnTabalId, 'Cliente'=>$tcCliente, 'Latitud'=>$tcLatitud, 'Longitud'=>$tcLongitud, 'UbicacionGps'=>$tcUbicacionGps, 'Direccion'=>$tcDireccion, 'SeEntregoBanner'=>$tcSeEntregoBanner, 'AceptoSerPunto'=>$tcAceptoSerPunto, 'Descripcion'=>$tcDescripcion,'ClienteAgente'=>$tcAgenteCliente, 'lcAgenteVisita'=>$tcAgente, 'lnTelefono'=>$tnTelefonoAgente, 'lcPersonaAtendio'=>$tcPersonalAtendio, 'lnTelefonoAtendio'=>$tnTelefonoAtendio);
-
+      echo '<pre>';
+      print_r($data);
+      echo '</pre>';
+      return "aqui";
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
          "Content-Length: ".strlen( http_build_query($data))

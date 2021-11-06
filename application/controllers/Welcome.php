@@ -1811,17 +1811,6 @@ class Welcome extends CI_Controller {
 		$d["visitas"]=$taListadoVisita->values;
 		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
-	public function validarcliente()
-	{
-		$d = array();
-		$this->Msecurity->url_and_lan($d);
-		$taclientepuntocobranza = $this->servicios->MostrarClientePuntoCobranza();
-		$taclientebilletera = $this->servicios->MostrarClienteBilletera();
-		
-		$d["clientepuntocobranza"]=$taclientepuntocobranza->values;
-		$d["clientebilletera"]=$taclientebilletera->values;
-				
-	}
 	public function createvisitapuntosdecobranza()
 	{
 		$d = array();
@@ -1888,6 +1877,24 @@ class Welcome extends CI_Controller {
 		$taEditarVisitaPuntoCobranza = $this->servicios->EditarVisitaPuntoCobranza($lnIdPuntoCobranza ,$dtFecha , $lcDireccion, $lcDescripcion, $lnBanner, $lnSerPunto);
 		echo json_encode($taEditarVisitaPuntoCobranza);
 	}
+	public function validarcliente()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$taListadoVisita = $this->servicios->ListadoVisita();
+		$laBien = ['RESPUESTA' => 'OK'
+           ];
+        
+		foreach ($taListadoVisita->values as $key) {
+		echo '<pre>';
+		print_r($key);
+		echo '</pre>';
+		echo $this->input->post('IdCliente').'<br>'; 
+		echo $this->input->post('IdClienteBilletera');
+
+		}		
+			
+	}
 	public function InsertarVisita()
 	{  
 		$d = array();
@@ -1926,9 +1933,10 @@ class Welcome extends CI_Controller {
 
 		$lcPersonaAtendio = $this->input->post('slcpersonalatendiendoname');
 		$lnTelefonoAtendio = $this->input->post('txttelefonoatendiendo');
-
-		$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
-		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
+		
+		
+		//$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
+		//$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
 	public function vistafacturacionrecarga()
 	{

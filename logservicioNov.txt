@@ -1,0 +1,4 @@
+
+06/11/2021 09:03:08getcriteriobusquedahub ={"tnEmpresa":"2"}
+06/11/2021 09:03:24listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"520","tnCliente":"24605","tnIdAccion":17,"tcApp":2}
+06/11/2021 09:03:26getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}

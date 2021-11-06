@@ -73,7 +73,7 @@
                                                                 <?php 
                                                                     foreach($clientebilletera as $puntosbilletera)
                                                                     {?>
-                                                                        <option value="<?php echo $puntosbilletera->idCliente; ?>"><?php echo $puntosbilletera->apellido." ".$puntosbilletera->nombre; ?></option>
+                                                                        <option value="<?php echo $puntosbilletera->idCliente; ?>"><?php echo $puntosbilletera->idCliente." ".$puntosbilletera->nombre; ?></option>
                                                                    <?php }
                                                                 ?>
                                                             </select>
@@ -86,7 +86,7 @@
                                                                 <?php 
                                                                     foreach($clientepuntocobranza as $puntoscobranza)
                                                                     {?>
-                                                                        <option value="<?php echo $puntoscobranza->idCliente; ?>"><?php echo $puntoscobranza->apellido." ".$puntoscobranza->nombre; ?></option>
+                                                                        <option value="<?php echo $puntoscobranza->idCliente; ?>"><?php echo $puntoscobranza->idCliente." ".$puntoscobranza->nombre; ?></option>
                                                                    <?php }
                                                                 ?>
                                                             </select>
@@ -218,7 +218,7 @@
                                                 <label style="color: white;" for="Latitud">.</label><br>
                                     			<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
                                                 <button type="button" style="display: none;" id="divBtnUbicacion" class="btn btn-warning" onclick="mi_ubicacion();">Cargar Ubicacion Actual</button>
-                                    			<button class="btn btn-primary" style="display: none;" id="btnAceptar" type="submit">Aceptar</button>
+                                    			<button class="btn btn-primary" style="display: none;" id="btnAceptar" onclick="ValidarCliente($('#slccliente').val(), $('#slcclienteagente').val());" type="button">Aceptar</button>
                                     			<button class="btn btn-danger" style="display: none;" id="btnCancelar" type="reset">Cancelar</button>
                                                 </div>
                                             </div>
@@ -281,8 +281,8 @@
 	var laContAtendio=0;
 	subtotal=[];
 	$("#divGuardar").hide();
-    function ValidarCliente(IdCliente) {
-    var lcUrlajax="http://localhost:8080/web_pago_facil/es/EditarVisitaPersonalAtendio";
+    function ValidarCliente(IdCliente, IdClienteBilletera) {
+    var lcUrlajax="http://localhost:8080/web_pago_facil/es/ValidarCliente";
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -290,14 +290,24 @@
     });    
     $.ajax({                  
             url: lcUrlajax,
-            data: {IdCliente: IdCliente},
+            data: {IdCliente: IdCliente, IdClienteBilletera: IdClienteBilletera},
             type : 'POST',
             dataType: "json",
             beforeSend:function( ) {   
             },                    
             success:function(response) {
                 console.log("Exito");
-                console.log(response);
+                console.log(response.RESPUESTA);
+                if (response.RESPUESTA == "OK") {
+                alert("hay");
+                   // $('#btnAceptar').trigger('click');	
+                }
+                if(response.RESPUESTA == "error"){
+                    alert("Ya se asigno esta Empresa para este Encargado");
+                }
+                else{
+                    alert("No hay");
+                }
             },
             error: function (data) {
                 console.log("Error");
