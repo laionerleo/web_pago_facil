@@ -46,7 +46,7 @@
                             			<h3 class="card-title">Nueva Visita Punto de Cobranza</h3>
                             		</div>
                                 </div>
-                                <form class="needs-validation" novalidate action="InsertarVisita" method="post">
+                                <form class="needs-validation" novalidate action="InsertarVisita" method="post" id="FormInsertar">
                                     <div class="form-row">
                                         <div class="card-body">
                                         
@@ -219,6 +219,7 @@
                                     			<input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
                                                 <button type="button" style="display: none;" id="divBtnUbicacion" class="btn btn-warning" onclick="mi_ubicacion();">Cargar Ubicacion Actual</button>
                                     			<button class="btn btn-primary" style="display: none;" id="btnAceptar" onclick="ValidarCliente($('#slccliente').val(), $('#slcclienteagente').val());" type="button">Aceptar</button>
+                                                <button class="btn btn-primary" style="display: none;" id="btnValidar"  type="submit">Aceptar</button>
                                     			<button class="btn btn-danger" style="display: none;" id="btnCancelar" type="reset">Cancelar</button>
                                                 </div>
                                             </div>
@@ -299,14 +300,12 @@
                 console.log("Exito");
                 console.log(response.RESPUESTA);
                 if (response.RESPUESTA == "OK") {
-                alert("hay");
+                    alert("Ya se asigno esta Empresa para este Encargado");
                    // $('#btnAceptar').trigger('click');	
                 }
-                if(response.RESPUESTA == "error"){
-                    alert("Ya se asigno esta Empresa para este Encargado");
-                }
                 else{
-                    alert("No hay");
+                    $('#btnValidar').trigger('click');
+                  //  $("#FormInsertar").submit();
                 }
             },
             error: function (data) {

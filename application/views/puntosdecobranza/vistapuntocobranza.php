@@ -42,6 +42,7 @@
                         <div class="card" style="height: 100%;">
                             <div class="card-body text-left" style="    padding-top: revert;"> 
                                 <br>
+                                <form class="needs-validation" novalidate action="BuscarVisitaFechas" method="post">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -49,8 +50,37 @@
                                                 <div class="col-12 text-muted"><h2>Listado de Visitas a Puntos de Cobranza <a  href="<?=$url?>createvisitapuntosdecobranza"><button class="btn btn-primary">Nuevo</button></a></h2></div>
                                             </div>
                                         </div>
+                                        
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                	<div class="input-group">
+                                                	</div>
+                                                </div>                                               
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">                                           	
+                                                	<label for="">desde</label>
+                                                	<input type="date" class="form-control" name="dtDesde" placeholder="Buscar Desde..." values="">                                            	
+                                                </div>                                               
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">                                            	
+                                                	<label for="">hasta</label>
+                                                    <input type="date" class="form-control" name="dtHasta" placeholder="Buscar Hasta..." values="" >                                            	
+                                                </div>                                               
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">                                            	
+                                                    <span class="input-group-btn">
+                                                        <label style="color: white;" for="">hasta</label>
+                                                    	<button type="submit" class="btn btn-success">Buscar</button>
+                                                    </span>                                            	                                               
+                                                </div>                                               
+                                            </div>
+                                       
                                     </div>                  
                                 </div>
+                                </form>
                                 <div class="form-row">
                                     <div class="col-md-12 mb-12 table-responsive">
                                         <table id="example1" class="table table-striped table-bordered">

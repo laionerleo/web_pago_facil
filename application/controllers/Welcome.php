@@ -1811,6 +1811,14 @@ class Welcome extends CI_Controller {
 		$d["visitas"]=$taListadoVisita->values;
 		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
+	public function buscarvisitafechas()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$taListadoVisita = $this->servicios->BusarVisitaFechas($this->input->post('dtDesde'), $this->input->post('dtHasta'));
+		$d["visitas"]=$taListadoVisita->values;
+		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
+	}
 	public function createvisitapuntosdecobranza()
 	{
 		$d = array();
@@ -1886,14 +1894,16 @@ class Welcome extends CI_Controller {
            ];
         
 		foreach ($taListadoVisita->values as $key) {
-		echo '<pre>';
-		print_r($key);
-		echo '</pre>';
-		echo $this->input->post('IdCliente').'<br>'; 
-		echo $this->input->post('IdClienteBilletera');
-
+			if ($key->IdCliente == $this->input->post('IdCliente') || $key->IdCliente == $this->input->post('IdClienteBilletera')) {
+				$laBien = ['RESPUESTA' => 'OK'
+                ];
+                break;
+			}else {
+				$laBien = ['RESPUESTA' => 'ERROR'
+                ];
+			}
 		}		
-			
+		echo json_encode($laBien);
 	}
 	public function InsertarVisita()
 	{  
@@ -1935,8 +1945,8 @@ class Welcome extends CI_Controller {
 		$lnTelefonoAtendio = $this->input->post('txttelefonoatendiendo');
 		
 		
-		//$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
-		//$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
+		$taInsertarVisita = $this->servicios->InsertarVisita($lcTabla, $lnTablaId, $lcCliente, $lcLatitud, $lcLongitud, $lcUbicacionGps, $lcDireccion, $lcSeEntregoBanner, $lcAceptoSerPunto, $lcDescripcion, $lcAgenteCliente, $lcAgenteVisita, $lnTelefono, $lcPersonaAtendio, $lnTelefonoAtendio);
+		$this->load->view('puntosdecobranza/vistapuntocobranza', $d);		
 	}
 	public function vistafacturacionrecarga()
 	{
