@@ -70,6 +70,7 @@ function vistaconfirmacion()
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     
     var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo  , tnIdentificarPestaña:tnIdentificarPestaña};
+    console.log(datos);
     var urlajax=$("#url").val()+"vistaconfirmacion";   
     
     $("#confirmacionbody").empty();   

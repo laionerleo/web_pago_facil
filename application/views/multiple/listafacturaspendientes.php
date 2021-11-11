@@ -44,7 +44,7 @@
             <table class="table table-striped table-bordered">
                <thead>
                   <tr>
-                  <th> Seleccionar </th>
+                  <th  style="width: 50px;"> Seleccionar </th>
                     <!--    <th> N </th> -->
                      <th> Concepto </th>
                    <!--  <th> <?= $etiquetas->EtiquetaItemPago ?>   </th>  -->
@@ -99,11 +99,11 @@
                   </tr>
                   <?php  }?>
                   <tr>
-                   
-                     <td>  </td>
-                     <td> <label id="lblMontototal" for=""></label> </td>
-                     <td> <label id="lblMontocomision" for=""></label> </td>
-                     <td><label id="lblMontototalfinal" for=""></label></td>
+                     <td style="    border-right: none;">  </td>
+                     <td style="    border-left: none;" >  </td>
+                     <td style="text-align: end;"> <label id="lblMontototal" for=""></label> </td>
+                     <td style="text-align: end;"> <label id="lblMontocomision" for=""></label> </td>
+                     <td style="text-align: end;" ><label id="lblMontototalfinal" for=""></label></td>
                      <td></td>
                   </tr>
                   <input type="hidden" id="montototal"name="montotoal" value="">

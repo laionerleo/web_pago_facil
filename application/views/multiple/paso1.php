@@ -119,7 +119,7 @@ input.largerCheckbox {
     <!-- begin::footer -->
     <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
     <input type="hidden" id="codigofijo" name="codigofijo" value="<?= @$codigofijo ?>">
-    <input type="hidden" id="url" name="url" value="<?= $url ?>">
+   
     <input type="hidden" id="tnPosicion" name="tnPosicion" value="<?= $tnPosicion ?>">
     
 
@@ -207,9 +207,10 @@ function vistafacturacion()
                $(grupometododepago).click();
                 $("#metodopago-<?= $_SESSION['metododepago'] ?>").click();
                 
-            <?php  }else{?> 
-              $("#grupometodopago3").click();
-              //  $("#metodopago-5").click();
+            <?php  }else{
+               ?> 
+              $("#grupometodopago2").click();
+                $("#metodopago-4").click();
             <?php  } ?> 
             
             
@@ -244,3 +245,4 @@ function vistafacturacion()
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
     <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
+impre

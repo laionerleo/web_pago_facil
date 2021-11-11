@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('facebook');
 
 		//cargamos el helper url y el helper form
-        $this->load->helper(array('url', 'language'));
+    //    $this->load->helper(array('url', 'language'));
         
         //cargamamos la libreria del lenguaje
         $this->lang->load('welcome');
@@ -30,7 +30,7 @@ class Welcome extends CI_Controller {
 		$this->cargarlogsession("SESSIONNAME".$_COOKIE[session_name ()]);
 		//$_COOKIE[session_name ()];
 
-		if(!@$this->session->userdata('cliente')){
+		  if(!@$this->session->userdata('cliente')){
             $d = array();
             $this->Msecurity->url_and_lan($d);
             redirect($d['url']."?m=Usted tiene que iniciar session !!!");
@@ -271,8 +271,6 @@ class Welcome extends CI_Controller {
 			echo '</pre>' ;
 		}
 		
-		
-
 	}
 	public function getavisofacturames()
 	{
@@ -478,7 +476,7 @@ class Welcome extends CI_Controller {
 		$_SESSION[$tnIdentificarPestaña.'gnTelefonooEnvio'] =	$numero ;
 		$_SESSION[$tnIdentificarPestaña.'gnCorreoEnvio'] =$correo;
 
-		//var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
+
 		if($nombrecliente != $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'])
 		{
 			$_SESSION[$tnIdentificarPestaña.'nombreclienteempresa']=$nombrecliente ;
@@ -492,10 +490,31 @@ class Welcome extends CI_Controller {
 			$_SESSION['correo']=$correo;
 		}
 
+		echo '<pre>'; 
+		print_r($e );
+		echo '</pre>' ;
 
+		//aqui devoverificar si no es invitado , si es invitado 
+		//veriico si existe el usuario 
+		$idcliente=$this->session->userdata('cliente');
+		if($idcliente == 9 ) 
+		{
+			$respuesta=$this->servicios->verificar_cuenta($correo );
+		
+			if(!is_null($respuesta))
+			{
+				//$resultado=$this->servicios->loginpagofacil("invitado",md5("invitado") );
+				$data = get_object_vars($respuesta->values);
+				$_SESSION['user'] = $respuesta;
+				$this->session->set_userdata($data);
+
+
+			}
+		}
+	
 		$metodopago=$datos["metododepago"];
 		$id_empresa= $_SESSION[$tnIdentificarPestaña.'idempresa'];
-		$idcliente=$this->session->userdata('cliente');
+	
 		$metodos=$this->servicios->get_metodos_pago_empresa($idcliente ,$id_empresa);
 		$tipodecomision=0;
 		$montocomision=0;
@@ -531,6 +550,7 @@ class Welcome extends CI_Controller {
 				}
 			}
 			$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$d['listadofacturas'];		
+		
 			$this->load->view('multiple/confirmacion', $d);
 		}else{
 
@@ -838,8 +858,8 @@ class Welcome extends CI_Controller {
 		$tcCodigoClienteEmpresa = $_SESSION[$tnIdentificarPestaña.'codigofijo'];
 		$tnMetodoPago =$_SESSION[$tnIdentificarPestaña.'metododepago'];
 		$tnTelefono = null;
-		$tcFacturaA = $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] ;
-		$tnCiNit = ( $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa']!="" ) ? $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'] : "0";  
+		$tcFacturaA = ( $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa']!="" ) ? $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] : "usuario leo ";    ;
+		$tnCiNit = ( $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa']!="" ) ? $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'] : "1234";  
 		$tcNroPago = $_SESSION[$tnIdentificarPestaña.'nrofactura'];
 		$tnMontoClienteEmpresa=$_SESSION[$tnIdentificarPestaña.'montototal'];
 		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];

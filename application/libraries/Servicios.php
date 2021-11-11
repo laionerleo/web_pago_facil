@@ -457,7 +457,7 @@ class servicios {
             @Field("tnCliente")     long    cliente,
             @Field("tcFiltro")      String  query,
             @Field("tnIdAccion")    int     tnIdAccion);
-*/
+      */
       
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
@@ -1091,8 +1091,8 @@ tnAuthorizationNumber= autorizacion deBCP
 
     public function generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $taEntidades, $taFacturas ) 
     {
-       //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_GenerarQR_V2';
-       $url ='http://localhost:8000/api/Factura/BCP_GenerarQR_V2';
+       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_GenerarQR_V2';
+       //$url ='http://localhost:8000/api/Factura/BCP_GenerarQR_V2';
        $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 ,  'taEntidades'=>  $taEntidades , "taDetallePago"=>$taFacturas );
        $this->cargarlog("generarqr".json_encode($data));
        /*echo "<pre>";
@@ -2606,6 +2606,43 @@ public function getmetodosbyToken($tnTokenService)
 
    }
 
+
+
+   public function getempresasbytoken($tcComerceId,$idcliente)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/buscarempresabytoken';
+      $data = array('tcComerceId' => $tcComerceId ,'tnCliente'=> $idcliente,'tnIdAccion'=> 0 , 'tcApp'=>2  );
+      $this->cargarlog("getempresasbytoken".json_encode($data));
+     // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
+
+      /*     @POST(cPagoFacilPHP + "/Empresa/listarEmpresas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> listarEmpresas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcFiltro")      String  query,
+            @Field("tnIdAccion")    int     tnIdAccion);
+      */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   } 
 
 }
 
