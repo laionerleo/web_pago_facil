@@ -490,9 +490,7 @@ class Welcome extends CI_Controller {
 			$_SESSION['correo']=$correo;
 		}
 
-		echo '<pre>'; 
-		print_r($e );
-		echo '</pre>' ;
+	
 
 		//aqui devoverificar si no es invitado , si es invitado 
 		//veriico si existe el usuario 

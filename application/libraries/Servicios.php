@@ -1142,8 +1142,8 @@ tnAuthorizationNumber= autorizacion deBCP
     public function generarqrbnb($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $taEntidades , $taFacturas ) 
     {
  
-      //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BNB_GenerarQR';
-      $url ='http://localhost:8000/api/Factura/BNB_GenerarQR';
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BNB_GenerarQR';
+      //$url ='http://localhost:8000/api/Factura/BNB_GenerarQR';
        $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 ,  'taEntidades'=>  $taEntidades , "taDetallePago"=>$taFacturas );
        $this->cargarlog("generarqrbnb".json_encode($data));
        /*echo "<pre>";

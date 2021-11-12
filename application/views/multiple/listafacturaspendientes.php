@@ -1,6 +1,21 @@
- 
- 
- 
+
+
+ <style>
+    @media only screen and (max-width: 500px) {
+    .tablafacturas{
+      font-size: x-small;
+    }
+
+
+   }
+   @media only screen and (min-width: 1440px) {
+
+      .tablafacturas{
+         font-size: larger; 
+      }
+   } 
+   
+ </style>
     <script>
       var cantidadfacturas="<?= count($facturas)  ?>"; 
       var montototalaux=0;
@@ -38,13 +53,13 @@
       });
    </script>
    
-   <div class="card">
+   <div class="card" id="cardfacturaspendientes">
       <div class="card-body">
          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered tablafacturas">
                <thead>
                   <tr>
-                  <th  style="width: 50px;"> Seleccionar </th>
+                  <th> Seleccionar </th>
                     <!--    <th> N </th> -->
                      <th> Concepto </th>
                    <!--  <th> <?= $etiquetas->EtiquetaItemPago ?>   </th>  -->
@@ -55,7 +70,7 @@
                 
                   </tr>
                </thead>
-               <tbody  style="    font-size: x-small;">
+               <tbody >
                   <?php if(isset($facturas)){
                      for ($i=0; $i < count($facturas) ; $i++) { ?>
                   <tr>
@@ -104,7 +119,7 @@
                      <td style="text-align: end;"> <label id="lblMontototal" for=""></label> </td>
                      <td style="text-align: end;"> <label id="lblMontocomision" for=""></label> </td>
                      <td style="text-align: end;" ><label id="lblMontototalfinal" for=""></label></td>
-                     <td></td>
+                
                   </tr>
                   <input type="hidden" id="montototal"name="montotoal" value="">
                   <input type="hidden" id="facturaid"  name="facturaid" value="">
@@ -118,3 +133,7 @@
       </div>
    </div>
 
+
+   <script>
+    $('html, body').animate({scrollTop: $("#cardfacturaspendientes").offset().top }, 2000);
+</script>

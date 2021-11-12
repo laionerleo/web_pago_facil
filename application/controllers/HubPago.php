@@ -189,7 +189,12 @@ class HubPago extends CI_Controller {
 			$laServicioMetodosbyGrupo=$this->servicios->getmetodosbygrupos($lnEmpresa ,0  );
 			$d['metodospagogrupos']=$laServicioMetodosbyGrupo->values;
 			$_SESSION[$tnIdentificarPestaña.'metodospagogrupos']=$laServicioMetodosbyGrupo->values;	
+			
+			
 		
+			//echo '<pre>'; 
+			//print_r($laServicioMetodosbyGrupo );
+			//echo '</pre>' ;
 			$this->load->view('multiple/paso1', $d);
 		
 

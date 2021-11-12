@@ -203,14 +203,13 @@ function vistafacturacion()
             $(document).ready(function() {
             // Instrucciones a ejecutar al terminar la carga
             //ledioaeste(5,"#img-5");
-           <?php  if(isset( $_SESSION['metododepago'])){  ?> 
-               $(grupometododepago).click();
-                $("#metodopago-<?= $_SESSION['metododepago'] ?>").click();
-                
-            <?php  }else{
-               ?> 
-              $("#grupometodopago2").click();
-                $("#metodopago-4").click();
+           <?php  if( $_SESSION['cliente']== 9  ) {  ?> 
+                  $("#grupometodopago2").click();
+                  $("#metodopago-4").click();
+
+            <?php  }else{?> 
+                //  $(grupometododepago).click();
+                //$("#metodopago-<?= $_SESSION['metododepago'] ?>").click();
             <?php  } ?> 
             
             
@@ -245,4 +244,3 @@ function vistafacturacion()
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
     <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
-impre
