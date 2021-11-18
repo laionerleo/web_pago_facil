@@ -14,7 +14,6 @@
          font-size: larger; 
       }
    } 
-   
  </style>
     <script>
       var cantidadfacturas="<?= count($facturas)  ?>"; 

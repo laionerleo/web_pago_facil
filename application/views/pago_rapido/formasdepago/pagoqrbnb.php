@@ -224,7 +224,7 @@ img.fnone {
                                                     <?php if($recarga==20) { ?>
                                                         <button id="btnpagarotrafactura"  class=" btn btn-outline-primary "onclick="limpiar()">Comenzar de nuevo</button>
                                                     <?php }else{ ?>
-                                                        <input class="btn btn-outline-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+                                                        <input class="btn btn-outline-primary" onclick="facturaspendientesmultiple(0)" type="button" value="Finalizar ">
                                                     <?php }  ?>
                                                     
                                                      </center>                                                     

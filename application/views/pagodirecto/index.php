@@ -1,7 +1,50 @@
 <!doctype html>
 <html lang="en">
-<?php $this->load->view('theme/head'); ?>
-<link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png"/>  -->
+    <link rel="shortcut icon" href="<?=   @$tcUrlImagen; ?>"/>
+    
+
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/bundle.css" type="text/css">
+
+        <!-- Slick -->
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick.css" type="text/css">
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
+
+    <!-- Daterangepicker -->
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/datepicker/daterangepicker.css" type="text/css">
+
+    <!-- DataTable -->
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/dataTable/datatables.min.css" type="text/css">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/assets/css/app.min.css" type="text/css">
+    
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick.css" type="text/css">
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
+    <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/prism/prism.css" type="text/css">
+    <title><?=  @$tcNombreEmpresa   ?></title>
+      <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+      <meta content="<?= substr(strip_tags(@$tcNombreEmpresa), 0, 35).'...';      ?>" name="description">
+      <meta content="" name="author">  
+    <meta name="title" content="<?= substr(strip_tags(@$tcNombreEmpresa), 0, 35).' by PagoFacil - '.$tcNombreEmpresa      ?>">
+    <meta name="description" content="<?= substr(strip_tags(@$tcNombreEmpresa), 0, 65).'...';      ?>" >
+    <meta property="og:url" content="">
+    <meta property="og:image" content="<?=  @$tcUrlImagen  ?>">
+    <meta property="og:image:secure_url" content="<?=  @$tcUrlImagen ; ?>">
+    <meta property="og:image" itemprop="image" content="<?=  @ $tcUrlImagen ?>"> 
+    <meta property="og:image:type" content="image/jpg">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="<?=   @$tcUrlImagen; ?>">
+    <link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
+    
+</head>
+<meta property="og:type" content="website">
 <style>
         input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -54,7 +97,7 @@ input[type=number]::-webkit-outer-spin-button {
                               <div class="card-body">
                                  
                             <ul class="nav nav-tabs mb-3" role="tablist">
-                                <li class="nav-item" id="li1"  style="display:none"   >
+                                <li class="nav-item" id="li1"  >
                                     <a class="nav-link active" id="inicio-tab"  data-toggle="tab" href="#iniciobody" role="tab" 
                                        aria-controls="home" aria-selected="true">Inicio</a>
                                 </li>
@@ -83,12 +126,69 @@ input[type=number]::-webkit-outer-spin-button {
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                      aria-labelledby="home-tab">
                                      <div class="row">
-                                         <div  class=" col-md-3">  </div>
-                                     <div class=" col-md-6">
+                                         <div  class=" col-md-2">  </div>
+                                     <div class=" col-md-8">
                                             <div class="card" style="height: 100%;">
                                                 <div class="card-body text-center m-t-10-minus">
                                                     <div class="card-body">
                                                         <h4>Datos </h4>
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+                                                                <h1><?= $tcNombreEmpresa ?></h1>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <img src="<?= $tcUrlImagen  ?>" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="form-row">
+                                                                <div  id="divcriteriobusqueda" class="col-md-4 mb-2 "  style="display:none" >
+                                                                    <label for="">Tipo de documento</label><br>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                                                id="exampleRadios4" value="option1" checked >
+                                                                        <label class="form-check-label" for="exampleRadios4">
+                                                                            Codigo Fijo 
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                                                id="exampleRadios5" value="option2" >
+                                                                        <label class="form-check-label" for="exampleRadios5">
+                                                                            Carnet de Identidad
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div  id="divcriteriobusquedahub" class="col-md-4 mb-2"   style="text-align: initial;">
+
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label id ="lblcodigo" for="">Codigo</label>
+                                                                    <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                                                </div>
+                                                             
+                                                                <div class="form-row col-md-4 mb-3 ">
+                                                                    <div class="col-md-1 mb-1" id="idlugarboton" >
+                                                                        <input type="hidden" id="url"  value="<?= $url ?>">
+                                                                        <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
+                                                                        
+                                                                        <br>
+                                                                        <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
+                                                                        <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
+                                                                        
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-row" style="    width: 100%;">
+                                                                <div class="col-md-12 mb-12" id="vista_clientes">
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                            </div>
                                             
                                                     
                                                     </div>
@@ -421,7 +521,17 @@ function facturaspendientesmultiple(codigo_usuario)
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     
-    
+    $.ajaxSetup(
+                {
+                    cache: false,
+                    error: function(event, request, settings){
+                   // alert("a ocurrido un error al procesar la solicitud , volver a consultar ");
+                    swal("a ocurrido un error al procesar la solicitud ", "volver a consultar la deuda porfavor "+request , "error");
+                    $("#facturaspendientesbody").empty();
+                    $("#inicio-tab").click();
+                    }
+
+                });
     $("#facturaspendientesbody").load(urlajax,{datos});   
     
     $("#li2").show();
@@ -521,13 +631,24 @@ function cargarcriteriobusquedahub(empresa)
     var indexunico=0;
     $( document ).ready(function() {
 
+        id_empresa=<?= $tnEmpresa   ?> ; 
+        empresa_id=<?= $tnEmpresa   ?> ; 
+    var codigofijolink= <?= $tnCodigoFijo  ?> ;  
+    if(codigofijolink==0)
+    {
+        cargarcriteriobusquedahub(id_empresa);
+    }else{
         facturaspendientesmultiple(0);
-    });
-$("#inp_dato").on('keyup', function (e) {
-    if (e.key === 'Enter' || e.keyCode === 13) {
-        busqueda_datos();
     }
-}); 
+    
+        
+
+    });
+            $("#inp_dato").on('keyup', function (e) {
+                if (e.key === 'Enter' || e.keyCode === 13) {
+                    busqueda_datos();
+                }
+        }); 
 
 function error(tnIdImput)
         {             

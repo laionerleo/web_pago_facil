@@ -56,8 +56,9 @@ class PagoDirecto extends CI_Controller {
 				$_SESSION['user'] = $resultado;
 				$this->session->set_userdata($data);
 			}
+			
 			$loServicioBusquedaEmpresa=$this->servicios->getempresasbytoken($tcCommerceId,1);
-			if($loServicioBusquedaEmpresa->error == 0 &&   !is_null($loServicioBusquedaEmpresa->values) )
+			if($loServicioBusquedaEmpresa->error == 0 &&   !is_null($loServicioBusquedaEmpresa->values)   )
 			{
 				$tnEmpresa=$loServicioBusquedaEmpresa->values[0]->Empresa;
 				$loServicioBusquedaClientes=$this->servicios->getBusquedaClienteGeneral($tnEmpresa,$codigo_fijo,1);	 
@@ -69,6 +70,8 @@ class PagoDirecto extends CI_Controller {
 				$d["tcUrlImagen"]=$loServicioBusquedaEmpresa->values[0]->UrlImagen;
 				$d["tcNombreEmpresa"]=$loServicioBusquedaEmpresa->values[0]->Descripcion;
 				$d["cliente"]=9;
+				$d["tnCodigoFijo"]=$codigo_fijo;
+				
 		
 				$this->load->view('pagodirecto/index', $d);
 			}else{

@@ -42,7 +42,7 @@ img.fnone {
                                         <div class="col-md-12">
                                         <center>
                                             
-                                                 <img onclick="ayudaqr()" src="http://localhost/web_pago_facil/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt="">
+                                                 <img onclick="ayudaqr()" src="<?= base_url() ?>/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt="">
                                             
                                         </center>
                                         </div>
@@ -99,7 +99,7 @@ img.fnone {
                                                         <div class="col-md-12">
                                                             <center>
                                                                 <a id="linkcomopagar"  class="linkcomopagar" style="display:none ; font-weight: bolder; " target="_blank" href="">
-                                                                    <u>  <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt=""> <br> ¿ Como Pagar ? </u>
+                                                                    <u>  <img src="<?= base_url() ?>/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt=""> <br> ¿ Como Pagar ? </u>
                                                                 </a>
                                                             </center>
                                                         </div>
@@ -156,7 +156,7 @@ img.fnone {
                                 <h5 class="card-title" style="margin-bottom: 0px;"  >Paso 1</h5>
                                 <div class="row">
                                 <div class="col-md-2 col-2" style="text-align: end;">
-                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
+                                        <img src="<?= base_url() ?>/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
                                     </div>
                                     <div class="col-md-10 col-10">
                                         <label for="">
@@ -168,7 +168,7 @@ img.fnone {
                                 <h5 class="card-title" style="margin-bottom: 0px;" >Paso 2</h5>
                                 <div class="row">
                                     <div class="col-md-2 col-2" style="text-align: end;">
-                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/deslizar.png" style="height: 35px;" alt="">
+                                        <img src="<?= base_url() ?>/application/assets/assets/iconos/deslizar.png" style="height: 35px;" alt="">
                                     </div>
                                     <div class="col-md-10 col-10">
                                         <label for="">
@@ -180,7 +180,7 @@ img.fnone {
                                 <h5 class="card-title" style="margin-bottom: 0px;" >Paso 3</h5>
                                 <div class="row">
                                 <div class="col-md-2 col-2" style="text-align: end;">
-                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
+                                        <img src="<?= base_url() ?>/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
                                     </div>
                                     <div class="col-md-10 col-10">
                                         <label for="">
@@ -223,7 +223,7 @@ img.fnone {
                                                     <?php if($recarga==20) { ?>
                                                         <button id="btnpagarotrafactura"  class=" btn btn-outline-primary "onclick="limpiar()">Comenzar de nuevo</button>
                                                     <?php }else{ ?>
-                                                        <input class="btn btn-outline-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+                                                        <input class="btn btn-outline-primary" onclick="facturaspendientesmultiple(0)" type="button" value="Finalizar ">
                                                     <?php }  ?>
                                                     
                                                      </center>                                                     

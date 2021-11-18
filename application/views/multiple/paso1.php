@@ -87,14 +87,16 @@ input.largerCheckbox {
                               <div class="col-md-12">
                                  <div class="form-group"   style="margin-bottom: 0rem;">
                                     <div class="custom-control custom-radio" >
-                                       <input  onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')"  type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
+                                    
+                                       <input  type="radio" data-metodopago="<?= $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"   data-item="#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->etiquetaBilletera ?></label>
                                     </div>
                                  </div>
                               </div>
                               <script>
-                                 <?php  if(isset( $_SESSION['metododepago'])){ 
-                                    if($_SESSION['metododepago']== $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago){
+                      
+                                 <?php  if(isset($lnUltimoMetodPago)){ 
+                                    if($metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago== $lnUltimoMetodPago){
                                     ?> 
                                          var grupometododepago="#grupometodopago<?=  $i ?>";     
                                  <?php }} ?> 
@@ -155,18 +157,16 @@ function getpdfactualizado()
 function vistafacturacion()
 {
    var lafacturas=new Array(); 
-         for (let index = 0; index < cantidadfacturas; index++) {
-           
-           if($("#items-"+(index)).is(':checked') )
-           {
-            //$("#items-"+(index)).prop("checked", true);
-            console.log($("#items-"+(index)).prop("id"));
-            lafacturas.push ($("#items-"+(index)).val()); 
-           }
-        }
-        console.log(lafacturas);
-       
-
+   for (let index = 0; index < cantidadfacturas; index++) {
+      
+      if($("#items-"+(index)).is(':checked') )
+      {
+      //$("#items-"+(index)).prop("checked", true);
+      console.log($("#items-"+(index)).prop("id"));
+      lafacturas.push ($("#items-"+(index)).val()); 
+      }
+   }
+   console.log(lafacturas);
     var montototal= montototalaux ;//$("#montototal").val(montototalgeneral);
     var montocomision= montocomisionaux;
     var idfactura=$("#facturaid").val();
@@ -182,44 +182,45 @@ function vistafacturacion()
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-      $.ajaxSetup(
-         {
-            cache: false,
-         });
-         $("#facturacionbody").load(urlajax,{datos});   
-         $("#li3").show();
-         $("#facturacion-tab").click();
-         
-      }
-        idmetododepago=0;
-    function ledioaeste(idmetododepagonuevo,id_item)
-            {
-                console.log(id_item);
-              idmetododepago=idmetododepagonuevo;
-                $('#cajalistafacturas').show();
-                listarfacturaspendientesmultiple(idmetododepago);
-            }
+    $.ajaxSetup(
+                  {
+                     cache: false,
+                  });
+   $("#facturacionbody").load(urlajax,{datos});   
+   $("#li3").show();
+   $("#facturacion-tab").click();
+   
+}
+   idmetododepago=0;
+function ledioaeste(idmetododepagonuevo,id_item)
+   {
+      console.log(id_item);
+      console.log("ledioaeste");
+      idmetododepago=idmetododepagonuevo;
+      $('#cajalistafacturas').show();
+      listarfacturaspendientesmultiple(idmetododepago);
+   }
+$(document).ready(function() {
+      <?php  if( $_SESSION['cliente']== 9  ) {  ?> 
+               $("#grupometodopago2").click();
+               $("#metodopago-4").click();
+               ledioaeste(4,"#img-4") ;
+         <?php  }else{?> 
+            console.log(grupometododepago);
+               $(grupometododepago).click();
+               $("#metodopago-<?= $lnUltimoMetodPago ?>").click();
+               ledioaeste(<?= $lnUltimoMetodPago ?>,"#img-<?= $lnUltimoMetodPago ?>") ;
+         <?php  } ?> 
 
-            $(document).ready(function() {
-            // Instrucciones a ejecutar al terminar la carga
-            //ledioaeste(5,"#img-5");
-           <?php  if( $_SESSION['cliente']== 9  ) {  ?> 
-                  $("#grupometodopago2").click();
-                  $("#metodopago-4").click();
-
-            <?php  }else{?> 
-                //  $(grupometododepago).click();
-                //$("#metodopago-<?= $_SESSION['metododepago'] ?>").click();
-            <?php  } ?> 
-            
-            
-            
-            
+         $("input[name=customRadio]").click(function () {    
+               ledioaeste($(this).data("metodopago"),$(this).data("item")) ;
             });
-             function funcionvermas()
-             {
-                $("#divinformacion").toggle(500);
-             }
+
+});
+function funcionvermas()
+   {
+      $("#divinformacion").toggle(500);
+   }
          
     function listarfacturaspendientesmultiple(metododepago)
     {
@@ -232,6 +233,15 @@ function vistafacturacion()
         $("#cajalistafacturas").empty();   
         $("#cajalistafacturas").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
        // $("#cajalistafacturas").click();
+       $.ajaxSetup(
+                  {
+                     cache: false,
+                     error: function(event, request, settings){
+                        $("#cajalistafacturas").empty();  
+                        swal("a ocurrido un error al procesar la solicitud ", "volver a elegir metodo pago ,si el error persite  consultar con atencion al cliente  " , "error");
+                        }
+
+                  });
         $("#cajalistafacturas").load(urlajax,{datos});  
         
 

@@ -416,7 +416,7 @@ class Welcome extends CI_Controller {
 			
 		$d['nombrecliente'] = $this->session->userdata($tnIdentificarPestaña.'nombreclienteempresa');
 		$d['cionit']= $this->session->userdata($tnIdentificarPestaña.'cionitclienteempresa'); 
-		$d['numerocelular']=  $this->session->userdata('telefonoDePago');
+		$d['numerocelular']=  $this->session->userdata('telefono');
 		$d["correo"]= $this->session->userdata('correo');
 		$_SESSION[$tnIdentificarPestaña.'montototal']=$datos["montototal"];
 		//$_SESSION[$tnIdentificarPestaña.'idfactura']=$datos["idfactura"];
@@ -464,7 +464,7 @@ class Welcome extends CI_Controller {
 
 	}
 	public function vistaconfirmacion()
-	{	
+	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 		$datos=$this->input->post("datos");
@@ -476,7 +476,7 @@ class Welcome extends CI_Controller {
 		$_SESSION[$tnIdentificarPestaña.'gnTelefonooEnvio'] =	$numero ;
 		$_SESSION[$tnIdentificarPestaña.'gnCorreoEnvio'] =$correo;
 
-
+		//var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
 		if($nombrecliente != $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'])
 		{
 			$_SESSION[$tnIdentificarPestaña.'nombreclienteempresa']=$nombrecliente ;
@@ -490,9 +490,7 @@ class Welcome extends CI_Controller {
 			$_SESSION['correo']=$correo;
 		}
 
-	
-
-		//aqui devoverificar si no es invitado , si es invitado 
+			//aqui devoverificar si no es invitado , si es invitado 
 		//veriico si existe el usuario 
 		$idcliente=$this->session->userdata('cliente');
 		if($idcliente == 9 ) 
@@ -510,9 +508,10 @@ class Welcome extends CI_Controller {
 			}
 		}
 	
+
 		$metodopago=$datos["metododepago"];
 		$id_empresa= $_SESSION[$tnIdentificarPestaña.'idempresa'];
-	
+		$idcliente=$this->session->userdata('cliente');
 		$metodos=$this->servicios->get_metodos_pago_empresa($idcliente ,$id_empresa);
 		$tipodecomision=0;
 		$montocomision=0;
@@ -526,8 +525,9 @@ class Welcome extends CI_Controller {
 		//$_SESSION[$tnIdentificarPestaña.'montocomision']=$montocomision->values;
 		$d['comision']=$_SESSION[$tnIdentificarPestaña.'montocomision'];
 		$d['nombremetodopago']=$_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'];
-		$d['medios']= $this->session->userdata('telefonoDePago');
-		$d['email']=$this->session->userdata('correo');		
+		$d['medios']= $_SESSION[$tnIdentificarPestaña.'gnTelefonooEnvio'];
+		$d['email']=$_SESSION[$tnIdentificarPestaña.'gnCorreoEnvio'];		
+		
 		$d['nombreempresa']=$_SESSION[$tnIdentificarPestaña.'nombreempresa'];
 		$d['urlimagenempresa']=$_SESSION[$tnIdentificarPestaña.'urlimagenempresa'];
 		$_SESSION[$tnIdentificarPestaña.'montototalpagar']= $d['monto'] + $d['comision'];
@@ -548,13 +548,13 @@ class Welcome extends CI_Controller {
 				}
 			}
 			$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$d['listadofacturas'];		
-		
 			$this->load->view('multiple/confirmacion', $d);
 		}else{
 
 			$this->load->view('pago_rapido/confirmacion', $d);
 		}
 	
+
 
 	}
 	public function vistaprepararpago()
@@ -1021,19 +1021,19 @@ class Welcome extends CI_Controller {
 		$tcExpireDate =$fechaexpiracion;
 		$taFacturas= $_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
 		/*	 
-		if($tcNroPago!=0)
-		{
-		 $laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnempresa, $tcNroPago);
+			if($tcNroPago!=0)
+			{
+				$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnempresa, $tcNroPago);
 
-		 if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) == floatval($tnMontoClienteEmpresa) )  )
-		 {
-			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
-			$tcPeriodo=$laConsultaFactura->periodo;
-			$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
-			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
-			$tnMontoClienteSyscoop= $montocomision->values;
-		 }
-		}
+				if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) == floatval($tnMontoClienteEmpresa) )  )
+				{
+					$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
+					$tcPeriodo=$laConsultaFactura->periodo;
+					$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
+					$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
+					$tnMontoClienteSyscoop= $montocomision->values;
+				}
+			}
 		*/
 		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas );
 		$this->cargarlog("prepararpagobcp".json_encode($metodos));

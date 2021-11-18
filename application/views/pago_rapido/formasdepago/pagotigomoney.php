@@ -109,7 +109,7 @@
                                  <?php if($recarga==20) { ?>
                                   <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="limpiar()">Comenzar de nuevo</button>
                                 <?php }else{ ?>
-                                  <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
+                                  <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientesmultiple(0)">Pagar otra factura</button>  
                                 <?php }  ?>
                                  
                                  
@@ -133,9 +133,8 @@
 
 <script>
 
-      var intervalo;
+    var intervalo;
       var intervalorelog;
-      var goAjax; 
         function pagarportigomoney()
         {
           var tnNumeroTigoMoney=$('#tnNumeroTigoMoney').val();
@@ -148,41 +147,43 @@
               var datos= {tnNumeroTigoMoney:tnNumeroTigoMoney, tnIdentificarPestaña:tnIdentificarPestaña  };
               var urlajax=$("#url").val()+"metodotigomoney"; 
           
-              $.ajax({                    
+                $.ajax({                    
                   url: urlajax,
                   data: {datos},
                   type : 'POST',
                   dataType: "json",
                   
                       beforeSend:function( ) {   
-                          display = document.querySelector('#time');
-                          Relog(<?=  $tiempo ?>, display);
-                          $("#btncarga").show();
+                        display = document.querySelector('#time');
+                        Relog(<?=  $tiempo ?>, display);
+                        $("#btncarga").show();
                           $("#bntprepararpago").hide();
-                          //  $("#mensajerecibido").val("El pago se  a iniciado");
-                          //texto=$("#mensajerecibido").val();
-                          //$("#mensajerecibido").val( texto+" \r\n El pago en proceso . espere porfavor");
+                      //  $("#mensajerecibido").val("El pago se  a iniciado");
+                      //texto=$("#mensajerecibido").val();
+                      //$("#mensajerecibido").val( texto+" \r\n El pago en proceso . espere porfavor");
                       },                    
                       success:function(response) {
-                          console.log(response);
-                          console.log(response.valor);
-                          if(response.tipo==10)
-                          {
-                              intervalo=setInterval('verificartransaccion('+ response.valor +')',6000);
-                              console.log("valor del intervalo ="+intervalo);
-                          }
-                          if(response.tipo==1)
-                          {
-                            clearInterval(intervalorelog);
-                            $("#time").empty();
-                            $("#btncarga").hide();
-                            $("#bntprepararpago").show();
-                            swal("Error", response.mensaje , "error");     
-                          }
+                      console.log(response);
+                      console.log(response.valor);
+                      if(response.tipo==10)
+                      {
+                          intervalo=setInterval('verificartransaccion('+ response.valor +')',6000);
+                          console.log("valor del intervalo ="+intervalo);
+                      }
+                      if(response.tipo==1)
+                      {
+                        clearInterval(intervalorelog);
+                        $("#time").empty();
+                        $("#btncarga").hide();
+                        $("#bntprepararpago").show();
+                        swal("Error", response.mensaje , "error");
+                        
+                      }
                           
                       },
                       error: function (data) {
-                          swal("Mensaje", "Ocurrio un error al procesar la solicitud" , "error");  
+                          swal("Mensaje", "Ocurrio un error al procesar la solicitud" , "error");
+                          
                       },               
                       complete:function( ) {
                           
@@ -202,7 +203,7 @@
             swal("Falta ", datosfaltantes , "error");
 
           }  
-  }
+}
 
         
       
@@ -211,59 +212,73 @@
               var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
                 var datos= {transaccion:trans ,tnIdentificarPestaña:tnIdentificarPestaña };
                 var urlajax=$("#url").val()+"verificartransaccion"; 
-                if(goAjax!=null)
-                {
-                  console.log(goAjax);
-                        console.log(goAjax.status ); 
-                }
-          
-               
-                goAjax= $.ajax({                    
+            
+                $.ajax({                    
                         url: urlajax,
                         data: {datos},
                         type : 'POST',
                         dataType: "json",
                         
                             beforeSend:function( ) {   
+                            
                             },                    
                             success:function(response) {
+                              console.log(response);
+                              if(response.tipo==3)
+                              {
+
+                              }
+                              if(response.tipo==1)
+                              {
+                                clearInterval(intervalo);
+                                clearInterval(intervalorelog);
+                                $("#time").empty();
                                 console.log(response);
-                                if(response.tipo==3)
-                                {
+                                swal("Error", response.mensaje , "error");
+                                $("#btncarga").hide();
+                                $("#bntprepararpago").show();
 
-                                }
-                                if(response.tipo==1)
-                                {
-                                    clearInterval(intervalo);
-                                    clearInterval(intervalorelog);
-                                    $("#time").empty();
-                                    console.log(response);
-                                    swal("Error", response.mensaje , "error");
-                                    $("#btncarga").hide();
-                                    $("#bntprepararpago").show();
-                                }
-                                if(response.tipo==0)
-                                {
-                                  clearInterval(intervalo);
-                                  clearInterval(intervalorelog);
-                                  $("#time").empty();
-                                  
-                                  swal("Pago exitoso",response.mensaje , "success");  
-                                  $("#btncarga").hide();
-                                  $("#bntprepararpago").show();
 
-                                }
+                              }
+                              if(response.tipo==0)
+                              {
+                                clearInterval(intervalo);
+                                clearInterval(intervalorelog);
+                                $("#time").empty();
+                                
+                                swal("Pago exitoso",response.mensaje , "success");  
+                                $("#btncarga").hide();
+                                $("#bntprepararpago").show();
 
+                              }
+
+/*
+                              console.log("llego algo y entro aqui ");
+                              if(response.tipo==3)
+                              {
+                                texto=$("#mensajerecibido").val();
+                                $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
+                                console.log(response);
+                                console.log("entro por el 3 ");
+
+                              }else{
+                                texto=$("#mensajerecibido").val();
+                                $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
+                                console.log(intervalo);
+                                clearInterval(intervalo);
+                                console.log("entro por diferente de 3  ");
+                              }  
+                              */
                             },
                             error: function (data) {
-                              console.log(data);  
+                              console.log(data);
+                                //swal("Mensaje", "Ocurrio un error al procesar la solicitud" , "error");
+                                
                             },               
                             complete:function( ) {
                                 
                             },
-                        }); 
-                        
-
+                        });  
           }
   
         $(document).ready(function() {

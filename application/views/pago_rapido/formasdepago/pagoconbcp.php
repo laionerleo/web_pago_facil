@@ -98,6 +98,7 @@
                                                               <option value="PT">PT</option>
                                                               <option value="OR">OR</option>
                                                               <option value="CH">CH</option>
+                                                              <option value="EX">EX</option>
                                                           </select>
                                                       </div>
                                                      
@@ -208,9 +209,9 @@
                                             </div>
                                             <div class="col-md-6 col-6">
                                                 <?php if($recarga==20) { ?>
-                                                    <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="limpiar()">Comenzar de nuevo</button>
+                                                    <button id="btnpagarotrafactura"  class="btn btn-outline-primary "onclick="limpiar()">Comenzar de nuevo</button>
                                                     <?php }else{ ?>
-                                                    <button id="btnpagarotrafactura"  class="btn btn-primary "onclick="facturaspendientesmultiple(<?= $tnPosicion ?>)">Pagar otra factura</button>
+                                                    <button id="btnpagarotrafactura"  class="btn btn-outline-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
                                                 <?php }  ?>
                                             </div>
                                             <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
@@ -369,27 +370,23 @@
         function metodoprepararpago()
         {
             
-            if(  ($('#inpci').val().length>0)   &&  ($('#inpci').val()!=0) && ($('#slcext').val()!= 0) && $('#slcmes').val()!= 0 && $('#slcaño').val()!= 0  )
+            if(  ($('#inpci').val().length>0)   &&  ($('#inpci').val()!=0) && ($('#slcext').val()!= 0) && ($('#slcext').val()!= "")  && ($('#slcext').val()!= null)  && $('#slcmes').val()!= 0  && $('#slcmes').val()!= null  && $('#slcaño').val()!= 0 && $('#slcaño').val()!= null   && ($('#slcmes').val()!= "")  && ($('#slcaño').val()!= "") )
                 { 
-                valido("#inpci");
-                valido("#slcext");
-                valido("#slcmes") ;
-                valido("#slcaño");
-                var ci=$('#inpci').val();
-                var complemento=$('#inpcomplemento').val();
-                var extension=$('#slcext').val();
-                var fechaexpiracion=$('#slcmes').val()+"/"+$('#slcaño').val();
-                var numbersoli=$('#inpnumbersoli').val();
-                var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-                var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli ,tnIdentificarPestaña:tnIdentificarPestaña };
-                var urlajax=$("#url").val()+"metodoprepararpagobcp"; 
-                
-                
-                console.log(datos);
-              
-
-                
-                $.ajax({                    
+                    valido("#inpci");
+                    valido("#slcext");
+                    valido("#slcmes") ;
+                    valido("#slcaño");
+                    var ci=$('#inpci').val();
+                    var complemento=$('#inpcomplemento').val();
+                    var extension=$('#slcext').val();
+                    var fechaexpiracion=$('#slcmes').val()+"/"+$('#slcaño').val();
+                    var numbersoli=$('#inpnumbersoli').val();
+                    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+                    var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli ,tnIdentificarPestaña:tnIdentificarPestaña };
+                    var urlajax=$("#url").val()+"metodoprepararpagobcp"; 
+                    console.log(datos);
+                      
+                    $.ajax({                    
                         url: urlajax,
                         data: {datos},
                         type : 'POST',
@@ -434,6 +431,7 @@
                         
 
             }else{
+                console.log("alkwjdlaksjdlkajsdlkaj");
                 var datosfaltantes="Faltan los siguientes Datos :";
                 if($('#inpci').val().length==0 || $('#inpci').val()==0 )
                 {
@@ -444,8 +442,9 @@
                     valido("#inpci");
                 }
 
-
-                if($('#slcext').val()== 0)
+                var lcAuxExt=$('#slcext').val();
+                console.log(lcAuxExt);
+                if(lcAuxExt   == 0 || lcAuxExt== "" || lcAuxExt== null  )
                     {
                     datosfaltantes=datosfaltantes+"Extensión , ";
                     error("#slcext") ;
@@ -454,7 +453,7 @@
                         valido("#slcext");
                     }
       
-                    if($('#slcmes').val()== 0)
+                    if($('#slcmes').val()== 0 ||  $('#slcmes').val()== "" ||  $('#slcmes').val()== null  )
                     {
                         datosfaltantes=datosfaltantes+"Mes  , ";
                         error("#slcmes") ;
@@ -464,7 +463,7 @@
                         valido("#slcmes");
                     }
 
-                    if($('#slcaño').val()== 0)
+                    if($('#slcaño').val()== 0 || $('#slcaño').val()== ""  ||  $('#slcaño').val()== null  )
                     {
                         datosfaltantes=datosfaltantes+"Año  , ";
                 
