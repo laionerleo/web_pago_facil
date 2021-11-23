@@ -201,16 +201,25 @@ function ledioaeste(idmetododepagonuevo,id_item)
       listarfacturaspendientesmultiple(idmetododepago);
    }
 $(document).ready(function() {
+   console.log("ready paso1");
       <?php  if( $_SESSION['cliente']== 9  ) {  ?> 
                $("#grupometodopago2").click();
                $("#metodopago-4").click();
                ledioaeste(4,"#img-4") ;
-         <?php  }else{?> 
+         <?php  }else{
+            if(isset($lnUltimoMetodPago) &&  is_null($lnUltimoMetodPago)  )
+               {
+            ?> 
             console.log(grupometododepago);
                $(grupometododepago).click();
                $("#metodopago-<?= $lnUltimoMetodPago ?>").click();
                ledioaeste(<?= $lnUltimoMetodPago ?>,"#img-<?= $lnUltimoMetodPago ?>") ;
-         <?php  } ?> 
+         <?php }else{  ?>
+               $("#grupometodopago2").click();
+               $("#metodopago-4").click();
+               ledioaeste(4,"#img-4") ;
+
+            <?php  }  } ?> 
 
          $("input[name=customRadio]").click(function () {    
                ledioaeste($(this).data("metodopago"),$(this).data("item")) ;
@@ -236,9 +245,12 @@ function funcionvermas()
        $.ajaxSetup(
                   {
                      cache: false,
-                     error: function(event, request, settings){
+                     error: function(error){
+                        console.log(error);
+                      //  console.log(settings);
+                   
                         $("#cajalistafacturas").empty();  
-                        swal("a ocurrido un error al procesar la solicitud ", "volver a elegir metodo pago ,si el error persite  consultar con atencion al cliente  " , "error");
+                        swal("ha ocurrido un error al procesar la solicitud ", "volver a elegir metodo pago ,si el error persite  consultar con atencion al cliente  72104048 " , "error");
                         }
 
                   });

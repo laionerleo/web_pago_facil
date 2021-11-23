@@ -119,7 +119,6 @@ class Welcome extends CI_Controller {
 		$tnCliente=$this->session->userdata('cliente');
 		$tnHubTitulo=0;
 		$loServicioBusquedaClientes=$this->servicios->getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio);	 
-	
 		if($loServicioBusquedaClientes->error == 0  && !is_null($loServicioBusquedaClientes->values)  )
 		{
 			$d['clientes']=$loServicioBusquedaClientes->values;

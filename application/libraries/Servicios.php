@@ -226,7 +226,9 @@ class servicios {
    }
    public function get_listar_facturas($id_empresa,$codigo_cliente_empresa ,$id_cliente)
    {
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ListarFacturasPendientesSimples2';
+      //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ListarFacturasPendientesSimples2';
+      $url = 'http://localhost:8000/api/Factura/ListarFacturasPendientesSimples2';
+     
       $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_cliente_empresa  ,'tnCliente' => $id_cliente , 'tnIdAccion'=> 17 , 'tcApp'=>2  );
       $this->cargarlog("listarfacturas".json_encode($data));
       $header = array(
@@ -2460,6 +2462,7 @@ public function getmetodosbyToken($tnTokenService)
     {
     
        $url= 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getcriteriobusqueda';
+      
        $data = array( 'tnEmpresa' =>$tnEmpresa  );
        $this->cargarlog("getcriteriobusquedahub =".json_encode($data));
 
@@ -2572,7 +2575,10 @@ public function getmetodosbyToken($tnTokenService)
 
     public function getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio)
    {
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+     // $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+      
+      $url = 'http://localhost:8000/api/HubPago/getbusquedaclientes';
+      
       $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
       /*
       @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")

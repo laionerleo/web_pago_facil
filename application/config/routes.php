@@ -143,8 +143,13 @@ $route[$l.'logout_google']                          = 'Google_Authentication/log
 
 
 
-$route[$l.'pay/(:any)/(:any)']                    = 'PagoDirecto/Pay2/$1/$2/$3';
-$route[$l.'pay/(:any)']                    = 'PagoDirecto/Pay2/$1/$2/0';
+$route[$l.'pay/(:any)/(:any)']                    = 'PagoDirecto/Pay/$1/$2/$3';
+$route[$l.'pay/(:any)']                    = 'PagoDirecto/Pay/$1/$2/0';
+
+
+
+$route[$l.'pay2/(:any)/(:any)']                     = 'PagoDirecto/Pay2/$1/$2/$3';
+$route[$l.'pay2/(:any)']                            = 'PagoDirecto/Pay2/$1/$2/0';
 
 
 

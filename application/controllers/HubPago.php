@@ -244,6 +244,7 @@ class HubPago extends CI_Controller {
 						$laServicioListarFacturas->values[$i]->periodo =$this->get_periodo($laServicioListarFacturas->values[$i]->periodo);	
 					}
 				}
+				
 				$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$laServicioListarFacturas->values;
 			}else{
 				$d['facturas']= array();
@@ -284,6 +285,7 @@ class HubPago extends CI_Controller {
 						
 			
 				}	
+				
 			$this->load->view('multiple/listafacturaspendientes', $d);
 		} catch (\Throwable $th) {
 			//throw $th;

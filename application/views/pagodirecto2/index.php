@@ -8,7 +8,8 @@
     <!-- <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png"/>  -->
     <link rel="shortcut icon" href="<?=   @$tcUrlImagen; ?>"/>
     
-
+  <link rel="manifest" href="<?=  base_url() ?>/application/assets/pwa/manifest.json">
+  <script src="<?=  base_url() ?>/application/assets/pwa/js/main.js"></script>
     <!-- Plugin styles -->
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/bundle.css" type="text/css">
 
