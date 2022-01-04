@@ -163,7 +163,7 @@
                       beforeSend:function( ) {   
                         display = document.querySelector('#time');
                      //   Relog(<?=  $tiempo ?>, display);
-                        Relog(60, display);
+                        Relog(90, display);
 
                         $("#btncarga").show();
                           $("#bntprepararpago").hide();

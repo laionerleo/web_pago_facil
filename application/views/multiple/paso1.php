@@ -54,7 +54,7 @@ input.largerCheckbox {
 </style>
 <div class="row">
 
-<?php if($cantidadfacturas>0){  ?>
+<?php //if($cantidadfacturas>0){  ?>
    <div clas="col-md-5 col-sm-5 col-lg-5" id="divcajametodopago" >
       <div class="card">
 
@@ -94,12 +94,19 @@ input.largerCheckbox {
                                  </div>
                               </div>
                               <script>
-                      
-                                 <?php  if(isset($lnUltimoMetodPago)){ 
+                                 var grupometododepago;
+                                 <?php
+                                
+                                 
+                                 if(isset($lnUltimoMetodPago)){ 
+                                    
                                     if($metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago== $lnUltimoMetodPago){
                                     ?> 
-                                         var grupometododepago="#grupometodopago<?=  $i ?>";     
-                                 <?php }} ?> 
+                                    alert("ingreso aqui ");
+                                          grupometododepago="#grupometodopago<?=  $i ?>";     
+                                 <?php }
+                              
+                              } ?> 
                                      
                               </script>
                               <?php }  ?>
@@ -115,8 +122,8 @@ input.largerCheckbox {
    </div>
    <div id="cajalistafacturas" class="col-md-6 col-sm-6 col-lg-6" style="display:none"  >
    </div>
-<?php }else{  echo "Este Cliente no tiene facturas por pagar "; ?>
-<?php } ?>
+<?php //}else{  echo "Este Cliente no tiene facturas por pagar "; ?>
+<?php //} ?>
 </div>
     <!-- begin::footer -->
     <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
@@ -207,17 +214,22 @@ $(document).ready(function() {
                $("#metodopago-4").click();
                ledioaeste(4,"#img-4") ;
          <?php  }else{
-            if(isset($lnUltimoMetodPago) &&  is_null($lnUltimoMetodPago)  )
+            if(isset($lnUltimoMetodPago) &&  !is_null($lnUltimoMetodPago)  )
                {
             ?> 
             console.log(grupometododepago);
+            if(grupometododepago != null){
                $(grupometododepago).click();
                $("#metodopago-<?= $lnUltimoMetodPago ?>").click();
                ledioaeste(<?= $lnUltimoMetodPago ?>,"#img-<?= $lnUltimoMetodPago ?>") ;
-         <?php }else{  ?>
+            }else{
                $("#grupometodopago2").click();
                $("#metodopago-4").click();
                ledioaeste(4,"#img-4") ;
+            }
+
+         <?php }else{  ?>
+            
 
             <?php  }  } ?> 
 
@@ -231,33 +243,33 @@ function funcionvermas()
       $("#divinformacion").toggle(500);
    }
          
-    function listarfacturaspendientesmultiple(metododepago)
-    {
-       console.log("esta ingresndo al metodo listarfacturaspendientesmultiple");
-        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-        var tnPosicion=$("#tnPosicion").val();
-        var tnEmpresa=$("#empresa_id").val();
-        var datos=  {  tnMetodoPago:metododepago , tnEmpresa:tnEmpresa,tnPosicion:tnPosicion , tnIdentificarPestaña:tnIdentificarPestaña };
-        var urlajax=$("#url").val()+"listadofacturaspendientes";   
-        $("#cajalistafacturas").empty();   
-        $("#cajalistafacturas").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-       // $("#cajalistafacturas").click();
-       $.ajaxSetup(
-                  {
-                     cache: false,
-                     error: function(error){
-                        console.log(error);
-                      //  console.log(settings);
-                   
-                        $("#cajalistafacturas").empty();  
-                        swal("ha ocurrido un error al procesar la solicitud ", "volver a elegir metodo pago ,si el error persite  consultar con atencion al cliente  72104048 " , "error");
-                        }
+   function listarfacturaspendientesmultiple(metododepago)
+   {
+      console.log("esta ingresndo al metodo listarfacturaspendientesmultiple");
+      var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+      var tnPosicion=$("#tnPosicion").val();
+      var tnEmpresa=$("#empresa_id").val();
+      var datos=  {  tnMetodoPago:metododepago , tnEmpresa:tnEmpresa,tnPosicion:tnPosicion , tnIdentificarPestaña:tnIdentificarPestaña };
+      var urlajax=$("#url").val()+"listadofacturaspendientes";   
+      $("#cajalistafacturas").empty();   
+      $("#cajalistafacturas").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+      // $("#cajalistafacturas").click();
+      $.ajaxSetup(
+               {
+                  cache: false,
+                  error: function(error){
+                     console.log(error);
+                     //  console.log(settings);
+                  
+                     $("#cajalistafacturas").empty();  
+                     swal("ha ocurrido un error al procesar la solicitud ", "volver a elegir metodo pago ,si el error persite  consultar con atencion al cliente  72104048 " , "error");
+                     }
 
-                  });
-        $("#cajalistafacturas").load(urlajax,{datos});  
-        
+               });
+      $("#cajalistafacturas").load(urlajax,{datos});  
+      
 
-    }
+   }
 
 </script>
 

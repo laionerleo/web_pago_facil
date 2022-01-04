@@ -251,24 +251,6 @@
                                 $("#bntprepararpago").show();
 
                               }
-
-/*
-                              console.log("llego algo y entro aqui ");
-                              if(response.tipo==3)
-                              {
-                                texto=$("#mensajerecibido").val();
-                                $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
-                                console.log(response);
-                                console.log("entro por el 3 ");
-
-                              }else{
-                                texto=$("#mensajerecibido").val();
-                                $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
-                                console.log(intervalo);
-                                clearInterval(intervalo);
-                                console.log("entro por diferente de 3  ");
-                              }  
-                              */
                             },
                             error: function (data) {
                               console.log(data);

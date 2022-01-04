@@ -127,7 +127,9 @@
             </table>
          </div>
          <center>  
+         <?php if(count($facturas) > 0){   ?>
             <button class="btn btn-outline-primary" onclick="vistafacturacion()" > Siguiente   </button>
+            <?php }   ?>
          </center>
       </div>
    </div>

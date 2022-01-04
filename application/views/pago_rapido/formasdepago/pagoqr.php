@@ -134,7 +134,7 @@ img.fnone {
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-8">
                                                         <center>
-                                                            <img id="imagenqr" src="" alt="">
+                                                            <img id="imagenqr" style="width: 300px;object-fit: contain;"   src="" alt="">
                                                         </center>
                                                         <center>
                                                         
