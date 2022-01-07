@@ -1,0 +1,3 @@
+
+04/01/2022 16:29:44getcriteriobusquedahub ={"tnEmpresa":"9"}
+04/01/2022 18:00:39empresasimple{"tnCliente":"24174","tcFiltro":"31","tnIdAccion":0,"tcApp":2}

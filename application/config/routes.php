@@ -82,6 +82,7 @@ $route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/'
 //puntos de cobranza
 $route[$l.'puntosdecobranza']                    = 'Welcome/puntosdecobranza';
 $route[$l.'puntosdecobranzapagofacil']           = 'Servicio/puntosdecobranza';
+$route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/';
 
 $route[$l.'comopagar']                           = 'Servicio/Comopagar';
 

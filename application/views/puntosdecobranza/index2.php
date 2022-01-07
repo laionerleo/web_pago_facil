@@ -139,7 +139,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <div style="height: 600px ; width: 100%"  >
+                               <div style="height: 600px ; width: 100%"  >
                                     <div id="map"  style="height: 100%;width: 100%"></div>
                                 </div>
                                 <?php  $ubicaciones_nuevo= json_decode($ubicaciones);     ?>
@@ -189,7 +189,7 @@
     </script>
 <!-- Plugin scripts -->
   
-  <?php $this->load->view('theme/js');  ?>
+  <?php $this->load->view('theme/js2');  ?>
   <script>
           function buscar_detalles(id_proceso){
 
@@ -215,14 +215,15 @@
 
     var map, infoWindow;
     var ubicaciones= <?php   echo $ubicaciones ; ?>;
-    console.log(ubicaciones);
+    //console.log(ubicaciones);
     var marker;
     var mensaje="";
-  
+    var swPuntoReferencia=0;
   function initMap() {
+    console.log("ingreso a inimap");
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -17.78315962290801, lng: -63.180976199658176},           
-      zoom: 12
+      zoom: 13
     }
     
     
@@ -277,6 +278,28 @@
 
           });        
         }
+    
+
+        if(ubicaciones[i]["tipo"]=="REF"  )
+        {
+         // alert("alskjdalkj");
+          swPuntoReferencia=1;
+          var myLatLng = new google.maps.LatLng(latitude,longitude);
+          marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+        //  icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_metodo_pago.png',
+          title: ubicaciones[i]["nombreEstablecimiento"],
+          animation: google.maps.Animation.DROP,
+         // clickeable:true,
+
+          });  
+          
+          map.setCenter(marker.getPosition());
+          map.setZoom(15);
+
+        }
+
 
       
       infowindow = new google.maps.InfoWindow({ content: '' }); 
@@ -504,7 +527,7 @@ var icono =porciones[2];
                 var distancia = getDistanciaMetros(position.coords.latitude, position.coords.longitude, latitude, longitude);
                 //var distancia = getDistanciaMetros(position.coords.latitude, position.coords.longitude, latitude, longitude);
                // console.log(distancia +'--'+ ubicaciones[i]["nombreEstablecimiento"]);
-                if (distancia < 5000) {
+                if (distancia < 20000) {
                     var myLatLng = new google.maps.LatLng(latitude,longitude);
                     marker = new google.maps.Marker({
                         position: myLatLng,
@@ -601,7 +624,7 @@ var icono =porciones[2];
 
     }
 
-    
+  /*  
     function initMap() {
       // Creamos la instacia bounds
       var bounds = new google.maps.LatLngBounds();
@@ -641,12 +664,14 @@ var icono =porciones[2];
       // Agregamos el area al mapa
       area.setMap(map);
       }
-
-
+*/
+/*
 
     function clip() {
         var map, lat, lng;
     $(document).ready(function(){
+
+      /*
       var map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: -17.78315962290801, lng: -63.180976199658176},           
               zoom: 12
@@ -687,7 +712,7 @@ var icono =porciones[2];
 
     });
     }
-  
+*/  
             </script>
 </body>
 

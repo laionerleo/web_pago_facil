@@ -45,7 +45,7 @@
                                             <table id="example1" class="table table-striped table-bordered">
                                                                 <thead>
                                                                 <tr>
-                                                                <th>Nro Transaccion</th>
+                                                                    <th>Nro Transaccion</th>
                                                                     <th>Periodo</th>
                                                                     <th>Importe  </th>
                                                                     <th>Fecha de Pago</th>
@@ -76,6 +76,7 @@
                                                                     <button class="btn btn-primary" onclick="mostrarmodalfacturas(<?= @$facturaspagadas[$i]->transaccionDePago ?> , '<?= @$facturaspagadas[$i]->periodo ?>' ,<?= @$facturaspagadas[$i]->factura ?> )" > Ver </button> 
                                                                       
                                                                     <?php if(count(@$facturaspagadas[$i]->TransaccionDePagoDetalle)>1 ){  ?>
+                                                                        <input  type="Button" id="" class="btn btn-primary"  value="Detalle" >
                                                                         <input  type="Button" id="btnmodal<?= @$facturaspagadas[$i]->transaccionDePago ?>" class="btn btn-primary" data-toggle="modal"  value="Detalle" data-target="#modaldetalle<?= @$facturaspagadas[$i]->transaccionDePago ?>">
 
                                                                         <div class="modal fade" id="modaldetalle<?= @$facturaspagadas[$i]->transaccionDePago ?>" tabindex="-1" role="dialog" aria-hidden="true">
@@ -446,21 +447,21 @@ function enviarfacturacorreo()
                             <div class="row">
                             <div class="col-md-12" style="    margin-bottom: 4px;" >
                                 <center>
-                                <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver  <?=  @$etiquetas->EtiquetaAviso ?> <?= @$nombreempresa;  ?>"> 
+                                    <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver  <?=  @$etiquetas->EtiquetaAviso ?> <?= @$nombreempresa;  ?>"> 
                                 </center>
                                 </div>
                             </div>
                             <div class="row">
                             <div class="col-md-12" style="    margin-bottom: 4px;" >
                                 <center>
-                                <input class="btn btn-primary" onclick="verfacturapagofacil()" type="button" value="Ver Factura PagoFacil"> 
+                                    <input class="btn btn-primary" onclick="verfacturapagofacil()" type="button" value="Ver Factura PagoFacil"> 
                                 </center>
                                 </div>
                             </div>
                             <div class="row">
                             <div class="col-md-12" style="    margin-bottom: 4px;" >
-                            <center>
-                                <input class="btn btn-primary" type="button" onclick="verfacturaempresa()"  value="Ver  <?=  @$etiquetas->EtiquetaTipoNota ?> <?= @$nombreempresa;  ?>">
+                                <center>
+                                    <input class="btn btn-primary" type="button" onclick="verfacturaempresa()"  value="Ver  <?=  @$etiquetas->EtiquetaTipoNota ?> <?= @$nombreempresa;  ?>">
                                 </center>
                                 </div>
                             </div>

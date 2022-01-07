@@ -1,0 +1,2 @@
+
+04/01/2022 18:00:44getavisofacturames{"error":0,"status":1,"message":"Aviso de cobranza no obtenido de la empresa de servicio, disculpe el inconveniente, estamos trabajando para resolver el problema.","messageMostrar":0,"messageSistema":"","values":null}

@@ -2651,9 +2651,9 @@ public function getmetodosbyToken($tnTokenService)
 
     public function getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio)
    {
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+    //  $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
       
-     // $url = 'http://localhost:8000/api/HubPago/getbusquedaclientes';
+      $url = 'http://localhost:8000/api/HubPago/getbusquedaclientes';
       
       $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
       /*
