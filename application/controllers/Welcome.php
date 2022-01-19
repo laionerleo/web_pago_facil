@@ -92,13 +92,16 @@ class Welcome extends CI_Controller {
 		$rubro_id=$datos['rubro_id'];
 		$id_cliente=$this->session->userdata('cliente');
 		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
+
 		$_SESSION['todaslasempresas']=$d['empresas'];
+	//	$d['empresasaccesodirecto']=$this->servicios->getEmpresaAccesodirecto($id_cliente);
+		
+		$laEmpresasAcceso=$this->servicios->getEmpresaAccesodirecto($id_cliente);
+		$d['empresasaccesodirecto']=$laEmpresasAcceso->values;
+		
 		
 		//		echo json_encode($empresas);
-		/*echo "<pre>";
-		print_r($d);
-		echo "</pre>";*/
-		$this->load->view('pago_rapido/lista_empresas', $d);
+	$this->load->view('pago_rapido/lista_empresas', $d);
 		
 
 
@@ -887,7 +890,9 @@ class Welcome extends CI_Controller {
 		
 		//echo "$tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ";
 		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,		$_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']  , $taFacturas);
-		$this->cargarlog("generar qr ".json_encode($metodos));
+		$this->cargarlog("generar qr 1".json_encode($metodos));
+		
+		
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
 
@@ -1988,11 +1993,11 @@ class Welcome extends CI_Controller {
 		$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($tncliente);
 		$d['empresas']=$laEmpresasMasPagadas->values;
 		$_SESSION['todaslasempresas']=$d['empresas'];
+
+		$laEmpresasAcceso=$this->servicios->getEmpresaAccesodirecto($tncliente);
+		$d['empresasaccesodirecto']=$laEmpresasAcceso->values;
 		
-		//		echo json_encode($empresas);
-		/*(echo "<pre>";
-		print_r($d);
-		echo "</pre>";*/
+		
 		$this->load->view('pago_rapido/listarempresasfrecuentes', $d);
 		
 

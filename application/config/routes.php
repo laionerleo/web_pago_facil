@@ -169,7 +169,7 @@ $route[$l.'(.+)$']                        = "$2";
 $route[$i.'$']                            = $route['default_controller'];
 
 
-
+$route[$l.'log']                            = 'Auth/login2';
 
 
 /**/
