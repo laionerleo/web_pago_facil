@@ -62,9 +62,15 @@
     }
 </style>
 
-<?php  for ($i=0; $i < count($empresasaccesodirecto) ; $i++) { ?>
-        <a  onclick="cambiar_empresa(<?= $empresasaccesodirecto[$i]->Empresa ?> , '#emp-<?= $i ?>')" class='flotante' style=" top:  <?= ( $i+1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $empresasaccesodirecto[$i]->Descripcion ?>' , <?= $i ?> )" onmouseout="normalImg(this ,'<?= $empresasaccesodirecto[$i]->Descripcion ?>' , <?= $i ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $empresasaccesodirecto[$i]->Url_Icon ?>' /> <br> <label id="btnflotante<?= $i ?>"  for=""></label> </a>
-<?php }  ?>
+<?php  for ($i=0; $i < count($empresasaccesodirecto) ; $i++) { 
+   if($i<3)
+   {
+   ?>
+        <a  onclick="cambiar_empresa(<?= $empresasaccesodirecto[$i]->empresa ?> , '#emp-<?= $i ?>')" class='flotante' style=" top:  <?= ( $i+1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $empresasaccesodirecto[$i]->descripcion ?>' , <?= $i ?> )" onmouseout="normalImg(this ,'<?= $empresasaccesodirecto[$i]->Descripcion ?>' , <?= $i ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $empresasaccesodirecto[$i]->url_icon ?>' /> <br> <label id="btnflotante<?= $i ?>"  for=""></label> </a>
+<?php  }
+ }
+
+?>
     
 <script>
     

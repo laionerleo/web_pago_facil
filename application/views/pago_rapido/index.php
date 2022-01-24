@@ -462,13 +462,9 @@ function facturaspendientes(codigo_usuario)
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
-    $("#facturaspendientesbody").load(urlajax,{datos});   
-    
+     $("#facturaspendientesbody").load(urlajax,{datos});   
     $("#li2").show();
     $("#facturaspendientes-tab").click();
-
 }
 
 function facturaspendientesmultiple(codigo_usuario)

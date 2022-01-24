@@ -179,3 +179,30 @@
 18/01/2022 17:23:22listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"5421","tnCliente":"3859","tnMetodoPago":"9","tnIdAccion":17,"tcApp":2}
 18/01/2022 17:23:25listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"5421","tnCliente":"3859","tnMetodoPago":"10","tnIdAccion":17,"tcApp":2}
 18/01/2022 17:24:34cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":327}
+19/01/2022 18:13:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+19/01/2022 18:13:11getcriteriobusquedahub ={"tnEmpresa":"1"}
+19/01/2022 18:13:13getcriteriobusquedahub ={"tnEmpresa":"6"}
+19/01/2022 18:43:00getcriteriobusquedahub ={"tnEmpresa":"6"}
+19/01/2022 18:45:22getbilleterausuario{"tnCliente":"11086","tnIdentificador":"11086","tnIdAccion":0}
+19/01/2022 18:57:06getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+19/01/2022 18:57:17getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+19/01/2022 18:57:21getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+20/01/2022 11:28:07getcriteriobusquedahub ={"tnEmpresa":"13"}
+20/01/2022 11:40:59getbilleterausuario{"tnCliente":"769","tnIdentificador":"769","tnIdAccion":0}
+20/01/2022 11:42:56getbilleterausuario{"tnCliente":"218","tnIdentificador":"218","tnIdAccion":0}
+20/01/2022 11:44:14getbilleterausuario{"tnCliente":"552","tnIdentificador":"552","tnIdAccion":0}
+20/01/2022 15:30:06getcriteriobusquedahub ={"tnEmpresa":"13"}
+20/01/2022 15:30:11getcriteriobusquedahub ={"tnEmpresa":"47"}
+20/01/2022 15:30:32getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+20/01/2022 15:30:32getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+20/01/2022 15:30:35listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2547","tnCliente":"3859","tnMetodoPago":"10","tnIdAccion":17,"tcApp":2}
+20/01/2022 15:30:46getcriteriobusquedahub ={"tnEmpresa":"47"}
+20/01/2022 15:31:02getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+20/01/2022 15:31:03getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+20/01/2022 15:31:06listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2154","tnCliente":"3859","tnMetodoPago":"10","tnIdAccion":17,"tcApp":2}
+20/01/2022 15:31:31listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2154","tnCliente":"3859","tnMetodoPago":"9","tnIdAccion":17,"tcApp":2}
+20/01/2022 15:33:00cybersourseinit{"tcApiRest":true,"tnMetodoPago":9,"tnCantidad":318}
+20/01/2022 20:33:52jwtvalidation{"tcJWT":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1ZmFkMTMyNGM5NTM1MDcyODZjYTQ0MTUiLCJpYXQiOjE2NDI3MDcyNDUsImV4cCI6MTY0MjcxNDQ0NSwianRpIjoiZmUwMzI2YTktMTA4MC00MThlLTkzY2YtOTA0YjE1OTYzN2NjIiwiQ29uc3VtZXJTZXNzaW9uSWQiOiIwX2E1ZjdlNDIzLWExMjktNDdkYi1iMDJmLTk4OWIwMjAzZWY4NSIsImF1ZCI6ImZTR3YwQ2dNLWltclgtVXlmay0yYkNmLXZRWjcwM2JQOGMxSiIsIlBheWxvYWQiOnsiUGF5bWVudCI6eyJUeXBlIjoiQ0NBIiwiUHJvY2Vzc29yVHJhbnNhY3Rpb25JZCI6IkdXV2I4bkZhQUZiUWtSb1czcmIwIiwiRXh0ZW5kZWREYXRhIjp7IkFtb3VudCI6IjMxODAwIiwiQ3VycmVuY3lDb2RlIjoiQk9CIn19LCJFcnJvck51bWJlciI6MCwiRXJyb3JEZXNjcmlwdGlvbiI6IlN1Y2Nlc3MifX0.yd3_JlY9BT0y0Xne3rU_dnXQIgkRFWaLUprgUVyFVlw","tnMetodoPago":null,"taDataCardinal":null}
+20/01/2022 16:00:50getcriteriobusquedahub ={"tnEmpresa":"47"}
+20/01/2022 18:42:19getfacturaempresa11{"tnCliente":"3859","tnFactura":"1011675","tnTransaccionDePago":"76219","tnEmpresa":"3","tcApp":2}
+20/01/2022 18:42:32empresasimple{"tnCliente":"3859","tcFiltro":"3","tnIdAccion":0,"tcApp":2}
