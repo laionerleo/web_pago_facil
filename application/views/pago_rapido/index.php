@@ -142,7 +142,7 @@ input[type=number]::-webkit-outer-spin-button {
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
-                                            <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                            <input id="inp_dato" min="0" class="form-control form-control-sm" type="text" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
                                         </div>
                                         <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
                                             <br>

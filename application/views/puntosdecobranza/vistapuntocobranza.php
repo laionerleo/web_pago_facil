@@ -47,7 +47,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="row mb-2">
-                                                <div class="col-12 text-muted"><h2>Listado de Visitas a Puntos de Cobranza <a  href="<?=$url?>createvisitapuntosdecobranza"><button class="btn btn-primary">Nuevo</button></a></h2></div>
+                                                <div class="col-12 text-muted"><h2>Listado de Visitas a Puntos de Cobranza <a  href="<?=$url?>createvisitapuntosdecobranza"><button type="button" class="btn btn-primary">Nuevo</button></a></h2></div>
                                             </div>
                                         </div>
                                         
@@ -91,7 +91,8 @@
                                                     <th>Fecha  </th>  
                                                     <th>¿ Banner ?</th>
                                                     <th>¿ Punto ?</th>
-                                                    <th>Descripcion</th>                       
+                                                    <th>Telefono</th>   
+                                                    <th>Correo</th>   
                                                     <th>Opciones</th>
                                                 </tr>                            
                                             </thead>
@@ -110,7 +111,8 @@
                                                             if($key->AceptoSerPunto == 1){?>
                                                                 <td>Si</td>
                                                             <?php } else{?> <td>No</td> <?php } ?>
-                                                            <td><?php echo $key->Descripcion ?></td>
+                                                            <td><?php echo $key->telefono ?></td>
+                                                            <td><?php echo $key->correo ?></td>
                                                             <td>  
                 												<a href="<?=$url?>ConsultarVisita/<?php echo $key->VisitaPuntoCobranza ?>">
                 													<button class="btn btn-primary">Modificar</button>

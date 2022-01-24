@@ -1,0 +1,5 @@
+
+24/01/2022 09:44:47calcularcomision-facturacion{"error":0,"status":1,"message":"Comisi\u00f3n obtenida exitosamente.","messageMostrar":0,"messageSistema":"","values":0}
+24/01/2022 11:48:14calcularcomision-facturacion{"error":0,"status":1,"message":"Comisi\u00f3n obtenida exitosamente.","messageMostrar":0,"messageSistema":"","values":0}
+24/01/2022 11:49:29calcularcomision-facturacion{"error":0,"status":1,"message":"Comisi\u00f3n obtenida exitosamente.","messageMostrar":0,"messageSistema":"","values":0}
+24/01/2022 11:52:14calcularcomision-facturacion{"error":0,"status":1,"message":"Comisi\u00f3n obtenida exitosamente.","messageMostrar":0,"messageSistema":"","values":0}

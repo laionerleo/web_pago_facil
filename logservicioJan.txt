@@ -1,0 +1,18 @@
+
+07/01/2022 14:09:55getbilleterausuario{"tnCliente":"24605","tnIdentificador":"24605","tnIdAccion":0}
+24/01/2022 09:41:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 09:42:46get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1687516847202201249031","tcFechaOperativa":20220124,"tnNroOperacion":643,"tnServicio":1}
+24/01/2022 09:42:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 09:44:38calcularcomision{"tnEmpresa":"180","tnCliente":"24605","tnMetodoPago":"4","tcMonto":"","tnIdAccion":0,"tcApp":2}
+24/01/2022 09:45:44getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 09:48:20getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 09:48:30get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-282221941903120220124","tcFechaOperativa":20220124,"tnNroOperacion":644,"tnServicio":1}
+24/01/2022 09:48:34getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 11:47:34getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 11:47:55get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1014332507903120220124","tcFechaOperativa":20220124,"tnNroOperacion":905,"tnServicio":1}
+24/01/2022 11:47:58getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 11:48:13calcularcomision{"tnEmpresa":"180","tnCliente":"24605","tnMetodoPago":"4","tcMonto":"","tnIdAccion":0,"tcApp":2}
+24/01/2022 11:49:28calcularcomision{"tnEmpresa":"180","tnCliente":"24605","tnMetodoPago":"4","tcMonto":"","tnIdAccion":0,"tcApp":2}
+24/01/2022 11:51:32get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1014332507903120220124","tcFechaOperativa":20220124,"tnNroOperacion":905,"tnServicio":1}
+24/01/2022 11:51:35getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 11:52:13calcularcomision{"tnEmpresa":"180","tnCliente":"24605","tnMetodoPago":"4","tcMonto":"","tnIdAccion":0,"tcApp":2}

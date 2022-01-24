@@ -92,6 +92,15 @@ $route[$l.'EditarVisitaPuntoCobranza']           = 'Welcome/editarvisitaPuntoCob
 $route[$l.'ValidarCliente']                      = 'Welcome/validarcliente';
 $route[$l.'BuscarVisitaFechas']                  = 'Welcome/buscarvisitafechas';
 
+
+// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'Welcome/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'Welcome/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'Welcome/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'Welcome/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'Welcome/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'Welcome/EditarPuntoCobranza';
+
 $route[$l.'comopagar']                           = 'Servicio/Comopagar';
 
 

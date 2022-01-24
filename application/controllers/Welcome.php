@@ -1905,6 +1905,7 @@ class Welcome extends CI_Controller {
 		}		
 		echo json_encode($laBien);
 	}
+	
 	public function InsertarVisita()
 	{  
 		$d = array();
@@ -2382,5 +2383,111 @@ class Welcome extends CI_Controller {
       fclose($logFile);
     }
 	
+	public function puntocobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$taListadoVisita = $this->servicios->ListadoVisita();
+		$loPuntosCobranza = $this->servicios->ListadoPuntoCobranza();
+		$d["visitas"]=$taListadoVisita->values;
+		$d["puntocobranza"]=$loPuntosCobranza->values;
+		$this->load->view('registropuntoscobranza/index', $d);		
+	}
+	public function NuevoPuntoCobranza()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$tapuntos = $this->servicios->MostrarPuntos();
+		$taclientepuntocobranza = $this->servicios->MostrarClientePuntoCobranza();
+		$taCliente = $this->servicios->MostrarCliente();
+		$taclientebilletera = $this->servicios->MostrarClienteBilletera();
+		$taagente = $this->servicios->MostrarAgente();
+
+		$d["puntos"]=$tapuntos->values;
+		$d["clientepuntocobranza"]=$taclientepuntocobranza->values;
+		$d["clientebilletera"]=$taclientebilletera->values;
+		$d["cliente"]=$taCliente->values;
+		$d["agente"]=$taagente->values;
+		
+		$this->load->view('registropuntoscobranza/nuevopuntocobranza', $d);		
+	}
+	public function InsertarPuntoCobranza()
+	{  
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		
+		$cliente = $this->input->post('cliente');		
+		$latitud = $this->input->post('latitud');		
+		$longitud = $this->input->post('longitud');
+		$direccion = $this->input->post('direccion');
+		$estado = 1;		
+		$horarioLunVieTurno1 = $this->input->post('horarioLunVieTurno1');		
+		$horarioLunVieTurno2 = $this->input->post('horarioLunVieTurno2');
+		$horaSabado = $this->input->post('horaSabado');
+		$horaDomingo = $this->input->post('horaDomingo');
+		$NombreEstablecimiento = $this->input->post('NombreEstablecimiento');
+		$NombrePropietario = $this->input->post('nombrePropietario');
+		$nroTelefonoProp = $this->input->post('nroTelefonoProp');		
+		$horarioProp = $this->input->post('horarioProp');
+		$personaQueAtendio = $this->input->post('personaQueAtendio');
+		$nroTelefonoPersonaAtendio = $this->input->post('nroTelefonoPersonaAtendio');
+		$seEntregoBanner = $this->input->post('txtbanner');
+		if($seEntregoBanner == ""){$seEntregoBanner = 0;}
+		$aceptoSerPunto = $this->input->post('txtpunto');
+		if($aceptoSerPunto == ""){$aceptoSerPunto = 0;}
+
+		$taInsertarVisita = $this->servicios->InsertarPuntoCobranza($cliente, $latitud, $longitud, $direccion, $estado, $horarioLunVieTurno1, $horarioLunVieTurno2, $horaSabado, $horaDomingo, $NombreEstablecimiento, $NombrePropietario, $nroTelefonoProp, $horarioProp, $personaQueAtendio, $nroTelefonoPersonaAtendio, $seEntregoBanner, $aceptoSerPunto);
+		echo json_encode($taInsertarVisita);
+		//$this->load->view('registropuntocobranza/index', $d);		
+	}
+	public function DetallePuntoCobranza()
+	{
+		
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$cliente = $this->input->post('IdCliente');
+		$toDetallePuntoCobranza = $this->servicios->ValidarDetallesPuntoCobranza($cliente);
+		
+		echo json_encode($toDetallePuntoCobranza->values);
+	}
+	public function validarpuntocobranza()
+	{
+		
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		$cliente = $this->input->post('Cliente');
+		$telefonoPro = $this->input->post('TelefonoPro');
+		$NombreComercial = $this->input->post('NombreComercial');
+	
+		$loListadoPuntoCobranza = $this->servicios->ValidarPuntoCobranza($cliente, $telefonoPro, $NombreComercial);
+		echo json_encode($loListadoPuntoCobranza->values);		
+	}
+	public function EditarPuntoCobranza()
+	{  
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		
+		$direccion = $this->input->post('Direccion');
+		$estado = $this->input->post('Estado');		
+		$horarioLunVieTurno1 = $this->input->post('HoraLunVi');		
+		$horarioLunVieTurno2 = $this->input->post('HoraLunVi2');
+		$horaSabado = $this->input->post('HoraSabado');
+		$horaDomingo = $this->input->post('HoraDomingo');
+		$NombreEstablecimiento = $this->input->post('NombreEstablecimiento');
+		$NombrePropietario = $this->input->post('NombrePropietario');
+		$nroTelefonoProp = $this->input->post('TelefonoPro');		
+		$horarioProp = $this->input->post('HoraPro');
+		$personaQueAtendio = $this->input->post('PersonaAtendio');
+		$nroTelefonoPersonaAtendio = $this->input->post('TelefonoAten');
+		
+		$seEntregoBanner = $this->input->post('Banner');
+		if($seEntregoBanner == ""){$seEntregoBanner = 0;}
+		$aceptoSerPunto = $this->input->post('AceptoSerPunto');
+		if($aceptoSerPunto == ""){$aceptoSerPunto = 0;}
+
+		$taEditarPuntoCobranza = $this->servicios->EditarPuntoCobranza($direccion, $estado, $horarioLunVieTurno1, $horarioLunVieTurno2, $horaSabado, $horaDomingo, $NombreEstablecimiento, $NombrePropietario, $nroTelefonoProp, $horarioProp, $personaQueAtendio, $nroTelefonoPersonaAtendio, $seEntregoBanner, $aceptoSerPunto);
+		echo json_encode($taEditarPuntoCobranza);
+		//$this->load->view('registropuntocobranza/index', $d);		
+	}
 	/**/
 }

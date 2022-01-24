@@ -2653,6 +2653,7 @@ public function getmetodosbyToken($tnTokenService)
    public function InsertarVisita($tnTabla, $tnTabalId, $tcCliente, $tcLatitud, $tcLongitud, $tcUbicacionGps, $tcDireccion, $tcSeEntregoBanner, $tcAceptoSerPunto, $tcDescripcion, $tcAgenteCliente, $tcAgente, $tnTelefonoAgente, $tcPersonalAtendio, $tnTelefonoAtendio){
       $url = 'http://localhost:8000/api/InsertarVisita';
       $data = array('Tabla'=>$tnTabla, 'TablaId'=>$tnTabalId, 'Cliente'=>$tcCliente, 'Latitud'=>$tcLatitud, 'Longitud'=>$tcLongitud, 'UbicacionGps'=>$tcUbicacionGps, 'Direccion'=>$tcDireccion, 'SeEntregoBanner'=>$tcSeEntregoBanner, 'AceptoSerPunto'=>$tcAceptoSerPunto, 'Descripcion'=>$tcDescripcion,'ClienteAgente'=>$tcAgenteCliente, 'lcAgenteVisita'=>$tcAgente, 'lnTelefono'=>$tnTelefonoAgente, 'lcPersonaAtendio'=>$tcPersonalAtendio, 'lnTelefonoAtendio'=>$tnTelefonoAtendio);
+      
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
          "Content-Length: ".strlen( http_build_query($data))
@@ -2664,6 +2665,29 @@ public function getmetodosbyToken($tnTokenService)
          'content' => http_build_query($data) 
       ));
       
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function InsertarPuntoCobranza($idCliente, $latitud, $longitud, $direccion, $estado, $horarioLunVieTurno1, $horarioLunVieTurno2, $horaSabado, $horaDomingo, $NombreEstablecimiento, $nombrePropietario, $nroTelefonoProp, $horarioProp, $personaQueAtendio, $nroTelefonoPersonaAtendio, $seEntregoBanner, $aceptoSerPunto)
+   {
+      $url = 'localhost:8000/api/insertar/puntocobranza';
+      $data = array('idCliente'=>$idCliente, 'latitud'=>$latitud, 'longitud'=>$longitud, 'direccion'=>$direccion, 'estado'=>$estado, 'horarioLunVieTurno1'=>$horarioLunVieTurno1, 'horarioLunVieTurno2'=>$horarioLunVieTurno2, 'horaSabado'=>$horaSabado, 'horaDomingo'=>$horaDomingo, 'nombreEstablecimiento'=>$NombreEstablecimiento,'nombrePropietario'=>$nombrePropietario , 'nroTelefonoProp'=>$nroTelefonoProp, 'horarioProp'=>$horarioProp, 'personaQueAtendio'=>$personaQueAtendio, 'nroTelefonoPersonaAtendio'=>$nroTelefonoPersonaAtendio, 'seEntregoBanner'=>$seEntregoBanner, 'aceptoSerPunto'=>$aceptoSerPunto);
+      echo '<pre>';
+      print_r($data);
+      echo '</pre>';
+      return 'k';
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      ));
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
       $resultado =json_decode($result);
@@ -2774,6 +2798,83 @@ public function getmetodosbyToken($tnTokenService)
          'header' => implode("\r\n", $header),
          'content' => http_build_query($data)
          )); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function ValidarPuntoCobranza($cliente, $telefonoPro, $NombreComercial, $PersonaAtendio, $TelefonoAtendio, $IdCliente)
+   {
+      $url = 'http://localhost:8000/api/validar/puntocobranza';
+      $data = array('Cliente'=>$cliente, 'TelefonoPro'=>$telefonoPro, 'NombreComercial'=>$NombreComercial, 'PersonaAtendio');
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data)
+         )); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function ValidarDetallesPuntoCobranza($tnCliente)
+   {
+      $url = 'http://localhost:8000/api/validar/Detallepuntocobranza';
+      $data = array('Cliente'=>$tnCliente);
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data)
+         )); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function ListadoPuntoCobranza()
+   {
+      $url = 'http://localhost:8000/api/listado/puntocobranza';
+      $options = array('http' => array(
+         'method'  => 'POST')); 
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function EditarPuntoCobranza($direccion, $estado, $horarioLunVieTurno1, $horarioLunVieTurno2, $horaSabado, $horaDomingo, $NombreEstablecimiento, $nombrePropietario, $nroTelefonoProp, $horarioProp, $personaQueAtendio, $nroTelefonoPersonaAtendio, $seEntregoBanner, $aceptoSerPunto)
+   {
+      $url = 'localhost:8000/api/editar/puntocobranza';
+      $data = array('direccion'=>$direccion, 'estado'=>$estado, 'horarioLunVieTurno1'=>$horarioLunVieTurno1, 'horarioLunVieTurno2'=>$horarioLunVieTurno2, 'horaSabado'=>$horaSabado, 'horaDomingo'=>$horaDomingo, 'nombreEstablecimiento'=>$NombreEstablecimiento,'nombrePropietario'=>$nombrePropietario , 'nroTelefonoProp'=>$nroTelefonoProp, 'horarioProp'=>$horarioProp, 'personaQueAtendio'=>$personaQueAtendio, 'nroTelefonoPersonaAtendio'=>$nroTelefonoPersonaAtendio, 'seEntregoBanner'=>$seEntregoBanner, 'aceptoSerPunto'=>$aceptoSerPunto);
+      
+      return $data;
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      ));
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+      return $resultado;
+   }
+   public function MostrarCliente()
+   {
+      $url = 'http://localhost:8000/api/cliente';
+      $options = array('http' => array(
+         'method'  => 'POST')); 
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
