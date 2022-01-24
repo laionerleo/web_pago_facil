@@ -227,6 +227,8 @@ class servicios {
    public function get_listar_facturas($id_empresa,$codigo_cliente_empresa ,$id_cliente)
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ListarFacturasPendientesSimples2';
+      //$url = 'http://localhost:8000/api/Factura/ListarFacturasPendientesSimples2';
+     
       $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_cliente_empresa  ,'tnCliente' => $id_cliente , 'tnIdAccion'=> 17 , 'tcApp'=>2  );
       $this->cargarlog("listarfacturas".json_encode($data));
       $header = array(
@@ -247,9 +249,39 @@ class servicios {
 
    } 
 
+  
+  
+
+   public function get_listar_facturas2($id_empresa,$codigo_cliente_empresa ,$id_cliente , $tnMetodo)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ListarFacturasPendientesSimples2';
+      //$url = 'http://localhost:8000/api/Factura/ListarFacturasPendientesSimples2';
+     
+      $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_cliente_empresa  ,'tnCliente' => $id_cliente , 'tnMetodoPago' => $tnMetodo ,  'tnIdAccion'=> 17 , 'tcApp'=>2  );
+      $this->cargarlog("listarfacturas".json_encode($data));
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+ 
+
+   }
+
    public function get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio )
    {
       $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getfacturapendiente';
+   //   $url = 'http://localhost:8000/api/HubPago/getfacturapendiente';
+
       $data = array('tnEmpresa' => $lnEmpresa , 'tcCodigoClienteEmpresa' => $lnCodigoFijo  ,'tnCliente' => $lnCliente , 'tnIdAccion'=> 17 , 'tcApp'=>2 , "tcIdOperativo"=> $IdOperativo ,  "tcFechaOperativa"=> $FechaOperativa , "tnNroOperacion"=> $NroOperacion  , "tnServicio"=> $Servicio );
       $this->cargarlog("get_listar_facturashub".json_encode($data));
       $header = array(
@@ -455,7 +487,7 @@ class servicios {
             @Field("tnCliente")     long    cliente,
             @Field("tcFiltro")      String  query,
             @Field("tnIdAccion")    int     tnIdAccion);
-*/
+      */
       
       $header = array(
          "Content-Type: application/x-www-form-urlencoded",
@@ -548,6 +580,52 @@ class servicios {
  
     $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getUser2';
       $data = array('tcCorreo' => $usuario, 'tnAccion' => $accion  , 'tcApp'=>2 );
+  
+      $header = array(
+          "Content-Type: application/x-www-form-urlencoded",
+          "Content-Length: ".strlen( http_build_query($data))
+    );
+    
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+                  'method'  => 'POST',
+                  'header' => implode("\r\n", $header),
+                  'content' => http_build_query($data) )
+             );
+
+
+
+     $context  = stream_context_create($options);
+     $result = file_get_contents($url, false, $context);
+      $resultado =json_decode($result);
+     // $data = get_object_vars($resultado->values);
+    // aqui obtiee los datos del usuario si este 
+    
+    if(  !is_null($resultado->values ))
+    {
+        //$_SESSION['user'] = $resultado;
+        //significa que existe el usuario 
+       // $this->session->set_userdata($data);
+        //$respuesta=0;
+        return $resultado; 
+        //echo $respuesta;
+    }else{
+       //hubo algun error o no existe 
+      //  $respuesta=11;
+       return null;
+       
+    }
+
+
+   }
+
+   public function verificar_cuentaByCampo($campo , $valor)
+   {
+     
+      $accion=0;
+ 
+    $url = 'http://serviciopagofacil.syscoop.com.bo/api/Usuario/getUserByCampo';
+      $data = array('tcCampo' => $campo,  'tcValor' => $valor,  'tnAccion' => $accion  , 'tcApp'=>2 );
   
       $header = array(
           "Content-Type: application/x-www-form-urlencoded",
@@ -695,11 +773,12 @@ class servicios {
       }
    }
 
-   public function  prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate )
+   public function  prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas  )
    {
       
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_PrepararPago';
-      $data = array('tnCliente' =>$tncliente   , 'tnEmpresa' =>  $tnempresa , 'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,'tnMetodoPago' =>  $tnmetodopago  ,'tnTelefono' => (String)$tnTelefono ,'tcFacturaA' => (String) $tcFacturaA ,'tnCiNit' =>(String)  $tnCiNit ,'tcNroPago' =>(String) $tcNroPago,  'tnMontoClienteEmpresa' => (string)($tnMontoClienteEmpresa) ,   'tnMontoClienteSyscoop' =>(string)$tnMontoClienteSyscoop , 'tcPeriodo' =>(String) $tcPeriodo , 'tcImei'=> (String)$tcImei ,   'tcExtension' =>(String) $tcExtension , 'tcComplement' =>$tcComplement,  'tcServiceCode' => (String)$tcServiceCode, 'tcExpireDate' =>  (String)$tcExpireDate , 'tcApp'=>2  );
+     // $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_PrepararPago';
+      $url ='http://localhost:8000/api/Factura/BCP_PrepararPago';
+      $data = array('tnCliente' =>$tncliente   , 'tnEmpresa' =>  $tnempresa , 'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,'tnMetodoPago' =>  $tnmetodopago  ,'tnTelefono' => (String)$tnTelefono ,'tcFacturaA' => (String) $tcFacturaA ,'tnCiNit' =>(String)  $tnCiNit ,'tcNroPago' =>(String) $tcNroPago,  'tnMontoClienteEmpresa' => (string)($tnMontoClienteEmpresa) ,   'tnMontoClienteSyscoop' =>(string)$tnMontoClienteSyscoop , 'tcPeriodo' =>(String) $tcPeriodo , 'tcImei'=> (String)$tcImei ,   'tcExtension' =>(String) $tcExtension , 'tcComplement' =>$tcComplement,  'tcServiceCode' => (String)$tcServiceCode, 'tcExpireDate' =>  (String)$tcExpireDate , 'tcApp'=>2 , "taDetallePago"=>$taFacturas );
       $this->cargarlog("prepararpago".json_encode($data));
       /*echo "<pre>";
       print_r(json_encode($data));
@@ -932,7 +1011,7 @@ tnAuthorizationNumber= autorizacion deBCP
       $data = array( 'tnCliente' =>$tncliente ,'tnTransaccionDePago'=> $tnTransaccionDePago , 'tcApp'=>2);
       $this->cargarlog("finalizarpago".json_encode($data));
       //print_r($data);
-      
+    
       /*
       @POST(cPagoFacilPHP + "/Factura/FinalizarPago")
       @FormUrlEncoded
@@ -952,9 +1031,7 @@ tnAuthorizationNumber= autorizacion deBCP
          'header' => implode("\r\n", $header),
          'content' => http_build_query($data) 
       )
-                  );
-   
-   
+      );
    
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
@@ -1004,9 +1081,9 @@ tnAuthorizationNumber= autorizacion deBCP
       //print_r($data);
       
       /*
- @POST(cPagoFacilPHP + "/Factura/consultarEstadoTransaccion")
-    @FormUrlEncoded
-    Call<mPaquetePagoFacil<EstadoPago>> consultarEstadoTransaccion(
+      @POST(cPagoFacilPHP + "/Factura/consultarEstadoTransaccion")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<EstadoPago>> consultarEstadoTransaccion(
             @Field("tnCliente")             long    tnCliente,
             @Field("tnEmpresa")             long    tnEmpresa,
             @Field("tnTransaccionDePago")   long    tnTransaccionDePago,
@@ -1062,7 +1139,7 @@ tnAuthorizationNumber= autorizacion deBCP
               @Field("tcFacturaA")        String  tcFacturaA,
               @Field("tnTelefono")        Long    tnTelefono,
               @Field("tnTelefonoDePago")  Long    tnTelefonoDePago);
-*/
+      */
 
 
       $header = array(
@@ -1088,35 +1165,34 @@ tnAuthorizationNumber= autorizacion deBCP
     }
 
 
-    public function generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $taEntidades ) 
+    public function generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $taEntidades, $taFacturas ) 
     {
- 
-       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_GenerarQR_V2';
-       $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 ,  'taEntidades'=>  $taEntidades );
+       //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BCP_GenerarQR_V2';
+       $url ='http://localhost:8000/api/Factura/BCP_GenerarQR_V2';
+       $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 ,  'taEntidades'=>  $taEntidades , "taDetallePago"=>$taFacturas );
        $this->cargarlog("generarqr".json_encode($data));
        /*echo "<pre>";
-       print_r(json_encode($data));
+         print_r(json_encode($data));
        echo "</pre>";
        */
        // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
- 
        /*    
-            @POST(cPagoFacilPHP + "/Factura/BCP_GenerarQR")
-     @FormUrlEncoded
-     Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
-             @Field("tnCliente")                 long    tnCliente,
-             @Field("tnEmpresa")                 long    tnEmpresa,
-             @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
-             @Field("tnMetodoPago")              int     tnMetodoPago,
-             @Field("tnTelefono")                String  tnTelefono,
-             @Field("tcFacturaA")                String  tcFacturaA,
-             @Field("tnCiNit")                   String  tnCiNit,
-             @Field("tcNroPago")                 String  tcNroPago,
-             @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
-             @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
-             @Field("tcPeriodo")                 String  tcPeriodo,
-             @Field("tcImei")                    String  tcImei);
- 
+         @POST(cPagoFacilPHP + "/Factura/BCP_GenerarQR")
+         @FormUrlEncoded
+         Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
+                  @Field("tnCliente")                 long    tnCliente,
+                  @Field("tnEmpresa")                 long    tnEmpresa,
+                  @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
+                  @Field("tnMetodoPago")              int     tnMetodoPago,
+                  @Field("tnTelefono")                String  tnTelefono,
+                  @Field("tcFacturaA")                String  tcFacturaA,
+                  @Field("tnCiNit")                   String  tnCiNit,
+                  @Field("tcNroPago")                 String  tcNroPago,
+                  @Field("tnMontoClienteEmpresa")     Double  tnMontoClienteEmpresa,
+                  @Field("tnMontoClienteSyscoop")     Double  tnMontoClienteSyscoop,
+                  @Field("tcPeriodo")                 String  tcPeriodo,
+                  @Field("tcImei")                    String  tcImei);
+      
              */
        
        $header = array(
@@ -1139,22 +1215,23 @@ tnAuthorizationNumber= autorizacion deBCP
     }
 
    
-    public function generarqrbnb($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $taEntidades ) 
+    public function generarqrbnb($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,  $taEntidades , $taFacturas ) 
     {
  
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BNB_GenerarQR';
-       $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 ,  'taEntidades'=>  $taEntidades );
-       //$this->cargarlog("generarqr".json_encode($data));
+     // $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/BNB_GenerarQR';
+      $url ='http://localhost:8000/api/Factura/BNB_GenerarQR';
+       $data = array('tnCliente' => strval($tnCliente )  , 'tnEmpresa' => $tnEmpresa ,  'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 'tnMetodoPago'=> $tnMetodoPago , 'tnTelefono'=> $tnTelefono , 'tcFacturaA'=> $tcFacturaA , 'tnCiNit'=> $tnCiNit ,'tcNroPago'=> $tcNroPago ,'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,'tcPeriodo'=>$tcPeriodo ,'tcImei'=> $tcImei ,'tcApp'=>2 ,  'taEntidades'=>  $taEntidades , "taDetallePago"=>$taFacturas );
+       $this->cargarlog("generarqrbnb".json_encode($data));
        /*echo "<pre>";
-       print_r(json_encode($data));
-       echo "</pre>";
+         print_r(json_encode($data));
+         echo "</pre>";
        */
        // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
  
        /*    
             @POST(cPagoFacilPHP + "/Factura/BCP_GenerarQR")
-     @FormUrlEncoded
-     Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
+         @FormUrlEncoded
+         Call<mPaquetePagoFacil<String>> BCP_GenerarQR(
              @Field("tnCliente")                 long    tnCliente,
              @Field("tnEmpresa")                 long    tnEmpresa,
              @Field("tcCodigoClienteEmpresa")    String  tcCodigoClienteEmpresa,
@@ -1257,12 +1334,14 @@ tnAuthorizationNumber= autorizacion deBCP
        return $resultado;
     }
 
-    public function realizarpagotigo($tnCliente  , $tnEmpresa ,$tcCodigoClienteEmpresa , $tnMetodoPago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tnFactura , $tcMonto ,  $tcComision , $tcImei , $tcPeriodo) 
+    public function realizarpagotigo($tnCliente  , $tnEmpresa ,$tcCodigoClienteEmpresa , $tnMetodoPago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tnFactura , $tcMonto ,  $tcComision , $tcImei , $tcPeriodo  , $taFacturas) 
     {
       /*$tcFirma= $request->input('tcFirma');
       $tcParametros= $request->input('tcParametros');*/
-      $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/realizarPago';
-      $data = array( 'tnCliente' => $tnCliente , 'tnEmpresa'=> $tnEmpresa , 'tcCodigoClienteEmpresa'=> "$tcCodigoClienteEmpresa", 'tnMetodoPago'=> intval($tnMetodoPago) , 'tnTelefono'=>intval($tnTelefono), 'tcFacturaA'=>$tcFacturaA, 'tnCiNit'=> intval($tnCiNit), 'tnFactura'=> intval($tnFactura) , 'tcMonto' => "$tcMonto" , 'tcComision'=> "$tcComision" , 'tnIdAccion'=> 24 ,'tcImei'=>  $tcImei ,'tcApp'=>2,'tcPeriodo' =>(String) $tcPeriodo ) ;
+      //  $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/realizarPago';
+      $url ='http://localhost:8000/api/Factura/realizarPago';
+
+      $data = array( 'tnCliente' => $tnCliente , 'tnEmpresa'=> $tnEmpresa , 'tcCodigoClienteEmpresa'=> "$tcCodigoClienteEmpresa", 'tnMetodoPago'=> intval($tnMetodoPago) , 'tnTelefono'=>intval($tnTelefono), 'tcFacturaA'=>$tcFacturaA, 'tnCiNit'=> intval($tnCiNit), 'tnFactura'=> intval($tnFactura) , 'tcMonto' => "$tcMonto" , 'tcComision'=> "$tcComision" , 'tnIdAccion'=> 24 ,'tcImei'=>  $tcImei ,'tcApp'=>2,'tcPeriodo' =>(String) $tcPeriodo ,"taDetallePago"=> $taFacturas  ) ;
       $this->cargarlog("realizarpagotigomoney".json_encode($data));
       /*
        @POST(cPagoFacilPHP + "/Empresa/listarMetodosDePago")
@@ -1378,6 +1457,8 @@ tnAuthorizationNumber= autorizacion deBCP
     public function getfacturaspagadas( $tnCliente, $tnEmpresa ,$tcCodigoClienteEmpresa )
     {
       $url ='http://serviciopagofacil.syscoop.com.bo/api/Factura/listarFacturasPagadas';
+    //  $url ='http://localhost:8000/api/Factura/listarFacturasPagadas';
+      
       $data = array( 'tnCliente' => intval($tnCliente) ,'tnEmpresa'=>intval($tnEmpresa) , 'tcCodigoClienteEmpresa'=>"$tcCodigoClienteEmpresa" ) ;
   
        
@@ -1442,7 +1523,9 @@ tnAuthorizationNumber= autorizacion deBCP
 
     public function getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente)
     {
+       //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ObtenerFacturaEmpresaPDF2';
        $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ObtenerFacturaEmpresaPDF2';
+       
        $data = array('tnCliente' => $tnCliente  ,'tnFactura' => $tnFactura , 'tnTransaccionDePago'=> $tnTransaccionDePago ,'tnEmpresa'=> $tnEmpresa , 'tcApp'=>2   );
  
        /*  @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaEmpresaPDF2")
@@ -1476,9 +1559,10 @@ tnAuthorizationNumber= autorizacion deBCP
     }
     public function getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente)
     {
-       $url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ObtenerFacturaPDF2';
+       //$url = 'http://serviciopagofacil.syscoop.com.bo/api/Factura/ObtenerFacturaPDF2';
+       $url = 'http://localhost:8000/api/Factura/ObtenerFacturaPDF2';
        $data = array('tnCliente' => $tnCliente  ,'tnFactura' => $tnFactura , 'tnTransaccionDePago'=> $tnTransaccionDePago ,'tnEmpresa'=> $tnEmpresa , 'tcApp'=>2   );
-       $this->cargarlog("getfacturaempresa".json_encode($data));
+       $this->cargarlog("getfacturaempresa11".json_encode($data));
  
        /*  
     @POST(cPagoFacilPHP + "/Factura/ObtenerFacturaPDF2")
@@ -1550,6 +1634,7 @@ tnAuthorizationNumber= autorizacion deBCP
     public function EmpresasDetalle($tnEmpresa,$tnCliente)
     {
        $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/listarEmpresasDetalle';
+       //$url ='http://localhost:8000/api/Empresa/listarEmpresasDetalle';
        $data = array('tnCliente' => $tnCliente  ,'tnEmpresa'=> $tnEmpresa   );
  
        /*  
@@ -2127,7 +2212,8 @@ tcJWT
 public function realizarpagoatc($datos)
 {
  
-   $url = 'https://serviciopagofacil.syscoop.com.bo/api/pay/cybersource_RealizarPago';
+   //$url = 'https://serviciopagofacil.syscoop.com.bo/api/pay/cybersource_RealizarPago';
+   $url ='http://localhost:8000/api/pay/cybersource_RealizarPago';
    $data = $datos ;// array( 'tcJWT' => $tcJWT   );
    $this->cargarlog("realizarpagoatc".json_encode($data));
 
@@ -2455,6 +2541,7 @@ public function getmetodosbyToken($tnTokenService)
     {
     
        $url= 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getcriteriobusqueda';
+      
        $data = array( 'tnEmpresa' =>$tnEmpresa  );
        $this->cargarlog("getcriteriobusquedahub =".json_encode($data));
 
@@ -2567,7 +2654,10 @@ public function getmetodosbyToken($tnTokenService)
 
     public function getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio)
    {
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+    //  $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+      
+      $url = 'http://localhost:8000/api/HubPago/getbusquedaclientes';
+      
       $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
       /*
       @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
@@ -2860,6 +2950,65 @@ public function getmetodosbyToken($tnTokenService)
          "Content-Length: ".strlen( http_build_query($data))
          );
 
+   }
+   public function getempresasbytoken($tcComerceId,$idcliente)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/buscarempresabytoken';
+      $data = array('tcComerceId' => $tcComerceId ,'tnCliente'=> $idcliente,'tnIdAccion'=> 0 , 'tcApp'=>2  );
+      $this->cargarlog("getempresasbytoken".json_encode($data));
+     // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
+
+      /*     @POST(cPagoFacilPHP + "/Empresa/listarEmpresas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> listarEmpresas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcFiltro")      String  query,
+            @Field("tnIdAccion")    int     tnIdAccion);
+      */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   } 
+
+   
+   public function getultimatransaccioncliente($idcliente)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Transaccion/getUltimaTransaccionCliente';
+      $data = array('tnCliente'=> $idcliente, 'tcApp'=>2  );
+      $this->cargarlog("getultimatransaccioncliente".json_encode($data));
+     // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
+
+      /*     @POST(cPagoFacilPHP + "/Empresa/listarEmpresas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> listarEmpresas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcFiltro")      String  query,
+            @Field("tnIdAccion")    int     tnIdAccion);
+      */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
       $options = array('http' => array(
          'method'  => 'POST',
          'header' => implode("\r\n", $header),
@@ -2875,12 +3024,47 @@ public function getmetodosbyToken($tnTokenService)
       $url = 'http://localhost:8000/api/cliente';
       $options = array('http' => array(
          'method'  => 'POST')); 
+      
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+       $resultado =json_decode($result);
+      return $resultado;
+   } 
+   
+   public function getEmpresaAccesodirecto($tnCliente)
+   {
+      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/accesodirectos';
+      $data = array('tnCliente'=> $tnCliente, 'tcApp'=>2  );
+      /*     @POST(cPagoFacilPHP + "/Empresa/listarEmpresas")
+    @FormUrlEncoded
+    Call<mPaquetePagoFacil<ArrayList<mEmpresaSimple>>> listarEmpresas(
+            @Field("tnCliente")     long    cliente,
+            @Field("tcFiltro")      String  query,
+            @Field("tnIdAccion")    int     tnIdAccion);
+      */
+      
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
+         
+      // use key 'http' even if you send the request to https://...
+      $options = array('http' => array(
+         'method'  => 'POST',
+         'header' => implode("\r\n", $header),
+         'content' => http_build_query($data) 
+      )
+                  );
+   
+   
+   
       $context  = stream_context_create($options);
       $result = file_get_contents($url, false, $context);
        $resultado =json_decode($result);
       return $resultado;
    }
-}
+   } 
+
 
 
 

@@ -56,6 +56,17 @@ class Auth extends CI_Controller {
 	
     }
 
+	
+	public function login2()
+	{	
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$d['authURL'] =  $this->facebook->login_url();
+		//$d['loginURL'] = $this->google->loginURL();
+		$this->load->view('auth/login2', $d);	
+	
+    }
+
     //este es el metodo que ocupare para loguearse al inicio con el servicio de pago facil 
     public function loginusuario()
 	{

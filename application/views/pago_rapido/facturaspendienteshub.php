@@ -331,8 +331,6 @@ function vistafacturacion()
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
     $.ajaxSetup(
         {
             cache: false,
@@ -352,7 +350,7 @@ idmetododepago=0;
               idmetododepago=idmetododepagonuevo;
                 //id_fugure_region=id_figure;
                 //$('#btn_region').click();
-           /*     $(id_item).css("border", "solid");
+             /*     $(id_item).css("border", "solid");
                 $(id_item).css("border-color", "red");
                 $(id_item).css("border-style", "outset");
                 $(id_item).css("border-radius", "15px");

@@ -32,11 +32,11 @@ Cardinal.on('payments.setupComplete', function(data){
         //validate_jwt(jwt);
       break;
       case "NOACTION":
-        console.log('validacion no action');
-      // Handle no actionable outcome
-  $("#btncarga").hide();
-          $("#btnprepararpago").show();
-         // swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página", "error");
+          console.log('validacion no action');
+          // Handle no actionable outcome
+          //$("#btncarga").hide();
+          //$("#btnprepararpago").show();
+          // swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página", "error");
 
           
       break;
@@ -97,22 +97,29 @@ $("#btncarga").show();
 $("#btnprepararpago").hide();
 
 if(creditCardNumber.length>0  &&  creditCardNumber.length==19  &&  expirationDate.length >0     && cvvCode.length >0   && billingNumber.length >0    && emailAddress1.length >0 && billingCountry.length >0    && billingState.length >0  && billingZip.length >0       )
-{
-let data = this.getOrderObjectLast();
-console.log("startCCA",data)
-Cardinal.start("cca", data)
-}else{
-if(creditCardNumber.length!=19 )
-{
-swal("Mensaje","rellenar datos de tarjeta" , "error");
-}
+    {
+        let data = this.getOrderObjectLast();
+        console.log("startCCA",data)
+        Cardinal.start("cca", data)
+    }else{
+      var lcTextoError="rellenar datos de";
+        if(creditCardNumber.length!=19 )
+        {
+          lcTextoError=  lcTextoError+" tarjeta," ;
+        }
+        if(cvvCode.length  == 0 )
+        {
+          lcTextoError=  lcTextoError+" Cvv," ;
+        }
+        if(expirationDate.length==0 )
+        {
+          lcTextoError=  lcTextoError+" Año o Mes," ;
+        }
 
-$("#btncarga").hide();
-$("#btnprepararpago").show();
-//swal("Mensaje","Faltan Rellenar datos" , "error");
-}
-
-
+        $("#btncarga").hide();
+        $("#btnprepararpago").show();
+        swal("Mensaje",lcTextoError.slice(0,-1) , "error");
+    }
 }
 
 
@@ -210,6 +217,7 @@ $.ajax({
   beforeSend:function( ) {   
     $("#btncarga").show();
     $("#btnprepararpago").hide();
+    console.log("EnrollProcess BEFORE");
     
 
   },    
@@ -249,6 +257,8 @@ $.ajax({
   complete:function( ) {
     $("#btncarga").hide();
     $("#btnprepararpago").show();
+    console.log("EnrollProcess complete");
+
     
 },
 });

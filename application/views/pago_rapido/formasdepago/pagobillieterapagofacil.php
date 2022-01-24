@@ -163,16 +163,20 @@
                       beforeSend:function( ) {   
                         display = document.querySelector('#time');
                      //   Relog(<?=  $tiempo ?>, display);
-                        Relog(60, display);
+                        Relog(90, display);
 
                         $("#btncarga").show();
                           $("#bntprepararpago").hide();
+                      //  $("#mensajerecibido").val("El pago se  a iniciado");
+                      //texto=$("#mensajerecibido").val();
+                      //$("#mensajerecibido").val( texto+" \r\n El pago en proceso . espere porfavor");
                       },                    
                       success:function(response) {
                       console.log(response);
                       console.log(response.valor);
                       if(response.tipo==10)
-                      {
+                      {//
+                         // intervalo=setInterval('verificartransaccion('+ response.valor +')',6000);
                          clearInterval(intervalorelog);
                         $("#time").empty();
                         $("#btncarga").hide();

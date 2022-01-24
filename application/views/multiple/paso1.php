@@ -54,8 +54,8 @@ input.largerCheckbox {
 </style>
 <div class="row">
 
-<?php if($cantidadfacturas>0){  ?>
-   <div clas="col-md-6 col-sm-6 col-lg-6" id="divcajametodopago" >
+<?php //if($cantidadfacturas>0){  ?>
+   <div clas="col-md-5 col-sm-5 col-lg-5" id="divcajametodopago" >
       <div class="card">
 
          <div class="card-body" style="padding: 0rem;">
@@ -85,19 +85,28 @@ input.largerCheckbox {
                            <div class="col-md-10 col-8 row">
                               <?php  for ($j=0; $j < count($metodospagogrupos[$i]->MetodosPago) ; $j++) {  ?>
                               <div class="col-md-12">
-                                 <div class="form-group" style="margin-bottom: 0rem;">
-                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
-                                       <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
+                                 <div class="form-group"   style="margin-bottom: 0rem;">
+                                    <div class="custom-control custom-radio" >
+                                    
+                                       <input  type="radio" data-metodopago="<?= $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"   data-item="#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->etiquetaBilletera ?></label>
                                     </div>
                                  </div>
                               </div>
                               <script>
-                                 <?php  if(isset( $_SESSION['metododepago'])){ 
-                                    if($_SESSION['metododepago']== $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago){
+                                 var grupometododepago;
+                                 <?php
+                                
+                                 
+                                 if(isset($lnUltimoMetodPago)){ 
+                                    
+                                    if($metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago== $lnUltimoMetodPago){
                                     ?> 
-                                         var grupometododepago="#grupometodopago<?=  $i ?>";     
-                                 <?php }} ?> 
+                                    alert("ingreso aqui ");
+                                          grupometododepago="#grupometodopago<?=  $i ?>";     
+                                 <?php }
+                              
+                              } ?> 
                                      
                               </script>
                               <?php }  ?>
@@ -113,13 +122,13 @@ input.largerCheckbox {
    </div>
    <div id="cajalistafacturas" class="col-md-6 col-sm-6 col-lg-6" style="display:none"  >
    </div>
-<?php }else{  echo "Este Cliente no tiene facturas por pagar "; ?>
-<?php } ?>
+<?php //}else{  echo "Este Cliente no tiene facturas por pagar "; ?>
+<?php //} ?>
 </div>
     <!-- begin::footer -->
     <input type="hidden" id="empresa_id"name="empresa_id" value="<?= $empresa_id ?>">
-    <input type="hidden" id="codigofijo" name="codigofijo" value="<?= $codigofijo ?>">
-    <input type="hidden" id="url" name="url" value="<?= $url ?>">
+    <input type="hidden" id="codigofijo" name="codigofijo" value="<?= @$codigofijo ?>">
+   
     <input type="hidden" id="tnPosicion" name="tnPosicion" value="<?= $tnPosicion ?>">
     
 
@@ -127,21 +136,7 @@ input.largerCheckbox {
 													
 <script>
 
-    function elegiritem(checkitem){
-        
-        $("#Items"+(checkitem)).prop("disabled", false);
 
-    }
-
-    $('input[type=checkbox]').on('change', function() {
-        //$("#Items"+(checkitem)).prop("disabled", false);
-        if ($(this).is(':checked') ) {
-            console.log("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Seleccionado");
-
-        } else {
-            console.log("Checkbox " + $(this).prop("id") +  " (" + $(this).val() + ") => Deseleccionado");
-        }
-    });
 
 function obteneravisomes(periodomes)
 {
@@ -168,85 +163,113 @@ function getpdfactualizado()
 // en este metodo se  guardar el metodo de pago el monto y la comision en variables de session 
 function vistafacturacion()
 {
-    var montototal=$("#montototal").val();
+   var lafacturas=new Array(); 
+   for (let index = 0; index < cantidadfacturas; index++) {
+      
+      if($("#items-"+(index)).is(':checked') )
+      {
+      //$("#items-"+(index)).prop("checked", true);
+      console.log($("#items-"+(index)).prop("id"));
+      lafacturas.push ($("#items-"+(index)).val()); 
+      }
+   }
+   console.log(lafacturas);
+    var montototal= montototalaux ;//$("#montototal").val(montototalgeneral);
+    var montocomision= montocomisionaux;
     var idfactura=$("#facturaid").val();
     var codigo_fijo=$("#codigofijo").val();
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo };
+    var facturasiten=lafacturas;
+    var datos= {metododepago:idmetododepago , montototal:montototal ,montocomision:montocomision  ,idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo, detallepago:facturasiten  };
     var urlajax=$("#url").val()+"vistafacturacion";  
-     
+       
     $("#facturacionbody").empty();   
     $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#confirmacionbody").empty();   
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
     $.ajaxSetup(
-        {
-            cache: false,
-            
-                    });
-    $("#facturacionbody").load(urlajax,{datos});   
-    $("#li3").show();
-    $("#facturacion-tab").click();
-    
+                  {
+                     cache: false,
+                  });
+   $("#facturacionbody").load(urlajax,{datos});   
+   $("#li3").show();
+   $("#facturacion-tab").click();
+   
 }
-        idmetododepago=0;
-    function ledioaeste(idmetododepagonuevo,id_item)
-            {
-                console.log(id_item);
-            
-             // $("#img-"+idmetododepago).css("border", "none");
-              idmetododepago=idmetododepagonuevo;
-                //id_fugure_region=id_figure;
-                $('#cajalistafacturas').show();
-                listarfacturaspendientesmultiple();
-           /*     $(id_item).css("border", "solid");
-                $(id_item).css("border-color", "red");
-                $(id_item).css("border-style", "outset");
-                $(id_item).css("border-radius", "15px");
-                //$("#nombre_region").text(nombre);*/
-                //filtrar_empresas();
-
+   idmetododepago=0;
+function ledioaeste(idmetododepagonuevo,id_item)
+   {
+      console.log(id_item);
+      console.log("ledioaeste");
+      idmetododepago=idmetododepagonuevo;
+      $('#cajalistafacturas').show();
+      listarfacturaspendientesmultiple(idmetododepago);
+   }
+$(document).ready(function() {
+   console.log("ready paso1");
+      <?php  if( $_SESSION['cliente']== 9  ) {  ?> 
+               $("#grupometodopago2").click();
+               $("#metodopago-4").click();
+               ledioaeste(4,"#img-4") ;
+         <?php  }else{
+            if(isset($lnUltimoMetodPago) &&  !is_null($lnUltimoMetodPago)  )
+               {
+            ?> 
+            console.log(grupometododepago);
+            if(grupometododepago != null){
+               $(grupometododepago).click();
+               $("#metodopago-<?= $lnUltimoMetodPago ?>").click();
+               ledioaeste(<?= $lnUltimoMetodPago ?>,"#img-<?= $lnUltimoMetodPago ?>") ;
+            }else{
+               $("#grupometodopago2").click();
+               $("#metodopago-4").click();
+               ledioaeste(4,"#img-4") ;
             }
 
-            $(document).ready(function() {
-            // Instrucciones a ejecutar al terminar la carga
-            //ledioaeste(5,"#img-5");
-           <?php  if(isset( $_SESSION['metododepago'])){  ?> 
-               $(grupometododepago).click();
-                $("#metodopago-<?= $_SESSION['metododepago'] ?>").click();
-                
-            <?php  }else{?> 
-              $("#grupometodopago3").click();
-              //  $("#metodopago-5").click();
-            <?php  } ?> 
+         <?php }else{  ?>
             
-            
-            
-            
-            });
-             function funcionvermas()
-             {
-                $("#divinformacion").toggle(500);
-             }
-         
-    function listarfacturaspendientesmultiple()
-    {
-        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-        var tnPosicion=$("#tnPosicion").val();
-        var tnEmpresa=$("#empresa_id").val();
-        var datos= {tnEmpresa:tnEmpresa,tnPosicion:tnPosicion , tnIdentificarPestaña:tnIdentificarPestaña };
-        var urlajax=$("#url").val()+"listadofacturaspendientes";   
-        $("#cajalistafacturas").empty();   
-        $("#cajalistafacturas").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-        $("#cajalistafacturas").click();
-        $("#cajalistafacturas").load(urlajax,{datos});  
-        
 
-    }
+            <?php  }  } ?> 
+
+         $("input[name=customRadio]").click(function () {    
+               ledioaeste($(this).data("metodopago"),$(this).data("item")) ;
+            });
+
+});
+function funcionvermas()
+   {
+      $("#divinformacion").toggle(500);
+   }
+         
+   function listarfacturaspendientesmultiple(metododepago)
+   {
+      console.log("esta ingresndo al metodo listarfacturaspendientesmultiple");
+      var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+      var tnPosicion=$("#tnPosicion").val();
+      var tnEmpresa=$("#empresa_id").val();
+      var datos=  {  tnMetodoPago:metododepago , tnEmpresa:tnEmpresa,tnPosicion:tnPosicion , tnIdentificarPestaña:tnIdentificarPestaña };
+      var urlajax=$("#url").val()+"listadofacturaspendientes";   
+      $("#cajalistafacturas").empty();   
+      $("#cajalistafacturas").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+      // $("#cajalistafacturas").click();
+      $.ajaxSetup(
+               {
+                  cache: false,
+                  error: function(error){
+                     console.log(error);
+                     //  console.log(settings);
+                  
+                     $("#cajalistafacturas").empty();  
+                     swal("ha ocurrido un error al procesar la solicitud ", "volver a elegir metodo pago ,si el error persite  consultar con atencion al cliente  72104048 " , "error");
+                     }
+
+               });
+      $("#cajalistafacturas").load(urlajax,{datos});  
+      
+
+   }
 
 </script>
 

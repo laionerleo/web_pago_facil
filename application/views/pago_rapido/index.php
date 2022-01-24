@@ -111,8 +111,8 @@ input[type=number]::-webkit-outer-spin-button {
                                   <div class="row">
                                       <div class="col-md-12">
                                           <center>
-                                          <input id="btnperfil" style="" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
-                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
+                                          <input id="btnperfil" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
+                                          <input id="btnperfilempresa"  type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
                                           
                                           </center>
                                       </div>
@@ -462,13 +462,9 @@ function facturaspendientes(codigo_usuario)
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
-    $("#facturaspendientesbody").load(urlajax,{datos});   
-    
+     $("#facturaspendientesbody").load(urlajax,{datos});   
     $("#li2").show();
     $("#facturaspendientes-tab").click();
-
 }
 
 function facturaspendientesmultiple(codigo_usuario)
@@ -544,7 +540,6 @@ function vistarecarga(codigo)
     $("#recarga-tab").click();
 
 }
-
 function limpiar()
 {
  
@@ -576,8 +571,6 @@ function cargarcriteriobusquedahub(empresa)
     $("#divcriteriobusquedahub").show();
     $("#divcriteriobusquedahub").load(urlajax,{datos});   
 }
-
-
 </script>
   
   <?php $this->load->view('theme/js');  ?>
@@ -598,20 +591,12 @@ try {
                                             console.log(result);
                                        
                                                 cambiar_rubro(result[0], result[1]);
-                                       
-                                            
-                            
+                                   
                                         }}}).data("dd");
-    //var pagename = document.location.pathname.toString();
-    //pagename = pagename.split("/");
                                     slcregion.set("selectedIndex", 100);
-    //$("#ver").html(msBeautify.version.msDropdown);
-                  //  pages.set("selectedIndex", 0);
 } catch(e) {
     //console.log(e);	
 }
-
-
 try {
                 slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
                                             var val = data.value;
@@ -629,9 +614,6 @@ try {
 } catch(e) {
     //console.log(e);	
 }
-
-
-
 if(perfil==1)
 {
     perfilfrecuente();
@@ -646,16 +628,7 @@ if(perfil==1)
     slcrubro.set("selectedIndex", 0);
  
 }
-//
-
 $('#li2').attr('disabled', true); //add
-
-
-
-
-
-
-
 });
 $("#inp_dato").on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
@@ -680,16 +653,12 @@ function error(tnIdImput)
              
         function getfacturaempresa(transaccion)
         {
-
-            
             var link = document.createElement('a');
             var tntransaccion=transaccion;
             link.href =" <?=  base_url() ?>/es/getfacturaempresa/"+tntransaccion;
             link.download = "recibo-"+tntransaccion+"pdf";
             link.dispatchEvent(new MouseEvent('click'));
-       
-       
-       }
+        }
 
        function getfacturapagofacil(transaccion)
         {

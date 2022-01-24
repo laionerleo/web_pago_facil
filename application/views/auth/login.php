@@ -109,7 +109,7 @@
                             <div class="fxt-transformY-50 fxt-transition-delay-3">
                                         
                                         <h5 id="mensaje" > <?=@$_GET['m']?></h5>
-                                        <input type="hidden" id ="url" value="<?= $url ?>">
+                                        <input type="hidden" id ="url" value="<?= base_url() ?>es/">
                             </div>
                         </div>
                         <div class="form-group">

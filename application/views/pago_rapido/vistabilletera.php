@@ -217,7 +217,7 @@ input.radiomontoclass {
                 var billetera=$('#tnBilletera').val();
                 var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
                 console.log(lnrecargamax);
-             if(  lnRecargashechas   < lnrecargamax)
+             if(  parseInt(lnRecargashechas)   < parseInt( lnrecargamax ))
              {
             
                 if( (montototal != 0) && (montototal != "") && (montototal > 0) && (montototal >= lnMontoMinimo)   ){

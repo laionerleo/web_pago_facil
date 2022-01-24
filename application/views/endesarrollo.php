@@ -7,7 +7,7 @@
                                             <div class="container h-100-vh">
                                             <div class="row align-items-md-center h-100-vh">
                                                 <div class="col-lg-6">
-                                                    <img class="img-fluid" src="<?= base_url();  ?>application/assets/assets/media/svg/mean_at_work.svg" alt="image">
+                                                <img sclass="img-fluid"  style="object-fit: contain;width: 100%;height: 500px;"  src="<?= base_url();  ?>application/assets/assets/media/svg/mean_at_work.svg" alt="image">
                                                 </div>
                                                 <div class="col-lg-4 offset-lg-1">
                                                     <h1>MUY PRONTO!</h1>

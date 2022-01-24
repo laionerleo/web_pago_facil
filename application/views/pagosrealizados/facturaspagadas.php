@@ -45,25 +45,105 @@
                                             <table id="example1" class="table table-striped table-bordered">
                                                                 <thead>
                                                                 <tr>
-                                                                <th>Nro Transaccion</th>
+                                                                    <th>Nro Transaccion</th>
                                                                     <th>Periodo</th>
                                                                     <th>Importe  </th>
                                                                     <th>Fecha de Pago</th>
                                                                     <th>Hora de Pago</th>
+                                                                    <th>Opciones</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>                                                                
                                                                 <?php  for ($i=0; $i < count($facturaspagadas) ; $i++) { ?>
                                                                     
-                                                                    <tr id="fila-<?= $i ?>" onclick="mostrarmodalfacturas(<?= @$facturaspagadas[$i]->transaccionDePago ?> , '<?= @$facturaspagadas[$i]->periodo ?>' ,<?= @$facturaspagadas[$i]->factura ?> )"  > 
+                                                                    <tr id="fila-<?= $i ?>"  > 
                                                                     <td>  <?= @$facturaspagadas[$i]->transaccionDePago ?></td>
-                                                                    <td > 
-                                                                    <label for=""><?= @$facturaspagadas[$i]->periodo ?></label>
-                                                                    </td>
+                                                                    <td> 
+                                                                    <?php if(count(@$facturaspagadas[$i]->TransaccionDePagoDetalle)>1 ){  ?>
+                                                                        <?= $facturaspagadas[$i]->TransaccionDePagoDetalle[0]->Periodo ?> al <?= $facturaspagadas[$i]->TransaccionDePagoDetalle[count(@$facturaspagadas[$i]->TransaccionDePagoDetalle)-1]->Periodo ?> 
+                                                                        <?php }else{ ?>
+                                                                            <label for=""><?= @$facturaspagadas[$i]->periodo ?></label>
+                                                                            <?php } ?>
+
+                                                                    
+                                                                    
+                                                                
+                                                                </td>
                                                                     <td>  <?= @$facturaspagadas[$i]->importe ?></td>
                                                                     <td>  <?= @$facturaspagadas[$i]->fechaPago ?></td>
                                                                     <td>  <?= @$facturaspagadas[$i]->horaPago ?></td>
-                                                                    
+                                                                    <td>
+                                                                    <button class="btn btn-primary" onclick="mostrarmodalfacturas(<?= @$facturaspagadas[$i]->transaccionDePago ?> , '<?= @$facturaspagadas[$i]->periodo ?>' ,<?= @$facturaspagadas[$i]->factura ?> )" > Ver </button> 
+                                                                      
+                                                                    <?php if(count(@$facturaspagadas[$i]->TransaccionDePagoDetalle)>1 ){  ?>
+                                                                        <input  type="Button" id="" class="btn btn-primary"  value="Detalle" >
+                                                                        <input  type="Button" id="btnmodal<?= @$facturaspagadas[$i]->transaccionDePago ?>" class="btn btn-primary" data-toggle="modal"  value="Detalle" data-target="#modaldetalle<?= @$facturaspagadas[$i]->transaccionDePago ?>">
+
+                                                                        <div class="modal fade" id="modaldetalle<?= @$facturaspagadas[$i]->transaccionDePago ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                                                                <div class="modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h5 class="modal-title" id="exampleModalLabel">Detalle</h5>
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                <i class="ti-close"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body" style="    overflow-y: scroll;   height: 500px">
+                                                                                        <div class="col-md-12 mb-12 table-responsive"  style="    touch-action: auto;">
+                                                                                            <table id="tabladetalle" class="table table-striped table-bordered">
+                                                                                                <thead>
+                                                                                                <tr>
+                                                                                                    <th>Periodo</th>
+                                                                                                    <th>Monto Total    </th>
+                                                                                                    <th>Estado    </th>
+                                                                                                 
+                                                                                                </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                
+                                                                                                    <?php  for ($j=0; $j < count($facturaspagadas[$i]->TransaccionDePagoDetalle) ; $j++) { ?>
+                                                                                                        <td> 
+                                                                                                        <label for=""><?= $facturaspagadas[$i]->TransaccionDePagoDetalle[$j]->Periodo ?></label>
+                                                                                                        </td>
+                                                                                                        <td> <?= $facturaspagadas[$i]->TransaccionDePagoDetalle[$j]->MontoTotal  ?></td>
+                                                                                                      
+                                                                                                        <td>
+                                                                                                            <a  target="_blank" download="Factura.txt"  href="https://serviciopagofacil.syscoop.com.bo/getFacturaEmpresa2/<?= @$facturaspagadas[$i]->transaccionDePago ?>/<?= $facturaspagadas[$i]->TransaccionDePagoDetalle[$j]->NroPago  ?>">Ver Factura</a>
+                                                                                                        </td>
+                                                                                                       
+                                                                                                    </tr>
+                                                                                            
+                                                                                                    <?php }  ?>
+                                                                                                
+                                                                                                </tbody>
+                                                                                                <tfoot>
+                                                                                                    <tr>
+                                                                                                    <th>Periodo</th>
+                                                                                                    <th>NroDePago   </th>
+                                                                                                    <th>Estado  </th>
+                                                                                                    </tr>
+                                                                                                </tfoot>
+                                                                                            </table>
+
+                                                                                            </div>
+
+
+
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" id="btncerraropciones"  class="close" data-dismiss="modal" aria-label="Close">cerrar                                                                 
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        <?php }else{  ?>
+
+                                                                         <?php } ?>
+
+
+
+                                                                    </td>
                                                                  </tr>
                                                         
                                                                 <?php }  ?>
@@ -76,7 +156,7 @@
                                                                     <th>Importe  </th>
                                                                     <th>Fecha de Pago</th>
                                                                     <th>Hora de Pago</th>
-                                                                    
+                                                                    <th>Opciones</th>
 
                                                                 
                                                                 </tr>
@@ -208,7 +288,7 @@ function verfacturaempresa()
     var nrofactura= $("#nrofactura").val();
     var transaccion= $("#codigotransaccion").val();
     var tipo ;
-         if(screen.width>=1024)
+         if(screen.width>=1025)
          {
             tipo =1
          }else{
@@ -367,21 +447,21 @@ function enviarfacturacorreo()
                             <div class="row">
                             <div class="col-md-12" style="    margin-bottom: 4px;" >
                                 <center>
-                                <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver  <?=  @$etiquetas->EtiquetaAviso ?> <?= @$nombreempresa;  ?>"> 
+                                    <input class="btn btn-primary" onclick="veraviso()" type="button" value="Ver  <?=  @$etiquetas->EtiquetaAviso ?> <?= @$nombreempresa;  ?>"> 
                                 </center>
                                 </div>
                             </div>
                             <div class="row">
                             <div class="col-md-12" style="    margin-bottom: 4px;" >
                                 <center>
-                                <input class="btn btn-primary" onclick="verfacturapagofacil()" type="button" value="Ver Factura PagoFacil"> 
+                                    <input class="btn btn-primary" onclick="verfacturapagofacil()" type="button" value="Ver Factura PagoFacil"> 
                                 </center>
                                 </div>
                             </div>
                             <div class="row">
                             <div class="col-md-12" style="    margin-bottom: 4px;" >
-                            <center>
-                                <input class="btn btn-primary" type="button" onclick="verfacturaempresa()"  value="Ver  <?=  @$etiquetas->EtiquetaTipoNota ?> <?= @$nombreempresa;  ?>">
+                                <center>
+                                    <input class="btn btn-primary" type="button" onclick="verfacturaempresa()"  value="Ver  <?=  @$etiquetas->EtiquetaTipoNota ?> <?= @$nombreempresa;  ?>">
                                 </center>
                                 </div>
                             </div>
