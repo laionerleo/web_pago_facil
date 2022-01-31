@@ -1,6 +1,7 @@
-
-logservicio.txt
-logsession.txt
-logservicioOct.txt
-logsession.txt
-*.pdf
+/nbproject/
+/.idea/*
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
