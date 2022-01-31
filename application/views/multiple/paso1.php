@@ -102,7 +102,7 @@ input.largerCheckbox {
                                     
                                     if($metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago== $lnUltimoMetodPago){
                                     ?> 
-                                    alert("ingreso aqui ");
+                                   
                                           grupometododepago="#grupometodopago<?=  $i ?>";     
                                  <?php }
                               

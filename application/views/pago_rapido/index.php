@@ -468,27 +468,35 @@ function facturaspendientes(codigo_usuario)
 }
 
 function facturaspendientesmultiple(codigo_usuario)
-{
-    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-    var codigo=codigo_usuario;
-    var tipo=sw;
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
-    var urlajax=$("#url").val()+"facturaspendientesmultiple";   
-    $("#facturaspendientesbody").empty();
-    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    $("#facturacionbody").empty();   
-    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    $("#confirmacionbody").empty();   
-    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    $("#prepararpagobody").empty();   
-    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-    
-    
-    $("#facturaspendientesbody").load(urlajax,{datos});   
-    
-    $("#li2").show();
-    $("#facturaspendientes-tab").click();
-
+{   
+    //alert(codigo_usuario);
+    var TipoVehiculo = $('#slcTipoVehiculo').val();
+    if (TipoVehiculo == "") {
+        var mensajeerror="Seleccione el Tipo de Vehiculo";
+        error("#slcTipoVehiculo");
+        swal("Mensaje", mensajeerror, "error");
+    }else{
+        valido("#slcTipoVehiculo");
+        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+        var codigo=codigo_usuario;
+        var tipo=sw;
+        var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
+        var urlajax=$("#url").val()+"facturaspendientesmultiple";   
+        $("#facturaspendientesbody").empty();
+        $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+        $("#facturacionbody").empty();   
+        $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+        $("#confirmacionbody").empty();   
+        $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+        $("#prepararpagobody").empty();   
+        $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+        
+        
+        $("#facturaspendientesbody").load(urlajax,{datos});   
+        
+        $("#li2").show();
+        $("#facturaspendientes-tab").click();
+    }
 }
 
 function habilitarrecarga()
@@ -579,12 +587,13 @@ function cargarcriteriobusquedahub(empresa)
     sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
-    var slcregion,slcrubro;
+    var slcregion,slcrubro, slcTipoVehiculo;
     var indexunico=0;
     $( document ).ready(function() {
 
 try {
          slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
+                                            console.log('HAHAHAHAHAHAAHAHH');
                                             var val = data.value;
                                             console.log(val);
                                             var result=val.split(',');
@@ -597,6 +606,7 @@ try {
 } catch(e) {
     //console.log(e);	
 }
+
 try {
                 slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
                                             var val = data.value;

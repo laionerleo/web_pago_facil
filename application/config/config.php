@@ -36,7 +36,7 @@ switch($nombreServerActual)
             $config['base_url'] = 'http://26.11.75.43/web_pago_facil/';
             break;
     default:
-            $config['base_url'] = 'http://localhost/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;       
 }
 

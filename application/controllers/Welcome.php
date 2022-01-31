@@ -121,9 +121,7 @@ class Welcome extends CI_Controller {
 		$tnCliente=$this->session->userdata('cliente');
 		$tnHubTitulo=0;
 		$loServicioBusquedaClientes=$this->servicios->getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio);	
-		echo '<pre>'; 
-		print_r($loServicioBusquedaClientes );
-		echo '</pre>' ;
+
 		if($loServicioBusquedaClientes->error == 0  && !is_null($loServicioBusquedaClientes->values)  )
 		{
 			$d['clientes']=$loServicioBusquedaClientes->values;
@@ -137,13 +135,18 @@ class Welcome extends CI_Controller {
 			$d['clientes']=array();
 			$d['mensaje']= "no se ha encontrado datos".$loServicioBusquedaClientes->message ;
 		}
+		$d['codigoBusqueda']=$tcCodigo;
 		$d['titulo']=$tcTitulo;
 		$_SESSION[$tnIdentificarPestaña.'idempresa']=$tnEmpresa;
 		$_SESSION[$tnIdentificarPestaña.'clientesbusqueda']=$d['clientes'];
-		
+
 		if($tnHubTitulo==1)
 		{
-			$this->load->view('pago_rapido/listaclienteshub', $d);
+			if ($tnEmpresa == 180) {
+				$this->load->view('pago_rapido/listaclientesoat', $d);				
+			}else {
+				$this->load->view('pago_rapido/listaclienteshub', $d);
+			}
 		}else{
 			$this->load->view('pago_rapido/lista_clientes', $d);
 		}
