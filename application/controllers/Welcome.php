@@ -61,7 +61,7 @@ class Welcome extends CI_Controller {
 		$d['region']=$this->servicios->get_list_regiones($id_cliente);
 		$d['perfilfrecuente']=$_SESSION['PerfilFrecuente'];
  
-	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
+		/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
 		// Puedes usar un método más sofisticado para recuperar el contenido de una página web con PHP usando una biblioteca o algo así
 		// Vamos a recuperar los datos rápidamente con file_get_contents
 		$dataArray = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));
@@ -95,12 +95,28 @@ class Welcome extends CI_Controller {
 
 		$_SESSION['todaslasempresas']=$d['empresas'];
 
-		$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($id_cliente);
+		$laEmpresasMasPagadas=$this->servicios->getEmpresaAccesodirecto($id_cliente) ;
+		//$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($id_cliente);
 		$d['empresasaccesodirecto']=$laEmpresasMasPagadas->values;
-	
+
+		$laMibilletera=$this->servicios->getbilleterausuario($id_cliente);
+		$lbEsBilletera= false;
+		if( !is_null($laMibilletera) && count($laMibilletera->values) >0   )
+		{
+			$lbEsBilletera= true;
+		}
 		
-		//		echo json_encode($empresas);
-	$this->load->view('pago_rapido/lista_empresas', $d);
+
+		foreach ($d['empresasaccesodirecto'] as $key => $value) {
+			
+			$lnEmpresaAux=$value->Empresa ;
+			if($lnEmpresaAux  == 20  && $lbEsBilletera == false )
+			{
+				unset( $d['empresasaccesodirecto'][$key]);
+			}
+		}
+
+		$this->load->view('pago_rapido/lista_empresas', $d);
 		
 
 
@@ -121,9 +137,7 @@ class Welcome extends CI_Controller {
 		$tnCliente=$this->session->userdata('cliente');
 		$tnHubTitulo=0;
 		$loServicioBusquedaClientes=$this->servicios->getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio);	
-		echo '<pre>'; 
-		print_r($loServicioBusquedaClientes );
-		echo '</pre>' ;
+		
 		if($loServicioBusquedaClientes->error == 0  && !is_null($loServicioBusquedaClientes->values)  )
 		{
 			$d['clientes']=$loServicioBusquedaClientes->values;
@@ -429,19 +443,29 @@ class Welcome extends CI_Controller {
 		$d['comision']=$_SESSION[$tnIdentificarPestaña.'montocomision'];		
 		if($metodopago==2)
 		{
-		$tnCliente= $this->session->userdata('cliente');
-		
-		$billetera=$this->servicios->getbilletera($tnCliente,$lnEmpresa);
-		$this->cargarlog("getbilletera-facturacion".json_encode($billetera));
-		if( isset($billetera->values[0]->Saldo)  )
-		{
-			$d['saldo']=@$billetera->values[0]->Saldo;
-		}else{
-			$d['saldo']="0.00";
-			$d['mensaje']="Su billetera movil no se encuentra activada . <br> Contacte con el proveedor para activarla  use otro metodo de pago";
+			$tnCliente= $this->session->userdata('cliente');
 			
+			$billetera=$this->servicios->getbilletera($tnCliente,$lnEmpresa);
+			$this->cargarlog("getbilletera-facturacion".json_encode($billetera));
+			if( isset($billetera->values[0]->Saldo)  )
+			{
+				$d['saldo']=@$billetera->values[0]->Saldo;
+			}else{
+				$d['saldo']="0.00";
+				$d['mensaje']="Su billetera movil no se encuentra activada . <br> Contacte con el proveedor para activarla  use otro metodo de pago";
+				
+			}
 		}
+
+		$loServicioGetFacturaFacturar=$this->servicios->getfacturaempresafacturar(1 , $lnEmpresa);
+		if( !is_null($loServicioGetFacturaFacturar)  && $loServicioGetFacturaFacturar->error==0   )
+		{
+			$d['tnFacturar']=1;
+		}else{
+			$d['tnFacturar']=0;
 		}
+
+
 		$index=0;
 		for ($i=0; $i < count($_SESSION['todosmetodosdepago']) ; $i++) { 
 			//echo $_SESSION[$tnIdentificarPestaña.'todosmetodosdepago'][$i]->metodoPago."--".$_SESSION[$tnIdentificarPestaña.'metododepago']; 
@@ -545,6 +569,8 @@ class Welcome extends CI_Controller {
 		$d['itnselegidos']=$_SESSION[$tnIdentificarPestaña.'gaDetallePago'];	
 			
 		$d['listadofacturas']=$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];	
+		$this->cargarlog("listadofactura1111-".json_encode($d['listadofacturas']));
+		$this->cargarlog("itemselegidos-".json_encode($d['itnselegidos']));
 		if(!is_null($d['listadofacturas']))
 		{	
 			foreach ($d['listadofacturas'] as $key => $value) {
@@ -555,7 +581,12 @@ class Welcome extends CI_Controller {
 					unset( $d['listadofacturas'][$key]);
 				}
 			}
-			$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$d['listadofacturas'];		
+			$this->cargarlog("listadofactura22222-".json_encode($d['listadofacturas']));
+
+			$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientesoficial']= $d['listadofacturas']; 
+			
+		//	$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes']=$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
+					
 			$this->load->view('multiple/confirmacion', $d);
 		}else{
 
@@ -796,7 +827,7 @@ class Welcome extends CI_Controller {
 					$d['Moneda']= 2 ;//;$_SESSION[$tnIdentificarPestaña.'Moneda'];
 					$d['tcPeriodo'] = $_SESSION[$tnIdentificarPestaña.'periodomes'];
 					
-					$d['tnpedidocheckout']= 0 ;//$_SESSION[$tnIdentificarPestaña.'tnpedidocheckout'];
+					$d['tnpedidfcocheckout']= 0 ;//$_SESSION[$tnIdentificarPestaña.'tnpedidocheckout'];
 					$d['tcMonto']=$_SESSION[$tnIdentificarPestaña.'montototal'];
 					$d['Sigla']="Bs";//$_SESSION[$tnIdentificarPestaña.'Sigla'];; //$_SESSION[$tnIdentificarPestaña.'Simbolo'];
 					$d['tcComision']=$_SESSION[$tnIdentificarPestaña.'montocomision'];
@@ -871,7 +902,23 @@ class Welcome extends CI_Controller {
 		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
 		$tcPeriodo=$_SESSION[$tnIdentificarPestaña.'periodomes'];
 		$tcImei =  $_SESSION[$tnIdentificarPestaña.'imei'];
-		$taFacturas= $_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
+		$taFacturas= 	$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientesoficial'] ;
+		$laDatosSintesis=array();
+		if(isset($_SESSION[$tnIdentificarPestaña.'IdOperativo']) && !is_null($_SESSION[$tnIdentificarPestaña.'IdOperativo'])  )
+		{
+			
+			$laDatosSintesis["CuentaCliente"]=$tcCodigoClienteEmpresa  ; 
+			$laDatosSintesis["idOperativo"]= $_SESSION[$tnIdentificarPestaña.'IdOperativo'] ; 
+			$laDatosSintesis["nroOperacion"]= $_SESSION[$tnIdentificarPestaña.'NroOperacion']   ; 
+			$laDatosSintesis["FechaOperativa"]= $_SESSION[$tnIdentificarPestaña.'FechaOperativa'] ; 
+			$laDatosSintesis["Servicio"]= $_SESSION[$tnIdentificarPestaña.'Servicio']  ; 
+			$laDatosSintesis["DirEnvio"]=""  ; 
+			$laDatosSintesis["Monto"]=$tnMontoClienteEmpresa + $tnMontoClienteSyscoop  ; 
+			$laDatosSintesis["NroItem"]=$_SESSION[$tnIdentificarPestaña.'gaDetallePago'][0] ; 
+			$laDatosSintesis["NitFact"]=$tnCiNit  ; 
+
+			
+		}
 		
 		/*if($tcNroPago!=0)
 		{
@@ -1993,10 +2040,26 @@ class Welcome extends CI_Controller {
 		$d['empresas']=$laEmpresasMasPagadas->values;
 		$_SESSION['todaslasempresas']=$d['empresas'];
 
-		$laEmpresasAcceso=$this->servicios->getEmpresaAccesodirecto($tncliente);
-		$d['empresasaccesodirecto']=$laEmpresasAcceso->values;
+		$laEmpresasMasPagadas=$this->servicios->getEmpresaAccesodirecto($tncliente) ;
+		//$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($id_cliente);
+		$d['empresasaccesodirecto']=$laEmpresasMasPagadas->values;
+
+		$laMibilletera=$this->servicios->getbilleterausuario($tncliente);
+		$lbEsBilletera= false;
+		if( !is_null($laMibilletera) && count($laMibilletera->values) >0   )
+		{
+			$lbEsBilletera= true;
+		}
 		
-		
+
+		foreach ($d['empresasaccesodirecto'] as $key => $value) {
+			
+			$lnEmpresaAux=$value->Empresa ;
+			if($lnEmpresaAux  == 20  && $lbEsBilletera == false )
+			{
+				unset( $d['empresasaccesodirecto'][$key]);
+			}
+		}
 		$this->load->view('pago_rapido/listarempresasfrecuentes', $d);
 		
 

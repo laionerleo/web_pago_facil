@@ -14,6 +14,7 @@
          font-size: larger; 
       }
    } 
+   
  </style>
     <script>
       var cantidadfacturas="<?= count($facturas)  ?>"; 
@@ -49,13 +50,21 @@
          console.log(montototalaux.toFixed(2)); 
          console.log(montocomisionaux.toFixed(2)); 
          console.log(montototalgeneral.toFixed(2)); 
+        // $("#facturacionbody").empty();   
+        /* $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+         $("#confirmacionbody").empty();   
+         $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+         $("#prepararpagobody").empty();   
+         $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);
+         */
+         
       });
    </script>
    
    <div class="card" id="cardfacturaspendientes">
       <div class="card-body">
          <div class="table-responsive">
-            <table class="table table-striped table-bordered tablafacturas">
+            <table class="table table-striped table-bordered tablafacturas" style="box-shadow: 0 0 20px #4fc9f0;">
                <thead>
                   <tr>
                   <th> Seleccionar </th>
@@ -70,7 +79,7 @@
                   </tr>
                </thead>
                <tbody >
-                  <?php if(isset($facturas)){
+                  <?php if(isset($facturas) && count($facturas)>0    ){
                      for ($i=0; $i < count($facturas) ; $i++) { ?>
                   <tr>
                   <td>
@@ -122,15 +131,35 @@
                   </tr>
                   <input type="hidden" id="montototal"name="montotoal" value="">
                   <input type="hidden" id="facturaid"  name="facturaid" value="">
-                  <?php } ?>
+                  <?php }else { ?>
+                     <tr>
+                        <td style="background-color: inherit; color: #ff0202;" COLSPAN="5">
+                           <h4>No tiene Facturas  pendientes</h4>
+                        </td>
+                     </tr>
+                           
+                     <?php } ?>
+
+
                </tbody>
             </table>
          </div>
-         <center>  
          <?php if(count($facturas) > 0){   ?>
-            <button class="btn btn-outline-primary" onclick="vistafacturacion()" > Siguiente   </button>
+           
+
+            <div class="row">
+               <div class="col-6 col-md-6" style="text-align: center;" >
+                  <button class="btn btn-outline-warning"   onclick="  $('#li1').show(); $('#inicio-tab').click();"> Atras   </button>
+               </div>
+
+               <div class="col-6 col-md-6" style="text-align: center;">
+                  <button class="btn btn-outline-primary" onclick="vistafacturacion()" > Siguiente   </button>
+               </div>
+            </div>
+
+           
+            
             <?php }   ?>
-         </center>
       </div>
    </div>
 

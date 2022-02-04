@@ -233,10 +233,11 @@ class HubPago extends CI_Controller {
 				$NroOperacion=	$_SESSION[$tnIdentificarPestaña.'NroOperacion'] ;
 				$Servicio=$_SESSION[$tnIdentificarPestaña.'Servicio'] ;
 				$laServicioListarFacturas=$this->servicios->get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio);
+				$this->cargarloghub("get_listar_facturashub-".json_encode($laServicioListarFacturas));
 			}else{
 				// listado de facturas 
-				
 				$laServicioListarFacturas=$this->servicios->get_listar_facturas2($lnEmpresa,$lnCodigoFijo,$lnCliente, $lnMetodoPago);
+				$this->cargarloghub("get_listar_facturas2-".json_encode($laServicioListarFacturas));
 			}
 
 			if(!is_null($laServicioListarFacturas->values)      ){

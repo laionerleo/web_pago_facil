@@ -62,12 +62,11 @@
     }
 </style>
 
-<?php  for ($i=0; $i < count($empresasaccesodirecto) ; $i++) { 
-   if($i<3)
-   {
-   ?>
-        <a  onclick="cambiar_empresa(<?= $empresasaccesodirecto[$i]->empresa ?> , '#emp-<?= $i ?>')" class='flotante' style=" top:  <?= ( $i+1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $empresasaccesodirecto[$i]->descripcion ?>' , <?= $i ?> )" onmouseout="normalImg(this ,'<?= $empresasaccesodirecto[$i]->Descripcion ?>' , <?= $i ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $empresasaccesodirecto[$i]->url_icon ?>' /> <br> <label id="btnflotante<?= $i ?>"  for=""></label> </a>
-<?php  }
+
+
+<?php   foreach ($empresasaccesodirecto as $key => $value) {  ?>
+        <a  onclick="cambiar_empresa(<?= $value->Empresa ?> , '#emp-<?= $key ?>'  ,null,'<?=  $value->Url_Icon ?>', '<?=  $value->Descripcion ?>' )" class='flotante' style=" top:  <?= ( $key +1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $value->Descripcion ?>' , <?= $key ?> )" onmouseout="normalImg(this ,'<?= $value->Descripcion ?>' , <?= $key ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $value->Url_Icon ?>' /> <br> <label id="btnflotante<?= $key ?>"  for=""></label> </a>
+<?php  
  }
 
 ?>
@@ -90,7 +89,8 @@
     $(document).ready( function () {
         $('#example1').DataTable();
     } );
-</script><?php  }else{
+</script>
+<?php  }else{
 
     echo "No hay datos";
 }    

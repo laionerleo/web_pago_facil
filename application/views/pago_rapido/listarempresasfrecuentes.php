@@ -72,9 +72,11 @@
 						</style>
 
                                  
-<?php  for ($i=0; $i < count($empresasaccesodirecto) ; $i++) { ?>
-        <a  onclick="cambiar_empresa(<?= $empresasaccesodirecto[$i]->Empresa ?> , '#emp-<?= $i ?>')" class='flotante' style=" top:  <?= ( $i+1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $empresasaccesodirecto[$i]->Descripcion ?>' , <?= $i ?> )" onmouseout="normalImg(this ,'<?= $empresasaccesodirecto[$i]->Descripcion ?>' , <?= $i ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $empresasaccesodirecto[$i]->Url_Icon ?>' /> <br> <label id="btnflotante<?= $i ?>"  for=""></label> </a>
-<?php }  ?>
+
+<?php   foreach ($empresasaccesodirecto as $key => $value) {  ?>
+        <a  onclick="cambiar_empresa(<?= $value->Empresa ?> , '#emp-<?= $key ?>'  ,null,'<?=  $value->Url_Icon ?>', '<?=  $value->Descripcion ?>' )" class='flotante' style=" top:  <?= ( $key +1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $value->Descripcion ?>' , <?= $key ?> )" onmouseout="normalImg(this ,'<?= $value->Descripcion ?>' , <?= $key ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $value->Url_Icon ?>' /> <br> <label id="btnflotante<?= $key ?>"  for=""></label> </a>
+<?php } ?>
+    
    <script>
        
     function bigImg(x , nombreempresa , Position) {

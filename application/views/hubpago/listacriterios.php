@@ -1,8 +1,10 @@
 <label for="">Busquedas </label><br>
-<?php for ($i=0; $i < count($criterios) ; $i++) { ?>
+<?php 
+
+for ($i=0; $i < count($criterios) ; $i++) { ?>
    
 <div class="form-check">
-    <input class="form-check-input" type="radio"  name="criterio"
+    <input class="form-check-input" type="radio" onclick="cambiartipodedatoimput('<?=  $criterios[$i]->Tipo  ?>')"  name="criterio"
              value="<?=  $criterios[$i]->Criterio  ?>-<?=  $criterios[$i]->Etiqueta  ?>"  <?php  echo  ($i == 0) ? "checked" : "";  ?>  >
     <label class="form-check-label" for="criterio">
     <?=  $criterios[$i]->Etiqueta  ?>
@@ -11,4 +13,27 @@
 <?php ?>
 
 
+<?php   }     ?>
+
+
+
+<script>
+
+<?php  if (count($criterios) > 0) { ?>
+        cambiartipodedatoimput('<?=  $criterios[0]->Tipo  ?>')
 <?php   }   ?>
+
+
+    function cambiartipodedatoimput(tipodato  ){
+        console.log(tipodato) ; 
+        if(tipodato=="C")
+        {
+            $("#inp_dato").get(0).type = 'text';
+        }
+        else{
+            $("#inp_dato").get(0).type = 'number';
+        }
+    }
+
+</script>
+

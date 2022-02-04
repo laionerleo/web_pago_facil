@@ -118,6 +118,13 @@ input[type=number]::-webkit-outer-spin-button {
                                       </div>
                                   </div>
                                   <br>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <center>
+                                         <h4 id="TituloEmpresa"> </h4>
+                                          </center>
+                                      </div>
+                                  </div>
                                  
                                     <div class="form-row">
                                         <div  id="divcriteriobusqueda" class="col-md-3 mb-2 "  style="display:none" >
@@ -155,7 +162,7 @@ input[type=number]::-webkit-outer-spin-button {
                                        
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-md-1 mb-1" id="idlugarboton" >
+                                        <div class="col-md-1 mb-1" id="idlugarboton"  style="text-align: center;" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
                                             <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
                                             
@@ -259,6 +266,13 @@ function cambiar_rubro(id_rubro,id_figure)
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
     nombreempresa=nombre;
+    $("#TituloEmpresa").text(nombreempresa) ;
+    
+    /*if( nombreempresa != null)
+    {
+
+    } 
+    */  
     urlimagen=urlimagen1
     empresa_id=id_empresa;
     $(id_fugure_empresa).removeClass("avatar-state-success");

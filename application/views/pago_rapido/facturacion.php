@@ -9,7 +9,7 @@
             
             
             <div class="row">
-            <?php if($comision>0 ){  ?>
+            <?php if($comision>0  || $tnFacturar == 1  ){  ?>
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
@@ -41,7 +41,9 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                        <center><button class="btn btn-primary"  onclick="vistaconfirmacion()"> Siguiente</button></center>
+
+                       
+                            
                         </div>
                     </div>
                 </div>
