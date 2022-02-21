@@ -157,6 +157,9 @@ class Welcome extends CI_Controller {
 		
 		if($tnHubTitulo==1)
 		{
+			echo '<pre>'; 
+			print_r($loServicioBusquedaClientes->values);
+			echo '</pre>' ;
 			$this->load->view('pago_rapido/listaclienteshub', $d);
 		}else{
 			$this->load->view('pago_rapido/lista_clientes', $d);
@@ -836,7 +839,7 @@ class Welcome extends CI_Controller {
 					$d['tnTelefono']= $this->session->userdata('telefonoDePago');
 					$d['tcCorreo']=$this->session->userdata('correo');	
 
-					$d['tnPais']= $_SESSION[$tnIdentificarPestaña.'pais'];
+					$d['tnPais']= null ; // $_SESSION[$tnIdentificarPestaña.'pais'];
 					
 					
 					for ($i=0; $i < count($d['paises']) ; $i++) { 
@@ -1492,11 +1495,11 @@ class Welcome extends CI_Controller {
 
 
 
-/*		echo "<pre>";
-		print_r($empresadetalle);
-		print_r($lista);
-		echo "</pre>"; 
-*/
+		/*		echo "<pre>";
+				print_r($empresadetalle);
+				print_r($lista);
+				echo "</pre>"; 
+		*/
 		$cadena="";
 		foreach($lista->values->facturaPDF as $byte){
 			$cadena.=chr($byte);
@@ -2008,7 +2011,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('pago_rapido/lista_billeteras', $d);
 	}
 	
-
 	public function busquedabilleteras()
 	{
 		$d = array();

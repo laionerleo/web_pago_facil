@@ -9,7 +9,7 @@
             
             
             <div class="row">
-            <?php if($comision>0  || $tnFacturar == 1  ){  ?>
+            <?php if($comision>0   || $tnFacturar == 1  ){  ?>
                 <div class="col-md-4">
                     <div class="card" style="height: 100%;">
                         <div class="card-body text-center m-t-10-minus">
@@ -18,8 +18,11 @@
                                     <label for=""> Nombre Cliente</label>
                                     <input class="form-control" id="inpnombrecliente" type="text" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
                                     <label  for=""> CI o NIT de Cliente</label>
-                                    <input class="form-control" type="number" id="inpcionit" placeholder="CI o NIT de cliente" value="<?= @$cionit ?>"> 
-                   
+                                    <?php if( is_null($cionit) || $cionit == ""   ) { ?>
+                                        <input class="form-control" type="number" id="inpcionit" placeholder="CI o NIT de cliente" value="0"> 
+                                    <?php }else{  ?>
+                                        <input class="form-control" type="number" id="inpcionit" placeholder="CI o NIT de cliente" value="<?= @$cionit  ?>"> 
+                                    <?php }  ?>
                         </div>
                     </div>
                 </div>
@@ -41,9 +44,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-
-                       
-                            
+                        <center><button class="btn btn-primary"  onclick="vistaconfirmacion()"> Siguiente</button></center>
                         </div>
                     </div>
                 </div>

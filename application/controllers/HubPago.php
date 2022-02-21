@@ -86,9 +86,7 @@ class HubPago extends CI_Controller {
             echo "La empresa no cuenta con  criterios de busquedas";
         }
 
-        
-		
-        $this->load->view('hubpago/listacriterios', $d);
+         $this->load->view('hubpago/listacriterios', $d);
 
 	}
 	public function filtro_empresas_by_tipo_region()

@@ -50,15 +50,28 @@
          console.log(montototalaux.toFixed(2)); 
          console.log(montocomisionaux.toFixed(2)); 
          console.log(montototalgeneral.toFixed(2)); 
-        // $("#facturacionbody").empty();   
-        /* $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-         $("#confirmacionbody").empty();   
-         $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-         $("#prepararpagobody").empty();   
-         $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);
-         */
-         
       });
+
+      function cargarvalornuevo(valor)
+      {
+         if(valor!= "")
+         {
+            montototalaux=parseInt(valor);
+            montototalgeneral =  montototalaux +montocomisionaux ;
+            $("#lblMontototal").text(montototalaux.toFixed(2));
+            $("#lblMontocomision").text(montocomisionaux.toFixed(2));
+            $("#lblMontototalfinal").text(montototalgeneral.toFixed(2) ); 
+         
+         } else{
+            montototalaux=0;
+            montototalgeneral =  montototalaux +montocomisionaux ;
+            $("#lblMontototal").text(montototalaux.toFixed(2));
+            $("#lblMontocomision").text(montocomisionaux.toFixed(2));
+            $("#lblMontototalfinal").text(montototalgeneral.toFixed(2) ); 
+         } 
+         console.log(montototalaux);
+      }
+
    </script>
    
    <div class="card" id="cardfacturaspendientes">
@@ -105,7 +118,7 @@
                   <!--    <td>  <?= (isset($facturas[$i]->nroitem))?  $facturas[$i]->nroitem : $facturas[$i]->factura ?>  </td>  -->
                      <td style="text-align: end;"> 
                         <?php if($facturas[$i]->montoTotal == 0 ){ ?> 
-                           <input type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
+                           <input onkeyup="cargarvalornuevo( $('#montototal').val() )"  type="number" id="montototal" name="montototal" value="<?= @$facturas[0]->montoTotal  ?>">
                         <?php }else{
                            echo   number_format((float)$facturas[$i]->montoTotal, 2, '.', '') ;
                         ?>  
@@ -145,8 +158,7 @@
             </table>
          </div>
          <?php if(count($facturas) > 0){   ?>
-           
-
+            
             <div class="row">
                <div class="col-6 col-md-6" style="text-align: center;" >
                   <button class="btn btn-outline-warning"   onclick="  $('#li1').show(); $('#inicio-tab').click();"> Atras   </button>
@@ -157,8 +169,6 @@
                </div>
             </div>
 
-           
-            
             <?php }   ?>
       </div>
    </div>
