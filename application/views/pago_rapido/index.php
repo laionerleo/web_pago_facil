@@ -8,6 +8,30 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+
+.dataTables_filter {
+        position: relative;
+        text-align: center;
+    }
+ 
+
+    .dataTables_filter input {
+        width: 100%;
+        height: 32px;
+        background: #fcfcfc;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        text-indent: 10px;
+    }
+    .dataTables_filter .fa-search {
+        position: absolute;
+        top: 10px;
+        left: auto;
+        right: 10px;
+    }
+
 </style>
 
 <body  class="">
@@ -83,13 +107,14 @@ input[type=number]::-webkit-outer-spin-button {
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                      aria-labelledby="home-tab">
-
-                                     <div class="form-row">
+                
+                                <div  class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
                                         <select name="slcrubro"  class=" form-control" id="slcrubro" >
+                                        <option   value="0,0,"  data-image="<?php echo $rubros->values[0]->cImagenUrl  ?>"> Todos  </option>
                                             <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
-                                                <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?> "  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
+                                                <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?>, <?php echo $rubros->values[$i]->nNombre  ?>"  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
                                             <?php  } ?> 
                                         </select>   
                                     </div>
@@ -97,6 +122,7 @@ input[type=number]::-webkit-outer-spin-button {
                                         <label for="">regiones </label><br>
                                        
                                         <select name="slgregion"  class=" form-control" id="slgregion" >
+                                        <option   value="0,0,"  data-image="<?php echo $region->values[0]->nEstado  ?>"> Todos  </option>
                                             <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
                                                 <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
                                             <?php  } ?> 
@@ -105,14 +131,53 @@ input[type=number]::-webkit-outer-spin-button {
                                         <label id="nombre_region"  href=""> </label>
                                     </div>
                                 </div>
+                               
                                   <div id="vistas_empresas"  >
+                                  
+                                      <center>
+                                        <div class="d-flex justify-content-center">
+                                            <div id="spinnercargaempresas" class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                      </center>
+                                      
+                                            <div  id="divtablaempresas" class="form-row" style="display: none;">
+                                                <div class="col-md-12 mb-12 table-responsive">
+                                                <table id="example1" class="table table-striped table-bordered" class="display" style="width:100%" >
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Ico</th>
+                                                            <th>Nombre  </th>
+                                                            <th >rubro</th>
+                                                            <th >region</th>
+                                                        </tr>
+                                                    </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Logo</th>
+                                                                <th>Nombre</th>
+                                                                <th >rubro</th>
+                                                                <th >region</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                </table>
+                                                </div>
+                                            </div>
+                                            <div id="vistas_empresas2">
+                                        
+                                             </div >
                                        
                                   </div>
                                   <div class="row">
                                       <div class="col-md-12">
                                           <center>
                                           <input id="btnperfil" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
-                                          <input id="btnperfilempresa"  type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
+                                          <input id="btnperfilempresa"  type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0' , 'Agua Potable'  );"  value="Perfil todas las empresas ">
                                           
                                           </center>
                                       </div>
@@ -234,8 +299,12 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 
 </div>
+<?php $this->load->view('theme/js');  ?>
+  <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
+  
 <!-- Plugin scripts -->
 <script>
+  //   filtrar_empresas();
 var region_id=1;
 var rubro_id=1;
 var empresa_id=0;
@@ -247,32 +316,93 @@ var swregion=1;
 var urlimagenempresa="";
 var nombreempresa="";
 var sw=1;
+var gtable;
 
-function cambiar_region(id_region,id_figure,nombre,)
+//cargartodaslasempresas();
+
+function cargartodaslasempresas()
+    {
+        var urlajax="<?= base_url(); ?>es"+"/getallempresas";  
+        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");   
+        var datos= {tnIdentificarPestaña:tnIdentificarPestaña}; 
+        $.ajax({                    
+                url: urlajax,
+                data: {datos} , 
+                type : 'POST',
+                dataType: "json",
+                beforeSend:function( ) {   
+                
+                },                    
+                success:function(response) {
+                        console.log(response);
+                        for (let index = 0; index < response.length; index++) {
+                            var nombre = response[index]["cDescripcion"];
+                            var imagen = response[index]["cUrl_icon"];
+                            var empresa = response[index]["nEmpresa"];
+                            var nombretipo = response[index]["nombretipo"];
+                            var region = response[index]["nombreregion"];
+                            var position= index+1;
+                            $('#example1').find('tbody').append(`<tr class="fila_empresas" id="fila-`+position+`" onclick="cambiar_empresa(`+empresa+` ,'#emp-`+position+`','#fila-`+position+`','`+imagen+`', '`+nombre+`'   )" > <td >
+                                                                    <center>
+                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;    width: 80px height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
+                                                                                <img src="`+imagen+`" class="" style="object-fit: contain;"
+                                                                                                        alt="avatar">
+                                                                            </figure>
+                                                                    </center> 
+                                                                    
+                                                                </td><td>`+nombre+`</td>
+                                                                </td><td  >`+nombretipo+`</td>
+                                                                </td><td >`+region+`</td>
+                                                                </tr>`);
+                            
+                        }
+                        gtable =  $('#example1').DataTable(  );
+                        gtable.columns( [2,3] ).visible( false );
+                       // gtable.column(1).draw();
+                        
+                        
+                },
+                error: function (data) {
+                    console.log(data.responseText);
+                },               
+                complete:function( ) {
+                    $('#spinnercargaempresas').hide();
+                    $('#divtablaempresas').show();
+                
+                },
+        }); 
+
+        
+    }
+
+
+
+//cambiar_rubro(1,'#rub-0');
+function cambiar_region(id_region,id_figure,nombre)
 {
     region_id=id_region;
-    $('#btn_region').click();
-    filtrar_empresas();
-
+   // $('#btn_region').click();
+    gtable.column(3).search(nombre);
+    gtable.column(3).draw();
 }
-function cambiar_rubro(id_rubro,id_figure)
+
+function cambiar_rubro(id_rubro,id_figure ,  nombrerubro)
 {
     rubro_id=id_rubro;
     id_fugure_rubro=id_figure;
     $("#btnperfilempresa").hide();
     $("#btnperfil").show();
-    filtrar_empresas();
+    console.log(id_rubro);
+    gtable.column(2).search(nombrerubro);
+    gtable.draw();
+
 }
+
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
     nombreempresa=nombre;
     $("#TituloEmpresa").text(nombreempresa) ;
     
-    /*if( nombreempresa != null)
-    {
-
-    } 
-    */  
     urlimagen=urlimagen1
     empresa_id=id_empresa;
     $(id_fugure_empresa).removeClass("avatar-state-success");
@@ -312,20 +442,13 @@ function  cambiar_tipo_switch()
 }
 function filtrar_empresas()
 {
-    $("#vistas_empresas").empty();
-    $("#vistas_empresas").append(`<div class="d-flex justify-content-center">
-                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </div>
-                            <br>
-                            `);
-
-    var datos= {rubro_id:rubro_id,region_id:region_id  };
+    $("#vistas_empresas2").empty();
+   
+    var datos= {rubro_id:0,region_id:0  };
     var urlajax=$("#url").val()+"get_filtro_regiones";  
    // $("#waitLoading").fadeIn(1000);
-    $("#vistas_empresas").load(urlajax,{datos});   
-    $("#vista_clientes").empty();
+    $("#vistas_empresas2").load(urlajax,{datos});   
+    //$("#vista_clientes2").empty();
 }
 function perfilfrecuente()
 {
@@ -587,15 +710,19 @@ function cargarcriteriobusquedahub(empresa)
 }
 </script>
   
-  <?php $this->load->view('theme/js');  ?>
-  <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
+
 <script>
+   
     sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
     $( document ).ready(function() {
+        cargartodaslasempresas();
+        filtrar_empresas();
+     
+       
 
 try {
          slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
@@ -604,7 +731,7 @@ try {
                                             var result=val.split(',');
                                             console.log(result);
                                        
-                                                cambiar_rubro(result[0], result[1]);
+                                                cambiar_rubro(result[0], result[1] , result[2]  );
                                    
                                         }}}).data("dd");
                                     slcregion.set("selectedIndex", 100);
@@ -630,13 +757,13 @@ try {
 }
 if(perfil==1)
 {
-    perfilfrecuente();
+   // perfilfrecuente();
     $("#btnperfil").hide();
     swperfil=1;
     
 }else{
     swperfil=0;
-    cambiar_rubro(1,'#rub-0');
+   // cambiar_rubro(1,'#rub-0');
     $("#btnperfilempresa").hide();
     slcregion.set("selectedIndex", 0);
     slcrubro.set("selectedIndex", 0);

@@ -161,6 +161,7 @@ $route[$l.'get_filtro_regiones']            = 'Welcome/filtro_empresas_by_tipo_r
 
 $route[$l.'filtro_clientes']            = 'Welcome/busqueda_clientes';
 
+$route[$l.'getallempresas']            = 'Welcome/gettodaslasempresas';
 
 
 

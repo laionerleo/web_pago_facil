@@ -57,8 +57,8 @@ class Welcome extends CI_Controller {
 		
 		//echo "hola mundo ";
 		$id_cliente=$this->session->userdata('cliente');
-		$d['rubros']=$this->servicios->get_list_rubros($id_cliente);
-		$d['region']=$this->servicios->get_list_regiones($id_cliente);
+		$d['rubros']= $this->servicios->get_list_rubros($id_cliente);
+		$d['region']=  $this->servicios->get_list_regiones($id_cliente);
 		$d['perfilfrecuente']=$_SESSION['PerfilFrecuente'];
  
 		/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
@@ -91,22 +91,31 @@ class Welcome extends CI_Controller {
 		$region_id=$datos['region_id'];
 		$rubro_id=$datos['rubro_id'];
 		$id_cliente=$this->session->userdata('cliente');
-		$d['empresas']=$this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
+	
+	//	$d['empresas']=  $this->servicios->get_list_empresas_by_tipo_region($rubro_id,$region_id,$id_cliente);
+		
+		///$_SESSION['todaslasempresas']=$d['empresas'];
 
-		$_SESSION['todaslasempresas']=$d['empresas'];
-
-		$laEmpresasMasPagadas=$this->servicios->getEmpresaAccesodirecto($id_cliente) ;
-		//$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($id_cliente);
-		$d['empresasaccesodirecto']=$laEmpresasMasPagadas->values;
-
+		$laEmpresasMasPagadas=$this->servicios->listarmaspagadas($id_cliente);
+		$d['empresasmaspagadas'] = $laEmpresasMasPagadas->values;
+		if(!is_null($d['empresasmaspagadas'])  && count($d['empresasmaspagadas'])>0  )
+		{
+		
+			$laAregloAuxEmpresa = new stdClass();
+			$laAregloAuxEmpresa->Empresa=$d['empresasmaspagadas'][0]->empresa;
+			$laAregloAuxEmpresa->Descripcion=$d['empresasmaspagadas'][0]->descripcion;
+			$laAregloAuxEmpresa->Url_Icon=$d['empresasmaspagadas'][0]->url_icon;
+			$d['empresasaccesodirecto'][]=$laAregloAuxEmpresa ;
+			
+		}
+		$laEmpresasAccesoDirecto=$this->servicios->getEmpresaAccesodirecto($id_cliente) ;
+		$d['empresasaccesodirecto']= array_merge($d['empresasaccesodirecto'],$laEmpresasAccesoDirecto->values); ;
 		$laMibilletera=$this->servicios->getbilleterausuario($id_cliente);
 		$lbEsBilletera= false;
 		if( !is_null($laMibilletera) && count($laMibilletera->values) >0   )
 		{
 			$lbEsBilletera= true;
 		}
-		
-
 		foreach ($d['empresasaccesodirecto'] as $key => $value) {
 			
 			$lnEmpresaAux=$value->Empresa ;
@@ -115,12 +124,32 @@ class Welcome extends CI_Controller {
 				unset( $d['empresasaccesodirecto'][$key]);
 			}
 		}
-
+		
+		
 		$this->load->view('pago_rapido/lista_empresas', $d);
 		
 
 
 	}
+
+	public function gettodaslasempresas()
+	{
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		/*$datos=$this->input->post("datos");
+		$region_id=$datos['region_id'];
+		$rubro_id=$datos['rubro_id'];
+		$id_cliente=$this->session->userdata('cliente');
+	*/
+		$d['empresas']=  $this->servicios->get_list_empresas_by_tipo_region(0,0,1);
+		
+		$_SESSION['todaslasempresas']=$d['empresas'];
+
+		echo json_encode($d['empresas']->values);
+
+
+	}
+
 	public function  busqueda_clientes()
 	{
 	
@@ -1069,7 +1098,9 @@ class Welcome extends CI_Controller {
 		$tnTelefono =  (($datos['numbersoli']==''))? null : $datos['numbersoli'] ;
 		 
 		$tcFacturaA= $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'] ;//'el nombre del cliente ';//$_SESSION[$tnIdentificarPestaña.'CLIENTE'];
-		$tnCiNit=$ci;
+		$tnCiNit = ( $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa']!="" ) ? $_SESSION[$tnIdentificarPestaña.'cionitclienteempresa'] : "1234";  
+	
+		$tnCiBcp=$ci;
 		$tcNroPago=$_SESSION[$tnIdentificarPestaña.'nrofactura'];
 		$tnMontoClienteEmpresa=$_SESSION[$tnIdentificarPestaña.'montototal'];
 		$tnMontoClienteSyscoop =$_SESSION[$tnIdentificarPestaña.'montocomision'];
@@ -1095,7 +1126,7 @@ class Welcome extends CI_Controller {
 				}
 			}
 		*/
-		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas );
+		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas , $tnCiBcp );
 		$this->cargarlog("prepararpagobcp".json_encode($metodos));
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;

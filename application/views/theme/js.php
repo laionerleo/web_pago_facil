@@ -83,6 +83,7 @@
 
        
         }
+
         function cargarallempresas()
         {
                 var datos= {empresa_id:0};
@@ -330,7 +331,7 @@
         }
           
         $(document).ready(function() {
-            cargarrubros();
+          //  cargarrubros();
            // cargarallempresas();
            // cargarempresaspagadas();
           
