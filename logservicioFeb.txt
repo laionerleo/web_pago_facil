@@ -311,3 +311,298 @@
 18/02/2022 11:11:33cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
 18/02/2022 11:12:41cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
 21/02/2022 09:08:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 09:37:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 09:38:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:01:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:06:15getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:08:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:09:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:11:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:12:22getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:12:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:14:55getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:19:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:24:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:31:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:33:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:33:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+21/02/2022 10:36:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:53:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:54:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 11:00:34getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:02:15getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:05:15getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:08:15getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:23:49getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:26:06getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:29:11getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:29:23getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:32:20getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:40:20getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:45:21getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:45:34getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:52:55getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:56:51getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:58:24getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:59:50getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:00:41getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:02:14getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:02:53getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:03:33getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:04:14getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:05:02getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:05:50getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:07:55getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:08:28getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:10:11getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:17:48getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:18:39getcriteriobusquedahub ={"tnEmpresa":"117"}
+21/02/2022 15:21:52getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 15:22:11getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 15:22:12getultimatransaccioncliente{"tnCliente":"743","tcApp":2}
+21/02/2022 15:22:13listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1856","tnCliente":"743","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:22:27listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1856","tnCliente":"743","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:23:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 15:23:45getcriteriobusquedahub ={"tnEmpresa":"13"}
+21/02/2022 15:24:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+21/02/2022 15:24:06getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 15:24:08listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"1254","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:24:21listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"1254","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:38:57prepararpago{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"1254","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Gutierrez Guardia Agapito","tnCiNit":"11385389","tcNroPago":"4383134","tnMontoClienteEmpresa":"96.5","tnMontoClienteSyscoop":"3","tcPeriodo":"2022-01","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2,"taDetallePago":[{"factura":4383134,"periodo":"2022-ENE","montoTotal":"96.5","estado":1,"MontoComision":"3.00","periodoaux":"2022-01"},{"factura":4414210,"periodo":"2022-FEB","montoTotal":"67.28","estado":1,"MontoComision":"2.50","periodoaux":"2022-02"}]}
+21/02/2022 15:39:17guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"280679","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+21/02/2022 15:39:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 16:16:35getcriteriobusquedahub ={"tnEmpresa":"47"}
+21/02/2022 16:16:57getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+21/02/2022 16:16:58getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:16:59listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"1254","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:17:22getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:17:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:17:41getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:17:43listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1253","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:18:46prepararpago{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"1253","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Estrada Vda. de Guarachi Marciana","tnCiNit":"1122334","tcNroPago":"5013999","tnMontoClienteEmpresa":"205.48","tnMontoClienteSyscoop":"5","tcPeriodo":"2022-02","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2,"taDetallePago":[{"factura":5013999,"periodo":"2022-FEB","montoTotal":"205.48","estado":1,"MontoComision":"5.00","periodoaux":"2022-02"}],"tnCiBcp":"11385389"}
+21/02/2022 16:19:00guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":"280707","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+21/02/2022 16:19:15confirmarpago{"tnCliente":"3859","tnEmpresa":"2","tnAuthorizationNumber":"117159","tnCorrelationId":"280707","tcOTP":"1254","tcApp":2}
+21/02/2022 16:45:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 16:45:15getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:45:25getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:45:27getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:45:28listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1256","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:45:42getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:45:55getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:45:55getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:45:57listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"2541","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:46:41getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:46:42getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:46:43listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1258","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:48:16prepararpago{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"1258","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Zabala Pe\u00f1a Julio","tnCiNit":"1122334","tcNroPago":"4987693","tnMontoClienteEmpresa":"188.78","tnMontoClienteSyscoop":"4.5","tcPeriodo":"2022-01","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2,"taDetallePago":[{"factura":4987693,"periodo":"2022-ENE","montoTotal":"188.78","estado":1,"MontoComision":"4.50","periodoaux":"2022-01"},{"factura":5015768,"periodo":"2022-FEB","montoTotal":"91.54","estado":1,"MontoComision":"3.00","periodoaux":"2022-02"}],"tnCiBcp":"11385389"}
+21/02/2022 16:48:31guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":"280733","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+21/02/2022 16:49:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 16:49:18getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:49:33getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:49:39getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:49:40listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1452","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 17:26:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:27:30getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:32:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:33:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:35:34getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:38:35getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:43:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:45:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:46:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:10:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:11:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:14:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+21/02/2022 18:15:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:28:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:31:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:32:34getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:41:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:41:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:46:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 08:15:33getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 08:16:21getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 09:37:17getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 10:00:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 11:18:35getcriteriobusquedahub ={"tnEmpresa":"3"}
+22/02/2022 14:04:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 14:04:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 14:05:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 18:27:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:36:38getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:37:30getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:40:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:42:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:48:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:50:07getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:50:26getcriteriobusquedahub ={"tnEmpresa":"6"}
+24/02/2022 10:50:27getcriteriobusquedahub ={"tnEmpresa":"6"}
+24/02/2022 10:52:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:56:17getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:58:21getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:58:35getcriteriobusquedahub ={"tnEmpresa":"3"}
+24/02/2022 10:59:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:05:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:06:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:15:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:16:36getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:22:42getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:23:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:23:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:24:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:27:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:28:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:29:29getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:30:42getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:34:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:38:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:39:38getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:40:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:40:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:41:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:41:18getcriteriobusquedahub ={"tnEmpresa":"87"}
+24/02/2022 14:42:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:43:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:46:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:47:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:47:35getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:48:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:50:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:59:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:59:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:00:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:04:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:08:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:09:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:09:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:11:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:14:05getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:15:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:19:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:20:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:22:48getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:23:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:25:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:25:48getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:32:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:33:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:34:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:35:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:37:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:42:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:46:22getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:01:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:03:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:09:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:11:08getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:13:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:15:27getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:15:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 18:26:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:00:45getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 09:02:58getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 09:07:06getcriteriobusquedahub ={"tnEmpresa":"1"}
+25/02/2022 09:14:45getcriteriobusquedahub ={"tnEmpresa":"95"}
+25/02/2022 09:26:27getcriteriobusquedahub ={"tnEmpresa":"18"}
+25/02/2022 09:29:44getcriteriobusquedahub ={"tnEmpresa":"47"}
+25/02/2022 09:30:18getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+25/02/2022 09:30:18getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+25/02/2022 09:30:20listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"1256","tnCliente":"3859","tnMetodoPago":"5","tnIdAccion":17,"tcApp":2}
+25/02/2022 09:48:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:48:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:50:58getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:51:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:51:32getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 09:51:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:54:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:54:53getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:55:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:57:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:57:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:03:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:05:02getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:05:03getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 10:09:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:13:06getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:14:07getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:14:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:15:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:16:17getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:17:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:20:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:21:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:25:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:26:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:28:31getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:29:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:34:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:35:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:36:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:37:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:40:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:41:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:42:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:42:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:50:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:52:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:54:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:55:31getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:55:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:56:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:57:48getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:59:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:07:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:08:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:11:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:14:42getcriteriobusquedahub ={"tnEmpresa":"159"}
+25/02/2022 11:17:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:17:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:19:27getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:22:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:22:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:25:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:26:15getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:33:33getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:35:16getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:36:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:39:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:44:16getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:46:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:48:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:49:55getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:51:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:52:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/02/2022 11:55:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:55:51getcriteriobusquedahub ={"tnEmpresa":"13"}
+25/02/2022 11:56:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:56:15getcriteriobusquedahub ={"tnEmpresa":"159"}
+25/02/2022 11:56:57getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+25/02/2022 11:56:57getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+25/02/2022 11:56:58get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-692242053158020220225","tcFechaOperativa":20220225,"tnNroOperacion":27789,"tnServicio":1}
+25/02/2022 11:57:24getcriteriobusquedahub ={"tnEmpresa":"159"}
+25/02/2022 12:00:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 12:01:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 12:02:33getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 12:03:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 14:23:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 14:26:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:10:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:11:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:26:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:29:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:30:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:43:08getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:45:29getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 15:45:35getcriteriobusquedahub ={"tnEmpresa":"13"}
+25/02/2022 15:48:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:48:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:49:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:49:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/02/2022 15:59:36getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:12:32getcriteriobusquedahub ={"tnEmpresa":"54"}
+25/02/2022 16:12:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:14:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:14:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:15:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:42:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:46:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}

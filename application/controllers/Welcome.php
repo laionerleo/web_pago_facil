@@ -136,12 +136,9 @@ class Welcome extends CI_Controller {
 	{
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		/*$datos=$this->input->post("datos");
-		$region_id=$datos['region_id'];
-		$rubro_id=$datos['rubro_id'];
 		$id_cliente=$this->session->userdata('cliente');
-	*/
-		$d['empresas']=  $this->servicios->get_list_empresas_by_tipo_region(0,0,1);
+
+		$d['empresas']=  $this->servicios->getallempresas(0,0,1);
 		
 		$_SESSION['todaslasempresas']=$d['empresas'];
 
@@ -2356,6 +2353,30 @@ class Welcome extends CI_Controller {
 	
 		
 	}
+	public function getallempresas($id_tipoempresa,$id_region,$id_cliente)
+	{
+	  $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/ListarAllEmpresas';
+	  $data = array('tnTipoEmpresa' => $id_tipoempresa , 'tnIdAccion' => '91'  ,'tnCliente' => $id_cliente ,'tnRegion'=>  $id_region );
+	  
+	
+	  $header = array(
+		 "Content-Type: application/x-www-form-urlencoded",
+		 "Content-Length: ".strlen( http_build_query($data))
+		 );
+		 
+	  // use key 'http' even if you send the request to https://...
+	  $options = array('http' => array(
+		 'method'  => 'POST',
+		 'header' => implode("\r\n", $header),
+		 'content' => http_build_query($data) 
+	  )
+				  );
+	  $context  = stream_context_create($options);
+	  $result = file_get_contents($url, false, $context);
+	   $resultado =json_decode($result);
+	  return $resultado;
+	}
+	
 	public function cargarlog($Mensajeerror)
     {
 	  $mes=date("m");
@@ -2370,6 +2391,7 @@ class Welcome extends CI_Controller {
       fwrite($logFile, "\n".date("d/m/Y H:i:s").$Mensajeerror) or die("Error escribiendo en el archivo");
       fclose($logFile);
     }
+
 	
 	/**/
 }

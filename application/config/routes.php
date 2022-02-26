@@ -166,6 +166,7 @@ $route[$l.'getallempresas']            = 'Welcome/gettodaslasempresas';
 
 
 
+
 $route[$l.'(.+)$']                        = "$2";
 $route[$i.'$']                            = $route['default_controller'];
 

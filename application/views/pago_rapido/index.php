@@ -134,15 +134,15 @@ input[type=number]::-webkit-outer-spin-button {
                                
                                   <div id="vistas_empresas"  >
                                   
-                                      <center>
-                                        <div class="d-flex justify-content-center">
-                                            <div id="spinnercargaempresas" class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
-                                                <span class="sr-only">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <br>
-                                      </center>
-                                      
+                                            <center>
+                                                <div class="d-flex justify-content-center">
+                                                    <div id="spinnercargaempresas" class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </center>
+                                            
                                             <div  id="divtablaempresas" class="form-row" style="display: none;">
                                                 <div class="col-md-12 mb-12 table-responsive">
                                                 <table id="example1" class="table table-striped table-bordered" class="display" style="width:100%" >
@@ -176,7 +176,7 @@ input[type=number]::-webkit-outer-spin-button {
                                   <div class="row">
                                       <div class="col-md-12">
                                           <center>
-                                          <input id="btnperfil" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
+                                         <!--  <input id="btnperfil" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">   -->
                                           <input id="btnperfilempresa"  type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0' , 'Agua Potable'  );"  value="Perfil todas las empresas ">
                                           
                                           </center>
@@ -344,7 +344,7 @@ function cargartodaslasempresas()
                             var position= index+1;
                             $('#example1').find('tbody').append(`<tr class="fila_empresas" id="fila-`+position+`" onclick="cambiar_empresa(`+empresa+` ,'#emp-`+position+`','#fila-`+position+`','`+imagen+`', '`+nombre+`'   )" > <td >
                                                                     <center>
-                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;    width: 80px height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
+                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;    width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
                                                                                 <img src="`+imagen+`" class="" style="object-fit: contain;"
                                                                                                         alt="avatar">
                                                                             </figure>
@@ -359,6 +359,7 @@ function cargartodaslasempresas()
                         gtable =  $('#example1').DataTable(  );
                         gtable.columns( [2,3] ).visible( false );
                        // gtable.column(1).draw();
+                       $("#example1_filter").css("text-aling", "center");
                         
                         
                 },
@@ -369,6 +370,7 @@ function cargartodaslasempresas()
                     $('#spinnercargaempresas').hide();
                     $('#divtablaempresas').show();
                 
+                    $(".dataTables_filter").css("text-aling", "center");
                 },
         }); 
 
