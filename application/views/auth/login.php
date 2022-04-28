@@ -20,10 +20,15 @@
 <meta property="og:title" content="PagoFacil Bolivia">
 <meta property="og:description" content="PagoFacil Bolivia es un motor de pago y de recaudación de productos y/o servicios en línea, a través de múltiples métodos de pago que se encuentra disponible las 24 horas del día.">
 
-<meta property="og:image" content="https://pagofacil.com.bo/wp-content/uploads/2018/10/BanerPagoFacil.jpg">
-<meta property="og:image:secure_url" content="https://pagofacil.com.bo/wp-content/uploads/2018/10/BanerPagoFacil.jpg">
+<meta property="og:image" content="https://pagofacil.com.bo/online//application//assets/assets/media/image/bannerpagofacillogin.jpeg">
+<meta property="og:image:secure_url" content="https://pagofacil.com.bo/online//application//assets/assets/media/image/bannerpagofacillogin.jpeg">
 <meta property="og:image:width" content="1920">
 <meta property="og:image:height" content="1155">
+
+
+<link rel="manifest" href="<?=  base_url() ?>/application/assets/pwa/manifest.json">
+
+<script src="<?=  base_url() ?>/application/assets/pwa/js/main.js"></script>
 
 
     <!-- Favicon -->
@@ -42,14 +47,14 @@
 
     <style>
     
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 520px) {
     .cambiarimagen{
-        background-image: url(http://localhost/web_pago_facil//application/assets/assets/media/image/bannerpagofacilloginmovil.jpeg);
+        background-image: url(<?= base_url() ?>/application/assets/assets/media/image/bannerpagofacilloginmovil.jpeg);
     }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 560px) {
     .cambiarimagen{
-        background-image: url(http://localhost/web_pago_facil//application/assets/assets/media/image/bannerpagofacillogin.jpeg);
+        background-image: url(<?= base_url() ?>/application//assets/assets/media/image/bannerpagofacillogin.jpeg);
     }
 }
     
@@ -109,7 +114,7 @@
                             <div class="fxt-transformY-50 fxt-transition-delay-3">
                                         
                                         <h5 id="mensaje" > <?=@$_GET['m']?></h5>
-                                        <input type="hidden" id ="url" value="<?= base_url() ?>es/">
+                                        <input type="hidden" id ="url" value="<?= $url ?>">
                             </div>
                         </div>
                         <div class="form-group">

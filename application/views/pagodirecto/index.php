@@ -97,7 +97,7 @@ input[type=number]::-webkit-outer-spin-button {
                               <div class="card-body">
                                  
                             <ul class="nav nav-tabs mb-3" role="tablist">
-                                <li class="nav-item" id="li1"  >
+                                <li class="nav-item" id="li1" style="display: none;" >
                                     <a class="nav-link active" id="inicio-tab"  data-toggle="tab" href="#iniciobody" role="tab" 
                                        aria-controls="home" aria-selected="true">Inicio</a>
                                 </li>
@@ -138,7 +138,7 @@ input[type=number]::-webkit-outer-spin-button {
                                                                 <h1><?= $tcNombreEmpresa ?></h1>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <img src="<?= $tcUrlImagen  ?>" alt="">
+                                                                <img style="width: 150px; height: 150px; object-fit: contain;" src="<?= $tcUrlImagen  ?>" alt="">
                                                             </div>
                                                         </div>
                                                         <br>
@@ -525,12 +525,10 @@ function facturaspendientesmultiple(codigo_usuario)
                 {
                     cache: false,
                     error: function(event, request, settings){
-                        console.log(event);
-                        console.log(settings);
-                        // alert("a ocurrido un error al procesar la solicitud , volver a consultar ");
-                        swal("a ocurrido un error al procesar la solicitud ", "volver a consultar la deuda porfavor "+request , "error");
-                        $("#facturaspendientesbody").empty();
-                        $("#inicio-tab").click();
+                   // alert("a ocurrido un error al procesar la solicitud , volver a consultar ");
+                    swal("a ocurrido un error al procesar la solicitud ", "volver a consultar la deuda porfavor "+request , "error");
+                    $("#facturaspendientesbody").empty();
+                    $("#inicio-tab").click();
                     }
 
                 });
@@ -638,6 +636,7 @@ function cargarcriteriobusquedahub(empresa)
     var codigofijolink= <?= $tnCodigoFijo  ?> ;  
     if(codigofijolink==0)
     {
+        $("#li1").show();
         cargarcriteriobusquedahub(id_empresa);
     }else{
         facturaspendientesmultiple(0);

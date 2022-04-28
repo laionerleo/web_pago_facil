@@ -323,7 +323,7 @@ var porciones = latitudes.split('/');
           marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
-          icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+          //icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
           //title: ubicaciones[i]["nombreEstablecimiento"],
           animation: google.maps.Animation.DROP,
           clickeable:true,

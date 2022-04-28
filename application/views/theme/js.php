@@ -1,7 +1,6 @@
 <script src="<?=  base_url() ?>/application/assets/vendors/bundle.js"></script>
     <!-- Apex chart -->
-    
-    
+    <script src="<?=  base_url() ?>/application/assets/vendors/charts/apex/apexcharts.min.js"></script>
 
     <!-- Daterangepicker -->
     <script src="<?=  base_url() ?>/application/assets/vendors/datepicker/daterangepicker.js"></script>
@@ -83,7 +82,6 @@
 
        
         }
-
         function cargarallempresas()
         {
                 var datos= {empresa_id:0};
@@ -331,7 +329,7 @@
         }
           
         $(document).ready(function() {
-          //  cargarrubros();
+            cargarrubros();
            // cargarallempresas();
            // cargarempresaspagadas();
           

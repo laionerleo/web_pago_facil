@@ -1,7 +1,3 @@
-<head>
-<base href="https://mozilla.github.io">
-</head>
-
 <div class="row">
                                           <!--  <div class="col-md-12">
                                                     <div class="card" style="height: 100%;">
@@ -36,8 +32,10 @@
 
                                         </div>
 
-                                  
-                                     
+                                        <script src=" https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
+                                        <script src="https://cdnjs.com/libraries/pdf.js"></script>
+                                        <script src="https://unpkg.com/pdfjs-dist/"></script>
+                                        <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
                                        
 
 
@@ -50,7 +48,6 @@ var url = '<?=  $documentopdf  ?> ';
 
 // Loaded via <script> tag, create shortcut to access PDF.js exports.
 var pdfjsLib = window['pdfjs-dist/build/pdf'];
-console.log(pdfjsLib);
 
 // The workerSrc property shall be specified.
 pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
@@ -146,3 +143,7 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   renderPage(pageNum);
 });
 </script>
+<script src=" https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
+                                        <script src="https://cdnjs.com/libraries/pdf.js"></script>
+                                        <script src="https://unpkg.com/pdfjs-dist/"></script>
+                                        <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>

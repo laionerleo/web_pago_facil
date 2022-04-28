@@ -391,6 +391,7 @@
                         data: {datos},
                         type : 'POST',
                         dataType: "json",
+                        timeout: 0,
                         
                             beforeSend:function( ) {  
                                 $("#btncarga").show();

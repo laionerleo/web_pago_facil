@@ -4,18 +4,14 @@
 <link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
 <style>
         input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-
-.dataTables_filter {
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+    }
+    .dataTables_filter {
         position: relative;
         text-align: center;
     }
- 
-
     .dataTables_filter input {
         width: 100%;
         height: 32px;
@@ -31,7 +27,6 @@ input[type=number]::-webkit-outer-spin-button {
         left: auto;
         right: 10px;
     }
-
 </style>
 
 <body  class="">
@@ -107,16 +102,16 @@ input[type=number]::-webkit-outer-spin-button {
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                      aria-labelledby="home-tab">
-                
-                                <div  class="form-row">
+
+                                     <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
                                         <select name="slcrubro"  class=" form-control" id="slcrubro" >
-                                        <option   value="0,0,"  data-image="<?php echo $rubros->values[0]->cImagenUrl  ?>"> Todos  </option>
+                                                <option   value="0,0,"  data-image="<?php echo $rubros->values[0]->cImagenUrl  ?>"> Todos  </option>
                                             <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
                                                 <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?>, <?php echo $rubros->values[$i]->nNombre  ?>"  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>   
+                                        </select>  
                                     </div>
                                     <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
@@ -126,14 +121,13 @@ input[type=number]::-webkit-outer-spin-button {
                                             <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
                                                 <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>   
+                                        </select>    
                                        
                                         <label id="nombre_region"  href=""> </label>
                                     </div>
                                 </div>
-                               
                                   <div id="vistas_empresas"  >
-                                  
+                                                
                                             <center>
                                                 <div class="d-flex justify-content-center">
                                                     <div id="spinnercargaempresas" class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
@@ -176,8 +170,8 @@ input[type=number]::-webkit-outer-spin-button {
                                   <div class="row">
                                       <div class="col-md-12">
                                           <center>
-                                         <!--  <input id="btnperfil" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">   -->
-                                          <input id="btnperfilempresa"  type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0' , 'Agua Potable'  );"  value="Perfil todas las empresas ">
+                                          <input id="btnperfil" style="" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
+                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
                                           
                                           </center>
                                       </div>
@@ -227,7 +221,7 @@ input[type=number]::-webkit-outer-spin-button {
                                        
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-md-1 mb-1" id="idlugarboton"  style="text-align: center;" >
+                                        <div class="col-md-1 mb-1" id="idlugarboton" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
                                             <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
                                             
@@ -299,12 +293,13 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 
 </div>
+
 <?php $this->load->view('theme/js');  ?>
   <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
   
+
 <!-- Plugin scripts -->
 <script>
-  //   filtrar_empresas();
 var region_id=1;
 var rubro_id=1;
 var empresa_id=0;
@@ -318,7 +313,7 @@ var nombreempresa="";
 var sw=1;
 var gtable;
 
-//cargartodaslasempresas();
+
 
 function cargartodaslasempresas()
     {
@@ -344,7 +339,7 @@ function cargartodaslasempresas()
                             var position= index+1;
                             $('#example1').find('tbody').append(`<tr class="fila_empresas" id="fila-`+position+`" onclick="cambiar_empresa(`+empresa+` ,'#emp-`+position+`','#fila-`+position+`','`+imagen+`', '`+nombre+`'   )" > <td >
                                                                     <center>
-                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;    width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
+                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;  width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
                                                                                 <img src="`+imagen+`" class="" style="object-fit: contain;"
                                                                                                         alt="avatar">
                                                                             </figure>
@@ -377,10 +372,7 @@ function cargartodaslasempresas()
         
     }
 
-
-
-//cambiar_rubro(1,'#rub-0');
-function cambiar_region(id_region,id_figure,nombre)
+    function cambiar_region(id_region,id_figure,nombre)
 {
     region_id=id_region;
    // $('#btn_region').click();
@@ -399,9 +391,9 @@ function cambiar_rubro(id_rubro,id_figure ,  nombrerubro)
     gtable.draw();
 
 }
-
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
+    nombreempresa=nombre;
     nombreempresa=nombre;
     $("#TituloEmpresa").text(nombreempresa) ;
     
@@ -601,9 +593,13 @@ function facturaspendientes(codigo_usuario)
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-     $("#facturaspendientesbody").load(urlajax,{datos});   
+    
+    
+    $("#facturaspendientesbody").load(urlajax,{datos});   
+    
     $("#li2").show();
     $("#facturaspendientes-tab").click();
+
 }
 
 function facturaspendientesmultiple(codigo_usuario)
@@ -712,19 +708,17 @@ function cargarcriteriobusquedahub(empresa)
 }
 </script>
   
-
 <script>
-   
     sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
     $( document ).ready(function() {
+
         cargartodaslasempresas();
         filtrar_empresas();
-     
-       
+
 
 try {
          slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
@@ -747,7 +741,7 @@ try {
                                             var result=val.split(',');
                                             console.log(result);
                                        
-                                                cambiar_region(result[0], result[1] ,result[2]   ); 
+                                            cambiar_region(result[0], result[1] ,result[2]   ); 
                                             
                                          
                                         }}}).data("dd");
@@ -759,13 +753,13 @@ try {
 }
 if(perfil==1)
 {
-   // perfilfrecuente();
+    perfilfrecuente();
     $("#btnperfil").hide();
     swperfil=1;
     
 }else{
     swperfil=0;
-   // cambiar_rubro(1,'#rub-0');
+    cambiar_rubro(1,'#rub-0');
     $("#btnperfilempresa").hide();
     slcregion.set("selectedIndex", 0);
     slcrubro.set("selectedIndex", 0);

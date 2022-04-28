@@ -169,34 +169,26 @@ function vistafacturacion()
    console.log(lafacturas);
     var montototal= montototalaux ;//$("#montototal").val(montototalgeneral);
     var montocomision= montocomisionaux;
-   if(montototal + montocomision >0 )
-   {
-
-      var idfactura=$("#facturaid").val();
-      var codigo_fijo=$("#codigofijo").val();
-      var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-      var facturasiten=lafacturas;
-      var datos= {metododepago:idmetododepago , montototal:montototal ,montocomision:montocomision  ,idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo, detallepago:facturasiten  };
-      var urlajax=$("#url").val()+"vistafacturacion";  
-         
-      $("#facturacionbody").empty();   
-      $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-      $("#confirmacionbody").empty();   
-      $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-      $("#prepararpagobody").empty();   
-      $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-      $.ajaxSetup(
-                     {
-                        cache: false,
-                     });
-      $("#facturacionbody").load(urlajax,{datos});   
-      $("#li3").show();
-      $("#facturacion-tab").click();
-   }else{
-
-      swal("Monto Incorrecto", "Monto mayor a 0 bs " , "error");
-   }
-    
+    var idfactura=$("#facturaid").val();
+    var codigo_fijo=$("#codigofijo").val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var facturasiten=lafacturas;
+    var datos= {metododepago:idmetododepago , montototal:montototal ,montocomision:montocomision  ,idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo, detallepago:facturasiten  };
+    var urlajax=$("#url").val()+"vistafacturacion";  
+       
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $.ajaxSetup(
+                  {
+                     cache: false,
+                  });
+   $("#facturacionbody").load(urlajax,{datos});   
+   $("#li3").show();
+   $("#facturacion-tab").click();
    
 }
    idmetododepago=0;

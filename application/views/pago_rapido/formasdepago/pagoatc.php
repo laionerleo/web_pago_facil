@@ -469,7 +469,9 @@
                           <div class="control row ">
                           <div class="col-md-5 col-sm-6 col-5" >
                             <select class="custom-select custom-select-m tamanoselect" name="slcmes" id="slcmes" required onchange="cambiandomes($(this).val())"  >
-                                <option value="01">ENE</option>
+                                 
+                                 <option value="">Mes</option>
+                                 <option value="01">ENE</option>
                                 <option value="02">FEB</option>
                                 <option value="03">MAR</option>
                                 <option value="04">ABR</option>
@@ -489,9 +491,10 @@
                               $cont = date('Y');
                               $contfinal = $cont+10;
                               ?>
-                              <select class="custom-select custom-select-m tamanoselect" name="slcaño" id="slcaño"  onchange="cambiandoanio($(this).val())">
+                              <select class="custom-select custom-select-m tamanoselect" name="slcaño" id="slcaño" required  onchange="cambiandoanio($(this).val())">
+                              <option value="">Año</option>
                               <?php while ($cont <= $contfinal) { ?>
-                              <option value="<?= $cont ?>"><?php echo($cont); ?></option>
+                                 <option value="<?= $cont ?>"><?php echo($cont); ?></option>
                               <?php $cont = ($cont+1); } ?>
                               </select>
                               <?php ?>
@@ -580,9 +583,12 @@
                               <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Estado * : </b></label>
                            </div>
                            <div class="col-md-12 col-12">
-                              <div class="controls" style="    text-align: justify;">
+                              <div class="controls" style="    text-align: justify;" id="idcajaestado">
                                  <select id="billingState" style="width: 227px;"   name="tnCiudad" class=" form-control" required>
                                  </select>
+                              </div>
+                              <div class="spinner-grow text-primary" id="spnestado" role="status" style="display:none">
+                                          <span class="sr-only">Loading...</span>
                               </div>
                            </div>
                         </div>
@@ -591,9 +597,12 @@
                               <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b> Ciudad  : </b></label>
                            </div>
                            <div class="col-md-12 col-12">
-                              <div class="controls" style="    text-align: justify;">
+                              <div class="controls" style="    text-align: justify;" id="idcajaciudad">
                                  <select id="billingCity" style="width: 227px;"   name="tnCiudad" class=" form-control" >
                                  </select>
+                              </div>
+                              <div class="spinner-grow text-primary" id="spnciudad" role="status" style="display:none">
+                                          <span class="sr-only">Loading...</span>
                               </div>
                            </div>
                         </div>
@@ -773,25 +782,11 @@
     
      $('#btn-step-Siguiente').addClass("btn-info");
      $('#btn-step-Siguiente').addClass("btn-square");
-      
-
-   // /cargarmetodosdepago();
-      console.log("finalizando ");
-   
-   
-   
+    console.log("finalizando ");
    
    var html = document.getElementsByTagName('html')[0];
    html.setAttribute("style", "--card-color: #cecece");
-   
-   
-   /*
-   $('#billingCountry').select2({
-     placeholder: {
-     text: 'Seleccionar pais '
-   }
-   });
-   */
+  
    $('#billingState').select2({
      placeholder: {
      text: 'Seleccionar Ciudad '
@@ -851,7 +846,8 @@
       });
    }); 
    
-   
+   cargarestadosatc(26);
+    cargarciudadesatc(26);
    
    });
    
@@ -869,6 +865,8 @@
      dataType: "json",
      beforeSend:function( ) {   
          //$("#waitLoadinglogin").fadeIn(1000);
+         $('#spnestado').show();
+           $('#idcajaestado').hide();
      },                    
      success:function(response) {
      
@@ -886,6 +884,8 @@
        
      },               
      complete:function( ) {
+         $('#spnestado').hide();
+         $('#idcajaestado').show();
       
      },
    }
@@ -904,7 +904,8 @@
      type : 'POST',
      dataType: "json",
      beforeSend:function( ) {   
-         //$("#waitLoadinglogin").fadeIn(1000);
+            $('#spnciudad').show();
+           $('#idcajaciudad').hide();
      },                    
      success:function(response) {
      
@@ -923,6 +924,8 @@
      },               
      complete:function( ) {
       $("#tnCiudad").select2().val("<?= $tnCiudad ?>").trigger("change");
+      $('#spnciudad').hide();
+           $('#idcajaciudad').show();
      },
    }
    ); 
@@ -1231,4 +1234,4 @@ $( "#slcaño" ).change(function() {
 
    //# sourceURL=pen.js
 </script>
-<script src="<?=  base_url() ?>/application/assets/assets/js/cybersource/checkout.js"></script>
+<script src="<?=  base_url() ?>/application/assets/assets/js/cybersource/checkout5.js"></script>

@@ -7,8 +7,10 @@
     <!-- Favicon -->
     <!-- <link rel="shortcut icon" href="<?=  base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png"/>  -->
     <link rel="shortcut icon" href="<?=   @$tcUrlImagen; ?>"/>
+   
     
-  <link rel="manifest" href="<?=  base_url() ?>/application/assets/pwa/manifest.json">
+    <link rel="manifest" href="<?=  base_url() ?>es/cargarmanifest/<?=  $tcTokenService ?>/<?=  $tnCodigoFijo ?>">
+
   <script src="<?=  base_url() ?>/application/assets/pwa/js/main.js"></script>
     <!-- Plugin styles -->
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/bundle.css" type="text/css">
@@ -139,7 +141,7 @@ input[type=number]::-webkit-outer-spin-button {
                                                                 <h1><?= $tcNombreEmpresa ?></h1>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <img src="<?= $tcUrlImagen  ?>" alt="">
+                                                                <img style="width: 150px; height: 150px; object-fit: contain;" src="<?= $tcUrlImagen  ?>" alt="">
                                                             </div>
                                                         </div>
                                                         <br>

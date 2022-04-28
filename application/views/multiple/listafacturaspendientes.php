@@ -53,22 +53,8 @@
       });
 
       function cargarvalornuevo(valor)
-      {
-         if(valor!= "")
-         {
-            montototalaux=parseInt(valor);
-            montototalgeneral =  montototalaux +montocomisionaux ;
-            $("#lblMontototal").text(montototalaux.toFixed(2));
-            $("#lblMontocomision").text(montocomisionaux.toFixed(2));
-            $("#lblMontototalfinal").text(montototalgeneral.toFixed(2) ); 
-         
-         } else{
-            montototalaux=0;
-            montototalgeneral =  montototalaux +montocomisionaux ;
-            $("#lblMontototal").text(montototalaux.toFixed(2));
-            $("#lblMontocomision").text(montocomisionaux.toFixed(2));
-            $("#lblMontototalfinal").text(montototalgeneral.toFixed(2) ); 
-         } 
+      {  
+         montototalaux=parseInt(valor);
          console.log(montototalaux);
       }
 
@@ -114,7 +100,7 @@
                         </center>
                      </td>
                     <!--    <td> <?= $i+1 ?> </td>-->
-                     <td> <?= $facturas[$i]->periodo ?> </td>
+                     <td style="    padding-right: 0.1rem;"> <?= $facturas[$i]->periodo ?> </td>
                   <!--    <td>  <?= (isset($facturas[$i]->nroitem))?  $facturas[$i]->nroitem : $facturas[$i]->factura ?>  </td>  -->
                      <td style="text-align: end;"> 
                         <?php if($facturas[$i]->montoTotal == 0 ){ ?> 

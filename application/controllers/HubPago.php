@@ -38,13 +38,13 @@ class HubPago extends CI_Controller {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
 
-    // destroy session
+    	// destroy session
 		//$this->session->sess_destroy();
-	/*	$d['datossession']=$this->session->userdata();
-		echo "<pre>";
-		print_r($d);
-		echo "</pre>";
-	*/
+		/*	$d['datossession']=$this->session->userdata();
+			echo "<pre>";
+			print_r($d);
+			echo "</pre>";
+		*/
 		$this->load->view('index', $d);
 	
 	}
@@ -86,7 +86,9 @@ class HubPago extends CI_Controller {
             echo "La empresa no cuenta con  criterios de busquedas";
         }
 
-         $this->load->view('hubpago/listacriterios', $d);
+        
+		
+        $this->load->view('hubpago/listacriterios', $d);
 
 	}
 	public function filtro_empresas_by_tipo_region()
@@ -110,7 +112,6 @@ class HubPago extends CI_Controller {
 
 	}
 
-	
 	public function facturaspendientesmultiples()
 	{
 		$datos=$this->input->post("datos");
@@ -194,7 +195,7 @@ class HubPago extends CI_Controller {
 			
 			$laServicioultimoPago=$this->servicios->getultimatransaccioncliente($lnCliente);
 			$d["lnUltimoMetodPago"]=@$laServicioultimoPago->values->MetodoPago;
-		
+			
 			
 
 			$this->load->view('multiple/paso1', $d);
@@ -221,7 +222,6 @@ class HubPago extends CI_Controller {
 			$lnCodigoFijo=$_SESSION[$tnIdentificarPestaña.'codigofijo'];
 			if(isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1))
 			{
-				
 				$_SESSION[$tnIdentificarPestaña.'IdOperativo'] =$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->IdOperativo;
 				$_SESSION[$tnIdentificarPestaña.'FechaOperativa'] =$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->FechaOperativa;
 				$_SESSION[$tnIdentificarPestaña.'NroOperacion'] =$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->NroOperacion;		
@@ -230,7 +230,7 @@ class HubPago extends CI_Controller {
 				$FechaOperativa = $_SESSION[$tnIdentificarPestaña.'FechaOperativa'] ;
 				$NroOperacion=	$_SESSION[$tnIdentificarPestaña.'NroOperacion'] ;
 				$Servicio=$_SESSION[$tnIdentificarPestaña.'Servicio'] ;
-				$laServicioListarFacturas=$this->servicios->get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio);
+				$laServicioListarFacturas=$this->servicios->get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio  , $lnMetodoPago);
 				$this->cargarloghub("get_listar_facturashub-".json_encode($laServicioListarFacturas));
 			}else{
 				// listado de facturas 
@@ -238,20 +238,25 @@ class HubPago extends CI_Controller {
 				$this->cargarloghub("get_listar_facturas2-".json_encode($laServicioListarFacturas));
 			}
 
-			if(!is_null($laServicioListarFacturas->values)      ){
+			if(!is_null(@$laServicioListarFacturas->values)  ){
 				$d['facturas']=$laServicioListarFacturas->values;
 				$d['cantidadfacturas']=count($laServicioListarFacturas->values);
 				if(isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1))
 				{	
 					$d['periodomes']=$laServicioListarFacturas->values[0]->periodo;
-					$lnFactura=$_SESSION[$tnIdentificarPestaña.'IdOperativo'] ;
+					if(isset($_SESSION[$tnIdentificarPestaña.'gestion'])  && !is_null($_SESSION[$tnIdentificarPestaña.'gestion']) )
+					{
+						$d['periodomes']=$_SESSION[$tnIdentificarPestaña.'gestion'] ; 
+					}
+					
+					$lnFactura=$_SESSION[$tnIdentificarPestaña.'NroOperacion'] ;
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
-					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[0]->periodo;
+					$_SESSION[$tnIdentificarPestaña.'periodomes']=$d['periodomes'];
 				
 				}else{
 					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$laServicioListarFacturas->values[0]->factura; //$lnFactura;
 					$_SESSION[$tnIdentificarPestaña.'periodomes']=$laServicioListarFacturas->values[0]->periodo;
-				for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
+					for ($i=0; $i < count($laServicioListarFacturas->values); $i++) { 
 						$laServicioListarFacturas->values[$i]->periodoaux=$laServicioListarFacturas->values[$i]->periodo;
 						$laServicioListarFacturas->values[$i]->periodo =$this->get_periodo($laServicioListarFacturas->values[$i]->periodo);	
 					}
@@ -262,10 +267,13 @@ class HubPago extends CI_Controller {
 				$d['cantidadfacturas']=0;
 			}
 
+			
+
 
 			$laDatosEmpresa=$this->servicios-> EmpresasDetalle($lnEmpresa,1)->values[0];
 			$d["lnMultipago"]=$laDatosEmpresa->Multipago;		
 			$lnNroClienteElegido=0;
+			//$d['facturas'] =$_SESSION[$tnIdentificarPestaña.'listadofacturaspendientes'];
 		
 			$etiquetas=$this->servicios->get_etiquetas($lnCliente);
 			for ($i=0; $i < count($etiquetas->values); $i++) { 
@@ -274,7 +282,32 @@ class HubPago extends CI_Controller {
 					$d['etiquetas']=$etiquetas->values[$i];
 				}
 			}
-							
+			
+			/*
+			if( isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1)  )
+				{	
+					
+					$lnFactura=$_SESSION[$tnIdentificarPestaña.'IdOperativo'] ;
+					$_SESSION[$tnIdentificarPestaña.'nrofactura']=$lnFactura;
+					$_SESSION[$tnIdentificarPestaña.'periodomes']=$d['facturas'][0]->periodo;
+	
+					for ($i=0; $i < count($d['facturas']); $i++) { 
+						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);
+						$d['facturas'][$i]->MontoComision=$lnMontoComision->values ;					
+					}
+
+
+				}else{
+					
+				for ($i=0; $i < count( $d['facturas'] ); $i++) { 
+						$lnMontoComision=$this->servicios->calcularcomision($_SESSION['cliente'], $lnEmpresa,$lnMetodoPago,$d['facturas'][$i]->montoTotal);
+						$d['facturas'][$i]->MontoComision=$lnMontoComision->values ;		
+					}
+						
+			
+				}
+				*/
+				
 				$this->load->view('multiple/listafacturaspendientes', $d);
 		} catch (\Throwable $th) {
 			//throw $th;

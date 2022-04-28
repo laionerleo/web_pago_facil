@@ -136,7 +136,7 @@ img.fnone {
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-8">
                                                         <center>
-                                                            <img id="imagenqr" style="width: 300px;object-fit: contain;" src="" alt="">
+                                                            <img id="imagenqr" src="" alt="">
                                                         </center>
                                                         <center>
                                                         <a id="linkdescarga" href=""> <img src="<?= base_url(); ?>application/assets/assets/iconos/descarga.png" style="height: 50px;" alt=""></a>
@@ -224,7 +224,7 @@ img.fnone {
                                                     <?php if($recarga==20) { ?>
                                                         <button id="btnpagarotrafactura"  class=" btn btn-outline-primary "onclick="limpiar()">Comenzar de nuevo</button>
                                                     <?php }else{ ?>
-                                                        <input class="btn btn-outline-primary" onclick="facturaspendientesmultiple(0)" type="button" value="Finalizar ">
+                                                        <input class="btn btn-outline-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
                                                     <?php }  ?>
                                                     
                                                      </center>                                                     
@@ -295,6 +295,7 @@ img.fnone {
                     data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña },
                     type : 'POST',
                     cache: false,
+                    timeout: 0,
                     dataType: "json",
                     
                         beforeSend:function( ) {  

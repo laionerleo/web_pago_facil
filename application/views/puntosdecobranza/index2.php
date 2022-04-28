@@ -506,8 +506,7 @@ var icono =porciones[2];
   {
      infoWindow = new google.maps.InfoWindow;
     
-  if(navigator.geolocation)
-  {
+  if(navigator.geolocation){
 
             navigator.geolocation.getCurrentPosition(function(position){
 

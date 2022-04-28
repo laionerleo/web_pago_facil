@@ -31,78 +31,16 @@ $route[$l.'getultimaselegidas']                 = 'Welcome/getultimaselegidas';
 $route[$l.'metodotigomoney']                    = 'Welcome/pagarportigomoney';
 $route[$l.'verificartransaccion']               = 'Welcome/verificartransacciontigo';
 $route[$l.'perfilfrecuente']                    = 'Welcome/listarempresafrecuentes';
-$route[$l.'listapagosrealizados']               = 'Welcome/listapagosrealizados';
-$route[$l.'generarticketpagoexpress']           = 'Welcome/generarpagoexpress';
 $route[$l.'verificarqr']                        = 'Welcome/verificarqr';
+$route[$l.'listapagosrealizados']               = 'Welcome/listapagosrealizados';
 
-
-//vistas y metodos para para ols pagos multiples 
-$route[$l.'facturaspendientesmultiple']         = 'HubPago/facturaspendientesmultiples';//vista
-$route[$l.'listadofacturaspendientes']         = 'HubPago/listadofacturaspendientes';//vista
-
-
-
-
-//
-$route[$l.'actualizardatos']                    = 'Welcome/actualizardatosusuario';
-
-
-
-///Servicios
-$route[$l.'Qr/(:any)']                          = 'Servicio/recuperarqr/$1/$2';
-$route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
-$route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
-$route[$l.'getrubros']                          = 'Servicio/getrubros';
-$route[$l.'getallempresas']                     = 'Servicio/getallempresas';
-$route[$l.'cargarpagofacilentubarrio']          = 'Servicio/cargaragofacilentubarrio';
-$route[$l.'cargarciudades']                     = 'Servicio/cargarciudades';
-$route[$l.'cargarestados']                      = 'Servicio/cargarestados';
-$route[$l.'vistametodosdepago/(:any)']          = 'Servicio/metodospagovista/$1/$2';
-$route[$l.'empresascheckout']                   = 'Servicio/empresasafiliadas';
-//pagos realizados
-$route[$l.'pagosrealizados/(:num)']             = 'Welcome/pagosrealizados/$1/$2';
-$route[$l.'get_facturaspagadas']                = 'Welcome/facturaspagadas';
-$route[$l.'vysoravisopdf']                      = 'Welcome/veraviso';
-$route[$l.'vysorfacturapagofacilpdf']           = 'Welcome/verfacturapagofacil';
-$route[$l.'vysorfacturaempresapdf']             = 'Welcome/verfacturaempresa';
-$route[$l.'enviarfacturacorreo']                = 'Welcome/enviarfacturacorreo';
-$route[$l.'getavisomes2/(:any)/(:any)/(:any)']  = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
-$route[$l.'getavisoactualizado/(:any)/(:any)']  = 'Welcome/getavisoactualizado/$1/$2/$3';
-
-
+// generadores de pdf 
 $route[$l.'getfacturapagofacil/(:any)']         = 'Welcome/GetFacturaPagoFacil/$1/$2';
 $route[$l.'getfacturaempresa/(:any)']           = 'Welcome/GetFacturaEmpresa/$1/$2';
 
-//metodos de pago 
-//metodos de pago 
-$route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';
-$route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/';
 
-
-//puntos de cobranza
-$route[$l.'puntosdecobranza']                    = 'Welcome/puntosdecobranza';
-$route[$l.'puntosdecobranzapagofacil']           = 'Servicio/puntosdecobranza';
-$route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/';
-
-$route[$l.'comopagar']                           = 'Servicio/Comopagar';
-
-
-
-
-// empresas afiliadas
-$route[$l.'empresasafiliadas/(:any)']           = 'Welcome/empresasafiliadas/$1/$2/';
-
-//cybersource metodos
-$route[$l.'jwt_validation']                      = 'Servicio/jwtvalidation';
-$route[$l.'metodoatc']                          = 'Welcome/pagarporatc';
-
-
-
-//atencion al clinete metodos de pago 
-$route[$l.'atencionmetodopago']                      = 'Welcome/vistareclamometodopago';
-$route[$l.'atencionempresa']                      = 'Welcome/metodospagomenu';
-$route[$l.'atencionpagofacil']                      = 'Welcome/metodospagomenu';
-
+//
+$route[$l.'actualizardatos']                     = 'Welcome/actualizardatosusuario';
 
 //billetera 
 $route[$l.'vistarecargas']                      = 'Welcome/vistarecargas';
@@ -115,12 +53,65 @@ $route[$l.'filtro_billeteras_general']          = 'Welcome/busquedabilleteras';
 // pagofacil en tu barrio 
 $route[$l.'pagofacilentubarrio/(:num)']       = 'BilleteraPagoFacil/inicio/$1/$2/';
 $route[$l.'reportemovimiento']                = 'BilleteraPagoFacil/reportemovimientobilletera';
-$route[$l.'reportehistoricocliente']          = 'BilleteraPagoFacil/reportehistoricocliente';
 $route[$l.'reportecomisiones']                = 'BilleteraPagoFacil/reportecomisionbilletera';
 
+//cybersource metodos
+$route[$l.'jwt_validation']                      = 'Servicio/jwtvalidation';
+$route[$l.'metodoatc']                          = 'Welcome/pagarporatc';
 
-$route[$l.'cargarcriterioshub']                = 'HubPago/CargarCriterios';
 
+
+///Servicios
+$route[$l.'Qr/(:any)']                          = 'Servicio/recuperarqr/$1/$2';
+$route[$l.'Descargarqr/(:any)']                 = 'Servicio/DescargarQr/$1/$2';
+$route[$l.'getempresaspagadasfrecuentes']       = 'Servicio/getempresaspagadasfrecuentes';
+$route[$l.'getrubros']                          = 'Servicio/getrubros';
+$route[$l.'getallempresas']                     = 'Servicio/getallempresas';
+$route[$l.'actualizarperfilfrecuente']          = 'Servicio/actualizarperfilfrecuente';
+$route[$l.'cargarpagofacilentubarrio']          = 'Servicio/cargaragofacilentubarrio';
+$route[$l.'cargarciudades']                     = 'Servicio/cargarciudades';
+$route[$l.'cargarestados']                      = 'Servicio/cargarestados';
+$route[$l.'comopagar']                           = 'Servicio/Comopagar';
+$route[$l.'vistametodosdepago/(:any)']          = 'Servicio/metodospagovista/$1/$2';
+$route[$l.'MandarAyudaQr']                           = 'Servicio/MandarAyudaQr';
+
+//pagos realizados
+$route[$l.'pagosrealizados/(:num)']             = 'Welcome/pagosrealizados/$1/$2';
+$route[$l.'get_facturaspagadas']                = 'Welcome/facturaspagadas';
+$route[$l.'vysoravisopdf']                      = 'Welcome/veraviso';
+$route[$l.'vysorfacturapagofacilpdf']           = 'Welcome/verfacturapagofacil';
+$route[$l.'vysorfacturaempresapdf']             = 'Welcome/verfacturaempresa';
+$route[$l.'enviarfacturacorreo']                = 'Welcome/enviarfacturacorreo';
+$route[$l.'filtro_clientes']                    = 'Welcome/busqueda_clientes';
+
+
+// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'PuntosCobranza/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'PuntosCobranza/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'PuntosCobranza/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'PuntosCobranza/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'PuntosCobranza/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'PuntosCobranza/EditarPuntoCobranza';
+$route[$l.'mostrarcliente']                      = 'PuntosCobranza/MostrarCliente';
+
+//metodos de pago 
+$route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';
+$route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/';
+
+//puntos de cobranza
+$route[$l.'puntosdecobranza']                      = 'Welcome/puntosdecobranza';
+$route[$l.'puntosdecobranzaPagoFacil']             = 'Servicio/puntosdecobranza';
+$route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/';
+
+
+// empresas afiliadas
+$route[$l.'empresasafiliadas/(:any)']           = 'Welcome/empresasafiliadas/$1/$2/';
+
+
+
+
+$route[$l.'getavisomes2/(:any)/(:any)/(:any)']                    = 'Welcome/getavisofacturames2/$1/$2/$3/$4';
+$route[$l.'getavisoactualizado/(:any)/(:any)']                    = 'Welcome/getavisoactualizado/$1/$2/$3';
 
 
 
@@ -128,7 +119,7 @@ $route[$l.'cargarcriterioshub']                = 'HubPago/CargarCriterios';
 $route[$l.'login_user']                         = 'Auth/loginusuario';
 $route[$l.'login_registro']                     = 'Auth/loginregistro';
 
-$route[$l.'logout']                          = 'Auth/logout';
+$route[$l.'logout']                             = 'Auth/logout';
 
 //metodos para el login de  faceboook
 
@@ -142,15 +133,12 @@ $route[$l.'prueba_face']                          = 'Facebook_Authentication/pru
 $route[$l.'login_google']                          = 'Google_Authentication';
 $route[$l.'logout_google']                          = 'Google_Authentication/logout';
 
+//hub de pago 
+$route[$l.'cargarcriterioshub']                = 'HubPago/CargarCriterios';
+$route[$l.'facturaspendientesmultiple']         = 'HubPago/facturaspendientesmultiples';//vista
+$route[$l.'listadofacturaspendientes']         = 'HubPago/listadofacturaspendientes';//vista
 
 
-$route[$l.'pay/(:any)/(:any)']                    = 'PagoDirecto/Pay/$1/$2/$3';
-$route[$l.'pay/(:any)']                    = 'PagoDirecto/Pay/$1/$2/0';
-
-
-
-$route[$l.'pay2/(:any)/(:any)']                     = 'PagoDirecto/Pay2/$1/$2/$3';
-$route[$l.'pay2/(:any)']                            = 'PagoDirecto/Pay2/$1/$2/0';
 
 
 
@@ -159,11 +147,22 @@ $route[$l.'pay2/(:any)']                            = 'PagoDirecto/Pay2/$1/$2/0'
 /* metodos para los servicios  */
 $route[$l.'get_filtro_regiones']            = 'Welcome/filtro_empresas_by_tipo_region';
 
-$route[$l.'filtro_clientes']            = 'Welcome/busqueda_clientes';
+$route[$l.'filtro_codigo_fijo']            = 'Welcome/busqueda_clientes';
 
 $route[$l.'getallempresas']            = 'Welcome/gettodaslasempresas';
 
 
+
+
+$route[$l.'pay/(:any)/(:any)']                    = 'PagoDirecto/Pay2/$1/$2/$3';
+$route[$l.'pay/(:any)']                    = 'PagoDirecto/Pay2/$1/$2/0';
+
+
+
+$route[$l.'pay2/(:any)/(:any)']                    = 'PagoDirecto/Pay3/$1/$2/$3';
+$route[$l.'pay2/(:any)']                    = 'PagoDirecto/Pay3/$1/$2/0';
+$route[$l.'cargarmanifest/(:any)/(:any)']                    = 'PagoDirecto/cargarmanifest/$1/$2/$3';
+$route[$l.'log']                            = 'Auth/login2';
 
 
 
@@ -171,7 +170,6 @@ $route[$l.'(.+)$']                        = "$2";
 $route[$i.'$']                            = $route['default_controller'];
 
 
-$route[$l.'log']                            = 'Auth/login2';
 
 
 /**/
