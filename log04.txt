@@ -62,3 +62,4 @@
 22/04/2022 17:17:21generar qr "QR generado exitosamente."
 22/04/2022 17:17:33llego guardar ubicacion --{"error":0,"status":1,"message":"Ubicaci\u00f3n de pago guardada exitosamente.","messageMostrar":0,"messageSistema":"","values":1}
 22/04/2022 17:17:34laGuardarTransaccionPago generarqr{"error":0,"status":1,"message":"Registro de datos existoso.","messageMostrar":0,"messageSistema":"","values":true}
+30/04/2022 09:34:45loServicioBusquedaClientes{"error":0,"status":1,"message":"Se Encontro los Siguientes Socios:","messageMostrar":0,"messageSistema":"","values":[{"codigoClienteEmpresa":"541","nombre":"Ramos Castro Lorenzo","codidgoUbicacion":"021212500","NumDoc":"1993984 SC.","Nit":"0","corte":false,"FacturarA":"","telefono":71393865,"direccion":"02-00542UV 86   Mza 29-E L 13","uvMzaLote":"Uv: 86   Mza: 29-E lote: 13","estado":1,"fono1":1,"fono2":1,"fono3":1,"fono4":1,"alias":"","cantidadPendientes":0}]}

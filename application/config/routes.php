@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**/
 
-$l                                        = '^(en|es|de|it|po)/';
-$i                                        = '^(en|es|de|it|po)';
+$l                                              = '^(en|es|de|it|po)/';
+$i                                              = '^(en|es|de|it|po)';
 
 /**/
 
 //$route[$l.'personas']                 		= 'Persona';
 
-$route['default_controller']                = 'Auth';
-$route[$l.'inicio']                    = 'Welcome';
+$route['default_controller']                    = 'Auth';
+$route[$l.'inicio']                             = 'Welcome';
 
 /* vistas pago rapido */
 $route[$l.'pagorapido']                         = 'Welcome/pago_rapido';

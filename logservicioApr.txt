@@ -66,3 +66,11 @@
 22/04/2022 17:17:21guardarentidadbancaria{"tnCliente":"3859","tcEntidades":"[\"2\"]","tnTransaccion":"314482","tnApp":3}
 22/04/2022 17:17:28guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"314482","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
 22/04/2022 17:17:33GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":"314482","tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":2}
+28/04/2022 15:42:27getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+28/04/2022 15:42:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+30/04/2022 09:34:16getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+30/04/2022 09:34:33getcriteriobusquedahub ={"tnEmpresa":"2"}
+30/04/2022 09:34:50getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+30/04/2022 09:34:50getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+30/04/2022 09:34:53listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"541","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+30/04/2022 09:35:29getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
