@@ -193,8 +193,8 @@
                         $("#mensaje").css("color","black");
                         $("#mensaje").text("Ingreso Exitoso "); 
 
-                        alert("ESTO A SIDO EDITADO DESDE EL CODIGO ");
-                        //window.location.href = urlsucces;
+                 
+                        window.location.href = urlsucces;
                         //location.reload();
                         
                     }else{
