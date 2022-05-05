@@ -149,6 +149,10 @@ class Servicio extends CI_Controller {
 		if(!isset($_SESSION['allempresa']))
 		{
 			$d['empresas']=$this->servicios->getempresasimple($empresaiID ,$_SESSION['cliente']);
+			echo '<pre>'; 
+			print_r($d['empresas'] );
+			echo '</pre>' ;
+
 			if(isset($d['empresas']))
 			{
 				$_SESSION['allempresas']=$d['empresas']->values;
