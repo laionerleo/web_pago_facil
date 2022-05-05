@@ -159,6 +159,10 @@ class Servicio extends CI_Controller {
 				echo json_encode($d['empresas']->values);
 			}
 		}else{
+			echo '<pre>'; 
+			print_r($_SESSION );
+			echo '</pre>' ;
+
 			echo json_encode($_SESSION['allempresas']);
 		}
 
