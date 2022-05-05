@@ -22,7 +22,6 @@ class Servicio extends CI_Controller {
         
         //cargamamos la libreria del lenguaje
         $this->lang->load('welcome');
-
         //cargamos los modelos
 		$this->load->model(array('Msecurity'));
 		
@@ -144,14 +143,12 @@ class Servicio extends CI_Controller {
 	}
 	public function getallempresas()
 	{
-		echo "ingreso al metodo ";
+
+
 		$empresaiID= '';
 		if(!isset($_SESSION['allempresa']))
 		{
 			$d['empresas']=$this->servicios->getempresasimple($empresaiID ,$_SESSION['cliente']);
-			echo '<pre>'; 
-			print_r($d['empresas'] );
-			echo '</pre>' ;
 
 			if(isset($d['empresas']))
 			{
@@ -159,10 +156,6 @@ class Servicio extends CI_Controller {
 				echo json_encode($d['empresas']->values);
 			}
 		}else{
-			echo '<pre>'; 
-			print_r($_SESSION );
-			echo '</pre>' ;
-
 			echo json_encode($_SESSION['allempresas']);
 		}
 

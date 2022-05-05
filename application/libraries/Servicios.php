@@ -2888,7 +2888,7 @@ public function getmetodosbyToken($tnTokenService)
    
    public function getallempresas($id_tipoempresa,$id_region,$id_cliente)
    {
-     $url = 'https://serviciopagofacil.lpf.app/api/Empresa/ListarAllEmpresas';
+     $url = 'https://serviciopagofacil.lpf.app/api/Empresa/listarEmpresas';
 
        //$data = array('tnTipoEmpresa' => $id_tipoempresa , 'tnIdAccion' => '91'  ,'tnCliente' => $id_cliente ,'tnRegion'=>  $id_region , 'tcApp'=>2 );
      $data = array('tnTipoEmpresa' => $id_tipoempresa , 'tnIdAccion' => '91'  ,'tnCliente' => $id_cliente ,'tnRegion'=>  $id_region );
