@@ -144,7 +144,7 @@ class Servicio extends CI_Controller {
 	}
 	public function getallempresas()
 	{
-		
+		echo "ingreso al metodo ";
 		$empresaiID= '';
 		if(!isset($_SESSION['allempresa']))
 		{
