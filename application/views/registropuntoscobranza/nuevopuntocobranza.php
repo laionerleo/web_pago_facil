@@ -338,7 +338,11 @@
     };
     function CargarCliente(cliente, apellido, telefono){
 
+<<<<<<< Updated upstream
         var lcUrlajax="https://pagofacil.com.bo/online/es/mostrarcliente";
+=======
+        var lcUrlajax="http://localhost:8080/web_pago_facil/es/mostrarcliente";
+>>>>>>> Stashed changes
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -498,6 +502,14 @@
         }
 	});
 function mi_ubicacion(Latitud, Longitud) {
+<<<<<<< Updated upstream
+=======
+    /*$('#divBtnUbicacion').hide();
+    $('#btnAceptar').show();
+    $('#btnCancelar').show();
+    $('#divLongitud').show();
+    $('#divLatitud').show();*/
+>>>>>>> Stashed changes
     var pos = {
               lat: parseFloat(Latitud),
               lng: parseFloat(Longitud)
@@ -534,7 +546,11 @@ function mi_ubicacion(Latitud, Longitud) {
           marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
+<<<<<<< Updated upstream
          // icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+=======
+       //   icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+>>>>>>> Stashed changes
           title: ubicaciones[i]["nombreEstablecimiento"],
           animation: google.maps.Animation.DROP,
           clickeable:true,
@@ -600,6 +616,11 @@ function mi_ubicacion(Latitud, Longitud) {
     infoWindow.setPosition(pos);
       map.setCenter(pos);
       map.setZoom(16);
+<<<<<<< Updated upstream
+=======
+     
+
+>>>>>>> Stashed changes
 }
 function ValidarDetallePuntoCobranza(IdCliente) {
 

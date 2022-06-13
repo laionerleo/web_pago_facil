@@ -10,6 +10,12 @@
 
     <div class="content-wrapper">
 
+<<<<<<< Updated upstream
+=======
+        <!-- begin::navigation -->
+        <?php $this->load->view('theme/menu_lateral_izquierdo');   ?>
+        <!-- end::navigation -->
+>>>>>>> Stashed changes
         <div class="content-body">
             <div class="content">
                 <div class="row">

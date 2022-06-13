@@ -99,8 +99,31 @@ $route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';
 $route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/';
 
 //puntos de cobranza
-$route[$l.'puntosdecobranza']                      = 'Welcome/puntosdecobranza';
-$route[$l.'puntosdecobranzaPagoFacil']             = 'Servicio/puntosdecobranza';
+$route[$l.'puntosdecobranza']                    = 'Welcome/puntosdecobranza';
+$route[$l.'puntosdecobranzapagofacil']           = 'Servicio/puntosdecobranza';
+$route[$l.'visitapuntosdecobranza']              = 'Welcome/visitapuntosdecobranza';
+$route[$l.'createvisitapuntosdecobranza']        = 'Welcome/createvisitapuntosdecobranza';
+$route[$l.'InsertarVisita']                      = 'Welcome/InsertarVisita';
+$route[$l.'ConsultarVisita/(:any)']              = 'Welcome/consultarpuntosdecobranza/$1/$2';
+$route[$l.'EditarVisitaAgente']                  = 'Welcome/editarvisitaagente';
+$route[$l.'EditarVisitaPersonalAtendio']         = 'Welcome/editarvisitapersonalatendio';
+$route[$l.'EditarVisitaPuntoCobranza']           = 'Welcome/editarvisitaPuntoCobranza';
+$route[$l.'ValidarCliente']                      = 'Welcome/validarcliente';
+$route[$l.'BuscarVisitaFechas']                  = 'Welcome/buscarvisitafechas';
+
+
+
+
+$route[$l.'comopagar']                           = 'Servicio/Comopagar';
+
+// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'PuntosCobranza/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'PuntosCobranza/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'PuntosCobranza/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'PuntosCobranza/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'PuntosCobranza/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'PuntosCobranza/EditarPuntoCobranza';
+$route[$l.'mostrarcliente']                      = 'PuntosCobranza/MostrarCliente';
 $route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/';
 
 
@@ -181,4 +204,17 @@ $route['503_override']                    = 'Welcome/error503';
 $route['504_override']                    = 'Welcome/error504';
 /**/
 
+
+
+
+
+
+/*// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'Welcome/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'Welcome/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'Welcome/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'Welcome/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'Welcome/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'Welcome/EditarPuntoCobranza';
+$route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/'; */
 ?>

@@ -235,7 +235,6 @@ class Servicio extends CI_Controller {
 			array_push($d['ubicaciones'], $nuevo);	
 		}
 		$d["ubicaciones"]=json_encode($d["ubicaciones"]);
-
 		$this->load->view('puntosdecobranza/index2', $d);
 		
 		

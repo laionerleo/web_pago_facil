@@ -206,6 +206,7 @@
 20/01/2022 16:00:50getcriteriobusquedahub ={"tnEmpresa":"47"}
 20/01/2022 18:42:19getfacturaempresa11{"tnCliente":"3859","tnFactura":"1011675","tnTransaccionDePago":"76219","tnEmpresa":"3","tcApp":2}
 20/01/2022 18:42:32empresasimple{"tnCliente":"3859","tcFiltro":"3","tnIdAccion":0,"tcApp":2}
+<<<<<<< Updated upstream
 25/01/2022 16:17:31getcriteriobusquedahub ={"tnEmpresa":"47"}
 25/01/2022 16:18:00getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
 25/01/2022 16:18:00getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
@@ -494,3 +495,484 @@
 31/01/2022 15:26:49getcriteriobusquedahub ={"tnEmpresa":"180"}
 31/01/2022 15:27:08getcriteriobusquedahub ={"tnEmpresa":"159"}
 31/01/2022 15:31:57getcriteriobusquedahub ={"tnEmpresa":"180"}
+=======
+
+24/01/2022 14:43:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 14:51:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 15:00:23getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 15:00:24getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+24/01/2022 15:00:31get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-293707374903120220124","tcFechaOperativa":20220124,"tnNroOperacion":1075,"tnServicio":1}
+24/01/2022 15:01:03generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"-293707374903120220124","tnMontoClienteEmpresa":"200","tnMontoClienteSyscoop":"0","tcPeriodo":"MOTOCICLETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+24/01/2022 15:25:40getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 15:25:40getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+24/01/2022 15:25:45get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1164853817202201249031","tcFechaOperativa":20220124,"tnNroOperacion":1077,"tnServicio":1}
+24/01/2022 15:26:08generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"-1164853817202201249031","tnMontoClienteEmpresa":"90","tnMontoClienteSyscoop":"0","tcPeriodo":"VAGONETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+24/01/2022 15:27:59getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+24/01/2022 15:28:00getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+24/01/2022 15:28:02get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1164853817202201249031","tcFechaOperativa":20220124,"tnNroOperacion":1077,"tnServicio":1}
+24/01/2022 15:59:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 16:05:00getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 16:37:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 16:42:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 16:56:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 17:46:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 17:46:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 17:48:17getcriteriobusquedahub ={"tnEmpresa":"180"}
+24/01/2022 18:13:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 07:58:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 08:24:06getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 08:34:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 08:35:27getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 08:35:27getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 08:35:33get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"194957530202201259031","tcFechaOperativa":20220125,"tnNroOperacion":593,"tnServicio":1}
+25/01/2022 08:35:55getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 08:35:56getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 08:35:58get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202202","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"194957530202201259031","tcFechaOperativa":20220125,"tnNroOperacion":593,"tnServicio":1}
+25/01/2022 08:36:59getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 08:37:02getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 08:37:06get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"194957530202201259031","tcFechaOperativa":20220125,"tnNroOperacion":593,"tnServicio":1}
+25/01/2022 09:03:18getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:03:19getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:03:20getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:03:21getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:03:21listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:03:24listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:04:15getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:04:16getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:04:18get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1055279866903120220125","tcFechaOperativa":20220125,"tnNroOperacion":603,"tnServicio":1}
+25/01/2022 09:04:33getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:04:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:04:35get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1055279866903120220125","tcFechaOperativa":20220125,"tnNroOperacion":603,"tnServicio":1}
+25/01/2022 09:05:19getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:05:19getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:05:22get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1334184907202201259031","tcFechaOperativa":20220125,"tnNroOperacion":604,"tnServicio":1}
+25/01/2022 09:05:34getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:05:35getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:05:36get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202209","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1334184907202201259031","tcFechaOperativa":20220125,"tnNroOperacion":604,"tnServicio":1}
+25/01/2022 09:09:15getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:09:16getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:09:18get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202215","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1651306618202201259031","tcFechaOperativa":20220125,"tnNroOperacion":605,"tnServicio":1}
+25/01/2022 09:12:20getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:12:21getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:12:23get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202215","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1651306618202201259031","tcFechaOperativa":20220125,"tnNroOperacion":605,"tnServicio":1}
+25/01/2022 09:12:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:12:53getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:12:55get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1430050408903120220125","tcFechaOperativa":20220125,"tnNroOperacion":606,"tnServicio":1}
+25/01/2022 09:13:34getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:13:35getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:13:36get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1696842152903120220125","tcFechaOperativa":20220125,"tnNroOperacion":607,"tnServicio":1}
+25/01/2022 09:13:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:14:05getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:14:05getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:14:07get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202202","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1960506850202201259031","tcFechaOperativa":20220125,"tnNroOperacion":608,"tnServicio":1}
+25/01/2022 09:15:11getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:15:12getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:15:14get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1960506850202201259031","tcFechaOperativa":20220125,"tnNroOperacion":608,"tnServicio":1}
+25/01/2022 09:16:07getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:16:09getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:16:10get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-88457092903120220125","tcFechaOperativa":20220125,"tnNroOperacion":610,"tnServicio":1}
+25/01/2022 09:17:19getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:17:32getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:17:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:17:33get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1264166789202201259031","tcFechaOperativa":20220125,"tnNroOperacion":611,"tnServicio":1}
+25/01/2022 09:17:49getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:17:50getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:17:50get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1264166789202201259031","tcFechaOperativa":20220125,"tnNroOperacion":611,"tnServicio":1}
+25/01/2022 09:18:16getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:18:17getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:18:17get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202209","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1264166789202201259031","tcFechaOperativa":20220125,"tnNroOperacion":611,"tnServicio":1}
+25/01/2022 09:20:34getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:20:35getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:20:36get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1264166789202201259031","tcFechaOperativa":20220125,"tnNroOperacion":611,"tnServicio":1}
+25/01/2022 09:21:16getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:21:17getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:21:17get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202211","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1264166789202201259031","tcFechaOperativa":20220125,"tnNroOperacion":611,"tnServicio":1}
+25/01/2022 09:21:21getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:21:21getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:21:22get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202211","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1264166789202201259031","tcFechaOperativa":20220125,"tnNroOperacion":611,"tnServicio":1}
+25/01/2022 09:23:39getcriteriobusquedahub ={"tnEmpresa":"6"}
+25/01/2022 09:24:02getmetodosbygrupos{"tnEmpresa":"6","tcApp":3,"tcLink":0}
+25/01/2022 09:24:03getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:24:03listarfacturas{"tnEmpresa":"6","tcCodigoClienteEmpresa":"324","tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:24:10getmetodosbygrupos{"tnEmpresa":"6","tcApp":3,"tcLink":0}
+25/01/2022 09:24:11getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:24:12listarfacturas{"tnEmpresa":"6","tcCodigoClienteEmpresa":"324","tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:24:26getmetodosbygrupos{"tnEmpresa":"6","tcApp":3,"tcLink":0}
+25/01/2022 09:24:26getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:24:27listarfacturas{"tnEmpresa":"6","tcCodigoClienteEmpresa":"324","tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:26:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:27:27getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:27:27getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:27:28get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1319163823202201259031","tcFechaOperativa":20220125,"tnNroOperacion":612,"tnServicio":1}
+25/01/2022 09:30:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:31:07getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:31:07getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:31:08listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:32:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:33:04getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:33:05getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:33:05get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202202","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"563358888903120220125","tcFechaOperativa":20220125,"tnNroOperacion":614,"tnServicio":1}
+25/01/2022 09:34:21getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:34:37getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:34:37getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:34:38get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202202","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1642047547903120220125","tcFechaOperativa":20220125,"tnNroOperacion":616,"tnServicio":1}
+25/01/2022 09:35:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:35:43getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:35:43getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:35:44listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:35:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:35:53getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:35:53get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1300962253202201259031","tcFechaOperativa":20220125,"tnNroOperacion":617,"tnServicio":1}
+25/01/2022 09:36:33getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:36:48getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:36:48getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:36:49get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202214","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-340827392202201259031","tcFechaOperativa":20220125,"tnNroOperacion":619,"tnServicio":1}
+25/01/2022 09:38:59getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:39:00getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:39:00get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202213","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"2036286259903120220125","tcFechaOperativa":20220125,"tnNroOperacion":620,"tnServicio":1}
+25/01/2022 09:40:20getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 09:51:32getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:51:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:51:34listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:54:12getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:54:12getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:54:13listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:55:10getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:55:10getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:55:11listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 09:55:32getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 09:55:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 09:55:33get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1861220771202201259031","tcFechaOperativa":20220125,"tnNroOperacion":639,"tnServicio":1}
+25/01/2022 10:00:38getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:00:38getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:00:39listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:03:57getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:04:40getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:04:40getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:04:41listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:05:43getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:05:43getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:05:44listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:06:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:06:29getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:06:30getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:06:30get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202209","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"115202158202201259031","tcFechaOperativa":20220125,"tnNroOperacion":648,"tnServicio":1}
+25/01/2022 10:12:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:14:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:14:50getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:16:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:17:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:18:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:19:25getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:19:25getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:19:26get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"2082896168903120220125","tcFechaOperativa":20220125,"tnNroOperacion":658,"tnServicio":1}
+25/01/2022 10:20:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:20:45getcriteriobusquedahub ={"tnEmpresa":"177"}
+25/01/2022 10:20:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:21:02getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:21:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:21:14getcriteriobusquedahub ={"tnEmpresa":"177"}
+25/01/2022 10:21:16getcriteriobusquedahub ={"tnEmpresa":"76"}
+25/01/2022 10:21:17getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:21:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:22:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:23:35getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:23:36getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:23:37get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202212","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"563762195903120220125","tcFechaOperativa":20220125,"tnNroOperacion":662,"tnServicio":1}
+25/01/2022 10:24:28getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:25:51getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:26:02getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:26:03get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-2109864893903120220125","tcFechaOperativa":20220125,"tnNroOperacion":663,"tnServicio":1}
+25/01/2022 10:26:41getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:26:49getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:26:51get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-2109864893903120220125","tcFechaOperativa":20220125,"tnNroOperacion":663,"tnServicio":1}
+25/01/2022 10:31:55getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:33:31getcriteriobusquedahub ={"tnEmpresa":"4"}
+25/01/2022 10:34:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:36:42getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:36:43getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:36:43get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202206","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"804284539903120220125","tcFechaOperativa":20220125,"tnNroOperacion":669,"tnServicio":1}
+25/01/2022 10:38:51getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:38:51getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:38:52listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:39:04getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:39:04getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:39:05listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:39:18getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:39:19getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:39:20listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:41:37getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:41:39getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:41:39get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1862329818903120220125","tcFechaOperativa":20220125,"tnNroOperacion":672,"tnServicio":1}
+25/01/2022 10:42:13getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:42:14getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:42:14get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1115950705202201259031","tcFechaOperativa":20220125,"tnNroOperacion":673,"tnServicio":1}
+25/01/2022 10:42:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:42:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:42:52getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:42:53get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"962759759903120220125","tcFechaOperativa":20220125,"tnNroOperacion":674,"tnServicio":1}
+25/01/2022 10:43:10getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 10:43:36getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:43:37getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:43:38get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"47169660202201259031","tcFechaOperativa":20220125,"tnNroOperacion":675,"tnServicio":1}
+25/01/2022 10:43:48getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:43:48getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:43:49listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 10:51:00getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 10:51:01getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 10:51:01get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"697408183202201259031","tcFechaOperativa":20220125,"tnNroOperacion":682,"tnServicio":1}
+25/01/2022 11:00:44getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 11:00:44getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 11:00:45listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 11:01:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:06:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:08:33getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 11:08:34getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 11:08:34get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"2096955624903120220125","tcFechaOperativa":20220125,"tnNroOperacion":699,"tnServicio":1}
+25/01/2022 11:09:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:10:47getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 11:10:54getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 11:10:55get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-629969931903120220125","tcFechaOperativa":20220125,"tnNroOperacion":701,"tnServicio":1}
+25/01/2022 11:12:17getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 11:12:18getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 11:12:18get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1642896432202201259031","tcFechaOperativa":20220125,"tnNroOperacion":706,"tnServicio":1}
+25/01/2022 11:14:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:15:15getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:19:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:27:25getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:44:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 11:45:48getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 14:02:36getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:02:36getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:02:37listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 14:02:48getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:02:48getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:02:49listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 14:03:10getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 14:03:33getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:03:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:03:34listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 14:04:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 14:07:49getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 14:09:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 14:11:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 14:13:13getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:13:13getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:13:14listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 14:15:42getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:15:43getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:15:43listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+25/01/2022 14:17:57getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:17:58getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:17:58get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202208","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"461504480903120220125","tcFechaOperativa":20220125,"tnNroOperacion":774,"tnServicio":1}
+25/01/2022 14:42:44getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 14:42:44getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 14:42:45get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202214","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1195713128202201259031","tcFechaOperativa":20220125,"tnNroOperacion":815,"tnServicio":1}
+25/01/2022 14:59:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 15:26:44getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 15:26:44getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 15:26:45get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202213","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"236808461202201259031","tcFechaOperativa":20220125,"tnNroOperacion":874,"tnServicio":1}
+25/01/2022 16:49:02getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 16:49:03getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 16:49:04get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202202","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1973572570202201259031","tcFechaOperativa":20220125,"tnNroOperacion":903,"tnServicio":1}
+25/01/2022 16:53:59getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+25/01/2022 16:54:00getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+25/01/2022 16:54:01get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1298637908903120220125","tcFechaOperativa":20220125,"tnNroOperacion":907,"tnServicio":1}
+25/01/2022 16:56:12getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:47:19getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:49:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:50:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:51:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:53:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:55:22getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:56:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 17:58:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 18:00:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 18:02:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/01/2022 18:03:23getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 08:07:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 08:27:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 09:33:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 09:46:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 09:47:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 09:52:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:01:44getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:11:50getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:13:41getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:16:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:23:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:25:25getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:29:34getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:36:12getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 10:43:06getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 11:30:24getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 11:39:56getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 11:51:44getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 11:51:44getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 11:51:45listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+26/01/2022 13:40:23getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 13:40:23getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 13:40:24get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1831094422202201269031","tcFechaOperativa":20220126,"tnNroOperacion":758,"tnServicio":1}
+26/01/2022 13:46:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 14:11:09getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 14:11:10getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 14:11:11get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"717996114202201269031","tcFechaOperativa":20220126,"tnNroOperacion":809,"tnServicio":1}
+26/01/2022 14:11:22getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 14:11:23getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 14:11:24get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202209","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"717996114202201269031","tcFechaOperativa":20220126,"tnNroOperacion":809,"tnServicio":1}
+26/01/2022 17:26:50getcriteriobusquedahub ={"tnEmpresa":"180"}
+26/01/2022 18:04:21getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 18:04:22getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 18:04:23listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+26/01/2022 18:06:04getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 18:06:04getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 18:06:05listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+26/01/2022 18:07:33getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 18:07:34getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 18:07:34get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1642350609202201269031","tcFechaOperativa":20220126,"tnNroOperacion":895,"tnServicio":1}
+26/01/2022 18:07:46getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 18:07:47getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 18:07:47get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1642350609202201269031","tcFechaOperativa":20220126,"tnNroOperacion":895,"tnServicio":1}
+26/01/2022 18:20:47getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 18:20:48getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 18:20:49get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"410298276202201269031","tcFechaOperativa":20220126,"tnNroOperacion":901,"tnServicio":1}
+26/01/2022 18:22:34getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+26/01/2022 18:22:38getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+26/01/2022 18:22:46get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202210","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-789117488202201269031","tcFechaOperativa":20220126,"tnNroOperacion":902,"tnServicio":1}
+26/01/2022 18:25:05getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 07:39:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 07:46:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 07:46:53getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 07:46:53get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202207","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1148663597202201279031","tcFechaOperativa":20220127,"tnNroOperacion":564,"tnServicio":1}
+27/01/2022 07:48:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 07:48:52getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 07:48:53get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"73762710202201279031","tcFechaOperativa":20220127,"tnNroOperacion":566,"tnServicio":1}
+27/01/2022 08:43:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 08:55:50getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 08:55:52getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 08:55:53get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202211","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1001944918202201279031","tcFechaOperativa":20220127,"tnNroOperacion":604,"tnServicio":1}
+27/01/2022 09:30:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 09:37:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 11:03:53getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 11:03:53getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 11:03:54get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-978937132202201279031","tcFechaOperativa":20220127,"tnNroOperacion":678,"tnServicio":1}
+27/01/2022 11:29:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 11:31:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 14:26:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 15:16:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 15:22:35getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 15:22:36getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 15:22:37get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-723319330202201279031","tcFechaOperativa":20220127,"tnNroOperacion":725,"tnServicio":1}
+27/01/2022 15:25:43getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 15:25:44getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 15:25:46get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202215","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"761514530903120220127","tcFechaOperativa":20220127,"tnNroOperacion":727,"tnServicio":1}
+27/01/2022 15:28:32getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+27/01/2022 15:28:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+27/01/2022 15:28:33get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202214","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"761514530903120220127","tcFechaOperativa":20220127,"tnNroOperacion":727,"tnServicio":1}
+27/01/2022 15:48:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 15:52:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 16:17:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 16:36:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 16:43:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 16:49:41getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 17:04:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 22:06:15getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 22:08:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+27/01/2022 22:09:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 08:44:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 09:28:56getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 09:32:28getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 09:37:43getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 09:39:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 09:56:12getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 09:57:58getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 10:02:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 10:06:00getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 10:07:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 10:09:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 10:13:58getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 10:26:40getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+28/01/2022 10:26:40getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+28/01/2022 10:26:41get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1276557680202201289031","tcFechaOperativa":20220128,"tnNroOperacion":633,"tnServicio":1}
+28/01/2022 10:28:26getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+28/01/2022 10:28:26getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+28/01/2022 10:28:27get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202207","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"2103594042202201289031","tcFechaOperativa":20220128,"tnNroOperacion":634,"tnServicio":1}
+28/01/2022 10:33:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 11:14:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 11:59:51getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+28/01/2022 11:59:51getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+28/01/2022 11:59:52get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1898731744202201289031","tcFechaOperativa":20220128,"tnNroOperacion":682,"tnServicio":1}
+28/01/2022 12:01:01generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"-1898731744202201289031","tnMontoClienteEmpresa":"90","tnMontoClienteSyscoop":"0","tcPeriodo":"VAGONETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+28/01/2022 12:01:21guardarentidadbancaria{"tnCliente":"24605","tcEntidades":"[\"3\"]","tnTransaccion":"268105","tnApp":3}
+28/01/2022 12:01:22guardarUbicacionDePago{"tnCliente":"24605","tnEmpresa":"180","tnTransaccion":"268105","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+28/01/2022 12:05:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 12:05:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 12:07:46getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+28/01/2022 12:07:46getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+28/01/2022 12:07:47get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"700353084903120220128","tcFechaOperativa":20220128,"tnNroOperacion":684,"tnServicio":1}
+28/01/2022 12:08:19generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"700353084903120220128","tnMontoClienteEmpresa":"200","tnMontoClienteSyscoop":"0","tcPeriodo":"MOTOCICLETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+28/01/2022 12:08:35guardarentidadbancaria{"tnCliente":"24605","tcEntidades":"[\"3\"]","tnTransaccion":"268107","tnApp":3}
+28/01/2022 12:08:36guardarUbicacionDePago{"tnCliente":"24605","tnEmpresa":"180","tnTransaccion":"268107","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+28/01/2022 14:05:48getcriteriobusquedahub ={"tnEmpresa":"41"}
+28/01/2022 14:06:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+28/01/2022 17:22:56getcriteriobusquedahub ={"tnEmpresa":"159"}
+29/01/2022 11:12:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+29/01/2022 11:12:41getcriteriobusquedahub ={"tnEmpresa":"159"}
+29/01/2022 11:19:08getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+29/01/2022 11:19:09getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+29/01/2022 11:19:10get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-13658756202201291580","tcFechaOperativa":20220129,"tnNroOperacion":29638,"tnServicio":1}
+31/01/2022 13:26:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+31/01/2022 14:18:22getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 14:18:23getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 14:18:24get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1665010647158020220131","tcFechaOperativa":20220131,"tnNroOperacion":58796,"tnServicio":1}
+31/01/2022 14:18:46generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN   01202205","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"1665010647158020220131","tnMontoClienteEmpresa":"90","tnMontoClienteSyscoop":"0","tcPeriodo":"VAGONETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+31/01/2022 14:30:46getcriteriobusquedahub ={"tnEmpresa":"180"}
+31/01/2022 14:31:17getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 14:31:17getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 14:31:18get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"770659812202201311580","tcFechaOperativa":20220131,"tnNroOperacion":60310,"tnServicio":1}
+31/01/2022 14:31:51generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"770659812202201311580","tnMontoClienteEmpresa":"140","tnMontoClienteSyscoop":"0","tcPeriodo":"CAMIONETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+31/01/2022 14:36:28generarqr{"tnCliente":"24605","tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202204","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TIPO USO:PARTICULAR","tnCiNit":"1234","tcNroPago":"770659812202201311580","tnMontoClienteEmpresa":"140","tnMontoClienteSyscoop":"0","tcPeriodo":"CAMIONETA","tcImei":null,"tcApp":2,"taEntidades":["3"],"taDetallePago":[]}
+31/01/2022 15:23:37getcriteriobusquedahub ={"tnEmpresa":"180"}
+31/01/2022 15:24:33getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:24:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:24:34get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-426767741158020220131","tcFechaOperativa":20220131,"tnNroOperacion":66866,"tnServicio":1}
+31/01/2022 15:25:00getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:25:00getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:25:01listarfacturas{"tnEmpresa":"180","tcCodigoClienteEmpresa":null,"tnCliente":"24605","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+31/01/2022 15:25:12getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:25:12getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:25:13get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-426767741158020220131","tcFechaOperativa":20220131,"tnNroOperacion":66866,"tnServicio":1}
+31/01/2022 15:25:49getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:25:49getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:25:50get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1740481996202201311580","tcFechaOperativa":20220131,"tnNroOperacion":67048,"tnServicio":1}
+31/01/2022 15:28:29getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:28:30getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:28:31get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1740481996202201311580","tcFechaOperativa":20220131,"tnNroOperacion":67048,"tnServicio":1}
+31/01/2022 15:39:24getcriteriobusquedahub ={"tnEmpresa":"180"}
+31/01/2022 15:40:16getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:40:17getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:40:19get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"1750CGN","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1443131730202201311580","tcFechaOperativa":20220131,"tnNroOperacion":68752,"tnServicio":1}
+31/01/2022 15:41:02getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:41:02getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:41:03get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-130560798202201311580","tcFechaOperativa":20220131,"tnNroOperacion":68838,"tnServicio":1}
+31/01/2022 15:41:16getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:41:16getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:41:17get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-130560798202201311580","tcFechaOperativa":20220131,"tnNroOperacion":68838,"tnServicio":1}
+31/01/2022 15:49:14getcriteriobusquedahub ={"tnEmpresa":"180"}
+31/01/2022 15:49:40getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:49:40getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:49:41get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-634031315158020220131","tcFechaOperativa":20220131,"tnNroOperacion":69859,"tnServicio":1}
+31/01/2022 15:53:18getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:53:19getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:53:19get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-634031315158020220131","tcFechaOperativa":20220131,"tnNroOperacion":69859,"tnServicio":1}
+31/01/2022 15:56:31getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 15:56:35getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 15:56:40get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-634031315158020220131","tcFechaOperativa":20220131,"tnNroOperacion":69859,"tnServicio":1}
+31/01/2022 16:39:35getcriteriobusquedahub ={"tnEmpresa":"180"}
+31/01/2022 16:39:52getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 16:39:52getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 16:39:53get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202201","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1095928923202201311580","tcFechaOperativa":20220131,"tnNroOperacion":74623,"tnServicio":1}
+31/01/2022 16:45:33getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+31/01/2022 16:45:33getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+31/01/2022 16:45:34get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"5642GTH   01202213","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-2043329941158020220131","tcFechaOperativa":20220131,"tnNroOperacion":75100,"tnServicio":1}
+>>>>>>> Stashed changes

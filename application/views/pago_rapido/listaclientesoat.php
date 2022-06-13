@@ -107,9 +107,9 @@
 <div class="tituloSoap" style="display: none;">
     <?php
     if (count($clientes) < 2) { ?>
-        <nav id="titulo" style="display: none;">Renovacion Soat <?= $clientes[0]->loObjeto1->nombre ?> &nbsp;&nbsp;&nbsp;&nbsp; <b>Nº Placa: </b><?php echo $codigoBusqueda ?></nav>
+        <nav id="titulo" style="display: none;">Renovacion Soat <?= $clientes[0]->loObjeto1->nombre ?> &nbsp;&nbsp;&nbsp;&nbsp; <b>Nº Placa: </b><?php echo $codigoBusqueda[0] ?></nav>
     <?php }else {?>
-        <nav id="titulo" style="display: none;">Nuevo Soat <?= $clientes[0]->loObjeto1->nombre ?>  &nbsp;&nbsp;&nbsp;&nbsp; <b>Nº Placa: </b> <?php echo $codigoBusqueda ?></nav> 
+        <nav id="titulo" style="display: none;">Nuevo Soat <?= $clientes[0]->loObjeto1->nombre ?>  &nbsp;&nbsp;&nbsp;&nbsp; <b>Nº Placa: </b> <?php echo $codigoBusqueda[0] ?></nav> 
     <?php }
     ?>
 </div>
@@ -117,7 +117,9 @@
     <div  class="card-body">
     
         <div id="btnComprar" style="padding-bottom: 0px;">
-            
+            <?php 
+                $codigoBusqueda = explode(';', $codigoBusqueda);
+            ?>
             <?php
                 if ($status == 55) { ?>
                     <div class="row">
@@ -125,7 +127,7 @@
                             <div class="card" >
                                 <div class="card-body" style="padding: 10px; background-color: #f8f9fa5c;">
                                     <nav><b>Cuenta con SOAT Gestion 2022 </b></nav> 
-                                    <nav>eL Nº de placa <b><?php echo $codigoBusqueda ?></b> ya cuenta con SOAT 2022</nav>
+                                    <nav>eL Nº de placa <b><?php echo $codigoBusqueda[0] ?></b> ya cuenta con SOAT 2022</nav>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +138,7 @@
                             <div class="card" >
                                 <div class="card-body" style="padding: 10px; background-color: #f8f9fa5c;">
                                     <nav><b>Renovacion SOAT <?= $clientes[0]->loObjeto1->nombre ?> </b></nav> 
-                                    <nav>Los datos del Soat anterior del Nº de placa <b><?php echo $codigoBusqueda ?></b> fueron obtenidos correctamente</nav>
+                                    <nav>Los datos del Soat anterior del Nº de placa <b><?php echo $codigoBusqueda[0] ?></b> fueron obtenidos correctamente</nav>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +150,7 @@
                             <div class="card" >
                                 <div class="card-body" style="padding: 10px; background-color: #f8f9fa5c;">
                                     <nav><b>Compre su SOAT <?= $clientes[0]->loObjeto1->nombre ?> </b></nav> 
-                                    <nav>El Nº de placa <b><?php echo $codigoBusqueda ?></b> no se encuentra registrada</nav>
+                                    <nav>El Nº de placa <b><?php echo $codigoBusqueda[0] ?></b> no se encuentra registrada</nav>
                                 </div>
                             </div>
                         </div>
@@ -162,61 +164,63 @@
         
                 
                     
-                
-        <?php
-            if ($status != 55) { ?>
-        <div class="row" id="idDetalleSoat" >
-            <!--<p id="NroPlaca">N° de Placa: <b><?php echo $codigoBusqueda ?></b></p>-->
-            <br>
-            <div class="col-md-7"> 
-                    <div class="col-md-12">
-                        <div class="form-group" id="DivTipoVehiculo">
-                            <label> <b> Tipo Vehiculo </b></label>
-                            <div class="tipoVehi" style="width: auto;">
-                                <select  name="webmenusoap"  class=" form-control" id="webmenusoap" >
-                                    <?php   for ($i=0; $i <  count($clientes) ; $i++) { 
-                                        $laTipoVehiculo = explode(':', $clientes[$i]->FacturarA);?>   
-                                        <option   value="<?= $i  ?>,<?= $clientes[$i]->Logo  ?>" data-image="<?= $clientes[$i]->Logo  ?>"> <?= $laTipoVehiculo[1]  ?>  </option>
-                                    <?php  } ?> 
-                                </select>
-                            </div>  
-                        </div>
-                    </div> 
-                    <div class="col-md-12" id="TipoUso">
-                        <div class="form-group">
-                            <label for=""><b>Tipo Uso</b></label>
-                            <div class="">
-                                <input type="text" value="Particular" disabled class="form-control" >
-                               <!-- <select class="form-control"  name="idParticular" id="idParticular" placeholder="Selecione una Opcion" required>                       
-                                    <option value="">Particular</option>    
-                                </select>-->
-                            </div>                  
-                        </div>
-                    </div> 
-            </div>
-            <!--<div class="col-md-2"></div>-->
-            <div class="col-md-5">
-                
-                <div class="col-md-12 col-sm-12" style="text-align: center;">
-                    <div class="form-group"  id="DivImagen">
-                        <img class="imgIcono" src="https://serviciopagofacil.syscoop.com.bo/Imagenes/PagoFacil/motos2.jpg" alt="">
+            <?php
+                if ($status != 55) { ?>
+      
+                <div class="row" id="idDetalleSoat" >
+                    <!--<p id="NroPlaca">N° de Placa: <b><?php echo $codigoBusqueda ?></b></p>-->
+                    <br>
+                    <div class="col-md-7"> 
+                            <div class="col-md-12">
+                                <div class="form-group" id="DivTipoVehiculo">
+                                    <label> <b> Tipo Vehiculo </b></label>
+                                    <div class="tipoVehi" style="width: auto;">
+                                        <select  name="webmenusoap"  class=" form-control" id="webmenusoap" >
+                                            <?php   for ($i=0; $i <  count($clientes) ; $i++) { 
+                                                $laTipoVehiculo = explode(':', $clientes[$i]->FacturarA);?>   
+                                                <option   value="<?= $i  ?>,<?= $clientes[$i]->Logo  ?>" data-image="<?= $clientes[$i]->Logo  ?>"> <?= $laTipoVehiculo[1]  ?>  </option>
+                                            <?php  } ?> 
+                                        </select>
+                                    </div>  
+                                </div>
+                            </div> 
+                            <div class="col-md-12" id="TipoUso">
+                                <div class="form-group">
+                                    <label for=""><b>Tipo Uso</b></label>
+                                    <div class="">
+                                        <input type="text" value="Particular" disabled class="form-control" >
+                                       <!-- <select class="form-control"  name="idParticular" id="idParticular" placeholder="Selecione una Opcion" required>                       
+                                            <option value="">Particular</option>    
+                                        </select>-->
+                                    </div>                  
+                                </div>
+                            </div> 
                     </div>
-                </div> 
-                <div class="col-md-12" style="text-align: center;" id="btnSiguiente">
-                    <div class="form-group">    
-                        <button class="btn btn-primary" onclick="facturaspendientesmultiple($('#idTipoVehiculo').val());">Siguiente</button>
+                    <!--<div class="col-md-2"></div>-->
+                    <div class="col-md-5">
+                        
+                        <div class="col-md-12 col-sm-12" style="text-align: center;">
+                            <div class="form-group"  id="DivImagen">
+                                <img class="imgIcono" src="https://serviciopagofacil.syscoop.com.bo/Imagenes/PagoFacil/motos2.jpg" alt="">
+                            </div>
+                        </div> 
+                        <div class="col-md-12" style="text-align: center;" id="btnSiguiente">
+                            <div class="form-group">    
+                                <button class="btn btn-primary" onclick="facturaspendientesmultiple($('#idTipoVehiculo').val());">Siguiente</button>
+                            </div>
+                        </div> 
                     </div>
-                </div> 
-            </div>
-            
-             
-           
-            
-        </div>
-        <input style="display: none;" type="text" class="form-control" id="idTipoVehiculo">
-        <input type="hidden" name="pais" id="inputSelect" value="">
-        <?php
+                </div>
+                <input style="display: none;" type="text" class="form-control" id="idTipoVehiculo">
+                <input style="display: none;" type="hidden" name="pais" id="inputSelect" value="">
+                <?php
                 } ?>
+                     
+                   
+                    
+                
+           
+        
     </div>
 </div>
 

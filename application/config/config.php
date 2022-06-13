@@ -24,19 +24,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 define('server_local', 'localhost');
-define('ip1', '172.16.15.202');
-define('ip2', '26.11.75.43');
+define('ip1', 'localhost');
+define('ip2', 'localhost');
 $nombreServerActual = $_SERVER['SERVER_NAME'];
 switch($nombreServerActual)
 {
     case ip1:
-            $config['base_url'] = 'http://172.16.15.202/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;
     case ip2:
-            $config['base_url'] = 'http://26.11.75.43/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;
     default:
-            $config['base_url'] = 'http://localhost/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;       
 }
 

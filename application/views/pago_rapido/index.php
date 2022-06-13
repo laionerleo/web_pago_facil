@@ -209,9 +209,17 @@
                                         <div  id="divcriteriobusquedahub" class="col-md-3 mb-2" >
 
                                         </div>
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
                                             <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
+                                        <div id="divTelefono" class="col-md-2 mb-3" style="display:none;">
+                                            <label id ="lblcodigo" for="">Telefono</label>
+                                            <input id="inp_telefono" min="0" maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control form-control-sm" type="number" placeholder="Telefono" value="">
+                                        </div>
+                                        <div id="divCorreo" class="col-md-4 mb-3" style="display:none;">
+                                            <label id ="lblcodigo" for="">Correo</label>
+                                            <input id="inp_correo"  class="form-control form-control-sm" type="email" placeholder="Correo" value="">
                                         </div>
                                         <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
                                             <br>
@@ -483,7 +491,6 @@ function habilitarregiones()
 }
 function  busqueda_datos()
 {
-
     $("#vista_clientes").empty();
     $("#vista_clientes").append(`<div class="d-flex justify-content-center">
                                     <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
@@ -493,26 +500,51 @@ function  busqueda_datos()
                             <br>
                             `);
     
-
     var lacriterio=$("[name=criterio]:checked").val().split('-');
     
     var criterio=lacriterio[0];
     var titulo=lacriterio[1];
    
     var codigo=$("#inp_dato").val();
-  
-    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 )  )
+    var telefono=$("#inp_telefono").val();
+    var correo=$("#inp_correo").val();
+
+    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 ))
     {  
-        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-        var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
-        var urlajax=$("#url").val()+"filtro_clientes";   
-        $("#vista_clientes").load(urlajax,{datos});                    
-  
+        if ((empresa_id==180) && (telefono=='') || (telefono != '') && (telefono.split('').length > 0) && (telefono.split('').length < 8) 
+        || correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)) {
+            if ((telefono=='')) {
+                alert('Ingrese su numero de telefono');
+            }
+            if ((telefono != '') && (telefono.split('').length > 0) &&  (telefono.split('').length < 8)) {
+                alert('Numero de telefono incorrecto');
+            }
+            if (correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)){
+                alert("La dirección de email es incorrecta!.");
+            }
+            $("#vista_clientes").empty();                     
+        }else{
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            
+            if ((empresa_id==180)) {
+                    var codigo1 = codigo + ";" + telefono + ";" + correo;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }else{
+               var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
+            }
+            var urlajax=$("#url").val()+"filtro_clientes";   
+            $("#vista_clientes").load(urlajax,{datos});    
+        }         
     }else{
+        
         if(codigo=='')
         {
             alert(' no  inserto el codigo ');
-        }
+            if ((empresa_id==180) && (telefono=='')) {
+                alert('Ingrese su numero de telefono');                 
+            }
+        }    
+        
         if(empresa_id==0)
         {
             alert('no selecciono la empresa ');
@@ -695,6 +727,15 @@ function limpiar()
 }
 function cargarcriteriobusquedahub(empresa)
 {
+    $("#divTelefono").hide();
+    $("#divCorreo").hide();
+    if (empresa == 180) {
+        $("#divTelefono").show();
+        $("#divCorreo").show();
+        
+        $("#inp_telefono").val("");
+        $("#inp_correo").val("");
+    }
     $("#divcriteriobusquedahub").append(`<div class="d-flex justify-content-center">
                                 <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
                                     <span class="sr-only">Loading...</span>

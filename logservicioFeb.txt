@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 01/02/2022 09:08:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
 01/02/2022 09:10:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
 01/02/2022 09:10:43getcriteriobusquedahub ={"tnEmpresa":"180"}
@@ -606,3 +607,26 @@
 25/02/2022 16:15:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
 25/02/2022 16:42:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
 25/02/2022 16:46:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+=======
+01/02/2022 09:42:20getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:42:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 10:47:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 11:55:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 11:55:53getcriteriobusquedahub ={"tnEmpresa":"159"}
+01/02/2022 14:15:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 14:15:59getcriteriobusquedahub ={"tnEmpresa":"159"}
+01/02/2022 14:19:57getcriteriobusquedahub ={"tnEmpresa":"165"}
+01/02/2022 14:20:14getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 14:20:34getcriteriobusquedahub ={"tnEmpresa":"159"}
+02/02/2022 09:02:49getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 10:02:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 10:36:08getcriteriobusquedahub ={"tnEmpresa":"120"}
+02/02/2022 10:37:13getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 10:45:22getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+02/02/2022 10:45:22getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+02/02/2022 10:45:23get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"6787JHY   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-339965076202202021580","tcFechaOperativa":20220202,"tnNroOperacion":45069,"tnServicio":1}
+02/02/2022 14:35:05getcriteriobusquedahub ={"tnEmpresa":"159"}
+02/02/2022 14:36:19getcriteriobusquedahub ={"tnEmpresa":"159"}
+02/02/2022 14:37:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 14:37:52getcriteriobusquedahub ={"tnEmpresa":"159"}
+>>>>>>> Stashed changes

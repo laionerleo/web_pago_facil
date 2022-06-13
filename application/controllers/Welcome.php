@@ -67,7 +67,7 @@ class Welcome extends CI_Controller {
 		$d['rubros']=$this->servicios->get_list_rubros($id_cliente);
 		$d['region']=$this->servicios->get_list_regiones($id_cliente);
 		$d['perfilfrecuente']=$_SESSION['PerfilFrecuente'];
- 
+        
 	/*	$ip = '181.114.102.117'; // Esto contendrá la ip de la solicitud.
 		// Puedes usar un método más sofisticado para recuperar el contenido de una página web con PHP usando una biblioteca o algo así
 		// Vamos a recuperar los datos rápidamente con file_get_contents

@@ -2538,7 +2538,9 @@ public function getmetodosbyToken($tnTokenService)
     public function getBusquedaClienteGeneral($tnEmpresa,$tcCodigo,$tnCriterio)
     {
        $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+      // $url = 'http://localhost:8001/api/HubPago/getbusquedaclientes';
        $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
+     //  $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
        /*
        @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
        @FormUrlEncoded
@@ -2576,10 +2578,20 @@ public function getmetodosbyToken($tnTokenService)
     
    public function getempresasbytoken($tcComerceId,$idcliente)
    {
-      $url = 'http://serviciopagofacil.syscoop.com.bo/api/Empresa/buscarempresabytoken';
-      $data = array('tcComerceId' => $tcComerceId ,'tnCliente'=> $idcliente,'tnIdAccion'=> 0 , 'tcApp'=>2  );
-      $this->cargarlog("getempresasbytoken".json_encode($data));
-     // $data = array('tnEmpresa' => $id_empresa , 'tcCodigoClienteEmpresa' => $codigo_fijo  ,'tnCliente' => $this->session->userdata('cliente') , 'tnFactura'=> $factura  );
+     // $url = 'http://serviciopagofacil.syscoop.com.bo/api/HubPago/getbusquedaclientes';
+      
+      $url = 'http://localhost:8000/api/HubPago/getbusquedaclientes';
+      
+      $data = array('tnEmpresa' => $tnEmpresa , 'tcCodigoClienteEmpresa' => strval($tcCodigo)  , 'tcDocIdUsuario' => strval($tcCodigo)  ,'tnCriterio' => $tnCriterio ,'tnCliente' => 1 ,  'tcApp'=>2  );
+
+      /*
+      @POST(cPagoFacilPHP + "/Empresa/buscarClienteEmpresaFullDatos")
+      @FormUrlEncoded
+      Call<mPaquetePagoFacil<ArrayList<mClienteEmpresaModel>>> buscarClienteEmpresasFull(
+               @Field("tnEmpresa")     long tnEmpresa,
+               @Field("tnCliente")     long tnCliente,
+               @Field("tcCodigoClienteEmpresa") String codigoClienteEmpresa);
+         */
 
       /*     @POST(cPagoFacilPHP + "/Empresa/listarEmpresas")
     @FormUrlEncoded
@@ -2801,7 +2813,13 @@ public function getmetodosbyToken($tnTokenService)
    }
    public function MostrarClientePuntoCobranza()
    {
-      $url = 'http://serviciopuntocobranza.pagofacil.com.bo/api/clientepuntocobranza';
+      $url = 'http://localhost:8000/api/validar/puntocobranza';
+      $data = array('Cliente'=>$cliente, 'TelefonoPro'=>$telefonoPro, 'NombreComercial'=>$NombreComercial, 'PersonaAtendio',
+                     'PersonaAtendio'=>$PersonaAtendio, 'TelefonoAtendio'=>$TelefonoAtendio, 'idCliente'=>$IdCliente);
+      $header = array(
+         "Content-Type: application/x-www-form-urlencoded",
+         "Content-Length: ".strlen( http_build_query($data))
+         );
       $options = array('http' => array(
          'method'  => 'POST')); 
       $context  = stream_context_create($options);
@@ -2821,7 +2839,8 @@ public function getmetodosbyToken($tnTokenService)
    }
    public function MostrarAgente()
    {
-      $url = 'http://serviciopuntocobranza.pagofacil.com.bo/api/MostrarAgente';
+      $url = 'http://serviciopuntocobranza.pagofacil.com.bo/api/listado/puntocobranza';
+     // $url = 'localhost:8000/api/listado/puntocobranza';
       $options = array('http' => array(
          'method'  => 'POST')); 
       $context  = stream_context_create($options);

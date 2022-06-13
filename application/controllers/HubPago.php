@@ -220,6 +220,7 @@ class HubPago extends CI_Controller {
 		$lnPosicion=$_SESSION[$tnIdentificarPestaña.'gnPosicion'];
 		try {
 			$lnCodigoFijo=$_SESSION[$tnIdentificarPestaña.'codigofijo'];
+
 			if(isset($_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->loObjeto1))
 			{
 				$_SESSION[$tnIdentificarPestaña.'IdOperativo'] =$_SESSION[$tnIdentificarPestaña.'clientesbusqueda'][$lnPosicion]->IdOperativo;
@@ -230,8 +231,10 @@ class HubPago extends CI_Controller {
 				$FechaOperativa = $_SESSION[$tnIdentificarPestaña.'FechaOperativa'] ;
 				$NroOperacion=	$_SESSION[$tnIdentificarPestaña.'NroOperacion'] ;
 				$Servicio=$_SESSION[$tnIdentificarPestaña.'Servicio'] ;
-				$laServicioListarFacturas=$this->servicios->get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio  , $lnMetodoPago);
-				$this->cargarloghub("get_listar_facturashub-".json_encode($laServicioListarFacturas));
+				$laServicioListarFacturas=$this->servicios->get_listar_facturashub($lnEmpresa,$lnCodigoFijo,$lnCliente ,$IdOperativo , $FechaOperativa , $NroOperacion , $Servicio);
+				echo '<pre>';
+				print_r($laServicioListarFacturas);
+				echo '</pre>';
 			}else{
 				// listado de facturas 
 				$laServicioListarFacturas=$this->servicios->get_listar_facturas2($lnEmpresa,$lnCodigoFijo,$lnCliente, $lnMetodoPago);
