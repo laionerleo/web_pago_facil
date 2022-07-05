@@ -40,36 +40,49 @@
 
 <div class="card" id="cardlistaclientes" >
     <div  class="card-body">
-        <?php if(count($clientes->values) >0 ){ ?>
+        
             <div class="table-responsive">
                 <table id="tablaclientes" class="table table-striped table-bordered">
+
+
                 <thead id="theadclientes" >
-                <tr >
-                    <th>Codigo Fijo</th>
-                    <th>Nombre</th>
-                    <th>Direccion</th>
-                    <th>Otros </th>
-                    <th>opciones</th>
-                </tr>
+                    <tr>
+                        <th> <?=  $titulo ?> </th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Otros </th>
+                        <th>opciones</th>
+                    </tr>
                 </thead>
+
+
+
+
                 <tbody>
-                    <?php  for ($i=0; $i <  count($clientes->values) ; $i++) { ?>
-                        <tr  class="fila_clientes" > 
-                        
-                            <td  data-title="Codigo Fijo"><?= $clientes->values[$i]->codigoClienteEmpresa ?></td>
-                            <td  data-title="Nombre" ><?= $clientes->values[$i]->nombre ?></td>
-                            <td  data-title="Direccion" ><?= $clientes->values[$i]->direccion ?></td>
-                            <td  data-title="Otros" ><?= $clientes->values[$i]->uvMzaLote ?></td>
-                            <td  data-title="Opciones" > <button class="btn btn-primary"  onclick="facturaspendientes(<?= $clientes->values[$i]->codigoClienteEmpresa ?>)">Consultar deuda</button></td>
-                        </tr>
-                    <?php    }  ?>
-            
+                        <?php  for ($i=0; $i <  count($clientes) ; $i++) { ?>
+                            <tr  class="fila_clientes" >                       
+                                <td  data-title="<?=  $titulo ?>"><?= $clientes[$i]->codigoClienteEmpresa ?></td>
+                                <td  data-title="Nombre" ><?= $clientes[$i]->nombre ?></td>
+                                <td  data-title="Direccion" ><?= $clientes[$i]->direccion ?></td>
+                                <td  data-title="Otros" ><?= $clientes[$i]->uvMzaLote ?></td>
+                                <td  data-title="Opciones" > 
+                                    <button class="btn btn-primary"  onclick="facturaspendientesmultiple(<?= $i ?>)"> consultar deuda </button>
+                                </td>
+                            </tr>
+                        <?php    }  ?>
+                </tbody>
                 
+
                 </table>
+                <center>
+                    <p>
+                        <?=  $mensaje    ?>
+                    </p>
+                </center>
+               
+             
             </div>
-                    <?php  }else{
-                        echo "no hay resultados";
-                    } ?>
+                    
     </div>
 </div>
 <script>

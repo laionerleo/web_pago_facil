@@ -4,12 +4,34 @@
 <link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
 <style>
         input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+    }
+    .dataTables_filter {
+        position: relative;
+        text-align: center;
+    }
+    .dataTables_filter input {
+        width: 100%;
+        height: 32px;
+        background: #fcfcfc;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+        text-indent: 10px;
+    }
+    .dataTables_filter .fa-search {
+        position: absolute;
+        top: 10px;
+        left: auto;
+        right: 10px;
+    }
 </style>
 
+/*
+
+*/
 <body  class="">
 
 <!-- begin::preloader-->
@@ -88,24 +110,64 @@ input[type=number]::-webkit-outer-spin-button {
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
                                         <select name="slcrubro"  class=" form-control" id="slcrubro" >
+                                                <option   value="0,0,"  data-image="<?php echo $rubros->values[0]->cImagenUrl  ?>"> Todos  </option>
                                             <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
-                                                <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?> "  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
+                                                <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?>, <?php echo $rubros->values[$i]->nNombre  ?>"  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>   
+                                        </select>  
                                     </div>
                                     <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
                                        
                                         <select name="slgregion"  class=" form-control" id="slgregion" >
+                                        <option   value="0,0,"  data-image="<?php echo $region->values[0]->nEstado  ?>"> Todos  </option>
                                             <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
                                                 <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>   
+                                        </select>    
                                        
                                         <label id="nombre_region"  href=""> </label>
                                     </div>
                                 </div>
                                   <div id="vistas_empresas"  >
+                                                
+                                            <center>
+                                                <div class="d-flex justify-content-center">
+                                                    <div id="spinnercargaempresas" class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </center>
+                                            
+                                            <div  id="divtablaempresas" class="form-row" style="display: none;">
+                                                <div class="col-md-12 mb-12 table-responsive">
+                                                <table id="example1" class="table table-striped table-bordered" class="display" style="width:100%" >
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Ico</th>
+                                                            <th>Nombre  </th>
+                                                            <th >rubro</th>
+                                                            <th >region</th>
+                                                        </tr>
+                                                    </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Logo</th>
+                                                                <th>Nombre</th>
+                                                                <th >rubro</th>
+                                                                <th >region</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                </table>
+                                                </div>
+                                            </div>
+                                            <div id="vistas_empresas2">
+                                        
+                                             </div >
                                        
                                   </div>
                                   <div class="row">
@@ -118,28 +180,46 @@ input[type=number]::-webkit-outer-spin-button {
                                       </div>
                                   </div>
                                   <br>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <center>
+                                         <h4 id="TituloEmpresa"> </h4>
+                                          </center>
+                                      </div>
+                                  </div>
                                  
                                     <div class="form-row">
-                                        <div  id="divcriteriobusqueda" class="col-md-3 mb-2 ">
+                                        <div  id="divcriteriobusqueda" class="col-md-3 mb-2 "  style="display:none" >
                                             <label for="">Tipo de documento</label><br>
                                             <div class="form-check">
-                                            <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                    id="exampleRadios4" value="option1" checked >
-                                            <label class="form-check-label" for="exampleRadios4">
-                                                Codigo Fijo 
-                                            </label>
+                                                <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                        id="exampleRadios4" value="option1" checked >
+                                                <label class="form-check-label" for="exampleRadios4">
+                                                    Codigo Fijo 
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
+                                                        id="exampleRadios5" value="option2" >
+                                                <label class="form-check-label" for="exampleRadios5">
+                                                    Carnet de Identidad
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" onclick="cambiar_tipo_switch()" name="exampleRadios"
-                                                    id="exampleRadios5" value="option2" >
-                                            <label class="form-check-label" for="exampleRadios5">
-                                                Carnet de Identidad
-                                            </label>
+                                        <div  id="divcriteriobusquedahub" class="col-md-3 mb-2" >
+
                                         </div>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
                                             <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
+                                        <div id="divTelefono" class="col-md-2 mb-3" style="display:none;">
+                                            <label id ="lblcodigo" for="">Telefono</label>
+                                            <input id="inp_telefono" min="0" maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control form-control-sm" type="number" placeholder="Telefono" value="">
+                                        </div>
+                                        <div id="divCorreo" class="col-md-4 mb-3" style="display:none;">
+                                            <label id ="lblcodigo" for="">Correo</label>
+                                            <input id="inp_correo"  class="form-control form-control-sm" type="email" placeholder="Correo" value="">
                                         </div>
                                         <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
                                             <br>
@@ -148,6 +228,8 @@ input[type=number]::-webkit-outer-spin-button {
                                                 Buscar Billeteras
                                             </button>
                                         </div>
+
+                                       
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
@@ -157,6 +239,7 @@ input[type=number]::-webkit-outer-spin-button {
                                             <br>
                                             <input id="btnbuscar"  type="button" class="btn btn-primary"  onclick="busqueda_datos()"  value="Buscar">
                                             <input id="btnrecarga" style="display:none" type="button" class="btn btn-primary"  onclick="vistarecarga()"  value="Recarga ">
+                                            
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -221,11 +304,13 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 
 </div>
-<!-- end::main -->
+
+<?php $this->load->view('theme/js');  ?>
+  <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
+  
 
 <!-- Plugin scripts -->
 <script>
-
 var region_id=1;
 var rubro_id=1;
 var empresa_id=0;
@@ -236,41 +321,93 @@ var id_fila="";
 var swregion=1;
 var urlimagenempresa="";
 var nombreempresa="";
-
-
-//0 es carnet y uno es 
 var sw=1;
+var gtable;
 
 
 
-function cambiar_region(id_region,id_figure,nombre,)
+function cargartodaslasempresas()
+    {
+        var urlajax="<?= base_url(); ?>es"+"/getallempresas";  
+        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");   
+        var datos= {tnIdentificarPestaña:tnIdentificarPestaña}; 
+        $.ajax({                    
+                url: urlajax,
+                data: {datos} , 
+                type : 'POST',
+                dataType: "json",
+                beforeSend:function( ) {   
+                
+                },                    
+                success:function(response) {
+                        console.log(response);
+                        for (let index = 0; index < response.length; index++) {
+                            var nombre = response[index]["cDescripcion"];
+                            var imagen = response[index]["cUrl_icon"];
+                            var empresa = response[index]["nEmpresa"];
+                            var nombretipo = response[index]["nombretipo"];
+                            var region = response[index]["nombreregion"];
+                            var position= index+1;
+                            $('#example1').find('tbody').append(`<tr class="fila_empresas" id="fila-`+position+`" onclick="cambiar_empresa(`+empresa+` ,'#emp-`+position+`','#fila-`+position+`','`+imagen+`', '`+nombre+`'   )" > <td >
+                                                                    <center>
+                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;  width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
+                                                                                <img src="`+imagen+`" class="" style="object-fit: contain;"
+                                                                                                        alt="avatar">
+                                                                            </figure>
+                                                                    </center> 
+                                                                    
+                                                                </td><td>`+nombre+`</td>
+                                                                </td><td  >`+nombretipo+`</td>
+                                                                </td><td >`+region+`</td>
+                                                                </tr>`);
+                            
+                        }
+                        gtable =  $('#example1').DataTable(  );
+                        gtable.columns( [2,3] ).visible( false );
+                       // gtable.column(1).draw();
+                       $("#example1_filter").css("text-aling", "center");
+                        
+                        
+                },
+                error: function (data) {
+                    console.log(data.responseText);
+                },               
+                complete:function( ) {
+                    $('#spinnercargaempresas').hide();
+                    $('#divtablaempresas').show();
+                
+                    $(".dataTables_filter").css("text-aling", "center");
+                },
+        }); 
+
+        
+    }
+
+    function cambiar_region(id_region,id_figure,nombre)
 {
     region_id=id_region;
-  //  $(id_fugure_region).removeClass("avatar-state-success");
-    //id_fugure_region=id_figure;
-    
-    $('#btn_region').click();
-    //$(id_figure).addClass("avatar-state-success");
-    //$("#nombre_region").text(nombre);
-    filtrar_empresas();
-
+   // $('#btn_region').click();
+    gtable.column(3).search(nombre);
+    gtable.column(3).draw();
 }
-function cambiar_rubro(id_rubro,id_figure)
+
+function cambiar_rubro(id_rubro,id_figure ,  nombrerubro)
 {
     rubro_id=id_rubro;
-  //  $(id_fugure_rubro).removeClass("avatar-state-success");
     id_fugure_rubro=id_figure;
     $("#btnperfilempresa").hide();
     $("#btnperfil").show();
-    
+    console.log(id_rubro);
+    gtable.column(2).search(nombrerubro);
+    gtable.draw();
 
-    filtrar_empresas();
-   // $(id_figure).addClass("avatar-state-success");
-    
 }
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
     nombreempresa=nombre;
+    nombreempresa=nombre;
+    $("#TituloEmpresa").text(nombreempresa) ;
+    
     urlimagen=urlimagen1
     empresa_id=id_empresa;
     $(id_fugure_empresa).removeClass("avatar-state-success");
@@ -282,15 +419,21 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
     $(id_fila).css("background-color", "rgb(45, 206, 222)");
     
     $('html, body').animate({
- scrollTop: $("#idlugarboton").offset().top
- }, 2000);
-    
-if(id_empresa==20)
-    {
-        habilitarrecarga();
-    }else{
-        dehabilitarrecarga();
-    }
+    scrollTop: $("#idlugarboton").offset().top
+    }, 2000);
+        
+    if(id_empresa==20)
+        {
+            habilitarrecarga();
+        }else{
+            dehabilitarrecarga();
+            cargarcriteriobusquedahub(id_empresa);
+        }
+    if(id_empresa==165)
+        {
+            $("#inp_dato").val("29101");
+        }
+
     
 }
 function  cambiar_tipo_switch()
@@ -304,20 +447,13 @@ function  cambiar_tipo_switch()
 }
 function filtrar_empresas()
 {
-    $("#vistas_empresas").empty();
-    $("#vistas_empresas").append(`<div class="d-flex justify-content-center">
-                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </div>
-                            <br>
-                            `);
-
-    var datos= {rubro_id:rubro_id,region_id:region_id  };
+    $("#vistas_empresas2").empty();
+   
+    var datos= {rubro_id:0,region_id:0  };
     var urlajax=$("#url").val()+"get_filtro_regiones";  
    // $("#waitLoading").fadeIn(1000);
-    $("#vistas_empresas").load(urlajax,{datos});   
-    $("#vista_clientes").empty();
+    $("#vistas_empresas2").load(urlajax,{datos});   
+    //$("#vista_clientes2").empty();
 }
 function perfilfrecuente()
 {
@@ -337,7 +473,6 @@ function perfilfrecuente()
    // $("#waitLoading").fadeIn(1000);
     $("#vistas_empresas").load(urlajax);   
 }
-//perfilfrecuente
 
 function habilitarregiones()
 {
@@ -356,31 +491,60 @@ function habilitarregiones()
 }
 function  busqueda_datos()
 {
-
     $("#vista_clientes").empty();
     $("#vista_clientes").append(`<div class="d-flex justify-content-center">
-                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                 </div>
-                            </div>
                             <br>
                             `);
-
+    
+    var lacriterio=$("[name=criterio]:checked").val().split('-');
+    
+    var criterio=lacriterio[0];
+    var titulo=lacriterio[1];
+   
     var codigo=$("#inp_dato").val();
-    var tipo=sw;
-    if( (codigo!='') && (empresa_id!=0))
-    {
-        
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo };
-    var urlajax=$("#url").val()+"filtro_codigo_fijo";   
-    //$("#vista_clientes").show();
-    $("#vista_clientes").load(urlajax,{datos});                    
-  
+    var telefono=$("#inp_telefono").val();
+    var correo=$("#inp_correo").val();
+
+    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 ))
+    {  
+        if ((empresa_id==180) && (telefono=='') || (telefono != '') && (telefono.split('').length > 0) && (telefono.split('').length < 8) 
+        || correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)) {
+            if ((telefono=='')) {
+                alert('Ingrese su numero de telefono');
+            }
+            if ((telefono != '') && (telefono.split('').length > 0) &&  (telefono.split('').length < 8)) {
+                alert('Numero de telefono incorrecto');
+            }
+            if (correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)){
+                alert("La dirección de email es incorrecta!.");
+            }
+            $("#vista_clientes").empty();                     
+        }else{
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            
+            if ((empresa_id==180)) {
+                    var codigo1 = codigo + ";" + telefono + ";" + correo;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }else{
+               var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
+            }
+            var urlajax=$("#url").val()+"filtro_clientes";   
+            $("#vista_clientes").load(urlajax,{datos});    
+        }         
     }else{
+        
         if(codigo=='')
         {
             alert(' no  inserto el codigo ');
-        }
+            if ((empresa_id==180) && (telefono=='')) {
+                alert('Ingrese su numero de telefono');                 
+            }
+        }    
+        
         if(empresa_id==0)
         {
             alert('no selecciono la empresa ');
@@ -402,9 +566,10 @@ function  busqueda_billeteras_dependientes()
                             <br>
                             `);
     var codigo=$("#inp_dato").val();
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  };
+    var datos= {codigo:codigo , tnIdentificarPestaña:tnIdentificarPestaña  };
     var urlajax=$("#url").val()+"filtro_billeteras_dependientes";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -426,9 +591,11 @@ function  busqueda_billeteras_dependientes()
 function  busqueda_billeteras_general()
 {
     var codigo=$("#inp_dato").val();
+    
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     if( (codigo!='') && (empresa_id!=0))
     {
-    var datos= {codigo:codigo  };
+    var datos= {codigo:codigo  , tnIdentificarPestaña : tnIdentificarPestaña  };
     var urlajax=$("#url").val()+"filtro_billeteras_general";   
     $("#vista_clientes").show();
     $("#vista_clientes").load(urlajax,{datos});                    
@@ -448,10 +615,35 @@ function  busqueda_billeteras_general()
 }
 function facturaspendientes(codigo_usuario)
 {
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     var codigo=codigo_usuario;
     var tipo=sw;
-    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa  };
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
     var urlajax=$("#url").val()+"facturaspendientes";   
+    $("#facturaspendientesbody").empty();
+    $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#facturacionbody").empty();   
+    $("#facturacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#confirmacionbody").empty();   
+    $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    $("#prepararpagobody").empty();   
+    $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
+    
+    
+    $("#facturaspendientesbody").load(urlajax,{datos});   
+    
+    $("#li2").show();
+    $("#facturaspendientes-tab").click();
+
+}
+
+function facturaspendientesmultiple(codigo_usuario)
+{
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var codigo=codigo_usuario;
+    var tipo=sw;
+    var datos= {empresa_id:empresa_id,codigo:codigo ,tipo:tipo , urlimagen:urlimagen ,nombreempresa: nombreempresa , tnIdentificarPestaña:tnIdentificarPestaña };
+    var urlajax=$("#url").val()+"facturaspendientesmultiple";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#facturacionbody").empty();   
@@ -479,6 +671,7 @@ function habilitarrecarga()
     
    $('#inp_dato').val(<?= $_SESSION['cliente']; ?> );
    $('#divcriteriobusqueda').hide();
+   $('#divcriteriobusquedahub').hide();
    
     busqueda_billeteras_dependientes();
 }
@@ -498,8 +691,8 @@ function dehabilitarrecarga()
   
 function vistarecarga(codigo)
 {
-   // var codigo=$('#inp_dato').val();
-    var datos= {codigo:codigo  };
+   var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var datos= {codigo:codigo , tnIdentificarPestaña :tnIdentificarPestaña   };
     var urlajax=$("#url").val()+"vistarecargas";   
     $("#facturaspendientesbody").empty();
     $("#facturaspendientesbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
@@ -517,7 +710,6 @@ function vistarecarga(codigo)
     $("#recarga-tab").click();
 
 }
-
 function limpiar()
 {
  
@@ -533,18 +725,44 @@ function limpiar()
     $("#inicio-tab").click();
 
 }
-
-
+function cargarcriteriobusquedahub(empresa)
+{
+    $("#divTelefono").hide();
+    $("#divCorreo").hide();
+    if (empresa == 180) {
+        $("#divTelefono").show();
+        $("#divCorreo").show();
+        
+        $("#inp_telefono").val("");
+        $("#inp_correo").val("");
+    }
+    $("#divcriteriobusquedahub").append(`<div class="d-flex justify-content-center">
+                                <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <br>
+                            `);
+    var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+    var datos= {Empresa:empresa ,tnIdentificarPestaña:tnIdentificarPestaña };
+    var urlajax=$("#url").val()+"cargarcriterioshub";   
+    $("#divcriteriobusqueda").hide();
+    $("#divcriteriobusquedahub").show();
+    $("#divcriteriobusquedahub").load(urlajax,{datos});   
+}
 </script>
   
-  <?php $this->load->view('theme/js');  ?>
-  <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
 <script>
+    sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
     $( document ).ready(function() {
+
+        cargartodaslasempresas();
+        filtrar_empresas();
+
 
 try {
          slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
@@ -553,21 +771,13 @@ try {
                                             var result=val.split(',');
                                             console.log(result);
                                        
-                                                cambiar_rubro(result[0], result[1]);
-                                       
-                                            
-                            
+                                                cambiar_rubro(result[0], result[1] , result[2]  );
+                                   
                                         }}}).data("dd");
-    //var pagename = document.location.pathname.toString();
-    //pagename = pagename.split("/");
                                     slcregion.set("selectedIndex", 100);
-    //$("#ver").html(msBeautify.version.msDropdown);
-                  //  pages.set("selectedIndex", 0);
 } catch(e) {
     //console.log(e);	
 }
-
-
 try {
                 slcrubro = $("#slgregion").msDropdown({on:{change:function(data, ui) {
                                             var val = data.value;
@@ -575,7 +785,7 @@ try {
                                             var result=val.split(',');
                                             console.log(result);
                                        
-                                                cambiar_region(result[0], result[1] ,result[2]   ); 
+                                            cambiar_region(result[0], result[1] ,result[2]   ); 
                                             
                                          
                                         }}}).data("dd");
@@ -585,9 +795,6 @@ try {
 } catch(e) {
     //console.log(e);	
 }
-
-
-
 if(perfil==1)
 {
     perfilfrecuente();
@@ -602,16 +809,7 @@ if(perfil==1)
     slcrubro.set("selectedIndex", 0);
  
 }
-//
-
 $('#li2').attr('disabled', true); //add
-
-
-
-
-
-
-
 });
 $("#inp_dato").on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
@@ -636,16 +834,12 @@ function error(tnIdImput)
              
         function getfacturaempresa(transaccion)
         {
-
-            
             var link = document.createElement('a');
             var tntransaccion=transaccion;
             link.href =" <?=  base_url() ?>/es/getfacturaempresa/"+tntransaccion;
             link.download = "recibo-"+tntransaccion+"pdf";
             link.dispatchEvent(new MouseEvent('click'));
-       
-       
-       }
+        }
 
        function getfacturapagofacil(transaccion)
         {

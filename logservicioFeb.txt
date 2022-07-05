@@ -1,0 +1,632 @@
+
+<<<<<<< Updated upstream
+01/02/2022 09:08:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:10:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:10:43getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:12:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:20:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:28:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:28:05getcriteriobusquedahub ={"tnEmpresa":"2"}
+01/02/2022 09:28:42getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:28:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:30:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:35:22getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:36:05getcriteriobusquedahub ={"tnEmpresa":"13"}
+01/02/2022 09:36:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:36:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:36:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:37:07getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:37:10getcriteriobusquedahub ={"tnEmpresa":"2"}
+01/02/2022 09:37:36getcriteriobusquedahub ={"tnEmpresa":"7"}
+01/02/2022 09:38:05getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/02/2022 09:38:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:38:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:42:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 09:43:09getcriteriobusquedahub ={"tnEmpresa":"2"}
+01/02/2022 16:03:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 16:26:43getcriteriobusquedahub ={"tnEmpresa":"13"}
+01/02/2022 16:28:47getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+01/02/2022 16:28:48getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+01/02/2022 16:28:53listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"211","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+01/02/2022 16:42:13getcriteriobusquedahub ={"tnEmpresa":"47"}
+01/02/2022 16:42:31getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+01/02/2022 16:42:31getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+01/02/2022 16:42:34listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"124","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+01/02/2022 17:05:02getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 17:05:05getcriteriobusquedahub ={"tnEmpresa":"2"}
+01/02/2022 18:24:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+01/02/2022 18:24:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+07/02/2022 08:24:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 08:25:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+07/02/2022 08:40:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 15:31:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 15:31:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 15:32:07getcriteriobusquedahub ={"tnEmpresa":"159"}
+07/02/2022 15:35:04getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+07/02/2022 15:35:04getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+07/02/2022 15:35:07get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1703339827202202071580","tcFechaOperativa":20220207,"tnNroOperacion":74050,"tnServicio":1}
+07/02/2022 15:40:31getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 15:40:34getcriteriobusquedahub ={"tnEmpresa":"47"}
+07/02/2022 15:40:42getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+07/02/2022 15:40:43getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+07/02/2022 15:40:46listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2541","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+07/02/2022 15:40:53listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2541","tnCliente":"3859","tnMetodoPago":"12","tnIdAccion":17,"tcApp":2}
+07/02/2022 15:50:24listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2541","tnCliente":"3859","tnMetodoPago":"11","tnIdAccion":17,"tcApp":2}
+07/02/2022 16:02:12getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 16:02:22getcriteriobusquedahub ={"tnEmpresa":"159"}
+07/02/2022 16:03:13getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+07/02/2022 16:03:13getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+07/02/2022 16:03:20get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"651195957202202071580","tcFechaOperativa":20220207,"tnNroOperacion":76785,"tnServicio":1}
+07/02/2022 16:33:11get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"651195957202202071580","tcFechaOperativa":20220207,"tnNroOperacion":76785,"tnServicio":1}
+07/02/2022 16:33:18get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"651195957202202071580","tcFechaOperativa":20220207,"tnNroOperacion":76785,"tnServicio":1}
+07/02/2022 16:33:31getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+07/02/2022 16:33:31getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+07/02/2022 16:33:41get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"651195957202202071580","tcFechaOperativa":20220207,"tnNroOperacion":76785,"tnServicio":1}
+07/02/2022 16:33:57get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"651195957202202071580","tcFechaOperativa":20220207,"tnNroOperacion":76785,"tnServicio":1}
+07/02/2022 16:34:30get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"651195957202202071580","tcFechaOperativa":20220207,"tnNroOperacion":76785,"tnServicio":1}
+07/02/2022 16:34:47getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 16:35:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+07/02/2022 16:35:29getcriteriobusquedahub ={"tnEmpresa":"159"}
+07/02/2022 16:35:44getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+07/02/2022 16:35:44getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+07/02/2022 16:35:48get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"465899689158020220207","tcFechaOperativa":20220207,"tnNroOperacion":79369,"tnServicio":1}
+07/02/2022 16:36:32get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"143343410","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"465899689158020220207","tcFechaOperativa":20220207,"tnNroOperacion":79369,"tnServicio":1}
+07/02/2022 17:57:24getbilleterausuario{"tnCliente":"1","tnIdentificador":"1","tnIdAccion":0}
+15/02/2022 14:41:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 14:41:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+15/02/2022 14:42:44getcriteriobusquedahub ={"tnEmpresa":"180"}
+15/02/2022 14:44:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+15/02/2022 18:10:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+15/02/2022 18:12:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:13:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:13:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:13:57getcriteriobusquedahub ={"tnEmpresa":"47"}
+15/02/2022 18:28:42getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:35:21getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:42:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:43:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:45:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+15/02/2022 18:47:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 08:15:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 08:15:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+16/02/2022 08:16:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 08:16:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+16/02/2022 08:18:14getcriteriobusquedahub ={"tnEmpresa":"180"}
+16/02/2022 08:21:22getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 08:21:37getcriteriobusquedahub ={"tnEmpresa":"13"}
+16/02/2022 08:21:48getcriteriobusquedahub ={"tnEmpresa":"13"}
+16/02/2022 08:21:58getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 08:22:00getcriteriobusquedahub ={"tnEmpresa":"6"}
+16/02/2022 08:22:05getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 08:22:19getcriteriobusquedahub ={"tnEmpresa":"6"}
+16/02/2022 08:23:04getcriteriobusquedahub ={"tnEmpresa":"13"}
+16/02/2022 08:23:09getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 10:26:32getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 10:26:39getcriteriobusquedahub ={"tnEmpresa":"6"}
+16/02/2022 10:26:45getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 10:26:48getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 10:26:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+16/02/2022 10:34:30getcriteriobusquedahub ={"tnEmpresa":"13"}
+16/02/2022 10:34:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 10:34:44getcriteriobusquedahub ={"tnEmpresa":"13"}
+16/02/2022 10:34:49getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 10:35:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+16/02/2022 10:35:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 10:35:56getcriteriobusquedahub ={"tnEmpresa":"180"}
+16/02/2022 10:36:00getcriteriobusquedahub ={"tnEmpresa":"6"}
+16/02/2022 10:36:03getcriteriobusquedahub ={"tnEmpresa":"2"}
+16/02/2022 11:22:50getcriteriobusquedahub ={"tnEmpresa":"47"}
+16/02/2022 18:13:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+16/02/2022 18:14:16getcriteriobusquedahub ={"tnEmpresa":"47"}
+16/02/2022 18:14:30getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+16/02/2022 18:14:30getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+16/02/2022 18:14:34listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+16/02/2022 18:17:56realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+16/02/2022 18:18:42guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":277970,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+16/02/2022 18:18:42GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":277970,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+16/02/2022 18:24:17listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+16/02/2022 18:24:52realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"47.5","tcComision":"2","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+16/02/2022 18:25:17guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":277973,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+16/02/2022 18:25:17GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":277973,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+16/02/2022 18:30:31listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+16/02/2022 18:31:27realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+16/02/2022 18:31:51guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":277979,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+16/02/2022 18:31:52GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":277979,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+16/02/2022 18:42:44listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+16/02/2022 18:43:08realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+16/02/2022 18:43:34guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":277993,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+16/02/2022 18:43:47GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":277993,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+16/02/2022 18:49:50listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+16/02/2022 18:50:33realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+16/02/2022 18:50:59guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":277997,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+16/02/2022 18:51:00GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":277997,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 08:20:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 08:20:45getcriteriobusquedahub ={"tnEmpresa":"47"}
+17/02/2022 08:22:41getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+17/02/2022 08:22:43getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 08:22:54listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 08:24:32realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 08:25:08guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278148,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 08:25:22GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278148,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 08:25:29getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278148","tnEmpresa":null,"tcApp":2}
+17/02/2022 08:31:35listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 08:34:01realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 08:34:47guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278156,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 08:34:49GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278156,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 08:34:50getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278156","tnEmpresa":null,"tcApp":2}
+17/02/2022 08:49:34getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 08:50:27getcriteriobusquedahub ={"tnEmpresa":"47"}
+17/02/2022 08:51:27getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+17/02/2022 08:51:34getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 08:51:49listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 08:52:57listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 08:54:01realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 08:54:29guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278173,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 08:54:35GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278173,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 08:54:37getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278173","tnEmpresa":null,"tcApp":2}
+17/02/2022 09:25:19listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+17/02/2022 09:25:47listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 09:26:37realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"3156","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"MICHAEL ARAUZ PATRICIA SANDY","tnCiNit":0,"tnFactura":499934,"tcMonto":"142.5","tcComision":"6","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499934,"periodo":"2021-OCT","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502866,"periodo":"2021-NOV","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-11"},{"factura":505760,"periodo":"2021-DIC","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-12"},{"factura":508645,"periodo":"2022-ENE","montoTotal":"47.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 09:27:03guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278238,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 09:27:03GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278238,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 09:27:04getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278238","tnEmpresa":null,"tcApp":2}
+17/02/2022 09:54:37getcriteriobusquedahub ={"tnEmpresa":"47"}
+17/02/2022 09:55:03getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+17/02/2022 09:55:03getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 09:55:08listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 09:56:05realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"PAREDES FLORES GARDENIA","tnCiNit":0,"tnFactura":499844,"tcMonto":"145.1","tcComision":"5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499844,"periodo":"2021-OCT","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502775,"periodo":"2021-NOV","montoTotal":"85.60","estado":1,"MontoComision":"3.00","periodoaux":"2021-11"},{"factura":505673,"periodo":"2021-DIC","montoTotal":"66.03","estado":1,"MontoComision":"2.50","periodoaux":"2021-12"},{"factura":508559,"periodo":"2022-ENE","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 09:57:06guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":null,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 09:58:39realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"PAREDES FLORES GARDENIA","tnCiNit":0,"tnFactura":499844,"tcMonto":"145.1","tcComision":"5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499844,"periodo":"2021-OCT","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502775,"periodo":"2021-NOV","montoTotal":"85.60","estado":1,"MontoComision":"3.00","periodoaux":"2021-11"},{"factura":505673,"periodo":"2021-DIC","montoTotal":"66.03","estado":1,"MontoComision":"2.50","periodoaux":"2021-12"},{"factura":508559,"periodo":"2022-ENE","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 09:59:06guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278313,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 09:59:06GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278313,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 09:59:07getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278313","tnEmpresa":null,"tcApp":2}
+17/02/2022 10:01:28getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+17/02/2022 10:01:29getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 10:01:34listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 10:07:25listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 10:11:53getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 10:13:55getcriteriobusquedahub ={"tnEmpresa":"120"}
+17/02/2022 10:14:06getcriteriobusquedahub ={"tnEmpresa":"47"}
+17/02/2022 10:14:41getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+17/02/2022 10:14:43getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 10:14:48listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 10:17:28realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"PAREDES FLORES GARDENIA","tnCiNit":0,"tnFactura":499844,"tcMonto":"211.13","tcComision":"7.5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499844,"periodo":"2021-OCT","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502775,"periodo":"2021-NOV","montoTotal":"85.60","estado":1,"MontoComision":"3.00","periodoaux":"2021-11"},{"factura":505673,"periodo":"2021-DIC","montoTotal":"66.03","estado":1,"MontoComision":"2.50","periodoaux":"2021-12"},{"factura":508559,"periodo":"2022-ENE","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 10:17:54guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278351,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 10:17:59GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278351,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 10:18:00getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278351","tnEmpresa":null,"tcApp":2}
+17/02/2022 10:30:05getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 10:30:09getcriteriobusquedahub ={"tnEmpresa":"47"}
+17/02/2022 10:30:50getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+17/02/2022 10:30:51getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 10:30:52listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnCliente":"3859","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+17/02/2022 10:31:36realizarpagotigomoney{"tnCliente":"3859","tnEmpresa":"47","tcCodigoClienteEmpresa":"2893","tnMetodoPago":2,"tnTelefono":60817621,"tcFacturaA":"PAREDES FLORES GARDENIA","tnCiNit":0,"tnFactura":499844,"tcMonto":"211.13","tcComision":"7.5","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2021-10","taDetallePago":[{"factura":499844,"periodo":"2021-OCT","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2021-10"},{"factura":502775,"periodo":"2021-NOV","montoTotal":"85.60","estado":1,"MontoComision":"3.00","periodoaux":"2021-11"},{"factura":505673,"periodo":"2021-DIC","montoTotal":"66.03","estado":1,"MontoComision":"2.50","periodoaux":"2021-12"},{"factura":508559,"periodo":"2022-ENE","montoTotal":"59.50","estado":1,"MontoComision":"2.00","periodoaux":"2022-01"}]}
+17/02/2022 10:32:02guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"47","tnTransaccion":278383,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+17/02/2022 10:32:04GuardarTransaccionPago ={"tnCliente":"3859","tnTransaccion":278383,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":"3859","tnApp":3}
+17/02/2022 10:32:05getfacturaempresa11{"tnCliente":"3859","tnFactura":null,"tnTransaccionDePago":"278383","tnEmpresa":null,"tcApp":2}
+17/02/2022 14:07:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:15:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:15:25getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 14:16:19getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:16:20getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:16:24get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1518216444202202171580","tcFechaOperativa":20220217,"tnNroOperacion":63729,"tnServicio":1}
+17/02/2022 14:33:15get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1518216444202202171580","tcFechaOperativa":20220217,"tnNroOperacion":63729,"tnServicio":1}
+17/02/2022 14:35:08get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1518216444202202171580","tcFechaOperativa":20220217,"tnNroOperacion":63729,"tnServicio":1}
+17/02/2022 14:36:02get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1518216444202202171580","tcFechaOperativa":20220217,"tnNroOperacion":63729,"tnServicio":1}
+17/02/2022 14:37:21getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:37:22getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:37:26get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1518216444202202171580","tcFechaOperativa":20220217,"tnNroOperacion":63729,"tnServicio":1}
+17/02/2022 14:39:38getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:39:39getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:39:42get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"1518216444202202171580","tcFechaOperativa":20220217,"tnNroOperacion":63729,"tnServicio":1}
+17/02/2022 14:40:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:41:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:41:12getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 14:41:41getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:41:41getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:41:45get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1117828026202202171580","tcFechaOperativa":20220217,"tnNroOperacion":66266,"tnServicio":1}
+17/02/2022 14:42:26get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1117828026202202171580","tcFechaOperativa":20220217,"tnNroOperacion":66266,"tnServicio":1}
+17/02/2022 14:44:11get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-1117828026202202171580","tcFechaOperativa":20220217,"tnNroOperacion":66266,"tnServicio":1}
+17/02/2022 14:47:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:48:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:48:51getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 14:49:08getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:49:08getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:49:13get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"769892014158020220217","tcFechaOperativa":20220217,"tnNroOperacion":67036,"tnServicio":1}
+17/02/2022 14:50:20getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:50:21getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:50:25get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"769892014158020220217","tcFechaOperativa":20220217,"tnNroOperacion":67036,"tnServicio":1}
+17/02/2022 14:52:58get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"769892014158020220217","tcFechaOperativa":20220217,"tnNroOperacion":67036,"tnServicio":1}
+17/02/2022 14:54:06getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:54:06getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:54:08get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"769892014158020220217","tcFechaOperativa":20220217,"tnNroOperacion":67036,"tnServicio":1}
+17/02/2022 14:56:09get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"769892014158020220217","tcFechaOperativa":20220217,"tnNroOperacion":67036,"tnServicio":1}
+17/02/2022 14:57:21getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:59:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 14:59:15getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 14:59:38getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 14:59:38getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 14:59:40get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"329519509158020220217","tcFechaOperativa":20220217,"tnNroOperacion":68134,"tnServicio":1}
+17/02/2022 15:00:04get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"329519509158020220217","tcFechaOperativa":20220217,"tnNroOperacion":68134,"tnServicio":1}
+17/02/2022 15:00:46generarqr{"tnCliente":"3859","tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Tomasa Navarro Blanquillo","tnCiNit":"1234","tcNroPago":"329519509158020220217","tnMontoClienteEmpresa":"100","tnMontoClienteSyscoop":"0","tcPeriodo":"Pago YANBAL (Saldo referencial =       0.00$US)","tcImei":null,"tcApp":2,"taEntidades":["5"],"taDetallePago":[]}
+17/02/2022 15:41:50getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 15:41:53getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 15:41:54getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 15:41:55get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"142482018","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"329519509158020220217","tcFechaOperativa":20220217,"tnNroOperacion":68134,"tnServicio":1}
+17/02/2022 17:27:49getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 17:27:49getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 17:27:51get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"2000332090158020220217","tcFechaOperativa":20220217,"tnNroOperacion":72411,"tnServicio":1}
+17/02/2022 17:28:05getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 17:28:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 17:28:29getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 17:28:53getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 17:28:53getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 17:28:55get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:31:31get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:31:52getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 17:31:52getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 17:31:54get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:32:38getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 17:32:38getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 17:32:40get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:34:58get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:35:28get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:36:56get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-712893987202202171580","tcFechaOperativa":20220217,"tnNroOperacion":78214,"tnServicio":1}
+17/02/2022 17:40:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 17:40:23getcriteriobusquedahub ={"tnEmpresa":"2"}
+17/02/2022 17:46:33getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+17/02/2022 17:46:34getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 17:46:36listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"21","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+17/02/2022 17:47:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 17:47:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+17/02/2022 17:47:54getcriteriobusquedahub ={"tnEmpresa":"159"}
+17/02/2022 17:48:26getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+17/02/2022 17:48:27getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+17/02/2022 17:48:29get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"437703206202202171580","tcFechaOperativa":20220217,"tnNroOperacion":79207,"tnServicio":1}
+18/02/2022 08:42:31getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+18/02/2022 08:46:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+18/02/2022 08:47:17getcriteriobusquedahub ={"tnEmpresa":"47"}
+18/02/2022 08:55:08getcriteriobusquedahub ={"tnEmpresa":"2"}
+18/02/2022 08:55:56getcriteriobusquedahub ={"tnEmpresa":"13"}
+18/02/2022 08:57:45getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+18/02/2022 08:57:49getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+18/02/2022 08:57:56listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"1235","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+18/02/2022 08:59:12listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"1235","tnCliente":"3859","tnMetodoPago":"8","tnIdAccion":17,"tcApp":2}
+18/02/2022 08:59:29getcriteriobusquedahub ={"tnEmpresa":"47"}
+18/02/2022 08:59:35getcriteriobusquedahub ={"tnEmpresa":"47"}
+18/02/2022 09:00:46getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+18/02/2022 09:00:58getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+18/02/2022 09:00:59listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"1564","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+18/02/2022 09:01:12listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"1564","tnCliente":"3859","tnMetodoPago":"10","tnIdAccion":17,"tcApp":2}
+18/02/2022 09:02:23cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":205}
+18/02/2022 10:44:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+18/02/2022 10:46:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+18/02/2022 10:50:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+18/02/2022 10:50:20getcriteriobusquedahub ={"tnEmpresa":"47"}
+18/02/2022 10:50:30getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+18/02/2022 10:50:31getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+18/02/2022 10:50:32listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"521","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+18/02/2022 10:50:43listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"521","tnCliente":"3859","tnMetodoPago":"10","tnIdAccion":17,"tcApp":2}
+18/02/2022 10:51:06cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
+18/02/2022 11:08:52cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
+18/02/2022 11:10:27cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
+18/02/2022 11:11:33cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
+18/02/2022 11:12:41cybersourseinit{"tcApiRest":true,"tnMetodoPago":10,"tnCantidad":49}
+21/02/2022 09:08:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 09:37:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 09:38:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:01:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:06:15getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:08:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:09:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:11:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:12:22getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:12:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:14:55getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:19:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:24:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:31:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:33:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:33:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+21/02/2022 10:36:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:53:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 10:54:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 11:00:34getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:02:15getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:05:15getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:08:15getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:23:49getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:26:06getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:29:11getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:29:23getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:32:20getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:40:20getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:45:21getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:45:34getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:52:55getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:56:51getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:58:24getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 14:59:50getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:00:41getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:02:14getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:02:53getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:03:33getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:04:14getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:05:02getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:05:50getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:07:55getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:08:28getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:10:11getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:17:48getbilleterausuario{"tnCliente":"743","tnIdentificador":"743","tnIdAccion":0}
+21/02/2022 15:18:39getcriteriobusquedahub ={"tnEmpresa":"117"}
+21/02/2022 15:21:52getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 15:22:11getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 15:22:12getultimatransaccioncliente{"tnCliente":"743","tcApp":2}
+21/02/2022 15:22:13listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1856","tnCliente":"743","tnMetodoPago":"2","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:22:27listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1856","tnCliente":"743","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:23:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 15:23:45getcriteriobusquedahub ={"tnEmpresa":"13"}
+21/02/2022 15:24:05getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+21/02/2022 15:24:06getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 15:24:08listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"1254","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:24:21listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"1254","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 15:38:57prepararpago{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"1254","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Gutierrez Guardia Agapito","tnCiNit":"11385389","tcNroPago":"4383134","tnMontoClienteEmpresa":"96.5","tnMontoClienteSyscoop":"3","tcPeriodo":"2022-01","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2,"taDetallePago":[{"factura":4383134,"periodo":"2022-ENE","montoTotal":"96.5","estado":1,"MontoComision":"3.00","periodoaux":"2022-01"},{"factura":4414210,"periodo":"2022-FEB","montoTotal":"67.28","estado":1,"MontoComision":"2.50","periodoaux":"2022-02"}]}
+21/02/2022 15:39:17guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"13","tnTransaccion":"280679","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+21/02/2022 15:39:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 16:16:35getcriteriobusquedahub ={"tnEmpresa":"47"}
+21/02/2022 16:16:57getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+21/02/2022 16:16:58getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:16:59listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"1254","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:17:22getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:17:40getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:17:41getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:17:43listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1253","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:18:46prepararpago{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"1253","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Estrada Vda. de Guarachi Marciana","tnCiNit":"1122334","tcNroPago":"5013999","tnMontoClienteEmpresa":"205.48","tnMontoClienteSyscoop":"5","tcPeriodo":"2022-02","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2,"taDetallePago":[{"factura":5013999,"periodo":"2022-FEB","montoTotal":"205.48","estado":1,"MontoComision":"5.00","periodoaux":"2022-02"}],"tnCiBcp":"11385389"}
+21/02/2022 16:19:00guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":"280707","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+21/02/2022 16:19:15confirmarpago{"tnCliente":"3859","tnEmpresa":"2","tnAuthorizationNumber":"117159","tnCorrelationId":"280707","tcOTP":"1254","tcApp":2}
+21/02/2022 16:45:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 16:45:15getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:45:25getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:45:27getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:45:28listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1256","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:45:42getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:45:55getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:45:55getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:45:57listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"2541","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:46:41getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:46:42getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:46:43listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1258","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 16:48:16prepararpago{"tnCliente":"3859","tnEmpresa":"2","tcCodigoClienteEmpresa":"1258","tnMetodoPago":"7","tnTelefono":"60817621","tcFacturaA":"Zabala Pe\u00f1a Julio","tnCiNit":"1122334","tcNroPago":"4987693","tnMontoClienteEmpresa":"188.78","tnMontoClienteSyscoop":"4.5","tcPeriodo":"2022-01","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"003","tcExpireDate":"","tcApp":2,"taDetallePago":[{"factura":4987693,"periodo":"2022-ENE","montoTotal":"188.78","estado":1,"MontoComision":"4.50","periodoaux":"2022-01"},{"factura":5015768,"periodo":"2022-FEB","montoTotal":"91.54","estado":1,"MontoComision":"3.00","periodoaux":"2022-02"}],"tnCiBcp":"11385389"}
+21/02/2022 16:48:31guardarUbicacionDePago{"tnCliente":"3859","tnEmpresa":"2","tnTransaccion":"280733","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+21/02/2022 16:49:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 16:49:18getcriteriobusquedahub ={"tnEmpresa":"2"}
+21/02/2022 16:49:33getmetodosbygrupos{"tnEmpresa":"2","tcApp":3,"tcLink":0}
+21/02/2022 16:49:39getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+21/02/2022 16:49:40listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"1452","tnCliente":"3859","tnMetodoPago":"7","tnIdAccion":17,"tcApp":2}
+21/02/2022 17:26:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:27:30getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:32:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:33:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:35:34getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:38:35getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:43:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:45:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 17:46:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:10:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:11:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:14:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+21/02/2022 18:15:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:28:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:31:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:32:34getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:41:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:41:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+21/02/2022 18:46:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 08:15:33getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 08:16:21getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 09:37:17getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 10:00:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 11:18:35getcriteriobusquedahub ={"tnEmpresa":"3"}
+22/02/2022 14:04:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 14:04:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 14:05:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+22/02/2022 18:27:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:36:38getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:37:30getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:40:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:42:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:48:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:50:07getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:50:26getcriteriobusquedahub ={"tnEmpresa":"6"}
+24/02/2022 10:50:27getcriteriobusquedahub ={"tnEmpresa":"6"}
+24/02/2022 10:52:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:56:17getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:58:21getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 10:58:35getcriteriobusquedahub ={"tnEmpresa":"3"}
+24/02/2022 10:59:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:05:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:06:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:15:43getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:16:36getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:22:42getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:23:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:23:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:24:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:27:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:28:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:29:29getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:30:42getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:34:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 11:38:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:39:38getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:40:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:40:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:41:04getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:41:18getcriteriobusquedahub ={"tnEmpresa":"87"}
+24/02/2022 14:42:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:43:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:46:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:47:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:47:35getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:48:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:50:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:59:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 14:59:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:00:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:04:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:08:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 15:09:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:09:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:11:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:14:05getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:15:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:19:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:20:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:22:48getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:23:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:25:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:25:48getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:32:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:33:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:34:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:35:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:37:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:42:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 16:46:22getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:01:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:03:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:09:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:11:08getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:13:19getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:15:27getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 17:15:54getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+24/02/2022 18:26:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:00:45getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 09:02:58getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 09:07:06getcriteriobusquedahub ={"tnEmpresa":"1"}
+25/02/2022 09:14:45getcriteriobusquedahub ={"tnEmpresa":"95"}
+25/02/2022 09:26:27getcriteriobusquedahub ={"tnEmpresa":"18"}
+25/02/2022 09:29:44getcriteriobusquedahub ={"tnEmpresa":"47"}
+25/02/2022 09:30:18getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+25/02/2022 09:30:18getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+25/02/2022 09:30:20listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"1256","tnCliente":"3859","tnMetodoPago":"5","tnIdAccion":17,"tcApp":2}
+25/02/2022 09:48:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:48:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:50:58getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:51:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:51:32getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 09:51:57getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:54:23getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:54:53getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:55:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:57:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 09:57:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:03:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:05:02getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:05:03getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 10:09:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:13:06getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:14:07getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:14:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:15:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:16:17getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:17:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:20:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:21:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:25:44getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:26:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:28:31getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:29:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:34:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:35:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:36:45getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:37:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:40:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:41:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:42:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:42:18getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:50:50getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:52:01getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:54:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:55:31getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:55:46getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:56:59getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:57:48getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 10:59:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:07:32getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:08:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:11:52getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:14:42getcriteriobusquedahub ={"tnEmpresa":"159"}
+25/02/2022 11:17:00getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:17:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:19:27getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:22:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:22:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:25:40getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:26:15getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:33:33getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:35:16getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:36:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:39:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:44:16getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:46:49getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:48:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:49:55getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:51:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:52:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/02/2022 11:55:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:55:51getcriteriobusquedahub ={"tnEmpresa":"13"}
+25/02/2022 11:56:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 11:56:15getcriteriobusquedahub ={"tnEmpresa":"159"}
+25/02/2022 11:56:57getmetodosbygrupos{"tnEmpresa":"159","tcApp":3,"tcLink":0}
+25/02/2022 11:56:57getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
+25/02/2022 11:56:58get_listar_facturashub{"tnEmpresa":"159","tcCodigoClienteEmpresa":"1405492853","tnCliente":"3859","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-692242053158020220225","tcFechaOperativa":20220225,"tnNroOperacion":27789,"tnServicio":1}
+25/02/2022 11:57:24getcriteriobusquedahub ={"tnEmpresa":"159"}
+25/02/2022 12:00:14getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 12:01:09getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 12:02:33getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 12:03:24getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 14:23:41getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 14:26:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:10:56getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:11:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:26:39getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:29:20getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:30:25getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:43:08getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:45:29getcriteriobusquedahub ={"tnEmpresa":"2"}
+25/02/2022 15:45:35getcriteriobusquedahub ={"tnEmpresa":"13"}
+25/02/2022 15:48:03getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:48:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:49:11getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 15:49:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+25/02/2022 15:59:36getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:12:32getcriteriobusquedahub ={"tnEmpresa":"54"}
+25/02/2022 16:12:37getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:14:13getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:14:51getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:15:28getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:42:10getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+25/02/2022 16:46:26getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+=======
+01/02/2022 09:42:20getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 09:42:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 10:47:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 11:55:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 11:55:53getcriteriobusquedahub ={"tnEmpresa":"159"}
+01/02/2022 14:15:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 14:15:59getcriteriobusquedahub ={"tnEmpresa":"159"}
+01/02/2022 14:19:57getcriteriobusquedahub ={"tnEmpresa":"165"}
+01/02/2022 14:20:14getcriteriobusquedahub ={"tnEmpresa":"180"}
+01/02/2022 14:20:34getcriteriobusquedahub ={"tnEmpresa":"159"}
+02/02/2022 09:02:49getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 10:02:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 10:36:08getcriteriobusquedahub ={"tnEmpresa":"120"}
+02/02/2022 10:37:13getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 10:45:22getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+02/02/2022 10:45:22getultimatransaccioncliente{"tnCliente":"24605","tcApp":2}
+02/02/2022 10:45:23get_listar_facturashub{"tnEmpresa":"180","tcCodigoClienteEmpresa":"6787JHY   01202203","tnCliente":"24605","tnIdAccion":17,"tcApp":2,"tcIdOperativo":"-339965076202202021580","tcFechaOperativa":20220202,"tnNroOperacion":45069,"tnServicio":1}
+02/02/2022 14:35:05getcriteriobusquedahub ={"tnEmpresa":"159"}
+02/02/2022 14:36:19getcriteriobusquedahub ={"tnEmpresa":"159"}
+02/02/2022 14:37:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+02/02/2022 14:37:52getcriteriobusquedahub ={"tnEmpresa":"159"}
+>>>>>>> Stashed changes

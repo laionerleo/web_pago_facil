@@ -23,21 +23,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
 define('server_local', 'localhost');
-define('ip1', '172.16.15.202');
-define('ip2', '192.168.0.17');
+define('ip1', 'localhost');
+define('ip2', 'localhost');
 $nombreServerActual = $_SERVER['SERVER_NAME'];
 switch($nombreServerActual)
 {
     case ip1:
-            $config['base_url'] = 'http://172.16.15.202/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;
     case ip2:
-            $config['base_url'] = 'http://192.168.0.17/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;
     default:
-            $config['base_url'] = 'http://localhost/web_pago_facil/';
+            $config['base_url'] = 'http://localhost:8080/web_pago_facil/';
             break;       
 }
 
@@ -72,9 +71,9 @@ $config['index_page'] = '';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 
-$config['uri_protocol']	= $_SERVER['REQUEST_URI'];
+//$config['uri_protocol']	= $_SERVER['REQUEST_URI'];
 
-//$config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
+$config['uri_protocol'] = isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
 
 /*
 |--------------------------------------------------------------------------
@@ -283,7 +282,7 @@ $config['log_file_extension'] = '';
 | IMPORTANT: This MUST be an integer (no quotes) and you MUST use octal
 |            integer notation (i.e. 0700, 0644, etc.)
 */
-$config['log_file_permissions'] = 0644;
+$config['log_file_permissions'] = 0777;
 
 /*
 |--------------------------------------------------------------------------
@@ -347,7 +346,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'AlXdnerCludAljnr2019$';
+$config['encryption_key'] = 'AlXdnerCludAljnr2019$webpagofacil';
 
 /*
 |--------------------------------------------------------------------------
@@ -402,11 +401,13 @@ $config['encryption_key'] = 'AlXdnerCludAljnr2019$';
 */
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 8200;
-$config['sess_save_path'] = NULL;
+$config['sess_expiration'] = 82400;
+$config['sess_save_path'] = sys_get_temp_dir();
 $config['sess_match_ip'] = FALSE;
-$config['sess_time_to_update'] = 360;
+$config['sess_time_to_update'] = 1;
 $config['sess_regenerate_destroy'] = FALSE;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -424,7 +425,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 |
 */
 $config['cookie_prefix']	= '';
-$config['cookie_domain']	= '';
+$config['cookie_domain']	= 'localhost';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;
@@ -474,7 +475,7 @@ $config['global_xss_filtering'] = FALSE;
 $config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
-$config['csrf_expire'] = 7200;
+$config['csrf_expire'] = 8200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
 
@@ -511,7 +512,8 @@ $config['compress_output'] = FALSE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-$config['time_reference'] = 'local';
+//$config['time_reference'] = 'local';
+$config['time_reference'] = 'America/La_Paz';
 
 /*
 |--------------------------------------------------------------------------

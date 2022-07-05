@@ -22,16 +22,14 @@ class Auth extends CI_Controller {
 		      
         //cargamos los modelos
 	   $this->load->model(array('Msecurity'));
-	  /*
-	   if(!@$this->session->userdata('cliente')){
+	/*
+	   if(isset($_SESSION['cliente'] ) ){
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		redirect($d['url']."?m=Usted tiene que iniciar session !!!");
-		}else{
-			$this->Msecurity->url_and_lan($d);
 		redirect($d['url']."pagorapido");
 		}
 		*/
+		
 	
 
     }
@@ -43,7 +41,29 @@ class Auth extends CI_Controller {
 		$this->Msecurity->url_and_lan($d);
 		$d['authURL'] =  $this->facebook->login_url();
 		//$d['loginURL'] = $this->google->loginURL();
-		$this->load->view('auth/login', $d);
+		
+	   if(isset($_SESSION['cliente'] ) ){
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		
+		redirect($d['url']."pagorapido");
+		
+		}else{
+			$this->load->view('auth/login', $d);	
+		}
+		
+		
+	
+    }
+
+	
+	public function login2()
+	{	
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$d['authURL'] =  $this->facebook->login_url();
+		//$d['loginURL'] = $this->google->loginURL();
+		$this->load->view('auth/login2', $d);	
 	
     }
 
@@ -58,6 +78,7 @@ class Auth extends CI_Controller {
         $resultado=$this->servicios->loginpagofacil($usuario,$contraseña);
         
      //  /print_r($data);
+	 
       
        if($resultado->error  == 0)
 		{

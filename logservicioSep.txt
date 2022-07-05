@@ -1,0 +1,20 @@
+
+20/09/2021 15:24:28listarfacturas{"tnEmpresa":"25","tcCodigoClienteEmpresa":"474","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:25:32getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
+20/09/2021 15:26:58listarfacturas{"tnEmpresa":"25","tcCodigoClienteEmpresa":"478","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:27:59getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
+20/09/2021 15:28:24listarfacturas{"tnEmpresa":"25","tcCodigoClienteEmpresa":"484","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:29:26getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
+20/09/2021 15:29:53listarfacturas{"tnEmpresa":"25","tcCodigoClienteEmpresa":"380","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:30:54getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
+20/09/2021 15:31:54listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"254","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:31:56getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+20/09/2021 15:35:03listarfacturas{"tnEmpresa":"25","tcCodigoClienteEmpresa":"4397","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:36:03getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
+20/09/2021 15:36:50listarfacturas{"tnEmpresa":"25","tcCodigoClienteEmpresa":"4397","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+20/09/2021 15:37:52getmetodosbygrupos{"tnEmpresa":"25","tcApp":3,"tcLink":0}
+30/09/2021 08:44:06listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"246","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/09/2021 08:44:10getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}
+30/09/2021 08:44:20calcularcomision{"tnEmpresa":"47","tnCliente":"3859","tnMetodoPago":"11","tcMonto":"106.78","tnIdAccion":0,"tcApp":2}
+30/09/2021 08:45:47listarfacturas{"tnEmpresa":"47","tcCodigoClienteEmpresa":"214","tnCliente":"3859","tnIdAccion":17,"tcApp":2}
+30/09/2021 08:45:50getmetodosbygrupos{"tnEmpresa":"47","tcApp":3,"tcLink":0}

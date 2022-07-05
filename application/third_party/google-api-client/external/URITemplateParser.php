@@ -201,7 +201,7 @@ class URI_Template_Parser {
     return $val;
   }
 
-  public function match($uri) {}
+ // public function match($uri) {}
 
   public function __toString() {
     return $this->template;

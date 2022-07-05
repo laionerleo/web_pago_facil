@@ -20,10 +20,15 @@
 <meta property="og:title" content="PagoFacil Bolivia">
 <meta property="og:description" content="PagoFacil Bolivia es un motor de pago y de recaudación de productos y/o servicios en línea, a través de múltiples métodos de pago que se encuentra disponible las 24 horas del día.">
 
-<meta property="og:image" content="https://pagofacil.com.bo/wp-content/uploads/2018/10/BanerPagoFacil.jpg">
-<meta property="og:image:secure_url" content="https://pagofacil.com.bo/wp-content/uploads/2018/10/BanerPagoFacil.jpg">
+<meta property="og:image" content="https://pagofacil.com.bo/online//application//assets/assets/media/image/bannerpagofacillogin.jpeg">
+<meta property="og:image:secure_url" content="https://pagofacil.com.bo/online//application//assets/assets/media/image/bannerpagofacillogin.jpeg">
 <meta property="og:image:width" content="1920">
 <meta property="og:image:height" content="1155">
+
+
+<link rel="manifest" href="<?=  base_url() ?>/application/assets/pwa/manifest.json">
+
+<script src="<?=  base_url() ?>/application/assets/pwa/js/main.js"></script>
 
 
     <!-- Favicon -->
@@ -39,18 +44,34 @@
     <link href="../../../../fonts.googleapis.com/css89ea.css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/application/assets/login/style.css">
+
+    <style>
+    
+@media only screen and (max-width: 520px) {
+    .cambiarimagen{
+        background-image: url(<?= base_url() ?>/application/assets/assets/media/image/bannerpagofacilloginmovil.jpeg);
+    }
+}
+@media only screen and (min-width: 560px) {
+    .cambiarimagen{
+        background-image: url(<?= base_url() ?>/application//assets/assets/media/image/bannerpagofacillogin.jpeg);
+    }
+}
+    
+    </style>
 </head>
 
 <body>
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->      
-    <section class="fxt-template-animation fxt-template-layout23" data-bg-image="<?= base_url() ?>/application/assets/assets/media/image/BanerPagoFacil.jpg">          
-        <div class="fxt-bg-overlay" data-bg-image="<?= base_url() ?>/application/assets/assets/media/image/BanerPagoFacil.jpg">
+    <section class="fxt-template-animation fxt-template-layout23 cambiarimagen" >          
+        <div class="fxt-bg-overlay cambiarimagen"  style="background-size: cover;" >
             <div class="fxt-content">
-                <div class="fxt-header">
+                <div class="fxt-header" style="display:none">
                     <a href="login-23.html" class="fxt-logo"><img src="<?= base_url() ?>/application/assets/assets/media/image/logo-pagofacil.png" alt="Logo"></a> 
-                </div>                            
+                </div>         
+                <br><br><br><br>                   
                 <div class="fxt-form"> 
                     
                     <form id="form_login">
@@ -97,8 +118,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                        
                             <div class="fxt-transformY-50 fxt-transition-delay-4">  
                                 <input type="button" class="fxt-btn-fill" name="" id="btnlogin" onclick="realizar_login()" value="Ingreso">
+                                <input type="button" class="fxt-btn-fill" name="" style="display:none" id="btncarga" disabled value="Cargando">
+                                
+                               
                                 <input type="button" class="fxt-btn-fill" name="" id="btnregistrar" style="display:none " onclick="realizar_registro()" value="Agregar">
                                 <input type="button" class="fxt-btn-fill"  name="" id="btnregistrate" onclick="Registrate()" value="Registrate">
                                 
@@ -117,7 +142,7 @@
                     <li >
                         <div >  
                             <center>
-                            <a href="<?php echo @$loginURL; ?>" title="google"> <img src="<?= base_url() ?>/application/assets/assets/media/image/iconogoogle.svg" alt=""></a>
+                            <a href="<?php echo $loginURL; ?>" title="google"> <img src="<?= base_url() ?>/application/assets/assets/media/image/iconogoogle.svg" alt=""></a>
                             </center>
                         </div>
                     </li>                                    
@@ -146,14 +171,18 @@
 			var datos=$("#form_login").serialize();
 			var urlajax=$("#url").val()+"login_user";   
             var urlsucces=$("#url").val()+"pagorapido";   
-                 
-            $.ajax({                    
+            if($("#usuario").val().length>0  &&  $("#contraseña").val().length>0  )
+            {
+                $.ajax({                    
                 url: urlajax,
                 data: {datos},
                 type : 'POST',
                 dataType: "json",
-                beforeSend:function( ) {   
-                    //$("#waitLoadinglogin").fadeIn(1000);
+                beforeSend:function( ) {  
+                    $("#mensaje").text('...'); 
+                    $("#btncarga").show();
+                    $("#btnlogin").hide();
+
                 },                    
                 success:function(response) {
                 
@@ -161,11 +190,15 @@
             
                     if(response==0)
                     {
-                        alert("se logueo con exito");
+                        $("#mensaje").css("color","black");
+                        $("#mensaje").text("Ingreso Exitoso "); 
+
+                 
                         window.location.href = urlsucces;
                         //location.reload();
                         
                     }else{
+                        $("#mensaje").css("color","red");
                         $("#mensaje").text('usuario o contraseña incorrectos');
                        
                     }
@@ -173,15 +206,26 @@
                 },
                 error: function (data) {
                     //console.log(data);
-                    $("#mensaje").text('usuario o contraseña incorrectos');
+                    $("#mensaje").css("color","red");
+                    $("#mensaje").text('A ocurrido algun error en el sistema o la conexion de internet');
                   
                 },               
                 complete:function( ) {
                     //$("#waitLoadinglogin").fadeOut(1000);  
+                    $("#btnlogin").show();
+                    $("#btncarga").hide();
                 },
             }
             ); 
 
+
+            }else{
+                //alert("Falta rellenar datos ");
+                $("#mensaje").css("color","red");
+                $("#mensaje").text('Falta Rellenar datos ');
+            }
+                 
+            
 		}
         sw=1;
         function realizar_registro()

@@ -38,6 +38,15 @@ img.fnone {
                             <div class="col-md-8" >
                                 <div class="card" style="margin-bottom: 1.2rem;">
                                     <img id="baner" src="<?= $urlimagenbanner   ?>" class="card-img-top" alt="...">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                        <center>
+                                            
+                                                 <img onclick="ayudaqr()" src="http://localhost/web_pago_facil/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt="">
+                                            
+                                        </center>
+                                        </div>
+                                    </div>
                                     <div class="card-body text-center">
                                         <div class="form-row" style="padding-bottom: 5px;">                       
                                             <div class="col-md-6 col-12 titulos">
@@ -76,6 +85,32 @@ img.fnone {
                                                     </div>
                                                 </div>
                                         </div>
+
+                                        <center>
+                                                <article class="item">
+                                                    <img onclick=""   id="imagenelegida" style="object-fit:contain ;width:100px; position: relative; border-radius:15px ; " src="" alt="">    
+                                                </article>
+                                                <div class="row">
+                                                        <div class="col-md 6 col-6">
+                                                            <label for="" id="lbldesde"></label>
+                                                        </div>
+                                                        <div class="col-md 6 col-6" >
+                                                        <label for="" id="lblhasta"></label>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <center>
+                                                                <a id="linkcomopagar"  class="linkcomopagar" style="display:none ; font-weight: bolder; " target="_blank" href="">
+                                                                    <u>  <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt=""> <br> ¿ Como Pagar ? </u>
+                                                                </a>
+                                                            </center>
+                                                        </div>
+                                                </div>
+                                                
+                                                <div id="datosentidad">
+                                                    
+                                                </div>
+                                                
+                                        </center>
                                         <div class="form-row">
                                             <div class="col-md-12 col-6" >
                                                 <center>
@@ -111,6 +146,53 @@ img.fnone {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4" id="cajaayuda" style="display:none">
+                                <div class="card" style="margin-bottom: 1.2rem;">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Felicidades , Generaste exitosamente el código QR para tu pago , <br>
+                                         Ahora sigue estos pasos para que tu pago se lleve a cabo                                </p>
+                                <h5 class="card-title" style="margin-bottom: 0px;"  >Paso 1</h5>
+                                <div class="row">
+                                <div class="col-md-2 col-2" style="text-align: end;">
+                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-10">
+                                        <label for="">
+                                            Abre la aplicación movil de tu banco favorito(Bancos de ASOBAN)
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <h5 class="card-title" style="margin-bottom: 0px;" >Paso 2</h5>
+                                <div class="row">
+                                    <div class="col-md-2 col-2" style="text-align: end;">
+                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/deslizar.png" style="height: 35px;" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-10">
+                                        <label for="">
+                                        Selecciona la opcion SIMPLE
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <h5 class="card-title" style="margin-bottom: 0px;" >Paso 3</h5>
+                                <div class="row">
+                                <div class="col-md-2 col-2" style="text-align: end;">
+                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-10">
+                                        <label for="">
+                                        Escanea o descarga la imagen QR que se generó
+                                        </label>
+
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -197,6 +279,7 @@ img.fnone {
     var entidadesasignadas= new Array(); 
     var gntransaccion;
     contador=1;
+    var ArrayEntidades= <?= json_encode($entidades) ; ?>;
                                                                             
         var extension="";
         function generarqr()
@@ -211,6 +294,7 @@ img.fnone {
                     data: {datos:entidadesasignadas , tnIdentificarPestaña:tnIdentificarPestaña },
                     type : 'POST',
                     cache: false,
+                    timeout: 0,
                     dataType: "json",
                     
                         beforeSend:function( ) {  
@@ -261,6 +345,40 @@ img.fnone {
             }
             
         }
+
+        function MandarAyudaQr(tnTransaccion)
+        {
+            //var tnTransaccion=gntransaccion;
+            var datos= {tnTransaccionDePago:tnTransaccion  }; 
+            var urlajax="<?= base_url(); ?>es"+"/MandarAyudaQr";  
+            $.ajax({                    
+                    url: urlajax,
+                    data: {datos} ,
+                    type : 'POST',
+                    dataType: "json",
+                                    
+                    beforeSend:function( ) {   
+              
+                    },                    
+                    success:function(response) {
+                        console.log(response);
+                    },
+                error: function (data) {
+                    console.log(data.responseText);
+                },               
+                complete:function( ) {
+                  
+                
+                    
+                },
+            });  
+        } 
+
+        
+        function ayudaqr()
+             {
+                $("#cajaayuda").toggle(500);
+             }
 
 
         function verificacionpagoqr()
@@ -322,34 +440,6 @@ img.fnone {
                 },
             });  
         } 
-
-        function MandarAyudaQr(tnTransaccion)
-        {
-            //var tnTransaccion=gntransaccion;
-            var datos= {tnTransaccionDePago:tnTransaccion  }; 
-            var urlajax="<?= base_url(); ?>es"+"/MandarAyudaQr";  
-            $.ajax({                    
-                    url: urlajax,
-                    data: {datos} ,
-                    type : 'POST',
-                    dataType: "json",
-                                    
-                    beforeSend:function( ) {   
-              
-                    },                    
-                    success:function(response) {
-                        console.log(response);
-                    },
-                error: function (data) {
-                    console.log(data.responseText);
-                },               
-                complete:function( ) {
-                  
-                
-                    
-                },
-            });  
-        } 
         function elegirentidad(id,idcheck)
         {
          
@@ -379,6 +469,33 @@ img.fnone {
                     }
                 }
                 console.log(entidadesasignadas);
+                for (let index2 = 0; index2 < ArrayEntidades.length; index2++) {
+                      
+                    if(ArrayEntidades[index2]["EntidadBancaria"]==id)
+                    {
+                            if(ArrayEntidades[index2]["RestriccionDesde"]!=undefined)
+                             {
+                                $('#lbldesde').text("Restriccion Desde :"+ArrayEntidades[index2]["RestriccionDesde"])
+                             }
+                             if(ArrayEntidades[index2]["RestriccionHasta"]!=undefined)
+                             {
+                                $('#lblhasta').text("Restriccion Hasta  :"+ArrayEntidades[index2]["RestriccionHasta"])
+
+                             }
+
+                             if(ArrayEntidades[index2]["ComoPagar"]!=undefined  &&  ArrayEntidades[index2]["ComoPagar"]!="")
+                             {
+                                $("#linkcomopagar").show();
+                                $("#linkcomopagar").attr("href", ArrayEntidades[index2]["ComoPagar"]);
+                             }else{
+                                $("#linkcomopagar").hide();
+                             }
+                             
+                            gdHoraDesde=ArrayEntidades[index2]["RestriccionDesde"];
+                            gdHoraHasta= ArrayEntidades[index2]["RestriccionHasta"];
+                            
+                    }   
+                }
             
         }
         $(document).ready(function() {

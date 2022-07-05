@@ -1,0 +1,374 @@
+
+07/06/2022 22:08:56getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+07/06/2022 22:13:45getcriteriobusquedahub ={"tnEmpresa":"15"}
+07/06/2022 22:14:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+07/06/2022 23:58:30getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+07/06/2022 23:58:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 00:05:13getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 00:05:24getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 00:05:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 00:05:41getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 00:05:49getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 00:05:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 00:05:59getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 00:08:00getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:47:22getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 13:47:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:57:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:57:46getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:58:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:58:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:59:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:59:46getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:59:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 13:59:57getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:00:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:00:28getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:01:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:01:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:01:41getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:02:14getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:04:43getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:04:51getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:04:57getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:06:04getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:06:05getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:11:58getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:12:04getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:16:23getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:18:06getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:23:27getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:23:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:24:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:25:03getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:25:33getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:27:40getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:27:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:34:40getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:34:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:42:04getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:42:06getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:43:19getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:43:22getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:43:45getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:43:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:44:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:44:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:44:25getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:44:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 14:44:40getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 14:44:43getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 16:08:19getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:08:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 16:08:50getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:09:08getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:09:18getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:09:42getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:09:48getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:09:58getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:10:10getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 16:11:51getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:12:00getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:12:28getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:12:42getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:12:47getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:13:27getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:13:32getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:13:34getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:13:39getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:13:42getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:14:01getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:14:07getcriteriobusquedahub ={"tnEmpresa":"13"}
+08/06/2022 16:14:07getcriteriobusquedahub ={"tnEmpresa":"13"}
+08/06/2022 16:14:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 16:16:18getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:16:24getcriteriobusquedahub ={"tnEmpresa":"15"}
+08/06/2022 16:16:51getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:16:58getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:17:05getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:17:11getcriteriobusquedahub ={"tnEmpresa":"35"}
+08/06/2022 16:21:40getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:23:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 16:23:55getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:24:08getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+08/06/2022 16:24:14getcriteriobusquedahub ={"tnEmpresa":"159"}
+08/06/2022 16:24:23getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 16:26:17getcriteriobusquedahub ={"tnEmpresa":"180"}
+08/06/2022 17:02:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:05:56getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:13:17getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:13:19getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:14:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:18:18getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:19:22getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:24:21getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:24:35getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:25:23getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:25:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:30:32getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:30:50getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:34:08getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:34:24getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:34:44getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:34:56getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:35:35getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:35:50getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:36:22getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:36:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:37:15getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:37:21getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:39:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:42:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:45:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:45:35getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:45:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:47:33getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:47:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:47:44getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:49:06getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:49:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:49:14getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 15:49:47getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:49:55getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:49:57getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 15:50:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:53:14getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:53:23getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:54:14getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:54:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:55:56getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:56:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:57:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 15:58:19getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 15:58:20getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:02:05getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:02:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:05:17getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:05:37getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:06:50getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:06:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:09:46getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:09:46getcriteriobusquedahub ={"tnEmpresa":"35"}
+09/06/2022 16:09:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:16:23getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:17:22getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:24:47getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:25:12getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:26:26getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:26:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:27:50getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:28:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:30:27getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:30:29getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:32:35getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:32:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:34:14getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:34:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:41:50getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:41:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:44:23getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:44:32getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:45:47getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:45:50getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:48:57getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:49:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 16:54:52getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 16:55:00getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:02:31getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:02:32getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:13:31getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:13:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:16:24getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:16:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:18:31getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 17:19:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:20:47getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:20:49getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:21:41getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 17:22:44getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:22:56getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:25:13getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:25:17getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:28:29getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:28:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:31:14getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:31:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:33:33getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:33:34getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:34:12getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 17:34:37getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:37:55getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:37:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:38:46getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:38:48getcriteriobusquedahub ={"tnEmpresa":"159"}
+09/06/2022 17:38:49getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 17:39:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:40:37getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:43:25getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:43:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:44:32getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 17:44:33getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:44:46getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:44:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:45:06getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:45:11getcriteriobusquedahub ={"tnEmpresa":"15"}
+09/06/2022 17:45:12getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:45:46getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:45:49getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:47:41getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:48:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:49:32getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:49:33getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:55:51getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:55:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:56:53getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:57:37getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:57:39getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:58:21getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:58:23getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 17:59:40getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 17:59:42getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 18:01:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 18:01:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 18:02:11getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 18:02:13getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 18:03:21getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 18:03:22getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 18:03:44getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+09/06/2022 18:03:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+09/06/2022 18:04:11getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:11:19getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:11:31getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:16:30getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:16:38getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:17:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:18:25getcriteriobusquedahub ={"tnEmpresa":"15"}
+12/06/2022 21:19:09getcriteriobusquedahub ={"tnEmpresa":"13"}
+12/06/2022 21:20:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:21:07getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:21:09getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:22:23getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:22:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:24:17getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:24:20getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:25:53getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:26:03getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:38:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:38:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:44:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:45:51getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:46:13getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:46:19getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:51:08getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:51:24getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 21:57:38getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 21:57:40getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:03:23getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:03:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:05:19getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:09:32getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:09:33getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:11:00getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:11:02getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:16:41getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:16:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:17:57getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:18:05getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:18:52getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:18:53getcriteriobusquedahub ={"tnEmpresa":"3"}
+12/06/2022 22:18:59getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:19:52getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:19:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:21:06getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:21:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:24:18getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:24:24getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:35:58getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:36:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:50:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:50:05getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:52:20getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:52:27getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:59:10getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:59:13getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 22:59:48getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 22:59:51getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:01:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:01:33getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:01:35getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:17:31getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:17:41getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:18:47getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:19:12getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:19:18getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:22:51getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:22:54getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:23:45getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:23:55getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:29:33getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:29:53getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:29:57getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:34:43getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:34:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:37:09getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:37:11getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:39:28getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:39:30getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:40:15getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:40:16getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:43:00getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:43:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:44:21getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:44:23getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:49:22getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:49:24getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:50:44getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:50:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:51:14getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:51:45getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:54:53getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:55:08getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:56:32getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:56:41getcriteriobusquedahub ={"tnEmpresa":"180"}
+12/06/2022 23:58:57getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+12/06/2022 23:58:58getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:00:21getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:00:49getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:08:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:08:10getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:08:10getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:09:00getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:09:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:10:30getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:10:33getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:11:46getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:11:47getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:12:41getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:12:43getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:13:31getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:13:35getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 00:14:08getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 00:14:10getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:33:39getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:36:32getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:36:36getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:37:26getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:37:28getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:40:25getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:40:26getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:43:26getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:43:32getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:45:05getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:45:07getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:46:16getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:46:19getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:47:02getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:47:06getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:47:56getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:47:58getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:48:50getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:48:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 09:51:08getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 09:51:12getcriteriobusquedahub ={"tnEmpresa":"180"}
+13/06/2022 10:20:44getbilleterausuario{"tnCliente":24605,"tnIdentificador":24605,"tnIdAccion":0}
+13/06/2022 10:20:57getcriteriobusquedahub ={"tnEmpresa":"180"}

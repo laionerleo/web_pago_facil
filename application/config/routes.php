@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**/
 
-$l                                        = '^(en|es|de|it|po)/';
-$i                                        = '^(en|es|de|it|po)';
+$l                                              = '^(en|es|de|it|po)/';
+$i                                              = '^(en|es|de|it|po)';
 
 /**/
 
 //$route[$l.'personas']                 		= 'Persona';
 
-$route['default_controller']                = 'Auth';
-$route[$l.'inicio']                    = 'Welcome';
+$route['default_controller']                    = 'Auth';
+$route[$l.'inicio']                             = 'Welcome';
 
 /* vistas pago rapido */
 $route[$l.'pagorapido']                         = 'Welcome/pago_rapido';
@@ -82,6 +82,34 @@ $route[$l.'vysoravisopdf']                      = 'Welcome/veraviso';
 $route[$l.'vysorfacturapagofacilpdf']           = 'Welcome/verfacturapagofacil';
 $route[$l.'vysorfacturaempresapdf']             = 'Welcome/verfacturaempresa';
 $route[$l.'enviarfacturacorreo']                = 'Welcome/enviarfacturacorreo';
+$route[$l.'filtro_clientes']                    = 'Welcome/busqueda_clientes';
+
+
+// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'PuntosCobranza/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'PuntosCobranza/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'PuntosCobranza/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'PuntosCobranza/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'PuntosCobranza/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'PuntosCobranza/EditarPuntoCobranza';
+$route[$l.'mostrarcliente']                      = 'PuntosCobranza/MostrarCliente';
+
+//metodos de pago 
+$route[$l.'metodosdepago']                      = 'Welcome/metodospagomenu';
+$route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/';
+
+//puntos de cobranza
+$route[$l.'puntosdecobranza']                    = 'Welcome/puntosdecobranza';
+$route[$l.'puntosdecobranzapagofacil']           = 'Servicio/puntosdecobranza';
+$route[$l.'visitapuntosdecobranza']              = 'Welcome/visitapuntosdecobranza';
+$route[$l.'createvisitapuntosdecobranza']        = 'Welcome/createvisitapuntosdecobranza';
+$route[$l.'InsertarVisita']                      = 'Welcome/InsertarVisita';
+$route[$l.'ConsultarVisita/(:any)']              = 'Welcome/consultarpuntosdecobranza/$1/$2';
+$route[$l.'EditarVisitaAgente']                  = 'Welcome/editarvisitaagente';
+$route[$l.'EditarVisitaPersonalAtendio']         = 'Welcome/editarvisitapersonalatendio';
+$route[$l.'EditarVisitaPuntoCobranza']           = 'Welcome/editarvisitaPuntoCobranza';
+$route[$l.'ValidarCliente']                      = 'Welcome/validarcliente';
+$route[$l.'BuscarVisitaFechas']                  = 'Welcome/buscarvisitafechas';
 
 
 //metodos de pago 
@@ -91,6 +119,22 @@ $route[$l.'comision/(:any)']                    = 'Welcome/vistacomision/$1/$2/'
 //puntos de cobranza
 $route[$l.'puntosdecobranza']                      = 'Welcome/puntosdecobranza';
 $route[$l.'puntosdecobranzaPagoFacil']             = 'Servicio/puntosdecobranza';
+
+
+// empresas afiliadas
+$route[$l.'empresasafiliadas/(:any)']           = 'Welcome/empresasafiliadas/$1/$2/';
+
+$route[$l.'comopagar']                           = 'Servicio/Comopagar';
+
+// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'PuntosCobranza/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'PuntosCobranza/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'PuntosCobranza/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'PuntosCobranza/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'PuntosCobranza/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'PuntosCobranza/EditarPuntoCobranza';
+$route[$l.'mostrarcliente']                      = 'PuntosCobranza/MostrarCliente';
+$route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/';
 
 
 // empresas afiliadas
@@ -122,6 +166,11 @@ $route[$l.'prueba_face']                          = 'Facebook_Authentication/pru
 $route[$l.'login_google']                          = 'Google_Authentication';
 $route[$l.'logout_google']                          = 'Google_Authentication/logout';
 
+//hub de pago 
+$route[$l.'cargarcriterioshub']                = 'HubPago/CargarCriterios';
+$route[$l.'facturaspendientesmultiple']         = 'HubPago/facturaspendientesmultiples';//vista
+$route[$l.'listadofacturaspendientes']         = 'HubPago/listadofacturaspendientes';//vista
+
 
 
 
@@ -133,13 +182,25 @@ $route[$l.'get_filtro_regiones']            = 'Welcome/filtro_empresas_by_tipo_r
 
 $route[$l.'filtro_codigo_fijo']            = 'Welcome/busqueda_clientes';
 
+$route[$l.'getallempresas']            = 'Welcome/gettodaslasempresas';
 
+
+
+
+$route[$l.'pay/(:any)/(:any)']                    = 'PagoDirecto/Pay2/$1/$2/$3';
+$route[$l.'pay/(:any)']                    = 'PagoDirecto/Pay2/$1/$2/0';
+
+
+
+$route[$l.'pay2/(:any)/(:any)']                    = 'PagoDirecto/Pay3/$1/$2/$3';
+$route[$l.'pay2/(:any)']                    = 'PagoDirecto/Pay3/$1/$2/0';
+$route[$l.'cargarmanifest/(:any)/(:any)']                    = 'PagoDirecto/cargarmanifest/$1/$2/$3';
+$route[$l.'log']                            = 'Auth/login2';
 
 
 
 $route[$l.'(.+)$']                        = "$2";
 $route[$i.'$']                            = $route['default_controller'];
-
 
 
 
@@ -153,4 +214,17 @@ $route['503_override']                    = 'Welcome/error503';
 $route['504_override']                    = 'Welcome/error504';
 /**/
 
+
+
+
+
+
+/*// REGISTRO PUNTOS DE COBRANZA
+$route[$l.'listadopuntocobranza']                = 'Welcome/puntocobranza';
+$route[$l.'nuevopuntocobranza']                  = 'Welcome/NuevoPuntoCobranza';
+$route[$l.'insertar/puntocobranza']              = 'Welcome/InsertarPuntoCobranza';
+$route[$l.'validar/puntocobranza']               = 'Welcome/validarpuntocobranza';
+$route[$l.'validar/Detallepuntocobranza']        = 'Welcome/DetallePuntoCobranza';
+$route[$l.'editar/puntocobranza']                = 'Welcome/EditarPuntoCobranza';
+$route[$l.'puntosdecobranzapagofacil/(:any)/(:any)']           = 'Servicio/puntosdecobranza2/$1/$2/$3/'; */
 ?>
