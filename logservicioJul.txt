@@ -1,0 +1,54 @@
+
+05/07/2022 10:36:25getbilleterausuario{"tnCliente":3859,"tnIdentificador":3859,"tnIdAccion":0}
+05/07/2022 10:37:26getcriteriobusquedahub ={"tnEmpresa":"13"}
+05/07/2022 10:37:52getcriteriobusquedahub ={"tnEmpresa":"180"}
+05/07/2022 11:42:37getcriteriobusquedahub ={"tnEmpresa":"13"}
+05/07/2022 11:42:47getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/07/2022 11:42:48getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+05/07/2022 11:42:49listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"529","tnCliente":3859,"tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+05/07/2022 16:30:06generarqr{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"529","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"TELLEZ ROMERO ALEJANDRA","tnCiNit":"123654654","tcNroPago":4543364,"tnMontoClienteEmpresa":"124.65","tnMontoClienteSyscoop":"3.5","tcPeriodo":"2022-06","tcImei":null,"tcApp":2,"taEntidades":["12"],"taDetallePago":[{"factura":4543364,"periodo":"2022-JUN","montoTotal":"124.65","estado":1,"MontoComision":"3.50","periodoaux":"2022-06"}],"taDatosSintesis":[],"tnTipoDocumentoIdentidad":null}
+05/07/2022 16:30:26guardarentidadbancaria{"tnCliente":3859,"tcEntidades":"[\"12\"]","tnTransaccion":"355415","tnApp":3}
+05/07/2022 16:30:27guardarUbicacionDePago{"tnCliente":3859,"tnEmpresa":"13","tnTransaccion":"355415","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+05/07/2022 16:30:28GuardarTransaccionPago ={"tnCliente":3859,"tnTransaccion":"355415","tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":3859,"tnApp":2}
+05/07/2022 16:34:12getbilleterausuario{"tnCliente":3859,"tnIdentificador":3859,"tnIdAccion":0}
+05/07/2022 16:35:11getcriteriobusquedahub ={"tnEmpresa":"13"}
+05/07/2022 16:35:23getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+05/07/2022 16:35:23getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+05/07/2022 16:35:24listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"543","tnCliente":3859,"tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+05/07/2022 16:36:50generarqr{"tnCliente":"3859","tnEmpresa":"13","tcCodigoClienteEmpresa":"543","tnMetodoPago":"4","tnTelefono":null,"tcFacturaA":"Quintanilla Ceron Noly","tnCiNit":"662233","tcNroPago":4569291,"tnMontoClienteEmpresa":"507.92","tnMontoClienteSyscoop":"10.16","tcPeriodo":"2022-07","tcImei":null,"tcApp":2,"taEntidades":["1"],"taDetallePago":[{"factura":4569291,"periodo":"2022-JUL","montoTotal":"507.92","estado":1,"MontoComision":"10.16","periodoaux":"2022-07"}],"taDatosSintesis":[],"tnTipoDocumentoIdentidad":"2"}
+05/07/2022 16:37:04guardarentidadbancaria{"tnCliente":3859,"tcEntidades":"[\"1\"]","tnTransaccion":"355418","tnApp":3}
+05/07/2022 16:37:05guardarUbicacionDePago{"tnCliente":3859,"tnEmpresa":"13","tnTransaccion":"355418","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+05/07/2022 16:37:06GuardarTransaccionPago ={"tnCliente":3859,"tnTransaccion":"355418","tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":3859,"tnApp":2}
+06/07/2022 11:42:44getbilleterausuario{"tnCliente":3859,"tnIdentificador":3859,"tnIdAccion":0}
+06/07/2022 11:43:53getcriteriobusquedahub ={"tnEmpresa":"194"}
+06/07/2022 11:45:06getmetodosbygrupos{"tnEmpresa":"194","tcApp":3,"tcLink":0}
+06/07/2022 11:45:06getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+06/07/2022 11:45:07listarfacturas{"tnEmpresa":"194","tcCodigoClienteEmpresa":9,"tnCliente":3859,"tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
+06/07/2022 15:15:10getbilleterausuario{"tnCliente":3859,"tnIdentificador":3859,"tnIdAccion":0}
+06/07/2022 15:15:14getcriteriobusquedahub ={"tnEmpresa":"13"}
+06/07/2022 15:15:28getmetodosbygrupos{"tnEmpresa":"13","tcApp":3,"tcLink":0}
+06/07/2022 15:15:28getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+06/07/2022 15:15:29listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"845","tnCliente":3859,"tnMetodoPago":"1","tnIdAccion":17,"tcApp":2}
+06/07/2022 15:15:57realizarpagotigomoney{"tnCliente":3859,"tnEmpresa":"13","tcCodigoClienteEmpresa":"845","tnMetodoPago":1,"tnTelefono":60817621,"tcFacturaA":"Agrupacion Familiar Copacabana","tnCiNit":125444,"tnFactura":4543413,"tcMonto":"287.14","tcComision":"5.74","tnIdAccion":24,"tcImei":null,"tcApp":2,"tcPeriodo":"2022-06","taDetallePago":[{"factura":4543413,"periodo":"2022-JUN","montoTotal":"287.14","estado":1,"MontoComision":"5.74","periodoaux":"2022-06"}],"taDatosSintesis":[],"tnTipoDocumentoIdentidad":"4"}
+06/07/2022 15:16:05guardarUbicacionDePago{"tnCliente":3859,"tnEmpresa":"13","tnTransaccion":356022,"tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+06/07/2022 15:16:05GuardarTransaccionPago ={"tnCliente":3859,"tnTransaccion":356022,"tnNroWhatsapp":"60817621","tcCorreo":"laionerplus@gmail.com","tnCaller":3859,"tnApp":2}
+06/07/2022 15:56:47listarfacturas{"tnEmpresa":"13","tcCodigoClienteEmpresa":"845","tnCliente":3859,"tnMetodoPago":"5","tnIdAccion":17,"tcApp":2}
+06/07/2022 15:57:13prepararpago{"tnCliente":3859,"tnEmpresa":"13","tcCodigoClienteEmpresa":"845","tnMetodoPago":"5","tnTelefono":"","tcFacturaA":"Agrupacion Familiar Copacabana","tnCiNit":"125444","tcNroPago":"4543413","tnMontoClienteEmpresa":"287.14","tnMontoClienteSyscoop":"5.74","tcPeriodo":"2022-06","tcImei":"","tcExtension":"SC","tcComplement":null,"tcServiceCode":"001","tcExpireDate":"02\/23","tcApp":2,"taDetallePago":[{"factura":4543413,"periodo":"2022-JUN","montoTotal":"287.14","estado":1,"MontoComision":"5.74","periodoaux":"2022-06"}],"taDatosSintesis":[],"tnCiBcp":"11385389","tnTipoDocumentoIdentidad":"5"}
+06/07/2022 15:57:21guardarUbicacionDePago{"tnCliente":3859,"tnEmpresa":"13","tnTransaccion":"356049","tcLatitud":null,"tcLongitud":null,"tcIPv4":"$new_ip"}
+06/07/2022 15:57:30confirmarpago{"tnCliente":3859,"tnEmpresa":"13","tnAuthorizationNumber":"141017","tnCorrelationId":"356049","tcOTP":"1254","tcApp":2}
+06/07/2022 16:15:56getbilleterausuario{"tnCliente":3859,"tnIdentificador":3859,"tnIdAccion":0}
+06/07/2022 16:16:04getcriteriobusquedahub ={"tnEmpresa":"180"}
+06/07/2022 17:01:23getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+06/07/2022 17:01:23getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+06/07/2022 17:02:48getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+06/07/2022 17:02:49getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+06/07/2022 17:03:47getcriteriobusquedahub ={"tnEmpresa":"35"}
+06/07/2022 17:03:48getcriteriobusquedahub ={"tnEmpresa":"35"}
+06/07/2022 17:03:49getcriteriobusquedahub ={"tnEmpresa":"54"}
+06/07/2022 17:04:54getcriteriobusquedahub ={"tnEmpresa":"13"}
+06/07/2022 17:40:27getcriteriobusquedahub ={"tnEmpresa":"13"}
+06/07/2022 17:40:32getcriteriobusquedahub ={"tnEmpresa":"180"}
+06/07/2022 17:53:22getmetodosbygrupos{"tnEmpresa":"180","tcApp":3,"tcLink":0}
+06/07/2022 17:53:22getultimatransaccioncliente{"tnCliente":3859,"tcApp":2}
+06/07/2022 17:54:01getcriteriobusquedahub ={"tnEmpresa":"180"}
+06/07/2022 17:54:11getcriteriobusquedahub ={"tnEmpresa":"180"}
