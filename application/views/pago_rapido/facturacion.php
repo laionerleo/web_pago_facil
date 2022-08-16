@@ -17,6 +17,15 @@
                                     <h4>Datos para la Factura PagoFacil </h4>
                                     <label for=""> Nombre Cliente</label>
                                     <input class="form-control" id="inpnombrecliente" type="text" placeholder="Nombre de cliente" value="<?= @$nombrecliente ?>" >
+                                    <label for=""> Tipo de Documento </label>
+                                    <select class="form-control" name="slcTipoDocumento" id="slcTipoDocumento">
+                                        <option value="1" selected > CEDULA DE IDENTIDAD</option>
+                                        <option value="2">CEDULA DE IDENTIDAD DE EXTRANJERO </option>
+                                        <option value="3" >PASAPORTE </option>
+                                        <option value="4">OTRO DOCUMENTO DE IDENTIDAD </option>
+                                        <option value="5">NÚMERO DE IDENTIFICACIÓN TRIBUTARIA </option>
+                                        
+                                    </select>
                                     <label  for=""> CI o NIT de Cliente</label>
                                     <?php if( is_null($cionit) || $cionit == ""   ) { ?>
                                         <input class="form-control" type="number" id="inpcionit" placeholder="CI o NIT de cliente" value="0"> 
@@ -59,15 +68,17 @@ function vistaconfirmacion()
     var inpcionit=$('#inpcionit').val();
     var inpnumero=$('#inpnumero').val();
     var inpcorreo=$('#inpcorreo').val();
+    var slcTipoDocumentoIdentidad=$('#slcTipoDocumento').val();
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
     
+
     
     console.log(document.getElementById("inpnumero").validity);
     if(  inpnumero != "" && inpnumero != "70000000 "  && inpcorreo != "invitado@pagofacil.com.bo" &&  IsEmail(inpcorreo) )
     {
         valido("#inpnumero");
         valido("#inpcorreo");
-        var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo  , tnIdentificarPestaña:tnIdentificarPestaña};
+        var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo  , tnIdentificarPestaña:tnIdentificarPestaña  ,tnTipoDocumentoIdentidad:slcTipoDocumentoIdentidad };
         var urlajax=$("#url").val()+"vistaconfirmacion";   
         $("#confirmacionbody").empty();   
         $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   

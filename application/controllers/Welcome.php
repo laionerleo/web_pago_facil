@@ -558,9 +558,11 @@ class Welcome extends CI_Controller {
 		$cionit=$datos["inpcionit"];
 		$numero=$datos["inpnumero"];
 		$correo=$datos["inpcorreo"];
+		$tnTipoDocumentoIdentidad=$datos["tnTipoDocumentoIdentidad"];
 		$tnIdentificarPestaña=$datos[0];
 		$_SESSION[$tnIdentificarPestaña.'gnTelefonooEnvio'] =	$numero ;
 		$_SESSION[$tnIdentificarPestaña.'gnCorreoEnvio'] =$correo;
+		$_SESSION[$tnIdentificarPestaña.'gnTipoDocumentoIdentidad'] =$tnTipoDocumentoIdentidad;
 
 		//var datos= {metododepago:5 ,nombrecliente:nombrecliente,inpcionit:inpcionit,inpnumero:inpnumero ,inpcorreo:inpcorreo };
 		if($nombrecliente != $_SESSION[$tnIdentificarPestaña.'nombreclienteempresa'])
@@ -981,23 +983,27 @@ class Welcome extends CI_Controller {
 			
 		}
 
-
+		$laDataQr=array('tnCliente' => strval($tnCliente )  , 
+					'tnEmpresa' => $tnEmpresa ,  
+					'tcCodigoClienteEmpresa' => $tcCodigoClienteEmpresa , 
+					'tnMetodoPago'=> $tnMetodoPago , 
+					'tnTelefono'=> $tnTelefono , 
+					'tcFacturaA'=> $tcFacturaA , 
+					'tnCiNit'=> $tnCiNit ,
+					'tcNroPago'=> $tcNroPago ,
+					'tnMontoClienteEmpresa' => $tnMontoClienteEmpresa  ,
+					'tnMontoClienteSyscoop' => $tnMontoClienteSyscoop ,
+					'tcPeriodo'=>$tcPeriodo ,
+					'tcImei'=> $tcImei ,
+					'tcApp'=>2 ,  
+					'taEntidades'=>  $_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']  , 
+					"taDetallePago"=>$taFacturas , 
+					"taDatosSintesis"=>$laDatosSintesis,
+					"tnTipoDocumentoIdentidad" => $_SESSION[$tnIdentificarPestaña.'gnTipoDocumentoIdentidad']  
+				);
+		$metodos=$this->servicios->generarqr($laDataQr );
 		
-		/*if($tcNroPago!=0)
-		{
-		$laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnEmpresa, $tcNroPago);
-			if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) != floatval($tnMontoClienteEmpresa) )  )
-			{
-			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
-			$tcPeriodo=$laConsultaFactura->periodo;
-			$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
-			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
-			$tnMontoClienteSyscoop= $montocomision->values;
-			}
-		}
-		*/
-
-		$metodos=$this->servicios->generarqr($tnCliente , $tnEmpresa ,$tcCodigoClienteEmpresa ,$tnMetodoPago , $tnTelefono ,$tcFacturaA , $tnCiNit ,$tcNroPago , $tnMontoClienteEmpresa , $tnMontoClienteSyscoop ,$tcPeriodo ,$tcImei ,		$_SESSION[$tnIdentificarPestaña.'laEntidadesElegidas']  , $taFacturas ,$laDatosSintesis );
+		
 		$this->cargarlog("generar qr ".json_encode(@$metodos->message));
 		$mensajeerror=$metodos->error ;
 		$valor= $metodos->values;
@@ -1164,22 +1170,30 @@ class Welcome extends CI_Controller {
 			
 		}
 
-		/*	 
-		if($tcNroPago!=0)
-		{
-		 $laConsultaFactura=$this->servicios->consultarfacturaempresa( $tnempresa, $tcNroPago);
-
-		 if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) == floatval($tnMontoClienteEmpresa) )  )
-		 {
-			$this->cargarlog("consultar-factura-pendiente".json_encode($laConsultaFactura));
-			$tcPeriodo=$laConsultaFactura->periodo;
-			$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
-			$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
-			$tnMontoClienteSyscoop= $montocomision->values;
-		 }
-		}
-		*/
-		$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas ,$laDatosSintesis, $tnCiBcp   );
+		$laDataBcp=array( 	'tnCliente' =>$tncliente   , 
+							'tnEmpresa' =>  $tnempresa , 
+							'tcCodigoClienteEmpresa' => (String) $codigoclienteempresa  ,
+							'tnMetodoPago' =>  $tnmetodopago  ,
+							'tnTelefono' => (String)$tnTelefono ,
+							'tcFacturaA' => (String) $tcFacturaA ,
+							'tnCiNit' =>(String)  $tnCiNit ,
+							'tcNroPago' =>(String) $tcNroPago,  
+							'tnMontoClienteEmpresa' => (string)($tnMontoClienteEmpresa) ,   
+							'tnMontoClienteSyscoop' =>(string)$tnMontoClienteSyscoop , 
+							'tcPeriodo' =>(String) $tcPeriodo , 
+							'tcImei'=> (String)$tcImei ,   
+							'tcExtension' =>(String) $tcExtension , 
+							'tcComplement' =>$tcComplement,  
+							'tcServiceCode' => (String)$tcServiceCode, 
+							'tcExpireDate' =>  (String)$tcExpireDate , 
+							'tcApp'=>2 , 
+							"taDetallePago"=>$taFacturas , 
+							"taDatosSintesis"=>$laDatosSintesis ,
+							"tnCiBcp"=> $tnCiBcp  ,
+							"tnTipoDocumentoIdentidad" => $_SESSION[$tnIdentificarPestaña.'gnTipoDocumentoIdentidad'] 
+						);
+		//$metodos=$this->servicios->prepararpago($tncliente,$tnempresa,$codigoclienteempresa, $tnmetodopago,$tnTelefono , $tcFacturaA , $tnCiNit ,$tcNroPago ,$tnMontoClienteEmpresa , $tnMontoClienteSyscoop , $tcPeriodo , $tcImei , $tcExtension , $tcComplement  , $tcServiceCode , $tcExpireDate , $taFacturas ,$laDatosSintesis, $tnCiBcp   );
+		$metodos=$this->servicios->prepararpago($laDataBcp);
 		$this->cargarlog("prepararpagobcp".json_encode($metodos));
 					$mensajeerror=$metodos->error ;
 					$valor= $metodos->values;
@@ -1419,20 +1433,28 @@ class Welcome extends CI_Controller {
 			 
 		 }
 
-		/* if($tcNroPago!=0)
-		{
-			if( (trim($laConsultaFactura->periodo) != trim($tcPeriodo))  ||   (  floatval($laConsultaFactura->montoTotal) != floatval($tnMontoClienteEmpresa) )  )
-			{
-				$this->cargarlog("consultar-factura-pendiente-si entro aqui significa que hay algun error mal ".json_encode($laConsultaFactura));
-				$tcPeriodo=$laConsultaFactura->periodo;
-				$montocomision=$this->servicios->calcularcomision($tncliente, $_SESSION[$tnIdentificarPestaña.'idempresa'],$tnmetodopago,$laConsultaFactura->montoTotal);
-				$tnMontoClienteEmpresa=$laConsultaFactura->montoTotal;
-				$tnMontoClienteSyscoop= $montocomision->values;
-			}
-		}
-		*/
 		try {
-			$metodos=$this->servicios->realizarpagotigo($tncliente  , $tnempresa ,$codigoclienteempresa , $tnmetodopago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tcNroPago , $tnMontoClienteEmpresa ,  $tnMontoClienteSyscoop , $tcImei ,$tcPeriodo , $taFacturas , $laDatosSintesis ) ;
+
+			$laDataTigomoney=array( 'tnCliente' => $tncliente , 
+									'tnEmpresa'=> $tnempresa , 
+									'tcCodigoClienteEmpresa'=> "$codigoclienteempresa", 
+									'tnMetodoPago'=> intval($tnmetodopago) , 
+									'tnTelefono'=>intval($tnTelefono), 
+									'tcFacturaA'=>$tcFacturaA, 
+									'tnCiNit'=> intval($tnCiNit), 
+									'tnFactura'=> intval($tcNroPago) , 
+									'tcMonto' => "$tnMontoClienteEmpresa" , 
+									'tcComision'=> "$tnMontoClienteSyscoop" , 
+									'tnIdAccion'=> 24 ,
+									'tcImei'=>  $tcImei ,
+									'tcApp'=>2,
+									'tcPeriodo' =>(String) $tcPeriodo ,
+									"taDetallePago"=> $taFacturas , 
+									"taDatosSintesis"=>$laDatosSintesis  ,
+									"tnTipoDocumentoIdentidad" => $_SESSION[$tnIdentificarPestaña.'gnTipoDocumentoIdentidad']  
+									) ;
+				//$metodos=$this->servicios->realizarpagotigo($tncliente  , $tnempresa ,$codigoclienteempresa , $tnmetodopago , $tnTelefono, $tcFacturaA,  $tnCiNit, $tcNroPago , $tnMontoClienteEmpresa ,  $tnMontoClienteSyscoop , $tcImei ,$tcPeriodo , $taFacturas , $laDatosSintesis ) ;
+				$metodos=$this->servicios->realizarpagotigo($laDataTigomoney) ;
 				@$this->cargarlog("estollegodetigo".json_encode($metodos));
 				@$mensajeerror=$metodos->error ;
 				@$valor= $metodos->values;
@@ -1798,22 +1820,28 @@ class Welcome extends CI_Controller {
 		$tnFactura= $datos['nrofactura'];	
 		$tnTipo=$datos['tipo'];	
 		$facturapagofacil=$this->servicios->getfacturapagofacil($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
-
-
-		//este codigo sirve para poder visuailzar 
-
+		
 		$cadena="";
 		foreach($facturapagofacil->values->facturaPDF as $byte){
 			$cadena.=chr($byte);
 		}
 		//GET CONTENT
 		$fileToDownload = $cadena;
+
+		//return 0; 
 		//echo  $fileToDownload ;
 		//$fichero = $_SERVER["DOCUMENT_ROOT"].'/online/application/assets/documentospdf/factura-'.$tnFactura.'.pdf';
-		$fichero =$_SERVER["DOCUMENT_ROOT"].'/online/application/assets/documentospdf/factura-pagofacil'.$tnCliente.$tnFactura.date('y-m-d--H:i:s').'.pdf';
+		$fichero =$_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-pagofacil'.$tnCliente.$tnFactura.date('y-m-d--H:i:s').'.pdf';
+		try {
+			//code...
+			file_put_contents($fichero, $fileToDownload);
+		} catch (\Throwable $th) {
+			//throw $th;
+			return $th->getMessage();
+		}
+		 
 		
-		file_put_contents($fichero, $fileToDownload);
-		$fichero2 ='/online/application/assets/documentospdf/factura-pagofacil'.$tnCliente.$tnFactura.date('y-m-d--H:i:s').'.pdf';
+		$fichero2 =$_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-pagofacil'.$tnCliente.$tnFactura.date('y-m-d--H:i:s').'.pdf';
 		$d['documentopdf']=$fichero2;
 		//$this->load->view('pagosrealizados/vysorpdf', $d);
 		if($tnTipo==1){
@@ -1825,6 +1853,7 @@ class Welcome extends CI_Controller {
 			//echo $taData['urlweb'];
 			$this->load->view('pagosrealizados/vistaiframepdf', $d);
 		}
+		
 		
 	}
 
