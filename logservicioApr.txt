@@ -74,3 +74,6 @@
 30/04/2022 09:34:50getultimatransaccioncliente{"tnCliente":"3859","tcApp":2}
 30/04/2022 09:34:53listarfacturas{"tnEmpresa":"2","tcCodigoClienteEmpresa":"541","tnCliente":"3859","tnMetodoPago":"4","tnIdAccion":17,"tcApp":2}
 30/04/2022 09:35:29getbilleterausuario{"tnCliente":"3859","tnIdentificador":"3859","tnIdAccion":0}
+10/04/2025 18:40:04registroparcial{"tcNombre":null,"tcApellido":null,"tcDireccion":"","tcCinit":"","tcFacturaa":0,"tnTelefono":null,"tnTelefonoPago":0,"tcCorreo":null,"tcLogin":"","tcPassword":"d41d8cd98f00b204e9800998ecf8427e","tcImei":9999,"tcApp":2}
+10/04/2025 14:48:23getbilleterausuario{"tnCliente":45363,"tnIdentificador":45363,"tnIdAccion":0}
+10/04/2025 16:23:54getbilleterausuario{"tnCliente":45363,"tnIdentificador":45363,"tnIdAccion":0}
