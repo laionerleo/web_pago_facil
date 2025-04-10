@@ -109,7 +109,7 @@
                                  <?php if($recarga==20) { ?>
                                   <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="limpiar()">Comenzar de nuevo</button>
                                 <?php }else{ ?>
-                                  <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientesmultiple(0)">Pagar otra factura</button>  
+                                  <button id="btnpagarotrafactura"  class="btn btn-outline-primary" onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
                                 <?php }  ?>
                                  
                                  
@@ -251,6 +251,24 @@
                                 $("#bntprepararpago").show();
 
                               }
+
+/*
+                              console.log("llego algo y entro aqui ");
+                              if(response.tipo==3)
+                              {
+                                texto=$("#mensajerecibido").val();
+                                $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
+                                console.log(response);
+                                console.log("entro por el 3 ");
+
+                              }else{
+                                texto=$("#mensajerecibido").val();
+                                $("#mensajerecibido").val( texto+" \r\n"+response.mensaje);
+                                console.log(intervalo);
+                                clearInterval(intervalo);
+                                console.log("entro por diferente de 3  ");
+                              }  
+                              */
                             },
                             error: function (data) {
                               console.log(data);

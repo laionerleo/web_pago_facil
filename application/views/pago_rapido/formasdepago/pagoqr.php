@@ -1,4 +1,12 @@
 <style>
+    #imagenqr {
+  max-width: 300px;
+}
+@media only screen and (max-width: 768px) {
+  #imagenqr {
+    max-width: 70vw;
+  }
+}
                      .flotante {
     display:scroll;
         position:fixed;
@@ -26,6 +34,19 @@ img.fnone {
     text-align: start;
 }
 
+        #mensajeHora {
+                display: none; /* Inicialmente oculto */
+                font-size: 24px;
+                color: #0074b8;
+                font-weight: bold;
+                background-color: #ffa115;
+                padding: 10px;
+                border: 2px solid #ffa115;
+                border-radius: 5px;
+                text-align: center;
+                margin: 10px 0;
+        }
+    
 </style>
 <link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
 <div class="col-md-12"  style="display:none"  >
@@ -42,7 +63,7 @@ img.fnone {
                                         <div class="col-md-12">
                                         <center>
                                             
-                                                 <img onclick="ayudaqr()" src="http://localhost/web_pago_facil/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt="">
+                                                 <img onclick="ayudaqr()" src="<?=  base_url() ?>/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt="">
                                             
                                         </center>
                                         </div>
@@ -86,7 +107,7 @@ img.fnone {
                                                 </div>
                                         </div>
                                         <center>
-                                                <article class="item">
+                                                <article class="item" style="display:none ;" >
                                                     <img onclick=""   id="imagenelegida" style="object-fit:contain ;width:100px; position: relative; border-radius:15px ; " src="" alt="">    
                                                 </article>
                                                 <div class="row">
@@ -97,9 +118,12 @@ img.fnone {
                                                         <label for="" id="lblhasta"></label>
                                                         </div>
                                                         <div class="col-md-12">
+                                                            <p id="mensajeHora"></p>
+                                                        </div>
+                                                        <div class="col-md-12">
                                                             <center>
                                                                 <a id="linkcomopagar"  class="linkcomopagar" style="display:none ; font-weight: bolder; " target="_blank" href="">
-                                                                    <u>  <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt=""> <br> ¿ Como Pagar ? </u>
+                                                                    <u>  <img src="<?=  base_url() ?>/application/assets/assets/iconos/imformacion.png" style="height: 35px;" alt=""> <br> ¿ Como Pagar ? </u>
                                                                 </a>
                                                             </center>
                                                         </div>
@@ -134,7 +158,8 @@ img.fnone {
                                                 <div class="row">
                                                     <div class="col-md-12 col-xs-8">
                                                         <center>
-                                                            <img id="imagenqr" src="" alt="">
+                                                            
+                                                            <img  id="imagenqr" src="" alt="">
                                                         </center>
                                                         <center>
                                                         
@@ -156,7 +181,7 @@ img.fnone {
                                 <h5 class="card-title" style="margin-bottom: 0px;"  >Paso 1</h5>
                                 <div class="row">
                                 <div class="col-md-2 col-2" style="text-align: end;">
-                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
+                                        <img src="<?=  base_url() ?>/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
                                     </div>
                                     <div class="col-md-10 col-10">
                                         <label for="">
@@ -168,7 +193,7 @@ img.fnone {
                                 <h5 class="card-title" style="margin-bottom: 0px;" >Paso 2</h5>
                                 <div class="row">
                                     <div class="col-md-2 col-2" style="text-align: end;">
-                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/deslizar.png" style="height: 35px;" alt="">
+                                        <img src="<?=  base_url() ?>/application/assets/assets/iconos/deslizar.png" style="height: 35px;" alt="">
                                     </div>
                                     <div class="col-md-10 col-10">
                                         <label for="">
@@ -180,7 +205,7 @@ img.fnone {
                                 <h5 class="card-title" style="margin-bottom: 0px;" >Paso 3</h5>
                                 <div class="row">
                                 <div class="col-md-2 col-2" style="text-align: end;">
-                                        <img src="http://localhost/web_pago_facil/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
+                                        <img src="<?=  base_url() ?>/application/assets/assets/iconos/ingreso al dispositivo celular.png" style="height: 35px;" alt="">
                                     </div>
                                     <div class="col-md-10 col-10">
                                         <label for="">
@@ -223,10 +248,13 @@ img.fnone {
                                                     <?php if($recarga==20) { ?>
                                                         <button id="btnpagarotrafactura"  class=" btn btn-outline-primary "onclick="limpiar()">Comenzar de nuevo</button>
                                                     <?php }else{ ?>
-                                                        <input class="btn btn-outline-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">
+                                                       <!--  <input class="btn btn-outline-primary" onclick="facturaspendientes(<?= @$clienteempresa  ?>)" type="button" value="Finalizar ">  -->
                                                     <?php }  ?>
                                                     
                                                      </center>                                                     
+                                                </div>
+                                                <div class="col-md-4 col-4 col-sm-4" id="verfacturaspagadaspdf"  style="display:none">
+                                                    <input class="btn btn-outline-primary"  onclick="vistadescargarpdf()" type="button" value="Ver PDF">
                                                 </div>
                                                 
                                             </div>
@@ -280,6 +308,7 @@ img.fnone {
     var gntransaccion;
     contador=1;
     var ArrayEntidades= <?= json_encode($entidades) ; ?>;
+    var gosetintervaloconsulta;
                                                                             
         var extension="";
         function generarqr()
@@ -320,6 +349,9 @@ img.fnone {
                             $("#linkdescarga").attr("href", response.linkdescarga);
                             gntransaccion=response.tnTransaccion;
                             MandarAyudaQr(gntransaccion);
+                            var intervalo = 8000; // 5000 milisegundos = 5 segundos
+                            gosetintervaloconsulta= setInterval(verificacionpagoqr, intervalo);
+
                         }
                         if(response.tipo==1)
                         {
@@ -397,26 +429,29 @@ img.fnone {
                         {   
                             if(response.Estado==1)
                             {
-                                swal("Consulta Qr", "El  Pago esta Pendiente", "info");
+                               // swal("Consulta Qr", "El  Pago esta Pendiente", "info");
                             }
                             if(response.Estado==2)
                             {
                                 swal("Consulta Qr", "El Pago se a realizado con exito", "succes");
                                 <?php if($recarga!=20) { ?>
-                                getfacturaempresa(gntransaccion);
-                                getfacturapagofacil(gntransaccion);
+                                    gntransaccion=tnTransaccion;
+                                   $("#verfacturaspagadaspdf").show();
+                                    //getfacturaempresa(gntransaccion);
+                                    getfacturapagofacil(gntransaccion);
                                 <?php }else{ ?>
                                     console.log("hola =-- <?=$recarga ?>");
                                 <?php } ?>
+                                clearInterval(gosetintervaloconsulta); // Detener la ejecución periódica
                             }
                             if(response.Estado==4)
                             {
-                                swal("Consulta Qr", "El pago esta Anulado", "info");               // si entra aqui significa que ue exitodo el pago asi que debo finilizarlo
-                            
+                               swal("Consulta Qr", "El pago esta Anulado", "info");               // si entra aqui significa que ue exitodo el pago asi que debo finilizarlo
+                               clearInterval(gosetintervaloconsulta); // Detener la ejecución periódica
                             }
                             if(response.Estado==6)
                             {
-                                swal("Consulta Qr", "El pago paso a modo de prueba ", "info");               // si entra aqui significa que ue exitodo el pago asi que debo finilizarlo
+                                //swal("Consulta Qr", "El pago paso a modo de prueba ", "info");               // si entra aqui significa que ue exitodo el pago asi que debo finilizarlo
                             }
                         }else{
                             swal("Error", response.mensaje,  "error");
@@ -463,19 +498,70 @@ img.fnone {
                     }
                 }
                 console.log(entidadesasignadas);
+                var horaFicticia = new Date();
+                //horaFicticia.setHours(23); // Establecer la hora ficticia (ejemplo: 10 AM)
+                //horaFicticia.setMinutes(30); // Establecer los minutos ficticios (ejemplo: 30 minutos)
+                //horaFicticia.setSeconds(0); // Establecer los segundos ficticios (ejemplo: 0 segundos)
+
+                var horaActualMillis = horaFicticia.getHours() * 3600000 + horaFicticia.getMinutes() * 60000; // Convertimos la hora actual a milisegundos desde el inicio del día
+
+
+
+                //var horaActualMillis = horaFicticia.getTime(); // Obtener el timestamp de la hora actual en milisegundos
+                console.log("entidaes egdasdasd",ArrayEntidades );
+              
+
                 for (let index2 = 0; index2 < ArrayEntidades.length; index2++) {
                       
                     if(ArrayEntidades[index2]["EntidadBancaria"]==id)
                     {
-                            if(ArrayEntidades[index2]["RestriccionDesde"]!=undefined)
-                             {
-                                $('#lbldesde').text("Restriccion Desde :"+ArrayEntidades[index2]["RestriccionDesde"])
-                             }
-                             if(ArrayEntidades[index2]["RestriccionHasta"]!=undefined)
-                             {
-                                $('#lblhasta').text("Restriccion Hasta  :"+ArrayEntidades[index2]["RestriccionHasta"])
+                        if (ArrayEntidades[index2]["RestriccionDesde"] != undefined) {
+                            $('#lbldesde').text("Restriccion Desde :" + ArrayEntidades[index2]["RestriccionDesde"]);
+                        }
+                        if (ArrayEntidades[index2]["RestriccionHasta"] != undefined) {
+                            $('#lblhasta').text("Restriccion Hasta  :" + ArrayEntidades[index2]["RestriccionHasta"]);
+                        }
 
-                             }
+                        let lcMensajerestriccionEntidadBancaria=ArrayEntidades[index2]["MensajeRestriccion"];
+                        console.log(lcMensajerestriccionEntidadBancaria);
+                        lcMensajerestriccionEntidadBancaria = (lcMensajerestriccionEntidadBancaria == null ) 
+    ? "¡Advertencia: Actualmente es propenso a errores debido a restricciones bancarias. Tenga en cuenta que puede haber un error o retraso después del pago, para recibir su pedido."
+    : lcMensajerestriccionEntidadBancaria;
+                        console.log("despuej de la vlidacion",lcMensajerestriccionEntidadBancaria);
+                        if (ArrayEntidades[index2]["RestriccionDesde"] != undefined && ArrayEntidades[index2]["RestriccionHasta"] != undefined) {
+                            var restriccionDesde = ArrayEntidades[index2]["RestriccionDesde"]; // Formato "HH:mm"
+                            var restriccionHasta = ArrayEntidades[index2]["RestriccionHasta"]; // Formato "HH:mm"
+
+                            // Convertimos las restricciones a milisegundos desde el inicio del día
+                            var restriccionDesdeParts = restriccionDesde.split(':');
+                            var restriccionHastaParts = restriccionHasta.split(':');
+
+                            var restriccionDesdeMillis = (parseInt(restriccionDesdeParts[0]) * 3600000) + (parseInt(restriccionDesdeParts[1]) * 60000);
+                            var restriccionHastaMillis = (parseInt(restriccionHastaParts[0]) * 3600000) + (parseInt(restriccionHastaParts[1]) * 60000);
+
+                            // Verificar si el rango cruza la medianoche
+                            var cruzaMedianoche = restriccionDesdeMillis > restriccionHastaMillis;
+
+                            // Verificar si la hora actual está dentro del rango de restricción
+                            if (cruzaMedianoche) {
+                                // El rango cruza la medianoche
+                                if (horaActualMillis >= restriccionDesdeMillis || horaActualMillis <= restriccionHastaMillis) {
+
+                                    $('#mensajeHora').text(lcMensajerestriccionEntidadBancaria);
+                                    $('#mensajeHora').show();
+                                } else {
+                                    $('#mensajeHora').hide();
+                                }
+                            } else {
+                                // El rango no cruza la medianoche
+                                if (horaActualMillis >= restriccionDesdeMillis && horaActualMillis <= restriccionHastaMillis) {
+                                    $('#mensajeHora').text(lcMensajerestriccionEntidadBancaria);
+                                    $('#mensajeHora').show();
+                                } else {
+                                    $('#mensajeHora').hide();
+                                }
+                            }
+                        }  
 
                              if(ArrayEntidades[index2]["ComoPagar"]!=undefined  &&  ArrayEntidades[index2]["ComoPagar"]!="")
                              {
@@ -494,52 +580,55 @@ img.fnone {
         }
 
         function ayudaqr()
-             {
-                $("#cajaayuda").toggle(500);
-             }
+        {
+            $("#cajaayuda").toggle(500);
+        }
 
-        $(document).ready(function() {
+        $(document).ready(function() 
+        {
             // Instrucciones a ejecutar al terminar la carga
-          //  cambiarimagen('debito','001');
-         //   $("#confirmarpago").click();        
+            //  cambiarimagen('debito','001');
+            //   $("#confirmarpago").click();   
+            var ventana_ancho = $(window).width();
+            var ventana_alto = $(window).height();
+            console.log(ventana_ancho);
+            console.log(ventana_alto);    
+            if(ventana_ancho <  400)
+            {
+                $("#imagenqr").css("width", "-webkit-fill-available");
+            } else{
+                //$("#imagenqr").css("border-color", "solid");
+            }
             
- /*           <?php   for ($j=  0  ; $j < count($entidadeselegidas); $j++) { ?>
-                $("#idcheck-<?= $entidadeselegidas[$j] ?>").click(); 
-            <?php  }?>
-*/
+          
 
-  try {
-		            var pages = $("#webmenu").msDropdown({on:{change:function(data, ui) {
-												var val = data.value;
-                                                var result=val.split(',');
-                                                var identidad=result[1].replace("'", '');
-                                               //  identidad=identidad.replace("'", '');
-                                                var srcimagen=result[2].replace("'", '');
-                                               // srcimagen=srcimagen.replace("'", '');
-                                                console.log(result);
-                                                if(result[0]!=0)
-                                                {
-                                                    elegirentidad(result[0],identidad);
-                                                }
-                                                
-												if(val!="")
-												console.log(val);
-											}}}).data("dd");
+            try {
+                var pages = $("#webmenu").msDropdown({on:{change:function(data, ui) {
+                                        var val = data.value;
+                                        console.log(data);
+                                        var result=val.split(',');
+                                        var identidad=result[1].replace("'", '');
+                                        //  identidad=identidad.replace("'", '');
+                                        var srcimagen=result[2].replace("'", '');
+                                        // srcimagen=srcimagen.replace("'", '');
+                                        console.log(result);
+                                        if(result[0]!=0)
+                                        {
+                                            elegirentidad(result[0],identidad);
+                                        }
+                                        
+                                        if(val!="")
+                                        console.log(val);
+                                    }}}).data("dd");
 
-                                            slcrubro.set("selectedIndex", 0);
-
-	/*	var pagename = document.location.pathname.toString();
-		pagename = pagename.split("/");
-		pages.setIndexByValue(pagename[pagename.length-1]);
-		$("#ver").html(msBeautify.version.msDropdown);
-        */
-	} catch(e) {
-		//console.log(e);	
-	}
-    
+                                    slcrubro.set("selectedIndex", 0);
+            } catch(e) {
+                //console.log(e);	
+            }
+        
          
-            });
-            function error(tnIdImput)
+        });
+        function error(tnIdImput)
         {             
             $(tnIdImput).css("border-color", "red");
             $(tnIdImput).css("border-style", "outset");

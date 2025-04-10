@@ -150,6 +150,7 @@
                             success:function(response) {
                             //console.log(response);
                             empresaspagadas=response;
+                            
                             console.log(rubros);
                               var urlajax=$("#url").val()+"pagosrealizados/"; 
                                 for (let i = 0; i < rubros.length; i++) {
@@ -199,6 +200,7 @@
                             success:function(response) {
                             //console.log(response);
                             metodosdepago=response;
+                            gaMetododepagofooter=response;
                             console.log(metodosdepago);
                               var url=$("#url").val()+"comision/"; 
                                 for (let i = 0; i < metodosdepago.length; i++) {

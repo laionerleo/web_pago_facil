@@ -198,7 +198,15 @@ function ledioaeste(idmetododepagonuevo,id_item)
       console.log("ledioaeste");
       idmetododepago=idmetododepagonuevo;
       $('#cajalistafacturas').show();
+      try {
+         cargarurlayudaMetodoPago(idmetododepago ) ;
+        }
+        catch(err) {
+        console.log(err);
+        }
       listarfacturaspendientesmultiple(idmetododepago);
+    
+    
    }
 $(document).ready(function() {
       <?php  if( $_SESSION['cliente']== 9  ) {  ?> 

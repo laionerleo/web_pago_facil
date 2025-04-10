@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://h.online-metrix.net/fp/tags.js?org_id=<?= trim(@$result->OrgId)  ?? ''?>&session_id=<?=trim($result->MerchantId) ?? ''  ?><?= trim($result->sessionID)  ?>"></script>
-<!--script src="https://songbird.cardinalcommerce.com/edge/v1/songbird.js"></script-->
+  <!-- <script src="https://songbird.cardinalcommerce.com/edge/v1/songbird.js"></script>  -->
 <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/form-wizard/jquery.steps.css" type="text/css">
 <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/select2/css/select2.min.css" type="text/css">
 <style>
@@ -764,17 +764,109 @@
 <input type="hidden" id="urlvalidation" value="<?=   base_url(); ?>" />
 <input type="hidden" id="tnPedidoCheckout" value="<?= $tnpedidocheckout ?>" />
 <input type="hidden" id="swguardartarjeta" value="0" />
-<button style="display:none" type="button" class="btn btn-primary sweet-multiple"  id="btnmodalconsultaregistrorecurente"> btnmodal</button>
+<button style="display:none" type="button" class="btn btn-primary sweet-multiple"  id="btnmodalconsultaregistrorecurente"> Pago Recurrente</button>
 <script src="<?=  base_url() ?>/application/assets/vendors/select2/js/select2.min.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+<!--  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
 <script src="<?=  base_url() ?>/application/assets/assets/js/examples/form-wizard.js"></script>  
 <script src="<?=  base_url() ?>/application/assets/vendors/form-wizard/jquery.steps.min.js"></script>
+
 <script src="<?=  base_url() ?>/application/assets/vendors/input-mask/jquery.mask.js"></script>
   
-
-<!-- end::footer -->
 <script>
+
+      console.log("aqui ingfresando ");
+
+      Cardinal.configure({
+        logging: {
+          level: 'on'
+        }, 
+      });
+
+      // Step 4.  Listen for Events
+    Cardinal.on('payments.setupComplete', function(data){
+      console.log('FROM payments.setupComplete');
+      //  console.log('setupcomplete',data);
+      sessionId = data.sessionId
+      console.log("SessionID:",sessionId);
+    });
+
+      Cardinal.on("payments.validated", function (data, jwt) {
+        console.log('from payments.validated');
+        console.log("dATA:",data,"ACTION_CODE:",data.ActionCode);
+        /// si entra al if  ingreso por atc atc 
+            
+        <?php   if($tnMetodoPago==9)  {   ?>
+        if(jwt){
+          console.log("   jwt atc :",jwt);
+          validate_jwt(jwt);
+        }
+        <?php  }   
+        
+        if($tnMetodoPago==10){   ?>
+
+        //ingreso aqui pr linkser 
+        switch(data.ActionCode){
+          case "SUCCESS":
+            console.log('jwt linkser');
+            console.log(jwt);
+            validate_jwt(jwt);
+          break;
+          case "NOACTION":
+            console.log('validacion no action');
+          // Handle no actionable outcome
+            //$("#btncarga").hide();
+            //$("#btnprepararpago").show();
+          ///  swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página" , "error");
+          if(jwt){
+                console.log("   jwt linkser :",jwt);
+                validate_jwt(jwt);
+              }else{
+                $("#btncarga").hide();
+              $("#btnprepararpago").show();
+              }
+          break;
+          case "FAILURE":
+            console.log('validacion failure');
+              
+              if(jwt){
+                console.log("   jwt linkser :",jwt);
+                validate_jwt(jwt);
+              }else{
+                //swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página", "error");
+                $("#btncarga").hide();
+                $("#btnprepararpago").show();
+              }
+              //swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página", "error");
+          // Handle failed transaction attempt
+          break;
+          case "ERROR":
+            if(jwt){
+                console.log("   jwt linkser :",jwt);
+                validate_jwt(jwt);
+              }else{
+                //swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página", "error");
+                $("#btncarga").hide();
+                $("#btnprepararpago").show();
+              }
+            //swal("Mensaje", "Hubo un error al cargar los datos favor volver a ingresar o recargar la página" , "error");
+              //console.log('validacion error');
+          // Handle service level error
+          break;
+        }
+
+        <?php   }  ?>
+
+        
+      });
+
+
+Cardinal.setup("init", {
+  jwt: document.getElementById("JWTContainer").value
+});
+
+
+
 
    $(document).ready(function() {
       $('[data-input-mask="tarjeta"]').mask('0000-0000-0000-0000');
@@ -834,13 +926,13 @@
               swal("Listo ! ", {
                   icon: "success",
               });
-              $('#swguardartarjeta').val(1);
+              $('#tnPagoRecurrente').val(1);
               
           } else {
               swal("ok listo ", {
                   icon: "error",
               });
-              $('#swguardartarjeta').val(0);
+              $('#tnPagoRecurrente').val(0);
               
           }
       });
@@ -855,80 +947,80 @@
    
    function cargarestadosatc(pais)
    {
-   console.log('pais='+pais);
-   var urlajax=$("#url").val()+"cargarestados";   
-   var datos= {Pais:pais  };
-   $.ajax({                    
-     url: urlajax,
-     data: {datos},
-     type : 'POST',
-     dataType: "json",
-     beforeSend:function( ) {   
-         //$("#waitLoadinglogin").fadeIn(1000);
-         $('#spnestado').show();
-           $('#idcajaestado').hide();
-     },                    
-     success:function(response) {
-     
-         $('#billingState').empty();
+      console.log('pais='+pais);
+      var urlajax=$("#url").val()+"cargarestados";   
+      var datos= {Pais:pais  };
+      $.ajax({                    
+      url: urlajax,
+      data: {datos},
+      type : 'POST',
+      dataType: "json",
+      beforeSend:function( ) {   
+            //$("#waitLoadinglogin").fadeIn(1000);
+            $('#spnestado').show();
+            $('#idcajaestado').hide();
+      },                    
+      success:function(response) {
       
-      for (let index = 0; index < response.length; index++) {
-          var htmloption=`<option value="`+response[index]['Codigo'] +`"> `+response[index]['Nombre']  +`   </option>`;
-         $('#billingState').append(htmloption);
+            $('#billingState').empty();
+         
+         for (let index = 0; index < response.length; index++) {
+            var htmloption=`<option value="`+response[index]['Codigo'] +`"> `+response[index]['Nombre']  +`   </option>`;
+            $('#billingState').append(htmloption);
+         }
+      
+      },
+      error: function (data) {
+            console.log(data);
+         
+         
+      },               
+      complete:function( ) {
+            $('#spnestado').hide();
+            $('#idcajaestado').show();
+         
+      },
       }
-   
-     },
-     error: function (data) {
-         console.log(data);
-        
-       
-     },               
-     complete:function( ) {
-         $('#spnestado').hide();
-         $('#idcajaestado').show();
-      
-     },
-   }
-   ); 
+      ); 
    
    }
    
    
    function cargarciudadesatc(pais)
    {
-   var urlajax=$("#url").val()+"cargarciudades";   
-   var datos= {Pais:pais  };
-   $.ajax({                    
-     url: urlajax,
-     data: {datos},
-     type : 'POST',
-     dataType: "json",
-     beforeSend:function( ) {   
-            $('#spnciudad').show();
-           $('#idcajaciudad').hide();
-     },                    
-     success:function(response) {
-     
-         $('#billingCity').empty();
-      
-      for (let index = 0; index < response.length; index++) {
-          var htmloption=`<option value="`+response[index]['Nombre'] +`"> `+response[index]['Nombre']  +`   </option>`;
-         $('#billingCity').append(htmloption);
-      }
-   
-     },
-     error: function (data) {
-         console.log(data);
-        
-       
-     },               
-     complete:function( ) {
-      $("#tnCiudad").select2().val("<?= $tnCiudad ?>").trigger("change");
-      $('#spnciudad').hide();
-           $('#idcajaciudad').show();
-     },
-   }
-   ); 
+      var urlajax=$("#url").val()+"cargarciudades";   
+      var datos= {Pais:pais  };
+         $.ajax({                    
+            url: urlajax,
+            data: {datos},
+            type : 'POST',
+            dataType: "json",
+            beforeSend:function( ) {   
+                     $('#spnciudad').show();
+                  $('#idcajaciudad').hide();
+            },                    
+            success:function(response) {
+            
+                  $('#billingCity').empty();
+               
+               for (let index = 0; index < response.length; index++) {
+                  var htmloption=`<option value="`+response[index]['Nombre'] +`"> `+response[index]['Nombre']  +`   </option>`;
+                  $('#billingCity').append(htmloption);
+               }
+            
+            },
+            error: function (data) {
+                  console.log(data);
+               
+               
+            },               
+            complete:function( ) {
+               $("#tnCiudad").select2().val("<?= $tnCiudad ?>").trigger("change");
+               $('#spnciudad').hide();
+                  $('#idcajaciudad').show();
+            },
+            }
+         ); 
    
    }
    
@@ -1178,19 +1270,6 @@ $( "#slcaño" ).change(function() {
       
 
 
-
-    /*  
-   
-      $("#billingLast").keyup(function () {
-            var  apellido= $(this).val();
-            
-            $(".fullname").text(nombre +" "+ apellido);
-   
-            return event.charCode;
-      }).focus(function () {
-           $(".fullname").css("color", "white");
-      });
-   */
    
 
       // aqui eventos de cvv------------------------------------
@@ -1215,22 +1294,6 @@ $( "#slcaño" ).change(function() {
       }
       // aqui eventos de cvv------------------------------------
    
-   //Security code Input
-   /*
-    $("#cvvCode").focus(function () {
-       alert("ingreso aqui asdas");
-          $(".card2").css("transform", "rotatey(180deg)");
-          $(".seccode").css("color", "white");
-    }).keyup(function () {
-          $(".seccode").text($(this).val());
-          if ($(this).val().length === 0) {
-            $(".seccode").html("&#x25CF;&#x25CF;&#x25CF;");
-          }
-    }).focusout(function () {
-          $(".card2").css("transform", "rotatey(0deg)");
-          $(".seccode").css("color", "var(--text-color)");
-    });
-   */
 
    //# sourceURL=pen.js
 </script>

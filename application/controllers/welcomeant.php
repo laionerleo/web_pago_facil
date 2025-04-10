@@ -1424,7 +1424,7 @@ class Welcome extends CI_Controller {
 		//GET CONTENT
 		$fileToDownload = $cadena;
 		//echo  $fileToDownload ;
-		$fichero = $_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/factura-'.$tnFactura.'.pdf';
+		$fichero = $_SERVER["DOCUMENT_ROOT"].'/online/application/assets/documentospdf/factura-'.$tnFactura.'.pdf';
 		//$fichero ='/web_pago_facil/application/assets/documentospdf/factura-pagofacil'.$tnFactura.'.pdf';
 		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
 		file_put_contents($fichero, $fileToDownload);

@@ -47,6 +47,10 @@
 
                 <thead id="theadclientes" >
                     <tr>
+                        <?php if(isset($clientes[0]->Sistema)){ ?>
+                            <th> Sistema</th>
+                        <?php    }  ?>
+
                         <th> <?=  $titulo ?> </th>
                         <th>Nombre</th>
                         <th>Direccion</th>
@@ -54,19 +58,24 @@
                         <th>opciones</th>
                     </tr>
                 </thead>
-
-
-
-
                 <tbody>
                         <?php  for ($i=0; $i <  count($clientes) ; $i++) { ?>
                             <tr  class="fila_clientes" >                       
+                                    <?php if(isset($clientes[$i]->Sistema)){ ?> 
+                                        <td  data-title="sistema"><?= $clientes[$i]->NombreSistema ?></td>
+                                    <?php    }  ?>  
                                 <td  data-title="<?=  $titulo ?>"><?= $clientes[$i]->codigoClienteEmpresa ?></td>
                                 <td  data-title="Nombre" ><?= $clientes[$i]->nombre ?></td>
                                 <td  data-title="Direccion" ><?= $clientes[$i]->direccion ?></td>
                                 <td  data-title="Otros" ><?= $clientes[$i]->uvMzaLote ?></td>
-                                <td  data-title="Opciones" > 
-                                    <button class="btn btn-primary"  onclick="facturaspendientesmultiple(<?= $i ?>)"> consultar deuda </button>
+                                <td  data-title="Opciones" >                                     
+                                 
+                                        <button class="btn btn-primary "  onclick="facturaspendientesmultiple(<?= $i ?>)"> consultar deuda </button>
+                                        <?php if($etiquetas->EtiquetaAviso != "" ){ ?> 
+                                            <button class="btn btn-primary "  onclick="veraviso('2024-ENE', '<?= $clientes[$i]->codigoClienteEmpresa ?>')">  <?= $etiquetas->EtiquetaAviso ?>  </button>    
+                                        <?php    }  ?>
+                                    
+                                    
                                 </td>
                             </tr>
                         <?php    }  ?>
@@ -85,6 +94,43 @@
                     
     </div>
 </div>
+
+<div id="vysorpdfbody">
+
+</div>
 <script>
     $('html, body').animate({scrollTop: $("#cardlistaclientes").offset().top }, 2000);
+    
+
+    function veraviso(idfactura, lcCodigoClienteEmpresa)
+    {
+        //
+    // var idfactura= $("#periodo").val();
+        console.log("veraviso");
+        var tipo ;
+        console.log(screen.width);
+            if(screen.width>=1025)
+            {
+                tipo =1
+            }else{
+                tipo=2;
+            }
+        var datos= { idfactura:idfactura , tipo:tipo  , lnEmpresa:empresa_id  , lcCodigoClienteEmpresa:lcCodigoClienteEmpresa};
+        var urlajax=$("#url").val()+"vysoravisopdfactualizado";          
+        $("#vysorpdfbody").empty();
+        $("#vysorpdfbody").append(`<div class="d-flex justify-content-center">
+                                    <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <br>
+                                `);
+           $('html, body').animate({scrollTop: $("#vysorpdfbody").offset().top }, 2500);
+        $("#vysorpdfbody").load(urlajax,{datos});  
+        //$("#vysorpdf-tab").click(); 
+     
+    
+    
+        
+    }
 </script>

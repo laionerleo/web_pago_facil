@@ -106,5 +106,5 @@
       <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick.css" type="text/css">
     <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
     <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
-    <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
-    <script src="https://songbird.cardinalcommerce.com/edge/v1/songbird.js"></script>
+    <script src="<?= base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
+  <script src="https://songbird.cardinalcommerce.com/edge/v1/songbird.js"></script> 

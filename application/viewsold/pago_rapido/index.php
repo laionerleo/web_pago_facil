@@ -4,18 +4,14 @@
 <link rel="stylesheet" type="text/css" href="<?=  base_url() ?>/application/assets/assets/js/msdropdown/dd.css" />
 <style>
         input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-
-.dataTables_filter {
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+    }
+    .dataTables_filter {
         position: relative;
         text-align: center;
     }
- 
-
     .dataTables_filter input {
         width: 100%;
         height: 32px;
@@ -31,9 +27,11 @@ input[type=number]::-webkit-outer-spin-button {
         left: auto;
         right: 10px;
     }
-
 </style>
 
+/*
+
+*/
 <body  class="">
 
 <!-- begin::preloader-->
@@ -107,16 +105,16 @@ input[type=number]::-webkit-outer-spin-button {
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
                                      aria-labelledby="home-tab">
-                
-                                <div  class="form-row">
+
+                                     <div class="form-row">
                                         <div class="col-md-4 mb-2">
                                         <label for="">Rubros </label><br>
                                         <select name="slcrubro"  class=" form-control" id="slcrubro" >
-                                        <option   value="0,0,"  data-image="<?php echo $rubros->values[0]->cImagenUrl  ?>"> Todos  </option>
+                                                <option   value="0,0,"  data-image="<?php echo $rubros->values[0]->cImagenUrl  ?>"> Todos  </option>
                                             <?php  for ($i=0; $i < count($rubros->values) ; $i++) { ?>
                                                 <option   value="<?php echo $rubros->values[$i]->nTipoEmpresa  ?>,#rub-<?= $i ?>, <?php echo $rubros->values[$i]->nNombre  ?>"  data-image="<?php echo $rubros->values[$i]->cImagenUrl  ?>"> <?php echo $rubros->values[$i]->nNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>   
+                                        </select>  
                                     </div>
                                     <div class="col-md-3    mb-2"  style=" word-wrap: break-word;">
                                         <label for="">regiones </label><br>
@@ -126,14 +124,13 @@ input[type=number]::-webkit-outer-spin-button {
                                             <?php  for ($i=0; $i < count($region->values) ; $i++) { ?>  
                                                 <option   value="<?php echo $region->values[$i]->nRegion  ?>,#reg-0,<?php echo $region->values[$i]->cNombre  ?>"  data-image="<?php echo $region->values[$i]->nEstado  ?>"> <?php echo $region->values[$i]->cNombre  ?> </option>
                                             <?php  } ?> 
-                                        </select>   
+                                        </select>    
                                        
                                         <label id="nombre_region"  href=""> </label>
                                     </div>
                                 </div>
-                               
                                   <div id="vistas_empresas"  >
-                                  
+                                                
                                             <center>
                                                 <div class="d-flex justify-content-center">
                                                     <div id="spinnercargaempresas" class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
@@ -176,8 +173,8 @@ input[type=number]::-webkit-outer-spin-button {
                                   <div class="row">
                                       <div class="col-md-12">
                                           <center>
-                                         <!--  <input id="btnperfil" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">   -->
-                                          <input id="btnperfilempresa"  type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0' , 'Agua Potable'  );"  value="Perfil todas las empresas ">
+                                          <input id="btnperfil" style="" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
+                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
                                           
                                           </center>
                                       </div>
@@ -212,9 +209,17 @@ input[type=number]::-webkit-outer-spin-button {
                                         <div  id="divcriteriobusquedahub" class="col-md-3 mb-2" >
 
                                         </div>
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-2 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
                                             <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
+                                        <div id="divTelefono" class="col-md-2 mb-3" style="display:none;">
+                                            <label id ="lblcodigo" for="">Telefono</label>
+                                            <input id="inp_telefono" min="0" maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control form-control-sm" type="number" placeholder="Telefono" value="">
+                                        </div>
+                                        <div id="divCorreo" class="col-md-4 mb-3" style="display:none;">
+                                            <label id ="lblcodigo" for="">Correo</label>
+                                            <input id="inp_correo"  class="form-control form-control-sm" type="email" placeholder="Correo" value="">
                                         </div>
                                         <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
                                             <br>
@@ -227,7 +232,7 @@ input[type=number]::-webkit-outer-spin-button {
                                        
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-md-1 mb-1" id="idlugarboton"  style="text-align: center;" >
+                                        <div class="col-md-1 mb-1" id="idlugarboton" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
                                             <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
                                             
@@ -299,12 +304,13 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 
 </div>
+
 <?php $this->load->view('theme/js');  ?>
   <script src="<?=  base_url() ?>/application/assets/assets/js/msdropdown/jquery.dd.js" type="text/javascript"></script>
   
+
 <!-- Plugin scripts -->
 <script>
-  //   filtrar_empresas();
 var region_id=1;
 var rubro_id=1;
 var empresa_id=0;
@@ -318,7 +324,7 @@ var nombreempresa="";
 var sw=1;
 var gtable;
 
-//cargartodaslasempresas();
+
 
 function cargartodaslasempresas()
     {
@@ -344,7 +350,7 @@ function cargartodaslasempresas()
                             var position= index+1;
                             $('#example1').find('tbody').append(`<tr class="fila_empresas" id="fila-`+position+`" onclick="cambiar_empresa(`+empresa+` ,'#emp-`+position+`','#fila-`+position+`','`+imagen+`', '`+nombre+`'   )" > <td >
                                                                     <center>
-                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;    width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
+                                                                            <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;  width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
                                                                                 <img src="`+imagen+`" class="" style="object-fit: contain;"
                                                                                                         alt="avatar">
                                                                             </figure>
@@ -377,10 +383,7 @@ function cargartodaslasempresas()
         
     }
 
-
-
-//cambiar_rubro(1,'#rub-0');
-function cambiar_region(id_region,id_figure,nombre)
+    function cambiar_region(id_region,id_figure,nombre)
 {
     region_id=id_region;
    // $('#btn_region').click();
@@ -399,9 +402,9 @@ function cambiar_rubro(id_rubro,id_figure ,  nombrerubro)
     gtable.draw();
 
 }
-
 function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
 {   
+    nombreempresa=nombre;
     nombreempresa=nombre;
     $("#TituloEmpresa").text(nombreempresa) ;
     
@@ -488,7 +491,6 @@ function habilitarregiones()
 }
 function  busqueda_datos()
 {
-
     $("#vista_clientes").empty();
     $("#vista_clientes").append(`<div class="d-flex justify-content-center">
                                     <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
@@ -498,26 +500,51 @@ function  busqueda_datos()
                             <br>
                             `);
     
-
     var lacriterio=$("[name=criterio]:checked").val().split('-');
     
     var criterio=lacriterio[0];
     var titulo=lacriterio[1];
    
     var codigo=$("#inp_dato").val();
-  
-    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 )  )
+    var telefono=$("#inp_telefono").val();
+    var correo=$("#inp_correo").val();
+
+    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 ))
     {  
-        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-        var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
-        var urlajax=$("#url").val()+"filtro_clientes";   
-        $("#vista_clientes").load(urlajax,{datos});                    
-  
+        if ((empresa_id==180) && (telefono=='') || (telefono != '') && (telefono.split('').length > 0) && (telefono.split('').length < 8) 
+        || correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)) {
+            if ((telefono=='')) {
+                alert('Ingrese su numero de telefono');
+            }
+            if ((telefono != '') && (telefono.split('').length > 0) &&  (telefono.split('').length < 8)) {
+                alert('Numero de telefono incorrecto');
+            }
+            if (correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)){
+                alert("La dirección de email es incorrecta!.");
+            }
+            $("#vista_clientes").empty();                     
+        }else{
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            
+            if ((empresa_id==180)) {
+                    var codigo1 = codigo + ";" + telefono + ";" + correo;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }else{
+               var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
+            }
+            var urlajax=$("#url").val()+"filtro_clientes";   
+            $("#vista_clientes").load(urlajax,{datos});    
+        }         
     }else{
+        
         if(codigo=='')
         {
             alert(' no  inserto el codigo ');
-        }
+            if ((empresa_id==180) && (telefono=='')) {
+                alert('Ingrese su numero de telefono');                 
+            }
+        }    
+        
         if(empresa_id==0)
         {
             alert('no selecciono la empresa ');
@@ -601,9 +628,13 @@ function facturaspendientes(codigo_usuario)
     $("#confirmacionbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
     $("#prepararpagobody").empty();   
     $("#prepararpagobody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);   
-     $("#facturaspendientesbody").load(urlajax,{datos});   
+    
+    
+    $("#facturaspendientesbody").load(urlajax,{datos});   
+    
     $("#li2").show();
     $("#facturaspendientes-tab").click();
+
 }
 
 function facturaspendientesmultiple(codigo_usuario)
@@ -696,6 +727,15 @@ function limpiar()
 }
 function cargarcriteriobusquedahub(empresa)
 {
+    $("#divTelefono").hide();
+    $("#divCorreo").hide();
+    if (empresa == 180) {
+        $("#divTelefono").show();
+        $("#divCorreo").show();
+        
+        $("#inp_telefono").val("");
+        $("#inp_correo").val("");
+    }
     $("#divcriteriobusquedahub").append(`<div class="d-flex justify-content-center">
                                 <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
                                     <span class="sr-only">Loading...</span>
@@ -712,19 +752,17 @@ function cargarcriteriobusquedahub(empresa)
 }
 </script>
   
-
 <script>
-   
     sessionStorage.setItem('gnIdentificadorPestana', Math.floor(Math.random()*101) );
     var perfil =$('#perfil').val();
     var swperfil=0;
     var slcregion,slcrubro;
     var indexunico=0;
     $( document ).ready(function() {
+
         cargartodaslasempresas();
         filtrar_empresas();
-     
-       
+
 
 try {
          slcregion = $("#slcrubro").msDropdown({on:{change:function(data, ui) {
@@ -747,7 +785,7 @@ try {
                                             var result=val.split(',');
                                             console.log(result);
                                        
-                                                cambiar_region(result[0], result[1] ,result[2]   ); 
+                                            cambiar_region(result[0], result[1] ,result[2]   ); 
                                             
                                          
                                         }}}).data("dd");
@@ -759,13 +797,13 @@ try {
 }
 if(perfil==1)
 {
-   // perfilfrecuente();
+    perfilfrecuente();
     $("#btnperfil").hide();
     swperfil=1;
     
 }else{
     swperfil=0;
-   // cambiar_rubro(1,'#rub-0');
+    cambiar_rubro(1,'#rub-0');
     $("#btnperfilempresa").hide();
     slcregion.set("selectedIndex", 0);
     slcrubro.set("selectedIndex", 0);

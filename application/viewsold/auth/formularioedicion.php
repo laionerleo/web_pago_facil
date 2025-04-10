@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Nro de celular de cuenta de usuario</label>
                                     <input type="number" class="form-control" id="inpnumero" name="inpnumero"
-                                           placeholder="" pattern="^[0-9]+" min="0"  value="<?= $telefono ?>" >
+                                           placeholder=""  pattern="^[0-9]+" min="0" value="<?= $telefono ?>" >
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">C.I o N.I.T de cliente </label>
@@ -46,9 +46,8 @@
                                            placeholder=""  pattern="^[0-9]+" min="0" value="<?= $telefonoDePago ?>" >
                                 </div>
                                 <input type="hidden" id="url" name="url" value="<?= $url ?>">
-                                    <p style="color: red;"><?= @$mensajetelefono  ?></p>
+                                <p style="color: red;"><?= @$mensajetelefono  ?></p>
                                     <br>
-
                                 <button type="button" onclick="actualizardatos()" class="btn btn-primary">Guardar</button>
                             </form>
                         </div>
@@ -59,9 +58,10 @@
 <script>
     function actualizardatos()
     {
-            var datos=$("#form_login").serialize();
+    var datos=$("#form_login").serialize();
 			var urlajax=$("#url").val()+"actualizardatos";   
-            
+            //var urlsucces=$("#url").val()+"pagorapido";   
+                 
             $.ajax({                    
                 url: urlajax,
                 data: {datos},
@@ -98,5 +98,5 @@
                 },
             }
             ); 
-    }
+}
 </script>

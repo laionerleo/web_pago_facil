@@ -35,7 +35,17 @@
       <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
       <meta content="<?= substr(strip_tags(@$tcNombreEmpresa), 0, 35).'...';      ?>" name="description">
       <meta content="" name="author">  
-    <meta name="title" content="<?= substr(strip_tags(@$tcNombreEmpresa), 0, 35).' by PagoFacil - '.$tcNombreEmpresa      ?>">
+
+   
+    <?php
+        $tituloCabecera = !empty($tcTituloCabecera) ? $tcTituloCabecera : ( !empty($tcNombreEmpresa) ? substr(strip_tags($tcNombreEmpresa), 0, 35).' by PagoFacil - '.$tcNombreEmpresa : 'Nombre de la Empresa Predeterminado' );
+        ?>
+
+        <meta name="title" content="<?= $tituloCabecera ?>">
+
+
+    
+    
     <meta name="description" content="<?= substr(strip_tags(@$tcNombreEmpresa), 0, 65).'...';      ?>" >
     <meta property="og:url" content="">
     <meta property="og:image" content="<?=  @$tcUrlImagen  ?>">
@@ -170,6 +180,30 @@ input[type=number]::-webkit-outer-spin-button {
                                                                 <div class="col-md-4 mb-3">
                                                                     <label id ="lblcodigo" for="">Codigo</label>
                                                                     <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                                                </div>
+                                                                <div id="divTelefono" class="col-md-2 mb-3" style="display:none;">
+                                                                    <label id ="lblcodigo" for="">Telefono</label>
+                                                                    <input id="inp_telefono" min="0" maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control form-control-sm" type="number" placeholder="Telefono" value="">
+                                                                </div>
+                                                                <div id="divCorreo" class="col-md-4 mb-3" style="display:none;">
+                                                                    <label id ="lblcodigo" for="">Correo</label>
+                                                                    <input id="inp_correo"  class="form-control form-control-sm" type="email" placeholder="Correo" value="">
+                                                                </div>
+                                                                <div id="divExtension" class="col-md-3 mb-3" style="display:none;">
+                                                                    <label for="">Extension</label>
+
+                                                                    <select name="inp_extension"   class="form-control form-control-sm" id="inp_extension">
+                                                                        <option value="SCZ">SCZ</option>
+                                                                        <option value="CBA">CBA</option>
+                                                                        <option value="ORU">ORU</option>
+                                                                        <option value="LPZ">LPZ</option>
+                                                                        <option value="CHS">CHS</option>
+                                                                        <option value="TJA">TJA</option>
+                                                                        <option value="BEN">BEN</option>
+                                                                        <option value="PAN">PAN</option>
+                                                                        <option value="POT">POT</option>
+                                                                        <option value="EXT">EXT</option>
+                                                                    </select>
                                                                 </div>
                                                              
                                                                 <div class="form-row col-md-4 mb-3 ">
@@ -398,13 +432,39 @@ function  busqueda_datos()
     var titulo=lacriterio[1];
    
     var codigo=$("#inp_dato").val();
-  
+    var telefono=$("#inp_telefono").val();
+    var correo=$("#inp_correo").val();
+    var extension=$("#inp_extension").val();
     if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 )  )
     {  
-        var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-        var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
-        var urlajax=$("#url").val()+"filtro_clientes";   
-        $("#vista_clientes").load(urlajax,{datos});                    
+        if ((empresa_id==180) && (telefono=='') || (telefono != '') && (telefono.split('').length > 0) && (telefono.split('').length < 8) 
+        || correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)) {
+            if ((telefono=='')) {
+                alert('Ingrese su numero de telefono');
+            }
+            if ((telefono != '') && (telefono.split('').length > 0) &&  (telefono.split('').length < 8)) {
+                alert('Numero de telefono incorrecto');
+            }
+            if (correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)){
+                alert("La dirección de email es incorrecta!.");
+            }
+            $("#vista_clientes").empty();                     
+        }else{
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            
+            if ((empresa_id==180)) {
+                    var codigo1 = codigo.toUpperCase()  + ";" + telefono + ";" + correo;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }else if(empresa_id==167)
+            {
+                var codigo1 = codigo + ";" + extension ;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }else{
+               var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
+            }
+            var urlajax=$("#url").val()+"filtro_clientes";   
+            $("#vista_clientes").load(urlajax,{datos});    
+        }                     
   
     }else{
         if(codigo=='')
@@ -610,6 +670,21 @@ function limpiar()
 }
 function cargarcriteriobusquedahub(empresa)
 {
+    $("#divTelefono").hide();
+    $("#divCorreo").hide();
+    $("#divExtension").hide();
+    if (empresa == 180) {
+        //$("#divTelefono").show();
+        //$("#divCorreo").show();
+        
+        $("#inp_telefono").val("72104048");
+        $("#inp_correo").val("contacto@pagofacil.com.bo");
+    }
+    if (empresa == 167) {
+        $("#divExtension").show();
+       
+    }
+
     $("#divcriteriobusquedahub").append(`<div class="d-flex justify-content-center">
                                 <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
                                     <span class="sr-only">Loading...</span>
@@ -624,6 +699,33 @@ function cargarcriteriobusquedahub(empresa)
     $("#divcriteriobusquedahub").show();
     $("#divcriteriobusquedahub").load(urlajax,{datos});   
 }
+
+
+
+function vistadescargarpdf() {
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            var datos = {
+                tnIdentificarPestaña: tnIdentificarPestaña,
+                tnTransaccionDePago: gntransaccion
+            };
+            var urlajax = $("#url").val() + "vistadescargapdf";
+            $("#pdfbody").empty();
+            $("#pdfbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);
+            $.ajaxSetup({
+                cache: false,
+
+            });
+            $("#pdfbody").load(urlajax, {
+                datos
+            });
+
+            $("#li6").show();
+            $("#pdf-tab").click();
+
+
+        }
+
+        
 </script>
   
   <?php $this->load->view('theme/js');  ?>

@@ -63,6 +63,7 @@
    <div class="card" id="cardfacturaspendientes">
       <div class="card-body">
          <div class="table-responsive">
+         <center><label for=""><?= @$lcNombreEmpresa?>  - <?= @$lcCodigoClienteEmpresa?> </label> </center>
             <table class="table table-striped table-bordered tablafacturas" style="box-shadow: 0 0 20px #4fc9f0;">
                <thead>
                   <tr>
@@ -155,7 +156,14 @@
                </div>
             </div>
 
-            <?php }   ?>
+            <?php }else{   ?>
+               <div class="row">
+               <div class="col-12 col-md-12" style="text-align: center;" >
+                  <button class="btn btn-outline-warning"   onclick="  $('#li1').show(); $('#inicio-tab').click();"> Atras   </button>
+               </div>
+            </div>
+
+            <?php }  ?>
       </div>
    </div>
 

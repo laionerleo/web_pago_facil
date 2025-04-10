@@ -118,6 +118,7 @@ img.fnone {
                                                 </center>
                                             </div>
                                         </div>
+
                                             
                                         <div id="vistaform" style="display:none" >
                                             <div class="form-row" style="padding-bottom: 5px;">
@@ -287,7 +288,7 @@ img.fnone {
             if(entidadesasignadas.length>0 )
             {
                 var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-            var urlajax=$("#url").val()+"/generarqrbnb";   
+                var urlajax=$("#url").val()+"generarqrbnb";   
             
             $.ajax({                    
                     url: urlajax,
@@ -469,19 +470,61 @@ img.fnone {
                     }
                 }
                 console.log(entidadesasignadas);
+                var horaFicticia = new Date();
+                var horaActualMillis = horaFicticia.getHours() * 3600000 + horaFicticia.getMinutes() * 60000; // Convertimos la hora actual a milisegundos desde el inicio del día
+
+
                 for (let index2 = 0; index2 < ArrayEntidades.length; index2++) {
                       
                     if(ArrayEntidades[index2]["EntidadBancaria"]==id)
                     {
-                            if(ArrayEntidades[index2]["RestriccionDesde"]!=undefined)
-                             {
-                                $('#lbldesde').text("Restriccion Desde :"+ArrayEntidades[index2]["RestriccionDesde"])
-                             }
-                             if(ArrayEntidades[index2]["RestriccionHasta"]!=undefined)
-                             {
-                                $('#lblhasta').text("Restriccion Hasta  :"+ArrayEntidades[index2]["RestriccionHasta"])
+                        if (ArrayEntidades[index2]["RestriccionDesde"] != undefined) {
+                            $('#lbldesde').text("Restriccion Desde :" + ArrayEntidades[index2]["RestriccionDesde"]);
+                        }
+                        if (ArrayEntidades[index2]["RestriccionHasta"] != undefined) {
+                            $('#lblhasta').text("Restriccion Hasta  :" + ArrayEntidades[index2]["RestriccionHasta"]);
+                        }
 
-                             }
+                        let lcMensajerestriccionEntidadBancaria=ArrayEntidades[index2]["MensajeRestriccion"];
+                        console.log(lcMensajerestriccionEntidadBancaria);
+                        lcMensajerestriccionEntidadBancaria = (lcMensajerestriccionEntidadBancaria == null ) 
+    ? "¡Advertencia: Actualmente es propenso a errores debido a restricciones bancarias. Tenga en cuenta que puede haber un error o retraso después del pago, para recibir su pedido."
+    : lcMensajerestriccionEntidadBancaria;
+                        console.log("despuej de la vlidacion",lcMensajerestriccionEntidadBancaria);
+                        if (ArrayEntidades[index2]["RestriccionDesde"] != undefined && ArrayEntidades[index2]["RestriccionHasta"] != undefined) {
+                            var restriccionDesde = ArrayEntidades[index2]["RestriccionDesde"]; // Formato "HH:mm"
+                            var restriccionHasta = ArrayEntidades[index2]["RestriccionHasta"]; // Formato "HH:mm"
+
+                            // Convertimos las restricciones a milisegundos desde el inicio del día
+                            var restriccionDesdeParts = restriccionDesde.split(':');
+                            var restriccionHastaParts = restriccionHasta.split(':');
+
+                            var restriccionDesdeMillis = (parseInt(restriccionDesdeParts[0]) * 3600000) + (parseInt(restriccionDesdeParts[1]) * 60000);
+                            var restriccionHastaMillis = (parseInt(restriccionHastaParts[0]) * 3600000) + (parseInt(restriccionHastaParts[1]) * 60000);
+
+                            // Verificar si el rango cruza la medianoche
+                            var cruzaMedianoche = restriccionDesdeMillis > restriccionHastaMillis;
+
+                            // Verificar si la hora actual está dentro del rango de restricción
+                            if (cruzaMedianoche) {
+                                // El rango cruza la medianoche
+                                if (horaActualMillis >= restriccionDesdeMillis || horaActualMillis <= restriccionHastaMillis) {
+
+                                    $('#mensajeHora').text(lcMensajerestriccionEntidadBancaria);
+                                    $('#mensajeHora').show();
+                                } else {
+                                    $('#mensajeHora').hide();
+                                }
+                            } else {
+                                // El rango no cruza la medianoche
+                                if (horaActualMillis >= restriccionDesdeMillis && horaActualMillis <= restriccionHastaMillis) {
+                                    $('#mensajeHora').text(lcMensajerestriccionEntidadBancaria);
+                                    $('#mensajeHora').show();
+                                } else {
+                                    $('#mensajeHora').hide();
+                                }
+                            }
+                        }  
 
                              if(ArrayEntidades[index2]["ComoPagar"]!=undefined  &&  ArrayEntidades[index2]["ComoPagar"]!="")
                              {

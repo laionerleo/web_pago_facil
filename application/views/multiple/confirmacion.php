@@ -1,5 +1,5 @@
 
-            <div class="row">
+<div class="row">
                 <div class="col-md-6">
                     <div class="card" >
                         <div class="card-body text-center m-t-10-minus">
@@ -23,13 +23,15 @@
                                             </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class="col-12 text-muted"> Facturas Elegidas Para pagar </div>
+                                            <div class="col-12 text-muted"> Facturas Elegidas a  pagar </div>
                                             <div class="col-12">
                                             <table class="table table-striped table-bordered"  style="width:inherit" >  
                                                 <thead id="theadclientes"  >
                                                     <tr>
-                                                        <th> Concepto </th>
-                                                      <th> Cantidad  </th>
+                                                        <?php if($lnEmpresaElegidaconfirmacion != 180 ){ ?>
+                                                            <th> Concepto </th>
+                                                            <th> Cantidad  </th>
+                                                        <?php } ?>
                                                         <th> Monto </th>
                                                         <th> comision </th>
                                                         <th> Monto Total  </th>
@@ -38,15 +40,16 @@
                                                 <tbody>
                                                 </tbody>
                                                     <tr>
-                                                        <td>
-                                                            <?php for ($i=0; $i < count($listadofacturas) ; $i++) { ?>
-                                                            <?= $listadofacturas[$i]->periodo."," ?> 
-                                                            <?php } ?>
-                                                        </td>
-                                                        <td>
-                                                            
-                                                            <?= count($itnselegidos) ?>
-                                                        </td>
+                                                        <?php if($lnEmpresaElegidaconfirmacion!= 180 ){ ?>
+                                                            <td>
+                                                                <?php for ($i=0; $i < count($listadofacturas) ; $i++) { ?>
+                                                                    <?= $listadofacturas[$i]->periodo."," ?> 
+                                                                <?php } ?>
+                                                            </td>
+                                                            <td>    
+                                                                <?= count($itnselegidos) ?>
+                                                            </td>    
+                                                        <?php } ?>
                                                         <td>
                                                             <?= number_format((float)$monto, 2, '.', '');   ?> 
                                                         </td>
@@ -89,6 +92,9 @@
                                             <div class="col-6 text-muted"> E-mail:</div>
                                             <div class="col-6"> <?= @$email;  ?>   </div>
                                         </div>
+                                        <div class="row mb-2">
+                                            <div class="col-12 text-muted"> <strong>No válido como comprobante de pago. Únicamente para visualizar información sobre el pago a realizar.</strong></div>                                            
+                                        </div>
                             </div>
                            
                         </div>
@@ -130,4 +136,4 @@
         <link rel="stylesheet" href="<?=  base_url() ?>/application/assets/vendors/slick/slick-theme.css" type="text/css">
         <script src="<?=  base_url() ?>/application/assets/vendors/slick/slick.min.js"></script>
         <script src="<?=  base_url() ?>/application/assets/assets/js/examples/slick.js"></script>
-        <script src="https://songbird.cardinalcommerce.com/edge/v1/songbird.js"></script>
+        <script src="https://songbird.cardinalcommerce.com/edge/v1/songbird.js"></script> 

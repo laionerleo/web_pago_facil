@@ -11,7 +11,7 @@
         <div class="card mb-0 card-body shadow-none">
             <div class="mb-4">
                 <div class="list-group list-group-flush">
-                    <a href="<?= base_url();  ?>es/logout" class="list-group-item p-l-r-0">logout</a>
+                    <a href="<?= base_url();  ?>es/logout" class="list-group-item p-l-r-0">Cerrar Session</a>
                     
                 </div>
             </div>

@@ -119,6 +119,7 @@ class PagoDirecto extends CI_Controller {
 				$d["tcNombreEmpresa"]=$loServicioBusquedaEmpresa->values[0]->Descripcion;
 				$d["cliente"]=9;
 				$d["tnCodigoFijo"]=$codigo_fijo;
+				$d["tcTituloCabecera"]=$loServicioBusquedaEmpresa->values[0]->TituloCabezera;
 				
 		
 				$this->load->view('pagodirecto2/index', $d);

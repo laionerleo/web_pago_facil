@@ -15,6 +15,7 @@ class Google_Authentication extends CI_Controller
     
     public function index(){
         //redirect to profile page if user already logged in
+   try {
      
         
         if(isset($_GET['code'])){
@@ -36,7 +37,6 @@ class Google_Authentication extends CI_Controller
             $userData['picture_url']    = !empty($gpInfo['picture'])?$gpInfo['picture']:'';
             
             $respuesta=$this->servicios->verificar_cuenta($userData['email'] );
-            // print_r($respuesta);
 
              // $this->load->view('prueba', $data);
             // si manda algo igual a 11 significa que el usuario no existe en la base de dtaos 
@@ -50,7 +50,7 @@ class Google_Authentication extends CI_Controller
                   $data = get_object_vars($respuesta->values);
                   $this->session->set_userdata($data);
                   
-                  redirect('es/inicio', 'refresh');
+                  redirect('es/pagorapido', 'refresh');
 
                   
               }
@@ -65,10 +65,11 @@ class Google_Authentication extends CI_Controller
                          $data = get_object_vars($respuesta_registro->values);
                       $this->session->set_userdata($data);
                       //si el registro manda 1 significa que se registro bien 
-                      redirect('/es/inicio', 'refresh');
+                      redirect('/es/pagorapido', 'refresh');
                  
                    
                   }
+redirect('es/pagorapido', 'refresh');
                   
                  
                   
@@ -78,6 +79,12 @@ class Google_Authentication extends CI_Controller
 
         } 
         
+  } catch (\Throwable $th) {
+            //throw $th;
+            echo $th->getLine();
+            echo $th->getMessage();
+        }
+
      
     }
     
