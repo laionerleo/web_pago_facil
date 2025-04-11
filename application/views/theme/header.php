@@ -26,9 +26,11 @@
                    
 
                     <!-- begin::user menu -->
-                    <li class="nav-item dropdown">
+         
+                      <!-- begin::user menu -->
+                      <li class="nav-item dropdown">
                         <a href="#" class="nav-link" title="User menu" data-sidebar-target="#user-menu">
-                            <span class="mr-2 d-sm-inline d-none"><?= $_SESSION['nombre']." ".$_SESSION['apellido'] ?></span>
+                            <span class="fas fa-user d-inline d-sm-none"><?= $_SESSION['nombre']." ".$_SESSION['apellido'] ?></span>
                            
                         </a>
                     </li>
@@ -40,7 +42,7 @@
                 <ul class="navbar-nav d-flex align-items-center">
                     <li class="nav-item header-toggler">
                         <a href="#" class="nav-link">
-                            <i data-feather="arrow-down"></i>
+                            <i data-feather="arrow-down">Menu</i>
                         </a>
                     </li>
                 </ul>

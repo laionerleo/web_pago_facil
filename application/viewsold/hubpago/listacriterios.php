@@ -21,9 +21,7 @@
 <?php   }   ?>
     function cambiartipodedatoimput(tipodato ,Etiqueta ){
         $("#inp_dato").get(0).type = 'text';
-//        $('#inp_dato').attr('placeholder', Etiqueta);
-        $('#inp_dato').attr('placeholder', 'Introducir '+ Etiqueta);
-        $('#lblcodigo').text(Etiqueta); 
+        $('#inp_dato').attr('placeholder', Etiqueta);
         console.log(tipodato) ; 
         if(tipodato=="C")
         {

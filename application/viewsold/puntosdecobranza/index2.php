@@ -506,8 +506,12 @@ var icono =porciones[2];
   {
      infoWindow = new google.maps.InfoWindow;
     
-  if(navigator.geolocation)
-  {
+<<<<<<< Updated upstream
+  if(navigator.geolocation){
+=======
+    if(navigator.geolocation)
+    {
+>>>>>>> Stashed changes
 
             navigator.geolocation.getCurrentPosition(function(position){
 
@@ -516,10 +520,12 @@ var icono =porciones[2];
               lng: position.coords.longitude
             
             };
+            console.log(pos);
             map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: -17.78315962290801, lng: -63.180976199658176},           
               zoom: 12
             });
+<<<<<<< Updated upstream
             for (var i = 0; i < ubicaciones.length; i++) {
             
                 var cadenainsertarselect=``;
@@ -568,6 +574,129 @@ var icono =porciones[2];
                 });
                   
 
+=======
+              for (var i = 0; i < ubicaciones.length; i++) {
+              
+                  var cadenainsertarselect=``;
+                  var latitude=ubicaciones[i]["latitud"];
+                  var longitude=ubicaciones[i]["longitud"];
+                  var distancia = getDistanciaMetros(position.coords.latitude, position.coords.longitude, latitude, longitude);
+                  //var distancia = getDistanciaMetros(position.coords.latitude, position.coords.longitude, latitude, longitude);
+                 // console.log(distancia +'--'+ ubicaciones[i]["nombreEstablecimiento"]);
+                 console.log(distancia);
+                 var slc_distancia = $('#slc_distancia').val();
+                  if (distancia < slc_distancia) {
+                    if(ubicaciones[i]["tipo"]=="PF"  )
+              {
+                var myLatLng = new google.maps.LatLng(latitude,longitude);
+                marker = new google.maps.Marker({
+                position: myLatLng,
+                //draggable:true,
+                map: map,
+                icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+                title: ubicaciones[i]["nombreEstablecimiento"],
+                animation: google.maps.Animation.DROP,
+                clickeable:true,
+                });    
+              
+                
+              }
+              if(ubicaciones[i]["tipo"]=="EM"  )
+              {
+                var myLatLng = new google.maps.LatLng(latitude,longitude);
+                marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_empresa.png',
+                title: ubicaciones[i]["nombreEstablecimiento"],
+                animation: google.maps.Animation.DROP,
+                clickeable:true,
+                });        
+              }
+        
+              if(ubicaciones[i]["tipo"]=="MP"  )
+              {
+                var myLatLng = new google.maps.LatLng(latitude,longitude);
+                marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/pin_metodo_pago.png',
+                title: ubicaciones[i]["nombreEstablecimiento"],
+                animation: google.maps.Animation.DROP,
+                clickeable:true,
+      
+                });        
+              } 
+                  if (distancia < 20000) {
+                      var myLatLng = new google.maps.LatLng(latitude,longitude);
+                      marker = new google.maps.Marker({
+                          position: myLatLng,
+                          map: map,
+                          icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image/ic_map_pago_facil.png',
+                          title: ubicaciones[i]["nombreEstablecimiento"],
+                          animation: google.maps.Animation.DROP,
+                          clickeable:true,
+                      });        
+                        
+                      var lclatitude=ubicaciones[i]['latitud'];
+                      var lclongitude=ubicaciones[i]["longitud"];
+                      var lcnombre=ubicaciones[i]["nombreEstablecimiento"];
+              
+                      cadenainsertarselect=cadenainsertarselect+ "<option value='"+lclatitude+"/"+lclongitude+ "/PF'    >   "+lcnombre+" </option> " ;
+                      console.log(cadenainsertarselect);
+                      
+                      $("#slc_ubicacion").append(cadenainsertarselect);
+                  }
+                                   
+              }
+              console.log(pos);
+              console.log(position);
+              
+              //console.log(position);
+              
+                  
+                    infoWindow.setPosition(pos);
+                    map.setCenter(pos);
+                    if (slc_distancia == 1000) {
+                      map.setZoom(15);
+                    }
+                    else if(slc_distancia == 2000){
+                      map.setZoom(14);
+                    }
+                    else if(slc_distancia == 3000){
+                      map.setZoom(13);
+                    }
+                    else if(slc_distancia == 4000){
+                      map.setZoom(13);
+                    }
+                    else if(slc_distancia == 5000){
+                      map.setZoom(13);
+                    }
+                    var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    icon: '<?php echo base_url(); ?>'+'application/assets/assets/media/image//hombre.svg',
+                    map: map,
+                  });
+                       
+                  console.log(slc_distancia);
+                        var a = slc_distancia;
+                        // console.log(d);
+                        var alerta = new google.maps.Circle({
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.35,
+                        map: map,
+                        center: myLatLng,
+                        radius: parseFloat(slc_distancia)
+                      });
+                      // Creamos el mapa  
+                      alerta.bindTo('center', marker, 'position');
+                    //  area.setMap(map); 
+              }
+>>>>>>> Stashed changes
             },handleError,{ enableHighAccuracy: true, timeout: 2000, maximumAge: 3600000 });
 
             function handleError(error){
@@ -591,10 +720,10 @@ var icono =porciones[2];
                         break;
                 }
             }
-            }else{
-            // container.innerHTML = "Geolocation is not Supported for this browser/OS.";
-            alert("Geolocation is not Supported for this browser/OS");
-            }
+    }else{
+    // container.innerHTML = "Geolocation is not Supported for this browser/OS.";
+    alert("Geolocation is not Supported for this browser/OS");
+    }
                 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                     alert("no entre");
                   
@@ -691,6 +820,7 @@ var icono =porciones[2];
         not_supported: function(){
           alert("Your browser does not support geolocation");
         }
+<<<<<<< Updated upstream
       });
 
       map.addListener('click', function(e) {
@@ -715,6 +845,14 @@ var icono =porciones[2];
     }
 */  
             </script>
+=======
+    
+        return inside;
+    }*/
+    </script>
+
+</script>
+>>>>>>> Stashed changes
 </body>
 
 

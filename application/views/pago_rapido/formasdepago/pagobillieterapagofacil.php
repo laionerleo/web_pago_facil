@@ -104,7 +104,7 @@
                         
                         
                            
-                              <div class="col-md-6 col-6 col-sm-4">
+                              <div class="col-md-4 col-4 col-sm-4">
                                 <center  class="botones" > 
                                     <button id="btncarga"  class="btn btn-primary" type="button" style="display:none" disabled>
                                             <span class="spinner-border spinner-border-sm mr-2" role="status"
@@ -115,7 +115,7 @@
                                 <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                               </div>
 
-                              <div class="col-md-6 col-6 col-sm-4">
+                              <div class="col-md-4 col-4 col-sm-4">
                                 <center>                                 
                                   <?php if($recarga==20) { ?>
                                       <button id="btnpagarotrafactura"  class="btn btn-outline-primary"onclick="limpiar()">Comenzar de nuevo</button>
@@ -123,8 +123,11 @@
                                       <button id="btnpagarotrafactura"  class="btn btn-outline-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>  
                                   <?php }  ?>
                                  </center>
-                               
                               </div>
+                              <div class="col-md-4 col-4 col-sm-4" id="verfacturaspagadaspdf"  style="display:none">
+                                <input class="btn btn-outline-primary"  onclick="vistadescargarpdf()" type="button" value="Ver PDF">
+                            </div>
+
                           </div>
                       </div>
                     </div>
@@ -141,6 +144,7 @@
 
     var intervalo;
       var intervalorelog;
+      var gntransaccion=0;
         function pagarportigomoney()
         {
           var tnNumeroTigoMoney=$('#tnNumeroTigoMoney').val();
@@ -182,7 +186,9 @@
                         $("#btncarga").hide();
                         $("#bntprepararpago").show();
                           swal("Pago exitoso",response.mensaje , "success");  
-                          getfacturaempresa(response.tnTransaccion);
+                         // getfacturaempresa(response.tnTransaccion);
+                         gntransaccion=response.tnTransaccion;
+                         $("#verfacturaspagadaspdf").show();
                           getfacturapagofacil(response.tnTransaccion);
                       }
                       if(response.tipo==1)

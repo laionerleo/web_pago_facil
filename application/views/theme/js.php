@@ -39,7 +39,7 @@
     <script src="<?=  base_url() ?>/application/assets/assets/js/examples/pages/ecommerce-dashboard.js"></script>
 
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfY0ZivhLSc_UvIab1HC09cdDlXCgcK0w&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANMq6zwWQqGq33_IqxDa_jqbeNGaDhgvI&callback=initMap">
     </script>
     <!-- App scripts -->
   <script src="<?=  base_url() ?>/application/assets/assets/js/app.min.js"></script>
@@ -198,6 +198,7 @@
                             success:function(response) {
                             //console.log(response);
                             metodosdepago=response;
+                            gaMetododepagofooter=response;
                             console.log(metodosdepago);
                               var url=$("#url").val()+"comision/"; 
                                 for (let i = 0; i < metodosdepago.length; i++) {

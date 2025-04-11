@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-<?php   if(count($empresas)>0){        ?>
+<?php   if(count($empresas)>0){    ?>
 
 <div class="form-row">
     <div class="col-md-12 mb-12 table-responsive">
@@ -34,7 +34,7 @@
                                 <tbody>
                                 
                                 <?php  for ($i=0; $i < count($empresas) ; $i++) { ?>
-                                    <tr id="fila-<?= $i ?>" onclick="cambiar_empresa(<?= $empresas[$i]->empresa ?>,'#emp-<?= $i ?>','#fila-<?= $i ?>','<?= $empresas[$i]->cUrl_icon ?>', '<?= $empresas[$i]->cDescripcion ?>'   )" > 
+                                    <tr id="fila-<?= $i ?>" onclick="cambiar_empresa(<?= $empresas[$i]->empresa ?>,'#emp-<?= $i ?>','#fila-<?= $i ?>','<?= $empresas[$i]->url_icon ?>', '<?= $empresas[$i]->cDescripcion ?>'   )" > 
                                     <td   > 
                                         <figure id="emp-<?= $i ?>" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black" onclick="cambiar_empresa(<?= $empresas[$i]->nEmpresa  ?> , '#emp-<?= $i ?>')" >
                                             <img src="<?= $empresas[$i]->url_icon ?>" class="rounded-circle"
@@ -60,7 +60,7 @@
 
                             </div>
                             </div>
-
+                            
                             <style>
 						
 						.flotante {
@@ -72,7 +72,6 @@
 						</style>
 
                                  
-
 <?php   foreach ($empresasaccesodirecto as $key => $value) {  ?>
         <a  onclick="cambiar_empresa(<?= $value->Empresa ?> , '#emp-<?= $key ?>'  ,null,'<?=  $value->Url_Icon ?>', '<?=  $value->Descripcion ?>' )" class='flotante' style=" top:  <?= ( $key +1) *100 ?>px;" href="#" ><img onmouseover="bigImg(this ,  '<?= $value->Descripcion ?>' , <?= $key ?> )" onmouseout="normalImg(this ,'<?= $value->Descripcion ?>' , <?= $key ?> )"  style=" object-fit: contain;  border-radius: 100px;" width="60px"  height="70px"  src='<?= $value->Url_Icon ?>' /> <br> <label id="btnflotante<?= $key ?>"  for=""></label> </a>
 <?php } ?>
@@ -90,7 +89,8 @@
         x.style.height = "60px";
         x.style.width = "70px";
         $("#btnflotante"+Position).text("");
-    } $(document).ready( function () {
+    }
+        $(document).ready( function () {
             $('#example1').DataTable();
             if(perfil==1){
                 $('#chkperfil').prop('checked', true);
@@ -100,8 +100,6 @@
         //$(document).on('change','input[type="checkbox"]' ,function(e) {
         $('#chkperfil').on("change", function(){
             console.log("ingreso aqui ");
-           // alert("leonardo ingreso aqui ");
-           
             if(swperfil==1)
             {
                 swperfil=0;
@@ -138,8 +136,6 @@
                         },
                     });  
         }
-
-        
     </script>
 
     <?php  }else{

@@ -45,14 +45,14 @@
                                             <div class="col-6"> <?= number_format((float)$montototalpagar, 2, '.', '');  ?> </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class="col-12 text-muted"> Detalle datos de envio :</div>
+                                            <div class="col-12 text-muted"> Detalle de la forma de pago :</div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-6 text-muted"> Medio :</div>
                                             <div class="col-6">  <?= @$etiquetametodopago  ?>  </div>
                                         </div>
                                         <div class="row mb-2">
-                                            <div class="col-6 text-muted"> Telefono :</div>
+                                            <div class="col-6 text-muted">  :</div>
                                             <div class="col-6"> <?= @$medios;  ?>  </div>
                                         </div>
                                         <div class="row mb-2">

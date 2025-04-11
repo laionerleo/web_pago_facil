@@ -34,10 +34,10 @@
     <meta name="title" content="QR - PAGOFACIL">
     <meta name="description" content="Mediante este link , usted podra tener su  imagen Qr para poder realizar su respectivo pago" >
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?=  base_url() ?>/application/assets/assets/media/image/codigo-qr.png">
-    <meta property="og:image" content="<?=  base_url() ?>/application/assets/assets/media/image/codigo-qr.png">
-    <meta property="og:image:secure_url" content="<?=  base_url() ?>/application/assets/assets/media/image/codigo-qr.png">
-    <meta property="og:image" itemprop="image" content="<?=  base_url() ?>/application/assets/assets/media/image/codigo-qr.png"> 
+    <meta property="og:url" content="http://pagofacil.com.bo/online//application/assets/assets/media/image/codigo-qr.png">
+    <meta property="og:image" content="http://pagofacil.com.bo/online//application/assets/assets/media/image/codigo-qr.png">
+    <meta property="og:image:secure_url" content="http://pagofacil.com.bo/online//application/assets/assets/media/image/codigo-qr.png">
+    <meta property="og:image" itemprop="image" content="http://pagofacil.com.bo/online//application/assets/assets/media/image/codigo-qr.png"> 
     <meta property="og:image:type" content="image/jpg">
      
 

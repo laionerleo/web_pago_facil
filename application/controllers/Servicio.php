@@ -235,6 +235,7 @@ class Servicio extends CI_Controller {
 			array_push($d['ubicaciones'], $nuevo);	
 		}
 		$d["ubicaciones"]=json_encode($d["ubicaciones"]);
+
 		$this->load->view('puntosdecobranza/index2', $d);
 		
 		
@@ -311,7 +312,7 @@ class Servicio extends CI_Controller {
 		$jwt=$this->input->post("tcJWT");
 		$taDataCardinal=$this->input->post("taDataCardinal");
 		
-		$metodos=$this->servicios->jwtvalidation($jwt, $_SESSION['metododepago'] , $taDataCardinal);
+		$metodos=$this->servicios->jwtvalidation($jwt, 9 , $taDataCardinal);
 		
 		//$metodos=$this->servicios->jwtvalidation($jwt, 9);
 		$this->cargarlogbasico("llegocojwtvalidationnfirmarbcp--".json_encode($metodos));
@@ -392,5 +393,62 @@ class Servicio extends CI_Controller {
       fclose($logFile);
     }
 
+	
 	/**/
+	public function ObtenerNumeroCelular()
+	{
+		$d = array();
+		
+		$this->load->view('obtenercelular');
+		
+		
+	}
+
+
+	public function GetFacturaEmpresaFactura($lan,$transaccion,$tnFactura)
+	{
+		
+		$d = array();
+		$this->Msecurity->url_and_lan($d);
+		//$datos=$this->input->post("datos");
+
+		$tnCliente=$this->session->userdata('cliente');
+		$tnTransaccionDePago=$transaccion;
+		$tnEmpresa=  $_SESSION['idempresa'];
+		
+		$facturapagofacil=$this->servicios->getfacturaempresa($tnTransaccionDePago, $tnEmpresa,$tnFactura,$tnCliente);
+	//	$this->cargarlog("GetFacturaEmpresa--------------------".$tnTransaccionDePago."--".$tnEmpresa."--". $tnFactura."--". $tnCliente  );
+		//$laDatosEmpresa=$this->servicios->getempresasimple($tnEmpresa ,$_SESSION['cliente']);
+		//$lcNombreEmpresa=$laDatosEmpresa->values[0]->cDescripcion;
+
+		$cadena="";
+		foreach($facturapagofacil->values->facturaPDF as $byte){
+			$cadena.=chr($byte);
+		}
+		//GET CONTENT
+		
+		$fileToDownload = $cadena;
+		//START DOWNLOAD
+		//header('Content-Description: File Transfer');
+		//header('Content-Type', 'application/octet-stream');
+		//header('Content-Disposition: attachment; filename= FacturaEmpresa-'.strval($tnTransaccionDePago).'-'.strval($tnFactura).'.pdf');
+		header('Content-Type: application/pdf');
+		header('Content-Disposition: attachment; filename= FacturaEmpresa-'.strval($tnTransaccionDePago).'-'.strval($tnFactura).'.pdf');
+		header('Content-Transfer-Encoding: base64');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate');
+		header('Pragma: public');
+		
+		header('Content-Length: '. strlen($fileToDownload));
+		ob_clean();
+		flush();
+		//	readfile($fileToDownload);
+		//	exit;
+			
+		echo $fileToDownload;
+	
+		
+	}
+
+
 }

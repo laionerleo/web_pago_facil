@@ -126,8 +126,8 @@
                         <div class="col-md-12" >
                             <div class="card" >
                                 <div class="card-body" style="padding: 10px; background-color: #f8f9fa5c;">
-                                    <nav><b>Cuenta con SOAT Gestion 2022 </b></nav> 
-                                    <nav>eL Nº de placa <b><?php echo $codigoBusqueda[0] ?></b> ya cuenta con SOAT 2022</nav>
+                                    <nav><b>Cuenta con SOAT  </b></nav> 
+                                    <nav>eL Nº de placa <b><?php echo $codigoBusqueda[0] ?></b> ya cuenta con SOAT </nav>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                         <div class="col-md-12" >
                             <div class="card" >
                                 <div class="card-body" style="padding: 10px; background-color: #f8f9fa5c;">
-                                    <nav><b>Compre su SOAT <?= $clientes[0]->loObjeto1->nombre ?> </b></nav> 
+                                    <nav><b>Compre su SOAT  </b></nav> 
                                     <nav>El Nº de placa <b><?php echo $codigoBusqueda[0] ?></b> no se encuentra registrada</nav>
                                 </div>
                             </div>
@@ -177,8 +177,9 @@
                                     <div class="tipoVehi" style="width: auto;">
                                         <select  name="webmenusoap"  class=" form-control" id="webmenusoap" >
                                             <?php   for ($i=0; $i <  count($clientes) ; $i++) { 
-                                                $laTipoVehiculo = explode(':', $clientes[$i]->FacturarA);?>   
-                                                <option   value="<?= $i  ?>,<?= $clientes[$i]->Logo  ?>" data-image="<?= $clientes[$i]->Logo  ?>"> <?= $laTipoVehiculo[1]  ?>  </option>
+                                                $laTipoVehiculo = explode(':', $clientes[$i]->FacturarA);   
+                                                $laTipoUso = explode(':', $clientes[$i]->nombre);?>   
+                                                <option   value="<?= $i  ?>,<?= $clientes[$i]->Logo  ?>" data-image="<?= $clientes[$i]->Logo  ?>"> <?= $laTipoVehiculo[1]  ?>   <?= $clientes[$i]->loObjeto1->nombre ?>  </option>
                                             <?php  } ?> 
                                         </select>
                                     </div>  
@@ -188,7 +189,7 @@
                                 <div class="form-group">
                                     <label for=""><b>Tipo Uso</b></label>
                                     <div class="">
-                                        <input type="text" value="Particular" disabled class="form-control" >
+                                        <input type="text" value="<?=  $laTipoUso[1]  ?>" disabled class="form-control" >
                                        <!-- <select class="form-control"  name="idParticular" id="idParticular" placeholder="Selecione una Opcion" required>                       
                                             <option value="">Particular</option>    
                                         </select>-->

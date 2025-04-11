@@ -148,70 +148,74 @@ input.largerCheckbox {
                                 <?php if($cantidadfacturas>0){ ?>
                                     
                                     <div class="card-body" style="padding: 0rem;">
-                                        <div class="accordion" style="border-bottom: ridge; border-radius: 10px;border: #e8e6ec; border-style: double" id="accordionExample">
-                                        <?php  for ($i=0; $i <  count($metodospagogrupos); $i++) { ?>
-                                        
-                                            <div class="card shadow-none"  style="padding-top:7px">
-                                                <div class="card-header" id="headingThree" style="width: -webkit-fill-available;">
-                                                        <div class="row" style="width: -webkit-fill-available;">
-                                                            <a href="" id="grupometodopago<?=  $i ?>" class="btn btn-link collapsed"  style="    width: -webkit-fill-available;" data-toggle="collapse" data-target="#collapse<?= $metodospagogrupos[$i]->GrupoMetodoPago  ?>" aria-expanded="false" aria-controls="collapseThree">
-                                                                <div class="col-md-2 col-3">
-                                                                    <figure class="avatar">
-                                                                        <img src="<?= $metodospagogrupos[$i]->Logo  ?>" alt="avatar">
-                                                                    </figure>
-                                                                </div>
-                                                                <div class="col-md-10 col-9" style="    text-align: initial;">
-                                                                    <p for="" class="card-title" style="     margin-bottom: 0.4rem;"><?= $metodospagogrupos[$i]->Nombre  ?></p>
-                                                                    <label for="" class="mb-2" style="font-weight: 100; color:black"> <?= $metodospagogrupos[$i]->Descripcion  ?> </label>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                </div>
-                                                <div id="collapse<?= $metodospagogrupos[$i]->GrupoMetodoPago  ?>" class="collapse" aria-labelledby="headingThree"     data-parent="#accordionExample">
-                                                    <div class="card-body" style="    background: #dedede8a;">
+                                                    <div class="accordion" style="border-bottom: ridge; border-radius: 10px;border: #e8e6ec; border-style: double" id="accordionExample">
+                                                    <?php  for ($i=0; $i <  count($metodospagogrupos); $i++) { ?>
                                                     
-                                                        <div class="row">
-                                                                <div class="col-md-2 col-4">
-                                                                    
-                                                                </div>
-                                                                
-                                                                <div class="col-md-10 col-8 row">
-                                                                    
-                                                                    
-                                                                <?php  for ($j=0; $j < count($metodospagogrupos[$i]->MetodosPago) ; $j++) {  ?>
-                                                                        <div class="col-md-12">
-                                                                            <div class="form-group" style="margin-bottom: 0rem;">
-                                                                                        <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
-                                                                                            <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
-                                                                                            <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->etiquetaBilletera ?></label>
-                                                                                        </div>
+                                                        <div class="card shadow-none"  style="padding-top:7px">
+                                                            <div class="card-header" id="headingThree" style="width: -webkit-fill-available;">
+                                                                    <div class="row" style="width: -webkit-fill-available;">
+                                                                        <a href="" id="grupometodopago<?=  $i ?>" class="btn btn-link collapsed"  style="    width: -webkit-fill-available;" data-toggle="collapse" data-target="#collapse<?= $metodospagogrupos[$i]->GrupoMetodoPago  ?>" aria-expanded="false" aria-controls="collapseThree">
+                                                                            <div class="col-md-2 col-3">
+                                                                                <figure class="avatar">
+                                                                                    <img src="<?= $metodospagogrupos[$i]->Logo  ?>" alt="avatar">
+                                                                                </figure>
                                                                             </div>
-                                                                        
-                                                                        </div>
-
-                                                                        <script>
-                                                                            <?php  if(isset( $_SESSION['metododepago'])){ 
-                                                                                if($_SESSION['metododepago']== $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago){
-                                                                                ?> 
-                                                                                    var grupometododepago="#grupometodopago<?=  $i ?>";     
-                                                                            <?php }} ?> 
+                                                                            <div class="col-md-10 col-9" style="    text-align: initial;">
+                                                                                <p for="" class="card-title" style="     margin-bottom: 0.4rem;"><?= $metodospagogrupos[$i]->Nombre  ?></p>
+                                                                                <label for="" class="mb-2" style="font-weight: 100; color:black"> <?= $metodospagogrupos[$i]->Descripcion  ?> </label>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                            </div>
+                                                            <div id="collapse<?= $metodospagogrupos[$i]->GrupoMetodoPago  ?>" class="collapse" aria-labelledby="headingThree"     data-parent="#accordionExample">
+                                                                <div class="card-body" style="    background: #dedede8a;">
+                                                                
+                                                                    <div class="row">
+                                                                            <div class="col-md-2 col-4">
                                                                                 
-                                                                        </script>
-                                                                        
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-md-10 col-8 row">
+                                                                                
+                                                                                
+                                                                            <?php  for ($j=0; $j < count($metodospagogrupos[$i]->MetodosPago) ; $j++) {  ?>
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group" style="margin-bottom: 0rem;">
+                                                                                                    <div class="custom-control custom-radio" onclick="ledioaeste(<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>,'#img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>')">
+                                                                                                        <input type="radio" id="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"  name="customRadio"  class="custom-control-input" >
+                                                                                                        <label class="custom-control-label" for="metodopago-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>"><img    id="img-<?=  $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago ?>" style=" height:30px;    object-fit: contain;" src="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->url_icon ?>" alt="<?=  $metodospagogrupos[$i]->MetodosPago[$j]->Nombre ?>">     <?=  $metodospagogrupos[$i]->MetodosPago[$j]->etiquetaBilletera ?></label>
+                                                                                                    </div>
+                                                                                        </div>
+                                                                                    
+                                                                                    </div>
 
-                                                                    <?php }  ?>
-                                                                    
+                                                                                    <script>
+                                                                                        <?php  if(isset( $_SESSION['metododepago'])){ 
+                                                                                            if($_SESSION['metododepago']== $metodospagogrupos[$i]->MetodosPago[$j]->MetodoPago){
+                                                                                            ?> 
+                                                                                                var grupometododepago="#grupometodopago<?=  $i ?>";     
+                                                                                        <?php }} ?> 
+                                                                                            
+                                                                                    </script>
+                                                                                    
+
+                                                                                <?php }  ?>
+                                                                                
 
 
+                                                                            </div>
+                                                                        </div>
+                                                                
                                                                 </div>
                                                             </div>
-                                                    
+                                                        </div>
+                                                    <?php } ?>   
                                                     </div>
-                                                </div>
-                                            </div>
-                                        <?php } ?>   
-                                        </div>
-                                    </div>  
+                                 
+
+                                
+                                    
+                                </div>
                                 <div class="row botonesabajo" style="padding-bottom: 10px;">
                                             <div class="col-md-12" >
                                             
@@ -266,13 +270,11 @@ function getpdfactualizado()
 // en este metodo se  guardar el metodo de pago el monto y la comision en variables de session 
 function vistafacturacion()
 {
-    var lafacturas=new Array(); 
     var montototal=$("#montototal").val();
     var idfactura=$("#facturaid").val();
     var codigo_fijo=$("#codigofijo").val();
     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
-    lafacturas.push ($("#facturaid").val()); 
-    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo , detallepago:facturasiten  };
+    var datos= {metododepago:idmetododepago , montototal:montototal , idfactura:idfactura , tnIdentificarPestaña:tnIdentificarPestaña , codigofijo:codigo_fijo };
     var urlajax=$("#url").val()+"vistafacturacion";  
      
     $("#facturacionbody").empty();   

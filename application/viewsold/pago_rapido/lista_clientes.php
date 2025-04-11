@@ -47,12 +47,11 @@
 
                 <thead id="theadclientes" >
                     <tr>
-                        <th>opciones</th>
                         <th> <?=  $titulo ?> </th>
                         <th>Nombre</th>
                         <th>Direccion</th>
                         <th>Otros </th>
-                 
+                        <th>opciones</th>
                     </tr>
                 </thead>
 

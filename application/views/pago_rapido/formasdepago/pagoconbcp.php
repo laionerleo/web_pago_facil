@@ -181,12 +181,29 @@
                                                               </select>
                                                           <?php ?>
                                                       </div>
-                                                      <div class="col-md-3 mb-3"  id="divnumbersoli" style="diplay:none" >
-                                                          <input class="form-control" style="display:none" type="number" name="inpnumbersoli"  id="inpnumbersoli" placeholder="Numero Soli" >
+                                                      <div class="col-md-3 mb-3"  id="divnumbersoliold" style="display:none" >
+                                                          <input class="form-control" style="display:none" type="number" name="inpnumbersoliold"  id="inpnumbersoliold" placeholder="Numero Soli" >
                                                       </div>
                                                   </div>
                                               </div>
                                       </div>
+
+                                      <!--  INICIO NUMBER SOLI -->
+                                      <div class="form-row" style="padding-bottom: 5px; ">
+                                              <div class="col-md-4 col-12 titulos" >
+                                                 <label  for="">   <b id="etiquetatipopago">Numero Registrado BCP :  </b></label>
+                                                 
+                                                  
+                                              </div>
+                                              <div class="col-md-8 col-12">
+                                                  <div class="row">
+                                                      <div class="col-md-3 mb-3"  id="divnumbersoli" >
+                                                          <input class="form-control"  type="number" name="inpnumbersoli"  id="inpnumbersoli" placeholder="Numero registrado en BCP" value="<?=  $tnTelefono ?>" >
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                      </div>
+                                      
                                       <!--  FINAL  NUMBER SOLI Y  FECHA -->
                                       <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                                       <div class="form-row" style="padding-top:10px" >
@@ -214,9 +231,12 @@
                                                     <button id="btnpagarotrafactura"  class="btn btn-outline-primary "onclick="facturaspendientes(<?= $clienteempresa ?>)">Pagar otra factura</button>
                                                 <?php }  ?>
                                             </div>
+                                            <div class="col-md-4 col-4 col-sm-4" id="verfacturaspagadaspdf"  style="display:none">
+                                                    <input class="btn btn-outline-primary"  onclick="vistadescargarpdf()" type="button" value="Ver PDF">
+                                                </div>
                                             <input  type="hidden" id="confirmarpago" class="btn btn-primary" data-toggle="modal" data-target="#modalconfirmarpago">
                                                 
-                                            </div>
+                                        </div>
 
 
                                   
@@ -340,8 +360,8 @@
                 $("#etiquetatipopago").text('Fecha Expiracion');
                 $("#slcaño").show();
                 $("#slcmes").show();
-                $("#inpnumbersoli").hide();
-                $("#inpnumbersoli").val('');
+              //  $("#inpnumbersoli").hide();
+               // $("#inpnumbersoli").val('');
                 
 
 
@@ -369,8 +389,8 @@
 
         function metodoprepararpago()
         {
-            
-            if(  ($('#inpci').val().length>0)   &&  ($('#inpci').val()!=0) && ($('#slcext').val()!= 0) && ($('#slcext').val()!= "")  && ($('#slcext').val()!= null)  && $('#slcmes').val()!= 0  && $('#slcmes').val()!= null  && $('#slcaño').val()!= 0 && $('#slcaño').val()!= null   && ($('#slcmes').val()!= "")  && ($('#slcaño').val()!= "") )
+            var numbersoli=$('#inpnumbersoli').val();
+            if(  ($('#inpci').val().length>0)   &&  ($('#inpci').val()!=0) && ($('#slcext').val()!= 0) && ($('#slcext').val()!= "")  && ($('#slcext').val()!= null)  && $('#slcmes').val()!= 0  && $('#slcmes').val()!= null  && $('#slcaño').val()!= 0 && $('#slcaño').val()!= null   && ($('#slcmes').val()!= "")  && ($('#slcaño').val()!= "") && ( numbersoli != "") && ( numbersoli > 60000000 ) && ( numbersoli != 70000000 )     )
                 { 
                     valido("#inpci");
                     valido("#slcext");
@@ -380,7 +400,7 @@
                     var complemento=$('#inpcomplemento').val();
                     var extension=$('#slcext').val();
                     var fechaexpiracion=$('#slcmes').val()+"/"+$('#slcaño').val();
-                    var numbersoli=$('#inpnumbersoli').val();
+                   
                     var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
                     var datos= {ci:ci, complemento:complemento, extension:extension , fechaexpiracion :fechaexpiracion ,codigoservicio:codigoservicio ,numbersoli:numbersoli ,tnIdentificarPestaña:tnIdentificarPestaña };
                     var urlajax=$("#url").val()+"metodoprepararpagobcp"; 
@@ -401,8 +421,8 @@
                             console.log(response);
                             if(response.tipo==10)
                             {
-                                var tiemposegundos = <?= (isset($tiempo)) ? @$tiempo : 40;  ?> ;
-                                //var tiemposegundos =100;
+                                //var tiemposegundos = <?= (isset($tiempo)) ? @$tiempo : 40;  ?> ;
+                                var tiemposegundos =300;
 
                                 display = document.querySelector('#time');
                                 startTimer(tiemposegundos, display);
@@ -506,15 +526,16 @@
                             
                             if(response.tipo==10)
                                 {
-                                    //$("#modalconfirmar").click();
-                                    $("#btnejecutartrabajo").attr("disabled","disabled");
-                                    
+                                   //$("#modalconfirmar").click();
+                                   $("#btnejecutartrabajo").attr("disabled","disabled");
                                    // facturaspendientes();
                                    $('#bntprepararpago').hide();
                                    resultadopago=10;
                                    resultadomensaje=response.mensaje;
-                                   getfacturaempresa(response.tnTransaccion);
-                                    getfacturapagofacil(response.tnTransaccion);
+                                   gntransaccion=response.tnTransaccion;
+                                   $("#verfacturaspagadaspdf").show();
+                                   //getfacturaempresa(response.tnTransaccion);
+                                   getfacturapagofacil(response.tnTransaccion);
 
                                 }
                             if(response.tipo==1)

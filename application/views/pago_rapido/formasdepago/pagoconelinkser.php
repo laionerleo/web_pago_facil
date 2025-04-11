@@ -150,9 +150,9 @@
             var fechaexpiracion=$('#slcaño').val()+$('#slcmes').val();
             var codigoseguridad=$('#inpcodigoseguridad').val();
             
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
             
-            
-            var datos= {nrotarjeta:nrotarjeta, nombretarjeta:nombretarjeta, fechaexpiracion:fechaexpiracion , codigoseguridad :codigoseguridad  };
+            var datos= {nrotarjeta:nrotarjeta, nombretarjeta:nombretarjeta, fechaexpiracion:fechaexpiracion , codigoseguridad :codigoseguridad ,  tnIdentificarPestaña:tnIdentificarPestaña   };
             var urlajax=$("#url").val()+"ejecuparpagoeLinkser";   
             $.ajax({                    
                     url: urlajax,

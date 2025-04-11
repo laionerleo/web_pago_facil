@@ -58,7 +58,7 @@
                         </div>
                 </div>
                      <!--   Inicio tipo CI -->
-                     <div class="form-row" style="padding-bottom: 5px;">
+                     <div class="form-row" style="padding-bottom: 5px; display:none">
                         <div class="col-md-4 col-12 titulos">
                         <label for="inpci"> <b> Tipo Ci : </b></label>
                         </div>
@@ -85,7 +85,7 @@
             <!--   Final tipo CI -->
                
                 <!--   NRO CI -->
-                <div class="form-row" style="padding-bottom: 5px;">
+                <div class="form-row" style="padding-bottom: 5px; display:none">
                   <div class="col-md-4 col-12 titulos " >
                   <label for="inpci"> <b>Nro Ci : </b></label>
                   </div>
@@ -120,7 +120,7 @@
 
                 <div class="form-row">
                   <div class="col-md-4 col-12 titulos">
-                    <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b>Numero Soli :</b></label>
+                    <label for="inpci" style="margin-bottom: 0.2rem; margin-top: 0.5rem;"> <b>Numero Yape :</b></label>
                   </div>
                   <div class="col-md-2">
                       <div class="controls" style="    text-align: justify;">
@@ -284,7 +284,8 @@ function metodoprepararpago()
             console.log("swit:"+switchprepararpago);
             switchprepararpago=true;
             var datosfaltantes="Faltan los siguientes Datos :";
-            if( ($('#inpci').val().length>0)   &&  ($('#inpnumbersoli').val()!= 0) && ($('#inpci').val()>0)   &&   ($('#inpnumbersoli').val().length > 0)   && ($('#slcext').val()!= 0)  &&  (/^\d{8}$/.test($('#inpnumbersoli').val())  ) )
+            //if( ($('#inpci').val().length>0)   &&  ($('#inpnumbersoli').val()!= 0) &&  ($('#inpnumbersoli').val()!= 70000000) && ($('#inpci').val()>0)   &&   ($('#inpnumbersoli').val().length > 0)   && ($('#slcext').val()!= 0)  &&  (/^\d{8}$/.test($('#inpnumbersoli').val())  ) )
+            if(   ($('#inpnumbersoli').val()!= 0) &&  ($('#inpnumbersoli').val()!= 70000000) && ($('#inpnumbersoli').val().length > 0)   &&  (/^\d{8}$/.test($('#inpnumbersoli').val())  ) )
             { 
                 valido("#inpci");
                 valido("#inpnumbersoli");

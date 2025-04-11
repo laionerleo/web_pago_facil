@@ -82,6 +82,11 @@ class BilleteraPagoFacil extends CI_Controller {
 		$reportemovimiento=$this->servicios->reportebilletera($tnCliente  ,$tcFechaInicial  , $tcfechaFinal , $tnBilletera );
 		$this->cargarlog("llego -->reportebilletera ".json_encode($reportemovimiento));
 		$cadena=""; 
+		if(is_null($reportemovimiento))
+		{
+			echo " <br><br><br><center>  NO TIENE MOVIMIENTOS EN ESTE RANGO DE FECHAS   </center>" ;
+			return 1;
+		}
 		$valor= $reportemovimiento->values->facturaPDF  ;	
 		//$valor= json_decode( $reportemovimiento->values->facturaPDF ) ;	
 		foreach($valor  as $byte){
@@ -89,10 +94,10 @@ class BilleteraPagoFacil extends CI_Controller {
 		}
 	
 		$fileToDownload = $cadena;
-		$fichero =$_SERVER["DOCUMENT_ROOT"].'/web_pago_facil/application/assets/documentospdf/reportebilletera-'.$tnCliente.date('is').'.pdf';
+		$fichero =$_SERVER["DOCUMENT_ROOT"].'/online/application/assets/documentospdf/reportebilletera-'.$tnCliente.date('is').'.pdf';
 		// por le momento voy a ocmnetar esta linea ya ue no se va crera nada 
 		file_put_contents($fichero, $fileToDownload);
-		$fichero2 ='/web_pago_facil/application/assets/documentospdf/reportebilletera-'.$tnCliente.date('is').'.pdf';
+		$fichero2 ='/online/application/assets/documentospdf/reportebilletera-'.$tnCliente.date('is').'.pdf';
 		$d['documentopdf']=$fichero2;
 		if($tnTipo==1){
 			//si es uno demo mostrar normal 

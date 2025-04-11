@@ -139,7 +139,7 @@
         {
           var tnNumeroTigoMoney=$('#tnNumeroTigoMoney').val();
             
-          if(tnNumeroTigoMoney.length >0 &&  (/^\d{8}$/.test(tnNumeroTigoMoney))   )
+          if(tnNumeroTigoMoney.length >0 &&  (/^\d{8}$/.test(tnNumeroTigoMoney))  && (tnNumeroTigoMoney != 0 ) &&  (tnNumeroTigoMoney != 70000000 )   )
           {
             valido("#tnNumeroTigoMoney");
             var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");

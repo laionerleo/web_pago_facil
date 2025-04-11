@@ -34,10 +34,11 @@
 */
 <body  class="">
 
-<!-- begin::preloader-->
+<!-- begin::preloader
 <div class="preloader">
     <div class="preloader-icon"></div>
 </div>
+-->
 <!-- end::preloader -->
 
 <!-- BEGIN: Sidebar Group -->
@@ -101,6 +102,10 @@
                                     <a class="nav-link" id="prepararpago-tab" data-toggle="tab" href="#prepararpagobody" role="tab"
                                        aria-controls="contact" aria-selected="false">Procesar Pago </a>
                                 </li>
+                                <li class="nav-item" id="li6" style="display:none">
+                                            <a class="nav-link" id="pdf-tab" data-toggle="tab" href="#pdfbody" role="tab" aria-controls="contact" aria-selected="false">PDF </a>
+                                </li>
+
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="iniciobody" role="tabpanel"
@@ -174,7 +179,7 @@
                                       <div class="col-md-12">
                                           <center>
                                           <input id="btnperfil" style="" type="button" class="btn btn-primary"  onclick="perfilfrecuente()"  value="Perfil Frecuente">
-                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cambiar_rubro(1,'#rub-0');"  value="Perfil todas las empresas ">
+                                          <input id="btnperfilempresa" style="" type="button" class="btn btn-primary"  onclick="cargartodaslasempresas();"  value="Perfil todas las empresas ">
                                           
                                           </center>
                                       </div>
@@ -188,7 +193,7 @@
                                       </div>
                                   </div>
                                  
-                                    <div class="form-row">
+                                    <div id="divbuscadorcliente" class="form-row"  style="display: none;">
                                         <div  id="divcriteriobusqueda" class="col-md-3 mb-2 "  style="display:none" >
                                             <label for="">Tipo de documento</label><br>
                                             <div class="form-check">
@@ -209,9 +214,13 @@
                                         <div  id="divcriteriobusquedahub" class="col-md-3 mb-2" >
 
                                         </div>
-                                        <div class="col-md-2 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label id ="lblcodigo" for="">Codigo</label>
                                             <input id="inp_dato" min="0" class="form-control form-control-sm" type="number" placeholder="codigo fijo o ci" value="<?= @$_SESSION['codigofijo']   ?>">
+                                        </div>
+                                        <div id="divCarnetIdentidad" class="col-md-2 mb-3" style="display:none;">
+                                            <label id ="lblcarnetidentidad" for="">Carnet de Identidad</label>
+                                            <input id="inp_carnetidentidad" min="0" maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="form-control form-control-sm" type="number" placeholder="Carnet Identidad" value="">
                                         </div>
                                         <div id="divTelefono" class="col-md-2 mb-3" style="display:none;">
                                             <label id ="lblcodigo" for="">Telefono</label>
@@ -221,6 +230,23 @@
                                             <label id ="lblcodigo" for="">Correo</label>
                                             <input id="inp_correo"  class="form-control form-control-sm" type="email" placeholder="Correo" value="">
                                         </div>
+                                        <div id="divExtension" class="col-md-3 mb-3" style="display:none;">
+                                            <label for="">Extension</label>
+
+                                            <select name="inp_extension"   class="form-control form-control-sm" id="inp_extension">
+                                                <option value="SCZ">SCZ</option>
+                                                <option value="CBA">CBA</option>
+                                                <option value="ORU">ORU</option>
+                                                <option value="LPZ">LPZ</option>
+                                                <option value="CHS">CHS</option>
+                                                <option value="TJA">TJA</option>
+                                                <option value="BEN">BEN</option>
+                                                <option value="PAN">PAN</option>
+                                                <option value="POT">POT</option>
+                                                <option value="EXT">EXT</option>
+                                            </select>
+                                        </div>
+
                                         <div   id="divrecarga" class="col-md-3 mb-3"  style="display:none">
                                             <br>
                                             <button type="button" class="btn btn-primary m-r-5" onclick="busqueda_billeteras_general()" data-toggle="tooltip"
@@ -228,10 +254,7 @@
                                                 Buscar Billeteras
                                             </button>
                                         </div>
-
-                                       
-                                    </div>
-                                    <div class="form-row">
+                                        <div  class="form-row" >
                                         <div class="col-md-1 mb-1" id="idlugarboton" >
                                             <input type="hidden" id="url"  value="<?= $url ?>">
                                             <input type="hidden" id="perfil"  value="<?= $perfilfrecuente ?>">
@@ -242,6 +265,10 @@
                                             
                                         </div>
                                     </div>
+
+                                       
+                                    </div>
+                                 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-12" id="vista_clientes">
                                             
@@ -281,6 +308,11 @@
                                     <div class="spinner-border text-primary" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>                     
+                                </div>
+                                <div class="tab-pane fade" id="pdfbody" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                 </div>
                                 
                                 
@@ -340,14 +372,24 @@ function cargartodaslasempresas()
                 
                 },                    
                 success:function(response) {
-                        console.log(response);
+                     //   console.log(response);
+                     
+
+                        if ($.fn.DataTable.isDataTable('#example1')) {
+                            $('#example1').find('tbody').empty();
+                        }
+                        console.log("ingresando datos a la tabla");
+                      //
                         for (let index = 0; index < response.length; index++) {
+                            console.log(response[index]);
                             var nombre = response[index]["cDescripcion"];
                             var imagen = response[index]["cUrl_icon"];
                             var empresa = response[index]["nEmpresa"];
                             var nombretipo = response[index]["nombretipo"];
                             var region = response[index]["nombreregion"];
                             var position= index+1;
+                           
+
                             $('#example1').find('tbody').append(`<tr class="fila_empresas" id="fila-`+position+`" onclick="cambiar_empresa(`+empresa+` ,'#emp-`+position+`','#fila-`+position+`','`+imagen+`', '`+nombre+`'   )" > <td >
                                                                     <center>
                                                                             <figure id="emp-`+position+`" class="avatar avatar-sm"  style="background-color: #FFFF;border-color:black  ;  width: 80px ; height:40px;" onclick="cambiar_empresa(`+empresa+` , '#emp-`+index+`')" >
@@ -362,7 +404,20 @@ function cargartodaslasempresas()
                                                                 </tr>`);
                             
                         }
-                        gtable =  $('#example1').DataTable(  );
+                        //gtable =  $('#example1').DataTable(  );
+                        // Verificar si el DataTable ya está inicializado
+                        if ($.fn.DataTable.isDataTable('#example1')) {
+                            console.log('El DataTable ya está cargado.');
+                        } else {
+                            // Inicializar y cargar el DataTable
+                            var gtable = $('#example1').DataTable({
+                                // Configuraciones del DataTable
+                            });
+
+                            console.log('El DataTable se ha inicializado y cargado.');
+                        }
+
+
                         gtable.columns( [2,3] ).visible( false );
                        // gtable.column(1).draw();
                        $("#example1_filter").css("text-aling", "center");
@@ -397,7 +452,7 @@ function cambiar_rubro(id_rubro,id_figure ,  nombrerubro)
     id_fugure_rubro=id_figure;
     $("#btnperfilempresa").hide();
     $("#btnperfil").show();
-    console.log(id_rubro);
+    //console.log(id_rubro);
     gtable.column(2).search(nombrerubro);
     gtable.draw();
 
@@ -407,6 +462,8 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
     nombreempresa=nombre;
     nombreempresa=nombre;
     $("#TituloEmpresa").text(nombreempresa) ;
+    $("#divbuscadorcliente").show() ;
+    
     
     urlimagen=urlimagen1
     empresa_id=id_empresa;
@@ -429,11 +486,25 @@ function cambiar_empresa(id_empresa,id_figure,fila_id,urlimagen1,nombre )
             dehabilitarrecarga();
             cargarcriteriobusquedahub(id_empresa);
         }
+    
+    if(id_empresa==180)
+    {
+        $("#lblcodigo").text("Placa/Chasis");
+    }
+    
     if(id_empresa==165)
-        {
-            $("#inp_dato").val("29101");
-        }
+    {
+        $("#inp_dato").val("29101");
+    }
 
+    
+
+    try {
+        cargarurlayudaEmpresa(nombreempresa ) ;
+        }
+        catch(err) {
+        console.log(err);
+        }
     
 }
 function  cambiar_tipo_switch()
@@ -491,6 +562,7 @@ function habilitarregiones()
 }
 function  busqueda_datos()
 {
+
     $("#vista_clientes").empty();
     $("#vista_clientes").append(`<div class="d-flex justify-content-center">
                                     <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
@@ -499,17 +571,19 @@ function  busqueda_datos()
                                 </div>
                             <br>
                             `);
-    
     var lacriterio=$("[name=criterio]:checked").val().split('-');
-    
+
     var criterio=lacriterio[0];
     var titulo=lacriterio[1];
    
     var codigo=$("#inp_dato").val();
     var telefono=$("#inp_telefono").val();
     var correo=$("#inp_correo").val();
-
-    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 ))
+    var extension=$("#inp_extension").val();
+    var inp_carnetidentidad=$("#inp_carnetidentidad").val();
+  
+    
+    if( (codigo!='') && (empresa_id!=0)  && (criterio!=0 )  )
     {  
         if ((empresa_id==180) && (telefono=='') || (telefono != '') && (telefono.split('').length > 0) && (telefono.split('').length < 8) 
         || correo!='' && !/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(correo)) {
@@ -523,28 +597,36 @@ function  busqueda_datos()
                 alert("La dirección de email es incorrecta!.");
             }
             $("#vista_clientes").empty();                     
-        }else{
+        }
+        else{
             var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
             
             if ((empresa_id==180)) {
-                    var codigo1 = codigo + ";" + telefono + ";" + correo;
+
+                    var codigo1 = codigo.toUpperCase()  + ";" + telefono + ";" + correo;
                     var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
-            }else{
+            }else if(empresa_id==167)
+            {
+                var codigo1 = codigo + ";" + extension ;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }
+            else if(empresa_id==5)
+            {
+                var codigo1 = codigo + ";" + inp_carnetidentidad ;
+                    var datos= {empresa_id:empresa_id,codigo:codigo1 , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };            
+            }
+            else{
                var datos= {empresa_id:empresa_id,codigo:codigo , criterio :criterio ,titulo:titulo ,tnIdentificarPestaña:tnIdentificarPestaña  };
             }
             var urlajax=$("#url").val()+"filtro_clientes";   
             $("#vista_clientes").load(urlajax,{datos});    
-        }         
+        }                     
+  
     }else{
-        
         if(codigo=='')
         {
             alert(' no  inserto el codigo ');
-            if ((empresa_id==180) && (telefono=='')) {
-                alert('Ingrese su numero de telefono');                 
-            }
-        }    
-        
+        }
         if(empresa_id==0)
         {
             alert('no selecciono la empresa ');
@@ -729,13 +811,25 @@ function cargarcriteriobusquedahub(empresa)
 {
     $("#divTelefono").hide();
     $("#divCorreo").hide();
+    $("#divExtension").hide();
     if (empresa == 180) {
-        $("#divTelefono").show();
-        $("#divCorreo").show();
+     //   $("#divTelefono").show();
+       // $("#divCorreo").show();
         
-        $("#inp_telefono").val("");
-        $("#inp_correo").val("");
+       $("#inp_telefono").val("72104048");
+        $("#inp_correo").val("contacto@pagofacil.com.bo");
     }
+
+    if (empresa == 167) {
+        $("#divExtension").show();
+       
+    }
+
+    if (empresa == 5) {
+        $("#divCarnetIdentidad").show();
+       
+    }
+
     $("#divcriteriobusquedahub").append(`<div class="d-flex justify-content-center">
                                 <div class="spinner-border" style="width: 5rem; height: 5rem;"  role="status">
                                     <span class="sr-only">Loading...</span>
@@ -750,6 +844,31 @@ function cargarcriteriobusquedahub(empresa)
     $("#divcriteriobusquedahub").show();
     $("#divcriteriobusquedahub").load(urlajax,{datos});   
 }
+
+
+function vistadescargarpdf() {
+            var tnIdentificarPestaña = sessionStorage.getItem("gnIdentificadorPestana");
+            var datos = {
+                tnIdentificarPestaña: tnIdentificarPestaña,
+                tnTransaccionDePago: gntransaccion
+            };
+            var urlajax = $("#url").val() + "vistadescargapdf";
+            $("#pdfbody").empty();
+            $("#pdfbody").prepend(`<div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span>     </div>`);
+            $.ajaxSetup({
+                cache: false,
+
+            });
+            $("#pdfbody").load(urlajax, {
+                datos
+            });
+
+            $("#li6").show();
+            $("#pdf-tab").click();
+
+
+        }
+
 </script>
   
 <script>
@@ -761,6 +880,7 @@ function cargarcriteriobusquedahub(empresa)
     $( document ).ready(function() {
 
         cargartodaslasempresas();
+        //cargartodaslasempresas
         filtrar_empresas();
 
 
@@ -803,7 +923,7 @@ if(perfil==1)
     
 }else{
     swperfil=0;
-    cambiar_rubro(1,'#rub-0');
+  //  cambiar_rubro(1,'#rub-0');
     $("#btnperfilempresa").hide();
     slcregion.set("selectedIndex", 0);
     slcrubro.set("selectedIndex", 0);
